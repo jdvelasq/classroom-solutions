@@ -1,0 +1,109 @@
+#! /usr/local/bin/python3
+r"""Test cases
+>>> run_answer()
+  K0   c01  c02    c03  c04
+0  B  7000  100  OLPKN  0.2
+1  C  1000  600  LMMML  0.2
+2  D  4000  600  PJLJL  0.4
+3  G  5000  100  NLPLO  0.2
+
+"""
+import doctest
+import subprocess
+
+def run_answer():
+    '''Codigo especifico para ejecutar la respuesta'''
+    #----------------------------------------------------------------------------------------------
+    # Prepara los datos para evaluar la tarea
+    #----------------------------------------------------------------------------------------------
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    cur = conn.cursor()
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    cur = conn.cursor()
+    sqlcmd = """
+    CREATE TABLE tbl0 (
+        K0  CHAR(1),
+        c01 INT,
+        c02 INT,
+        c03 CHAR(4),
+        c04 FLOAT
+        );
+    """
+    cur.execute(sqlcmd).fetchall()
+
+    ##
+
+    sqlcmd = """
+    CREATE TABLE tbl1 (
+        K0  CHAR(1),
+        K1  INT,
+        c12 FLOAT,
+        c13 INT,
+        c14 DATE,
+        c15 FLOAT,
+        c16 CHAR(4)
+        );
+    """
+    cur.execute(sqlcmd).fetchall()
+
+    ##
+
+    sqlcmd = """
+    CREATE TABLE tbl2 (
+        K1  INT,
+        c21 FLOAT,
+        c22 INT,
+        c23 DATE,
+        c24 FLOAT,
+        c25 CHAR(5)
+        );
+    """
+    cur.execute(sqlcmd).fetchall()
+
+    ##
+    ## Carga de datos
+    ##
+    text =  open('tbl0.csv', 'rt', encoding='utf-8').readlines()
+    text = [line[:-1] if line[-1] == '\n' else line for line in text]    
+    text = [line.split(',') for line in text]
+    text = [tuple(line) for line in text]
+    cur.executemany('INSERT INTO tbl0 VALUES (?,?,?,?,?)', text)
+
+    text =  open('tbl1.csv', 'rt', encoding='utf-8').readlines()
+    text = [line[:-1] if line[-1] == '\n' else line for line in text]    
+    text = [line.split(',') for line in text]
+    text = [tuple(line) for line in text]
+    cur.executemany('INSERT INTO tbl1 VALUES (?,?,?,?,?,?,?)', text)
+
+    text =  open('tbl2.csv', 'rt', encoding='utf-8').readlines()
+    text = [line[:-1] if line[-1] == '\n' else line for line in text]    
+    text = [line.split(',') for line in text]
+    text = [tuple(line) for line in text]
+    cur.executemany('INSERT INTO tbl2 VALUES (?,?,?,?,?,?)', text)
+
+    #----------------------------------------------------------------------------------------------
+    # Ejecuta el código del estudiante
+    #----------------------------------------------------------------------------------------------
+    import pandas as pd
+    answer = open('question.sql', 'rt', encoding='utf-8').readlines()
+    answer = [row for row in  answer if len(row) >= 2 and row[0:2] != '--']
+    answer = ''.join(answer)
+    if answer.strip() == '':
+        return None
+    else:
+        return pd.read_sql_query(answer, conn)
+
+
+#--------------------------------------------------------------------------------------------------
+# Grader (generic)
+#--------------------------------------------------------------------------------------------------
+subprocess.run(['rm', '-f', '_SUCCESS']) # borra el flag de exito de la corrida
+RESULT = doctest.testmod()               # ejecuta el doctest
+FAIL, _ = RESULT                         # fail, total
+if FAIL == 0:                            # grading
+    open('_SUCCESS', 'a').close()        #
+else:
+    print('\n')
+#--------------------------------------------------------------------------------------------------

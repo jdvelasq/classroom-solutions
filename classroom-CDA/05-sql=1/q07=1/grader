@@ -1,0 +1,118 @@
+#! /usr/local/bin/python3
+r"""Test cases
+>>> run_answer()
+   K0  K1     c12  c13         c14   c15   c16
+0   E  14  832.44  800  2016-11-22  0.39  EGFD
+1   E   8  302.86  700  2016-12-22  0.14  DFCC
+2   E   1  273.08  600  2016-12-31  0.21  BDGD
+3   E  27  720.90  800  2017-01-16  0.12  FBGD
+4   D   4  662.69  800  2017-03-26  0.23  BGDD
+5   E   3  305.43  100  2017-05-21  0.21  BAED
+6   C  13  712.61  400  2017-10-23  0.31  EDDA
+7   C   5  822.81  100  2017-11-17  0.35  GGFC
+8   C   7  755.27  800  2018-07-04  0.47  GCDB
+9   E  25  600.90  700  2018-11-07  0.36  BBBA
+10  D   2  756.37  500  2019-02-28  0.37  BCCC
+11  C  19  570.43  400  2019-04-12  0.48  FBEE
+12  C  24  482.32  300  2019-05-03  0.11  CCCE
+
+"""
+import doctest
+import subprocess
+
+def run_answer():
+    '''Codigo especifico para ejecutar la respuesta'''
+    #----------------------------------------------------------------------------------------------
+    # Prepara los datos para evaluar la tarea
+    #----------------------------------------------------------------------------------------------
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    cur = conn.cursor()
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    cur = conn.cursor()
+    sqlcmd = """
+    CREATE TABLE tbl0 (
+        K0  CHAR(1),
+        c01 INT,
+        c02 INT,
+        c03 CHAR(4),
+        c04 FLOAT
+        );
+    """
+    cur.execute(sqlcmd).fetchall()
+
+    ##
+
+    sqlcmd = """
+    CREATE TABLE tbl1 (
+        K0  CHAR(1),
+        K1  INT,
+        c12 FLOAT,
+        c13 INT,
+        c14 DATE,
+        c15 FLOAT,
+        c16 CHAR(4)
+        );
+    """
+    cur.execute(sqlcmd).fetchall()
+
+    ##
+
+    sqlcmd = """
+    CREATE TABLE tbl2 (
+        K1  INT,
+        c21 FLOAT,
+        c22 INT,
+        c23 DATE,
+        c24 FLOAT,
+        c25 CHAR(5)
+        );
+    """
+    cur.execute(sqlcmd).fetchall()
+
+    ##
+    ## Carga de datos
+    ##
+    text =  open('tbl0.csv', 'rt', encoding='utf-8').readlines()
+    text = [line[:-1] if line[-1] == '\n' else line for line in text]    
+    text = [line.split(',') for line in text]
+    text = [tuple(line) for line in text]
+    cur.executemany('INSERT INTO tbl0 VALUES (?,?,?,?,?)', text)
+
+    text =  open('tbl1.csv', 'rt', encoding='utf-8').readlines()
+    text = [line[:-1] if line[-1] == '\n' else line for line in text]    
+    text = [line.split(',') for line in text]
+    text = [tuple(line) for line in text]
+    cur.executemany('INSERT INTO tbl1 VALUES (?,?,?,?,?,?,?)', text)
+
+    text =  open('tbl2.csv', 'rt', encoding='utf-8').readlines()
+    text = [line[:-1] if line[-1] == '\n' else line for line in text]    
+    text = [line.split(',') for line in text]
+    text = [tuple(line) for line in text]
+    cur.executemany('INSERT INTO tbl2 VALUES (?,?,?,?,?,?)', text)
+
+    #----------------------------------------------------------------------------------------------
+    # Ejecuta el código del estudiante
+    #----------------------------------------------------------------------------------------------
+    import pandas as pd
+    answer = open('question.sql', 'rt', encoding='utf-8').readlines()
+    answer = [row for row in  answer if len(row) >= 2 and row[0:2] != '--']
+    answer = ''.join(answer)
+    if answer.strip() == '':
+        return None
+    else:
+        return pd.read_sql_query(answer, conn)
+
+
+#--------------------------------------------------------------------------------------------------
+# Grader (generic)
+#--------------------------------------------------------------------------------------------------
+subprocess.run(['rm', '-f', '_SUCCESS']) # borra el flag de exito de la corrida
+RESULT = doctest.testmod()               # ejecuta el doctest
+FAIL, _ = RESULT                         # fail, total
+if FAIL == 0:                            # grading
+    open('_SUCCESS', 'a').close()        #
+else:
+    print('\n')
+#--------------------------------------------------------------------------------------------------
