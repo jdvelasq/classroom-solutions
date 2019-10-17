@@ -154,4 +154,4 @@ for line in sys.stdin:
         curkey = key
         total = val
 
-sys.stdout.write("{}\t{}\n".format(curkey, total)) 
+sys.stdout.write("{}\t{}\n".format(curkey, total))

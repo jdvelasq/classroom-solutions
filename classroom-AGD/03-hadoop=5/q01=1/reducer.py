@@ -18,7 +18,7 @@ for line in sys.stdin:
         total += val  
     else:
         if curkey is not None:
-            sys.stdout.write("{}\t{}\n".format(curkey, total))    
+            sys.stdout.write("{},{}\n".format(curkey, total))    
         curkey = key
         total = val
-sys.stdout.write("{}\t{}\n".format(curkey, total)) 
+sys.stdout.write("{},{}\n".format(curkey, total)) 

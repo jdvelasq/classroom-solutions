@@ -11,5 +11,5 @@ import sys
 #
 for line in sys.stdin:
     line = line.replace('\n', '')
-    key, val = line.split("\t") 
-    sys.stdout.write("{}\n".format(val))    
+    key, val = line.split("---") 
+    sys.stdout.write("{}\n".format(val))     
