@@ -1,4 +1,4 @@
-#! /usr/local/bin/python3
+#! /usr/bin/python3
 
 import datetime
 import glob
@@ -58,7 +58,8 @@ def compute_weights():
         grades = {}
         for question_dir in sorted(questions):
             os.chdir(homework_dir + question_dir)
-            question_score = int(question_dir[question_dir.rfind('=')+1:-1])
+            # question_score = int(question_dir[question_dir.rfind('=')+1:-1])
+            question_score = int(question_dir[-2:])
             question_grade = 5.0 if os.path.isfile(homework_dir + question_dir + '_SUCCESS') else 0.0
             grades[question_dir] = { 
                 '_score' : question_score, 
@@ -66,7 +67,8 @@ def compute_weights():
                 'tree' : question_grade 
             }
 
-        homework_score = int(homework_dir[homework_dir.rfind('=')+1:-1])
+        # homework_score = int(homework_dir[homework_dir.rfind('=')+1:-1])
+        homework_score = int(homework_dir[-2:])
         homework_grades[homework] = {
             '_score' : homework_score, 
             '_grade' : None,
