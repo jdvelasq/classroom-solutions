@@ -1,5 +1,4 @@
 
-#! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
 business	15945
