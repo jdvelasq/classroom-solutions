@@ -2,7 +2,7 @@
 # Pregunta
 # =============================================================================
 #
-# El arachivo credit.csv contiene 1000 registros sobre aprobación de creditos. 
+# El archivo credit.csv contiene 1000 registros sobre aprobación de creditos. 
 # El archivo codebook.txt contiene la descripcion de los 20 atributos que 
 # recopilan la información sobre el credito y la salud financiera del 
 # solicitante. 
