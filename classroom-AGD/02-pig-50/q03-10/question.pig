@@ -1,10 +1,4 @@
 --
---  Pregunta
---  ===========================================================================
---
--- Obtenga los cinco (5) valores más pequeños de la 3ra columna.
--- Imprima el resultado usando dump.
---
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
 u = load 'data.tsv' using PigStorage() 
