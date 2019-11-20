@@ -1,10 +1,4 @@
 --
---  Pregunta
---  ===========================================================================
---
--- Para el archivo `data.tsv` compute la cantidad de registros por letra. 
--- Imprima el resultado usando dump.
---
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
 u = load 'data.tsv' using PigStorage() 
