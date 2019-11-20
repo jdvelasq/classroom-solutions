@@ -1,13 +1,4 @@
 --
---  Pregunta
---  ===========================================================================
---
--- Para el archivo `data.tsv` Calcule la cantidad de registros por clave de la 
--- columna 3. En otras palabras, cuántos registros hay que tengan la clave 
--- `aaa`?
---
--- Imprima el resultado usando dump.
---
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
 u = LOAD 'data.tsv' using PigStorage() 
