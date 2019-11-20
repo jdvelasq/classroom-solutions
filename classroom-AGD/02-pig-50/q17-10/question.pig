@@ -1,18 +1,3 @@
---
---  Pregunta
---  ===========================================================================
---
--- Para responder la pregunta use el archivo `data.csv`.
---
--- Escriba el código equivalente a la siguiente consulta SQL.
--- 
---     SELECT 
---         color 
---     FROM 
---         u 
---     WHERE 
---         color NOT LIKE 'b%';
---
 u = LOAD 'data.csv' USING PigStorage(',') 
     AS (id:int, 
         firstname:CHARARRAY, 
