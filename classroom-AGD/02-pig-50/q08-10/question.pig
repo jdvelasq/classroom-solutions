@@ -1,11 +1,4 @@
---
---  Pregunta
---  ===========================================================================
---
--- Para el archivo `data.tsv` compute Calcule la cantidad de registros en que 
--- aparece cada letra minúscula en la columna 2.
---
--- Imprima el resultado usando dump.
+
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
