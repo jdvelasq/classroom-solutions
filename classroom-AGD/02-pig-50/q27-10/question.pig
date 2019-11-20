@@ -1,16 +1,3 @@
---
---  Pregunta
---  ===========================================================================
--- 
--- Para responder la pregunta use el archivo `data.csv`.
---
--- Escriba el código equivalente a la siguiente consulta SQL.
--- 
---     SELECT 
---         REGEX_EXTRACT(birthday, '....-..-..', 2) 
---     FROM 
---         u;
---
 u = LOAD 'data.csv' USING PigStorage(',') 
     AS (id:int, 
         firstname:CHARARRAY, 
