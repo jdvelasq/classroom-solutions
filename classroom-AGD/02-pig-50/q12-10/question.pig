@@ -1,31 +1,3 @@
---
---  Pregunta
---  ===========================================================================
---
--- Para el archivo `data.csv` escriba una consulta en Pig que genere la 
--- siguiente salida:
---
---    (Vivian@Hamilton)
---    (Karen@Holcomb)
---    (Cody@Garrett)
---    (Roth@Fry)
---    (Zoe@Conway)
---    (Gretchen@Kinney)
---    (Driscoll@Klein)
---    (Karyn@Diaz)
---    (Merritt@Guy)
---    (Kylan@Sexton)
---    (Jordan@Estes)
---    (Hope@Coffey)
---    (Vivian@Crane)
---    (Clio@Noel)
---    (Hope@Silva)
---    (Ayanna@Jarvis)
---    (Chanda@Boyer)
---    (Chadwick@Knight)
---
--- Imprima el resultado usando dump.
---
 u = LOAD 'data.csv' USING PigStorage(',') 
     AS (id:int, 
         firstname:CHARARRAY, 
