@@ -1,10 +1,4 @@
 --
---  Pregunta
---  ===========================================================================
---
--- Ordene el archivo `data.tsv`  por letra y valor (3ra columna).
--- Imprima el resultado usando dump.
---
 --  >>> Escriba el codigo del mapper a partir de este punto <<<
 --
 u = load 'data.tsv' using PigStorage() 
