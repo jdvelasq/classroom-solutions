@@ -8,7 +8,7 @@ fs -rm -f -r output;
 -- 
 --  >>> Escriba el codigo del mapper a partir de este punto <<<
 -- 
-u = load 'data.tsv' using PigStorage() 
+u = load 'data.tsv' using PigStorage('\t') 
     as (c1:chararray, 
         c2:chararray, 
         c3:int);

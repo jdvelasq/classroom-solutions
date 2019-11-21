@@ -17,13 +17,16 @@
 --   eventDate      STRING
 -- 
 -- Escriba un script en Pig que carge los datos y obtenga los primeros 10 
--- registros. Escriba el resultado a la carpeta `output` del directorio actual.
+-- registros del archivo para las primeras tres columnas, y luego, ordenados 
+-- por driverId, truckId, y eventTime. 
+--
+-- Escriba el resultado a la carpeta `output` del directorio actual.
 -- 
 fs -rm -f -r output;
 -- 
 --  >>> Escriba su respuesta a partir de este punto <<<
 -- 
-u = load 'truck_event_text_partition.csv' using PigStorage() 
+u = load 'truck_event_text_partition.csv' using PigStorage(',') 
     as (driverId:INT,
         truckId:INT,
         eventTime:CHARARRAY,
@@ -36,5 +39,7 @@ u = load 'truck_event_text_partition.csv' using PigStorage()
         routeId:CHARARRAY,
         routeName:CHARARRAY,
         eventDate:CHARARRAY);
-k = LIMIT u 5;
-STORE k INTO 'output';
+g = FOREACH u GENERATE driverId, truckId, eventTime;
+k = LIMIT g 10;
+h = ORDER k BY driverId, truckId, eventTime;
+STORE h INTO 'output' USING PigStorage (',');
