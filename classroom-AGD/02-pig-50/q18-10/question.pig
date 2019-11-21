@@ -29,4 +29,4 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 n = FILTER u BY NOT((color MATCHES 'blue') OR (color MATCHES 'black'));
 o = FOREACH n GENERATE firstname,color;
-STORE o INTO 'output';
+STORE o INTO 'output' USING PigStorage(',');
