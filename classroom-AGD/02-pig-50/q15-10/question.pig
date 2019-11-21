@@ -30,4 +30,4 @@ u = LOAD 'data.csv' USING PigStorage(',')
 h = FILTER u BY (color MATCHES 'blue');
 i = FILTER h by (REGEX_EXTRACT(firstname, '^Z', 0) == 'Z');
 j = FOREACH i GENERATE firstname,color;
-STORE v INTO 'output';
+STORE j INTO 'output';
