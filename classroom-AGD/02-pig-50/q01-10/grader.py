@@ -2,10 +2,10 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-(B,6)
-(C,2)
-(D,5)
-(E,2)
+B   6
+C   2
+D   5
+E   2
 <BLANKLINE>
 
 """
@@ -18,7 +18,8 @@ def run_answer():
     #----------------------------------------------------------------------------------------------
     # Ejecuta el código del estudiante
     #----------------------------------------------------------------------------------------------
-    result = os.popen('cat credit.csv | python3 mapper.py | sort |  python3 reducer.py').read()
+    result = os.popen("pig -execute 'run question.pig'").read()
+    result = os.popen("cat output/*").read()
     print(result)
 
 #--------------------------------------------------------------------------------------------------
