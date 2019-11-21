@@ -19,7 +19,8 @@ def run_answer():
     #----------------------------------------------------------------------------------------------
     # Ejecuta el código del estudiante
     #----------------------------------------------------------------------------------------------
-    result = os.popen('cat credit.csv | python3 mapper.py | sort |  python3 reducer.py').read()
+    result = os.popen("pig -execute 'run question.pig'").read()
+    result = os.popen("cat output/*").read()
     print(result)
 
 #--------------------------------------------------------------------------------------------------
