@@ -31,4 +31,4 @@ u = LOAD 'data.csv' USING PigStorage(',')
 p= FILTER u BY (LOWER(SUBSTRING(color,((int)(SIZE(color)-1))
                                 ,(int)SIZE(color)))) == 'n';
 q= FOREACH p GENERATE firstname,color;
-STORE q INTO 'output';
+STORE q INTO 'output' USING PigStorage(',');
