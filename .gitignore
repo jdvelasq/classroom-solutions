@@ -1,4 +1,7 @@
 .DS_Store
+.*
+_SUCCESS
+part-*
 
 
 # Byte-compiled / optimized / DLL files
