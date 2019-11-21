@@ -6,11 +6,11 @@
 -- Genere una relación con el apellido y su longitud. Ordene por longitud y 
 -- por apellido. Obtenga la siguiente salida.
 -- 
---   (Hamilton,8)
---   (Garrett,7)
---   (Holcomb,7)
---   (Coffey,6)
---   (Conway,6)
+--   Hamilton,8
+--   Garrett,7
+--   Holcomb,7
+--   Coffey,6
+--   Conway,6
 -- 
 -- Escriba el resultado a la carpeta `output` del directorio actual.
 -- 
@@ -26,7 +26,7 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
-b = FOREACH u GENERATE surname,SIZE(surname) as tama;
+b = FOREACH u GENERATE surname, SIZE(surname) as tama;
 y = ORDER b BY tama DESC, surname;
 y = limit y 5;
-STORE y INTO 'output';
+STORE y INTO 'output' USING PigStorage(',');
