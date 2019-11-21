@@ -2,13 +2,13 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-(1969,2)
-(1970,3)
-(1971,1)
-(1972,1)
-(1973,4)
-(1974,5)
-(1975,2)
+1969,2
+1970,3
+1971,1
+1972,1
+1973,4
+1974,5
+1975,2
 <BLANKLINE>
 
 """

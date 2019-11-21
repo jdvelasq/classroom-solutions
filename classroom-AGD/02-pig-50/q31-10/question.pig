@@ -23,4 +23,4 @@ u = LOAD 'data.csv' USING PigStorage(',')
 x = FOREACH u GENERATE SUBSTRING(birthday,0,4) as year;
 y = GROUP x BY year;
 z = FOREACH y GENERATE group,COUNT(x);
-STORE z INTO 'output';
+STORE z INTO 'output'  USING PigStorage(',');
