@@ -5,11 +5,24 @@
 -- 
 -- Escriba el código que genere la siguiente salida.
 -- 
---   (Hamilton,HAMILTON,hamilton)
---   (Holcomb,HOLCOMB,holcomb)
---   (Garrett,GARRETT,garrett)
---   (Fry,FRY,fry)
---   (Conway,CONWAY,conway)
+--    Boyer,BOYER,boyer
+--    Coffey,COFFEY,coffey
+--    Conway,CONWAY,conway
+--    Crane,CRANE,crane
+--    Diaz,DIAZ,diaz
+--    Estes,ESTES,estes
+--    Fry,FRY,fry
+--    Garrett,GARRETT,garrett
+--    Guy,GUY,guy
+--    Hamilton,HAMILTON,hamilton
+--    Holcomb,HOLCOMB,holcomb
+--    Jarvis,JARVIS,jarvis
+--    Kinney,KINNEY,kinney
+--    Klein,KLEIN,klein
+--    Knight,KNIGHT,knight
+--    Noel,NOEL,noel
+--    Sexton,SEXTON,sexton
+--    Silva,SILVA,silva
 -- 
 -- Escriba el resultado a la carpeta `output` del directorio actual.
 -- 
@@ -26,5 +39,5 @@ u = LOAD 'data.csv' USING PigStorage(',')
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
 c = FOREACH u GENERATE surname, UPPER(surname),LOWER(surname);
-c = limit c 5;
-STORE c INTO 'output';
+c = ORDER c BY surname;
+STORE c INTO 'output' USING PigStorage(',');
