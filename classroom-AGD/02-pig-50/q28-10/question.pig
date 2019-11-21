@@ -32,4 +32,4 @@ u = LOAD 'data.csv' USING PigStorage(',')
 date_data = FOREACH u generate 
         ToString(ToDate(birthday,'yyyy-MM-dd'),'yyyy'),
         ToString(ToDate(birthday,'yyyy-MM-dd'),'yy');
-STORE date_data INTO 'output';
+STORE date_data INTO 'output' USING PigStorage(',');
