@@ -1,25 +1,9 @@
 --
---  Pregunta
---  ===========================================================================
+-- >>> Escriba su respuesta a partir de este punto <<<
 --
--- El archivo `truck_event_text_partition.csv` tiene la siguiente estructura:
--- 
---    driverId       INT
---    truckId        INT
---    eventTime      STRING
---    eventType      STRING
---    longitude      DOUBLE
---    latitude       DOUBLE
---    eventKey       STRING
---    correlationId  STRING
---    driverName     STRING
---    routeId        BIGINT
---    routeName      STRING
---    eventDate      STRING
---
--- Escriba un script en Pig que genere el archivo `specific_columns.csv`, 
--- el cual contiene las columnas driverId, eventTime y eventType para los 
--- primeros 10 registros de la tabla anterior.
---
---  >>> Escriba su respuesta a partir de este punto <<<
---
+u = LOAD 'data.tsv' using PigStorage() 
+    AS (c1:CHARARRAY, 
+        c2:BAG{}, 
+        c3:MAP[]);
+v = FOREACH u GENERATE c1, COUNT_STAR(c2), SIZE(c3);    
+DUMP v;

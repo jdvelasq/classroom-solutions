@@ -2,17 +2,7 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-(Hamilton)
-(Holcomb)
-(Garrett)
-(Fry)
-(Kinney)
-(Klein)
-(Diaz)
-(Guy)
-(Estes)
-(Jarvis)
-(Knight)
+(Zoe,blue)
 <BLANKLINE>
 
 """

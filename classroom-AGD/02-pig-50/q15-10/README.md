@@ -1,22 +1,16 @@
-
 Pregunta
 ===========================================================================
 
 Para responder la pregunta use el archivo `data.csv`.
 
-Obtenga los apellidos que empiecen por las letras entre la 'd' y la 'k'. La 
-salida esperada es la siguiente:
+Escriba el código equivalente a la siguiente consulta SQL.
 
-  (Hamilton)
-  (Holcomb)
-  (Garrett)
-  (Fry)
-  (Kinney)
-  (Klein)
-  (Diaz)
-  (Guy)
-  (Estes)
-  (Jarvis)
-  (Knight)
+   SELECT 
+       firstname,
+       color
+   FROM 
+       u 
+   WHERE color = 'blue' AND firstname LIKE 'Z%';
+
 
 Escriba el resultado a la carpeta `output` del directorio actual.

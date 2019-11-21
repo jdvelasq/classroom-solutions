@@ -2,24 +2,17 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-(Vivian@Hamilton)
-(Karen@Holcomb)
-(Cody@Garrett)
-(Roth@Fry)
-(Zoe@Conway)
-(Gretchen@Kinney)
-(Driscoll@Klein)
-(Karyn@Diaz)
-(Merritt@Guy)
-(Kylan@Sexton)
-(Jordan@Estes)
-(Hope@Coffey)
-(Vivian@Crane)
-(Clio@Noel)
-(Hope@Silva)
-(Ayanna@Jarvis)
-(Chanda@Boyer)
-(Chadwick@Knight)
+(Hamilton)
+(Holcomb)
+(Garrett)
+(Fry)
+(Kinney)
+(Klein)
+(Diaz)
+(Guy)
+(Estes)
+(Jarvis)
+(Knight)
 <BLANKLINE>
 
 """

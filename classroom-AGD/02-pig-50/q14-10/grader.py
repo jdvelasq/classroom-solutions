@@ -2,11 +2,19 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-(Hamilton,HAMILTON,hamilton)
-(Holcomb,HOLCOMB,holcomb)
-(Garrett,GARRETT,garrett)
-(Fry,FRY,fry)
-(Conway,CONWAY,conway)
+(green)
+(green)
+(orange)
+(viole)
+(red)
+(indigo)
+(indigo)
+(green)
+(gray)
+(red)
+(orange)
+(green)
+(yellow)
 <BLANKLINE>
 
 """

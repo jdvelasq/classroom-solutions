@@ -5,6 +5,6 @@ u = LOAD 'data.csv' USING PigStorage(',')
         birthday:CHARARRAY, 
         color:CHARARRAY, 
         quantity:INT);
---        
+--
 -- >>> Escriba su respuesta a partir de este punto <<<
 --

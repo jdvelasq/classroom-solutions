@@ -2,11 +2,10 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-(Roth,black)
-(Zoe,blue)
-(Driscoll,blue)
-(Kylan,black)
-(Hope,blue)
+(Vivian,green)
+(Karen,green)
+(Hope,green)
+(Chanda,green)
 <BLANKLINE>
 
 """

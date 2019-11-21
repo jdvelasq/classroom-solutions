@@ -4,17 +4,11 @@ r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
 (Vivian,green)
 (Karen,green)
-(Cody,orange)
-(Gretchen,viole)
-(Karyn,red)
-(Merritt,indigo)
-(Jordan,indigo)
+(Zoe,blue)
+(Driscoll,blue)
 (Hope,green)
-(Vivian,gray)
-(Clio,red)
-(Ayanna,orange)
+(Hope,blue)
 (Chanda,green)
-(Chadwick,yellow)
 <BLANKLINE>
 
 """

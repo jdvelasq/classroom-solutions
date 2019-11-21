@@ -1,24 +1,8 @@
-
 Pregunta
 ===========================================================================
 
-El archivo `truck_event_text_partition.csv` tiene la siguiente estructura:
-
-  driverId       INT
-  truckId        INT
-  eventTime      STRING
-  eventType      STRING
-  longitude      DOUBLE
-  latitude       DOUBLE
-  eventKey       STRING
-  correlationId  STRING
-  driverName     STRING
-  routeId        BIGINT
-  routeName      STRING
-  eventDate      STRING
-
-Escriba un script en Pig que imprima en pantalla las columnas driverId,
-eventTime y eventType para los primeros 10 registros de la tabla anterior,
-usando dump.
+Para el archivo `data.tsv` Calcule la cantidad de registros por clave de la 
+columna 3. En otras palabras, cuántos registros hay que tengan la clave 
+`aaa`?
 
 Escriba el resultado a la carpeta `output` del directorio actual.

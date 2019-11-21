@@ -9,7 +9,8 @@ Escriba el código equivalente a la siguiente consulta SQL.
        firstname,
        color
    FROM 
-       u
-   WHERE color = 'blue' OR firstname LIKE 'K%';
+       u 
+   WHERE 
+       color REGEXP '^b';
 
 Escriba el resultado a la carpeta `output` del directorio actual.

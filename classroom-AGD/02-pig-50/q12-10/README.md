@@ -1,26 +1,22 @@
+
 Pregunta
 ===========================================================================
 
-Para el archivo `data.csv` escriba una consulta en Pig que genere la 
-siguiente salida:
+Para responder la pregunta use el archivo `data.csv`.
 
-  (Vivian@Hamilton)
-  (Karen@Holcomb)
-  (Cody@Garrett)
-  (Roth@Fry)
-  (Zoe@Conway)
-  (Gretchen@Kinney)
-  (Driscoll@Klein)
-  (Karyn@Diaz)
-  (Merritt@Guy)
-  (Kylan@Sexton)
-  (Jordan@Estes)
-  (Hope@Coffey)
-  (Vivian@Crane)
-  (Clio@Noel)
-  (Hope@Silva)
-  (Ayanna@Jarvis)
-  (Chanda@Boyer)
-  (Chadwick@Knight)
+Obtenga los apellidos que empiecen por las letras entre la 'd' y la 'k'. La 
+salida esperada es la siguiente:
+
+  (Hamilton)
+  (Holcomb)
+  (Garrett)
+  (Fry)
+  (Kinney)
+  (Klein)
+  (Diaz)
+  (Guy)
+  (Estes)
+  (Jarvis)
+  (Knight)
 
 Escriba el resultado a la carpeta `output` del directorio actual.

@@ -1,11 +1,14 @@
 Pregunta
 ===========================================================================
 
-Para el archivo `data.tsv` compute la cantidad de registros por letra de la 
-columna 2 y clave de al columna 3; esto es, por ejemplo, la cantidad de 
-registros en tienen la letra `b` en la columna 2 y la clave `jjj` en la 
-columna 3 es:
+Para responder la pregunta use el archivo `data.csv`.
 
-  ((b,jjj), 216)
+Escriba el código que genere la siguiente salida.
+
+  (Hamilton,HAMILTON,hamilton)
+  (Holcomb,HOLCOMB,holcomb)
+  (Garrett,GARRETT,garrett)
+  (Fry,FRY,fry)
+  (Conway,CONWAY,conway)
 
 Escriba el resultado a la carpeta `output` del directorio actual.

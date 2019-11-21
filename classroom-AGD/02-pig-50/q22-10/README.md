@@ -5,12 +5,12 @@ Para responder la pregunta use el archivo `data.csv`.
 
 Escriba el código equivalente a la siguiente consulta SQL.
 
-   SELECT
+   SELECT 
        firstname,
        color
    FROM 
-       u 
+       u
    WHERE 
-       color REGEXP '^b';
+       color REGEXP '.n';
 
 Escriba el resultado a la carpeta `output` del directorio actual.

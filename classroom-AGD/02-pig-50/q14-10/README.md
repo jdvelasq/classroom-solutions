@@ -3,12 +3,13 @@ Pregunta
 
 Para responder la pregunta use el archivo `data.csv`.
 
-Escriba el código que genere la siguiente salida.
+Escriba el código equivalente a la siguiente consulta SQL.
 
-  (Hamilton,HAMILTON,hamilton)
-  (Holcomb,HOLCOMB,holcomb)
-  (Garrett,GARRETT,garrett)
-  (Fry,FRY,fry)
-  (Conway,CONWAY,conway)
+   SELECT 
+       color 
+   FROM 
+       u 
+   WHERE 
+       color NOT LIKE 'b%';
 
 Escriba el resultado a la carpeta `output` del directorio actual.

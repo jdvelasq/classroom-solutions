@@ -2,12 +2,13 @@
 ##! /usr/local/bin/python3
 r"""Test cases
 >>> run_answer() # doctest: +NORMALIZE_WHITESPACE
-credit_history	1
-critical	293
-delayed	88
-fully repaid	40
-fully repaid this bank	49
-repaid	530
+(a,22)
+(b,12)
+(c,17)
+(d,13)
+(e,15)
+(f,25)
+(g,9)
 <BLANKLINE>
 
 """
