@@ -16,4 +16,4 @@ u = LOAD 'data.tsv' using PigStorage()
         c2:BAG{}, 
         c3:MAP[]);
 v = FOREACH u GENERATE c1, COUNT_STAR(c2), SIZE(c3);    
-DUMP v;
+STORE v INTO 'output';

@@ -29,3 +29,7 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+date_data = FOREACH u generate 
+        ToString(ToDate(birthday,'yyyy-MM-dd'),'yyyy'),
+        ToString(ToDate(birthday,'yyyy-MM-dd'),'yy');
+STORE date_data INTO 'output';

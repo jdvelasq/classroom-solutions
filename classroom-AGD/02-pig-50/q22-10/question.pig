@@ -28,3 +28,7 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+p= FILTER u BY (LOWER(SUBSTRING(color,((int)(SIZE(color)-1))
+                                ,(int)SIZE(color)))) == 'n';
+q= FOREACH p GENERATE firstname,color;
+STORE q INTO 'output';

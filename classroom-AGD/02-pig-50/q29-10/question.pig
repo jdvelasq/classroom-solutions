@@ -40,3 +40,28 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+date_data = FOREACH u generate birthday,
+ToString( ToDate(birthday,'yyyy-MM-dd'), 'MMM' ) as mes;
+
+date_data = FOREACH date_data GENERATE birthday,(CASE     
+                              WHEN mes == 'Jan' THEN 'ene' 
+                              WHEN mes == 'Feb' THEN 'feb' 
+                              WHEN mes == 'Mar' THEN 'mar' 
+                              WHEN mes == 'May' THEN 'may' 
+                              WHEN mes == 'Apr' THEN 'abr' 
+                              WHEN mes == 'Jun' THEN 'jun'
+                              WHEN mes == 'Jul' THEN 'jul' 
+                              WHEN mes == 'Aug' THEN 'ago' 
+                              WHEN mes == 'Sep' THEN 'sep' 
+                              WHEN mes == 'Oct' THEN 'oct'
+                              WHEN mes == 'Nov' THEN 'nov' 
+                              WHEN mes == 'Dec' THEN 'dic' 
+                              END),
+                              (CASE
+            WHEN GetMonth(ToDate(birthday,'yyyy-MM-dd')) < 10 THEN 
+            CONCAT('0',(chararray)GetMonth(ToDate(birthday,'yyyy-MM-dd')))
+            ELSE (chararray)GetMonth(ToDate(birthday,'yyyy-MM-dd'))
+            END),
+            GetMonth(ToDate(birthday,'yyyy-MM-dd'));
+                              
+STORE date_data INTO 'output';

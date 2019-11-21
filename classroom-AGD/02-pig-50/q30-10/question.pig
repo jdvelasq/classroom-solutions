@@ -40,3 +40,26 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+date_data = FOREACH u generate birthday,
+            ToString( ToDate(birthday,'yyyy-MM-dd'), 'EEE' ) as dia;
+
+date_data = FOREACH date_data GENERATE birthday,(CASE     
+                              WHEN dia == 'Mon' THEN 'lunes' 
+                              WHEN dia == 'Tue' THEN 'martes' 
+                              WHEN dia == 'Wed' THEN 'miércoles' 
+                              WHEN dia == 'Thu' THEN 'jueves' 
+                              WHEN dia == 'Fri' THEN 'viernes' 
+                              WHEN dia == 'Sat' THEN 'sábado'
+                              WHEN dia == 'Sun' THEN 'domingo' 
+                              END) as dia_semana;
+date_data = FOREACH date_data GENERATE birthday,
+(CASE
+            WHEN GetDay(ToDate(birthday,'yyyy-MM-dd')) < 10 THEN 
+            CONCAT('0',(chararray)GetDay(ToDate(birthday,'yyyy-MM-dd')))
+            ELSE (chararray)GetDay(ToDate(birthday,'yyyy-MM-dd'))
+            END),
+                              GetDay(ToDate(birthday,'yyyy-MM-dd')),
+                              SUBSTRING(dia_semana,0,3),
+                              dia_semana;
+                              
+STORE date_data INTO 'output';

@@ -27,3 +27,6 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+x = FILTER u BY SUBSTRING(LOWER(firstname),0,1) >= 'm';
+x = FOREACH x GENERATE firstname;
+STORE x INTO 'output';

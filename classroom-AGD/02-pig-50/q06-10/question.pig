@@ -19,4 +19,4 @@ u = LOAD 'data.tsv' using PigStorage()
 v = FOREACH u GENERATE FLATTEN(c3) AS letter;    
 w = GROUP v BY letter;
 x = FOREACH w GENERATE group, COUNT(v);
-DUMP x;
+STORE x INTO 'output';

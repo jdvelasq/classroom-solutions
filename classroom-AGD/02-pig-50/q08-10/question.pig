@@ -21,5 +21,5 @@ u = LOAD 'data.tsv' using PigStorage()
 c2 = FOREACH u GENERATE FLATTEN(col2) AS k2, FLATTEN(KEYSET(col3)) AS k3;    
 w = GROUP c2 BY ($0, $1);
 x = FOREACH w GENERATE group, COUNT(c2);
-DUMP x;
+STORE x INTO 'output';
 

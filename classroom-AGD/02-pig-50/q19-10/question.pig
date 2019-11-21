@@ -28,3 +28,6 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --        
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+p= FILTER u BY (REGEX_EXTRACT(color,'^b',0) == 'b');
+q= FOREACH p GENERATE firstname,color;
+STORE q INTO 'output';
