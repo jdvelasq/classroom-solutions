@@ -2,7 +2,7 @@
 .*
 _SUCCESS
 part-*
-
+000000_*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
