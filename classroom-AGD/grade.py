@@ -53,7 +53,7 @@ def compute_weights():
         homework_dir = home + '/' + homework
         os.chdir(homework_dir)
         
-        ## grades each point in the current homework
+        # grades each point in the current homework
         questions = glob.glob('**/', recursive=False)
         grades = {}
         for question_dir in sorted(questions):
@@ -66,7 +66,6 @@ def compute_weights():
                 'tree' : question_grade 
             }
 
-        # homework_score = int(homework_dir[homework_dir.rfind('=')+1:-1])
         homework_score = int(homework_dir[-3:-1])
         homework_grades[homework] = {
             '_score' : homework_score, 
