@@ -2,8 +2,6 @@
 -- Pregunta
 -- ===========================================================================
 --
--- Para resolver esta pregunta use el archivo `data.tsv`.
---
 -- Realice una consulta que compute la cantidad de veces que aparece cada valor 
 -- de la columna `t0.c5`  por año.
 --

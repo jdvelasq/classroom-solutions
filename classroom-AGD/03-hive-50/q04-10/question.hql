@@ -2,8 +2,6 @@
 -- Pregunta
 -- ===========================================================================
 --
--- Para resolver esta pregunta use el archivo `data.tsv`.
---
 -- Escriba una consulta que retorne los valores únicos de la columna `t0.c5` 
 -- (ordenados). 
 --

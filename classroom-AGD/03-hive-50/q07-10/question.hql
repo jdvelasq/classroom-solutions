@@ -2,8 +2,6 @@
 -- Pregunta
 -- ===========================================================================
 --
--- Para resolver esta pregunta use el archivo `data.tsv`.
---
 -- Escriba una consulta que retorne para cada valor único de la columna `t0.c2`, 
 -- los valores correspondientes de la columna `t0.c1`. 
 --

@@ -2,8 +2,6 @@
 -- Pregunta
 -- ===========================================================================
 --
--- Para resolver esta pregunta use el archivo `data.tsv`.
---
 -- Escriba una consulta que retorne unicamente la columna t0.c5 con sus 
 -- elementos en mayuscula.
 --
