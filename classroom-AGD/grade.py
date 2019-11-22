@@ -29,7 +29,7 @@ def run():
             print(title)
 
             os.chdir(homework_dir + q)
-            os.system('./grader')
+            os.system('python3 grader.py')
     
     os.chdir(home)
 
@@ -58,8 +58,7 @@ def compute_weights():
         grades = {}
         for question_dir in sorted(questions):
             os.chdir(homework_dir + question_dir)
-            # question_score = int(question_dir[question_dir.rfind('=')+1:-1])
-            question_score = int(question_dir[-2:])
+            question_score = int(question_dir[-3:-1])
             question_grade = 5.0 if os.path.isfile(homework_dir + question_dir + '_SUCCESS') else 0.0
             grades[question_dir] = { 
                 '_score' : question_score, 
@@ -68,7 +67,7 @@ def compute_weights():
             }
 
         # homework_score = int(homework_dir[homework_dir.rfind('=')+1:-1])
-        homework_score = int(homework_dir[-2:])
+        homework_score = int(homework_dir[-3:-1])
         homework_grades[homework] = {
             '_score' : homework_score, 
             '_grade' : None,

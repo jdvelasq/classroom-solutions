@@ -1,3 +1,0 @@
---
---  >>> Escriba su respuesta a partir de este punto <<<
---

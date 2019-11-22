@@ -29,7 +29,7 @@ def run():
             print(title)
 
             os.chdir(homework_dir + q)
-            os.system('./grader')
+            os.system('python3 grader.py')
     
     os.chdir(home)
 
