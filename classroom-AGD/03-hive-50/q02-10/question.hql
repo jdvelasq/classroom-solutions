@@ -4,8 +4,7 @@
 --
 -- Para resolver esta pregunta use el archivo `data.tsv`.
 --
--- Compute la cantidad de registros por cada letra de la columna 1.
--- Escriba el resultado ordenado por letra. 
+-- Construya una consulta que ordene la tabla por letra y valor (3ra columna).
 --
 -- Escriba el resultado a la carpeta `output` de directorio de trabajo.
 --
@@ -23,5 +22,5 @@ LOAD DATA LOCAL INPATH 'data.tsv' OVERWRITE INTO TABLE datatbl;
 
 INSERT OVERWRITE DIRECTORY 'output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-SELECT c1, count(*) FROM datatbl group by c1 ORDER By c1;
+SELECT * FROM datatbl ORDER BY c1,c3,c2;
 
