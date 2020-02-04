@@ -1,17 +1,9 @@
 #
-# How to build:
+# docker build --tag=jdvelasq/grader:agd .
+# docker push jdvelasq/grader:agd
+# docker run --rm -v "$PWD":/datalake  --name grader jdvelasq/grader:agd
 #
-#    docker build --tag=jdvelasq/grader:agd .
-#
-# How to push
-#
-#    docker push jdvelasq/grader:agd
-#
-# How to run:
-#
-#    docker run --rm -v "$PWD":/datalake  --name grader jdvelasq/grader:agd
-#
-FROM jdvelasq/python:3.6.8-minimal
+FROM jdvelasq/python:3.6.9-minimal
 
 WORKDIR /app
 COPY . /app
