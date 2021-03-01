@@ -1,44 +1,13 @@
-#! /usr/local/bin/python3
+import pytest
+import xml.dom.minidom
+import os
 
-# r"""Test cases
-# >>> run_answer()
-# 2013-03-12,A,1,100.0
-# 2013-12-05,A,1,100.0
-# 2013-02-25,B,2,200.0
-# 2013-04-04,\N,1,\N
-# 2013-06-21,\N,\N,\N
-# 2014-06-13,A,\N,\N
-# 2014-05-12,C,\N,\N
-# 2014-09-05,\N,3,150.1
-# 2014-05-12,A,2,\N
-# 2013-02-28,C,\N,\N
-# 2013-08-02,A,2,100.0
-# 2014-09-01,A,3,100.4
-# <BLANKLINE>
-# """
-import doctest
+pytest.main(["--junitxml", "grader.xml"])
+doc = xml.dom.minidom.parse("grader.xml")
+os.remove("grader.xml")
 
-#  import subprocess
-
-# def run_answer():
-#     '''Codigo especifico para ejecutar la respuesta'''
-#     #----------------------------------------------------------------------------------------------
-#     # Ejecuta el código del estudiante
-#     #----------------------------------------------------------------------------------------------
-#     import os
-#     _ = os.system('bash question.sh > out')
-#     answer = open('out', 'rt').read()
-#     os.remove('out')
-#     print(answer)
-
-# --------------------------------------------------------------------------------------------------
-# Grader (generic)
-# --------------------------------------------------------------------------------------------------
-#  subprocess.run(['rm', '-f', '_SUCCESS']) # borra el flag de exito de la corrida
-RESULT = doctest.testfile("question.py")  # ejecuta doctest
-FAIL, _ = RESULT  # fail, total
-if FAIL == 0:  # grading
-    open("_SUCCESS", "a").close()  #
-else:
-    print("\n")
-# --------------------------------------------------------------------------------------------------
+items = doc.getElementsByTagName("testsuite")
+failures = items[0].attributes["failures"].value
+errors = items[0].attributes["errors"].value
+skipped = items[0].attributes["skipped"].value
+tests = items[0].attributes["tests"].value
