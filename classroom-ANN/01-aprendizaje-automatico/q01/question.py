@@ -21,6 +21,8 @@
 #
 
 import numpy as np
+import random
+
 
 class Regressor:
     """Linear model fitted by minimizing a regularized empirical loss with SGD.
@@ -145,23 +147,19 @@ class Regressor:
         l1_ratio=0.15,
         fit_intercept=True,
         max_iter=1000,
-        tol=0.001,
+        tol=0.00001,
         shuffle=True,
         verbose=0,
         epsilon=0.1,
         random_state=None,
         learning_rate="invscaling",
-        eta0=0.01,
+        eta0=0.001,
         power_t=0.25,
         early_stopping=False,
         validation_fraction=0.1,
         n_iter_no_change=5,
         warm_start=False,
     ):
-
-        #
-        # Salva los parametros pasados por el usuario
-        #
         self.loss = loss
         self.penalty = penalty
         self.alpha = alpha
@@ -180,134 +178,194 @@ class Regressor:
         self.validation_fraction = validation_fraction
         self.n_iter_no_change = n_iter_no_change
         self.warm_start = warm_start
-        
-        #
-        # Parametros internos 
-        #
-        self.n_features = None 
-
-
-        #
-        # Parametros del modelo
-        #
         self.coef_ = None
         self.intercept_ = None
 
     def predict(self, X):
-        """Predict using the linear model
-
-        Parameters
-        ----------
-        X : {array-like}, shape (n_samples, n_features)
-
-        Returns
-        -------
-        ndarray of shape (n_samples,)
-           Predicted target values per element in X.
-
-
-        EVALUATION TEST
-        ---------------
-
-        >>> from question import Regressor
-        >>> m = Regressor()
-        >>> m.coef_ = [1., 2., 3.]
-        >>> m.intercept_ = 1.3
-        >>> X = [
-        ...    [1.0, 2.0, 3.0],
-        ...    [4.0, 5.0, 6.0],
-        ... ]
-        >>> m.predict(X)
-        array([15.3, 33.3])
-
-        """
-
-        # >>>> Agregue su codigo a partir de este punto >>>>
-        import numpy as np
-
-        X = np.array(X)
+        X = np.matrix(X)
         X = np.matmul(X, np.array(self.coef_))
         X = X + np.array(self.intercept_)
-        return X
-        # <<<<
+        return np.asarray(X).reshape(-1)
 
-    def init_weights(self, num_vars):
-        """
-        Tenga en cuenta el parametro warm_start.
+    def initialize_weights(self, n_features):
+        if self.warm_start is False:
+            self.coef_ = np.zeros(n_features)
+            self.intercept_ = 0.0
 
-        warm_start : bool, default=False
-            When set to True, reuse the solution of the previous call to fit as
-            initialization, otherwise, just erase the previous solution.
+    def compute_loss(self, y_real, y_pred):
 
-        """
-        # >>>> Agregue su codigo a partir de este punto >>>>
+        if self.loss == "squared_loss":
+            return 0.5 * (y_real - y_pred) * (y_real - y_pred)
 
-        if self.warn_start is True and self.coef_ is not None):
+        if self.loss == "huber":
+            if np.abs(e) <= self.epsilon:
+                return 0.0
+            return (
+                self.epsilon * np.abs(y_real - y_pred) - 0.5 * self.epsion * self.epsion
+            )
 
-            self.coef_ = random.rand()
+        if self.loss == "epsilon_insensitive":
+            return max(0, np.abs(y_real - y_pred) - self.epsilon)
 
-        if self.fit_intercept is False:
-            self.intercept_ = None
+        if self.loss == "squared_epsilon_insensitive":
+            return max(0, np.power(np.abs(y_real - y_pred) - self.epsilon), 2)
 
+    def compute_loss_gradient(self, x, y_real):
 
-        # <<<<
+        y_pred = sum(self.coef_ * x) + self.intercept_
+        e = y_real - y_pred
 
+        if self.loss == "squared_loss":
+            g_coef = -2 * e * x
+            g_intercept = -2 * e if self.fit_intercept is True else 0.0
 
+        if self.loss == "huber":
+            if np.abs(e) <= self.epsilon:
+                g_coef = -e * x
+                g_intercept = -e if self.fit_intercept is True else 0.0
+            else:
+                g_coef = -self.epsilon * x
+                g_intercept = -self.epsilon if self.fit_intercept is True else 0.0
+                if e < 0.0:
+                    g_coef = -g_coef
+                    g_intercept = -g_intercept if self.fit_intercept is True else 0.0
 
-    def _compute_loss_function(self, y_pred, y_real):
-        """ Computa la función de perdida.
+        if self.loss == "epsilon_insensitive":
+            if np.abs(e) <= self.epsilon:
+                g_coef = 0.0
+                g_intercept = 0.0
+            else:
+                if e > 0.0:
+                    g_coef = -x
+                    g_intercept = -1.0 if self.fit_intercept is True else 0.0
+                else:
+                    g_coef = x
+                    g_intercept = 1.0 if self.fit_intercept is True else 0.0
 
-        """ 
-        if self._loss == 'squared_loss':
-            #
-            #
-            #
+        if self.loss == "squared_epsilon_insensitive":
+            if np.abs(e) <= self.epsilon:
+                g_coef = 0.0
+                g_intercept = 0.0
+            else:
+                if e > 0.0:
+                    g_coef = -2 * (y_real - y_pred - self.epsilon) * x
+                    g_intercept = (
+                        -2 * (y_real - y_pred - self.epsilon)
+                        if self.fit_intercept is True
+                        else 0.0
+                    )
+                else:
+                    g_coef = +2 * (y_pred - y_real - self.epsilon) * x
+                    g_intercept = (
+                        +2 * (y_pred - y_real - self.epsilon)
+                        if self.fit_intercept is True
+                        else 0.0
+                    )
 
-        elif self._loss == 'huber':
+        return g_coef, g_intercept
 
-        elif self._loss == 'epsilon_insensitive':
+    def compute_penalty_gradient(self):
 
-        elif self._loss == 'squared_epsilon_insensitive':
+        if self.penalty == "l2":
+            return self.coef_.copy()
 
-        
-        return None
+        if self.penalty == "l1":
+            return np.sign(self.coef_)
 
+        if self.penalty == "elasticnet":
+            rho = self.l1_ratio
+            g_l2 = self.coef_.copy()
+            g_l1 = np.sign(self.coef_)
+            return rho * g_l2 + (1 - rho) * g_l1
 
+    def compute_gradient(self, x, y_real):
+        g_loss_coef, g_loss_intercept = self.compute_loss_gradient(x=x, y_real=y_real)
+        g_penalty_coef = self.compute_penalty_gradient()
+        return g_loss_coef + self.alpha * g_penalty_coef, g_loss_intercept
 
-    def _regularized_training_error(self):
-        """Computa la función de error penalizada.
+    def compute_eta(self, t):
+        if self.learning_rate == "optimal":
+            self.eta = 1.0 / (self.alpha * (self.optimal_init + t - 1))
+        if self.learning_rate == "invscaling":
+            self.eta = self.eta0 / np.power(t, self.power_t)
 
-        """
+    def improve(self, x, y):
+        """Implement delta rule"""
+        g_coef, g_intercept = self.compute_gradient(x, y)
+        self.coef_ = self.coef_ - self.eta * g_coef
+        self.intercept_ = self.intercept_ - self.eta * g_intercept
 
-
+    def compute_initial_eta(self):
+        self.eta = self.eta0
+        if self.learning_rate == "optimal":
+            a = np.sqrt(1.0 / np.sqrt(self.alpha))
+            initial_eta0 = a / max(1.0, self.compute_loss(-a, 1.0))
+            self.optimal_init = 1.0 / (initial_eta0 * self.alpha)
 
     def fit(self, X, y):
-        """Encuentra los parametros optimos del modelo para `X` y `y`.
+        """Encuentra los parametros optimos del modelo para `X` y `y`."""
 
+        if not isinstance(X, np.ndarray):
+            X = np.matrix(X)
 
-
-        """
-
-        if not isinstance(X, np.array):
-            X = np.array(X)
-
-        if not isinstance(y, np.array):
+        if not isinstance(y, np.ndarray):
             y = np.array(y)
 
+        n_samples, n_features = X.shape
 
-        self.init_weights()
+        self.initialize_weights(n_features)
 
-        self.eta = self.eta0
+        self.compute_initial_eta()
 
-        for iter in range(self._max_iter):
-            loss = self.compute_loss()
-            penalty = self.compute_penalty()
+        if self.random_state is not None:
+            random.seed(self.random_state)
 
+        samples_index = list(range(n_samples))
+        t = 1.0
+        best_loss = np.Infinity
 
+        if self.early_stopping is True:
+            validation_size = int(self.validation_fraction * n_samples)
+            training_size = n_samples - validation_size
+            is_validation_sample = [False] * training_size + [True] * validation_size
+            random.shuffle(is_validation_sample)
+        else:
+            is_validation_sample = [False] * n_samples
 
+        for epoch in range(self.max_iter):
 
+            sumloss = 0.0
 
-if __name__ == "__main__":
-    import doctest
+            if self.shuffle is True:
+                random.shuffle(samples_index)
 
-    doctest.testmod()
+            for i_sample in range(n_samples):
+                position = samples_index[i_sample]
+                x = np.asarray(X[position]).reshape(-1)
+                y_pred = sum(self.coef_ * x) + self.intercept_
+                y_real = y[position]
+
+                if self.early_stopping is True:
+                    if is_validation_sample[position] is True:
+                        sumloss += self.compute_loss(y_real=y_real, y_pred=y_pred)
+                        continue
+                else:
+                    sumloss += self.compute_loss(y_real=y_real, y_pred=y_pred)
+                self.compute_eta(t)
+                self.improve(x=x, y=y_real)
+                t += 1.0
+
+            if sumloss > best_loss - self.tol * n_samples:
+                no_improvement_count += 1
+            else:
+                no_improvement_count = 0
+
+            if sumloss < best_loss:
+                best_loss = sumloss
+
+            if no_improvement_count >= self.n_iter_no_change:
+                if self.learning_rate == "adaptive" and self.eta > 1e-6:
+                    self.eta = self.eta / 5.0
+                    no_improvement_count = 0
+                else:
+                    break
