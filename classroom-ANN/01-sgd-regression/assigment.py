@@ -182,13 +182,13 @@ class Regressor:
         self.intercept_ = None
 
     def predict(self, X):
-        X = np.matrix(X)
+        X = np.array(X)
         X = np.matmul(X, np.array(self.coef_))
         X = X + np.array(self.intercept_)
         return np.asarray(X).reshape(-1)
 
     def initialize_weights(self, n_features):
-        if self.warm_start is False:
+        if self.warm_start is False or (self.coef_ is None or self.intercept_ is None):
             self.coef_ = np.zeros(n_features)
             self.intercept_ = 0.0
 
@@ -198,17 +198,17 @@ class Regressor:
             return 0.5 * (y_real - y_pred) * (y_real - y_pred)
 
         if self.loss == "huber":
-            if np.abs(e) <= self.epsilon:
+            if np.abs(y_real - y_pred) <= self.epsilon:
                 return 0.0
-            return (
-                self.epsilon * np.abs(y_real - y_pred) - 0.5 * self.epsion * self.epsion
+            return self.epsilon * np.abs(y_real - y_pred) - 0.5 * np.power(
+                self.epsilon, 2
             )
 
         if self.loss == "epsilon_insensitive":
-            return max(0, np.abs(y_real - y_pred) - self.epsilon)
+            return max(0.0, np.abs(y_real - y_pred) - self.epsilon)
 
         if self.loss == "squared_epsilon_insensitive":
-            return max(0, np.power(np.abs(y_real - y_pred) - self.epsilon), 2)
+            return max(0.0, np.power(np.abs(y_real - y_pred) - self.epsilon, 2))
 
     def compute_loss_gradient(self, x, y_real):
 
