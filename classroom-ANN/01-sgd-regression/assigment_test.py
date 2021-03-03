@@ -1,4 +1,4 @@
-from question import Regressor
+from assigment import Regressor
 import numpy as np
 import pytest
 
