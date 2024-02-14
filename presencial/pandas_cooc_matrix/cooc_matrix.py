@@ -2,6 +2,8 @@
 
 import pandas as pd
 
+#
+# Lea el archivo 
 dataframe = pd.read_csv(
     "input.txt",
     header=None,
