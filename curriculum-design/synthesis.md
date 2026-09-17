@@ -1,436 +1,354 @@
-# 1. Convergencias entre las tres propuestas
+# 1. Comparación global de las tres propuestas
 
-Se compararon íntegramente `chatgpt.md`, `claude.md` y `gemini.md`, se inspeccionaron los 21 PDF de `curriculum/` y se volvió a sus contenidos pertinentes para resolver las discrepancias. Se conserva la jerarquía entre fuentes: los PDF son evidencia primaria; las propuestas son interpretaciones revisables. La coincidencia entre ellas permite localizar una cuestión compartida, pero no demuestra la validez de su solución.
+Las tres propuestas —ChatGPT (9 cursos), Claude (14 cursos) y Gemini (6 cursos)— convergen en una misma concepción profunda de Analítica: **una disciplina de ciclo completo para la decisión basada en evidencia, que no equivale a Machine Learning, que exige ingeniería de datos propia, que distingue predicción/inferencia/causalidad/decisión, y que ahora —por la incorporación de los diez documentos DataOps— exige una disciplina explícita de entrega ágil, lean y organizacional para no fracasar en producción**. Ninguna de las tres reduce la Analítica a algoritmos, a infraestructura o a tableros. Esta es una convergencia genuina, no terminológica: las tres derivan la misma arquitectura conceptual profunda (problema → datos → evidencia → modelo → decisión → producto → operación → valor) a partir de lecturas independientes del mismo corpus.
 
-Las tres propuestas convergen sustancialmente en seis puntos:
+Donde las tres propuestas divergen radicalmente es en la **granularidad de la traducción de esa concepción común en cursos**. ChatGPT y Gemini comparten una filosofía de consolidación explícita: ambas argumentan textualmente contra la fragmentación excesiva (ChatGPT: "la amplitud del corpus obliga a priorizar dominio sobre cobertura superficial"; Gemini: "evita tanto el aislamiento de temas como la sobrecarga superficial"), y ambas producen arquitecturas compactas (9 y 6 cursos respectivamente) donde varias competencias que Claude trata como cursos independientes —estrategia de datos, analítica descriptiva, gobernanza/ética— se funden dentro de cursos más amplios. Claude, en cambio, prioriza la separación explícita de cada competencia bien evidenciada en un curso propio, resultando en 14 cursos.
 
-1. **Analytics conecta problemas, evidencia y acción.** La formulación y el contexto organizacional tienen entidad propia; no basta ajustar modelos a los datos disponibles.
-2. **Las preguntas descriptivas, inferenciales, predictivas, causales y prescriptivas necesitan criterios diferentes.** Comparten métodos, pero una misma regresión no responde indistintamente todas esas preguntas.
-3. **La ingeniería de datos pertenece a la formación común.** Calidad, integración y procedencia no pueden suponerse resueltas por otra profesión. Las tres rechazan reducirla a administración de infraestructura, aunque difieren en cuánto cumplen esa intención.
-4. **La decisión requiere más que predicción y optimización.** Todas incluyen incertidumbre, simulación, objetivos y restricciones, y reconocen aportes de la organización y del juicio humano.
-5. **La formación no termina al validar un modelo.** Productos, despliegue y mantenimiento aparecen en las tres; también se reconoce que un producto de datos excede un tablero.
-6. **La responsabilidad y la reproducibilidad deben reaparecer.** Ninguna declara que ética, comunicación o documentación sean asuntos exclusivamente terminales. La diferencia está en su profundidad, sus responsables y la consistencia de esa transversalidad.
+Esta diferencia de granularidad no es meramente estilística: tiene consecuencias conceptuales reales. Por ejemplo, Gemini funde **inferencia estadística, causalidad y aprendizaje predictivo en un solo curso** (su Curso 3), argumentando explícitamente que separarlas en cursos desconectados fragmentaría un razonamiento que debe aprenderse como un continuo. ChatGPT y Claude, en cambio, separan causalidad de predicción en cursos distintos. Aquí la similitud superficial ("los tres distinguen predicción de causalidad") oculta una divergencia real sobre **dónde debe vivir esa distinción**: como frontera entre dos cursos, o como un pivote pedagógico dentro de un mismo curso. De manera simétrica, dos proposiciones que usan nombres de curso casi idénticos —"Analítica Prescriptiva" en las tres— sí representan la misma frontera curricular en los tres casos (optimización + simulación + decisión, sin equipararlo a Investigación de Operaciones completa): aquí la convergencia de nombre sí refleja convergencia conceptual real.
 
-Hay, sin embargo, convergencias solo aparentes. “Ingeniería de datos” significa principalmente semántica y flujos confiables en ChatGPT, un escalón posterior a programación y descripción en Claude, y una extensa arquitectura distribuida temprana en Gemini. “Predictiva” incluye aprendizaje no supervisado en los tres, aunque agrupar o representar observaciones no implica necesariamente predecir. “Producto” se diseña antes de la operación en ChatGPT, pero recibe una solución ya desplegada en Claude y, en gran parte de su descripción, en Gemini. “Prescriptiva” nombra tanto comparación razonada de alternativas como repertorios muy extensos de optimización y control.
+# 2. Convergencias sólidas
 
-Tampoco es equivalente declarar un tema transversal y asignarle progresión verificable. Claude añade una consolidación ética específica; ChatGPT distribuye responsabilidades entre cursos; Gemini distribuye numerosas técnicas de protección y auditoría, algunas muy especializadas. La síntesis conserva las competencias compartidas y vuelve a decidir su ubicación, alcance y dependencia.
+**(a) La Analítica Prescriptiva es un curso único que integra optimización, simulación y teoría de decisión, sin equipararse a Investigación de Operaciones completa.** Las tres propuestas coinciden exactamente en esta frontera y en esta exclusión. Está respaldada por `mit-quantitative-methods-in-systems-engineering.pdf` (tradespace, pensamiento de valor, sensibilidad), `mit-machine-learning-modeling-and-simulation-principles.pdf` (simulación estocástica) y la taxonomía descriptivo/predictivo/prescriptivo de `informs-analytics-framework-2024.pdf`, ninguno de los cuales exige profundidad matemática de teoría de colas o dualidad para ejercer esta competencia.
 
-# 2. Divergencias principales
+**(b) La Ingeniería de Datos merece un curso propio y temprano, distinto de la analítica descriptiva y del despliegue.** Las tres construyen un curso dedicado (ChatGPT C3, Claude C6, Gemini C2) apoyado en `berkeley-data-c101-data-engineering.pdf` ("operacionalización confiable y escalable"), `mit-professional-certificate-data-engineering.pdf` y, de forma nueva, `dataops-08-data-scientids.pdf` (arquitectura canónica vs. arquitectura DataOps, diseño de lagos/bodegas/mercados de datos). El corpus no deja espacio para tratar esto como una sección menor de otro curso.
 
-Los códigos D1–D11 identifican las controversias que se resuelven en la sección siguiente. Los números de curso de esta comparación pertenecen a cada propuesta original, no a la arquitectura canónica.
+**(c) DataOps constituye una competencia de curso completo, no una sección del curso de despliegue clásico.** Las tres reservan un curso final o cuasi-final íntegramente dedicado a Lean/Agile/DevOps aplicados a analítica, apoyado en `dataops-04-lean-thinking.pdf`, `dataops-05-agile.pdf`, `dataops-06-definition.pdf` y `dataops-09-data-quality.pdf`. Este es el cambio estructural más importante que la incorporación del corpus DataOps produjo en las tres propuestas simultáneamente, y es la convergencia más fuerte de todo el ejercicio: ningún diseñador consideró que el contenido de despliegue previo (solo Dominios VI-VII de INFORMS + un curso de MIT sobre nube) bastaba para representar lo que el corpus nuevo evidencia.
 
-| Cuestión | ChatGPT | Claude | Gemini | Pregunta curricular de fondo |
-|---|---|---|---|---|
-| **D1. Entrada computacional y matemática** | Ocho cursos; programación, álgebra, matrices y derivación como base externa de entrada. | Trece cursos; programación y manejo de datos como curso 2; matemáticas externas antes de estadística. | Siete cursos; programación básica y álgebra al inicio, cálculo y álgebra lineal antes de inferencia. | ¿Qué capacidades debe garantizar la cadena y cuáles puede reconocer como formación previa? ¿Cuándo son realmente necesarias? |
-| **D2. Formulación, descripción y comunicación** | Las integra en el primer curso y las profundiza transversalmente. | Separa formulación, programación y descripción/comunicación en cursos 1, 2 y 4. | Integra formulación, preparación, exploración y comunicación en un primer curso técnicamente amplio. | ¿Cómo evitar una entrada puramente verbal sin sobrecargarla con toda la computación y la visualización? |
-| **D3. Ingeniería de datos y escala** | Curso temprano acotado, con profundización operativa final. | Después de programación y descripción; vincula su inicio con datos grandes, múltiples o de mala calidad. | Segundo curso con SQL avanzado, procesamiento distribuido, captura de cambios, flujos continuos, orquestación y contenedores. | ¿La identidad de la ingeniería depende del volumen o de responsabilidades durables sobre datos y procesos? |
-| **D4. Estadística y causalidad** | Dos cursos; causalidad depende de estadística, no de aprendizaje automático. | Dos cursos, pero causalidad exige primero aprendizaje supervisado. | Un único curso reúne probabilidad, inferencia, experimentación, causalidad, modelos jerárquicos y privacidad diferencial. | ¿Qué profundidad debe tener la atribución causal y qué conocimientos necesita realmente? |
-| **D5. Extensión del aprendizaje automático** | Un curso de aprendizaje y validación; especializaciones avanzadas fuera del núcleo. | Dos cursos predictivos, con causalidad intercalada; el segundo reúne no supervisado, series temporales y aprendizaje profundo. | Un curso con un repertorio extenso de modelos, optimizadores y técnicas de explicación. | ¿Se organiza el núcleo por familias de algoritmos o por representación, generalización y validez de uso? |
-| **D6. Decisiones y sus prerrequisitos** | Integra simulación, optimización y decisión después de predicción y causalidad, por una finalidad integradora explícita. | Exige estadística, predicción I, causalidad y predicción II antes de prescripción. | Exige inferencia/causalidad y predicción; incorpora además optimización estocástica, eventos discretos, bandidos y control. | ¿Aprender a formular decisiones necesita dominar previamente todas las formas de producir sus insumos? |
-| **D7. Producto frente a operación** | Diseño e integración de producto antes de operación. | Despliegue entrega un sistema ya operando a productos. | Operación precede a productos en las descripciones; el último curso admite también antecedentes cursados en paralelo. | ¿Cuándo se definen usuarios, utilidad, aceptación y responsabilidades respecto del despliegue? |
-| **D8. Ética, gobernanza y privacidad** | Transversales con anclajes en datos, productos y operación; no hay curso independiente. | Transversales más un curso 12 de consolidación, después de producto y despliegue. | Transversales; privacidad diferencial y otras técnicas especializadas se incluyen en el núcleo. | ¿Cómo asegurar profundidad sin convertir la responsabilidad en auditoría tardía o en un catálogo técnico? |
-| **D9. Integración y alcance organizacional** | Cierre integrador en productos y operación, sin capstone adicional; adopción acotada. | Capstone independiente posterior a todos los cursos, con patrocinador real; productos incluye ecosistemas cuando corresponde. | Productos combina integración, liderazgo, plataformas, gobernanza y transformación organizacional; promete perfiles profesionales de alta responsabilidad. | ¿Hace falta otro curso para integrar y hasta dónde llega el perfil común frente a especializaciones organizacionales? |
-| **D10. Red de prerrequisitos** | Dos bifurcaciones consistentes, seguidas de una convergencia obligatoria hacia decisiones. | Cadena casi lineal; el diagrama añade a ingeniería una dependencia de estadística que su ficha no exige. | El diagrama inicial es lineal; las fichas permiten ramas; el diagrama final pone prescripción y operación en paralelo, aunque la ficha de operación exige prescripción. | ¿Qué flechas expresan necesidad intelectual y cuáles solo un orden de presentación? |
-| **D11. Profundidad, herramientas y matriz** | Principios durables; varias I subrepresentan el desarrollo del curso responsable y varias M se desplazan al cierre. | Mayor desagregación de cursos; identifica M con un lugar principal de dominio y repite I en temas transversales. | Gran especificidad de herramientas y numerosas M tempranas o avanzadas dentro de cursos muy amplios. | ¿Qué significa integrar una competencia y qué amplitud puede defenderse sin conocer la carga formativa? |
+**(d) Un "producto analítico" no es un tablero.** Las tres exigen tratamiento explícito de diseño de producto (interacción humano-máquina, hipótesis de épica, MVP, empaquetamiento en servicios/APIs), apoyadas en `mit-designing-and-building-ai-products-and-services.pdf` y en la definición de producto de datos de `dataops-06-definition.pdf` ("combina datos con algoritmos... es rápido, escalable, repetible, reproducible, de uso continuo y monitoreo constante").
 
-# 3. Evaluación de las divergencias contra la evidencia
+**(e) La distinción predicción/inferencia causal/decisión debe enseñarse explícitamente, no darse por sentada.** Las tres, sin excepción, identifican esta distinción como un riesgo pedagógico central (el "modelo con 92% de precisión no es la solución"), apoyadas en `berkeley-data-c102-data-inference-and-decisions.pdf` y `mit-data-science-and-machine-learning.pdf`. Divergen en dónde vive esa distinción (ver Sección 3), pero no en que deba enseñarse con rigor propio.
 
-Las páginas citadas son páginas del archivo PDF. Se distingue entre lo que una fuente documenta y la decisión de arquitectura que se infiere de ella. Los tres documentos INFORMS constituyen una familia relacionada, no tres votos independientes. Los programas profesionales aportan relevancia y contenido; sus listas no prueban suficiencia pedagógica ni eficacia comparada.
+**(f) La ética, la privacidad y el sesgo algorítmico no pueden confinarse a una sola clase aislada.** Las tres, incluyendo la que sí crea un curso dedicado (Claude), insisten en que la responsabilidad debe ser transversal desde el primer curso. Esto está anclado en la recomendación explícita de `national-academies-data-science-for-undergraduates-2018.pdf` ("ética tejida desde el principio y a lo largo del currículo") y en el tratamiento de "Gobernanza y Ética" como dimensión transversal (no como fase aislada) en `dataops-03-methodologies.pdf`.
 
-## D1. Garantizar una base computacional sin anticipar todos los requisitos matemáticos
+**(g) Ningún dominio de aplicación vertical, ninguna certificación de herramienta propietaria y ninguna profundidad matemática completa de Investigación de Operaciones pertenecen al núcleo.** Las tres coinciden en dejar esto como electivo, apoyadas en la recomendación explícita de National Academies sobre anclaje de dominio vía electivas y en la naturaleza vendor-neutral de los marcos INFORMS y ACM.
 
-`national-academies-data-science-for-undergraduates-2018.pdf`, pp. 42–43, distingue fundamentos matemáticos y computacionales y admite rutas que eviten cadenas convencionales innecesariamente largas. `acm-computing-competencies-undergraduate-data-science-2021.pdf`, pp. 112–119, concreta pensamiento algorítmico, programación, estructuras, modularidad, consultas y aspectos numéricos. `mit-professional-certificate-data-engineering.pdf`, pp. 9–10, comienza con programación y datos antes de arquitecturas más complejas.
+# 3. Divergencias curriculares principales
 
-**Resolución:** se retiene de Claude una base computacional explícita, pero se la orienta a computación reproducible y se permite reconocer equivalencias. Se modifica la entrada de ChatGPT: cálculo y matrices no bloquean formular preguntas o describir datos. De Gemini se retiene escalonar matemáticas antes de los cursos que las necesitan, sin suponer que una programación elemental habilite de inmediato toda la ingeniería distribuida. El núcleo tendrá un curso computacional común; la matemática habilitante será una condición explícita antes de la rama formal, no una barrera global al primer curso.
+**Divergencia 1 — Número total de cursos.**
+- ChatGPT: 9 cursos.
+- Claude: 14 cursos.
+- Gemini: 6 cursos.
+- **Pregunta curricular subyacente:** ¿cuál es el nivel de granularidad que maximiza coherencia sin fragmentar artificialmente competencias que pueden convivir en un mismo curso, ni comprimir competencias que requieren tratamiento propio?
 
-## D2. Integrar pregunta, descripción y comunicación; separar la formación computacional
+**Divergencia 2 — Ubicación de la Estrategia de Datos (`dataops-02`).**
+- ChatGPT: no crea un curso ni un módulo explícito de estrategia; usa `dataops-02` como evidencia de su curso de "Ingeniería y gobierno de datos analíticos" (C3).
+- Claude: crea un curso propio y temprano, "Estrategia de Datos y Analítica" (curso 2).
+- Gemini: funde la estrategia dentro de su curso 1 ("Encuadre Estratégico y Analítica Descriptiva"), junto con EDA y comunicación.
+- **Pregunta subyacente:** ¿la estrategia organizacional de datos es una competencia de ingeniería, una competencia de encuadre inicial, o una competencia de nivel de curso propio?
 
-`usc-introduction-to-data-analytics.pdf`, p. 1 y pp. 5–7, vincula preguntas, consulta y presentación visual sin prerrequisitos, aunque su contenido se concentra en bases de datos y herramientas. `national-academies-data-science-for-undergraduates-2018.pdf`, pp. 44–48, relaciona exploración, modelación, comunicación y contexto. `cambridge-business-analytics.pdf`, pp. 6–8, conecta sesgos de decisión, descripción, experimentación y uso organizacional. `informs-analytics-framework-2024.pdf`, pp. 4–5, exige aclarar problema, actores, supuestos y criterios de éxito.
+**Divergencia 3 — Ubicación de la Analítica Descriptiva.**
+- ChatGPT: fusionada en el curso de entrada (C1), junto con formulación de problemas.
+- Claude: curso propio (curso 5), después de programación y en paralelo con estadística — es decir, más tarde en la secuencia.
+- Gemini: fusionada en el curso de entrada (C1), junto con encuadre y estrategia.
+- **Pregunta subyacente:** ¿el análisis exploratorio de datos es una competencia conceptual de entrada (se puede enseñar antes de programar) o una competencia técnica que requiere código y por tanto debe ubicarse después de la programación?
 
-**Resolución:** se conserva la entrada integrada de ChatGPT y Gemini, acotando su profundidad. De Claude se retiene proteger la computación con un espacio propio, pero se rechaza dividir “hablar” de problemas y “hacer” análisis como si formular no fuera una capacidad aplicada. No se crea un curso descriptivo separado: descripción y comunicación tienen desarrollo inicial y posterior profundización en inferencia, decisiones y productos. La programación se aprende en paralelo, sin convertir el primer curso en enseñanza de varias bibliotecas.
+**Divergencia 4 — Predicción, inferencia estadística y causalidad: ¿cursos separados o un solo curso integrado?**
+- ChatGPT: tres cursos distintos y secuenciales (C4 Inferencia, C5 Predictivo, C6 Causal).
+- Claude: estadística separada (curso 4), luego predictivo (curso 7), luego causal (curso 8) intercalado antes de un segundo curso predictivo (curso 9).
+- Gemini: un único curso (C3) que integra estadística, causalidad y aprendizaje predictivo (supervisado y no supervisado).
+- **Pregunta subyacente:** ¿la distinción predicción/causalidad se enseña mejor como frontera administrativa entre cursos, o como un pivote pedagógico dentro de un mismo curso construido sobre el mismo vehículo técnico (regresión)?
 
-## D3. Ingeniería definida por confiabilidad y significado, no por datos masivos
+**Divergencia 5 — Aprendizaje profundo, series de tiempo, sistemas de recomendación y redes: ¿núcleo obligatorio o electivo?**
+- ChatGPT: explícitamente electivo ("no son obligatorios para toda la cadena: aprendizaje profundo y generativo, ... recomendadores, grafos, series de tiempo avanzadas... investigación de operaciones especializada").
+- Claude: curso obligatorio propio (curso 9, "Analítica Predictiva II").
+- Gemini: no le dedica un curso propio; los menciona brevemente y de forma no central dentro de su curso 3.
+- **Pregunta subyacente:** ¿estos métodos avanzados son parte del núcleo irreducible de un profesional de Analítica, o son una especialización que debería dejarse fuera del tronco común?
 
-`berkeley-data-c101-data-engineering.pdf`, p. 1, documenta una ingeniería orientada a escala y operación confiable, pero exige programación y un curso superior previo de ciencia de datos. Por ello no respalda trasladar toda esa amplitud al segundo curso de principiantes. `acm-computing-competencies-undergraduate-data-science-2021.pdf`, pp. 69–74, sitúa adquisición, integración, transformación, calidad y protección en el centro. `mit-professional-certificate-data-engineering.pdf`, pp. 8–11, es un programa extenso con programación, bases de datos, software y sistemas, no evidencia de que todo quepa en una asignatura. `warwick-foundations-of-data-analytics.pdf`, pp. 1–3, es de posgrado y contiene desde preparación hasta estructuras especializadas para escala.
+**Divergencia 6 — Orden entre Productos de Datos y DataOps/Despliegue.**
+- ChatGPT: Productos (C8) antes de Operación (C9).
+- Claude: DataOps (curso 11) antes de Productos (curso 12) — orden invertido respecto a las otras dos.
+- Gemini: Productos (C5, "Tubería de Innovación") antes de Operacionalización (C6, "Tubería de Valor").
+- **Pregunta subyacente:** ¿se diseña primero el producto (hipótesis de valor, MVP, interfaz) y luego se industrializa, o se industrializa primero la entrega confiable y luego se empaqueta como producto?
 
-**Resolución:** se mantiene un curso común de ingeniería después de la base computacional y de una primera comprensión de datos. Se retiene la progresión acotada de ChatGPT y la preparación previa de Claude. Se rechaza que la ingeniería empiece solo cuando los datos son grandes o no caben en memoria, frontera compartida en distintos grados por Claude y Gemini. De Gemini se conserva la atención a cambios y continuidad, pero escala distribuida, captura de cambios y orquestación pasan a decisiones de arquitectura y ejemplos, no a una lista obligatoria de plataformas tempranas. Operación profundiza su confiabilidad sistémica.
+**Divergencia 7 — Gobernanza/Ética: ¿curso dedicado o exclusivamente transversal?**
+- ChatGPT: exclusivamente transversal, sin curso dedicado.
+- Claude: curso dedicado (curso 13), además de tratamiento transversal.
+- Gemini: exclusivamente transversal, con consolidación de "M" (dominio) concentrada en el curso final (C6).
+- **Pregunta subyacente:** ¿la responsabilidad profesional requiere un espacio curricular propio para integrarse como sistema, o el riesgo de aislarla en un curso separado supera el beneficio de esa integración explícita?
 
-## D4. Separar inferencia estadística y causal sin imponer aprendizaje automático entre ambas
+**Divergencia 8 — Programación como curso propio vs. integrada en Ingeniería de Datos.**
+- ChatGPT: curso propio y paralelo de entrada ("Computación reproducible para Analytics", C2).
+- Claude: curso propio ("Programación y Manejo de Datos", curso 3).
+- Gemini: no tiene curso propio; la programación se asume como prerrequisito de admisión y se practica dentro del curso de Ingeniería de Datos (C2).
+- **Pregunta subyacente:** ¿la fluidez computacional general es una competencia de entrada que merece un curso propio, o basta con exigirla como prerrequisito y desarrollarla dentro del curso de datos?
 
-`national-academies-data-science-for-undergraduates-2018.pdf`, p. 44, pide tratar temprano confusión y causalidad y pasar de experimentos aleatorizados a estudios no aleatorizados. `mit-data-science-and-machine-learning.pdf`, p. 8, distingue regresión predictiva y causal, experimentos y observación con confusión. `pwc-data-and-analytics-academy.pdf`, p. 11, relaciona causalidad, experimentación y prescripción. Estas fuentes sustentan la competencia, pero no ordenan crear un curso independiente.
+**Divergencia 9 — ¿Existe un curso de Capstone separado del último curso técnico?**
+- ChatGPT: no; su C9 (Operación y evolución) es el curso terminal e integrador, sin un curso adicional de capstone.
+- Claude: sí, un curso 14 explícito de Capstone, posterior a Gobernanza.
+- Gemini: no; su C6 (Operacionalización) es explícitamente el "curso culminante e integrador".
+- **Pregunta subyacente:** ¿el proyecto integrador final merece un espacio curricular administrativamente separado, o basta con que el último curso técnico se diseñe como una práctica integradora con patrocinador?
 
-`berkeley-data-c102-data-inference-and-decisions.pdf`, p. 1, combina inferencia, causalidad, decisiones y aprendizaje, con prerrequisitos de álgebra lineal, probabilidad y ciencia de datos. No es un curso exclusivamente causal ni una introducción desde cero. No demuestra que integrar temas sea perjudicial, como sugiere Gemini, ni que su mera existencia pruebe la necesidad de un curso causal separado, como argumenta Claude.
+# 4. Resolución de las divergencias mediante la evidencia
 
-**Resolución:** se conservan dos espacios por la profundidad requerida y para limitar la sobrecarga, como decisión de síntesis. La base estadística introduce experimentación y confusión; causalidad desarrolla identificación, amenazas, estudios observacionales y transferencia. Se retiene la dependencia estadística → causalidad de ChatGPT, se elimina la exigencia de aprendizaje supervisado de Claude y se reduce la acumulación de Gemini. La regresión necesaria forma parte de estadística. Modelos jerárquicos avanzados, inferencia computacional especializada y un repertorio exhaustivo de estimadores causales no son núcleo.
+**Resolución 1 — Número de cursos.**
+Evidencia relevante: ninguno de los documentos del corpus prescribe un número de cursos; sin embargo, la densidad y autocontención de cada bloque temático es observable directamente. `dataops-02-data-strategy.pdf` tiene la coherencia interna de un curso completo (marco propio de 12 pasos), pero también es cierto que ni ACM ni National Academies ni Berkeley proponen un curso dedicado solo a estrategia organizacional —lo tratan como parte del encuadre de negocio (Dominio I de INFORMS). Por otro lado, `berkeley-data-c102-data-inference-and-decisions.pdf` demuestra en su propia descripción oficial que inferencia, causalidad, decisión y una porción de aprendizaje automático (árboles, redes neuronales, ensambles) pueden convivir en **un solo curso universitario real**, lo que es evidencia directa contra la fragmentación de Claude en ese punto específico. **Decisión canónica:** un total de **9 cursos**, coincidiendo numéricamente con ChatGPT pero no en su composición interna (ver más abajo). Esta cifra emerge de aplicar consistentemente el principio "un curso por pregunta de naturaleza distinta, no por tema evidenciado", que documentado en el corpus solo sostiene 9 preguntas de naturaleza verdaderamente distinta (ver Sección 7).
 
-## D5. Un núcleo de aprendizaje con especialización posterior
+**Resolución 2 — Estrategia de Datos.**
+Evidencia: `dataops-02-data-strategy.pdf` es un documento sobre planeación organizacional (objetivos, brechas de capacidad, iniciativas, gobierno de decisión, caso de valor, portafolio, hoja de ruta) — no contiene una sola línea sobre modelado de datos, SQL, arquitectura o calidad técnica. Colocarlo como evidencia de un curso de "ingeniería y gobierno de datos" (como hace ChatGPT) confunde dos sentidos de "gobierno": el gobierno de **derechos de decisión organizacional** (quién decide qué) que trata `dataops-02`, y el gobierno **operativo de calidad de datos** (linaje, validación) que tratan Berkeley C101 y el certificado de ingeniería de datos de MIT. Esta es una imprecisión real en la propuesta de ChatGPT. Al mismo tiempo, `informs-cap-essentials-blueprint.pdf` sitúa el encuadre de negocio (Dominio I) como la fase que antecede a los datos, no como una fase de ingeniería — lo cual respalda situar la estrategia junto al encuadre de problemas, no junto a la ingeniería de datos. **Decisión canónica:** la estrategia de datos se integra como un módulo sustantivo (no una mención de una diapositiva) dentro del curso de apertura, junto con la formulación de problemas — siguiendo la lógica estructural de Gemini, pero dándole el peso que su propia riqueza documental exige, en lugar de comprimirla como Gemini hace.
 
-`acm-computing-competencies-undergraduate-data-science-2021.pdf`, pp. 95–103, prioriza fundamentos, evaluación, generalización, regularización y compromisos entre rendimiento, interpretación y escala. Su p. 23 advierte que no cabe esperar todos los contenidos de segundo nivel en un programa. `mit-data-science-and-machine-learning.pdf`, pp. 7–10, reúne agrupamiento, representación, regresión, clasificación, aprendizaje profundo y recomendación; esa presencia demuestra amplitud posible, no obligatoriedad uniforme. `mit-professional-certificate-data-science-and-analytics.pdf`, pp. 7–9, diferencia fundamentos y aprendizaje avanzado.
+**Resolución 3 — Analítica Descriptiva.**
+Evidencia: el propio `usc-introduction-to-data-analytics.pdf` ubica la visualización y los tableros en las **últimas semanas** de su semestre, después de bases de datos, SQL y NoSQL — es decir, después de que el estudiante ya programa y consulta datos. El patrón "Data 8" citado extensamente por `national-academies-data-science-for-undergraduates-2018.pdf` sí enseña visualización desde el principio, pero como parte de un curso introductorio que **ya incluye programación básica** desde su primera semana, no antes de ella. Ningún documento del corpus enseña EDA/visualización rigurosa sin que el estudiante haya escrito código previamente. **Decisión canónica:** la Analítica Descriptiva es un curso propio, posicionado **después** del curso de programación (no fusionado con el curso de encuadre conceptual de entrada), corrigiendo tanto a ChatGPT como a Gemini en este punto específico, y confirmando la intuición estructural (aunque no la ubicación exacta) de Claude.
 
-**Resolución:** se retiene un núcleo común de representación y aprendizaje, evitando llamar “predictiva II” a una mezcla de agrupamiento, series y redes. De Claude se conserva que representación y no supervisado merecen atención real, pero se rechaza causalidad como prerrequisito de agrupamiento y la obligatoriedad del segundo repertorio avanzado. De Gemini se retienen calibración, costo del error y equidad, sin imponer todas las familias, explicadores o bibliotecas. De ChatGPT se conserva el alcance acotado y se refuerza que C5 sea responsable del desarrollo efectivo de esos métodos, no una mera introducción cuyo dominio recaiga en productos.
+**Resolución 4 — Predicción, inferencia y causalidad.**
+Evidencia: `berkeley-data-c102-data-inference-and-decisions.pdf` bunde en un solo curso universitario real "frequentist and Bayesian decision-making... causal inference... decision trees, neural networks, ensemble methods", y `mit-data-science-and-machine-learning.pdf` ubica su módulo de "regresión causal, RCT y estudios observacionales" en la semana inmediatamente posterior a su módulo de regresión predictiva, dentro del mismo programa continuo de 12 semanas — no en un curso separado varios meses después. Esta es la evidencia documental más directa y específica de todo el corpus sobre este punto, y respalda la posición de Gemini frente a la de ChatGPT y Claude. Sin embargo, Berkeley exige como prerrequisito un curso de probabilidad ya completado (Math 54/56/110 o un curso de probabilidad formal) **antes** de tomar ese curso integrado — lo que significa que el corpus no respalda fusionar la estadística *introductoria* con la causalidad y el aprendizaje automático, solo fusionar causalidad+aprendizaje automático **después** de una base estadística ya consolidada. **Decisión canónica:** se mantiene una Estadística e Inferencia introductoria como curso propio (evitando el error de Gemini de comprimir probabilidad básica junto con ML avanzado), pero se **fusiona** la inferencia causal con el modelado predictivo en un único curso posterior (corrigiendo a ChatGPT y Claude), con una frontera pedagógica interna explícita entre ambos módulos (ver Sección 9).
+
+**Resolución 5 — Aprendizaje profundo, series de tiempo, recomendadores, redes.**
+Evidencia: el propio marco de competencias de `acm-computing-competencies-undergraduate-data-science-2021.pdf` clasifica el aprendizaje profundo dentro de la Knowledge Area de Machine Learning con tramos que corresponden a Tier 2 (mayoría, no todos) o Electivo, no a Tier 1 (núcleo obligatorio para todos). Sí es cierto que `mit-data-science-and-machine-learning.pdf` dedica semanas completas a aprendizaje profundo, sistemas de recomendación y redes — pero ese es un certificado profesional compacto de 12 semanas diseñado para practicantes que ya tienen experiencia cuantitativa previa, no evidencia de que esto deba ser núcleo obligatorio de un programa académico completo dirigido a una población más amplia. **Decisión canónica:** se confirma la posición de ChatGPT (implícitamente compartida por la no-inclusión de Gemini): estos métodos son una **extensión electiva** construida sobre el curso de modelado predictivo/causal, no un curso obligatorio del núcleo. Esto corrige la decisión de Claude de dedicarles un curso completo obligatorio.
 
-## D6. Decisiones como rama autónoma tras la base estadística
-
-`mit-quantitative-methods-in-systems-engineering.pdf`, pp. 2–4, organiza la decisión alrededor de valor, alternativas, compromisos, sensibilidad, robustez y distribución del trabajo entre personas y modelos. `cambridge-business-analytics.pdf`, p. 8, incorpora objetivos, riesgo y sesgos de juicio. `pwc-data-and-analytics-academy.pdf`, pp. 10–11, une optimización, simulación y decisión con procesos e incentivos. `mit-machine-learning-modeling-and-simulation-principles.pdf`, p. 2, aporta simulación probabilística y distingue optimización para estimación de parámetros. Además, `mit-professional-certificate-data-science-and-analytics.pdf`, pp. 7–9, sitúa optimización antes del aprendizaje avanzado: contradice la idea de una dependencia técnica universal en sentido contrario.
-
-**Resolución:** se conserva un espacio común de decisiones, pero se modifica la cadena de las tres propuestas. Exige estadística y matemáticas habilitantes; puede avanzar en paralelo con aprendizaje y causalidad. Su propósito es formular y juzgar decisiones utilizando evidencia con supuestos explícitos, no enseñar a producir todos sus insumos. La integración de predicciones y efectos estimados por el propio estudiante se exige después en productos. Se rechaza la dependencia de Claude respecto de aprendizaje avanzado, la convergencia obligatoria previa de ChatGPT y la amplitud de control y aprendizaje por refuerzo de Gemini. Se conserva de los tres la prescripción más amplia que optimización.
-
-## D7. Diseñar valor, uso y responsabilidades antes de desplegar
-
-`informs-analytics-framework-2024.pdf`, p. 7, exige validación organizacional y requisitos de modelo, usabilidad, sistema y organización, además de implantación. `informs-cap-pro-blueprint.pdf`, pp. 22–23, detalla esos requisitos; `informs-cap-essentials-blueprint.pdf`, pp. 22–25, también incluye riesgos éticos, requisitos y consecuencias posteriores. `mit-designing-and-building-ai-products-and-services.pdf`, pp. 6–8, empieza por diseño y requisitos e incluye interacción humana y organización; culmina en un plan, no en la demostración de un servicio previamente desplegado. `acm-computing-competencies-undergraduate-data-science-2021.pdf`, pp. 120–123, integra diseño, implementación y pruebas.
-
-**Resolución:** se mantiene la distinción entre diseño y operación, y el orden de ChatGPT. Se rechaza la frontera de Claude y Gemini que entrega primero una solución en producción para después decidir su utilidad, interacción y adopción. Sus contenidos operativos pertinentes se conservan, pero el diseño especifica antes requisitos, límites, aceptación y responsabilidades. Los condicionantes de operación se anticipan y pueden obligar a revisar el producto: la secuencia pedagógica no implica un proceso profesional sin retornos.
-
-## D8. Responsabilidad distribuida con consolidación explícita antes y después del despliegue
-
-`national-academies-data-science-for-undergraduates-2018.pdf`, pp. 49–50, reconoce utilidad a cursos independientes de ética y exige incorporarla desde el comienzo y a lo largo del currículo. Por tanto, no prohíbe la solución de Claude ni prueba que baste la distribución. `acm-computing-competencies-undergraduate-data-science-2021.pdf`, áreas de privacidad/seguridad y profesionalismo, y `mit-data-leadership.pdf`, p. 15, respaldan profundidad en responsabilidades y gobernanza. Berkeley C102 y `warwick-foundations-of-data-analytics.pdf`, p. 2, incluyen privacidad diferencial; su inclusión no convierte el dominio formal completo de esa técnica en obligación universal.
-
-**Resolución:** se retienen de Claude la necesidad de responsables y de consolidación, y de ChatGPT y Gemini la recurrencia. La consolidación se asigna al diseño de producto antes del despliegue y a operación para efectos y cambios posteriores, sin un curso adicional terminal. No se posponen los problemas de privacidad o sesgo que surjan al diseñar. Se incluyen límites de anonimización y el compromiso entre protección y utilidad; el tratamiento matemático profundo de privacidad diferencial queda como extensión. La decisión de no añadir otro curso se basa en funciones y alcance, no en que dos propuestas lo omitan.
-
-## D9. Integración obligatoria sin un capstone adicional ni un núcleo de plataformas
-
-`national-academies-data-science-for-undergraduates-2018.pdf`, pp. 44–48 y capítulo sobre enfoques académicos, sostiene integración reiterada del ciclo y del dominio. `acm-computing-competencies-undergraduate-data-science-2021.pdf`, pp. 120–121, incluye construir soluciones y colaborar. El capstone de `mit-designing-and-building-ai-products-and-services.pdf`, p. 8, es un plan de producto; no sustenta exigir siempre producción real o patrocinador externo.
-
-`mit-digital-platforms.pdf`, pp. 8–9 y 15, trata específicamente mercados de dos lados, interfaces y efectos de red. `mit-data-leadership.pdf`, pp. 14–15, y `pwc-data-and-analytics-academy.pdf`, pp. 10–11, aportan organización, incentivos y gobernanza. Son pertinentes para la adopción, pero no justifican convertir todo producto analítico en plataforma ni prometer formación de directivos. `mit-rapid-prototyping-methodologies.pdf`, pp. 5–7, se concentra en fabricación; aporta por analogía atributos, hipótesis y restricciones, no evidencia directa de todo el diseño de productos digitales que Gemini le atribuye.
-
-**Resolución:** se conserva de Claude la exigencia de integración completa, de Gemini la atención al usuario y de ChatGPT la integración en los cursos finales. Diseño y operación asumen esa función, sin añadir un capstone separado ni fijar su formato de actividad. Plataformas son ejemplos o electivas; gestión de adopción es núcleo; liderazgo ejecutivo y fabricación no lo son. El perfil resultante es de contribución competente y responsable a soluciones acotadas, no garantía de seniority profesional.
-
-## D10. Sustituir la cadena narrativa por dependencias justificadas
-
-Las dependencias documentadas por Berkeley C101 y C102 muestran que títulos y numeración no definen por sí mismos el orden de aprendizaje. Las bases diferenciadas de `national-academies-data-science-for-undergraduates-2018.pdf`, pp. 42–46, permiten separar computación, datos e inferencia. El marco de `informs-analytics-framework-2024.pdf` describe responsabilidades profesionales, no prerrequisitos académicos; su uso no obliga a una cadena de asignaturas en el orden de sus dominios.
-
-**Resolución:** se conserva el paralelismo de ChatGPT y la bifurcación inicial que también reconoce Gemini, corrigiendo sus discrepancias internas. De Claude se mantiene que las capacidades habilitantes deben ser explícitas, pero no que todo lo común deba ser secuencial. La red canónica abre tres ramas tras la base formal: aprendizaje, causalidad y decisiones; las integra antes de operación. Las fichas, la tabla y el diagrama expresan la misma red.
-
-## D11. Especificar dominio acotado y separar conceptos de implementaciones
-
-`national-academies-data-science-for-undergraduates-2018.pdf`, p. 43, prioriza aprender a seguir la evolución tecnológica sobre dominar detalles de una arquitectura actual. ACM, p. 23, diferencia niveles de prioridad y procesos cognitivos; los blueprints CAP diferencian identificar tareas de ejecutarlas. `mit-cloud-and-devops.pdf`, pp. 13–15, aporta entrega, contenedores, seguridad, recuperación y compromisos de arquitectura, pero no establece que todas las soluciones deban ser microservicios en tiempo real.
-
-**Resolución:** se conserva la concreción operativa de Claude y Gemini y la durabilidad de ChatGPT. Se rechaza organizar por marcas, dar por obligatorio el entrenamiento continuo o identificar producción con baja latencia. La matriz marca el nivel terminal esperado de cada curso: M incluye introducción y desarrollo cuando ocurren allí. No se fuerza una M para cada técnica en el curso final, ni se supone que una única M elimine duplicaciones. Los resultados comunes son competencias acotadas; las promesas de dominio especializado se reducen.
-
-# 4. Problemas detectados en las propuestas
-
-## Solapamientos y responsabilidades incompletas
-
-- **ChatGPT:** la arquitectura distingue bien propósitos, pero su matriz sitúa probabilidad, consulta, agrupamiento y optimización como I en cursos que deberían desarrollarlos; desplaza varias M a productos u operación sin distinguir suficiente dominio metodológico de integración. La nota aclaratoria no elimina la ambigüedad de lectura. Su dependencia de decisiones respecto de predicción y causalidad es una elección integradora reconocida, pero posterga innecesariamente la formación decisoria básica.
-- **Claude:** programación, descripción e ingeniería comparten manipulación y consulta sin que todas las reapariciones cambien claramente de profundidad. La separación “hablar” frente a “hacer” debilita el carácter aplicado de la formulación. El segundo curso predictivo mezcla representación, temporalidad y aprendizaje profundo; no comparten un prerrequisito causal necesario. Una M única por fila no demuestra ausencia de duplicación.
-- **Gemini:** concentra especializaciones de sistemas en ingeniería, varios niveles de inferencia en estadística/causalidad y un repertorio amplio de control y optimización en prescripción. La suma no queda justificada por llamarlos cursos macro. Algunas técnicas de su matriz tienen más especificidad que las competencias y fuentes que deberían sostenerlas.
-
-## Prerrequisitos y fronteras problemáticos
-
-- Claude afirma una cadena estricta, aunque programación admite iniciarse junto con formulación; su diagrama exige estadística antes de ingeniería y la ficha de ingeniería no. Más sustantivamente, obliga a pasar por causalidad para volver a aprendizaje no supervisado.
-- Gemini presenta operación y prescripción como ramas paralelas en el diagrama final, pero la ficha de operación exige prescripción. Su curso final admite cursar en paralelo antecedentes que en otras secciones debe recibir terminados. Estas son alternativas distintas que necesitan una elección, no simples formas de dibujar lo mismo.
-- ChatGPT exige matemáticas más avanzadas de las necesarias al comienzo y deja programación completamente fuera. Es coherente para una población ya preparada, pero no garantiza por sí mismo una puerta de entrada computacional.
-- Claude y Gemini sitúan el diseño pleno de producto después del despliegue. Ambos mencionan requisitos antes, pero sus fronteras siguen subordinando la utilidad y el usuario a una capacidad técnica ya construida.
-- La frontera de ingeniería por tamaño de datos, presente en Claude y especialmente Gemini, omite que un flujo pequeño puede necesitar contratos, trazabilidad y controles. En sentido inverso, tener gran volumen no exige siempre la misma arquitectura.
-- Separar limpieza de ingeniería y preparación para modelación de forma rígida omite que imputación, codificación y selección pueden aprender parámetros a partir de datos. Deben respetar las particiones de validación; no se “terminan” universalmente antes del análisis.
-
-## Vacíos o asuntos insuficientemente garantizados
-
-Los tres diseños mencionan casi todas las grandes familias; los vacíos principales son de responsabilidad o profundidad, no de ausencia de palabras. Hace falta garantizar: consecuencias de medición y selección, cambios de significado en los datos, diferencia entre calidad técnica y validez inferencial, costo del error antes de prescribir, accesibilidad y posibilidad de revisión humana, y criterios para no automatizar o retirar. La síntesis les asigna lugares explícitos. También distingue pruebas de software, evaluación predictiva, experimentos causales y pruebas de usabilidad: todos contrastan algo, pero no autorizan la misma conclusión.
-
-Claude corre el riesgo de tratar problemas éticos de diseño solo de forma retrospectiva en el curso 12, aunque declara ética transversal. Gemini explicita seguridad y privacidad técnica, pero ello no sustituye legitimidad del propósito, responsabilidades o autonomía de las personas. ChatGPT reconoce estos límites con mayor claridad, aunque su integración final necesita dejar de parecer el lugar donde se domina cualquier técnica.
-
-## Errores de atribución o afirmaciones más fuertes que la evidencia
-
-- Gemini cita los dos documentos Berkeley con extensión `.txt`; los archivos del corpus son `berkeley-data-c101-data-engineering.pdf` y `berkeley-data-c102-data-inference-and-decisions.pdf`.
-- Gemini atribuye a USC preparación con Python/Pandas. El PDF consultado enumera otras herramientas y concentra su secuencia en bases de datos, consultas y visualización; esa atribución no está respaldada por el documento.
-- La cifra de Gemini sobre “más del 70%” del esfuerzo en ingeniería no se sustenta en los documentos Berkeley C101 y MIT Data Engineering que invoca para ella. Tampoco los folletos citados establecen de forma comparativa e incontestable la principal causa de fracaso de todos los proyectos analíticos.
-- Berkeley C102 no prueba que combinar inferencia y aprendizaje produzca desplazamiento de la primera. De hecho, los combina con prerrequisitos avanzados. Tampoco la distinción Berkeley C101/C102 prueba por sí sola una separación estadística/aprendizaje: el primero trata ingeniería y ambos mencionan modelación.
-- Claude atribuye un énfasis ético ausente al nivel CAP-Essentials. Aunque las subtareas de ambos niveles difieren, `informs-cap-essentials-blueprint.pdf`, pp. 22 y 25, incluye riesgo ético y consecuencias no previstas. No cabe usar esa diferencia como ausencia general de responsabilidad en el nivel inicial.
-- Gemini presenta degradación inmediata tras todo despliegue y reentrenamiento periódico como reglas generales. Los documentos INFORMS respaldan seguimiento y recalibración según necesidad, no esa inevitabilidad. Tampoco toda solución analítica requiere un modelo entrenable o servicio desatendido.
-
-Estas observaciones corrigen la síntesis; los tres archivos originales permanecen intactos. Ninguna invalida por completo una propuesta ni convierte automáticamente otra en canónica.
-
-# 5. Principios de la arquitectura canónica
-
-1. **Organizar por responsabilidades y validez.** Formular, gestionar datos, inferir, aprender, atribuir efectos, decidir, diseñar y operar son funciones conectadas con criterios distintos.
-2. **Garantizar la computación básica.** Se incorpora un curso habilitante con posibilidad de reconocimiento de formación equivalente; no se oculta programación dentro de ingeniería o de exploración.
-3. **Escalonar requisitos.** La entrada requiere alfabetización cuantitativa; la matemática formal se exige cuando empieza a utilizarse. Una dependencia debe justificar qué capacidad anterior consume.
-4. **Mantener varias ramas analíticas.** Decidir no es una fase que siempre empiece después de aprendizaje automático. Aprendizaje, causalidad y decisiones convergen para integrar soluciones, pero no se subordinan enteramente unas a otras.
-5. **Aprender con datos imperfectos desde el principio.** El paso a ingeniería aumenta sistematicidad y responsabilidad, no inaugura el contacto con la calidad de datos.
-6. **Diseñar antes de operar, con retornos.** Usuarios, objetivos, aceptación, protección y responsabilidades condicionan el despliegue; la operación puede exigir reformulación.
-7. **Integrar sin exigir todas las técnicas en cada producto.** La formación común cubre distintas capacidades; una solución particular utiliza las pertinentes, incluso si es descriptiva o basada en reglas.
-8. **Dar responsables a lo transversal.** Ética, comunicación y reproducibilidad tienen anclajes y profundidad creciente. Ningún curso puede transferir al siguiente una obligación esencial para la validez de su propio trabajo.
-9. **Acotar el núcleo y conservar especialización posterior.** Un catálogo de técnicas o plataformas no equivale a una competencia. El programa no promete pericia simultánea en todas las disciplinas de origen.
-10. **Distinguir evidencia de decisión de diseño.** El corpus sustenta capacidades y límites; la combinación canónica es un juicio argumentado, no una estructura demostrada óptima ni un promedio de propuestas.
-
-# 6. Arquitectura curricular canónica propuesta
-
-Se establecen **nueve cursos**. La cantidad resulta de incorporar una base computacional explícita, conservar las fronteras entre inferencia y causalidad y entre diseño y operación, y evitar cursos adicionales de especialización o integración redundante. No es una media entre siete, ocho y trece.
-
-Los códigos C1–C9 son canónicos. Numeran un recorrido de lectura, no una cadena obligatoriamente lineal. La arquitectura forma para producir y juzgar soluciones analíticas acotadas y colaborar con especialistas; no define una titulación completa, una duración ni una certificación de competencia profesional avanzada.
-
-**Entrada y matemática habilitante.** C1 y C2 requieren alfabetización digital y razonamiento cuantitativo con álgebra elemental. C2 no exige programación previa. Antes de C4 se necesitan funciones, sumatorias y derivación elemental; antes de C5, además, vectores, matrices y operaciones de álgebra lineal; C7 utiliza funciones, restricciones y representación algebraica de sistemas. Esas bases deben garantizarse mediante formación previa o nivelación, cuya forma institucional no se fija. La probabilidad se enseña en C4. No se exige infraestructura en nube como condición de entrada.
-
-## C1. Problemas, datos y comunicación de evidencia
-
-- **Posición:** entrada analítica; puede avanzar en paralelo con C2.
-- **Propósito central:** transformar una necesidad en preguntas bien formuladas y producir una lectura descriptiva fiel de los datos y sus límites.
-- **Competencias principales:** actores, alternativas y criterios de éxito; unidad, población, variables y medición; procedencia, calidad y sesgos iniciales; exploración y resumen de distribuciones y relaciones; representación visual accesible; comunicación de evidencia y límites; distinción conceptual entre descripción, inferencia, predicción, causalidad y decisión; legitimidad del propósito.
-- **Prerrequisitos:** base de entrada; no exige completar C2 ni dominar programación.
-- **Qué recibe:** razonamiento cuantitativo básico y capacidad de comprender problemas contextualizados.
-- **Qué prepara:** necesidades y significado de los datos para C3; preguntas sobre incertidumbre y diseño para C4; marco de utilidad que reaparece en C7 y C8.
-- **Frontera de alcance:** desarrolla exploración y comunicación iniciales; no enseña toda la computación ni formaliza inferencia o convierte asociaciones en efectos.
-
-## C2. Computación reproducible para el análisis de datos
-
-- **Posición:** entrada computacional; paralela a C1, reconocible mediante formación equivalente.
-- **Propósito central:** construir una base de programación y trabajo reproducible que permita expresar, verificar y mantener transformaciones analíticas.
-- **Competencias principales:** pensamiento algorítmico, programación, funciones y estructuras básicas; lectura y transformación de datos tabulares y semiestructurados; consulta elemental; modularidad, documentación, versiones y pruebas básicas; manejo de errores y nociones de costo computacional y precisión numérica; organización del trabajo colaborativo.
-- **Prerrequisitos:** base de entrada; C1 es complementario, no prerrequisito formal.
-- **Qué recibe:** alfabetización digital y razonamiento lógico elemental; puede utilizar el contexto analítico que aporta C1.
-- **Qué prepara:** capacidad de construir flujos en C3 y realizar cálculos, simulación y análisis reproducibles en C4–C7.
-- **Frontera de alcance:** desarrolla capacidad computacional inicial aplicada a datos; no sustituye ingeniería de datos, teoría de algoritmos completa ni desarrollo general de aplicaciones.
-
-## C3. Ingeniería y gobernanza de datos analíticos
-
-- **Posición:** rama de datos, después de C1 y C2; paralelizable con C4.
-- **Propósito central:** construir recursos y flujos de datos cuyo significado, calidad, acceso y actualización puedan sostenerse y verificarse.
-- **Competencias principales:** modelado de datos, claves y relaciones; consultas e integración; adquisición y transformación repetible; procedencia, linaje, cambios de esquema y de significado; pruebas de datos; responsabilidades, conservación, privacidad y acceso; elección razonada de almacenamiento y procesamiento; compromisos entre escala, costo y confiabilidad.
-- **Prerrequisitos:** C1 y C2.
-- **Qué recibe:** preguntas y criterios de calidad contextual de C1; programación, transformaciones y documentación de C2.
-- **Qué prepara:** datos trazables para C5; componentes y contratos para C8; procesos mantenibles y controles para C9.
-- **Frontera de alcance:** flujos por lotes y por eventos se entienden por necesidades y propiedades. Dominar una colección de plataformas distribuidas no es condición para completar el curso. La integridad técnica no prueba representatividad o causalidad.
-
-## C4. Razonamiento estadístico y diseño de estudios
-
-- **Posición:** rama formal de evidencia, después de C1 y C2; paralela a C3.
-- **Propósito central:** justificar afirmaciones sobre poblaciones y procesos mediante diseño, estimación y tratamiento explícito de la incertidumbre.
-- **Competencias principales:** probabilidad y condicionamiento; variabilidad y muestreo; estimación, intervalos, contraste y magnitud de efectos; razonamiento frecuentista y bayesiano básico; simulación y remuestreo; multiplicidad; regresión estadística y supuestos; errores de medición, selección y ausencia; introducción a aleatorización, confusión y límites causales.
-- **Prerrequisitos:** C1, C2 y matemática habilitante correspondiente. C3 no es requisito.
-- **Qué recibe:** medición, exploración y preguntas contextualizadas, junto con capacidad computacional reproducible.
-- **Qué prepara:** fundamentos para C5, C6 y C7; lenguaje común para comunicar incertidumbre.
-- **Frontera de alcance:** no acumula inferencia computacional avanzada, privacidad formal y todo el repertorio causal. La introducción causal es sustantiva, pero su desarrollo sistemático pertenece a C6.
-
-## C5. Representación, aprendizaje y validación de modelos
-
-- **Posición:** rama de aprendizaje tras C3 y C4; puede coincidir con C6 y C7.
-- **Propósito central:** aprender estructuras y construir predicciones evaluadas de acuerdo con su generalización y uso previsto.
-- **Competencias principales:** representación y preparación para modelación; agrupamiento y reducción de dimensión; regresión y clasificación predictivas; referencias simples, complejidad y regularización; selección y evaluación separadas; dependencia temporal o entre grupos y fuga de información; calibración, costo del error, estabilidad, interpretación y equidad; condiciones de uso de modelos.
-- **Prerrequisitos:** C3, C4 y álgebra lineal habilitante. C6 no es requisito.
-- **Qué recibe:** datos y transformaciones controlados; probabilidad, regresión, incertidumbre y criterios de diseño de estudios.
-- **Qué prepara:** modelos y representaciones con límites conocidos para C8 y C9; insumos predictivos que pueden utilizarse con criterios decisorios de C7.
-- **Frontera de alcance:** protege el desarrollo del aprendizaje no supervisado sin presentarlo como predicción por definición. Aprendizaje profundo especializado, series y otros dominios avanzados no constituyen un segundo núcleo obligatorio.
-
-## C6. Causalidad y evaluación de intervenciones
-
-- **Posición:** rama causal después de C4; paralelizable con C5 y C7.
-- **Propósito central:** determinar qué puede atribuirse a una intervención y bajo qué supuestos puede transferirse esa conclusión.
-- **Competencias principales:** pregunta causal, población y efecto de interés; identificación frente a estimación; estructuras causales y contrafactuales; aleatorización y amenazas al experimento; confusión, selección y variables posteriores a la intervención; lógica y límites de estrategias observacionales y cuasiexperimentales; sensibilidad, heterogeneidad y validez externa; responsabilidad en intervenir.
-- **Prerrequisitos:** C4. Ni C5 ni ingeniería distribuida son requisitos.
-- **Qué recibe:** diseño de estudios, regresión, estimación e incertidumbre, con capacidad de reconocer asociaciones no causales.
-- **Qué prepara:** efectos defendibles y límites de intervención para C8; evaluación de cambios e impacto en C9; lectura crítica de evidencia que alimenta decisiones.
-- **Frontera de alcance:** no enseña todos los estimadores especializados. El objetivo es elegir y juzgar estrategias de identificación, incluyendo reconocer que los datos no permiten resolver la pregunta.
-
-## C7. Modelación de decisiones bajo incertidumbre
-
-- **Posición:** rama decisoria después de C4; paralelizable con C5 y C6.
-- **Propósito central:** comparar acciones mediante objetivos, restricciones, evidencia y preferencias explícitas, sin confundir una solución del modelo con una decisión incuestionable.
-- **Competencias principales:** decisiones, parámetros y estados inciertos; alternativas y objetivos múltiples; valor, riesgo y preferencias; formulación y análisis de optimización básica continua y discreta; simulación de escenarios y Monte Carlo; sensibilidad, factibilidad y robustez; valor de información; supuestos mecanísticos y causales; consecuencias distributivas y sesgos de juicio.
-- **Prerrequisitos:** C4 y matemática habilitante correspondiente. C5 y C6 son complementarios, no requisitos formales.
-- **Qué recibe:** probabilidad, incertidumbre, capacidad computacional y distinción inicial entre asociación e intervención. Puede trabajar con evidencia cuya procedencia y supuestos estén explicitados sin enseñar su estimación avanzada.
-- **Qué prepara:** criterios de elección, políticas o recomendaciones para C8 y criterios de revisión del valor y riesgo para C9.
-- **Frontera de alcance:** no habilita a estimar efectos causales sin C6 ni a validar predictores sin C5. Esas capacidades convergen obligatoriamente en C8. Control, aprendizaje por refuerzo y optimización especializada son extensiones.
-
-## C8. Diseño e integración de soluciones y productos analíticos
-
-- **Posición:** convergencia posterior a C5, C6 y C7, con la ingeniería de C3 incorporada transitivamente.
-- **Propósito central:** integrar evidencia y métodos en una solución útil, viable, accesible y responsable, con condiciones de operación definidas antes del despliegue.
-- **Competencias principales:** usuarios, decisiones y propuesta de valor; selección de la forma de solución; integración de datos, modelos, reglas y recomendaciones; interfaces y participación humana; prototipos para contrastar supuestos; aceptación analítica, técnica y organizacional; arquitectura y contratos; costos y restricciones operativas; adopción, incentivos y evaluación de impacto; consolidación de privacidad, seguridad, gobernanza y responsabilidades.
-- **Prerrequisitos:** C5, C6 y C7. Esto incluye C1–C4 mediante sus dependencias.
-- **Qué recibe:** datos gobernados; modelos evaluados; razonamiento causal; criterios de decisión; comunicación y software reproducible.
-- **Qué prepara:** solución integrada y condiciones verificables de uso, entrega y seguimiento para C9.
-- **Frontera de alcance:** un producto puede ser un servicio de datos, una interfaz, un informe recurrente o apoyo a decisiones sin IA. La formación integra todas las ramas, pero cada solución utiliza únicamente las necesarias. No se exige producción previa ni dominio de mercados de plataforma.
-
-## C9. Despliegue, operación y evolución analítica
-
-- **Posición:** cierre de integración operativa tras C8.
-- **Propósito central:** mantener y revisar las condiciones de validez, utilidad y responsabilidad de una solución cuando cambian datos, componentes o contexto.
-- **Competencias principales:** pruebas analíticas y de sistema; entrega y ambientes reproducibles; validación de datos y componentes en operación; seguimiento de calidad, servicio, desempeño, uso e impacto; diagnóstico de fallas y cambios; recuperación, reversión, actualización y retiro; documentación, capacitación y responsabilidades; revisión de efectos no previstos, seguridad, privacidad y equidad; reevaluación del caso de uso.
-- **Prerrequisitos:** C8.
-- **Qué recibe:** una solución integrada con finalidad, supuestos, requisitos, límites y responsabilidades definidos.
-- **Qué prepara:** participación competente en equipos que sostienen soluciones analíticas, y acceso a especializaciones. No exige un curso integrador adicional para cerrar la cadena.
-- **Frontera de alcance:** operación no equivale necesariamente a nube, microservicios, baja latencia o reentrenamiento continuo. Su dominio común consiste en justificar y sostener la modalidad apropiada de funcionamiento, incluyendo procesos periódicos y revisión humana.
-
-# 7. Fronteras canónicas entre cursos
-
-La adyacencia siguiente corresponde a la numeración de referencia. Las filas entre ramas paralelas comparan responsabilidades; no crean prerrequisitos adicionales.
-
-| Par adyacente | Dónde termina uno y comienza el siguiente | Solapamiento resuelto |
-|---|---|---|
-| **C1 ↔ C2** | C1 formula e interpreta: qué pregunta tiene sentido, qué significa una variable y qué comunica un resultado. C2 expresa y verifica operaciones computacionales. | Preparar datos no es una única competencia. C1 juzga significado y consecuencias; C2 construye transformaciones correctas y reproducibles. Ninguno necesita terminar antes de empezar el otro. No se divide “hablar” frente a “hacer”: ambos requieren actuación y juicio. |
-| **C2 → C3** | C2 desarrolla programas y manipulación inicial. C3 organiza recursos y flujos con estructuras, interfaces, responsabilidades y continuidad. | La consulta elemental y las transformaciones nacen en C2; modelado relacional, integración entre fuentes, contratos, linaje y gobierno se desarrollan en C3. La frontera es la responsabilidad sobre datos y procesos, no un umbral de volumen. |
-| **C3 ↔ C4** | C3 garantiza controles sobre procedencia, estructura y transformación. C4 examina las afirmaciones que permite el proceso de observación o experimentación. | C3 detecta y documenta ausencia, duplicación o cambios; C4 analiza sus mecanismos e implicaciones inferenciales. Un registro técnicamente válido puede ser una medición sesgada. Ingeniería no certifica representatividad; estadística no sustituye controles de integración. |
-| **C4 → C5** | C4 desarrolla variabilidad, estimación, diseño y supuestos. C5 centra el aprendizaje en representación y generalización. | La regresión estadística y el remuestreo no se repiten sin propósito: C5 cambia la pregunta hacia desempeño y selección. Imputación, codificación y selección que aprenden de los datos deben respetar las particiones; no se consideran una limpieza ya resuelta definitivamente en C3. |
-| **C5 ↔ C6** | C5 valida patrones y predicciones; C6 valida atribuciones a intervenciones. | Interpretabilidad de un predictor no identifica un efecto. Variables útiles para predecir pueden ser inadecuadas para ajustar causalmente. La comparación ocurre entre ramas paralelas: aprender agrupamiento no exige causalidad avanzada y aprender causalidad no exige un catálogo de algoritmos predictivos. |
-| **C6 ↔ C7** | C6 identifica y estima efectos de intervenciones. C7 añade preferencias, alternativas, restricciones y riesgo para elegir. | Una magnitud causal no determina por sí sola la acción. C7 puede consumir evidencia ya justificada, sin enseñar a identificarla; C6 no define los objetivos de todas las decisiones. Simulación propaga supuestos, no demuestra su verdad causal. La dependencia obligatoria entre ambas se reserva para su integración en C8. |
-| **C7 → C8** | C7 desarrolla la lógica de comparación de acciones. C8 la articula, cuando procede, con datos, métodos, usuarios y procesos. | Costo del error y valor aparecen antes del producto: C5 los usa para evaluar modelos y C7 para comparar acciones. C8 resuelve cómo se ofrece o incorpora una recomendación, quién puede revisarla y cómo se verifica utilidad. No todo producto necesita optimización. |
-| **C8 → C9** | C8 define e integra una solución con requisitos y responsabilidades. C9 verifica y mantiene esas condiciones, y revisa el diseño si dejan de cumplirse. | Pruebas, seguridad, seguimiento y costos empiezan como requisitos y decisiones en C8; se desarrollan como capacidad operativa en C9. No se despliega primero para decidir después quién usará el resultado. Tampoco se posterga toda validación a la operación. |
-
-Tres conexiones no adyacentes completan esas fronteras:
-
-- **C4 → C6:** C4 introduce aleatorización, confusión e incertidumbre; C6 desarrolla identificación observacional, amenazas a la atribución y transferencia. El diseño experimental tiene una base y una profundización, no dos introducciones completas.
-- **C4 → C7:** probabilidad y estadística habilitan decisiones bajo incertidumbre. C7 distingue supuestos, evidencia externa y conocimiento de dominio; la estimación propia de predicciones o efectos se integra una vez completados C5 y C6.
-- **C3 → C8 → C9:** estructuras, controles y contratos de datos se incorporan al producto y se mantienen en operación. No se vuelve a enseñar ingeniería desde cero dentro de “MLOps”.
-
-# 8. Competencias transversales
-
-La responsabilidad transversal se asigna por función y profundidad. **Reconocer** una cuestión no equivale a **resolverla técnicamente**, y resolver un componente no equivale a **gobernar el sistema completo**.
-
-| Competencia | Inicio | Desarrollo | Integración y responsables principales |
-|---|---|---|---|
-| Formulación y contexto de dominio | C1 identifica actores, problema, medición y criterios de éxito. | C3–C7 reformulan según calidad, supuestos, errores, acciones y restricciones. | C8–C9 revisan necesidad, uso y vigencia. C1 y C8 son anclajes; ningún curso puede tratar el problema como una especificación inmutable. |
-| Comunicación, visualización y accesibilidad | C1 desarrolla representación fiel y adaptación a audiencias. | C4–C7 comunican incertidumbre, errores, efectos y compromisos. C3 documenta significado y arquitectura. | C8 integra interacción y accesibilidad; C9 informa estado, riesgos y cambios. Claridad no se sustituye por persuasión. |
-| Reproducibilidad y trazabilidad | C1 documenta significado y origen; C2 desarrolla código verificable y versiones. | C3 controla transformaciones; C4–C7 registran supuestos, selección, estimación y decisiones. | C8–C9 integran versiones de datos, componentes y condiciones de ejecución. Reproducibilidad no certifica validez causal o utilidad. |
-| Incertidumbre y límites | C1 reconoce variabilidad y límites descriptivos. | C4 formaliza; C5 trata generalización; C6 identificación y transferencia; C7 riesgo y robustez. | C8 comunica límites de uso; C9 revisa cambios y consecuencias. La incertidumbre de los supuestos no se reduce a un intervalo numérico. |
-| Experimentación y validación | C1 distingue exploración y afirmación confirmatoria; C2 inicia pruebas de código. | C4–C6 desarrollan diseño y validez de conclusiones; C5 valida fuera de muestra; C7 valida modelos y sensibilidad. | C8 contrasta utilidad y usabilidad; C9 verifica funcionamiento e impacto. Se mantienen separados los criterios de prueba de software, validación predictiva y atribución causal. |
-| Ética, equidad y responsabilidad sobre IA | C1 examina finalidad, personas afectadas y límites de uso; C2 incorpora deber de cuidado. | C3 desarrolla legitimidad y protección de datos; C4–C6 representación y sesgos; C7 consecuencias distributivas. | C8 consolida responsabilidades, intervención humana y justificación antes del despliegue. C9 revisa efectos y continuidad. Se aplica también sin IA. |
-| Gobernanza y privacidad | C1 reconoce propósito y sensibilidad; C2 maneja acceso y documentación básicos. | C3 desarrolla roles, conservación, procedencia, permisos y controles; C4–C6 examinan riesgos de inferencia y divulgación. | C8 define obligaciones e interfaces; C9 mantiene controles ante cambios. C3, C8 y C9 tienen responsabilidad explícita; no se delega todo a asesoría posterior. |
-| Seguridad | C2 inicia prácticas de código y acceso; C3 desarrolla protección de datos y componentes. | C5 reconoce exposición y límites de modelos; C8 evalúa riesgos de integración y uso. | C9 verifica controles, dependencias y recuperación. Protección técnica, privacidad y legitimidad del propósito son preguntas relacionadas, no equivalentes. |
-| Software y colaboración | C2 desarrolla modularidad, pruebas y trabajo compartido. | C3 integra datos; C4–C7 construyen componentes analíticos verificables. | C8 define interfaces y responsabilidades; C9 gestiona cambios y fallas. Colaborar incluye reconocer cuándo se requiere un especialista. |
-| Adopción y decisión organizacional | C1 identifica autoridad, intereses y criterios de valor. | C7 incorpora preferencias, restricciones, riesgo e incentivos. | C8 diseña adopción y revisión humana; C9 revisa uso efectivo y valor. No se promete liderazgo ejecutivo por completar la cadena. |
-
-La consolidación ética de C8 es obligatoria y anterior al despliegue; la de C9 considera lo aprendido en operación. Esto conserva el mérito de la consolidación propuesta por Claude sin su posición retrospectiva exclusiva, y convierte la transversalidad de ChatGPT y Gemini en responsabilidades localizables.
-
-# 9. Mapa curricular integrado
-
-**I = Introducido; D = Desarrollado; M = Dominado/integrado al alcance del núcleo; — = No es foco.** La celda indica el nivel de salida esperado en ese curso. D y M incluyen los niveles iniciales necesarios: un curso responsable puede introducir y desarrollar una competencia sin que la matriz deba mostrar primero una I en otra asignatura. M significa juicio y actuación integrados en problemas acotados, no dominio de una especialización profesional completa.
-
-La progresión se lee siguiendo los prerrequisitos y las ramas, no suponiendo que C1–C9 sean nueve pasos estrictamente consecutivos. Una M posterior solo se marca cuando existe nueva integración sustantiva; el mero uso de un método ya aprendido no exige repetirla. La base matemática externa queda identificada en la sección 6 y no se hace pasar por contenido impartido en C1.
-
-| Competencia o tema | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Formulación, actores y criterios de éxito | D | — | D | D | D | D | D | M | M |
-| Medición, unidades, población y contexto | D | I | D | M | D | M | D | D | D |
-| Exploración y descripción | D | D | D | M | D | — | — | M | — |
-| Visualización y comunicación de evidencia | D | I | D | D | D | D | D | M | D |
-| Programación, estructuras y pensamiento algorítmico | — | D | D | D | D | D | D | M | — |
-| Modularidad, documentación y versiones | I | D | D | D | D | D | D | M | M |
-| Modelado de datos, consulta e integración | I | D | M | — | D | — | — | D | D |
-| Adquisición, transformaciones y flujos | I | D | M | — | D | — | — | D | M |
-| Calidad, semántica, procedencia y linaje | I | D | M | D | D | D | D | M | M |
-| Escala, costo y decisiones de arquitectura | — | I | D | — | D | — | D | M | M |
-| Probabilidad y variabilidad | I | — | — | D | D | D | M | — | — |
-| Muestreo, estimación, contraste y multiplicidad | — | — | — | D | D | M | D | — | D |
-| Regresión estadística y supuestos | — | — | — | D | D | M | — | — | — |
-| Diseño experimental y aleatorización | I | — | — | D | — | M | — | D | D |
-| Representación, agrupamiento y reducción de dimensión | — | — | — | — | M | — | — | D | — |
-| Predicción, complejidad y regularización | I | — | — | I | M | — | — | D | D |
-| Particiones, generalización y fuga de información | — | — | I | D | M | — | — | D | D |
-| Calibración, interpretación y costo del error | — | — | — | I | D | — | D | M | D |
-| Identificación causal, confusión y transferencia | I | — | — | D | — | M | D | M | D |
-| Evaluación de efectos de intervenciones | — | — | — | I | — | M | — | D | D |
-| Simulación de variabilidad y remuestreo | — | — | — | D | D | D | M | — | — |
-| Simulación de sistemas, escenarios y sensibilidad | — | — | — | I | — | — | M | D | D |
-| Alternativas, objetivos, preferencias y restricciones | I | — | — | — | — | — | M | M | D |
-| Optimización para formular y comparar decisiones | — | — | — | — | — | — | M | D | D |
-| Riesgo, robustez y valor de información | I | — | — | I | — | — | M | D | D |
-| Usuarios, utilidad y aceptación de la solución | I | — | — | — | — | — | D | M | D |
-| Prototipos, accesibilidad e intervención humana | I | — | — | — | — | — | I | M | D |
-| Integración de datos, modelos, reglas e interfaces | — | I | D | — | — | — | — | M | M |
-| Pruebas de componentes y del sistema | — | D | D | — | — | — | — | D | M |
-| Entrega, despliegue y recuperación | — | I | I | — | — | — | — | D | M |
-| Seguimiento, actualización y retiro | I | — | I | — | I | — | I | D | M |
-| Adopción, responsabilidades e impacto organizacional | I | — | — | — | — | D | D | M | M |
-| Reproducibilidad del razonamiento analítico | I | D | D | D | D | D | D | M | M |
-| Ética, equidad y responsabilidad sobre IA | I | I | D | D | D | D | D | M | M |
-| Privacidad, acceso, conservación y gobernanza | I | I | D | D | D | D | — | M | M |
-| Seguridad de datos y componentes | — | I | D | — | I | — | — | D | M |
-| Colaboración y reconocimiento de límites profesionales | I | D | D | D | D | D | D | M | M |
-
-La M de optimización o simulación en C7 se limita a formular, usar y juzgar modelos básicos según sus supuestos; no incluye toda la teoría especializada. C9 no asume responsabilidad por enseñar de nuevo esos métodos. Las D causales de C7 se refieren a valorar supuestos y suficiencia de la evidencia para decidir, no a duplicar los métodos de identificación de C6. C8 integra el uso pertinente de las ramas, sin exigir que un producto particular contenga todas las técnicas de la matriz.
-
-# 10. Temas fuera del núcleo
-
-| Clasificación | Temas | Límite y razón |
-|---|---|---|
-| **Formación habilitante externa, no electiva** | Matemáticas básicas, álgebra lineal y cálculo elemental requerido por las ramas formales. | Deben garantizarse en los puntos de entrada declarados. Su modalidad institucional no se resuelve sumando contenido oculto a C1. La programación aplicada sí queda garantizada por C2. |
-| **Electivas de métodos** | Series temporales en profundidad, redes, texto, visión, sistemas de recomendación y aprendizaje profundo especializado. | El núcleo aprende representación, generalización y selección de métodos; las estructuras y aplicaciones especializadas requieren profundidad adicional. Reconocer dependencia temporal sigue siendo obligatorio. |
-| **Electivas de decisión** | Optimización estocástica o robusta avanzada, control, bandidos, aprendizaje por refuerzo, simulación de eventos discretos en profundidad y teoría de colas. | C7 conserva incertidumbre, robustez como criterio, simulación y formulación básica. Que Berkeley C102 mencione decisiones secuenciales no las convierte en requisito de toda la cadena. |
-| **Extensiones inferenciales avanzadas** | Teoría asintótica profunda, modelos jerárquicos complejos, métodos computacionales bayesianos especializados, inferencia causal avanzada y privacidad diferencial formal. | C4 y C6 preservan incertidumbre, diseño, identificación y límites. No acumulan todos los temas de un catálogo avanzado antes de permitir otras ramas. |
-| **Electivas de sistemas** | Procesamiento distribuido especializado, arquitecturas de eventos complejas, plataformas de datos a gran escala y operación avanzada de nube. | C3 y C9 conservan decisiones de escala, confiabilidad, costo y control. Una especialización puede ampliar esas capacidades sin convertirlas en puerta de entrada para toda inferencia. |
-| **Ejemplos de implementación** | Proveedores de nube, herramientas de orquestación, registros de modelos, motores de consulta y bibliotecas. | Pueden concretar conceptos; ninguna marca define un curso ni una competencia de egreso durable. SQL se conserva ligado a consulta y modelo de datos, no como identidad completa del currículo. |
-| **Ejemplos o electivas de producto** | Plataformas de dos lados, efectos de red, monetización de datos y ecosistemas de socios. | Son formas particulares de producto. El núcleo exige usuarios, valor, interfaces, adopción y responsabilidad incluso cuando no hay mercado de plataforma. |
-| **Extensiones de dominio** | Profundización sectorial científica, pública, industrial o empresarial. | El contexto de dominio es obligatorio como forma de razonamiento; ningún sector particular puede fijarse con el encargo disponible. La profundidad sectorial corresponde a la trayectoria institucional. |
-| **Excluidos como formación nuclear** | Administración de sistemas y redes, ingeniería de compiladores, desarrollo web general completo, ciberseguridad especializada y asesoría jurídica profesional. | Se conserva la capacidad de colaborar y reconocer riesgos y límites, no la pretensión de sustituir esas profesiones. |
-| **Excluidos por transferencia limitada** | Fabricación, manufactura y simulación física avanzada mediante ecuaciones diferenciales. | Los PDF respectivos aportan razonamiento sobre modelos, prototipos y validación, pero sus técnicas especializadas no definen Analytics general. |
-| **Excluidos como promesa de perfil** | Dirección ejecutiva, transformación corporativa integral o puestos de liderazgo técnico sénior garantizados. | Adopción y coordinación son capacidades comunes; la experiencia y responsabilidad de esos roles no se deducen de completar cursos. |
-
-No se añaden cursos separados de minería de datos, tableros o marcas comerciales para volver a impartir competencias ya ubicadas por finalidad. Tampoco se incorpora un capstone adicional como requisito universal: la integración es obligatoria en C8–C9 y no depende de adoptar un formato particular de proyecto o evaluación.
-
-# 11. Decisiones de síntesis
-
-La tabla resume decisiones descriptivas. Las referencias se desarrollan en la sección 3; los nombres de archivo son exactos y pertenecen al corpus primario.
-
-| Cuestión de diseño | ChatGPT | Claude | Gemini | Decisión canónica | Evidencia principal |
+**Resolución 6 — Orden Productos vs. DataOps.**
+Evidencia directa y decisiva: el propio ciclo de vida analítico que `dataops-05-agile.pdf` y `dataops-06-definition.pdf` documentan explícitamente —Ideación → Incepción → Investigación y Desarrollo → **Transición/Producción** → Retiro— sitúa la definición del producto (hipótesis de épica, MVP, alcance) en las fases **tempranas** (Ideación/Incepción), y sitúa la industrialización DataOps completa (pruebas automatizadas de producción, CI/CD, ambientes múltiples) en la fase **posterior** (Transición/Producción). Este es el propio marco temporal que el corpus DataOps define para sí mismo, y coloca al diseño de producto **antes** de la industrialización operativa completa. **Decisión canónica:** Productos antes de DataOps, coincidiendo con ChatGPT y Gemini y corrigiendo el orden inverso de Claude.
+
+**Resolución 7 — Gobernanza/Ética como curso dedicado.**
+Evidencia: ningún documento primario del corpus propone un curso autónomo de ética/gobernanza. `national-academies-data-science-for-undergraduates-2018.pdf` recomienda explícitamente que la ética esté "tejida desde el principio y a lo largo de todo el currículo" (Finding/Recomendación 2.4), lo cual es una recomendación **contra** el aislamiento en un curso separado, no a favor. `dataops-03-methodologies.pdf` diagrama "Gobernanza y Ética" como una dimensión **transversal** que atraviesa las seis etapas de un proyecto analítico, no como una séptima etapa independiente. `acm-computing-competencies-undergraduate-data-science-2021.pdf` la incorpora dentro de la Knowledge Area de "Profesionalismo", integrada con otras competencias, no aislada. Esta es una convergencia de evidencia (dos de los documentos más autorizados del corpus en este tema específico) contra la práctica de aislar la ética, y coincide con la decisión independiente de dos de los tres diseñadores (ChatGPT y Gemini). **Decisión canónica:** no se crea un curso dedicado de gobernanza/ética; se mantiene exclusivamente transversal, con un punto de consolidación explícito (no un curso nuevo) en el curso final de DataOps, corrigiendo la decisión de Claude.
+
+**Resolución 8 — Programación como curso propio.**
+Evidencia: `acm-computing-competencies-undergraduate-data-science-2021.pdf` mantiene "Programming, Data Structures, and Algorithms" como una Knowledge Area explícitamente distinta de "Data Acquisition, Management, and Governance" — es decir, el propio marco más autorizado del corpus en currículo de pregrado las trata como competencias separables. El certificado de ingeniería de datos de MIT también secuencia explícitamente "Python fundamentals + NumPy/Pandas/Matplotlib" como sus primeros tres módulos, **antes** de entrar a bases de datos relacionales. **Decisión canónica:** se mantiene un curso propio de programación y fundamentos computacionales, corrigiendo la fusión de Gemini y confirmando a ChatGPT/Claude.
+
+**Resolución 9 — Capstone separado.**
+Evidencia: ninguno de los documentos de marco profesional (INFORMS, ACM) exige un curso administrativamente distinto para la integración final; el propio marco INFORMS presenta sus siete dominios como un **ciclo recurrente**, no como una secuencia que culmina en un curso extra. Dos de los tres diseñadores llegaron independientemente a la misma conclusión de que el último curso técnico (DataOps/Operacionalización) puede y debe funcionar como el espacio de integración final. **Decisión canónica:** no se crea un curso 10 de "Capstone"; el curso final de DataOps se diseña explícitamente como práctica integradora con patrocinador real (heredando el espíritu del Capstone de Claude, pero sin agregar un curso adicional), corrigiendo la fragmentación de Claude en este punto.
+
+# 5. Aportes únicos valiosos de cada propuesta
+
+**De ChatGPT:** la exclusión explícita y razonada de aprendizaje profundo/series de tiempo/recomendadores/redes/RL/optimización a gran escala como electivos ("no son obligatorios para toda la cadena") es la formulación más clara y defendible de los tres documentos sobre este punto, y se adopta directamente en la Resolución 5. También es valioso su principio articulador de que "cada curso debe demostrar un objeto distinto" (una formulación, un proceso reproducible, un flujo de datos apto, una conclusión bajo incertidumbre, una generalización predictiva, una atribución causal, una recomendación, una solución usable, una operación sostenible) — un criterio de diseño más explícito y verificable que el de las otras dos propuestas, que se adopta como principio rector en la Sección 7.
+
+**De Claude:** el reconocimiento explícito de que "gobernanza" significa **tres cosas distintas según el nivel** —institucional/de decisión, operativo/de calidad, y ético/de responsabilidad— es un hallazgo analítico genuino que ni ChatGPT ni Gemini articulan con esa precisión, y se conserva en la síntesis como estructura conceptual (Sección 10), aunque no como tres cursos separados. También es valiosa la evidencia recopilada sobre `dataops-08-data-scientids.pdf` como "documento bisagra" entre ingeniería de datos y DataOps (mitad arquitectura, mitad deuda técnica/Design Thinking) — una observación fina sobre la estructura del propio corpus que ninguna otra propuesta hace explícita, y que se preserva en la Sección 9.
+
+**De Gemini:** la articulación de la dualidad **Tubería de Valor vs. Tubería de Innovación** como el eje organizador de la frontera entre "hacer analítica" y "operar analítica" es la lectura más precisa y mejor anclada documentalmente (`dataops-04`, `dataops-06`) de las tres sobre esta distinción, y se adopta explícitamente como marco conceptual en la Sección 9. También es valiosa la insistencia explícita en no fragmentar predicción/causalidad en cursos separados, que —aunque matizada en la Resolución 4— resultó ser la posición mejor respaldada por evidencia directa de todo el ejercicio de comparación.
+
+# 6. Problemas detectados en las tres propuestas
+
+- **ChatGPT** ubica `dataops-02-data-strategy.pdf` como evidencia de un curso de ingeniería/gobierno de datos con el que no comparte contenido técnico (ver Resolución 2) — una imprecisión de mapeo evidencia→curso. Además, al no tener módulo de estrategia explícito en ningún curso, el "caso de valor" y el "portafolio de iniciativas" —competencias reales y bien evidenciadas— quedan sin hogar curricular claro en su arquitectura.
+- **Claude** fragmenta en exceso: separa en cursos distintos Estrategia/Fundamentos, Predictivo I/Causal/Predictivo II, y Productos/DataOps/Gobernanza, cuando el corpus (Resoluciones 1, 4, 6, 7) sostiene fusiones más económicas sin pérdida de rigor. También invierte el orden Productos↔DataOps respecto de la lógica de ciclo de vida que el propio corpus DataOps define, y da a los métodos avanzados (aprendizaje profundo, series de tiempo, redes) un peso de curso obligatorio que ni ACM ni la comparación entre programas profesionales y académicos sostienen para un núcleo universal.
+- **Gemini** comprime en exceso en el sentido opuesto: al fusionar estadística introductoria con causalidad y aprendizaje automático en un solo curso (C3) sin un curso previo de probabilidad/estadística autónomo, no respeta el propio prerrequisito que Berkeley exige antes de un curso equivalente (C102 requiere probabilidad ya aprobada). También fusiona la analítica descriptiva con el encuadre estratégico de apertura (C1) antes de que el estudiante haya programado, lo cual ningún documento del corpus respalda directamente (Resolución 3). Su curso 1 termina siendo el más sobrecargado de temas de naturaleza heterogénea (encuadre, estrategia, EDA, visualización, ética inicial) de las tres propuestas.
+- **Las tres** comparten una limitación: ninguna resuelve explícitamente si la "arquitectura, calidad y gobernanza operativa de datos" del curso de Ingeniería de Datos y las "pruebas automatizadas de calidad de datos" del curso de DataOps son la misma competencia enseñada dos veces o dos competencias distintas (diseño de reglas de calidad vs. automatización continua de esas reglas en producción). Esta frontera, aunque mencionada, no se traza con precisión suficiente en ninguna de las tres (se resuelve en la Sección 9 de esta síntesis).
+- **Las tres** subtratan la posibilidad de que la Estrategia de Datos (`dataops-02`) sea insuficientemente aprovechada si se comprime demasiado (Gemini) o se aísla demasiado de la ejecución técnica (Claude); ninguna ofrece una integración intermedia explícita hasta esta síntesis.
+
+# 7. Principios de la arquitectura canónica
+
+1. **Un curso se justifica por una pregunta de naturaleza irreductible, no por la existencia de un documento que la evidencie.** `dataops-02` es rico, pero "estrategia organizacional" y "formulación de problemas" responden a la misma pregunta de altitud ("¿qué debemos analizar y por qué?"), así que comparten curso.
+2. **Una distinción conceptual importante puede vivir como pivote pedagógico dentro de un curso, sin requerir un curso propio.** Predicción vs. causalidad se enseña como el giro central de un mismo curso construido sobre el mismo vehículo técnico (regresión), siguiendo el precedente directo de Berkeley C102 y MIT IDSS.
+3. **La secuencia de cursos debe reflejar el ciclo de vida documentado por el propio corpus, no una preferencia de diseño.** El orden Producto→Operación replica exactamente el ciclo Ideación→...→Transición/Producción que `dataops-05` y `dataops-06` definen.
+4. **Las competencias con evidencia amplia pero dispersa (ética, gobernanza, comunicación, reproducibilidad) son transversales por diseño, no por defecto.** Se planifican explícitamente en cada curso, con puntos de consolidación nombrados, en lugar de asumir que "aparecerán".
+5. **Lo que un marco de competencias autorizado (ACM) clasifica como Tier 2/Electivo no se promueve a núcleo obligatorio solo porque un programa profesional compacto lo cubra en extenso.** La densidad de un certificado de 12 semanas no es evidencia de necesidad curricular universal.
+6. **Cada curso debe producir un objeto de aprendizaje verificable y distinto de los demás** (principio explícito de ChatGPT, adoptado aquí): una formulación, un dato gobernado, una síntesis descriptiva, una conclusión bajo incertidumbre, una generalización predictiva/causal validada, una recomendación de decisión, un producto usable, una operación sostenible.
+7. **La arquitectura debe ser auditable por prerrequisitos, no solo por narrativa.** Cada curso declara explícitamente qué recibe y qué entrega, de modo que la cadena de dependencias sea verificable curso a curso.
+
+# 8. Arquitectura curricular canónica
+
+Nueve cursos. Los cursos 3 y 4 pueden cursarse en paralelo (ambos dependen únicamente del curso 2).
+
+### Curso 1 — Fundamentos de Analítica: Encuadre de Problemas y Estrategia de Datos
+- **Posición:** primer curso, sin prerrequisitos de analítica.
+- **Propósito central:** traducir una situación de decisión ambigua en una pregunta analítica bien formulada; instalar el mapa mental de ciclo de vida completo (encuadre de negocio → encuadre analítico → datos → método → modelo → decisión → producto → operación), incluyendo la evolución histórica de las metodologías (KDD → CRISP-DM → marcos ágiles → DataOps) y su convergencia con los siete dominios de INFORMS; diagnosticar por qué fracasan las iniciativas de analítica (mitos de adopción, brechas de conocimiento); y desarrollar la capacidad de diagnosticar capacidades organizacionales de datos, formular objetivos estratégicos, construir un caso de valor y priorizar un portafolio de iniciativas.
+- **Competencias principales:** formulación de problemas; taxonomía descriptivo/predictivo/prescriptivo; estrategia y portafolio de datos; gobierno de decisión institucional (centralizado/federado/descentralizado); introducción a la responsabilidad ética.
+- **Prerrequisitos:** ninguno (razonamiento cuantitativo básico de admisión).
+- **Qué recibe:** nada; es la puerta de entrada.
+- **Qué prepara:** el vocabulario, la historia, el marco de ciclo de vida y el criterio de valor organizacional que da sentido a todos los cursos siguientes.
+
+### Curso 2 — Programación y Fundamentos Computacionales para Analítica
+- **Posición:** segundo curso, en paralelo o inmediatamente después del curso 1.
+- **Propósito central:** desarrollar fluidez computacional — programación, estructuras de datos, manipulación de datos tabulares y semiestructurados, fundamentos de control de versiones y de SQL — como condición habilitante de todo el resto de la cadena.
+- **Competencias principales:** programación; estructuras de datos; control de versiones básico; consultas SQL introductorias.
+- **Prerrequisitos:** curso 1 (recomendado, no estricto).
+- **Qué recibe:** el marco conceptual del curso 1.
+- **Qué prepara:** la base computacional de los cursos 3, 4 y 5.
+
+### Curso 3 — Analítica Descriptiva, Exploración y Comunicación de Evidencia
+- **Posición:** tercer curso, en paralelo con el curso 4.
+- **Propósito central:** análisis exploratorio de datos (EDA), principios de visualización y percepción, construcción de tableros/informes, narrativa de evidencia para audiencias técnicas y no técnicas.
+- **Competencias principales:** EDA multivariada; visualización; comunicación/storytelling.
+- **Prerrequisitos:** curso 2.
+- **Qué recibe:** capacidad de programar y manejar datos.
+- **Qué prepara:** el hábito de examinar datos con rigor antes de modelarlos o gobernarlos, insumo informal de los cursos 5 y 6.
+
+### Curso 4 — Estadística e Inferencia para la Analítica
+- **Posición:** cuarto curso, en paralelo con el curso 3.
+- **Propósito central:** probabilidad aplicada, estimación, pruebas de hipótesis, intervalos de confianza, razonamiento frecuentista y bayesiano, diseño experimental básico.
+- **Competencias principales:** razonamiento estadístico; cuantificación de la incertidumbre; diseño de estudios.
+- **Prerrequisitos:** curso 2.
+- **Qué recibe:** capacidad de programar y manejar datos.
+- **Qué prepara:** el lenguaje formal de incertidumbre que sostiene los cursos 5, 6 y 7, y el prerrequisito exacto que Berkeley exige antes de un curso integrado de inferencia/causalidad/ML.
+
+### Curso 5 — Ingeniería y Arquitectura de Datos para la Analítica
+- **Posición:** quinto curso.
+- **Propósito central:** modelado de datos relacional y no relacional; diseño de arquitecturas (lagos, bodegas, mercados de datos) con reglas explícitas de gobernanza (qué se ingiere, qué se transforma, cómo se alinea con el resto de la arquitectura); contraste entre arquitectura canónica (optimizada para estabilidad) y arquitectura orientada a DataOps (optimizada para cambio frecuente); calidad y linaje de datos como principio de gobernanza operativa (definición de reglas, no su automatización continua, que pertenece al curso 9).
+- **Competencias principales:** arquitectura de datos; modelado de datos; gobernanza operativa y calidad de datos.
+- **Prerrequisitos:** cursos 2 y 3.
+- **Qué recibe:** de 3, el criterio de qué hace útil un dato para el análisis; de 2, la base de programación.
+- **Qué prepara:** datos gobernados y arquitecturas conocidas para los cursos 6 y 7, y el sustrato técnico sobre el cual el curso 9 (DataOps) aplicará sus prácticas de entrega.
+
+### Curso 6 — Modelado Predictivo, Aprendizaje Automático e Inferencia Causal
+- **Posición:** sexto curso.
+- **Propósito central:** construir, evaluar, regularizar y validar modelos supervisados (regresión, clasificación, árboles, ensambles) y no supervisados (clustering, reducción de dimensionalidad); a partir del mismo vehículo técnico de regresión, dar el giro pedagógico hacia la inferencia causal — diseño y análisis de experimentos controlados y estudios observacionales con variables de confusión— para que el estudiante distinga con rigor cuándo un modelo que predice bien no autoriza una afirmación causal ni una intervención.
+- **Competencias principales:** aprendizaje supervisado y no supervisado; validación y regularización; inferencia causal y diseño experimental.
+- **Prerrequisitos:** cursos 4 y 5.
+- **Qué recibe:** el aparato de incertidumbre (curso 4) y datos gobernados (curso 5).
+- **Qué prepara:** estimaciones predictivas y causales validadas, insumo directo del curso 7.
+
+### Curso 7 — Analítica Prescriptiva: Optimización, Simulación y Decisión bajo Incertidumbre
+- **Posición:** séptimo curso.
+- **Propósito central:** modelado de decisiones mediante optimización matemática, simulación (Monte Carlo, análisis de sensibilidad) y análisis de valor/tradespace, incorporando restricciones, riesgo y sesgos de comportamiento relevantes a la decisión — sin equipararse a un curso completo de Investigación de Operaciones.
+- **Competencias principales:** optimización; simulación; decisión bajo incertidumbre; sesgos de comportamiento.
+- **Prerrequisitos:** cursos 4 y 6.
+- **Qué recibe:** estimaciones predictivas y causales del curso 6 como insumos/restricciones del problema de decisión.
+- **Qué prepara:** una recomendación de decisión, insumo directo del curso 8.
+
+### Curso 8 — Diseño de Productos y Sistemas Analíticos
+- **Posición:** octavo curso.
+- **Propósito central:** convertir una recomendación de decisión en un producto analítico: mentalidad de producto (hipótesis de épica, MVP), diseño de la interacción humano-máquina, empaquetamiento en servicios/APIs, prototipado rápido y validación temprana con usuarios reales, antes de cualquier industrialización a escala.
+- **Competencias principales:** diseño de producto; HCI; prototipado; empaquetamiento en servicios.
+- **Prerrequisitos:** curso 7.
+- **Qué recibe:** una recomendación de decisión y los modelos que la sustentan.
+- **Qué prepara:** un prototipo funcional y validado, listo para ser industrializado en el curso 9.
+
+### Curso 9 — DataOps: Operacionalización, Gobernanza y Ciclo de Vida Analítico (curso integrador/práctica final)
+- **Posición:** noveno y último curso.
+- **Propósito central:** aplicar Lean Thinking (eliminación de desperdicio, mapeo de flujo de valor, teoría de restricciones) y metodologías ágiles (Scrum, Kanban, el Manifiesto DataOps) para industrializar el producto del curso 8: pruebas automatizadas de datos/lógica/modelos, control de versiones, ambientes múltiples, contenerización, parametrización, eliminación de heroísmo; monitoreo y MLOps (deriva, recalibración); organización del equipo de entrega (arquetipos, roles, trampas del líder de datos, madurez organizacional); y consolidación explícita de los tres niveles de gobierno evidenciados por el corpus —institucional (retomando el curso 1), operativo/de calidad (retomando el curso 5) y ético/de responsabilidad— aplicados de forma integrada a la solución completa. Este curso se diseña explícitamente como práctica integradora con patrocinador real, cumpliendo la función de capstone sin requerir un curso administrativo adicional.
+- **Competencias principales:** Lean/Agile/DataOps; pruebas automatizadas; MLOps; organización de equipos; gobernanza y ética integradas.
+- **Prerrequisitos:** cursos 5 y 8.
+- **Qué recibe:** una arquitectura de datos conocida (curso 5) y un producto validado (curso 8) que debe entregarse, mantenerse y gobernarse de forma confiable.
+- **Qué prepara:** práctica profesional o estudios de posgrado.
+
+# 9. Fronteras canónicas entre cursos
+
+**1 → 2.** El curso 1 formula y estrategiza sin código; el curso 2 produce evidencia reproducible en código. Frontera: "hablar sobre datos" vs. "manipular datos".
+
+**2 → 3 / 2 → 4 (paralelos).** El curso 2 entrega la capacidad de programar; el curso 3 la usa para explorar y comunicar patrones sin exigir su justificación probabilística; el curso 4 exige esa justificación (intervalos, pruebas de hipótesis) para cualquier afirmación de incertidumbre. Un histograma puede mostrarse en el curso 3 sin justificar su base distribucional; esa justificación pertenece exclusivamente al curso 4.
+
+**3/4 → 5.** Los cursos 3 y 4 trabajan con datos pequeños y limpios con fines de exploración e inferencia; el curso 5 comienza donde los datos son grandes, múltiples o de mala calidad y requieren una arquitectura para producirse de forma confiable y repetible. **Frontera Ingeniería de Datos ↔ cursos analíticos:** el curso 5 responde "¿puedo confiar en este dato y en la arquitectura que lo produjo?"; los cursos 3/4/6/7 asumen esa confianza como insumo y preguntan qué se puede describir, inferir, predecir o decidir con él.
+
+**5 → 6.** El curso 5 entrega datos gobernados y arquitecturas conocidas (lagos/bodegas/mercados de datos); el curso 6 no repite ese diseño, lo asume como insumo. **Frontera Descriptiva ↔ Predictiva:** ya resuelta en 3→5; aquí la frontera relevante es que el diseño de esquemas y la decisión lago/bodega/mercado de datos pertenecen enteramente al curso 5, mientras que la ingeniería de características con fundamento estadístico (qué transformar y por qué) pertenece al curso 6.
+
+**Dentro del curso 6 — frontera interna Predictiva ↔ Causal (no una frontera entre cursos, sino un pivote pedagógico deliberado):** la primera mitad del curso pregunta "¿qué tan bien predice este modelo?" (regularización, validación cruzada, métricas); la segunda mitad, sobre el mismo modelo de regresión, pregunta "¿puedo afirmar causalidad, y bajo qué condiciones (aleatorización, ausencia de confusión)?". Esta frontera interna reemplaza la frontera entre cursos que ChatGPT y Claude proponían, sin eliminar la distinción conceptual.
+
+**6 → 7 (frontera Predictiva/Causal ↔ Prescriptiva).** El curso 6 entrega estimaciones y efectos causales; el curso 7 los toma como insumos/restricciones de un problema de decisión con una función de valor explícita, que no forma parte del criterio estadístico del curso 6. Un tema ambiguo —elegir entre modelos según su "valor de negocio" esperado— pertenece al curso 7, porque introduce una función de decisión ausente en el curso 6.
+
+**7 → 8 (frontera Prescriptiva ↔ Productos).** El curso 7 entrega una recomendación de decisión (política, asignación óptima); el curso 8 pregunta si esa recomendación puede convertirse en algo que un humano use y adopte. Un modelo de optimización nunca debe confundirse con un producto: el curso 7 enseña a decidir; el curso 8 enseña a empaquetar esa decisión en una interfaz, un servicio o una API que alguien pueda usar.
+
+**8 → 9 (frontera Productos ↔ DataOps — la más importante de la arquitectura).** El curso 8 entrega un prototipo validado con usuarios en la lógica de la **Tubería de Innovación** (ideación, UX, MVP); el curso 9 pregunta si ese prototipo puede sostenerse en la **Tubería de Valor** (pruebas automatizadas, CI/CD, ambientes múltiples, monitoreo continuo, gobierno del ciclo de vida). Esta es exactamente la dualidad que `dataops-04-lean-thinking.pdf` y `dataops-06-definition.pdf` documentan como el eje organizador de todo sistema analítico maduro. Un tema ambiguo —la plantilla de "Hipótesis de Épica"— se usa en el curso 8 para especificar el valor y el diseño de un producto para el usuario final, y se retoma en el curso 9 únicamente para organizar el flujo de trabajo del equipo de entrega en un tablero Kanban, con un propósito distinto.
+
+**Frontera Ingeniería de Datos (5) ↔ DataOps (9), no adyacente pero crítica:** el curso 5 diseña reglas de calidad y arquitectura (qué debe ser cierto de los datos); el curso 9 automatiza la verificación continua de esas mismas reglas en producción (pruebas de balance, integridad, frescura, control estadístico de proceso). Esta frontera —insuficientemente trazada en las tres propuestas originales (Sección 6)— se resuelve así: **diseñar una regla de calidad es competencia del curso 5; automatizar su verificación continua en producción es competencia del curso 9**; ambas son necesarias y no son la misma competencia repetida.
+
+# 10. Competencias transversales
+
+- **Formulación y reformulación de problemas.** Introducida en el curso 1; retomada al definir la función de valor en el curso 7; integrada en el curso 9 al validar el caso de negocio con el patrocinador.
+- **Comunicación y narrativa de evidencia.** Introducida en el curso 1, desarrollada en el curso 3, exigida en la entrega de cada curso posterior, integrada en el curso 9 frente a un patrocinador real.
+- **Reproducibilidad y control de versiones.** Introducida en el curso 2, desarrollada en los cursos 3 a 7 (cada entrega debe ser reproducible), dominada en el curso 9 (control de versiones unificado de código, datos y modelos, ambientes múltiples, contenerización).
+- **Calidad de software y pruebas.** Introducida como prueba básica en el curso 2, desarrollada como validación de datos en el curso 5, integrada como pirámide completa de pruebas automatizadas (unitarias, integración, funcionales, regresión, desempeño, humo, balance de datos) en el curso 9.
+- **Automatización.** Ausente como tema explícito antes del curso 5 (automatización de limpieza/transformación), desarrollada en el curso 8 (automatización de la lógica de decisión en un servicio), dominada en el curso 9 (CI/CD, orquestación).
+- **Cuantificación de la incertidumbre y experimentación.** Introducida en el curso 4, desarrollada en el curso 6 (validación, diseño experimental, causalidad) y el curso 7 (simulación, sensibilidad), monitoreada operativamente en el curso 9 (deriva de datos y de modelos).
+- **Gobierno de datos en tres niveles simultáneos (hallazgo preservado de la propuesta de Claude, ver Sección 5).** Nivel institucional/de decisión: introducido en el curso 1. Nivel operativo/de calidad: introducido en el curso 5. Nivel ético/de responsabilidad: consolidado en el curso 9. Se mantiene como estructura conceptual transversal, no como tres cursos separados.
+- **Ética, privacidad, seguridad y responsabilidad en IA.** Introducida en el curso 1 (siguiendo la recomendación explícita de National Academies de tejerla desde el principio), instanciada técnicamente en el curso 5 (gobernanza operativa) y el curso 6 (sesgo algorítmico en modelos), integrada en el curso 8 (diseño responsable de producto) y consolidada como dimensión transversal explícita del ciclo de vida completo en el curso 9.
+- **Organización y liderazgo de equipos de datos.** Introducida conceptualmente en el curso 1 (mención de mitos organizacionales), concentrada y desarrollada en profundidad en el curso 9 (arquetipos de equipo, roles, madurez, trampas del líder de datos).
+- **Monitoreo y observabilidad.** No es tema antes del curso 5 (calidad estática); se convierte en tema dinámico en el curso 9 (deriva, control estadístico de proceso, alertas).
+
+# 11. Mapa curricular integrado
+
+I = Introducido, D = Desarrollado, M = Dominado/Integrado, — = No es foco.
+
+| Competencia / Tema | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 |
+|---|---|---|---|---|---|---|---|---|---|
+| Formulación de problemas de decisión | I | — | — | — | — | D | D | D | M |
+| Historia y marcos metodológicos (KDD/CRISP-DM/INFORMS/DataOps) | M | — | — | — | — | — | — | — | D |
+| Estrategia de datos: objetivos, portafolio, caso de valor | M | — | — | — | — | — | D | D | D |
+| Gobierno de datos: derechos de decisión institucional | M | — | — | — | I | — | — | — | D |
+| Programación y estructuras de datos | I | M | D | D | D | D | D | D | D |
+| Bases de datos y modelado de datos (SQL/NoSQL) | — | I | D | — | M | D | — | — | D |
+| Arquitectura de datos y gobernanza operativa/calidad | — | — | — | — | M | D | — | — | D |
+| Análisis exploratorio y visualización | — | I | M | D | D | D | D | D | D |
+| Comunicación de evidencia / storytelling | I | — | M | D | D | D | D | D | M |
+| Probabilidad e inferencia estadística | — | — | D | M | D | D | D | — | D |
+| Diseño experimental (A/B, RCT) | — | — | — | D | — | M | — | — | D |
+| Aprendizaje supervisado (regresión/clasificación/ensambles) | — | — | — | — | D | M | D | D | D |
+| Aprendizaje no supervisado (clustering/reducción dimensional) | — | — | — | — | — | M | — | D | D |
+| Inferencia causal y variables de confusión | — | — | — | I | — | M | D | — | D |
+| Optimización matemática | — | — | — | I | — | I | M | D | — |
+| Simulación y análisis de sensibilidad | — | — | — | I | — | — | M | D | — |
+| Decisión bajo incertidumbre y sesgos de comportamiento | I | — | — | I | — | — | M | D | D |
+| Diseño de producto / HCI / MVP-hipótesis de épica | I | — | — | — | — | — | I | M | D |
+| Lean thinking y eliminación de desperdicio en analítica | I | — | — | — | I | — | — | — | M |
+| Metodologías ágiles y manifiesto DataOps | I | — | — | — | — | — | — | I | M |
+| Pruebas automatizadas (datos, lógica, modelos) | — | I | — | — | D | — | — | D | M |
+| Prácticas de entrega continua (versionado, ambientes, contenedores) | — | I | — | — | D | — | — | D | M |
+| MLOps: monitoreo, deriva, recalibración | — | — | — | — | I | — | — | I | M |
+| Organización y liderazgo de equipos de datos | I | — | — | — | — | — | — | — | M |
+| Ética, sesgo algorítmico, privacidad, responsabilidad en IA | I | — | — | — | D | D | — | D | M |
+| Reproducibilidad y control de versiones (transversal) | — | I | D | D | D | D | D | D | M |
+
+La matriz hace visibles tres decisiones de la síntesis: (a) ninguna fila de contenido técnico tiene más de una "M", preservando que cada competencia se domina en un único curso; (b) las tres filas de gobierno de datos (institucional, operativo, ético) muestran trayectorias de maduración independientes que convergen todas en el curso 9, sin fusionarse en una sola fila ambigua; (c) "aprendizaje supervisado" y "causal" comparten el mismo curso (6) con una "M" cada una, visibilizando el pivote interno descrito en la Sección 9 en lugar de una frontera entre cursos.
+
+# 12. Temas que quedan fuera del núcleo
+
+- **Aprendizaje profundo, series de tiempo avanzadas, sistemas de recomendación, redes/grafos y aprendizaje por refuerzo.** Extensiones electivas construidas sobre el curso 6 (Resolución 5), consistente con la clasificación Tier 2/Electivo de ACM y la exclusión explícita razonada por ChatGPT.
+- **Teoría matemática completa de Investigación de Operaciones** (dualidad, teoría de colas, procesos estocásticos avanzados, método Simplex demostrado paso a paso). Electivo, consistente con la instrucción de no equiparar prescriptivo con IO completa.
+- **Administración de infraestructura en la nube a nivel de proveedor específico y certificación de herramientas DataOps/CI-CD nombradas** (Puppet, Chef, Jenkins, Kubeflow, etc.). Se enseñan como categorías ilustrativas dentro del curso 9, no como currículo de certificación.
+- **Marcos comerciales de escalamiento ágil a nivel de certificación** (SAFe). Se estudia conceptualmente como parte de la evolución histórica de la colaboración ágil dentro del curso 1 y 9, no a profundidad de certificación.
+- **Teorías completas de comportamiento organizacional o de innovación de producto** (Coordinación Relacional como cuerpo teórico completo, algoritmos de innovación dirigida por resultados). Se introducen como constructos aplicados dentro del módulo organizacional del curso 9; su desarrollo teórico completo es electivo.
+- **Prototipado físico y metodologías de manufactura** (evidenciado en MIT Rapid Prototyping). Fuera del núcleo — pertenece al diseño de producto físico, no a productos de datos.
+- **Un curso ejecutivo de "Liderazgo de Datos" para audiencias no técnicas** (MIT Data Leadership, Cambridge, PwC Master Class). El contenido de liderazgo propio de un currículo de Analítica ya se incorpora en el curso 9 con la profundidad apropiada para un practicante; un programa ejecutivo para consumidores no técnicos seguiría siendo un producto distinto.
+- **Especialización vertical por dominio de aplicación** (finanzas, salud, mercadeo, manufactura). Electivas o contexto del proyecto integrador del curso 9, siguiendo la recomendación explícita de National Academies.
+- **Un curso dedicado exclusivamente a Estrategia de Datos como programa gerencial completo.** Se integra como módulo sustantivo del curso 1 (Resolución 2); una expansión a curso propio es una especialización legítima para programas de orientación más gerencial, no para el núcleo de un programa de Analítica que forma practicantes técnicos.
+
+# 13. Trazabilidad de las decisiones
+
+| Tema de diseño | ChatGPT | Claude | Gemini | Decisión canónica | Evidencia documental principal |
 |---|---|---|---|---|---|
-| Entrada computacional y matemática | Base externa completa desde el inicio. | Programación propia; matemáticas externas. | Programación previa; matemáticas escalonadas. | C2 garantiza computación; matemáticas exigidas cuando habilitan la rama formal. | `national-academies-data-science-for-undergraduates-2018.pdf`; `acm-computing-competencies-undergraduate-data-science-2021.pdf`. |
-| Formulación y descripción | Primer curso integrado. | Formulación y descripción separadas. | Primer curso integrado muy amplio. | C1 une pregunta, exploración y comunicación; C2 protege la formación computacional. | `usc-introduction-to-data-analytics.pdf`; `informs-analytics-framework-2024.pdf`. |
-| Ingeniería y escala | Temprana y acotada. | Posterior a programación y descripción. | Temprana con amplio repertorio distribuido. | C3 desarrolla datos gobernados tras la base; C9 integra operación; escala no define la frontera. | `berkeley-data-c101-data-engineering.pdf`; `mit-professional-certificate-data-engineering.pdf`; `acm-computing-competencies-undergraduate-data-science-2021.pdf`. |
-| Estadística y causalidad | Separadas; causalidad depende de estadística. | Separadas; predicción precede causalidad. | Unidas con contenidos avanzados. | C4 desarrolla estadística e introduce causalidad; C6 desarrolla identificación e intervenciones sin exigir C5. | `national-academies-data-science-for-undergraduates-2018.pdf`; `berkeley-data-c102-data-inference-and-decisions.pdf`; `mit-data-science-and-machine-learning.pdf`. |
-| Aprendizaje común | Un curso acotado. | Dos cursos, con causalidad intermedia. | Uno con repertorio extenso. | C5 integra representación y aprendizaje; especializaciones posteriores; no supervisado no se etiqueta necesariamente como predicción. | `acm-computing-competencies-undergraduate-data-science-2021.pdf`; `mit-professional-certificate-data-science-and-analytics.pdf`. |
-| Decisión y prescripción | Después de predicción y causalidad. | Después de toda la modelación. | Después de predicción; amplitud de control. | C7 es rama tras estadística; convergencia de evidencia predictiva y causal en C8; control avanzado fuera del núcleo. | `mit-quantitative-methods-in-systems-engineering.pdf`; `mit-machine-learning-modeling-and-simulation-principles.pdf`; `cambridge-business-analytics.pdf`. |
-| Producto y operación | Producto antes de operación. | Operación antes de producto. | Operación antes de producto, con paralelismo ambiguo. | C8 define e integra utilidad y requisitos; C9 despliega y sostiene, con retornos al diseño. | `informs-analytics-framework-2024.pdf`; `mit-designing-and-building-ai-products-and-services.pdf`; `informs-cap-pro-blueprint.pdf`. |
-| Ética y gobernanza | Distribución con anclajes. | Distribución más curso terminal. | Distribución y técnicas especializadas. | Anclajes C3, C8 y C9; consolidación antes y después de operar, sin auditoría ética exclusivamente tardía. | `national-academies-data-science-for-undergraduates-2018.pdf`; `mit-data-leadership.pdf`; `informs-cap-essentials-blueprint.pdf`. |
-| Integración y organización | Integración en cursos finales. | Capstone adicional con patrocinador. | Productos como capstone y estrategia. | Integración obligatoria C8–C9; adopción nuclear; capstone separado y plataformas no obligatorios. | `national-academies-data-science-for-undergraduates-2018.pdf`; `mit-designing-and-building-ai-products-and-services.pdf`; `mit-digital-platforms.pdf`; `pwc-data-and-analytics-academy.pdf`. |
-| Dependencias | Dos ramas y convergencia previa a decisiones. | Cadena extensa y casi lineal. | Bifurcaciones inconsistentes entre fichas y diagramas. | Entradas paralelas, ramas de datos/estadística y luego aprendizaje/causalidad/decisiones; red única en fichas y diagrama. | `national-academies-data-science-for-undergraduates-2018.pdf`; `berkeley-data-c101-data-engineering.pdf`; `berkeley-data-c102-data-inference-and-decisions.pdf`; `mit-quantitative-methods-in-systems-engineering.pdf`. |
-| Profundidad y herramientas | Matriz subrepresenta desarrollo y desplaza integración. | Dominio concentrado, algunas reiteraciones. | Especialización y herramientas sobrerrepresentadas. | Niveles de salida acotados; métodos desarrollados en su curso; integración posterior no equivale a especialización universal. | `acm-computing-competencies-undergraduate-data-science-2021.pdf`; `national-academies-data-science-for-undergraduates-2018.pdf`; `mit-cloud-and-devops.pdf`. |
+| Número de cursos | 9 | 14 | 6 | 9 | Ninguna fuente prescribe un número; se deriva de aplicar el principio "una pregunta irreductible por curso" a los 8 bloques identificados en la Sección 7 |
+| Estrategia de datos | Evidencia dispersa en curso de ingeniería | Curso propio (curso 2) | Fusionada en curso 1 | Módulo sustantivo dentro del curso 1 | `dataops-02-data-strategy.pdf`; `informs-cap-essentials-blueprint.pdf` (Dominio I) |
+| Analítica descriptiva | Fusionada en curso 1 | Curso propio, tras programación (curso 5) | Fusionada en curso 1 | Curso propio, tras programación (curso 3) | `usc-introduction-to-data-analytics.pdf` (visualización al final del semestre, tras SQL); `national-academies-data-science-for-undergraduates-2018.pdf` (Data 8 incluye programación desde el inicio) |
+| Predicción vs. causalidad | Cursos separados (C5, C6) | Cursos separados con orden intercalado | Curso único integrado (C3) | Un curso (curso 6) con pivote pedagógico interno, tras estadística separada | `berkeley-data-c102-data-inference-and-decisions.pdf`; `mit-data-science-and-machine-learning.pdf` (semanas consecutivas) |
+| Aprendizaje profundo/series de tiempo/redes | Electivo explícito | Curso obligatorio propio (curso 9) | No tratado como núcleo | Electivo | `acm-computing-competencies-undergraduate-data-science-2021.pdf` (clasificación Tier 2/Electivo) |
+| Orden Productos ↔ DataOps | Productos antes de Operación | DataOps antes de Productos | Productos antes de Operación | Productos (curso 8) antes de DataOps (curso 9) | `dataops-05-agile.pdf` y `dataops-06-definition.pdf` (ciclo Ideación→...→Transición/Producción) |
+| Gobernanza/ética como curso dedicado | No (transversal) | Sí (curso 13) | No (transversal, M en curso final) | No; transversal con consolidación en el curso final | `national-academies-data-science-for-undergraduates-2018.pdf` (ética "tejida desde el principio"); `dataops-03-methodologies.pdf` (gobernanza como dimensión transversal) |
+| Programación como curso propio | Sí (C2) | Sí (curso 3) | No (fusionada en Ingeniería de Datos) | Sí (curso 2) | `acm-computing-competencies-undergraduate-data-science-2021.pdf` (KA de Programación distinta de KA de Datos) |
+| Capstone como curso separado | No | Sí (curso 14) | No | No; el curso final de DataOps cumple esa función | `informs-analytics-framework-2024.pdf` (ciclo recurrente de siete dominios, no una fase final separada) |
 
-# 12. Arquitectura final
+# 14. Arquitectura final resumida
 
-**Cursos canónicos y organización:**
-
-| Etapa conceptual | Cursos |
-|---|---|
-| Entrada paralela | C1 Problemas, datos y comunicación de evidencia · C2 Computación reproducible para el análisis de datos |
-| Bases de datos y evidencia | C3 Ingeniería y gobernanza de datos analíticos · C4 Razonamiento estadístico y diseño de estudios |
-| Ramas analíticas | C5 Representación, aprendizaje y validación de modelos · C6 Causalidad y evaluación de intervenciones · C7 Modelación de decisiones bajo incertidumbre |
-| Integración para el uso | C8 Diseño e integración de soluciones y productos analíticos |
-| Cierre operativo | C9 Despliegue, operación y evolución analítica |
-
-Las etapas expresan dependencias conceptuales, no períodos académicos de duración uniforme. En particular, C6 y C7 no esperan la finalización de C3 o C5.
-
-**Diagrama de prerrequisitos:**
-
-```mermaid
-flowchart TD
-    E[Base de entrada] --> C1[C1 Problemas, datos y evidencia]
-    E --> C2[C2 Computación reproducible]
-    C1 --> C3[C3 Ingeniería y gobernanza de datos]
-    C2 --> C3
-    C1 --> C4[C4 Estadística y diseño de estudios]
-    C2 --> C4
-    B[Matemática habilitante] --> C4
-    B --> C5[C5 Representación, aprendizaje y validación]
-    B --> C7[C7 Decisiones bajo incertidumbre]
-    C3 --> C5
-    C4 --> C5
-    C4 --> C6[C6 Causalidad e intervenciones]
-    C4 --> C7
-    C5 --> C8[C8 Diseño e integración de soluciones y productos]
-    C6 --> C8
-    C7 --> C8
-    C8 --> C9[C9 Despliegue, operación y evolución]
+```
+[1] Fundamentos de Analítica: Encuadre de Problemas y Estrategia de Datos
+        │
+        ▼
+[2] Programación y Fundamentos Computacionales para Analítica
+        │
+        ├──────────────────────┐
+        ▼                      ▼
+[3] Analítica Descriptiva,   [4] Estadística e Inferencia
+    Exploración y Comunicación    para la Analítica
+    de Evidencia                    │
+        │                           │
+        └───────────┬───────────────┘
+                     ▼
+        [5] Ingeniería y Arquitectura de Datos
+            para la Analítica
+                     │
+                     ▼
+        [6] Modelado Predictivo, Aprendizaje
+            Automático e Inferencia Causal
+            (pivote interno: predicción → causalidad)
+                     │
+                     ▼
+        [7] Analítica Prescriptiva: Optimización,
+            Simulación y Decisión bajo Incertidumbre
+                     │
+                     ▼
+        [8] Diseño de Productos y Sistemas Analíticos
+            (Tubería de Innovación)
+                     │
+                     ▼
+        [9] DataOps: Operacionalización, Gobernanza
+            y Ciclo de Vida Analítico
+            (Tubería de Valor — curso integrador/capstone,
+             retoma gobierno institucional de [1] y
+             gobierno operativo de [5])
 ```
 
-Las flechas entrantes múltiples son conjuntivas: deben satisfacerse todas. En forma compacta:
+**Hilo transversal:** `Formulación de problemas · Comunicación · Reproducibilidad y control de versiones · Calidad de software y pruebas · Incertidumbre y experimentación · Gobierno de datos (3 niveles) · Ética, privacidad y responsabilidad en IA · Organización y liderazgo de equipos · Monitoreo y observabilidad`
 
-```text
-{C1, C2} → C3
-{C1, C2, base matemática correspondiente} → C4
-{C3, C4, álgebra lineal habilitante} → C5
-C4 → C6
-{C4, base matemática correspondiente} → C7
-{C5, C6, C7} → C8 → C9
-```
+# 15. Incertidumbres pendientes
 
-C1 y C2 pueden avanzar en paralelo; C3 y C4 también. C5, C6 y C7 admiten paralelismo al cumplirse sus requisitos. C8 recibe ingeniería transitivamente por C5. La responsabilidad, el contexto, la comunicación y la reproducibilidad recorren toda la red. Los retornos profesionales desde operación hacia datos, métodos y problema no son nuevos prerrequisitos: son parte del ciclo que la formación debe permitir comprender y sostener.
-
-# 13. Incertidumbres pendientes
-
-1. **Población y preparación real de ingreso.** El corpus no identifica a los destinatarios concretos ni su formación previa. Está resuelta la obligación de garantizar computación y matemáticas; queda por determinar quién necesita cursar C2, quién puede acreditar equivalencia y qué vía institucional garantiza la matemática habilitante.
-2. **Carga total y ubicación en una titulación.** Los documentos no fijan créditos disponibles, nivel de salida institucional ni relación con otras áreas de una carrera. La arquitectura canónica de nueve cursos es la referencia; su viabilidad de profundidad requiere conocer esa capacidad, sin presumir que cada curso pueda absorber cualquier volumen.
-3. **Dominio o dominios de aplicación prioritarios.** Es necesaria la integración con conocimiento sustantivo, pero no hay evidencia para elegir un sector obligatorio ni su relación con otras unidades académicas.
-4. **Condiciones institucionales para el alcance operativo.** No se conocen recursos, acceso legítimo a contextos de uso, infraestructura o acuerdos de colaboración. Debe precisarse qué entorno permitirá desarrollar operación e integración de manera proporcionada, sin confundirlo con la exigencia universal de desplegar servicios reales ante usuarios externos.
-5. **Contexto jurídico y organizacional aplicable.** Las fuentes históricas sostienen las competencias de responsabilidad, pero no determinan la jurisdicción, reglas institucionales o asignación local de obligaciones. Ese contexto deberá concretarse sin tomar las referencias legales de los PDF como verificación de vigencia.
-
+- **Carga del curso 6.** Fusionar aprendizaje supervisado, no supervisado e inferencia causal en un solo curso está respaldado por evidencia directa (Berkeley C102, MIT IDSS), pero ningún documento del corpus permite determinar a nivel macro si esa carga cabe razonablemente en un semestre estándar o si en la práctica requerirá dos períodos académicos conectados (una decisión de nivel meso, no macro, que corresponde a una fase posterior de diseño).
+- **Peso relativo de la Estrategia de Datos dentro del curso 1.** El corpus evidencia que `dataops-02` tiene la riqueza de un curso completo, pero no hay evidencia documental que determine si, en la práctica, un único curso de apertura puede tratar con suficiente profundidad tanto el encuadre de problemas como la estrategia organizacional sin que una de las dos partes quede subdesarrollada; esto depende de decisiones de carga horaria que exceden el nivel macro.
+- **Punto exacto de introducción de la programación previa al curso 1.** El corpus no permite determinar de forma concluyente si la programación (curso 2) debe ser estrictamente posterior al curso 1 o si ambos deberían ser plenamente paralelos desde el primer día; los documentos consultados no distinguen ese matiz de secuenciación temprana.
+- **Umbral exacto entre "core" y "electivo" para aprendizaje profundo.** La Resolución 5 se apoya en la clasificación Tier 2/Electivo de ACM (2021) y en la naturaleza compacta del certificado profesional de MIT IDSS, pero el corpus no contiene evidencia suficiente para determinar si, a medida que el aprendizaje profundo se vuelve más ubicuo en la práctica profesional, este umbral debería desplazarse hacia el núcleo — es una pregunta que depende de la evolución del campo, no resoluble solo con el corpus actual.
+- **Si el curso 9 requiere dividirse administrativamente en dos (DataOps técnico y Capstone/práctica) por razones de acreditación o de carga de proyecto**, aun cuando conceptualmente no se requiera contenido nuevo. Esta es una decisión institucional/administrativa, no una decisión que el corpus documental pueda resolver.
