@@ -1,9 +1,0 @@
-import sys
-#
-# >>> Escriba el codigo del mapper a partir de este punto <<<
-#
-for line in sys.stdin:
-    k = line.split(',')[1]
-    k = k[:-1] if k[-1] == '\n' else k
-    line = line[:-1] if line[-1] == '\n' else line
-    sys.stdout.write("{}\t{}\n".format( k, line))
