@@ -1,0 +1,4 @@
+bases_to_activate,active_bases,expected_response_time_min,marginal_improvement_min
+1,B03,51.1312985934101,
+2,B01;B03,32.64840668614459,18.48289190726551
+3,B01;B02;B04,17.275208286951845,15.373198399192745

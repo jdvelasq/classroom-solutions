@@ -1,0 +1,13 @@
+supplier_id,destination_id,transport_cost_per_tonne
+S1,D1,20
+S1,D2,25
+S1,D3,60
+S1,D4,70
+S2,D1,35
+S2,D2,30
+S2,D3,20
+S2,D4,25
+S3,D1,50
+S3,D2,45
+S3,D3,15
+S3,D4,10

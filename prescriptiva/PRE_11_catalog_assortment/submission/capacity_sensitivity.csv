@@ -1,0 +1,7 @@
+max_products,optimal_assortment,n_selected,expected_margin_per_customer,purchase_probability
+1,P1,1,24.615384615384617,0.6153846153846154
+2,P1|P2,2,27.076923076923073,0.7435897435897436
+3,P1|P2|P3,3,27.5,0.8
+4,P1|P2|P3,3,27.5,0.8
+5,P1|P2|P3,3,27.5,0.8
+6,P1|P2|P3,3,27.5,0.8

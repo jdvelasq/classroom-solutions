@@ -1,0 +1,5 @@
+extreme_probability,expected_optimal_reserve,expected_cost,robust_optimal_reserve,robust_worst_unserved_workload
+0.05,12,80.0,16,0.0
+0.1,12,88.00000000000001,16,0.0
+0.2,16,97.60000000000002,16,0.0
+0.3,16,104.4,16,0.0

@@ -1,0 +1,5 @@
+strategy,total_delivered_cost,gap_vs_optimized
+procurement_first,163350.0,4900.0
+landed_greedy_D1_first,158450.0,0.0
+landed_greedy_D2_first,159650.0,1200.0
+optimized,158450.0,0.0

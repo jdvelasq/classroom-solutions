@@ -1,0 +1,9 @@
+policy,scenario,probability,repair_workload,reserved_regular_crews,emergency_crews_activated,remaining_unserved_workload,total_cost
+adaptive_expected,mild,0.4,6.0,12,0.0,0.0,60.0
+adaptive_expected,moderate,0.3,12.0,12,0.0,0.0,60.0
+adaptive_expected,severe,0.2,18.0,12,6.0,0.0,114.0
+adaptive_expected,extreme,0.1,24.0,12,8.0,4.0,232.0
+adaptive_robust,mild,0.4,6.0,16,0.0,0.0,80.0
+adaptive_robust,moderate,0.3,12.0,16,0.0,0.0,80.0
+adaptive_robust,severe,0.2,18.0,16,2.0,0.0,98.0
+adaptive_robust,extreme,0.1,24.0,16,8.0,0.0,152.0

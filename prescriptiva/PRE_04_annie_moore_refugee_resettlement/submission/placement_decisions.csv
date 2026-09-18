@@ -1,0 +1,9 @@
+family_id,individual_location_id,individual_best_probability,sequential_location_id,sequential_probability,sequential_opportunity_loss,optimized_location_id,optimized_probability,optimized_opportunity_loss,probability_change
+F01,L01,0.8,L01,0.8,0.0,L04,0.78,0.020000000000000018,-0.020000000000000018
+F02,L01,0.86,L01,0.86,0.0,L01,0.86,0.0,0.0
+F03,L02,0.84,L02,0.84,0.0,L02,0.84,0.0,0.0
+F04,L02,0.82,L02,0.82,0.0,L02,0.82,0.0,0.0
+F05,L03,0.83,L03,0.83,0.0,L03,0.83,0.0,0.0
+F06,L03,0.81,L03,0.81,0.0,L03,0.81,0.0,0.0
+F07,L04,0.85,L04,0.85,0.0,L04,0.85,0.0,0.0
+F08,L01,0.88,L04,0.5,0.38,L01,0.88,0.0,0.38

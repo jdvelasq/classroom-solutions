@@ -1,0 +1,2 @@
+regular_cost_per_crew,emergency_cost_per_crew,disruption_cost_per_unit,candidate_reserve_min,candidate_reserve_max
+5.0,9.0,25.0,0,26

@@ -1,0 +1,6 @@
+parameter,value
+p0,0.01
+alpha,1.0
+D,500000000
+k,500000
+h_max,6.0

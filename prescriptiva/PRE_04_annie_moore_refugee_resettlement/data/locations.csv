@@ -1,0 +1,5 @@
+location_id,capacity,available_service
+L01,2,service_A
+L02,2,none
+L03,2,none
+L04,2,service_A

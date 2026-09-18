@@ -1,0 +1,5 @@
+scenario,probability,repair_workload,emergency_capacity
+mild,0.40,6,6
+moderate,0.30,12,8
+severe,0.20,18,8
+extreme,0.10,24,8

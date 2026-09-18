@@ -1,0 +1,3 @@
+strategy,operating_cost,gap_vs_optimized
+feasible_peak_reserve_rule,40250.0,2000.0
+optimized,38250.0,0.0

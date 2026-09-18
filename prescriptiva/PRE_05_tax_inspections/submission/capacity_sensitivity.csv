@@ -1,0 +1,4 @@
+inspection_days_available,selected_taxpayer_ids,inspection_days_used,remaining_days,inspection_count,total_expected_recovery,unique_optimum
+12,T05;T06,11,1,2,2150.0,True
+14,T06;T07;T08,14,0,3,2610.0,True
+16,T05;T06;T07,16,0,3,3050.0,True

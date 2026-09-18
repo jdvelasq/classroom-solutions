@@ -1,0 +1,13 @@
+policy,location_id,capacity,assigned_cases,remaining_capacity,capacity_excess,utilization_rate
+individual,L01,2,3,-1,1,1.5
+individual,L02,2,2,0,0,1.0
+individual,L03,2,2,0,0,1.0
+individual,L04,2,1,1,0,0.5
+sequential,L01,2,2,0,0,1.0
+sequential,L02,2,2,0,0,1.0
+sequential,L03,2,2,0,0,1.0
+sequential,L04,2,2,0,0,1.0
+optimized,L01,2,2,0,0,1.0
+optimized,L02,2,2,0,0,1.0
+optimized,L03,2,2,0,0,1.0
+optimized,L04,2,2,0,0,1.0

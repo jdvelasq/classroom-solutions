@@ -1,0 +1,4 @@
+outsourcing_cost_per_order,optimal_fleet_size,expected_total_cost,expected_outsourced_orders,probability_any_outsourcing
+15.0,5,1679.605321214627,51.97368808097514,0.8825
+25.0,8,1986.9239207501441,21.876956830005785,0.5317
+40.0,10,2218.7319985119557,10.468299962798886,0.29895

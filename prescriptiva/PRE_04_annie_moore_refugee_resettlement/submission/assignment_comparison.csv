@@ -1,0 +1,4 @@
+policy,assigned_families,incompatible_assignments,capacity_excess,feasible,total_expected_outcome
+individual,8,0,1,False,6.69
+sequential,8,0,0,True,6.3100000000000005
+optimized,8,0,0,True,6.67

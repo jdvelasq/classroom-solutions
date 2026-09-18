@@ -1,0 +1,5 @@
+policy,inspection_days_available,inspection_days_used,remaining_days,inspection_count,total_expected_recovery,gap_to_optimum,feasible
+risk,14,14,0,4,980.0,1630.0,True
+expected_recovery,14,14,0,2,2360.0,250.0,True
+efficiency,14,14,0,3,2480.0,130.0,True
+optimized,14,14,0,3,2610.0,0.0,True

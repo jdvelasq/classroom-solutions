@@ -1,0 +1,2 @@
+seed,n_scenarios,candidate_fleet_min,candidate_fleet_max,fixed_cost_per_vehicle,outsourcing_cost_per_order,mean_demand,demand_shape_k,mean_capacity_per_vehicle,sd_capacity_per_vehicle,capacity_floor
+42,20000,4,16,180.0,25.0,120.0,8.0,14.0,3.0,4.0
