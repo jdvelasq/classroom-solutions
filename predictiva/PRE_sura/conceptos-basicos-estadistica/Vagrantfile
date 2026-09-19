@@ -1,0 +1,15 @@
+Vagrant.configure("2") do |config|
+  ## Ubuntu 18.04
+  config.vm.box = "ubuntu/bionic64"
+  
+  ## Configuración de la VM 
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y puppet
+  SHELL
+  config.vm.provision "puppet"
+
+  ## Puertos para correr Juyter desde la VM
+  config.vm.network :forwarded_port, guest: 8888, host: 8888, host_ip: "127.0.0.1"
+
+end
