@@ -26261,6 +26261,84 @@
     data: verified
     code: verified
 
+- id: 421
+  name: Exam Score Regression Diagnostics
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Essential Statistics for Non-STEM Data Analysts
+    title: Statistics for Regression
+    url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts/blob/master/Chapter08/Chapter8.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts
+      path: Chapter08/Chapter8.ipynb
+    description: >
+      Packt models final-exam scores from earlier exam results, diagnoses
+      multicollinearity among predictors, and compares ordinary least squares with
+      regularized regression.
+  data:
+    description: >
+      Student exam results containing three earlier exam scores and a final-exam score.
+    source_url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts/blob/master/Chapter08/exams.csv
+    availability: repository
+    files:
+      - Chapter08/exams.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - OLS
+      - correlation analysis
+      - VIF
+      - multicollinearity diagnostics
+      - Lasso regression
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts/blob/master/Chapter08/Chapter8.ipynb
+  problem:
+    context: >
+      Earlier exam scores are strongly related to final performance but may also
+      be redundant with one another, making coefficient interpretation and prediction unstable.
+    objective: >
+      Predict final-exam performance while diagnosing multicollinearity and the
+      effect of regularization.
+    analytical_questions:
+      - Which earlier exams are most strongly associated with final performance?
+      - How much collinearity exists among predictors?
+      - How does collinearity affect coefficient interpretation?
+      - Does regularization improve model stability or predictive performance?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and visualize exam scores.
+      - Fit simple regressions for each prior exam.
+      - Fit a multiple regression model.
+      - Diagnose predictor correlations and VIF.
+      - Compare OLS with Lasso regularization.
+      - Evaluate prediction error.
+      - Interpret coefficient stability and model limitations.
+    expected_outputs:
+      - exam correlation matrix
+      - OLS regression summary
+      - VIF table
+      - regularization path or coefficient comparison
+      - prediction error metrics
+      - model interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
