@@ -13024,6 +13024,86 @@
     data: verified
     code: verified
 
+- id: 405
+  name: Protein Pathway Structural Modeling
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Biostatistics with Python
+    title: Advanced Biostatistical Techniques: PCA, Feature Selection, and SEM
+    url: https://github.com/PacktPublishing/Biostatistics-with-Python/blob/main/Chapter_17.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Biostatistics-with-Python
+      path: Chapter_17.ipynb
+    description: >
+      Packt uses the Mice Protein Expression dataset to combine dimensionality
+      reduction, feature selection, and structural equation modeling of latent
+      biological pathways related to cell division and apoptosis.
+  data:
+    description: >
+      Mice Protein Expression measurements with protein-level expression variables
+      and experimental class labels.
+    source_url: https://archive.ics.uci.edu/dataset/342/mice+protein+expression
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - PCA
+      - random forest feature selection
+      - structural equation modeling
+      - semopy
+      - latent variables
+      - path diagrams
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Biostatistics-with-Python/blob/main/Chapter_17.ipynb
+  problem:
+    context: >
+      High-dimensional protein-expression data may reflect a smaller set of latent
+      biological processes whose relationships cannot be read directly from individual
+      protein measurements.
+    objective: >
+      Reduce dimensionality, identify informative proteins, and model relationships
+      among latent biological pathways with structural equation modeling.
+    analytical_questions:
+      - What major variation patterns appear in protein expression?
+      - Which proteins contribute most to class separation?
+      - Which observed proteins define the latent pathway constructs?
+      - What structural relationships appear among latent biological processes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - semopy
+      - matplotlib
+    logical_steps:
+      - Load and clean protein-expression measurements.
+      - Impute missing protein values.
+      - Encode experimental class labels.
+      - Apply PCA to inspect dominant multivariate structure.
+      - Rank informative proteins with a random forest.
+      - Define measurement and structural components of the SEM.
+      - Fit and inspect model parameters and fit statistics.
+      - Visualize and interpret the path model.
+    expected_outputs:
+      - PCA projection
+      - protein importance table
+      - SEM parameter estimates
+      - model-fit statistics
+      - latent-path diagram
+      - biological interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
