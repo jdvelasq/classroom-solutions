@@ -15927,6 +15927,228 @@
     data: verified
     code: verified
 
+- id: 251
+  name: Garbage Classifier Interpretation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Visualizing Convolutional Neural Networks
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/07/GarbageClassifier.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 07/GarbageClassifier.ipynb
+    description: >
+      Packt uses a garbage image classifier to study interpretation of convolutional
+      neural networks and identify which image regions drive model decisions.
+  data:
+    description: >
+      Labeled garbage images supplied with the book for multiclass image classification.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/datasets/garbage_dataset.zip
+    availability: repository
+    files:
+      - datasets/garbage_dataset.zip
+  original_implementation:
+    technologies:
+      - PyTorch
+      - EfficientNet
+      - CNN interpretation
+      - Captum
+      - attribution maps
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/07/GarbageClassifier.ipynb
+  problem:
+    context: >
+      An image classifier can achieve good accuracy while relying on irrelevant
+      backgrounds or spurious visual cues that aggregate metrics do not reveal.
+    objective: >
+      Classify garbage images and explain which visual regions influence predictions.
+    analytical_questions:
+      - Which classes are predicted reliably?
+      - Which image regions drive each prediction?
+      - Are explanations aligned with the object being classified?
+      - Which errors reveal spurious visual dependence?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - torch
+      - torchvision
+      - captum
+      - matplotlib
+    logical_steps:
+      - Load and split the image dataset.
+      - Train or load the classifier.
+      - Evaluate class-level performance.
+      - Generate attribution maps.
+      - Compare correct and incorrect predictions.
+      - Diagnose suspicious visual dependencies.
+    expected_outputs:
+      - classifier metrics
+      - attribution maps
+      - explanation gallery
+      - error interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 252
+  name: Restaurant Sentiment Interpretation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Interpreting NLP Transformers
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/08/ReviewSentiment.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 08/ReviewSentiment.ipynb
+    description: >
+      Packt uses restaurant-review sentiment classification to compare explanation
+      techniques for transformer-based NLP models.
+  data:
+    description: >
+      NYC restaurant-review text and sentiment labels distributed with the book.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/datasets/nyc_restaurant_reviews.zip
+    availability: repository
+    files:
+      - datasets/nyc_restaurant_reviews.zip
+  original_implementation:
+    technologies:
+      - transformers
+      - sentiment classification
+      - SHAP
+      - Captum
+      - BertViz
+      - LIT
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/08/ReviewSentiment.ipynb
+  problem:
+    context: >
+      Transformer sentiment models can classify reviews accurately but their
+      token-level reasoning is difficult to inspect without explanation methods.
+    objective: >
+      Predict review sentiment and compare methods for explaining transformer decisions.
+    analytical_questions:
+      - Which words or phrases drive sentiment predictions?
+      - Do different explanation methods identify similar evidence?
+      - How are contextual terms and negation handled?
+      - Which prediction errors become understandable after explanation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - transformers
+      - torch
+      - shap
+      - captum
+      - bertviz
+    logical_steps:
+      - Load and prepare restaurant reviews.
+      - Fit or load a transformer sentiment model.
+      - Evaluate held-out predictions.
+      - Generate token-level explanations.
+      - Compare several explanation techniques.
+      - Inspect representative errors.
+    expected_outputs:
+      - sentiment metrics
+      - token attribution visualizations
+      - explanation comparisons
+      - interpreted error cases
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 253
+  name: Traffic Forecast Interpretation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Interpretation Methods for Multivariate Forecasting and Sensitivity Analysis
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/09/Traffic_compact1.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 09/Traffic_compact1.ipynb
+    description: >
+      Packt forecasts traffic volume with a multivariate recurrent model and applies
+      interpretation and sensitivity-analysis methods to explain temporal and exogenous drivers.
+  data:
+    description: >
+      Traffic-volume time series with temporal, weather, and related explanatory variables.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/datasets/traffic-volume-2e.csv.zip
+    availability: repository
+    files:
+      - datasets/traffic-volume-2e.csv.zip
+  original_implementation:
+    technologies:
+      - LSTM
+      - multivariate forecasting
+      - SHAP
+      - sensitivity analysis
+      - SALib
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/09/Traffic_compact1.ipynb
+  problem:
+    context: >
+      Traffic forecasts depend on temporal history and exogenous conditions, but
+      users need to understand which inputs and time windows drive predicted volumes.
+    objective: >
+      Forecast traffic volume and explain the sensitivity of predictions to temporal
+      and external inputs.
+    analytical_questions:
+      - Which lagged or external variables drive traffic forecasts?
+      - How sensitive are predictions to input perturbations?
+      - Which forecast errors occur under unusual conditions?
+      - Are explanation patterns stable across periods?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - tensorflow
+      - shap
+      - SALib
+      - matplotlib
+    logical_steps:
+      - Load and prepare multivariate traffic data.
+      - Create lagged forecasting inputs.
+      - Fit or load the recurrent model.
+      - Evaluate forecast errors.
+      - Generate local and global explanations.
+      - Perform sensitivity analysis.
+      - Compare explanation stability through time.
+    expected_outputs:
+      - traffic forecasts
+      - forecast error metrics
+      - feature and lag importance
+      - sensitivity indices
+      - explanation visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
