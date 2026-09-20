@@ -2593,6 +2593,80 @@
     data: verified
     code: verified
 
+- id: 292
+  name: Weather-Aligned Ski Performance
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Getting Started with DuckDB
+    title: Temporal Joins with ASOF
+    url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB/blob/main/chapter_10/README.md
+    repository:
+      url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB
+      path: chapter_10/README.md
+    description: >
+      Packt aligns skier scores with the most recent weather measurement using
+      DuckDB ASOF joins, illustrating event-time enrichment when timestamps do not match exactly.
+  data:
+    description: >
+      Skier identities, timestamped scores, and timestamped weather measurements.
+    source_url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB/tree/main/chapter_10
+    availability: repository
+    files:
+      - chapter_10/skiers.csv
+      - chapter_10/skier_scores.csv
+      - chapter_10/weather.csv
+  original_implementation:
+    technologies:
+      - DuckDB
+      - SQL
+      - ASOF joins
+      - temporal enrichment
+      - window functions
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB/blob/main/chapter_10/README.md
+  problem:
+    context: >
+      Sports results and environmental measurements occur at different timestamps,
+      so exact joins cannot reliably attach the conditions in effect when each score was recorded.
+    objective: >
+      Build an analytics-ready event table by matching each skier score to the most
+      recent applicable weather observation.
+    analytical_questions:
+      - Which weather observation should be attached to each score?
+      - How large are time gaps between events and matched measurements?
+      - Are unmatched or stale matches present?
+      - How can the enriched table support performance analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - duckdb
+      - pandas
+    logical_steps:
+      - Load skier, score, and weather tables.
+      - Parse and validate timestamps.
+      - Sort event streams.
+      - Perform an ASOF temporal join.
+      - Calculate match-age diagnostics.
+      - Flag unmatched or stale weather records.
+      - Persist the enriched score table.
+    expected_outputs:
+      - temporally enriched score table
+      - match-age diagnostics
+      - unmatched-event report
+      - analytics-ready sports dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -18295,6 +18369,82 @@
       - coverage table
       - prediction-set size distribution
       - uncertainty interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 291
+  name: Nurse Work Satisfaction Multilevel Model
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Predictive Analytics with R
+    title: Multilevel Modeling
+    url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/blob/master/CODE/CH12%20CODE.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R
+      path: CODE/CH12 CODE.R
+    description: >
+      Packt models nurse work satisfaction across 17 hospitals with random intercepts
+      and random slopes, then evaluates predictions separately by hospital.
+  data:
+    description: >
+      Nurse-level accomplishment, depersonalization, exhaustion, work satisfaction,
+      and hospital identifiers split into training and test samples.
+    source_url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/tree/master/Data/Data%20Ch12
+    availability: repository
+    files:
+      - Data/Data Ch12/NursesMLtrain.dat
+      - Data/Data Ch12/NursesMLtest.dat
+      - Data/Data Ch12/nursesML.dat
+  original_implementation:
+    technologies:
+      - lme4
+      - mixed-effects models
+      - random intercepts
+      - random slopes
+      - multilevel prediction
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/blob/master/CODE/CH12%20CODE.R
+  problem:
+    context: >
+      Nurses are nested within hospitals, so work-satisfaction relationships may differ
+      across institutions and violate independence assumptions of ordinary regression.
+    objective: >
+      Predict nurse work satisfaction while accounting for hospital-level heterogeneity.
+    analytical_questions:
+      - How much variation lies between hospitals versus within hospitals?
+      - Which nurse-level variables explain satisfaction?
+      - Do slopes vary meaningfully across hospitals?
+      - How well does the multilevel model predict satisfaction in held-out records?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load train and test nurse records.
+      - Quantify within- and between-hospital variation.
+      - Fit a random-intercept baseline.
+      - Add fixed nurse-level effects.
+      - Fit random-slope alternatives.
+      - Compare model fit.
+      - Evaluate predictions by hospital.
+    expected_outputs:
+      - variance decomposition
+      - mixed-model coefficient table
+      - hospital random effects
+      - model comparison
+      - hospital-level prediction diagnostics
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
