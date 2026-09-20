@@ -21975,6 +21975,83 @@
     data: verified
     code: verified
 
+- id: 347
+  name: SQL Revenue and Shipment Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Wrangling with SQL
+    title: Time Series Analysis with SQL
+    url: https://github.com/PacktPublishing/Data-Wrangling-with-SQL/tree/main/Chapter12
+    repository:
+      url: https://github.com/PacktPublishing/Data-Wrangling-with-SQL
+      path: Chapter12/B19406_Chapter12.txt
+    description: >
+      Packt develops time-series features directly in SQL using running totals,
+      lagged values, percentage changes, moving averages, and a simple regression
+      workflow to predict revenue and shipment volume.
+  data:
+    description: >
+      Chapter 12 sales data containing dates, revenue, shipment counts, and related
+      temporal fields used for SQL-based time-series analysis.
+    source_url: https://github.com/PacktPublishing/Data-Wrangling-with-SQL/blob/main/Chapter12/Chapter%2012%20dataset.xlsx
+    availability: repository
+    files:
+      - Chapter12/Chapter 12 dataset.xlsx
+  original_implementation:
+    technologies:
+      - SQL
+      - window functions
+      - lag and lead
+      - moving averages
+      - linear regression
+      - time-series feature engineering
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Wrangling-with-SQL/blob/main/Chapter12/B19406_Chapter12.txt
+  problem:
+    context: >
+      Analysts working primarily in SQL need to derive temporal signals and simple
+      forecasts without exporting operational sales data to a separate modeling environment.
+    objective: >
+      Build SQL-native temporal features and estimate short-horizon revenue and
+      shipment values.
+    analytical_questions:
+      - How do revenue and shipments change from one period to the next?
+      - What running totals and moving averages summarize recent behavior?
+      - Which temporal features can be generated with window functions?
+      - What next-period values are implied by the fitted SQL regression?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - duckdb
+      - pandas
+      - statsmodels
+    logical_steps:
+      - Load the sales dataset into a SQL engine.
+      - Create ordered temporal views.
+      - Calculate lagged values and percentage changes.
+      - Build moving-average features.
+      - Derive calendar predictors.
+      - Fit a simple regression benchmark.
+      - Generate and validate next-period predictions.
+    expected_outputs:
+      - SQL time-series feature table
+      - running and moving metrics
+      - regression parameter table
+      - revenue predictions
+      - shipment predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -25945,6 +26022,87 @@
     self_contained_python_rewrite_possible: false
     external_web_required_after_data_download: true
     authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 348
+  name: AdventureWorks Sales Analytics
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Advanced Analytics with R and Tableau
+    title: Advanced Tableau Sales Analytics
+    url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau/tree/master/Chapter07
+    repository:
+      url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau
+      path: Chapter07/Chapter 7.twb
+    description: >
+      Packt builds a Tableau analytical workbook over AdventureWorks sales,
+      product, subcategory, category, and date data with relational joins,
+      period comparisons, window calculations, and interactive sales analysis.
+  data:
+    description: >
+      AdventureWorks Internet Sales fact data joined with date, product,
+      product-subcategory, and product-category dimensions.
+    source_url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau/tree/master/Chapter07
+    availability: repository
+    files:
+      - Chapter07/Chapter 7.twb
+      - Chapter07/TDE Files/DimDate.tde
+      - Chapter07/TDE Files/DimProduct.tde
+      - Chapter07/TDE Files/DimProductSubcategory.tde
+      - Chapter07/TDE Files/FactInternetSales.tde
+  original_implementation:
+    technologies:
+      - Tableau
+      - dimensional joins
+      - window calculations
+      - period benchmarking
+      - interactive visualization
+    language: Tableau
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau/blob/master/Chapter07/Chapter%207.twb
+  problem:
+    context: >
+      Sales managers need an interactive view of Internet sales that connects
+      transaction facts with product hierarchies and calendar dimensions and allows
+      current performance to be compared with historical benchmarks.
+    objective: >
+      Build an interactive sales analytics product over a dimensional sales model.
+    analytical_questions:
+      - How do sales vary by product category and fiscal period?
+      - How does current-period sales compare with historical averages?
+      - Which product hierarchies drive changes in sales?
+      - How should the fact and dimension tables be joined for reliable analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - duckdb
+      - plotly
+      - streamlit
+    logical_steps:
+      - Load sales fact and dimension tables.
+      - Reconstruct the dimensional joins.
+      - Validate analytical grain and measures.
+      - Calculate period and benchmark metrics.
+      - Build product hierarchy drilldowns.
+      - Create interactive filtering and comparisons.
+      - Validate dashboard totals against the fact table.
+    expected_outputs:
+      - integrated sales model
+      - KPI and benchmark calculations
+      - category and period drilldowns
+      - interactive sales dashboard
+      - reconciliation checks
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
   verification:
     source: verified
     data: verified
