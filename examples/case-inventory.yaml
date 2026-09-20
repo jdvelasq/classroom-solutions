@@ -1051,6 +1051,83 @@
     data: verified
     code: verified
 
+- id: 117
+  name: Credit Label Engineering
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data-Centric Machine Learning with Python
+    title: Techniques for Programmatic Labelling
+    url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/blob/main/Chapter%206%20-%20Techniques%20for%20programmatic%20labelling/Chapter%206%20-%20Techniques%20for%20programmatic%20labelling.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python
+      path: Chapter 6 - Techniques for programmatic labelling/Chapter 6 - Techniques for programmatic labelling.ipynb
+    description: >
+      Packt constructs weak labels for credit and loan records from interpretable
+      rules, applies Snorkel labeling functions, combines noisy supervision with a
+      label model, and compares generated labels with known outcomes.
+  data:
+    description: >
+      Credit-risk and loan-application records with financial and demographic
+      attributes used to design and evaluate programmatic labeling rules.
+    source_url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python
+    availability: repository_and_public
+    files:
+      - train_loan_prediction.csv
+  original_implementation:
+    technologies:
+      - pattern matching
+      - weak supervision
+      - Snorkel
+      - labeling functions
+      - label model
+      - label quality evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/blob/main/Chapter%206%20-%20Techniques%20for%20programmatic%20labelling/Chapter%206%20-%20Techniques%20for%20programmatic%20labelling.ipynb
+  problem:
+    context: >
+      Manually labeling enough records for supervised learning can be expensive, but
+      domain rules can provide multiple imperfect labeling signals at scale.
+    objective: >
+      Build and evaluate a programmatic labeling pipeline that converts domain rules
+      into probabilistic training labels.
+    analytical_questions:
+      - Which domain rules can be expressed as labeling functions?
+      - Where do labeling functions agree, conflict, or abstain?
+      - How can noisy labels be combined probabilistically?
+      - How closely do generated labels match trusted outcomes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - snorkel
+      - scikit-learn
+    logical_steps:
+      - Load and prepare credit or loan records.
+      - Define transparent labeling functions.
+      - Apply all rules to each observation.
+      - Measure coverage, overlap, conflict, and empirical accuracy.
+      - Fit a probabilistic label model.
+      - Produce weak labels and label probabilities.
+      - Compare generated labels with available gold labels.
+    expected_outputs:
+      - labeling-function matrix
+      - coverage and conflict report
+      - label-model probabilities
+      - generated training labels
+      - label quality comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -4436,6 +4513,81 @@
       - rolling sales diagnostics
       - sales decile table
       - weekday-product analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 120
+  name: Network Traffic Analytics at Scale
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Big Data Analytics with PySpark
+    title: Large-Scale Network Traffic Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Big-Data-Analytics-with-PySpark/tree/master/Chapter04
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Big-Data-Analytics-with-PySpark
+      path: Chapter04/Chapter 4.ipynb
+    description: >
+      Packt uses the KDD Cup network-traffic dataset across Spark chapters to
+      aggregate connection behavior, compare normal and attack traffic, calculate
+      large-scale summary statistics, and structure the data with Spark SQL.
+  data:
+    description: >
+      KDD Cup 1999 network connection records with traffic attributes and normal
+      or attack labels.
+    source_url: https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html
+    availability: public
+    files:
+      - kddcup.data.gz
+  original_implementation:
+    technologies:
+      - PySpark
+      - RDDs
+      - reduceByKey
+      - MLlib statistics
+      - hypothesis testing
+      - Spark SQL
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Big-Data-Analytics-with-PySpark/tree/master/Chapter04
+  problem:
+    context: >
+      Network connection logs are large enough to motivate distributed analysis and
+      contain heterogeneous normal and attack traffic patterns.
+    objective: >
+      Use distributed computation to summarize and diagnose large-scale network
+      traffic behavior.
+    analytical_questions:
+      - How are connection types distributed at scale?
+      - How do normal and attack records differ on key metrics?
+      - Which summaries can be computed efficiently with distributed aggregation?
+      - How can the raw traffic be structured for interactive SQL analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load compressed network records with Spark.
+      - Parse and validate connection fields.
+      - Compare normal and attack traffic volumes.
+      - Aggregate durations and selected metrics by traffic class.
+      - Calculate distributed descriptive statistics and correlations.
+      - Create structured Spark DataFrames.
+      - Query diagnostic patterns with Spark SQL.
+    expected_outputs:
+      - distributed traffic summaries
+      - class-level KPI tables
+      - statistical comparisons
+      - Spark SQL views
+      - scalability discussion
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -7970,6 +8122,164 @@
       - incidence-rate interpretation
       - count prediction diagnostics
       - predicted demand table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 118
+  name: Credit Model Bias Diagnosis
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data-Centric Machine Learning with Python
+    title: Techniques for Identifying and Removing Bias
+    url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/blob/main/Chapter%208%20-%20Techniques%20for%20identifying%20and%20removing%20bias/Chapter%208-Code.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python
+      path: Chapter 8 - Techniques for identifying and removing bias/Chapter 8-Code.ipynb
+    description: >
+      Packt evaluates a credit model with group-level fairness metrics and compares
+      resampling strategies intended to reduce performance disparities while preserving
+      predictive utility.
+  data:
+    description: >
+      Credit-default records containing a protected sex attribute, financial features,
+      and default outcomes.
+    source_url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python
+    availability: referenced_dataset
+    files:
+      - loan_dataset.csv
+  original_implementation:
+    technologies:
+      - Fairlearn
+      - demographic parity
+      - equalized odds
+      - balanced accuracy
+      - SMOTE
+      - ADASYN
+      - resampling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/blob/main/Chapter%208%20-%20Techniques%20for%20identifying%20and%20removing%20bias/Chapter%208-Code.ipynb
+  problem:
+    context: >
+      A credit model can achieve acceptable aggregate accuracy while performing
+      differently across demographic groups, so model quality must be evaluated
+      beyond a single overall metric.
+    objective: >
+      Diagnose group-level predictive disparities and compare data-level mitigation
+      strategies while tracking both fairness and predictive performance.
+    analytical_questions:
+      - Does model performance differ across groups?
+      - What do demographic-parity and equalized-odds metrics reveal?
+      - How do alternative resampling methods change group performance?
+      - What trade-offs appear between fairness metrics and predictive accuracy?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - imbalanced-learn
+      - fairlearn
+    logical_steps:
+      - Load and prepare credit records.
+      - Separate the protected attribute from model features.
+      - Train a baseline classifier.
+      - Calculate aggregate and group-specific metrics.
+      - Calculate fairness metrics.
+      - Apply alternative resampling strategies.
+      - Refit and compare predictive and fairness outcomes.
+    expected_outputs:
+      - baseline classification metrics
+      - group-level performance table
+      - fairness metric table
+      - mitigation comparison
+      - trade-off analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partially_verified
+    code: verified
+  notes: >
+    The notebook references loan_dataset.csv; the repository exposes the implementation
+    but not that file at the top level, so a rewrite requires locating or reconstructing
+    the referenced dataset.
+
+- id: 119
+  name: Train-Test Shift Diagnosis
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: The Kaggle Book, Second Edition
+    title: Adversarial Validation Example
+    url: https://github.com/PacktPublishing/The-Kaggle-Book-2nd-Edition/blob/main/Chapter_07/ch_07_adversarial-validation-example.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/The-Kaggle-Book-2nd-Edition
+      path: Chapter_07/ch_07_adversarial-validation-example.ipynb
+    description: >
+      Packt combines training and test observations, labels their source, and uses
+      cross-validated classification to determine whether the two samples are
+      distinguishable, thereby diagnosing dataset shift.
+  data:
+    description: >
+      Training and test tables from Kaggle's January 2021 Tabular Playground Series.
+    source_url: https://www.kaggle.com/competitions/tabular-playground-series-jan-2021
+    availability: public_platform
+    files:
+      - train.csv
+      - test.csv
+  original_implementation:
+    technologies:
+      - adversarial validation
+      - cross-validation
+      - ROC AUC
+      - feature importance
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/The-Kaggle-Book-2nd-Edition/blob/main/Chapter_07/ch_07_adversarial-validation-example.ipynb
+  problem:
+    context: >
+      A model-validation strategy can be misleading when training and future scoring
+      data come from measurably different distributions.
+    objective: >
+      Test whether training and test samples are distinguishable and identify the
+      features driving distribution shift.
+    analytical_questions:
+      - Can a classifier distinguish train from test observations?
+      - What ROC AUC indicates meaningful distribution shift?
+      - Which variables contribute most to the difference?
+      - What does the detected shift imply for model validation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load training and test features.
+      - Remove original target and identifiers.
+      - Label each row by source dataset.
+      - Combine and shuffle observations.
+      - Fit a cross-validated source classifier.
+      - Calculate adversarial ROC AUC.
+      - Rank features that distinguish the samples.
+      - Interpret implications for validation design.
+    expected_outputs:
+      - adversarial validation score
+      - source prediction diagnostics
+      - shift-driving feature ranking
+      - validation-risk interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
