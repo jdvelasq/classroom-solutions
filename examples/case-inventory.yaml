@@ -9534,6 +9534,75 @@
     data: verified
     code: verified
 
+- id: 284
+  name: Beer Product Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Principles of Data Science, Second Edition
+    title: Beer Clustering
+    url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition/blob/master/Chapter11/Chapter_11.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition
+      path: Chapter11/Chapter_11.ipynb
+    description: >
+      Packt clusters beer products by calories, sodium, alcohol, and related attributes,
+      compares candidate cluster counts, and profiles the resulting product groups.
+  data:
+    description: >
+      Beer product records with nutritional and alcohol characteristics.
+    source_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition/blob/master/Chapter11/beer.txt
+    availability: repository
+    files:
+      - Chapter11/beer.txt
+  original_implementation:
+    technologies:
+      - K-means
+      - scaling
+      - cluster profiling
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition/blob/master/Chapter11/Chapter_11.ipynb
+  problem:
+    context: >
+      Beer products differ across nutritional and alcohol characteristics that can
+      reveal interpretable product segments.
+    objective: >
+      Discover and profile product groups from measurable beer attributes.
+    analytical_questions:
+      - How many distinct product groups are supported?
+      - Which attributes separate clusters?
+      - What characterizes each beer segment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate beer attributes.
+      - Standardize numeric variables.
+      - Compare candidate cluster counts.
+      - Fit K-means.
+      - Profile clusters in original units.
+      - Visualize and interpret segments.
+    expected_outputs:
+      - cluster diagnostics
+      - beer segment assignments
+      - segment profile table
+      - cluster visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -17935,6 +18004,82 @@
   verification:
     source: verified
     data: verified
+    code: verified
+
+- id: 285
+  name: Social Sentiment Market Signal
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Principles of Data Science, Second Edition
+    title: Twitter Sentiment and Stock Price
+    url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition/blob/master/Chapter13/Chapter_13.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition
+      path: Chapter13/Chapter_13.ipynb
+    description: >
+      Packt aggregates sentiment from Apple-related tweets, aligns it with market
+      prices, and tests whether lagged sentiment helps predict price levels or large price changes.
+  data:
+    description: >
+      Historical Apple-related tweets with timestamps plus corresponding market price series.
+    source_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition/blob/master/Chapter13/so_many_tweets.csv
+    availability: repository_and_external_market_data
+    files:
+      - Chapter13/so_many_tweets.csv
+  original_implementation:
+    technologies:
+      - TextBlob
+      - sentiment analysis
+      - temporal aggregation
+      - linear regression
+      - logistic regression
+      - random forest
+      - cross-validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Second-Edition/blob/master/Chapter13/Chapter_13.ipynb
+  problem:
+    context: >
+      Social-media sentiment may contain information about subsequent market behavior,
+      but any signal must be tested against simple null models.
+    objective: >
+      Evaluate whether lagged social sentiment provides predictive value for stock-price behavior.
+    analytical_questions:
+      - How does daily sentiment evolve through time?
+      - Is lagged sentiment associated with next-day price?
+      - Can sentiment help identify unusually large price changes?
+      - Does it improve on null prediction baselines?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - textblob
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and timestamp social posts.
+      - Score tweet sentiment.
+      - Aggregate sentiment by day.
+      - Align sentiment with market prices.
+      - Construct lagged predictors.
+      - Fit regression and classification models.
+      - Compare cross-validated performance with null baselines.
+    expected_outputs:
+      - daily sentiment series
+      - aligned sentiment-price dataset
+      - predictive model comparison
+      - baseline comparison
+      - signal interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: partially_verified
     code: verified
 
 - id: 54
