@@ -16436,3 +16436,238 @@
     source: verified
     data: verified
     code: verified
+
+- id: 219
+  name: Association Rule Explorer
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Big Data Analytics
+    title: Apriori Rules Shiny Application
+    url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics/blob/master/Chapter08/rulespackt/app.R
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics
+      path: Chapter08/rulespackt/app.R
+    description: >
+      Packt wraps mined association rules in a Shiny dashboard that lets users
+      filter by company, left-hand side, right-hand side, support, confidence,
+      and lift, inspect matching rules, and export results.
+  data:
+    description: >
+      Precomputed association-rule tables and factor data supplied with the
+      chapter application.
+    source_url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics/tree/master/Chapter08/rulespackt
+    availability: repository
+    files:
+      - Chapter08/rulespackt/cms_factor_dt.rds
+      - Chapter08/rulespackt/cms_rules_dt.rds
+      - Chapter08/rulespackt/cms_rules.rds
+  original_implementation:
+    technologies:
+      - R
+      - Shiny
+      - association rules
+      - Apriori
+      - interactive filtering
+      - data export
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics/blob/master/Chapter08/rulespackt/app.R
+  problem:
+    context: >
+      Large rule sets are difficult to use directly; analysts need an interactive
+      product for finding commercially meaningful rules under changing thresholds.
+    objective: >
+      Build an interactive rule-exploration application for inspecting and exporting
+      association rules under user-defined constraints.
+    analytical_questions:
+      - Which rules remain after support, confidence, and lift thresholds change?
+      - Which antecedents or consequents match a search term?
+      - How do rules differ across companies?
+      - Which filtered rules should be exported for further analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - streamlit
+      - mlxtend
+    logical_steps:
+      - Load or generate association rules.
+      - Expose support, confidence, and lift filters.
+      - Add antecedent and consequent text search.
+      - Add optional company filtering.
+      - Display matching rules interactively.
+      - Support CSV export.
+    expected_outputs:
+      - interactive rule table
+      - threshold controls
+      - text and company filters
+      - downloadable rule set
+      - working analytical app
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 220
+  name: Global Development Dashboard
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Web Application Development with R Using Shiny, Third Edition
+    title: Final Gapminder Dashboard
+    url: https://github.com/PacktPublishing/Web-Application-Development-with-R-Using-Shiny-third-edition/tree/master/Chapter06/finalDashboard_V4
+    repository:
+      url: https://github.com/PacktPublishing/Web-Application-Development-with-R-Using-Shiny-third-edition
+      path: Chapter06/finalDashboard_V4
+    description: >
+      Packt builds a complete Gapminder Shiny dashboard with year and continent
+      controls, life-expectancy trends, GDP indicators, notifications, gauges,
+      and an interactive geographic map.
+  data:
+    description: >
+      Gapminder country-year observations with population, GDP per capita, life
+      expectancy, continent, and geocoded country coordinates.
+    source_url: https://www.gapminder.org/data/
+    availability: package_and_repository
+    files:
+      - Chapter06/finalDashboard_V4/geocodedData.Rdata
+  original_implementation:
+    technologies:
+      - R
+      - Shiny
+      - shinydashboard
+      - ggplot2
+      - Leaflet
+      - GoogleVis
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Web-Application-Development-with-R-Using-Shiny-third-edition/tree/master/Chapter06/finalDashboard_V4
+  problem:
+    context: >
+      Global development indicators span countries and decades, so users benefit
+      from interactive temporal, geographic, and comparative exploration.
+    objective: >
+      Deliver an interactive dashboard for exploring GDP and life-expectancy
+      patterns across countries, continents, and time.
+    analytical_questions:
+      - How does life expectancy evolve by continent?
+      - How does GDP per capita compare across selected regions?
+      - What values characterize the latest selected year?
+      - How can geographic and temporal views be combined in one product?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - streamlit
+      - plotly
+      - folium
+    logical_steps:
+      - Load and validate Gapminder data.
+      - Add or validate geographic coordinates.
+      - Implement year and continent filters.
+      - Calculate selected KPIs.
+      - Build temporal trend views.
+      - Build an interactive geographic view.
+      - Assemble the components into a dashboard.
+    expected_outputs:
+      - interactive KPI cards
+      - trend chart
+      - geographic map
+      - user filters
+      - working dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 221
+  name: Hotel Review Text Enrichment
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Artificial Intelligence with Power BI
+    title: Text Analytics in Power BI
+    url: https://github.com/PacktPublishing/Artificial-Intelligence-with-Power-BI/tree/main/Chapter08
+    repository:
+      url: https://github.com/PacktPublishing/Artificial-Intelligence-with-Power-BI
+      path: Chapter08
+    description: >
+      Packt integrates cloud text analytics into Power BI so hotel reviews can be
+      enriched with sentiment and key phrases and then used in downstream BI analysis.
+  data:
+    description: >
+      Hotel review text supplied with the chapter.
+    source_url: https://github.com/PacktPublishing/Artificial-Intelligence-with-Power-BI/blob/main/Chapter08/hotel_reviews.csv
+    availability: repository
+    files:
+      - Chapter08/hotel_reviews.csv
+  original_implementation:
+    technologies:
+      - Power BI
+      - Power Query
+      - Azure Text Analytics
+      - sentiment analysis
+      - key phrase extraction
+    language:
+      - Power Query M
+      - Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Artificial-Intelligence-with-Power-BI/blob/main/Chapter08/customfunctions.md
+  problem:
+    context: >
+      Hotel review text is difficult to summarize in standard BI until qualitative
+      content is converted into structured analytical attributes.
+    objective: >
+      Enrich hotel reviews with sentiment and key phrases and make the derived
+      attributes available inside an interactive BI workflow.
+    analytical_questions:
+      - What sentiment is associated with each review?
+      - Which key phrases recur across reviews?
+      - How can text-derived attributes be integrated into BI filtering and reporting?
+      - What service and authentication dependencies must be managed?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - transformers
+      - keybert
+      - streamlit
+    logical_steps:
+      - Load and validate hotel reviews.
+      - Apply sentiment analysis.
+      - Extract representative key phrases.
+      - Attach structured NLP outputs to each review.
+      - Aggregate sentiment and topics.
+      - Build an interactive review-analysis view.
+    expected_outputs:
+      - enriched review table
+      - sentiment summaries
+      - key phrase summaries
+      - interactive BI views
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    The original implementation calls Azure Text Analytics and therefore requires
+    credentials; a self-contained Python rewrite can replace that dependency with
+    local open-source models.
