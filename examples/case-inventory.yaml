@@ -272,3 +272,78 @@
     This case uses the same underlying Bike Sharing Demand dataset as case 2 but
     is a distinct case because the pedagogical problem is forecasting with lagged
     variables, leakage-aware temporal validation, and uncertainty estimation.
+
+- id: 4
+  name: Finding Themes in Project Descriptions
+  type: predictiva
+  source:
+    category: institution_course
+    organization: MIT Professional Education
+    program: Data Science: Data to Insights
+    title: LDA Analysis - Finding Themes in Project Descriptions
+    url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
+    description: >
+      MIT Professional Education presents a case in which Latent Dirichlet Allocation
+      is used to discover themes in project descriptions from MIT EECS faculty data.
+  data:
+    description: >
+      Textual project descriptions collected from MIT EECS faculty pages.
+    source_url: null
+    availability: scrape_required
+    files: []
+    notes: >
+      The course description explicitly indicates that learners scrape their own
+      corpus. A future rewrite must freeze the collected corpus for reproducibility.
+  original_implementation:
+    technologies:
+      - Latent Dirichlet Allocation
+      - stochastic variational inference
+    language: Python
+    code_available: partial
+    code_url: null
+  problem:
+    context: >
+      A collection of project descriptions contains latent research themes that are
+      not explicitly labeled.
+    objective: >
+      Discover and interpret latent themes in project descriptions using topic modeling.
+    analytical_questions:
+      - Which terms characterize the corpus?
+      - What latent topics can be recovered with LDA?
+      - Which projects are most strongly associated with each topic?
+      - How interpretable and stable are the discovered themes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Collect and freeze project-description documents.
+      - Clean and normalize the text.
+      - Construct a document-term representation.
+      - Fit LDA topic models.
+      - Inspect top terms and document-topic probabilities.
+      - Compare plausible topic counts.
+      - Label and interpret the recovered themes.
+    expected_outputs:
+      - frozen text corpus
+      - document-term matrix
+      - fitted topic model
+      - topic-term tables
+      - document-topic table
+      - topic visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: partial
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    Verified as a distinct MIT text-mining case. No matching project-description,
+    LDA, or topic-modeling PRE/LAB was found in CLASSROOM.
