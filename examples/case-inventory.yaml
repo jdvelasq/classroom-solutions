@@ -17047,6 +17047,313 @@
     data: verified
     code: verified
 
+- id: 271
+  name: Harmful Algae Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: CRC Press
+    publisher: CRC Press
+    book: Data Mining with R, Second Edition
+    title: Predicting Algae Blooms
+    url: https://github.com/ltorgo/DMwR2
+    repository:
+      url: https://github.com/ltorgo/DMwR2
+      path: data/algae.RData
+    description: >
+      The book uses European river measurements to predict concentrations of seven
+      harmful algae species from contextual and chemical water-quality variables.
+  data:
+    description: >
+      Training observations from European rivers with season, size, speed, eight
+      chemical measurements, and seven harmful-algae concentration targets, plus
+      a separate test set and solutions.
+    source_url: https://github.com/ltorgo/DMwR2
+    availability: package_dataset
+    files:
+      - algae
+      - test.algae
+      - algae.sols
+  original_implementation:
+    technologies:
+      - R
+      - regression
+      - multi-target prediction
+      - missing-data handling
+      - model evaluation
+    language: R
+    code_available: true
+    code_url: https://github.com/ltorgo/DMwR2
+  problem:
+    context: >
+      Water-quality monitoring programs need to anticipate harmful algae
+      concentrations from environmental and chemical measurements collected in rivers.
+    objective: >
+      Predict the concentration of multiple harmful algae species for unseen water samples.
+    analytical_questions:
+      - Which contextual and chemical variables are most informative?
+      - How should missing measurements be handled?
+      - Which modeling strategy works best across multiple algae targets?
+      - How well do predictions generalize to the test samples?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - numpy
+    logical_steps:
+      - Load training, test, and solution datasets.
+      - Profile missingness and target distributions.
+      - Prepare contextual and chemical predictors.
+      - Build target-specific or multi-output regressors.
+      - Validate models reproducibly.
+      - Score the held-out test set.
+      - Compare performance across algae species.
+    expected_outputs:
+      - cleaned water-quality dataset
+      - multi-target prediction models
+      - validation metrics by algae species
+      - test predictions
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 272
+  name: Sales Fraud Screening
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: CRC Press
+    publisher: CRC Press
+    book: Data Mining with R, Second Edition
+    title: Fraud Detection in Sales Reports
+    url: https://github.com/ltorgo/DMwR2
+    repository:
+      url: https://github.com/ltorgo/DMwR2
+      path: data/sales.RData
+    description: >
+      The book's sales case uses more than 400,000 transaction reports, inspection
+      outcomes, and anomaly-oriented methods to identify suspicious sales reports
+      requiring investigation.
+  data:
+    description: >
+      Salesperson-product transaction reports with quantity, reported value, and
+      inspection status labeled as ok, fraud, or unknown.
+    source_url: https://github.com/ltorgo/DMwR2
+    availability: package_dataset
+    files:
+      - sales
+  original_implementation:
+    technologies:
+      - anomaly detection
+      - outlier ranking
+      - fraud screening
+      - supervised evaluation
+    language: R
+    code_available: true
+    code_url: https://github.com/ltorgo/DMwR2
+  problem:
+    context: >
+      Manual inspection of hundreds of thousands of sales reports is expensive,
+      so investigators need to prioritize records most likely to be fraudulent.
+    objective: >
+      Rank sales reports by suspiciousness and evaluate how effectively the ranking
+      surfaces inspected fraud cases.
+    analytical_questions:
+      - Which reports deviate most from normal sales behavior?
+      - Which variables contribute to suspiciousness?
+      - How concentrated are confirmed fraud cases near the top of the ranking?
+      - What inspection workload is required to capture a chosen share of fraud?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - numpy
+    logical_steps:
+      - Load and validate sales reports.
+      - Separate known inspection outcomes from unknown cases.
+      - Construct behavior and transaction features.
+      - Fit anomaly or fraud-ranking models.
+      - Rank reports by risk.
+      - Evaluate fraud concentration in top-ranked subsets.
+      - Produce an investigation queue.
+    expected_outputs:
+      - fraud-risk scores
+      - ranked investigation queue
+      - top-k capture analysis
+      - workload-versus-detection curve
+      - fraud screening diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 273
+  name: Discussion Buzz Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: Buzz Model
+    url: https://github.com/WinVector/PDSwR2/blob/main/Buzz/buzzm.md
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: Buzz/buzzm.md
+    description: >
+      The book predicts whether discussion topics will generate buzz using a large
+      set of lagged activity features, random forests, explicit train/test evaluation,
+      overfitting analysis, model simplification, and model serialization.
+  data:
+    description: >
+      TomsHardware discussion-topic activity data with multi-day measures of
+      discussion volume, author activity, attention, burstiness, and a buzz label.
+    source_url: https://github.com/WinVector/PDSwR2/tree/main/Buzz
+    availability: repository
+    files:
+      - Buzz/TomsHardware-Relative-Sigma-500.data.txt
+      - Buzz/TomsHardware-Relative-Sigma-500.names.txt
+  original_implementation:
+    technologies:
+      - random forest
+      - temporal features
+      - ROC AUC
+      - overfitting diagnosis
+      - model serialization
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/blob/main/Buzz/buzzm.md
+  problem:
+    context: >
+      Online communities need to identify discussion topics that are likely to
+      become highly active using their recent interaction history.
+    objective: >
+      Predict topic buzz and compare a highly flexible model with a constrained
+      alternative to diagnose generalization.
+    analytical_questions:
+      - Which recent activity indicators predict buzz?
+      - How large is the train-test performance gap?
+      - Does constraining tree complexity reduce overfitting?
+      - Which model should be retained for operational scoring?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - joblib
+    logical_steps:
+      - Load and name the lagged activity features.
+      - Create reproducible training and test partitions.
+      - Fit an unconstrained random forest.
+      - Compare train and test performance.
+      - Fit a constrained model.
+      - Compare accuracy, F1, deviance, and ROC AUC.
+      - Persist the selected model and a scoring sample.
+    expected_outputs:
+      - prepared buzz dataset
+      - train-test performance table
+      - ROC curves
+      - overfitting comparison
+      - serialized model
+      - scoring sample
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 274
+  name: Neonatal Risk Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: Natal Risk Modeling
+    url: https://github.com/WinVector/PDSwR2/tree/main/CDC
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: CDC/PrepNatalRiskData.R
+    description: >
+      The book prepares CDC natality data for modeling neonatal risk, converting
+      sentinel codes, recoding obstetric and maternal risk factors, and constructing
+      a low-Apgar risk outcome for predictive analysis.
+  data:
+    description: >
+      CDC natality records with maternal weight, prenatal visits, tobacco use,
+      gestational age, plurality, obstetric complications, chronic conditions,
+      birth weight, and five-minute Apgar score.
+    source_url: https://github.com/WinVector/PDSwR2/tree/main/CDC
+    availability: repository
+    files:
+      - CDC/natal2010Sample.tsv.gz
+      - CDC/NatalRiskData.rData
+  original_implementation:
+    technologies:
+      - data cleaning
+      - sentinel-code handling
+      - feature recoding
+      - logistic modeling
+      - risk prediction
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/tree/main/CDC
+  problem:
+    context: >
+      Birth records contain maternal, pregnancy, and delivery factors that can be
+      used to identify newborns at elevated risk of a low five-minute Apgar score.
+    objective: >
+      Prepare natality records and model neonatal risk from maternal and obstetric predictors.
+    analytical_questions:
+      - Which sentinel values must be converted to missing?
+      - Which maternal and obstetric factors are associated with neonatal risk?
+      - How should rare categorical risk factors be encoded?
+      - How accurately can high-risk births be identified?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+    logical_steps:
+      - Load the natality sample.
+      - Convert sentinel values and unknown codes.
+      - Recode categorical and boolean risk factors.
+      - Define the low-Apgar target.
+      - Remove or impute incomplete records transparently.
+      - Fit and validate a risk model.
+      - Interpret predictors and high-risk cases.
+    expected_outputs:
+      - cleaned natality dataset
+      - neonatal risk model
+      - classification metrics
+      - risk-factor interpretation
+      - newborn risk scores
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
