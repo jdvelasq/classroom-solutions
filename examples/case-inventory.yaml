@@ -1456,3 +1456,73 @@
   notes: >
     This is a descriptive lexicon-based social-media sentiment case, not a duplicate
     of CLASSROOM's supervised Financial PhraseBank classifier.
+
+- id: 20
+  name: Emotion Profiling of 2016 Election Tweets
+  type: descriptiva
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Tweet Profiler
+    url: https://orange3-text.readthedocs.io/en/latest/widgets/tweetprofiler.html
+    description: >
+      Official Orange example profiling emotions in election tweets using Ekman,
+      Plutchik, or Profile of Mood States emotion taxonomies.
+  data:
+    description: >
+      Election-2016-tweets.tab corpus used in the official Orange example.
+    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/tweetprofiler.html
+    availability: bundled_with_example
+    files:
+      - Election-2016-tweets.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - emotion classification
+      - Ekman taxonomy
+      - Plutchik taxonomy
+      - POMS
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      Sentiment polarity alone can hide important distinctions among emotions such
+      as anger, fear, joy, and sadness in political social-media messages.
+    objective: >
+      Profile and compare emotional patterns across authors in a tweet corpus.
+    analytical_questions:
+      - Which emotions dominate the corpus?
+      - How do emotion distributions differ across authors?
+      - How do multi-class and multi-label outputs differ?
+      - Which messages have the strongest emotion probabilities?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - transformers
+      - matplotlib
+    logical_steps:
+      - Load the election-tweet corpus.
+      - Select an open emotion-classification model or reproducible lexicon.
+      - Compute emotion probabilities for each document.
+      - Aggregate emotion scores by author.
+      - Compare dominant emotions and uncertainty.
+      - Visualize and interpret author-level emotion profiles.
+    expected_outputs:
+      - emotion-enriched corpus
+      - author-level profiles
+      - emotion-distribution plots
+      - representative examples
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
