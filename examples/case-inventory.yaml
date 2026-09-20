@@ -1598,3 +1598,83 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 22
+  name: Real-Time Twitter Monitoring for S&P 500 Companies
+  type: descriptiva
+  source:
+    category: official_repository
+    organization: Hortonworks
+    program: Streaming Workshop Demo
+    title: Monitor Twitter stream for S&P 500 companies
+    url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+    repository:
+      url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+      path: /
+    description: >
+      Hortonworks workshop demo for monitoring tweets about S&P 500 companies,
+      detecting unexpected increases in tweet volume, and supporting sentiment analysis.
+  data:
+    description: >
+      Streaming Twitter messages related to S&P 500 companies, with operational
+      thresholds used to flag unusual increases in volume.
+    source_url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+    availability: live_or_replay
+    files: []
+    notes: >
+      A classroom rewrite should use a frozen replay dataset because current live
+      Twitter/X API access is not required for the analytical objective.
+  original_implementation:
+    technologies:
+      - Twitter streaming
+      - HBase
+      - HDFS
+      - Hive
+      - Solr
+      - Banana dashboard
+      - sentiment analysis
+    language: mixed
+    code_available: true
+    code_url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+  problem:
+    context: >
+      Sudden changes in social-media activity around listed companies may signal
+      emerging events that merit investigation.
+    objective: >
+      Monitor company-related tweet streams, detect anomalous volume increases,
+      and enrich the signal with searchable text and sentiment information.
+    analytical_questions:
+      - Which companies experience abnormal increases in tweet volume?
+      - How should alert thresholds be defined?
+      - What text or sentiment accompanies the volume anomaly?
+      - How can batch history and real-time signals be combined?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Freeze a historical stream of company-related social posts.
+      - Aggregate message volume by company and time window.
+      - Define baseline volume and anomaly thresholds.
+      - Detect unexpected increases.
+      - Analyze text and sentiment around flagged windows.
+      - Produce an alert table and diagnostic visualizations.
+    expected_outputs:
+      - replayable social stream
+      - time-window aggregates
+      - anomaly flags
+      - sentiment or text summaries
+      - alert dashboard or plots
+      - written incident interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
