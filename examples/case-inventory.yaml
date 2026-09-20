@@ -12279,6 +12279,79 @@
     data: verified
     code: verified
 
+- id: 381
+  name: Distributed Topic Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Scala and Spark for Big Data Analytics
+    title: Topic Modelling with LDA
+    url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics/blob/master/Chapter11/topicModellingwithLDA.scala
+    repository:
+      url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics
+      path: Chapter11/topicModellingwithLDA.scala
+    description: >
+      Packt builds a distributed text preprocessing pipeline and fits Spark LDA
+      with EM or online optimization to discover latent topics in a document collection.
+  data:
+    description: >
+      Text documents stored as whole files together with a customizable stop-word list.
+    source_url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics
+    availability: companion_repository
+    files:
+      - data/docs/
+  original_implementation:
+    technologies:
+      - Spark ML
+      - RegexTokenizer
+      - StopWordsRemover
+      - CountVectorizer
+      - distributed LDA
+      - EM
+      - online LDA
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics/blob/master/Chapter11/topicModellingwithLDA.scala
+  problem:
+    context: >
+      Large text collections require scalable preprocessing and unsupervised
+      thematic discovery beyond single-machine workflows.
+    objective: >
+      Discover and interpret latent document topics using a distributed Spark pipeline.
+    analytical_questions:
+      - How large is the corpus and vocabulary after preprocessing?
+      - What topics emerge from the distributed LDA model?
+      - Which terms carry the greatest weight in each topic?
+      - How do EM and online optimization differ operationally?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load a distributed document collection.
+      - Lemmatize and clean text.
+      - Tokenize and remove stop words.
+      - Create count-vector representations.
+      - Fit distributed LDA.
+      - Extract top weighted terms per topic.
+      - Compare alternative optimization strategies.
+    expected_outputs:
+      - corpus and vocabulary diagnostics
+      - distributed topic model
+      - topic-term tables
+      - training-time summary
+      - thematic interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -23697,6 +23770,155 @@
       - binding labels
       - engineered genomic features
       - predictive metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 379
+  name: Credit Risk Tuning at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Scala and Spark for Big Data Analytics
+    title: Credit Risk Analysis Tuning
+    url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics/blob/master/Chapter11/CreditRiskAnalysisTuning.scala
+    repository:
+      url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics
+      path: Chapter11/CreditRiskAnalysisTuning.scala
+    description: >
+      Packt builds a Spark ML credit-risk pipeline with Random Forest,
+      train/test evaluation, parameter-grid search, and cross-validation.
+  data:
+    description: >
+      German credit records with applicant financial, demographic, employment,
+      asset, and loan attributes plus creditability outcome.
+    source_url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics
+    availability: companion_repository
+    files:
+      - data/germancredit.csv
+  original_implementation:
+    technologies:
+      - Spark ML
+      - Random Forest
+      - CrossValidator
+      - ParamGridBuilder
+      - ROC AUC
+      - PR AUC
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics/blob/master/Chapter11/CreditRiskAnalysisTuning.scala
+  problem:
+    context: >
+      Credit-risk models must scale to distributed data while still supporting
+      reproducible model selection and held-out evaluation.
+    objective: >
+      Train and tune a distributed credit-risk classifier and quantify the effect
+      of hyperparameter search on out-of-sample performance.
+    analytical_questions:
+      - Which borrower attributes distinguish credit risk?
+      - How does the untuned model perform?
+      - Which parameter combination is selected by cross-validation?
+      - How much do ROC and precision-recall performance change after tuning?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load and parse credit records with Spark.
+      - Assemble predictors and index the target.
+      - Create reproducible train/test partitions.
+      - Fit a Random Forest baseline.
+      - Evaluate ROC and precision-recall metrics.
+      - Define a hyperparameter grid and cross-validation procedure.
+      - Compare tuned and untuned predictions.
+    expected_outputs:
+      - Spark analytical dataset
+      - baseline metrics
+      - cross-validation results
+      - best parameter configuration
+      - tuned test-set metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 380
+  name: Movie Recommendation at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Scala and Spark for Big Data Analytics
+    title: Movie Recommendation
+    url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics/blob/master/Chapter11/MovieRecommendation.scala
+    repository:
+      url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics
+      path: Chapter11/MovieRecommendation.scala
+    description: >
+      Packt analyzes distributed movie ratings and trains an Alternating Least
+      Squares recommender in Spark, evaluates held-out RMSE, and generates top-N recommendations.
+  data:
+    description: >
+      MovieLens-style user ratings and movie metadata containing user IDs,
+      movie IDs, ratings, timestamps, titles, and genres.
+    source_url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics
+    availability: companion_repository
+    files:
+      - data/ratings.csv
+      - data/movies.csv
+  original_implementation:
+    technologies:
+      - Spark
+      - ALS
+      - collaborative filtering
+      - matrix factorization
+      - RMSE
+      - top-N recommendation
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Scala-and-Spark-for-Big-Data-Analytics/blob/master/Chapter11/MovieRecommendation.scala
+  problem:
+    context: >
+      A media platform has a large sparse user-movie rating matrix and needs scalable
+      personalized recommendations.
+    objective: >
+      Train and evaluate a distributed collaborative-filtering model and generate
+      personalized movie recommendations.
+    analytical_questions:
+      - How many users, movies, and ratings are represented?
+      - Which users and movies dominate activity?
+      - How accurately does ALS reconstruct held-out ratings?
+      - Which movies should be recommended to a selected user?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load ratings and movie metadata.
+      - Profile rating activity.
+      - Split ratings reproducibly into training and test sets.
+      - Train an ALS matrix-factorization model.
+      - Calculate held-out RMSE.
+      - Generate top-N recommendations for selected users.
+      - Join recommendations back to movie titles.
+    expected_outputs:
+      - rating activity profile
+      - trained ALS model
+      - held-out RMSE
+      - user-level recommendation lists
+      - recommendation table with titles
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
