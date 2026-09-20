@@ -3220,6 +3220,306 @@
     data: verified
     code: verified
 
+- id: 88
+  name: Vehicle Fuel Efficiency Trends
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Data Science Cookbook, Second Edition
+    title: Automobile Fuel Efficiency
+    url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter02/code/Chapter02.R
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition
+      path: Chapter02/code/Chapter02.R
+    description: >
+      Packt explores long-run automobile fuel-efficiency changes, engine displacement,
+      transmission types, makes, and models using historical vehicle data.
+  data:
+    description: >
+      Historical vehicle fuel-economy records with model year, make, model,
+      transmission, engine displacement, fuel type, and city/highway MPG.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter02/data/vehicles.csv.zip
+    availability: repository
+    files:
+      - Chapter02/data/vehicles.csv.zip
+      - Chapter02/data/varlabels.txt
+  original_implementation:
+    technologies:
+      - R
+      - data cleaning
+      - grouped summaries
+      - longitudinal analysis
+      - visualization
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter02/code/Chapter02.R
+  problem:
+    context: >
+      Vehicle efficiency has changed over decades while vehicle size, transmission,
+      fuel type, and manufacturer mix have also evolved.
+    objective: >
+      Diagnose how automobile fuel efficiency has changed over time and distinguish
+      changes associated with vehicle characteristics and market composition.
+    analytical_questions:
+      - How has average MPG changed by model year?
+      - How has engine displacement changed over the same period?
+      - How do automatic and manual vehicles compare?
+      - Which manufacturers show persistent efficiency differences?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate vehicle records.
+      - Normalize transmission and fuel-type fields.
+      - Restrict comparable gasoline vehicle subsets.
+      - Calculate annual MPG and engine-size summaries.
+      - Compare transmission categories.
+      - Track common manufacturers through time.
+      - Interpret changes in efficiency and vehicle mix.
+    expected_outputs:
+      - annual fuel-efficiency table
+      - engine-displacement trends
+      - transmission comparison
+      - manufacturer trend charts
+      - written diagnostic interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 89
+  name: Employment and Wage Geography
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Data Science Cookbook, Second Edition
+    title: Exploring US Employment Data
+    url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter05/Code/Chapter05.R
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition
+      path: Chapter05/Code/Chapter05.R
+    description: >
+      Packt integrates US employment records with code tables and geographic
+      metadata to compare wages and employment by state, county, industry, and year.
+  data:
+    description: >
+      US Bureau of Labor Statistics annual employment and wage records supplemented
+      with industry, ownership, size, area, state, and county metadata.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/tree/master/Chapter05/data
+    availability: repository
+    files:
+      - Chapter05/data/2012_annual_singlefile.zip
+  original_implementation:
+    technologies:
+      - R
+      - data.table
+      - relational joins
+      - grouped aggregation
+      - geospatial visualization
+      - longitudinal analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter05/Code/Chapter05.R
+  problem:
+    context: >
+      Employment and wage information is distributed across coded administrative
+      tables and becomes meaningful only after geographic and industry integration.
+    objective: >
+      Build an analytical view of employment and wage geography and diagnose
+      differences across regions, industries, and time.
+    analytical_questions:
+      - Which states and counties have the highest average annual pay?
+      - Where are employment levels concentrated?
+      - How do industry patterns differ geographically?
+      - How do wage patterns evolve across years?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - geopandas
+      - matplotlib
+    logical_steps:
+      - Load employment records and lookup tables.
+      - Harmonize coded dimensions.
+      - Join geographic and industry metadata.
+      - Aggregate wages and employment at state and county levels.
+      - Compare selected industries.
+      - Build geographic and temporal views.
+      - Interpret regional concentration and disparities.
+    expected_outputs:
+      - integrated employment dataset
+      - state and county KPI tables
+      - industry comparison tables
+      - wage and employment maps
+      - temporal summaries
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 90
+  name: Hero Network Communities
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Data Science Cookbook, Second Edition
+    title: Network and Community Analysis
+    url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter07/code/cluster.py
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition
+      path: Chapter07/code/cluster.py
+    description: >
+      Packt builds a Marvel hero co-occurrence network and applies community
+      detection to reveal groups of strongly connected characters.
+  data:
+    description: >
+      Marvel hero co-occurrence network represented as graph edge data.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/tree/master/Chapter07/data
+    availability: repository
+    files:
+      - Chapter07/data/hero-network.csv
+      - Chapter07/data/comic-hero-network.gdf
+  original_implementation:
+    technologies:
+      - NetworkX
+      - graph construction
+      - Louvain community detection
+      - network visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter07/code/cluster.py
+  problem:
+    context: >
+      Character co-occurrence data form a large network whose community structure
+      can reveal recurring groups and subuniverses that are not explicit in raw edges.
+    objective: >
+      Discover and characterize communities in a character co-occurrence network.
+    analytical_questions:
+      - Which characters are connected most strongly?
+      - What communities emerge from the graph?
+      - How large are the detected communities?
+      - Which characters connect otherwise distinct groups?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - python-louvain
+      - matplotlib
+    logical_steps:
+      - Load and validate network edges.
+      - Construct the undirected co-occurrence graph.
+      - Calculate basic structural measures.
+      - Detect communities reproducibly.
+      - Summarize community size and membership.
+      - Identify bridging and central characters.
+      - Visualize community structure.
+    expected_outputs:
+      - network summary
+      - community assignments
+      - community size table
+      - centrality diagnostics
+      - community visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 92
+  name: Stock Relative Valuation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Data Science Cookbook, Second Edition
+    title: Stock Screening and Relative Valuation
+    url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter04/code/Chapter04.R
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition
+      path: Chapter04/code/Chapter04.R
+    description: >
+      Packt cleans stock-screener metrics, compares firms with sector and industry
+      averages, constructs a relative-value index, and analyzes selected securities.
+  data:
+    description: >
+      Historical Finviz stock-screener snapshot containing valuation, price,
+      growth, ownership, leverage, sector, and industry metrics.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter04/data/finviz.csv
+    availability: repository
+    files:
+      - Chapter04/data/finviz.csv
+  original_implementation:
+    technologies:
+      - R
+      - data cleaning
+      - relative benchmarking
+      - rule-based screening
+      - grouped summaries
+      - time-series visualization
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter04/code/Chapter04.R
+  problem:
+    context: >
+      Raw valuation ratios are difficult to interpret without benchmarks because
+      typical levels differ substantially across sectors and industries.
+    objective: >
+      Diagnose relative valuation by benchmarking firms against sector and industry
+      peers and identify securities that satisfy explicit screening criteria.
+    analytical_questions:
+      - How do valuation ratios differ by sector and industry?
+      - Which firms trade below multiple peer benchmarks?
+      - How sensitive is a candidate list to screening rules?
+      - What additional price history should be reviewed for shortlisted firms?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load the historical stock-screener snapshot.
+      - Clean percentage, currency, and ratio fields.
+      - Calculate sector and industry benchmark metrics.
+      - Compare each firm with relevant peer benchmarks.
+      - Construct a transparent relative-value score.
+      - Apply explicit screening criteria.
+      - Profile shortlisted firms.
+    expected_outputs:
+      - cleaned screener dataset
+      - sector and industry benchmarks
+      - relative-value indicators
+      - screening results
+      - shortlist diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -5869,10 +6169,13 @@
     description: >
       Art-auction records with auction house, category, artistic attributes, ratings,
       acquisition costs, market prices, guarantees, and purchase labels.
-    source_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%209/diabetic.csv
-    availability: repository
+    source_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/tree/master/Chapter%209
+    availability: referenced_not_in_repo
     files:
-      - Chapter 9/NeuralNetwork.R
+      - ArtPiece_1.csv
+    notes: >
+      The implementation references ArtPiece_1.csv, but that file is not present
+      in the book repository under Chapter 9.
   original_implementation:
     technologies:
       - dummy encoding
@@ -6076,6 +6379,85 @@
     source: verified
     data: verified
     code: verified
+
+- id: 91
+  name: Visitor Arrivals Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Data Science Cookbook, Second Edition
+    title: Time Series Analysis and Forecasting
+    url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter10/code/Chapter10.py
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition
+      path: Chapter10/code/Chapter10.py
+    description: >
+      Packt analyzes New Zealand overseas visitor arrivals with trend, seasonality,
+      ACF/PACF, ARIMA, seasonal ARIMA, error measures, and automatic model selection.
+  data:
+    description: >
+      Monthly New Zealand overseas visitor counts beginning in 1977.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/tree/master/Chapter10
+    availability: referenced_external
+    files:
+      - osvisit.dat
+  original_implementation:
+    technologies:
+      - time-series decomposition
+      - ACF
+      - PACF
+      - ARIMA
+      - seasonal ARIMA
+      - forecast accuracy
+    language:
+      - R-style code
+      - Python file container
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-Cookbook-Second-Edition/blob/master/Chapter10/code/Chapter10.py
+  problem:
+    context: >
+      Tourism arrivals exhibit long-run trend and strong seasonal behavior that must
+      be modeled before future visitor volumes can be forecast.
+    objective: >
+      Build and compare time-series models for forecasting monthly overseas visitor arrivals.
+    analytical_questions:
+      - What trend and seasonal patterns are present?
+      - Which autocorrelation structure remains after modeling?
+      - Which ARIMA specification best balances fit and complexity?
+      - How accurate are the resulting forecasts?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate monthly visitor counts.
+      - Create a regular monthly time index.
+      - Explore trend and seasonality.
+      - Inspect ACF and PACF.
+      - Fit candidate ARIMA and seasonal ARIMA models.
+      - Compare forecast-error measures.
+      - Generate future visitor forecasts.
+    expected_outputs:
+      - seasonal diagnostics
+      - candidate model comparison
+      - residual diagnostics
+      - forecast accuracy table
+      - visitor arrival forecasts
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partially_verified
+    code: verified
+  notes: >
+    The implementation references osvisit.dat, which is not included in the
+    repository tree; a rewrite requires obtaining or reconstructing the series.
 
 - id: 54
   name: Prediction to Action
