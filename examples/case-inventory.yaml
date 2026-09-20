@@ -26147,6 +26147,88 @@
     data: not_provided
     code: not_provided
 
+- id: 391
+  name: Trading Policy Simulation
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Chapman & Hall/CRC
+    publisher: Chapman & Hall/CRC
+    book: Data Mining with R, Second Edition
+    title: Trading Simulation
+    url: https://github.com/ltorgo/DMwR2/blob/master/R/trading.R
+    repository:
+      url: https://github.com/ltorgo/DMwR2
+      path: R/trading.R
+    description: >
+      The book simulates daily trading from buy, sell, and hold signals using a
+      user-defined policy with market, limit, and stop orders, transaction costs,
+      holding-period rules, and economic performance evaluation.
+  data:
+    description: >
+      Daily S&P 500 market quotes with open, high, low, close, volume, and adjusted
+      close prices together with model-generated trading signals.
+    source_url: https://github.com/ltorgo/DMwR2
+    availability: package_dataset
+    files:
+      - data/GSPC.RData
+      - data/sp500.csv
+  original_implementation:
+    technologies:
+      - trading simulation
+      - decision policies
+      - buy/sell/hold signals
+      - limit orders
+      - stop orders
+      - transaction costs
+      - Sharpe ratio
+      - drawdown analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/ltorgo/DMwR2/blob/master/R/trading.R
+  problem:
+    context: >
+      Predictive market signals have no operational value until they are translated
+      into explicit trading actions under capital, transaction-cost, risk, and
+      holding-period rules.
+    objective: >
+      Evaluate and compare trading policies that convert model signals into market
+      decisions and portfolio outcomes.
+    analytical_questions:
+      - When should a signal trigger a long, short, or hold action?
+      - How do profit targets and stop losses affect realized outcomes?
+      - What is the impact of transaction costs and holding periods?
+      - How does the policy compare with buy-and-hold?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load market quotes and trading signals.
+      - Define capital, transaction costs, and position rules.
+      - Translate signals into orders.
+      - Simulate daily execution of market, limit, and stop orders.
+      - Track cash, positions, and portfolio equity.
+      - Calculate return, drawdown, Sharpe ratio, and trade statistics.
+      - Compare alternative policy parameters with buy-and-hold.
+    expected_outputs:
+      - daily trading ledger
+      - position history
+      - equity curve
+      - trade performance table
+      - drawdown and Sharpe metrics
+      - policy comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 17
   name: Social Sentiment Analytics
   domain: data_products
