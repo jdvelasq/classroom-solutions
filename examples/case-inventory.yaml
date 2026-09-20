@@ -1409,7 +1409,7 @@
 
 - id: 4
   name: Project Theme Discovery
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: institution_course
     organization: MIT Professional Education
@@ -1482,7 +1482,7 @@
 
 - id: 5
   name: News Topic Clustering
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: institution_course
     organization: MIT Professional Education
@@ -1561,7 +1561,7 @@
 
 - id: 6
   name: Document Topic Discovery
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -1631,7 +1631,7 @@
 
 - id: 7
   name: Document Clustering
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -1703,7 +1703,7 @@
 
 - id: 18
   name: Literary Theme Discovery
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: official_tutorial
     organization: Orange Data Mining
@@ -1776,7 +1776,7 @@
 
 - id: 28
   name: Speech Transcript Clustering
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: book
     organization: Packt Publishing
@@ -1857,82 +1857,9 @@
     data: verified
     code: verified
 
-- id: 48
-  name: Unlabeled Digit Discovery
-  domain: predictive_analytics
-  source:
-    category: book
-    organization: Jake VanderPlas
-    publisher: O'Reilly Media
-    book: Python Data Science Handbook
-    title: k-means on digits
-    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
-    repository:
-      url: https://github.com/jakevdp/PythonDataScienceHandbook
-      path: notebooks_v1/05.11-K-Means.ipynb
-    description: >
-      The O'Reilly example clusters handwritten digit images without using their labels,
-      then interprets cluster centers as representative digit patterns.
-  data:
-    description: >
-      scikit-learn handwritten digits dataset with 1,797 images represented by
-      64 pixel-intensity features.
-    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
-    availability: bundled_with_sklearn
-    files: []
-  original_implementation:
-    technologies:
-      - k-means
-      - scikit-learn
-      - image clustering
-    language: Python
-    code_available: true
-    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
-  problem:
-    context: >
-      Analysts may need to discover meaningful structure in image collections
-      before reliable labels are available.
-    objective: >
-      Group handwritten digit images into latent visual clusters and assess how
-      closely unsupervised groups recover recognizable digit categories.
-    analytical_questions:
-      - What visual groups emerge without using labels?
-      - What does each cluster center represent?
-      - Which true digit classes are recovered cleanly?
-      - Which digits are frequently mixed within the same cluster?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - scikit-learn
-      - pandas
-      - matplotlib
-    logical_steps:
-      - Load the digits dataset without exposing labels to the clustering model.
-      - Standardize or inspect pixel features.
-      - Fit k-means with ten clusters.
-      - Visualize cluster centers.
-      - Map clusters to known labels only for evaluation.
-      - Build a cluster-versus-label contingency table.
-      - Interpret ambiguous and well-separated groups.
-    expected_outputs:
-      - image feature matrix
-      - cluster assignments
-      - cluster-center images
-      - cluster-label contingency table
-      - clustering evaluation
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
 - id: 49
   name: NYC Taxi Anomaly Detection
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: book
     organization: Tarek A. Atwan
@@ -2014,7 +1941,7 @@
 
 - id: 55
   name: Travel Customer Segmentation
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: book
     organization: Packt
@@ -2084,6 +2011,79 @@
       - segment profile table
       - cluster visualizations
       - written segment interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 48
+  name: Unlabeled Digit Discovery
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Jake VanderPlas
+    publisher: O'Reilly Media
+    book: Python Data Science Handbook
+    title: k-means on digits
+    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
+    repository:
+      url: https://github.com/jakevdp/PythonDataScienceHandbook
+      path: notebooks_v1/05.11-K-Means.ipynb
+    description: >
+      The O'Reilly example clusters handwritten digit images without using their labels,
+      then interprets cluster centers as representative digit patterns.
+  data:
+    description: >
+      scikit-learn handwritten digits dataset with 1,797 images represented by
+      64 pixel-intensity features.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
+    availability: bundled_with_sklearn
+    files: []
+  original_implementation:
+    technologies:
+      - k-means
+      - scikit-learn
+      - image clustering
+    language: Python
+    code_available: true
+    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
+  problem:
+    context: >
+      Analysts may need to discover meaningful structure in image collections
+      before reliable labels are available.
+    objective: >
+      Group handwritten digit images into latent visual clusters and assess how
+      closely unsupervised groups recover recognizable digit categories.
+    analytical_questions:
+      - What visual groups emerge without using labels?
+      - What does each cluster center represent?
+      - Which true digit classes are recovered cleanly?
+      - Which digits are frequently mixed within the same cluster?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load the digits dataset without exposing labels to the clustering model.
+      - Standardize or inspect pixel features.
+      - Fit k-means with ten clusters.
+      - Visualize cluster centers.
+      - Map clusters to known labels only for evaluation.
+      - Build a cluster-versus-label contingency table.
+      - Interpret ambiguous and well-separated groups.
+    expected_outputs:
+      - image feature matrix
+      - cluster assignments
+      - cluster-center images
+      - cluster-label contingency table
+      - clustering evaluation
+      - written interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
