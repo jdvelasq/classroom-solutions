@@ -18454,6 +18454,162 @@
     data: verified
     code: verified
 
+- id: 293
+  name: Nurse Work Satisfaction Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Predictive Analytics with R
+    title: Multilevel Modeling
+    url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/blob/master/CODE/CH12%20CODE.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R
+      path: CODE/CH12 CODE.R
+    description: >
+      Packt models nurse work satisfaction across hospitals using random-intercept
+      and random-slope multilevel models, then evaluates predictions on a held-out
+      set while preserving hospital-level structure.
+  data:
+    description: >
+      Nurse-level job measures nested within 17 hospitals, including accomplishment,
+      depersonalization, exhaustion, work satisfaction, and hospital identifiers.
+    source_url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/tree/master/Data/Data%20Ch12
+    availability: repository
+    files:
+      - Data/Data Ch12/NursesMLtrain.dat
+      - Data/Data Ch12/NursesMLtest.dat
+      - Data/Data Ch12/nursesML.dat
+  original_implementation:
+    technologies:
+      - multilevel modeling
+      - random intercepts
+      - random slopes
+      - mixed-effects regression
+      - hierarchical prediction
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/blob/master/CODE/CH12%20CODE.R
+  problem:
+    context: >
+      Nurses are nested within hospitals, so observations from the same hospital
+      are not independent and work-satisfaction relationships may vary across institutions.
+    objective: >
+      Model and predict nurse work satisfaction while accounting for hospital-level
+      heterogeneity.
+    analytical_questions:
+      - How much variation in work satisfaction occurs between hospitals?
+      - Which nurse-level predictors explain satisfaction?
+      - Do predictor effects vary across hospitals?
+      - How well do mixed-effects predictions generalize to held-out nurses?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate nurse and hospital identifiers.
+      - Quantify within- and between-hospital variation.
+      - Fit a random-intercept baseline.
+      - Add fixed nurse-level predictors.
+      - Compare random-intercept and random-slope specifications.
+      - Generate held-out predictions.
+      - Evaluate predictive performance by hospital.
+    expected_outputs:
+      - variance decomposition
+      - mixed-effects coefficient table
+      - hospital random effects
+      - model comparison
+      - held-out predictions
+      - hospital-level performance summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 294
+  name: Seasonal Flu News Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Predictive Analytics with R
+    title: Text Mining and Document Classification
+    url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/blob/master/CODE/CH13%20CODE.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R
+      path: CODE/CH13 CODE.R
+    description: >
+      Packt constructs text features, compares document classifiers, and builds an
+      ensemble-style seasonal-flu news classifier from sparse term-document data.
+  data:
+    description: >
+      Movie-review polarity text plus a structured news term-document dataset
+      labeled for seasonal-flu relevance.
+    source_url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/tree/master/Data/Data%20Ch13
+    availability: repository_and_public
+    files:
+      - Data/Data Ch13/StrandsPackt.csv
+      - Data/Data Ch13/tdmNews
+  original_implementation:
+    technologies:
+      - text preprocessing
+      - TF-IDF
+      - KNN
+      - Naive Bayes
+      - logistic regression
+      - SVM
+      - repeated feature subsampling
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Predictive-Analytics-with-R/blob/master/CODE/CH13%20CODE.R
+  problem:
+    context: >
+      News monitoring requires distinguishing articles about seasonal influenza
+      from other health-related content using sparse textual signals.
+    objective: >
+      Build and compare text classifiers for identifying seasonal-flu news.
+    analytical_questions:
+      - Which terms distinguish seasonal-flu articles?
+      - How do KNN, Naive Bayes, logistic regression, and SVM compare?
+      - How does sparse feature selection affect performance?
+      - Can repeated feature subsets improve classification robustness?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - nltk
+    logical_steps:
+      - Load and validate labeled news features.
+      - Normalize and inspect sparse text variables.
+      - Create reproducible training and test samples.
+      - Fit multiple text classifiers.
+      - Compare confusion matrices and agreement metrics.
+      - Fit repeated feature-subset models.
+      - Aggregate predictions and evaluate robustness.
+    expected_outputs:
+      - text feature matrix
+      - classifier comparison
+      - confusion matrices
+      - robust ensemble predictions
+      - discriminative term summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
