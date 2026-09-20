@@ -1079,3 +1079,74 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 15
+  name: IMDB Review Classification with Active Learning
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Review Classification using Active Learning
+    url: https://keras.io/examples/nlp/active_learning_review_classification/
+    description: >
+      Official Keras case demonstrating how active learning can reduce annotation
+      requirements in sentiment classification.
+  data:
+    description: >
+      IMDB reviews dataset with 50,000 positive and negative movie reviews.
+    source_url: https://www.tensorflow.org/datasets/catalog/imdb_reviews
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - active learning
+      - bidirectional LSTM
+      - uncertainty sampling
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/active_learning_review_classification/
+  problem:
+    context: >
+      Labeling text can be costly, so the model should identify which additional
+      examples are most valuable for annotation.
+    objective: >
+      Compare full-data training with iterative active-learning sampling for review classification.
+    analytical_questions:
+      - How much labeled data is needed to approach full-data performance?
+      - How should new samples be selected for annotation?
+      - How do false positives and false negatives influence sampling?
+      - What annotation savings are achieved by active learning?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - tensorflow
+      - tensorflow-datasets
+      - matplotlib
+    logical_steps:
+      - Load and rebalance IMDB reviews.
+      - Create initial labeled and unlabeled pools.
+      - Train a full-data benchmark model.
+      - Train an initial active-learning model.
+      - Select additional samples based on uncertainty-related criteria.
+      - Iteratively retrain and evaluate.
+      - Compare labeling cost and model performance.
+    expected_outputs:
+      - labeled and pool splits
+      - benchmark model
+      - active-learning models
+      - iteration metrics
+      - annotation-efficiency comparison
+      - learning curves
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
