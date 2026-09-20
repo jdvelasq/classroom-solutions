@@ -11276,6 +11276,82 @@
     data: verified
     code: verified
 
+- id: 171
+  name: Network Role Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Network Science with Python
+    title: Machine Learning with Network Features
+    url: https://github.com/PacktPublishing/Network-Science-with-Python/blob/main/chapter_10.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Network-Science-with-Python
+      path: chapter_10.ipynb
+    description: >
+      Packt derives degree, clustering, triangle counts, betweenness, closeness,
+      and PageRank features from the Les Misérables character network and uses
+      them to classify whether a character belongs to a defined revolutionary group.
+  data:
+    description: >
+      The Les Misérables character co-occurrence network distributed with NetworkX,
+      augmented with a binary group label.
+    source_url: https://networkx.org/documentation/stable/reference/generated/networkx.generators.social.les_miserables_graph.html
+    availability: library_dataset
+    files:
+      - Data/clf_df.csv
+  original_implementation:
+    technologies:
+      - NetworkX
+      - graph feature engineering
+      - centrality
+      - PageRank
+      - random forest
+      - classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Network-Science-with-Python/blob/main/chapter_10.ipynb
+  problem:
+    context: >
+      Node roles may be inferred not only from attributes but from a person's
+      structural position in a relationship network.
+    objective: >
+      Predict group membership using network-derived structural features.
+    analytical_questions:
+      - Which graph metrics distinguish the labeled group?
+      - How should node-level network features be assembled into a modeling table?
+      - How accurately can structural position predict group membership?
+      - Which network measures contribute most to classification?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - scikit-learn
+    logical_steps:
+      - Construct the character network.
+      - Calculate node-level structural metrics.
+      - Assemble the feature matrix and group labels.
+      - Create reproducible train/test samples.
+      - Fit a random-forest classifier.
+      - Evaluate classification errors.
+      - Interpret the most informative network features.
+    expected_outputs:
+      - node feature matrix
+      - network metric table
+      - classification report
+      - confusion matrix
+      - feature importance ranking
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
