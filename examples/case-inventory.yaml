@@ -3496,6 +3496,152 @@
     data: verified
     code: not_applicable
 
+- id: 356
+  name: Text PII Anonymization
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning and Preparation Best Practices
+    title: PII Detection
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices/blob/main/chapter12/3.pii_detection.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices
+      path: chapter12/3.pii_detection.py
+    description: >
+      Packt detects names, email addresses, and phone numbers in unstructured text
+      with Presidio and applies entity-specific masking to create anonymized text.
+  data:
+    description: >
+      Synthetic text messages containing names, email addresses, phone numbers,
+      and non-PII examples.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices/blob/main/chapter12/3.pii_detection.py
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Microsoft Presidio
+      - named-entity detection
+      - PII detection
+      - masking
+      - text anonymization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices/blob/main/chapter12/3.pii_detection.py
+  problem:
+    context: >
+      Free-text analytical data may contain direct personal identifiers that must
+      be detected and transformed before downstream analysis or sharing.
+    objective: >
+      Detect selected PII types in text and generate an anonymized analytical copy.
+    analytical_questions:
+      - Which text spans are detected as personal information?
+      - How should different entity types be masked?
+      - Which PII remains undetected under the chosen recognizers?
+      - How can anonymization preserve analytical usefulness?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - presidio-analyzer
+      - presidio-anonymizer
+    logical_steps:
+      - Load or generate text records containing PII.
+      - Configure entity types to detect.
+      - Run PII analysis over each text record.
+      - Apply entity-specific masking rules.
+      - Compare original and anonymized text.
+      - Audit false positives and false negatives.
+      - Export the anonymized analytical dataset.
+    expected_outputs:
+      - detected PII spans
+      - anonymized text dataset
+      - entity-type counts
+      - anonymization audit table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 357
+  name: Audio Emotion Structuring
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning and Preparation Best Practices
+    title: Emotion Detection from Audio
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices/blob/main/chapter13/6.emotion_detection.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices
+      path: chapter13/6.emotion_detection.py
+    description: >
+      Packt splits audio into chunks, transcribes each chunk with Whisper, applies
+      a transformer emotion classifier to the transcript, and exports structured
+      chunk-level text and emotion labels.
+  data:
+    description: >
+      Audio recording bundled with the chapter and processed into 30-second chunks.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices/tree/main/chapter13
+    availability: repository
+    files:
+      - chapter13/audio/3.chain orchestrator.mp3
+  original_implementation:
+    technologies:
+      - Whisper
+      - transformers
+      - audio chunking
+      - speech transcription
+      - emotion classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-and-Preparation-Best-Practices/blob/main/chapter13/6.emotion_detection.py
+  problem:
+    context: >
+      Audio recordings are difficult to analyze directly, but can be converted into
+      timestamped text and categorical emotion signals for downstream analytics.
+    objective: >
+      Transform an audio recording into structured transcript and emotion features.
+    analytical_questions:
+      - How should long audio be segmented for processing?
+      - What transcript is produced for each chunk?
+      - Which emotion label is assigned to each segment?
+      - How can the resulting structure support later analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - librosa
+      - transformers
+      - torch
+      - pandas
+    logical_steps:
+      - Load the audio file.
+      - Resample and split audio into fixed-duration chunks.
+      - Transcribe each chunk with Whisper.
+      - Classify transcript emotion.
+      - Store chunk index, transcription, and emotion.
+      - Validate transcription and label quality.
+      - Export a structured analytical table.
+    expected_outputs:
+      - chunked audio metadata
+      - transcript table
+      - emotion labels
+      - structured CSV for downstream analytics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -11523,6 +11669,86 @@
       - anomalous token list
       - trait profile of outliers
       - temporal anomaly summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 355
+  name: Kiva Microloan Portfolio Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Developing Kaggle Notebooks
+    title: Kiva Microloans - A Data Exploration
+    url: https://github.com/PacktPublishing/Developing-Kaggle-Notebooks/blob/main/Chapter-05/kiva-microloans-a-data-exploration.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Developing-Kaggle-Notebooks
+      path: Chapter-05/kiva-microloans-a-data-exploration.ipynb
+    description: >
+      Packt explores Kiva microloans by country, region, sector, activity,
+      repayment interval, currency, borrower gender, and external country profiles
+      to diagnose portfolio composition and borrower welfare context.
+  data:
+    description: >
+      Kiva crowdfunding loan records, regional MPI data, loan-theme tables, and
+      UNData country profiles.
+    source_url: https://www.kaggle.com/datasets/kiva/data-science-for-good-kiva-crowdfunding
+    availability: public_platform
+    files:
+      - kiva_loans.csv
+      - kiva_mpi_region_locations.csv
+      - loan_theme_ids.csv
+      - loan_themes_by_region.csv
+      - country_profile_variables.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - Plotly
+      - geographic aggregation
+      - borrower profiling
+      - data quality diagnostics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Developing-Kaggle-Notebooks/blob/main/Chapter-05/kiva-microloans-a-data-exploration.ipynb
+  problem:
+    context: >
+      A global microfinance platform needs to understand where loans are concentrated,
+      which sectors and borrower groups are served, and how portfolio patterns relate
+      to local socioeconomic conditions.
+    objective: >
+      Diagnose the composition and geographic distribution of a microloan portfolio.
+    analytical_questions:
+      - Which countries, regions, sectors, and activities dominate lending?
+      - How do loan amounts and repayment terms vary?
+      - How does borrower gender composition differ across sectors?
+      - Which portfolio concentrations merit further investigation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - plotly
+      - geopandas
+    logical_steps:
+      - Load and validate Kiva and country-profile datasets.
+      - Audit missingness and category cardinality.
+      - Aggregate loans by country, region, sector, and activity.
+      - Compare loan amounts and repayment structures.
+      - Derive borrower gender indicators.
+      - Build geographic and segment visualizations.
+      - Summarize portfolio concentrations and disparities.
+    expected_outputs:
+      - portfolio KPI tables
+      - geographic loan maps
+      - sector and activity profiles
+      - borrower gender diagnostics
+      - repayment structure analysis
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
