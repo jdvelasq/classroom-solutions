@@ -648,3 +648,80 @@
     Distinct from CLASSROOM PRE_04_clasificacion_basica_texto, which uses financial
     phrases with positive, neutral, and negative sentiment labels rather than
     20 Newsgroups topic classification.
+
+- id: 9
+  name: IMDB Sentiment Classification from Raw Text
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Text classification from scratch
+    url: https://keras.io/examples/nlp/text_classification_from_scratch/
+    description: >
+      Official Keras end-to-end sentiment-classification example starting from raw
+      review files and using TextVectorization.
+  data:
+    description: >
+      Large Movie Review Dataset with 50,000 IMDB movie reviews labeled positive
+      or negative.
+    source_url: https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+    availability: public
+    files:
+      - aclImdb_v1.tar.gz
+  original_implementation:
+    technologies:
+      - TextVectorization
+      - embeddings
+      - convolutional neural network
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/text_classification_from_scratch/
+  problem:
+    context: >
+      Raw movie reviews stored as text files must be transformed into features and
+      classified by sentiment.
+    objective: >
+      Build a complete raw-text sentiment-classification pipeline without requiring
+      precomputed features.
+    analytical_questions:
+      - How should raw review text be standardized and vectorized?
+      - How does vocabulary construction affect the model?
+      - How accurately can a neural classifier separate positive and negative reviews?
+      - How can preprocessing be packaged with the final inference model?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - tensorflow
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Download and extract the IMDB review corpus.
+      - Inspect the directory-based label structure.
+      - Construct train, validation, and test datasets.
+      - Standardize and vectorize raw text.
+      - Train the Keras classifier.
+      - Evaluate loss and accuracy.
+      - Package preprocessing and prediction into an end-to-end model.
+    expected_outputs:
+      - reproducible data splits
+      - fitted text vectorizer
+      - trained classifier
+      - evaluation metrics
+      - learning curves
+      - inference examples
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    Distinct from the existing CLASSROOM financial-sentence sentiment case in
+    domain, dataset scale, binary target, raw-file ingestion, and neural workflow.
