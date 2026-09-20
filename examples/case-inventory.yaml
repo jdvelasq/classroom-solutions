@@ -7828,6 +7828,157 @@
     data: verified
     code: verified
 
+- id: 115
+  name: Heart Transplant Survival
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Building Statistical Models in Python
+    title: Cox Proportional Hazards Regression Model
+    url: https://github.com/PacktPublishing/Building-Statistical-Models-in-Python/blob/main/chapter_14/3_Cox_Proportional_Hazards.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Building-Statistical-Models-in-Python
+      path: chapter_14/3_Cox_Proportional_Hazards.ipynb
+    description: >
+      Packt analyzes Stanford heart-transplant survival data with Kaplan-Meier
+      estimates, log-rank testing, Cox proportional hazards, hazard-ratio
+      interpretation, and patient-level survival prediction.
+  data:
+    description: >
+      Stanford heart-transplant waiting-list records with age, calendar year,
+      prior surgery, transplant status, follow-up duration, and event indicators.
+    source_url: https://www.statsmodels.org/stable/datasets/generated/heart.html
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - Kaplan-Meier
+      - log-rank test
+      - Cox proportional hazards
+      - hazard ratios
+      - survival prediction
+      - lifelines
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Building-Statistical-Models-in-Python/blob/main/chapter_14/3_Cox_Proportional_Hazards.ipynb
+  problem:
+    context: >
+      Patients on a heart-transplant waiting list have censored follow-up data,
+      so ordinary regression does not correctly represent time-to-event outcomes.
+    objective: >
+      Estimate survival patterns, quantify covariate effects on hazard, and predict
+      patient survival functions while accounting for censoring.
+    analytical_questions:
+      - How do transplant and non-transplant survival curves differ?
+      - Which covariates are associated with higher or lower hazard?
+      - How should hazard ratios be interpreted?
+      - What survival trajectory is predicted for a held-out patient?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - lifelines
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate the survival dataset.
+      - Identify durations, events, censoring, and covariates.
+      - Estimate Kaplan-Meier curves.
+      - Compare groups with a log-rank test.
+      - Fit a Cox proportional-hazards model.
+      - Inspect proportional-hazards assumptions and hazard ratios.
+      - Predict survival functions for representative patients.
+    expected_outputs:
+      - Kaplan-Meier curves
+      - log-rank test results
+      - Cox coefficient and hazard-ratio table
+      - model diagnostics
+      - patient-level survival curves
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 116
+  name: Bike Rental Count Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Building Statistical Models in Python
+    title: Modeling Counts with the Poisson Model
+    url: https://github.com/PacktPublishing/Building-Statistical-Models-in-Python/blob/main/chapter_8/3_poisson_model.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Building-Statistical-Models-in-Python
+      path: chapter_8/3_poisson_model.ipynb
+    description: >
+      Packt models casual bike-rental counts with Poisson regression after
+      aggregating daily observations to weekly means and using weather and calendar
+      conditions as explanatory variables.
+  data:
+    description: >
+      UCI Bike Sharing Dataset containing daily casual and registered rentals,
+      weather conditions, season, working-day indicators, and calendar features.
+    source_url: https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset
+    availability: public
+    files:
+      - day.csv
+  original_implementation:
+    technologies:
+      - Poisson regression
+      - count modeling
+      - weekly aggregation
+      - statsmodels
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Building-Statistical-Models-in-Python/blob/main/chapter_8/3_poisson_model.ipynb
+  problem:
+    context: >
+      A bike-sharing operator must anticipate casual-rider demand, which is a count
+      outcome influenced by weather and calendar conditions.
+    objective: >
+      Model expected casual rental counts from temporal and environmental predictors.
+    analytical_questions:
+      - Which conditions are associated with higher casual-rental counts?
+      - Is a Poisson mean-variance structure plausible?
+      - How accurately can expected counts be estimated?
+      - Which predictors have the strongest multiplicative effect on demand?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Download and validate bike-sharing data.
+      - Aggregate observations to the selected analytical grain.
+      - Inspect count distributions and dispersion.
+      - Prepare explanatory variables.
+      - Fit a Poisson regression.
+      - Interpret exponentiated coefficients.
+      - Evaluate predicted versus observed counts.
+    expected_outputs:
+      - weekly demand dataset
+      - Poisson model summary
+      - incidence-rate interpretation
+      - count prediction diagnostics
+      - predicted demand table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
