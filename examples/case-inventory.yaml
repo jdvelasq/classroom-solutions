@@ -2918,6 +2918,308 @@
     data: verified
     code: verified
 
+- id: 84
+  name: Website Satisfaction Factors
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Exploratory Data Analysis with Python Cookbook
+    title: Factor Analysis of Website Survey Data
+    url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch6/7.%20Implementing%20Factor%20Analysis%20on%20multiple%20variables%20using%20Factor%20Analysis.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook
+      path: Ch6/7. Implementing Factor Analysis on multiple variables.ipynb
+    description: >
+      Packt applies factor analysis to website-survey responses, checks suitability,
+      determines the number of factors, applies varimax rotation, and interprets
+      the resulting latent dimensions.
+  data:
+    description: >
+      Website satisfaction survey containing multiple correlated questionnaire items.
+    source_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch6/Data/website_survey.csv
+    availability: repository
+    files:
+      - Ch6/Data/website_survey.csv
+  original_implementation:
+    technologies:
+      - correlation analysis
+      - KMO
+      - factor analysis
+      - eigenvalues
+      - scree plot
+      - varimax rotation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/tree/main/Ch6
+  problem:
+    context: >
+      A website survey contains many correlated satisfaction questions that may
+      represent a smaller number of underlying experience dimensions.
+    objective: >
+      Discover and interpret latent factors underlying website satisfaction responses.
+    analytical_questions:
+      - Is the survey suitable for factor analysis?
+      - How many latent factors are supported?
+      - Which survey items load together?
+      - What substantive interpretation can be assigned to each factor?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - factor-analyzer
+      - matplotlib
+    logical_steps:
+      - Load and validate survey responses.
+      - Select relevant questionnaire items.
+      - Inspect missingness and correlation structure.
+      - Evaluate factorability with KMO and related diagnostics.
+      - Determine a defensible factor count.
+      - Fit a rotated factor model.
+      - Inspect loadings and factor variance.
+      - Interpret and label latent dimensions.
+    expected_outputs:
+      - correlation diagnostics
+      - factorability statistics
+      - scree plot
+      - rotated loading matrix
+      - factor variance table
+      - latent-factor interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 85
+  name: Marketing Spend Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Exploratory Data Analysis with Python Cookbook
+    title: Cluster Analysis on Marketing Campaign Data
+    url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch6/1.%20Implementing%20Cluster%20Analysis%20on%20multiple%20variables%20using%20Kmeans.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook
+      path: Ch6/1. Implementing Cluster Analysis on multiple variables using Kmeans.ipynb
+    description: >
+      Packt clusters marketing-campaign customers using spending across product
+      categories, standardized features, K-means, and cluster profiling.
+  data:
+    description: >
+      Marketing-campaign customer data containing spending on wines, fruits, meat,
+      fish, sweets, gold, and related attributes.
+    source_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch6/Data/marketing_campaign.csv
+    availability: repository
+    files:
+      - Ch6/Data/marketing_campaign.csv
+  original_implementation:
+    technologies:
+      - standardization
+      - K-means
+      - cluster profiling
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/tree/main/Ch6
+  problem:
+    context: >
+      Customer spending is distributed across product categories and can reveal
+      distinct purchasing profiles useful for exploratory marketing analysis.
+    objective: >
+      Discover customer groups from product-category spending patterns and profile
+      the resulting segments.
+    analytical_questions:
+      - Which product categories distinguish spending behavior?
+      - How many clusters provide a useful segmentation?
+      - What characterizes each cluster?
+      - How clearly are segments separated in selected spending dimensions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate customer marketing data.
+      - Select product-spending attributes.
+      - Handle missing values.
+      - Standardize features.
+      - Compare candidate cluster counts.
+      - Fit K-means.
+      - Profile clusters in original units.
+      - Interpret segment differences.
+    expected_outputs:
+      - segmentation feature table
+      - cluster diagnostics
+      - customer cluster assignments
+      - segment profile table
+      - cluster visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 86
+  name: Air Traffic Seasonality
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Exploratory Data Analysis with Python Cookbook
+    title: Time Series Decomposition
+    url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch7/3%20Performing%20Time%20series%20data%20Decomposition.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook
+      path: Ch7/3 Performing Time series data Decomposition.ipynb
+    description: >
+      Packt uses additive and multiplicative decomposition to separate trend,
+      seasonal, and residual components in air-traffic and climate time series.
+  data:
+    description: >
+      San Francisco air-traffic passenger statistics and daily Delhi climate data.
+    source_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/tree/main/Ch7/Data
+    availability: repository
+    files:
+      - Ch7/Data/SF_Air_Traffic_Passenger_Statistics_Transformed.csv
+      - Ch7/Data/DailyDelhiClimate.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - time-series decomposition
+      - additive decomposition
+      - multiplicative decomposition
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch7/3%20Performing%20Time%20series%20data%20Decomposition.ipynb
+  problem:
+    context: >
+      Passenger traffic varies over time and observed changes can combine long-term
+      growth, recurring seasonality, and irregular fluctuations.
+    objective: >
+      Decompose passenger traffic into interpretable temporal components and diagnose
+      its dominant trend and seasonal structure.
+    analytical_questions:
+      - What long-term trend is present in passenger traffic?
+      - What recurring seasonal pattern appears?
+      - Is additive or multiplicative decomposition more appropriate?
+      - Which periods contain unusually large residual movements?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate passenger time-series data.
+      - Create a regular datetime index.
+      - Plot and inspect the raw series.
+      - Apply additive and multiplicative decompositions.
+      - Compare trend, seasonal, and residual components.
+      - Identify periods with unusual residual behavior.
+    expected_outputs:
+      - time-series profile
+      - trend component
+      - seasonal component
+      - residual diagnostics
+      - decomposition comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 87
+  name: Restaurant Review Topics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Exploratory Data Analysis with Python Cookbook
+    title: Topic Modelling
+    url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch8/9.%20Performing%20Topic%20Modelling.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook
+      path: Ch8/9. Performing Topic Modelling.ipynb
+    description: >
+      Packt applies LDA to cleaned restaurant-review text, visualizes learned topics,
+      and assigns a dominant topic back to each review for exploratory analysis.
+  data:
+    description: >
+      Historical restaurant reviews together with cleaned and lemmatized review text.
+    source_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/tree/main/Ch8/Data
+    availability: repository
+    files:
+      - Ch8/Data/a1_RestaurantReviews_HistoricDump.tsv
+      - Ch8/Data/cleaned_reviews_lemmatized_data.csv
+  original_implementation:
+    technologies:
+      - text preprocessing
+      - Gensim
+      - LDA
+      - topic assignment
+      - pyLDAvis
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Exploratory-Data-Analysis-with-Python-Cookbook/blob/main/Ch8/9.%20Performing%20Topic%20Modelling.ipynb
+  problem:
+    context: >
+      A restaurant has large volumes of free-text reviews and needs to discover
+      recurring themes without manually defining categories.
+    objective: >
+      Discover latent topics in restaurant reviews and characterize how reviews are
+      distributed across those themes.
+    analytical_questions:
+      - What recurring topics appear in customer reviews?
+      - Which terms characterize each topic?
+      - How many topics provide an interpretable representation?
+      - Which topic dominates each review?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - gensim
+      - pyLDAvis
+    logical_steps:
+      - Load and validate review text.
+      - Tokenize and prepare a modeling corpus.
+      - Construct dictionary and bag-of-words representations.
+      - Fit candidate LDA topic models.
+      - Inspect and visualize topic-term distributions.
+      - Assign dominant topics to reviews.
+      - Summarize topic prevalence.
+    expected_outputs:
+      - prepared text corpus
+      - topic model
+      - topic-term summaries
+      - interactive topic visualization
+      - review-level topic assignments
+      - topic prevalence table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -5930,6 +6232,88 @@
       - state-dependent decision table
       - simulated revenue comparison
       - policy visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 83
+  name: Credit Default Counseling
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science Projects with Python, Second Edition
+    title: Deriving Financial Insights
+    url: https://github.com/PacktPublishing/Data-Science-Projects-with-Python-Second-Ed/blob/main/Chapter07/Activity01/Activity01.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Projects-with-Python-Second-Ed
+      path: Chapter07/Activity01/Activity01.ipynb
+    description: >
+      Packt converts credit-default probabilities into an intervention rule by
+      incorporating counseling cost, intervention effectiveness, account exposure,
+      and expected savings across probability thresholds.
+  data:
+    description: >
+      Credit-card customer data with default outcomes, account exposure, and
+      features used throughout the book's end-to-end default modeling case.
+    source_url: https://github.com/PacktPublishing/Data-Science-Projects-with-Python-Second-Ed/blob/main/Data/default_of_credit_card_clients__courseware_version_1_21_19.xls
+    availability: repository
+    files:
+      - Data/default_of_credit_card_clients__courseware_version_1_21_19.xls
+  original_implementation:
+    technologies:
+      - XGBoost
+      - probability scoring
+      - threshold analysis
+      - intervention cost
+      - expected savings
+      - precision and recall
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Projects-with-Python-Second-Ed/blob/main/Chapter07/Activity01/Activity01.ipynb
+  problem:
+    context: >
+      A lender can offer costly counseling to customers predicted to default, but
+      intervening on too many accounts wastes resources while missing true defaults
+      leaves avoidable losses.
+    objective: >
+      Choose a probability threshold for counseling that maximizes expected net
+      savings under explicit intervention-cost and effectiveness assumptions.
+    analytical_questions:
+      - How many customers are counseled at each threshold?
+      - How many actual defaults are reached?
+      - What savings are generated by successful interventions?
+      - Which threshold maximizes net savings?
+      - How does the economically optimal threshold differ from a default classifier threshold?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - xgboost
+      - matplotlib
+    logical_steps:
+      - Prepare the credit-default data and fit a probabilistic classifier.
+      - Produce out-of-sample default probabilities.
+      - Define counseling cost and intervention effectiveness.
+      - Evaluate intervention volume across a threshold grid.
+      - Calculate avoided losses and total counseling cost.
+      - Compute net savings per threshold.
+      - Select and interpret the maximum-savings decision rule.
+    expected_outputs:
+      - scored customer table
+      - threshold intervention table
+      - cost and savings curves
+      - optimal counseling threshold
+      - precision-recall trade-off
+      - financial impact summary
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
