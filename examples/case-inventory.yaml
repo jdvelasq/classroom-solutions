@@ -6125,6 +6125,77 @@
     data: verified
     code: verified
 
+- id: 167
+  name: Taxi Driver Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with BigQuery ML
+    title: Chicago Taxi Driver Clustering
+    url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter07/07_taxi_drivers_clustering.sql
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML
+      path: Chapter07/07_taxi_drivers_clustering.sql
+    description: >
+      Packt aggregates Chicago taxi trips to the driver level and clusters drivers
+      by average speed and total income using BigQuery ML K-means.
+  data:
+    description: >
+      Chicago taxi trips aggregated by taxi identifier to derive speed and income features.
+    source_url: https://console.cloud.google.com/marketplace/product/city-of-chicago-public-data/chicago-taxi-trips
+    availability: public_cloud_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - BigQuery
+      - BigQuery ML
+      - K-means
+      - SQL aggregation
+      - cluster profiling
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter07/07_taxi_drivers_clustering.sql
+  problem:
+    context: >
+      Driver-level operational behavior is hidden in millions of trip records and can
+      be summarized into interpretable performance groups.
+    objective: >
+      Discover driver segments from operational speed and income patterns.
+    analytical_questions:
+      - How should trip-level data be aggregated to driver-level features?
+      - Which drivers exhibit unusual speed or income values?
+      - What clusters emerge after standardization?
+      - Which cluster represents high-performing drivers?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Aggregate trips by driver.
+      - Calculate average speed and total income.
+      - Remove implausible operational outliers.
+      - Standardize driver features.
+      - Fit K-means.
+      - Inspect centroids and assignments.
+      - Profile high-performing and atypical driver groups.
+    expected_outputs:
+      - driver-level feature table
+      - cluster centroids
+      - driver segment assignments
+      - top-driver table
+      - segment interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -10903,6 +10974,299 @@
       - duplicate probability scores
       - log-loss diagnostics
       - ambiguous-pair analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 166
+  name: Taxi Tip Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with BigQuery ML
+    title: Chicago Taxi Tip Classification
+    url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter05/05_taxi_tip.sql
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML
+      path: Chapter05/05_taxi_tip.sql
+    description: >
+      Packt builds successive BigQuery ML logistic-regression models to predict whether
+      a Chicago taxi ride will receive a tip, using temporally separated training,
+      evaluation, and prediction tables.
+  data:
+    description: >
+      Chicago taxi trips with duration, fare, tolls, company, payment type,
+      pickup/dropoff locations, geographic coordinates, and tips.
+    source_url: https://console.cloud.google.com/marketplace/product/city-of-chicago-public-data/chicago-taxi-trips
+    availability: public_cloud_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - BigQuery
+      - BigQuery ML
+      - logistic regression
+      - temporal holdout
+      - ROC AUC
+      - SQL
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter05/05_taxi_tip.sql
+  problem:
+    context: >
+      Taxi trip characteristics may indicate whether a rider will leave a tip,
+      and the prediction problem can be trained directly where the large dataset resides.
+    objective: >
+      Predict tip occurrence and compare how adding trip and payment features changes model performance.
+    analytical_questions:
+      - Which trip characteristics are informative for tip occurrence?
+      - How does model quality change as features are added?
+      - Does the model generalize to later months?
+      - Which future trips receive the highest tip probability?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - duckdb
+    logical_steps:
+      - Define clean trip eligibility rules.
+      - Split train, evaluation, and prediction periods chronologically.
+      - Create the binary tip target.
+      - Fit progressively richer logistic models.
+      - Compare ROC AUC on the evaluation period.
+      - Score the future-period trips.
+      - Interpret probability and threshold behavior.
+    expected_outputs:
+      - cleaned taxi trip tables
+      - model comparison
+      - ROC AUC summary
+      - future tip probabilities
+      - classification diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 168
+  name: Liquor Sales Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with BigQuery ML
+    title: Iowa Liquor Sales Forecasting
+    url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter08/08_liquor_sales.sql
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML
+      path: Chapter08/08_liquor_sales.sql
+    description: >
+      Packt aggregates Iowa liquor transactions into daily liters sold and uses
+      BigQuery ML AutoARIMA to forecast the next 30 days with prediction intervals.
+  data:
+    description: >
+      Iowa liquor sales transactions containing transaction dates and volume sold.
+    source_url: https://console.cloud.google.com/marketplace/product/iowa-department-of-commerce/iowa-liquor-sales
+    availability: public_cloud_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - BigQuery
+      - BigQuery ML
+      - AutoARIMA
+      - time-series aggregation
+      - prediction intervals
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter08/08_liquor_sales.sql
+  problem:
+    context: >
+      Statewide liquor transactions form a large operational dataset that can be
+      aggregated into a demand series for short-term volume planning.
+    objective: >
+      Forecast daily liquor volume sold and quantify uncertainty for a 30-day horizon.
+    analytical_questions:
+      - What temporal pattern appears in daily liters sold?
+      - Which ARIMA structure is selected automatically?
+      - How accurate is the fitted model?
+      - What range of sales volume is plausible over the next 30 days?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Aggregate transactions to daily liters sold.
+      - Create a complete daily time series.
+      - Fit an automatic ARIMA model.
+      - Inspect fitted parameters and residuals.
+      - Evaluate model fit.
+      - Forecast the next 30 days.
+      - Plot historical and forecast values with intervals.
+    expected_outputs:
+      - daily sales series
+      - ARIMA model summary
+      - forecast evaluation
+      - 30-day forecast
+      - prediction intervals
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 169
+  name: E-Commerce Product Recommendation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with BigQuery ML
+    title: Product Recommendation with Matrix Factorization
+    url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter09/09_matrix_factorization.sql
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML
+      path: Chapter09/09_matrix_factorization.sql
+    description: >
+      Packt extracts purchases from nested Google Analytics sessions and fits an
+      implicit-feedback matrix factorization model in BigQuery ML to recommend products.
+  data:
+    description: >
+      Google Analytics sample e-commerce sessions with visitors, nested hits,
+      products, purchases, and product quantities.
+    source_url: https://developers.google.com/analytics/bigquery/web-ecommerce-demo-dataset
+    availability: public_cloud_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - BigQuery
+      - nested repeated data
+      - UNNEST
+      - matrix factorization
+      - implicit feedback
+      - recommendation
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter09/09_matrix_factorization.sql
+  problem:
+    context: >
+      E-commerce browsing data are nested at session level, while recommendation
+      requires a visitor-product interaction matrix derived from actual purchases.
+    objective: >
+      Build personalized product recommendations from implicit purchase behavior.
+    analytical_questions:
+      - How should nested session data be converted into visitor-product interactions?
+      - What implicit signal should represent user preference?
+      - How well does matrix factorization reconstruct interactions?
+      - Which products should be recommended to each visitor?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - implicit
+      - scipy
+    logical_steps:
+      - Flatten session and product interactions.
+      - Identify completed purchases.
+      - Aggregate purchase quantity by visitor and product.
+      - Build a sparse interaction matrix.
+      - Fit an implicit matrix-factorization model.
+      - Evaluate held-out interactions.
+      - Generate ranked product recommendations.
+    expected_outputs:
+      - visitor-product interaction table
+      - sparse interaction matrix
+      - fitted recommender
+      - recommendation quality metrics
+      - personalized product lists
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 170
+  name: Bike Trip Duration Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with BigQuery ML
+    title: NYC Bike Sharing DNN Regression
+    url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter11/nyc_bike_sharing_dnn.sql
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML
+      path: Chapter11/nyc_bike_sharing_dnn.sql
+    description: >
+      Packt uses BigQuery ML DNN regressors to predict Citi Bike trip duration from
+      start station, end station, weekend status, and rider age with chronological evaluation.
+  data:
+    description: >
+      New York Citi Bike trips with trip duration, station names, timestamps, and rider birth year.
+    source_url: https://console.cloud.google.com/marketplace/product/city-of-new-york/nyc-citi-bike
+    availability: public_cloud_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - BigQuery
+      - BigQuery ML
+      - DNN regression
+      - temporal holdout
+      - feature engineering
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-BigQuery-ML/blob/master/Chapter11/nyc_bike_sharing_dnn.sql
+  problem:
+    context: >
+      Trip duration varies by origin, destination, calendar context, and rider
+      characteristics and can be estimated from large bike-sharing histories.
+    objective: >
+      Predict trip duration for future rides using a neural regression model trained in SQL.
+    analytical_questions:
+      - Which trip attributes explain travel duration?
+      - How should implausible durations and ages be filtered?
+      - How do alternative activation functions compare?
+      - How accurate are predictions on a later month?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - tensorflow
+    logical_steps:
+      - Build chronological train, evaluation, and prediction tables.
+      - Derive weekend and rider-age features.
+      - Filter invalid durations and birth years.
+      - Encode station identifiers.
+      - Fit candidate neural regressors.
+      - Compare held-out error.
+      - Score future trips and inspect absolute error.
+    expected_outputs:
+      - prepared bike-trip dataset
+      - DNN model comparison
+      - held-out regression metrics
+      - trip duration predictions
+      - error distribution
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
