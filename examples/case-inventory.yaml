@@ -9378,6 +9378,162 @@
     data: verified
     code: verified
 
+- id: 281
+  name: Country Protein Consumption Clustering
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: Cluster Analysis of Protein Consumption
+    url: https://github.com/WinVector/PDSwR2/blob/main/RenderedExamples/c09_Unsupervised_methods.md
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: RenderedExamples/c09_Unsupervised_methods.md
+    description: >
+      The book clusters European countries using food-protein consumption profiles,
+      validates the cluster solution, and projects clusters onto principal components
+      for interpretation.
+  data:
+    description: >
+      Country-level consumption of red meat, white meat, eggs, milk, fish, cereals,
+      starch, nuts, and fruit and vegetables.
+    source_url: https://github.com/WinVector/PDSwR2/blob/main/Protein/protein.txt
+    availability: repository
+    files:
+      - Protein/protein.txt
+  original_implementation:
+    technologies:
+      - standardization
+      - hierarchical clustering
+      - Ward linkage
+      - bootstrap cluster validation
+      - PCA
+      - cluster profiling
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/blob/main/RenderedExamples/c09_Unsupervised_methods.md
+  problem:
+    context: >
+      Countries can have similar dietary structures even when individual food
+      categories differ substantially, so multivariate grouping is more informative
+      than one-variable comparisons.
+    objective: >
+      Discover and validate country dietary clusters from protein-consumption patterns.
+    analytical_questions:
+      - Which countries exhibit similar dietary profiles?
+      - How many clusters are supported by the data?
+      - Which food categories distinguish the groups?
+      - How stable are the clusters under bootstrap resampling?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate country consumption data.
+      - Standardize food-consumption variables.
+      - Fit hierarchical clustering with Ward linkage.
+      - Select and extract a cluster solution.
+      - Assess cluster stability through resampling.
+      - Project observations with PCA.
+      - Profile and label the dietary groups.
+    expected_outputs:
+      - standardized consumption matrix
+      - dendrogram
+      - cluster assignments
+      - cluster stability summary
+      - PCA projection
+      - dietary profile table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 283
+  name: Bioavailability Confounding Diagnosis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: Bioavailability and Omitted Variable Bias
+    url: https://github.com/WinVector/PDSwR2/blob/main/bioavailability/README.md
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: bioavailability/README.md
+    description: >
+      The book uses drug permeability and absorption data to demonstrate how an
+      omitted time-related variable can reverse the apparent sign of a relationship,
+      even when the underlying association is positive.
+  data:
+    description: >
+      Caco-2 permeability and observed human intestinal absorption estimates,
+      supplemented with a synthetic longitudinal drug-optimization series.
+    source_url: https://github.com/WinVector/PDSwR2/tree/main/bioavailability
+    availability: repository
+    files:
+      - bioavailability/caco2.csv
+      - bioavailability/synth.csv
+  original_implementation:
+    technologies:
+      - generalized linear models
+      - log transformation
+      - confounding diagnosis
+      - omitted variable bias
+      - synthetic data
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/blob/main/bioavailability/README.md
+  problem:
+    context: >
+      A drug-development series can show an apparently harmful relationship between
+      a laboratory proxy and human absorption when both are changing over project time.
+    objective: >
+      Diagnose a misleading association caused by an omitted variable and recover
+      the underlying relationship through better model specification.
+    analytical_questions:
+      - What relationship appears in the observational data?
+      - Why does the coefficient have an implausible sign?
+      - Which omitted variable explains the reversal?
+      - How does the estimated relationship change after controlling for time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load permeability and absorption data.
+      - Visualize the baseline relationship on an appropriate scale.
+      - Fit a simple model.
+      - Analyze the synthetic longitudinal series.
+      - Diagnose correlation between time and permeability.
+      - Add the omitted time variable.
+      - Compare coefficient signs and model fit before and after adjustment.
+    expected_outputs:
+      - relationship plots
+      - naive model coefficients
+      - confounding diagnostics
+      - adjusted model coefficients
+      - omitted-variable explanation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -17696,6 +17852,82 @@
       - churn probability model
       - ROC and precision-recall curves
       - independent test metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 282
+  name: Census Income Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: PUMS Income Regression
+    url: https://github.com/WinVector/PDSwR2/blob/main/CodeExamples/c07_Linear_and_logistic_regression/00188_example_7.1_of_section_7.1.1.R
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: CodeExamples/c07_Linear_and_logistic_regression/00188_example_7.1_of_section_7.1.1.R
+    description: >
+      The book models personal income from US Census PUMS attributes using a
+      train/test split and regression on log income.
+  data:
+    description: >
+      US Census Public Use Microdata Sample records restricted to working-age
+      full-time employees, including income, age, sex, class of worker, and education.
+    source_url: https://github.com/WinVector/PDSwR2/tree/main/PUMS
+    availability: repository
+    files:
+      - PUMS/psub.RDS
+      - PUMS/ss16pus.RDS
+  original_implementation:
+    technologies:
+      - linear regression
+      - log transformation
+      - train/test split
+      - demographic predictors
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/blob/main/CodeExamples/c07_Linear_and_logistic_regression/00188_example_7.1_of_section_7.1.1.R
+  problem:
+    context: >
+      Census microdata can be used to estimate expected income from demographic,
+      labor-market, and educational characteristics while respecting a genuine
+      holdout evaluation.
+    objective: >
+      Predict personal income and interpret the contribution of age, sex,
+      employment class, and education.
+    analytical_questions:
+      - Why is a log transformation useful for income?
+      - Which demographic and labor-market variables explain income variation?
+      - How well does the regression generalize to held-out respondents?
+      - Where are prediction errors concentrated?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load and filter the PUMS sample.
+      - Inspect the income distribution.
+      - Transform the target to log income.
+      - Encode categorical predictors.
+      - Create a reproducible train/test split.
+      - Fit and evaluate the regression model.
+      - Back-transform predictions for interpretation.
+    expected_outputs:
+      - prepared Census sample
+      - income regression model
+      - coefficient table
+      - holdout error metrics
+      - respondent-level income predictions
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
