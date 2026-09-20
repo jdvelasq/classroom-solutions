@@ -13863,6 +13863,80 @@
     data: verified
     code: verified
 
+- id: 442
+  name: Document Image Denoising
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Neural Network Projects with Python
+    title: Document Denoising with a Convolutional Autoencoder
+    url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter05/deep_conv_autoencoder_denoise_documents.py
+    repository:
+      url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python
+      path: Chapter05/deep_conv_autoencoder_denoise_documents.py
+    description: >
+      Packt trains a convolutional autoencoder on paired noisy and clean office
+      document images to reconstruct cleaner document scans.
+  data:
+    description: >
+      Paired noisy and clean grayscale document images included with the chapter.
+    source_url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/tree/master/Chapter05/Noisy_Documents
+    availability: repository
+    files:
+      - Chapter05/Noisy_Documents/noisy
+      - Chapter05/Noisy_Documents/clean
+  original_implementation:
+    technologies:
+      - convolutional autoencoder
+      - image denoising
+      - paired image reconstruction
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter05/deep_conv_autoencoder_denoise_documents.py
+  problem:
+    context: >
+      Scanned business documents often contain noise that reduces readability
+      and degrades OCR or downstream extraction quality.
+    objective: >
+      Transform noisy document images into cleaner analytical inputs.
+    analytical_questions:
+      - How should noisy and clean document pairs be aligned?
+      - How much visual noise can an autoencoder remove?
+      - Which document artifacts remain after reconstruction?
+      - How could denoising affect downstream text extraction?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - keras
+      - pillow
+      - numpy
+    logical_steps:
+      - Load paired noisy and clean document images.
+      - Normalize and align image dimensions.
+      - Create reproducible train and test partitions.
+      - Train a convolutional autoencoder.
+      - Reconstruct held-out noisy documents.
+      - Compare noisy, clean, and reconstructed images.
+      - Quantify reconstruction quality.
+    expected_outputs:
+      - paired document dataset
+      - trained denoising model
+      - reconstructed documents
+      - reconstruction metrics
+      - before-and-after image comparisons
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -27627,6 +27701,221 @@
     data: verified
     code: verified
 
+
+- id: 440
+  name: NYC Taxi Fare Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Neural Network Projects with Python
+    title: NYC Taxi Fare Prediction
+    url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter03/main.py
+    repository:
+      url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python
+      path: Chapter03/main.py
+    description: >
+      Packt engineers temporal and trip features from New York taxi records
+      and trains a neural network to predict fare amount.
+  data:
+    description: >
+      New York City taxi trips with pickup time, trip locations, passenger count,
+      and observed fare.
+    source_url: https://www.kaggle.com/c/new-york-city-taxi-fare-prediction/data
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - neural network regression
+      - feature engineering
+      - scaling
+      - RMSE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter03/main.py
+  problem:
+    context: >
+      Taxi operators and mobility platforms need to estimate fares from trip
+      characteristics before or during a ride.
+    objective: >
+      Predict taxi fare from engineered trip and temporal features.
+    analytical_questions:
+      - Which trip attributes are useful for fare prediction?
+      - How should raw pickup information be transformed into model features?
+      - How accurately can fare be predicted on unseen trips?
+      - Which trips generate the largest prediction errors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - keras
+    logical_steps:
+      - Load a reproducible taxi sample.
+      - Clean invalid trip and fare records.
+      - Engineer temporal and trip features.
+      - Scale predictors.
+      - Split training and test data.
+      - Fit a regression model.
+      - Evaluate RMSE and inspect large errors.
+    expected_outputs:
+      - model-ready taxi dataset
+      - fare prediction model
+      - test predictions
+      - RMSE summary
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 441
+  name: Pet Image Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Neural Network Projects with Python
+    title: Cats and Dogs Image Classification
+    url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter04/main_basic_cnn.py
+    repository:
+      url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python
+      path: Chapter04/main_basic_cnn.py
+    description: >
+      Packt trains a convolutional neural network to classify pet images into
+      cats and dogs and evaluates performance on a held-out image set.
+  data:
+    description: >
+      Microsoft PetImages collection containing cat and dog photographs.
+    source_url: https://www.microsoft.com/en-us/download/details.aspx?id=54765
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - convolutional neural network
+      - image classification
+      - image generators
+      - holdout evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter04/main_basic_cnn.py
+  problem:
+    context: >
+      Image collections need automated labeling when manual categorization is
+      too slow or expensive.
+    objective: >
+      Train and evaluate an image classifier that distinguishes cats from dogs.
+    analytical_questions:
+      - How should image data be partitioned for training and testing?
+      - How accurately can a compact CNN classify pet images?
+      - Which images are most difficult to classify?
+      - How does model complexity affect generalization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - keras
+      - pandas
+    logical_steps:
+      - Freeze a reproducible subset of pet images.
+      - Create train and test partitions.
+      - Normalize and resize images.
+      - Train a baseline CNN.
+      - Evaluate held-out accuracy.
+      - Inspect representative misclassifications.
+    expected_outputs:
+      - image train/test split
+      - trained classifier
+      - accuracy metrics
+      - confusion summary
+      - misclassified image examples
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 443
+  name: Face Verification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Neural Network Projects with Python
+    title: Face Recognition with Siamese Networks
+    url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter07/siamese_nn.py
+    repository:
+      url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python
+      path: Chapter07/siamese_nn.py
+    description: >
+      Packt trains a Siamese neural network on face pairs and integrates it into
+      an onboarding and live face-verification workflow.
+  data:
+    description: >
+      AT&T face images with multiple grayscale images per person, plus sample
+      images used for onboarding and verification.
+    source_url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/tree/master/Chapter07/att_faces
+    availability: repository
+    files:
+      - Chapter07/att_faces
+  original_implementation:
+    technologies:
+      - Siamese neural network
+      - contrastive loss
+      - face verification
+      - OpenCV
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Neural-Network-Projects-with-Python/blob/master/Chapter07/siamese_nn.py
+  problem:
+    context: >
+      Identity systems need to verify whether a newly observed face matches a
+      previously enrolled person rather than classify among a fixed set of identities.
+    objective: >
+      Learn a face-similarity function and use it for identity verification.
+    analytical_questions:
+      - How should positive and negative face pairs be constructed?
+      - How well does learned distance separate matching from nonmatching faces?
+      - What similarity threshold should trigger a match?
+      - How stable is verification across repeated video frames?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - keras
+      - opencv-python
+      - numpy
+    logical_steps:
+      - Load and normalize face images.
+      - Create positive and negative image pairs.
+      - Train a Siamese network with contrastive loss.
+      - Evaluate pairwise verification accuracy.
+      - Select a similarity threshold.
+      - Test enrolled-user verification on held-out images.
+    expected_outputs:
+      - paired face dataset
+      - trained similarity model
+      - verification metrics
+      - threshold analysis
+      - face verification workflow
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
 
 - id: 54
   name: Prediction to Action
