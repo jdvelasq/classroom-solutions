@@ -13479,3 +13479,165 @@
     source: verified
     data: verified
     code: verified
+
+- id: 177
+  name: Sales Forecasting BI App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Getting Started with Taipy
+    title: Sales Forecasting and BI Reports with Taipy
+    url: https://github.com/PacktPublishing/Getting-Started-with-Taipy/tree/main/chapter_07
+    repository:
+      url: https://github.com/PacktPublishing/Getting-Started-with-Taipy
+      path: chapter_07
+    description: >
+      Packt builds an enterprise-style sales application that combines historical
+      BI views with user-filtered time-series forecasting, confidence intervals,
+      scenario pipelines, and interactive controls.
+  data:
+    description: >
+      AdventureWorks-style bicycle sales stored as a warehouse/star-schema extract
+      and supplied as SQL/parquet tables with customer, product, and sales dimensions.
+    source_url: https://github.com/PacktPublishing/Getting-Started-with-Taipy/tree/main/chapter_07/src/data
+    availability: repository
+    files:
+      - chapter_07/src/data/sales.parquet
+      - chapter_07/src/data/sales_by_customer.parquet
+      - chapter_07/src/data/sales_by_product.parquet
+      - chapter_07/src/data/sales_simplified.parquet
+  original_implementation:
+    technologies:
+      - Taipy
+      - sktime
+      - exponential smoothing
+      - interactive BI
+      - scenario pipelines
+      - Plotly
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Getting-Started-with-Taipy/tree/main/chapter_07/src
+  problem:
+    context: >
+      Business users need both historical sales exploration and interactive forecasts
+      for selected customer and product segments without running notebooks manually.
+    objective: >
+      Deliver a reusable analytical application that combines sales diagnostics,
+      filtered forecasting, scenario execution, and interactive reporting.
+    analytical_questions:
+      - How do historical sales vary by customer and product dimensions?
+      - What segment should the user forecast?
+      - How does the forecast change with the selected horizon?
+      - How should actuals, forecasts, and uncertainty be presented interactively?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - sktime
+      - plotly
+      - taipy
+    logical_steps:
+      - Load sales marts.
+      - Build historical BI summaries.
+      - Expose customer and product filters.
+      - Aggregate selected data to daily sales.
+      - Fit the forecasting pipeline.
+      - Generate future values and intervals.
+      - Connect scenario inputs and outputs to the GUI.
+    expected_outputs:
+      - historical sales dashboard
+      - segment filters
+      - forecast scenario pipeline
+      - future sales table
+      - uncertainty visualization
+      - interactive analytical app
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 178
+  name: Warehouse Optimization App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Getting Started with Taipy
+    title: Taipy for Logistics
+    url: https://github.com/PacktPublishing/Getting-Started-with-Taipy/tree/main/chapter_08
+    repository:
+      url: https://github.com/PacktPublishing/Getting-Started-with-Taipy
+      path: chapter_08
+    description: >
+      Packt builds a supply-chain scenario application that selects warehouses and
+      assigns customers using mixed-integer optimization, allowing users to optimize
+      either monetary cost or CO2 emissions and compare alternative scenarios.
+  data:
+    description: >
+      Synthetic but realistic European customer and candidate-warehouse locations,
+      annual order volumes, fixed facility costs, and facility CO2 emissions.
+    source_url: https://github.com/PacktPublishing/Getting-Started-with-Taipy/tree/main/chapter_08/src/data
+    availability: repository
+    files:
+      - chapter_08/src/data/customers.csv
+      - chapter_08/src/data/warehouses.csv
+  original_implementation:
+    technologies:
+      - Taipy
+      - PuLP
+      - mixed-integer optimization
+      - facility location
+      - customer assignment
+      - scenario comparison
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Getting-Started-with-Taipy/tree/main/chapter_08/src
+  problem:
+    context: >
+      A distribution company must choose warehouse locations and assign customers
+      while balancing facility cost, transport cost, and carbon emissions.
+    objective: >
+      Build an interactive decision application for comparing warehouse-network
+      scenarios under alternative objectives and business constraints.
+    analytical_questions:
+      - Which warehouses should remain open?
+      - Which customers should be assigned to each warehouse?
+      - How does minimizing cost differ from minimizing CO2 emissions?
+      - How do warehouse-count and country constraints alter the solution?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pulp
+      - plotly
+      - taipy
+    logical_steps:
+      - Load customer and candidate-warehouse data.
+      - Calculate warehouse-to-customer distances.
+      - Define binary facility and assignment variables.
+      - Specify cost and emissions objectives.
+      - Add assignment, facility-count, and geographic constraints.
+      - Solve alternative scenarios.
+      - Present maps, KPIs, and scenario comparisons interactively.
+    expected_outputs:
+      - selected warehouse table
+      - customer assignment table
+      - cost and emissions KPIs
+      - scenario comparison
+      - network visualization
+      - interactive optimization app
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
