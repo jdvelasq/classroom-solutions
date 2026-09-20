@@ -24974,6 +24974,233 @@
     data: verified
     code: verified
 
+- id: 400
+  name: Churn Ensemble Benchmark
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Analysis, Fourth Edition
+    title: Ensemble Methods
+    url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter11/11_ensemble_methods.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Analysis-4E
+      path: Chapter11/11_ensemble_methods.ipynb
+    description: >
+      Packt uses customer churn data to compare random forests, extra trees,
+      AdaBoost, gradient boosting, XGBoost, voting, and stacking classifiers.
+  data:
+    description: >
+      Customer churn records with age, annual income, membership duration,
+      gender, location, and churn outcome.
+    source_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter11/churn.csv
+    availability: repository
+    files:
+      - Chapter11/churn.csv
+  original_implementation:
+    technologies:
+      - random forest
+      - extra trees
+      - AdaBoost
+      - gradient boosting
+      - XGBoost
+      - voting
+      - stacking
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter11/11_ensemble_methods.ipynb
+  problem:
+    context: >
+      A subscription business wants to identify customers likely to churn and compare
+      whether ensemble methods materially improve over simpler classifiers.
+    objective: >
+      Benchmark multiple ensemble strategies for customer churn prediction.
+    analytical_questions:
+      - Which ensemble method performs best on held-out customers?
+      - How do bagging and boosting approaches differ?
+      - Does model stacking improve generalization?
+      - What trade-offs appear across accuracy, precision, and recall?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+    logical_steps:
+      - Load and validate churn records.
+      - Encode categorical predictors.
+      - Create reproducible training and test data.
+      - Fit bagging and boosting ensembles.
+      - Fit voting and stacking classifiers.
+      - Compare held-out classification metrics.
+      - Interpret performance differences.
+    expected_outputs:
+      - ensemble benchmark table
+      - classification metrics
+      - confusion matrices
+      - best-model predictions
+      - comparison narrative
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 401
+  name: Product Review Sentiment Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Analysis, Fourth Edition
+    title: Analyzing Text Data
+    url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter13/13_analyze_text_data.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Analysis-4E
+      path: Chapter13/13_analyze_text_data.ipynb
+    description: >
+      Packt prepares product-review text, constructs TF-IDF features, explores
+      low-dimensional text structure, and trains a sentiment classifier with
+      held-out evaluation.
+  data:
+    description: >
+      Product reviews with review text and sentiment labels.
+    source_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter13/product_reviews.xlsx
+    availability: repository
+    files:
+      - Chapter13/product_reviews.xlsx
+  original_implementation:
+    technologies:
+      - text cleaning
+      - TF-IDF
+      - PCA
+      - sentiment classification
+      - classification report
+      - confusion matrix
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter13/13_analyze_text_data.ipynb
+  problem:
+    context: >
+      Product reviews contain customer opinions that can be transformed into
+      structured signals for monitoring sentiment at scale.
+    objective: >
+      Build and evaluate a sentiment model for product reviews.
+    analytical_questions:
+      - Which terms characterize the review corpus?
+      - What low-dimensional structure appears in TF-IDF features?
+      - How accurately can sentiment labels be predicted?
+      - Which reviews are most frequently misclassified?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - nltk
+      - matplotlib
+    logical_steps:
+      - Load and clean review text.
+      - Tokenize and normalize text.
+      - Build TF-IDF features.
+      - Explore reduced text representations.
+      - Split data reproducibly.
+      - Train a sentiment classifier.
+      - Evaluate predictions and errors.
+    expected_outputs:
+      - cleaned review corpus
+      - TF-IDF matrix
+      - text projection
+      - sentiment classifier
+      - classification report
+      - confusion matrix
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 402
+  name: Insurance Charges at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Analysis, Fourth Edition
+    title: Big Data Analytics using PySpark
+    url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter17/17_Big_Data_Analytics_using_PySpark.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Analysis-4E
+      path: Chapter17/17_Big_Data_Analytics_using_PySpark.ipynb
+    description: >
+      Packt builds scalable regression models in PySpark for medical insurance
+      charges and compares linear regression with decision-tree regression using
+      RMSE, R-squared, and MAE.
+  data:
+    description: >
+      Medical insurance records with demographic and risk attributes together
+      with observed insurance charges.
+    source_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter17/insurance.csv
+    availability: repository
+    files:
+      - Chapter17/insurance.csv
+  original_implementation:
+    technologies:
+      - PySpark
+      - Spark ML
+      - StringIndexer
+      - VectorAssembler
+      - linear regression
+      - decision tree regression
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter17/17_Big_Data_Analytics_using_PySpark.ipynb
+  problem:
+    context: >
+      Insurance charge modeling can be expressed as a distributed machine-learning
+      workflow when data volume requires scalable feature preparation and estimation.
+    objective: >
+      Build and compare scalable regression models for medical insurance charges.
+    analytical_questions:
+      - How should categorical predictors be indexed for Spark ML?
+      - Which regression model performs better on held-out records?
+      - How do RMSE, MAE, and R-squared compare across models?
+      - What does a scalable pipeline add to the modeling workflow?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load insurance records into Spark.
+      - Index categorical variables.
+      - Assemble model features.
+      - Split training and test data.
+      - Fit linear and decision-tree regressors.
+      - Compare RMSE, MAE, and R-squared.
+      - Produce scalable predictions.
+    expected_outputs:
+      - Spark feature pipeline
+      - linear regression model
+      - decision-tree model
+      - regression metric comparison
+      - distributed prediction table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
