@@ -1383,3 +1383,76 @@
     code: partial
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 19
+  name: Sentiment Analysis of 2016 Election Tweets
+  type: descriptiva
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Sentiment Analysis
+    url: https://orange3-text.readthedocs.io/en/stable/widgets/sentimentanalysis.html
+    description: >
+      Official Orange example computing document-level sentiment features on a corpus
+      of 2016 election tweets using lexicon-based sentiment methods.
+  data:
+    description: >
+      Bundled Election-2016-tweets.tab corpus used in the Orange Text Mining example.
+    source_url: https://orange3-text.readthedocs.io/en/stable/widgets/sentimentanalysis.html
+    availability: bundled_with_example
+    files:
+      - Election-2016-tweets.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - VADER
+      - Liu-Hu sentiment
+      - multilingual sentiment lexicons
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      Social-media messages can be summarized through sentiment scores to compare
+      the tone of different authors or groups.
+    objective: >
+      Compute sentiment features for election-related tweets and compare sentiment patterns.
+    analytical_questions:
+      - What is the distribution of positive, negative, neutral, and compound sentiment?
+      - How does sentiment differ across authors?
+      - How sensitive are conclusions to the sentiment method used?
+      - Which tweets produce extreme sentiment scores?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - nltk
+      - matplotlib
+    logical_steps:
+      - Load the election-tweet corpus.
+      - Normalize text while preserving sentiment-bearing tokens.
+      - Apply VADER and a second lexicon-based method.
+      - Append sentiment scores to each document.
+      - Compare score distributions across authors.
+      - Inspect extreme and conflicting cases.
+      - Visualize and interpret the results.
+    expected_outputs:
+      - sentiment-enriched corpus
+      - author-level summaries
+      - distribution plots
+      - method-comparison table
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    This is a descriptive lexicon-based social-media sentiment case, not a duplicate
+    of CLASSROOM's supervised Financial PhraseBank classifier.
