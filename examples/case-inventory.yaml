@@ -725,3 +725,75 @@
   notes: >
     Distinct from the existing CLASSROOM financial-sentence sentiment case in
     domain, dataset scale, binary target, raw-file ingestion, and neural workflow.
+
+- id: 10
+  name: 20 Newsgroups Classification with Pretrained GloVe Embeddings
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Using pre-trained word embeddings
+    url: https://keras.io/examples/nlp/pretrained_word_embeddings/
+    description: >
+      Official Keras example using pretrained GloVe word vectors to classify
+      Newsgroup20 messages into twenty topic categories.
+  data:
+    description: >
+      Newsgroup20 messages plus pretrained GloVe embeddings.
+    source_url: https://keras.io/examples/nlp/pretrained_word_embeddings/
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - TextVectorization
+      - GloVe
+      - embedding layer
+      - convolutional neural network
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/pretrained_word_embeddings/
+  problem:
+    context: >
+      Topic-labeled discussion messages can benefit from semantic information learned
+      from much larger external text corpora.
+    objective: >
+      Build a multiclass document classifier initialized with pretrained GloVe vectors.
+    analytical_questions:
+      - How are pretrained word vectors aligned with a task-specific vocabulary?
+      - What information is gained by initializing an embedding matrix with GloVe?
+      - How well does the resulting neural model classify twenty discussion topics?
+      - Which limitations arise from out-of-vocabulary terms?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - tensorflow
+      - numpy
+      - pandas
+    logical_steps:
+      - Download the Newsgroup20 corpus.
+      - Build the task vocabulary.
+      - Download and parse GloVe embeddings.
+      - Align vocabulary tokens with pretrained vectors.
+      - Construct the embedding matrix.
+      - Build and train the classifier.
+      - Evaluate multiclass predictions.
+    expected_outputs:
+      - vocabulary
+      - embedding matrix
+      - trained classifier
+      - multiclass metrics
+      - representative predictions
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
