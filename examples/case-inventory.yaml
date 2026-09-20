@@ -1843,3 +1843,79 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 25
+  name: Social Trend Monitoring
+  type: descriptiva
+  source:
+    category: book_repository
+    organization: Practical NLP
+    publisher: O'Reilly Media
+    book: Practical Natural Language Processing
+    title: Trending Topics
+    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch8/03_TrendingTopics.ipynb
+    repository:
+      url: https://github.com/practical-nlp/practical-nlp-code
+      path: Ch8/03_TrendingTopics.ipynb
+    description: >
+      The O'Reilly companion repository retrieves trending Twitter topics by
+      geographic location and compares overlapping trends.
+  data:
+    description: >
+      Location-specific social-media trend lists originally retrieved through
+      the Twitter API.
+    source_url: null
+    availability: live_api_or_frozen_replay
+    files: []
+    notes: >
+      A CLASSROOM rewrite should use a frozen historical trend snapshot or an open
+      alternative source so that execution does not depend on current Twitter/X access.
+  original_implementation:
+    technologies:
+      - Tweepy
+      - Twitter API
+      - JSON
+    language: Python
+    code_available: true
+    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch8/03_TrendingTopics.ipynb
+  problem:
+    context: >
+      Organizations need to detect which topics are gaining attention and how
+      trend patterns differ across geographic markets.
+    objective: >
+      Compare social-media trend lists across locations and identify common,
+      local, and emerging topics for monitoring.
+    analytical_questions:
+      - Which topics are trending in each location?
+      - Which trends are shared across markets?
+      - Which trends are unique to a location?
+      - Which topics persist or disappear across successive snapshots?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load frozen trend snapshots for multiple locations and times.
+      - Normalize topic names.
+      - Compare intersections and differences across locations.
+      - Measure persistence across snapshots.
+      - Rank topics by geographic reach and persistence.
+      - Visualize trend overlap and evolution.
+    expected_outputs:
+      - normalized trend table
+      - cross-location overlap table
+      - persistence metrics
+      - ranked trend list
+      - visualizations
+      - written monitoring summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
