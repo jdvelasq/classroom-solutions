@@ -5205,6 +5205,85 @@
     data: verified
     code: verified
 
+- id: 138
+  name: Spatial Demographic Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Applied Geospatial Data Science with Python
+    title: Spatial Clustering
+    url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python/blob/main/Chapter08/Chapter%208%20-%20Spatial%20Clustering%20NY_vf.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python
+      path: Chapter08/Chapter 8 - Spatial Clustering NY_vf.ipynb
+    description: >
+      Packt combines New York census-tract geodemographic variables with spatial
+      boundaries, diagnoses spatial autocorrelation, and compares K-means,
+      hierarchical clustering, and spatially constrained clustering.
+  data:
+    description: >
+      New York census-tract geometries and geodemographic indicators including
+      education, income, age, and population characteristics.
+    source_url: https://www2.census.gov/geo/tiger/TIGER2019/TRACT/tl_2019_36_tract.zip
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - GeoPandas
+      - Moran's I
+      - K-means
+      - hierarchical clustering
+      - spatially constrained clustering
+      - PySAL
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python/blob/main/Chapter08/Chapter%208%20-%20Spatial%20Clustering%20NY_vf.ipynb
+  problem:
+    context: >
+      Census tracts differ demographically but are also geographically connected,
+      so useful segmentation should consider both attribute similarity and spatial structure.
+    objective: >
+      Discover and compare geodemographic regions using conventional and spatially
+      constrained clustering.
+    analytical_questions:
+      - Which demographic variables exhibit spatial autocorrelation?
+      - What geodemographic clusters emerge from attribute similarity alone?
+      - How does enforcing spatial contiguity change the segments?
+      - Which clustering solution is most interpretable geographically?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - geopandas
+      - scikit-learn
+      - libpysal
+      - esda
+      - matplotlib
+    logical_steps:
+      - Acquire census attributes and tract geometries.
+      - Clean and standardize geodemographic variables.
+      - Construct spatial weights.
+      - Measure spatial autocorrelation.
+      - Fit K-means and unconstrained hierarchical clusters.
+      - Fit spatially constrained hierarchical clusters.
+      - Map and profile the competing segmentations.
+    expected_outputs:
+      - geodemographic feature table
+      - Moran statistics
+      - cluster assignments
+      - spatially constrained segments
+      - cluster profile table
+      - choropleth maps
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -9209,6 +9288,88 @@
     data: verified
     code: verified
 
+- id: 139
+  name: Spatial Airbnb Valuation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Applied Geospatial Data Science with Python
+    title: Spatial Regression
+    url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python/blob/main/Chapter09/Chapter%209%20-%20Spatial%20Regression_vf.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python
+      path: Chapter09/Chapter 9 - Spatial Regression_vf.ipynb
+    description: >
+      Packt models Manhattan Airbnb prices, diagnoses spatial structure in residuals,
+      engineers proximity-to-attraction features, and compares ordinary,
+      spatial-fixed-effect, geographically weighted, and multiscale regressions.
+  data:
+    description: >
+      New York Airbnb listings enriched with neighborhood boundaries, attractions,
+      and geographic distances.
+    source_url: http://insideairbnb.com/get-the-data/
+    availability: public
+    files:
+      - listings.csv.gz
+      - NYC neighborhood geometry
+      - attraction locations
+  original_implementation:
+    technologies:
+      - GeoPandas
+      - OLS
+      - spatial lag diagnostics
+      - spatial feature engineering
+      - geographically weighted regression
+      - multiscale GWR
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python/blob/main/Chapter09/Chapter%209%20-%20Spatial%20Regression_vf.ipynb
+  problem:
+    context: >
+      Airbnb prices depend on listing characteristics and location, and ordinary
+      regression can leave systematic spatial structure unexplained.
+    objective: >
+      Predict and explain listing prices while incorporating spatial dependence and
+      proximity effects explicitly.
+    analytical_questions:
+      - Where are ordinary-regression residuals spatially clustered?
+      - Do distances to attractions improve price prediction?
+      - How do spatial fixed effects alter the model?
+      - Do local regression coefficients vary across Manhattan?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - geopandas
+      - pysal
+      - mgwr
+      - scikit-learn
+    logical_steps:
+      - Load and clean Airbnb listings.
+      - Geocode and project listing locations.
+      - Fit a baseline price regression.
+      - Diagnose spatial autocorrelation in residuals.
+      - Engineer proximity and neighborhood features.
+      - Fit spatial and geographically weighted alternatives.
+      - Compare predictive fit and spatial residual structure.
+    expected_outputs:
+      - baseline valuation model
+      - spatial residual diagnostics
+      - proximity feature table
+      - spatial model comparison
+      - local coefficient maps
+      - listing price estimates
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -9905,6 +10066,85 @@
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 140
+  name: Spatial Facility and Routing Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Applied Geospatial Data Science with Python
+    title: Spatial Optimization
+    url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python/blob/main/Chapter10/Chapter%2010%20-%20Spatial%20Optimization-vf.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python
+      path: Chapter10/Chapter 10 - Spatial Optimization-vf.ipynb
+    description: >
+      Packt formulates facility set covering, traveling-salesperson, vehicle-routing,
+      and capacitated-routing problems on real street networks using spatial cost
+      matrices and mathematical optimization.
+  data:
+    description: >
+      Washington, DC road networks and census geography together with simulated
+      patient, facility, warehouse, and customer locations.
+    source_url: https://www.openstreetmap.org/
+    availability: public_and_generated
+    files: []
+  original_implementation:
+    technologies:
+      - OSMnx
+      - spatial networks
+      - facility location
+      - PuLP
+      - TSP
+      - VRP
+      - CVRP
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Applied-Geospatial-Data-Science-with-Python/blob/main/Chapter10/Chapter%2010%20-%20Spatial%20Optimization-vf.ipynb
+  problem:
+    context: >
+      Service facilities and vehicle routes must be chosen using actual network
+      distances rather than straight-line geometry, while satisfying coverage or capacity constraints.
+    objective: >
+      Optimize facility coverage and routing decisions on a street network.
+    analytical_questions:
+      - Which facility locations cover all demand within the required network distance?
+      - What tour minimizes total travel?
+      - How should customers be divided among multiple vehicles?
+      - How do vehicle capacity constraints change the optimal routes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - geopandas
+      - osmnx
+      - networkx
+      - pulp
+      - ortools
+    logical_steps:
+      - Download and prepare the street network.
+      - Generate or load demand and facility locations.
+      - Snap points to the network.
+      - Compute network-distance cost matrices.
+      - Solve the location set-covering problem.
+      - Formulate and solve TSP and VRP variants.
+      - Add vehicle-capacity constraints and compare solutions.
+    expected_outputs:
+      - network cost matrix
+      - selected facility locations
+      - optimized tour
+      - vehicle route assignments
+      - capacity-feasible routing plan
+      - route maps
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
     authentication_required: false
   verification:
     source: verified
