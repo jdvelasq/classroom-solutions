@@ -9821,6 +9821,79 @@
     data: verified
     code: verified
 
+- id: 295
+  name: Hotel Review Latent Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Feature Engineering Made Easy
+    title: Latent Semantic Analysis and Clustering
+    url: https://github.com/PacktPublishing/Feature-Engineering-Made-Easy/blob/master/Chapter08/Ch_8.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Feature-Engineering-Made-Easy
+      path: Chapter08/Ch_8.ipynb
+    description: >
+      Packt transforms more than one hundred thousand hotel reviews with TF-IDF,
+      latent semantic analysis, normalization, and K-means, showing how dimensionality
+      reduction accelerates clustering and produces interpretable review topics.
+  data:
+    description: >
+      US hotel review records containing review text, ratings, and geographic coordinates.
+    source_url: https://github.com/PacktPublishing/Feature-Engineering-Made-Easy/blob/master/data/7282_1.csv
+    availability: repository
+    files:
+      - data/7282_1.csv
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - truncated SVD
+      - latent semantic analysis
+      - K-means
+      - text clustering
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Feature-Engineering-Made-Easy/blob/master/Chapter08/Ch_8.ipynb
+  problem:
+    context: >
+      A very large review corpus creates an extremely high-dimensional sparse
+      document-term matrix that is expensive to cluster directly.
+    objective: >
+      Discover interpretable review groups while reducing dimensionality and computational cost.
+    analytical_questions:
+      - What latent semantic dimensions summarize the review corpus?
+      - How much does LSA reduce clustering cost?
+      - What terms characterize each review cluster?
+      - How are new reviews assigned to existing clusters?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Restrict and clean the review corpus.
+      - Create TF-IDF features.
+      - Reduce dimensions with truncated SVD.
+      - Normalize latent representations.
+      - Fit K-means clusters.
+      - Recover top terms per cluster.
+      - Compare runtime with clustering in the original sparse space.
+    expected_outputs:
+      - latent review matrix
+      - clustering runtime comparison
+      - review cluster assignments
+      - top terms by cluster
+      - example new-review assignments
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
