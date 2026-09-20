@@ -22052,6 +22052,319 @@
     data: verified
     code: verified
 
+- id: 349
+  name: Safe Driver Risk Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: The Kaggle Workbook
+    title: Porto Seguro Safe Driver Prediction
+    url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_01/workbook-lgb.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/The-Kaggle-Workbook
+      path: chapter_01/workbook-lgb.ipynb
+    description: >
+      Packt develops a LightGBM risk model for Porto Seguro's Safe Driver
+      competition using stratified cross-validation, early stopping, normalized
+      Gini evaluation, out-of-fold predictions, and tuned gradient boosting.
+  data:
+    description: >
+      Anonymized driver and policy attributes with a binary insurance-claim target.
+    source_url: https://www.kaggle.com/competitions/porto-seguro-safe-driver-prediction
+    availability: public_platform
+    files:
+      - train.csv
+      - test.csv
+      - sample_submission.csv
+  original_implementation:
+    technologies:
+      - LightGBM
+      - stratified cross-validation
+      - early stopping
+      - normalized Gini
+      - out-of-fold prediction
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_01/workbook-lgb.ipynb
+  problem:
+    context: >
+      An insurer wants to rank policyholders by future claim risk from anonymized
+      customer and policy attributes.
+    objective: >
+      Build a robust claim-risk model and validate ranking performance across folds.
+    analytical_questions:
+      - Which features help rank high-risk drivers?
+      - How stable is normalized Gini across validation folds?
+      - How does early stopping affect model generalization?
+      - Which customers receive the highest predicted claim risk?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - lightgbm
+      - scikit-learn
+    logical_steps:
+      - Load and validate train and test tables.
+      - Separate identifiers, predictors, and target.
+      - Create stratified folds.
+      - Train LightGBM with early stopping.
+      - Generate out-of-fold predictions.
+      - Calculate normalized Gini.
+      - Fit final models and score the test set.
+    expected_outputs:
+      - cross-validation table
+      - normalized Gini summary
+      - out-of-fold predictions
+      - feature importance
+      - driver risk scores
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 350
+  name: Hierarchical Retail Demand Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: The Kaggle Workbook
+    title: M5 Forecasting
+    url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_02/m5-train-day-1913-horizon-28.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/The-Kaggle-Workbook
+      path: chapter_02/m5-train-day-1913-horizon-28.ipynb
+    description: >
+      Packt constructs an end-to-end M5 demand-forecasting pipeline with long-format
+      sales grids, price and calendar features, lags, rolling statistics, target
+      encodings, store-specific LightGBM models, and multi-horizon prediction.
+  data:
+    description: >
+      Walmart item-store daily sales, prices, calendar events, and hierarchy data
+      from the M5 forecasting competition.
+    source_url: https://www.kaggle.com/competitions/m5-forecasting-accuracy
+    availability: public_platform
+    files:
+      - sales_train_evaluation.csv
+      - sell_prices.csv
+      - calendar.csv
+      - sample_submission.csv
+  original_implementation:
+    technologies:
+      - LightGBM
+      - lag features
+      - rolling statistics
+      - target encoding
+      - multi-horizon forecasting
+      - hierarchical retail data
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_02/m5-train-day-1913-horizon-28.ipynb
+  problem:
+    context: >
+      A large retailer must forecast thousands of item-store demand series while
+      incorporating price, calendar, event, and hierarchical information.
+    objective: >
+      Forecast item-level retail demand over multiple future horizons using a
+      scalable feature-engineering and gradient-boosting pipeline.
+    analytical_questions:
+      - Which lag and rolling features capture short- and medium-term demand behavior?
+      - How do price and calendar variables improve forecasts?
+      - Should separate store-level models be used?
+      - How does accuracy change across forecast horizons?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - lightgbm
+      - pyarrow
+    logical_steps:
+      - Reshape sales history to long format.
+      - Join price and calendar information.
+      - Build lag and rolling features.
+      - Add target-encoding features.
+      - Split chronologically by forecast horizon.
+      - Train store-level gradient-boosting models.
+      - Produce recursive multi-horizon forecasts.
+    expected_outputs:
+      - long-format sales grid
+      - engineered forecasting features
+      - store-level models
+      - feature importance summaries
+      - multi-horizon demand forecasts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 351
+  name: Cassava Disease Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: The Kaggle Workbook
+    title: End-to-End Image Classification
+    url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_03/ch3-end-to-end-image-classification.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/The-Kaggle-Workbook
+      path: chapter_03/ch3-end-to-end-image-classification.ipynb
+    description: >
+      Packt builds an end-to-end cassava leaf disease classifier with image
+      augmentation, EfficientNet transfer learning, validation splitting,
+      checkpointing, early stopping, and test-image prediction.
+  data:
+    description: >
+      Cassava leaf images labeled by disease class from the Kaggle cassava leaf
+      disease classification competition.
+    source_url: https://www.kaggle.com/competitions/cassava-leaf-disease-classification
+    availability: public_platform
+    files:
+      - train.csv
+      - train_images
+      - test_images
+  original_implementation:
+    technologies:
+      - TensorFlow
+      - Keras
+      - EfficientNet
+      - transfer learning
+      - image augmentation
+      - early stopping
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_03/ch3-end-to-end-image-classification.ipynb
+  problem:
+    context: >
+      Crop disease symptoms visible in leaf images can support automated field
+      screening when labeled examples are available.
+    objective: >
+      Train and validate an image classifier for cassava leaf disease.
+    analytical_questions:
+      - How should images be augmented for robust training?
+      - How well does transfer learning distinguish disease classes?
+      - Which classes are most frequently confused?
+      - How should the best validation checkpoint be selected?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - pandas
+      - pillow
+      - scikit-learn
+    logical_steps:
+      - Load labels and image paths.
+      - Create training and validation splits.
+      - Configure image augmentation.
+      - Initialize a pretrained EfficientNet backbone.
+      - Train with checkpointing and early stopping.
+      - Evaluate class-level errors.
+      - Predict labels for unseen images.
+    expected_outputs:
+      - trained image classifier
+      - learning curves
+      - validation metrics
+      - confusion diagnostics
+      - image-level disease predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 352
+  name: Question Answer Quality Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: The Kaggle Workbook
+    title: End-to-End NLP
+    url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_04/ch4-end-to-end-nlp.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/The-Kaggle-Workbook
+      path: chapter_04/ch4-end-to-end-nlp.ipynb
+    description: >
+      Packt predicts multiple question-and-answer quality targets using engineered
+      text statistics, TF-IDF features, DistilBERT embeddings, preprocessing
+      pipelines, cross-validation, and regularized regression.
+  data:
+    description: >
+      Google QUEST question-answer records with titles, question bodies, answers,
+      metadata, and multiple human-rated quality targets.
+    source_url: https://www.kaggle.com/competitions/google-quest-challenge
+    availability: public_platform
+    files:
+      - train.csv
+      - test.csv
+      - sample_submission.csv
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - DistilBERT embeddings
+      - text feature engineering
+      - multi-output regression
+      - cross-validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/The-Kaggle-Workbook/blob/main/chapter_04/ch4-end-to-end-nlp.ipynb
+  problem:
+    context: >
+      Community question-answer content has multiple dimensions of perceived quality,
+      usefulness, clarity, and relevance that can be estimated from text and metadata.
+    objective: >
+      Predict multiple human-rated quality dimensions for unseen question-answer pairs.
+    analytical_questions:
+      - Which text representations best capture quality signals?
+      - Do transformer embeddings add value beyond TF-IDF and handcrafted features?
+      - Which quality dimensions are easiest or hardest to predict?
+      - How stable is performance across validation folds?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - transformers
+      - torch
+    logical_steps:
+      - Load and inspect question-answer records.
+      - Engineer structural text features.
+      - Build TF-IDF representations.
+      - Generate transformer embeddings.
+      - Combine text, numeric, and categorical features.
+      - Fit regularized multi-target models.
+      - Evaluate across cross-validation folds.
+    expected_outputs:
+      - engineered text feature matrix
+      - transformer embeddings
+      - multi-target model
+      - cross-validation metrics
+      - quality predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
