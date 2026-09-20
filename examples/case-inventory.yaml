@@ -3253,6 +3253,249 @@
     data: verified
     code: verified
 
+- id: 344
+  name: Financial Data Quality Scorecard
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Managing Data Integrity for Finance
+    title: Measuring the Impact of Data Integrity Issues
+    url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch03
+    repository:
+      url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance
+      path: ch03
+    description: >
+      Packt develops a structured data-quality scorecard for a finance-oriented
+      business case, using explicit dimensions, measures, thresholds, and visual
+      status indicators to quantify the impact of data-integrity problems.
+  data:
+    description: >
+      Finance-oriented operational data and a completed quality-scorecard workbook
+      used to assess data integrity across defined quality dimensions.
+    source_url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch03
+    availability: repository
+    files:
+      - ch03/Chapter 3 Data Quality Scorecard.xlsx
+  original_implementation:
+    technologies:
+      - Excel
+      - data quality dimensions
+      - scorecards
+      - thresholds
+      - conditional formatting
+    language: spreadsheet
+    code_available: false
+    code_url:
+  problem:
+    context: >
+      Finance teams need a repeatable way to quantify data-quality problems rather
+      than relying on ad hoc observations about completeness, accuracy, or consistency.
+    objective: >
+      Design and calculate a data-quality scorecard that converts integrity checks
+      into interpretable management indicators.
+    analytical_questions:
+      - Which data-quality dimensions should be measured?
+      - What metrics and thresholds define acceptable quality?
+      - How should failed checks be aggregated into a scorecard?
+      - Which dimensions contribute most to overall data-quality risk?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - openpyxl
+    logical_steps:
+      - Load the source quality-assessment data.
+      - Define data-quality dimensions and checks.
+      - Calculate check-level pass rates.
+      - Convert metrics into standardized scores.
+      - Apply thresholds and status bands.
+      - Aggregate results by quality dimension.
+      - Produce an auditable scorecard.
+    expected_outputs:
+      - data-quality rules table
+      - check-level metrics
+      - dimension scores
+      - exception summary
+      - management scorecard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: not_applicable
+
+- id: 345
+  name: Sales Transaction Integrity Audit
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Managing Data Integrity for Finance
+    title: Using Business Intelligence Tools to Fix Data Integrity Issues
+    url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch05
+    repository:
+      url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance
+      path: ch05
+    description: >
+      Packt uses transaction, product, manager, and postcode files to identify and
+      repair formatting errors, orphaned records, inconsistent reference values,
+      and other integrity issues using BI and data-preparation tools.
+  data:
+    description: >
+      Sales transactions, product details, sales managers, postcode reference data,
+      and edited versions containing known integrity problems.
+    source_url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch05
+    availability: repository
+    files:
+      - ch05/2020_Transactions.xlsx
+      - ch05/Product_Details.xlsx
+      - ch05/Sales_Managers.xlsx
+      - ch05/NSW_Post_Code.xlsx
+      - ch05/Sales_Transactions.xlsx
+      - ch05/Output Orphaned Records.xlsx
+  original_implementation:
+    technologies:
+      - Power Query
+      - Power BI
+      - Tableau Prep
+      - Alteryx
+      - reference-data validation
+      - orphan detection
+    language: visual_data_prep
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch05
+  problem:
+    context: >
+      Finance and sales reporting can be corrupted by malformed values, unmatched
+      reference keys, duplicate records, and inconsistent master-data attributes.
+    objective: >
+      Audit, reconcile, and repair a multi-table sales dataset before it is used
+      for financial reporting or analytics.
+    analytical_questions:
+      - Which transaction records fail reference-data checks?
+      - Which rows are orphaned after joins?
+      - Which product, manager, or postcode values are inconsistent?
+      - How should corrections be documented and validated?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - rapidfuzz
+      - openpyxl
+    logical_steps:
+      - Load transactional and reference files.
+      - Profile schema, keys, duplicates, and missingness.
+      - Validate foreign-key relationships.
+      - Detect orphaned and mismatched records.
+      - Normalize text and reference values.
+      - Apply reviewed corrections.
+      - Re-run integrity checks and export the cleaned dataset.
+    expected_outputs:
+      - integrity exception report
+      - orphaned-record table
+      - corrected reference mappings
+      - cleaned transaction dataset
+      - before-after validation summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 346
+  name: Financial Master Data Reconciliation
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Managing Data Integrity for Finance
+    title: Using Artificial Intelligence for Finance Data Quality Management
+    url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch10
+    repository:
+      url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance
+      path: ch10
+    description: >
+      Packt provides hands-on finance data-quality exercises covering duplicate
+      transactions, invalid dates, outlier quantities, suburb reconciliation,
+      missing values, product-master completeness, and price reconciliation.
+  data:
+    description: >
+      Multi-year transaction files together with postcode, product, and sales-price
+      master data used for financial integrity checks and reconciliation.
+    source_url: https://github.com/PacktPublishing/Managing-Data-Integrity-for-Finance/tree/main/ch10
+    availability: repository
+    files:
+      - ch10/2020_Transactions.xlsx
+      - ch10/2022 Transactions.xlsx
+      - ch10/NSW_Post_Code.xlsx
+      - ch10/Products.xlsx
+      - ch10/Sales Price.xlsx
+      - ch10/Sales_Transactions.xlsx
+  original_implementation:
+    technologies:
+      - duplicate detection
+      - fuzzy matching
+      - reference reconciliation
+      - outlier diagnosis
+      - missing-value checks
+      - master-data validation
+    language: interactive_analysis
+    code_available: false
+    code_url:
+  problem:
+    context: >
+      Financial reporting depends on transaction data agreeing with authoritative
+      postcode, product, and price masters and on detecting unusual or duplicated entries.
+    objective: >
+      Reconcile financial transactions against master data and produce a validated
+      transaction set with documented corrections.
+    analytical_questions:
+      - Which transactions are duplicated or contain invalid dates?
+      - Which suburb names fail postcode-reference matching?
+      - Which quantities are anomalous and require review?
+      - Which product prices disagree with the authoritative price file?
+      - Are all sold products represented in the product master?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - rapidfuzz
+      - numpy
+      - openpyxl
+    logical_steps:
+      - Load transactions and master-data tables.
+      - Validate transaction uniqueness and dates.
+      - Diagnose missing values and quantity outliers.
+      - Fuzzy-match suburb names against the postcode master.
+      - Reconcile product identifiers and prices.
+      - Quantify financial differences from price mismatches.
+      - Apply reviewed corrections and export reconciled files.
+    expected_outputs:
+      - duplicate transaction report
+      - fuzzy-match review table
+      - quantity outlier table
+      - price reconciliation table
+      - product-master exceptions
+      - cleaned financial transaction dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: not_applicable
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
