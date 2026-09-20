@@ -813,373 +813,6 @@
     data: verified
     code: verified
 
-- id: 4
-  name: Project Theme Discovery
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: institution_course
-    organization: MIT Professional Education
-    program: Data Science-Data to Insights
-    title: LDA Analysis - Finding Themes in Project Descriptions
-    url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
-    description: >
-      MIT Professional Education presents a case in which Latent Dirichlet Allocation
-      is used to discover themes in project descriptions from MIT EECS faculty data.
-  data:
-    description: >
-      Textual project descriptions collected from MIT EECS faculty pages.
-    source_url: null
-    availability: scrape_required
-    files: []
-    notes: >
-      The course description explicitly indicates that learners scrape their own
-      corpus. A future rewrite must freeze the collected corpus for reproducibility.
-  original_implementation:
-    technologies:
-      - Latent Dirichlet Allocation
-      - stochastic variational inference
-    language: Python
-    code_available: partial
-    code_url: null
-  problem:
-    context: >
-      A collection of project descriptions contains latent research themes that are
-      not explicitly labeled.
-    objective: >
-      Discover and interpret latent themes in project descriptions using topic modeling.
-    analytical_questions:
-      - Which terms characterize the corpus?
-      - What latent topics can be recovered with LDA?
-      - Which projects are most strongly associated with each topic?
-      - How interpretable and stable are the discovered themes?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Collect and freeze project-description documents.
-      - Clean and normalize the text.
-      - Construct a document-term representation.
-      - Fit LDA topic models.
-      - Inspect top terms and document-topic probabilities.
-      - Compare plausible topic counts.
-      - Label and interpret the recovered themes.
-    expected_outputs:
-      - frozen text corpus
-      - document-term matrix
-      - fitted topic model
-      - topic-term tables
-      - document-topic table
-      - topic visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: partial
-    code: partial
-  notes: >
-    Verified as a distinct MIT text-mining case. No matching project-description,
-    LDA, or topic-modeling PRE/LAB was found in CLASSROOM.
-
-- id: 5
-  name: News Topic Clustering
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: institution_course
-    organization: MIT Professional Education
-    program: Data Science-Data to Insights
-    title: Spectral Clustering - Grouping News Stories
-    url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
-    description: >
-      MIT Professional Education uses approximately 60 news articles from major
-      outlets to build an automatic grouping similar to topic organization in news sites.
-  data:
-    description: >
-      News articles collected from sources such as The Guardian, The Independent,
-      BBC, and CNN. Original tags are ignored during clustering.
-    source_url: null
-    availability: scrape_required
-    files: []
-    notes: >
-      The course material provides instructions for downloading news stories rather
-      than a fixed public dataset. A rewrite should freeze a legal public corpus.
-  original_implementation:
-    technologies:
-      - text vectorization
-      - similarity graph
-      - graph Laplacian
-      - spectral clustering
-    language: Python
-    code_available: partial
-    code_url: null
-  problem:
-    context: >
-      News publishers need to group related stories automatically when explicit
-      editorial topic labels are unavailable or intentionally withheld.
-    objective: >
-      Cluster news stories from their textual content using similarity graphs and
-      spectral clustering.
-    analytical_questions:
-      - How should news articles be represented for similarity analysis?
-      - Which stories form coherent groups without using publisher tags?
-      - How do spectral embeddings reveal cluster structure?
-      - How well do recovered clusters align with the withheld topical tags?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - networkx
-      - matplotlib
-    logical_steps:
-      - Collect and freeze a corpus of news articles.
-      - Clean article text and construct document vectors.
-      - Compute pairwise similarities.
-      - Construct a similarity graph and graph Laplacian.
-      - Compute spectral embeddings.
-      - Cluster the embedded documents.
-      - Compare recovered groups with withheld article tags.
-      - Visualize and interpret the clusters.
-    expected_outputs:
-      - frozen news corpus
-      - document-feature matrix
-      - similarity matrix or graph
-      - spectral embedding
-      - cluster assignments
-      - cluster visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: partial
-    code: partial
-  notes: >
-    Verified as distinct from the existing CLASSROOM basic text-classification and
-    tokenization cases; the analytical task is unsupervised graph-based document clustering.
-
-- id: 6
-  name: Document Topic Discovery
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: official_tutorial
-    organization: scikit-learn
-    program: Examples - Applications
-    title: Topic extraction with Non-negative Matrix Factorization and Latent Dirichlet Allocation
-    url: https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html
-    description: >
-      Official scikit-learn example comparing NMF and LDA for extracting latent
-      topics from the 20 Newsgroups corpus.
-  data:
-    description: >
-      20 Newsgroups text corpus retrieved with fetch_20newsgroups. Headers, footers,
-      and quoted replies are removed in the official example.
-    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
-    availability: public
-    files: []
-  original_implementation:
-    technologies:
-      - TF-IDF
-      - count vectorization
-      - NMF
-      - LDA
-      - scikit-learn
-    language: Python
-    code_available: true
-    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html
-  problem:
-    context: >
-      A large unlabeled document collection needs a compact representation of its
-      latent thematic structure.
-    objective: >
-      Extract and compare topics using NMF on TF-IDF features and LDA on count features.
-    analytical_questions:
-      - Which terms dominate the discovered topics?
-      - How do NMF and LDA differ in their topic representations?
-      - How does vectorization affect topic extraction?
-      - Which topics are most interpretable?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - scikit-learn
-      - matplotlib
-      - pandas
-    logical_steps:
-      - Load the 20 Newsgroups corpus.
-      - Remove metadata and common terms.
-      - Build TF-IDF and count representations.
-      - Fit NMF topic models.
-      - Fit LDA topic models.
-      - Extract the highest-weight terms per topic.
-      - Compare and visualize topic structures.
-    expected_outputs:
-      - vectorized corpora
-      - fitted NMF model
-      - fitted LDA model
-      - top-term tables
-      - topic visualizations
-      - written comparison
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 7
-  name: Document Clustering
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: official_tutorial
-    organization: scikit-learn
-    program: Examples - Text
-    title: Clustering text documents using k-means
-    url: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
-    description: >
-      Official scikit-learn example clustering documents by topic with Bag of Words,
-      KMeans or MiniBatchKMeans, and optional latent semantic analysis.
-  data:
-    description: >
-      A four-category subset of 20 Newsgroups with approximately 3,400 documents.
-    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
-    availability: public
-    files: []
-  original_implementation:
-    technologies:
-      - TF-IDF
-      - HashingVectorizer
-      - KMeans
-      - MiniBatchKMeans
-      - truncated SVD
-      - latent semantic analysis
-    language: Python
-    code_available: true
-    code_url: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
-  problem:
-    context: >
-      Documents must be grouped by topical similarity without using their known labels
-      during model fitting.
-    objective: >
-      Compare sparse-vector clustering and latent-semantic representations for grouping
-      text documents.
-    analytical_questions:
-      - How do TF-IDF and hashing representations affect clustering?
-      - Does latent semantic analysis improve cluster structure?
-      - How do KMeans and MiniBatchKMeans behave on sparse text?
-      - How closely do clusters correspond to the withheld categories?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - scikit-learn
-      - pandas
-      - matplotlib
-    logical_steps:
-      - Load selected 20 Newsgroups categories.
-      - Strip headers, footers, and quotes.
-      - Vectorize documents.
-      - Optionally reduce dimensionality with truncated SVD.
-      - Fit KMeans and MiniBatchKMeans.
-      - Evaluate clusters against withheld labels.
-      - Inspect representative terms per cluster.
-      - Visualize and interpret the document groups.
-    expected_outputs:
-      - document vectors
-      - cluster assignments
-      - clustering metrics
-      - representative-term tables
-      - optional low-dimensional visualization
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 18
-  name: Literary Theme Discovery
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: official_tutorial
-    organization: Orange Data Mining
-    program: Orange3 Text Mining Documentation
-    title: Topic Modelling
-    url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
-    description: >
-      Official Orange Text Mining example applying topic modeling to a selected
-      corpus of Grimm fairy tales and exploring topic-word and document-topic structure.
-  data:
-    description: >
-      The example uses the bundled grimm-tales-selected.tab corpus.
-    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
-    availability: bundled_with_example
-    files:
-      - grimm-tales-selected.tab
-  original_implementation:
-    technologies:
-      - Orange Text Mining
-      - text preprocessing
-      - Latent Semantic Indexing
-      - Latent Dirichlet Allocation
-      - Hierarchical Dirichlet Process
-      - MDS
-      - word cloud
-    language: visual_workflow
-    code_available: false
-    code_url: null
-  problem:
-    context: >
-      A literary corpus contains recurring latent themes that can be characterized
-      through the words associated with each topic and the topic mixture of each document.
-    objective: >
-      Discover and visualize latent themes in Grimm fairy tales using multiple topic-modeling approaches.
-    analytical_questions:
-      - Which terms are most representative of each topic?
-      - How strongly is each topic represented across documents?
-      - How do topics relate to one another in a low-dimensional map?
-      - How do LSI and LDA differ in interpretability?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - gensim
-      - matplotlib
-    logical_steps:
-      - Load the Grimm tales corpus.
-      - Tokenize and remove stopwords.
-      - Build a document-term representation.
-      - Fit LSI and LDA topic models.
-      - Extract topic-term and document-topic weights.
-      - Visualize representative words and topic similarities.
-      - Interpret the discovered themes.
-    expected_outputs:
-      - cleaned corpus
-      - topic models
-      - topic-term tables
-      - document-topic matrix
-      - topic visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: partial
-
 - id: 19
   name: Election Sentiment Analytics
   domain: descriptive_and_diagnostics_analytics
@@ -1537,89 +1170,6 @@
     data: partial
     code: verified
 
-- id: 28
-  name: Speech Transcript Clustering
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: book
-    organization: Packt Publishing
-    publisher: Packt
-    book: Machine Learning Techniques for Text
-    title: Clustering Speech-to-Text Transcriptions
-    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
-    repository:
-      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
-      path: chapter-10/text-clustering.ipynb
-    description: >
-      Packt develops an end-to-end workflow from speech recognition to unsupervised
-      clustering and topic discovery of transcribed documents.
-  data:
-    description: >
-      Audio files, reference transcriptions, metadata, and public-domain source texts
-      distributed or referenced by the book repository.
-    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-10/data.zip
-    availability: public
-    files: []
-    notes: >
-      The notebook also references WAV archives and public-domain texts from
-      Internet Archive and Project Gutenberg.
-  original_implementation:
-    technologies:
-      - speech recognition
-      - hierarchical clustering
-      - k-means
-      - DBSCAN
-      - LDA
-      - word error rate
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
-  problem:
-    context: >
-      Organizations may receive large collections of recorded calls, interviews,
-      or meetings whose content must be organized without predefined labels.
-    objective: >
-      Transcribe audio records, assess transcription quality, and group the resulting
-      text into interpretable clusters and topics.
-    analytical_questions:
-      - How accurate are the generated transcriptions?
-      - Which transcripts form coherent groups?
-      - How does clustering change across algorithms?
-      - Which topics characterize each cluster?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - speech_recognition
-      - gensim
-      - matplotlib
-    logical_steps:
-      - Load the audio and reference metadata.
-      - Generate or load speech-to-text transcriptions.
-      - Measure transcription error where reference text exists.
-      - Vectorize the transcripts.
-      - Fit hierarchical, k-means, and DBSCAN clustering.
-      - Compare cluster quality and choose plausible structures.
-      - Apply topic modeling within or across clusters.
-      - Interpret the resulting groups.
-    expected_outputs:
-      - transcript dataset
-      - transcription quality metrics
-      - document vectors
-      - cluster assignments
-      - topic summaries
-      - cluster visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
 - id: 47
   name: Seattle Bicycle Patterns
   domain: descriptive_and_diagnostics_analytics
@@ -1683,161 +1233,6 @@
       - hourly and weekly pattern plots
       - directional comparison
       - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 48
-  name: Unlabeled Digit Discovery
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: book
-    organization: Jake VanderPlas
-    publisher: O'Reilly Media
-    book: Python Data Science Handbook
-    title: k-means on digits
-    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
-    repository:
-      url: https://github.com/jakevdp/PythonDataScienceHandbook
-      path: notebooks_v1/05.11-K-Means.ipynb
-    description: >
-      The O'Reilly example clusters handwritten digit images without using their labels,
-      then interprets cluster centers as representative digit patterns.
-  data:
-    description: >
-      scikit-learn handwritten digits dataset with 1,797 images represented by
-      64 pixel-intensity features.
-    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
-    availability: bundled_with_sklearn
-    files: []
-  original_implementation:
-    technologies:
-      - k-means
-      - scikit-learn
-      - image clustering
-    language: Python
-    code_available: true
-    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
-  problem:
-    context: >
-      Analysts may need to discover meaningful structure in image collections
-      before reliable labels are available.
-    objective: >
-      Group handwritten digit images into latent visual clusters and assess how
-      closely unsupervised groups recover recognizable digit categories.
-    analytical_questions:
-      - What visual groups emerge without using labels?
-      - What does each cluster center represent?
-      - Which true digit classes are recovered cleanly?
-      - Which digits are frequently mixed within the same cluster?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - scikit-learn
-      - pandas
-      - matplotlib
-    logical_steps:
-      - Load the digits dataset without exposing labels to the clustering model.
-      - Standardize or inspect pixel features.
-      - Fit k-means with ten clusters.
-      - Visualize cluster centers.
-      - Map clusters to known labels only for evaluation.
-      - Build a cluster-versus-label contingency table.
-      - Interpret ambiguous and well-separated groups.
-    expected_outputs:
-      - image feature matrix
-      - cluster assignments
-      - cluster-center images
-      - cluster-label contingency table
-      - clustering evaluation
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 49
-  name: NYC Taxi Anomaly Detection
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: book
-    organization: Tarek A. Atwan
-    publisher: Packt
-    book: Time Series Analysis with Python Cookbook
-    title: Outlier Detection Using Statistical Methods and Unsupervised Machine Learning
-    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
-    repository:
-      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
-      path: code/Ch14/Chapter 14.ipynb
-    description: >
-      Packt analyzes NYC taxi passenger counts with known unusual dates and compares
-      multiple unsupervised anomaly-detection methods, including KNN, Isolation Forest,
-      and COPOD.
-  data:
-    description: >
-      Aggregated NYC taxi passenger counts at 30-minute intervals from July 2014
-      through January 2015, with known anomalies associated with major events and weather.
-    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch14/nyc_taxi.csv
-    availability: repository
-    files:
-      - datasets/Ch14/nyc_taxi.csv
-    notes: >
-      The book states that the raw observations originate from the NYC Taxi and
-      Limousine Commission and are included in aggregated form.
-  original_implementation:
-    technologies:
-      - PyOD
-      - KNN anomaly detection
-      - Isolation Forest
-      - COPOD
-      - pandas
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch14/Chapter%2014.ipynb
-  problem:
-    context: >
-      Transportation systems need to identify demand patterns that deviate sharply
-      from normal behavior because of holidays, events, severe weather, or disruptions.
-    objective: >
-      Detect unusual taxi-demand periods and compare anomaly scores from alternative
-      unsupervised detection methods against known exceptional dates.
-    analytical_questions:
-      - Which dates show the strongest deviations from normal taxi demand?
-      - Do different anomaly detectors identify the same unusual periods?
-      - How do anomaly scores rank known events such as holidays and storms?
-      - Which detected anomalies lack an obvious known explanation?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - pyod
-      - matplotlib
-    logical_steps:
-      - Load and validate the taxi-demand series.
-      - Aggregate to an appropriate daily representation.
-      - Mark the known reference anomaly dates.
-      - Fit several unsupervised anomaly detectors.
-      - Standardize or rank anomaly scores.
-      - Compare detected anomalies across methods.
-      - Evaluate overlap with known exceptional events.
-      - Visualize anomalous periods on the time series.
-    expected_outputs:
-      - validated taxi-demand series
-      - anomaly score table
-      - detector comparison
-      - ranked anomaly dates
-      - time-series anomaly plots
-      - written operational interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -1931,87 +1326,6 @@
     why a business metric changed. It is distinct from the existing experiment and
     descriptive-summary cases.
 
-- id: 55
-  name: Travel Customer Segmentation
-  domain: descriptive_and_diagnostics_analytics
-  source:
-    category: book
-    organization: Packt
-    publisher: Packt
-    book: Data Science, Analytics & AI for Business & the Real World
-    title: Clustering Customer Data from Travel Agency
-    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Clustering%20Customer%20Data%20from%20Travel%20Agency.ipynb
-    repository:
-      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
-      path: All Resource files/Case Studies/Clustering Customer Data from Travel Agency.ipynb
-    description: >
-      Packt implements a complete customer-segmentation case using travel-agency
-      booking data, business-informed feature selection, standardization, K-means,
-      elbow and silhouette diagnostics, and cluster profiling.
-  data:
-    description: >
-      Travel-agency customer and booking records used to characterize customer
-      behavior and identify groups with similar booking patterns.
-    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/travel.csv
-    availability: public
-    files:
-      - travel.csv
-  original_implementation:
-    technologies:
-      - pandas
-      - feature engineering
-      - standardization
-      - K-means
-      - elbow method
-      - silhouette coefficient
-      - cluster profiling
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Clustering%20Customer%20Data%20from%20Travel%20Agency.ipynb
-  problem:
-    context: >
-      A travel agency has customer booking records but no predefined customer
-      segments. It needs to discover groups with distinct behavioral profiles.
-    objective: >
-      Segment travel customers from booking behavior and profile the resulting
-      groups so that meaningful differences among customer types can be interpreted.
-    analytical_questions:
-      - Which booking variables best characterize differences among customers?
-      - How many customer segments are supported by the observed data?
-      - Which behaviors distinguish the resulting clusters?
-      - How can each segment be described in business terms?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Load and validate the travel booking dataset.
-      - Perform logical checks on customer and booking variables.
-      - Engineer analytically useful behavioral features.
-      - Select segmentation variables using business reasoning.
-      - Standardize the selected variables.
-      - Fit K-means solutions for alternative cluster counts.
-      - Compare elbow and silhouette diagnostics.
-      - Select a defensible cluster solution.
-      - Profile and interpret the customer segments.
-    expected_outputs:
-      - validated customer feature table
-      - cluster-number diagnostics
-      - customer segment assignments
-      - segment profile table
-      - cluster visualizations
-      - written segment interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
 - id: 56
   name: Grocery Basket Affinity
   domain: descriptive_and_diagnostics_analytics
@@ -2084,6 +1398,692 @@
       - ranked product affinities
       - affinity visualizations
       - written retail interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 4
+  name: Project Theme Discovery
+  domain: predictive_analytics
+  source:
+    category: institution_course
+    organization: MIT Professional Education
+    program: Data Science-Data to Insights
+    title: LDA Analysis - Finding Themes in Project Descriptions
+    url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
+    description: >
+      MIT Professional Education presents a case in which Latent Dirichlet Allocation
+      is used to discover themes in project descriptions from MIT EECS faculty data.
+  data:
+    description: >
+      Textual project descriptions collected from MIT EECS faculty pages.
+    source_url: null
+    availability: scrape_required
+    files: []
+    notes: >
+      The course description explicitly indicates that learners scrape their own
+      corpus. A future rewrite must freeze the collected corpus for reproducibility.
+  original_implementation:
+    technologies:
+      - Latent Dirichlet Allocation
+      - stochastic variational inference
+    language: Python
+    code_available: partial
+    code_url: null
+  problem:
+    context: >
+      A collection of project descriptions contains latent research themes that are
+      not explicitly labeled.
+    objective: >
+      Discover and interpret latent themes in project descriptions using topic modeling.
+    analytical_questions:
+      - Which terms characterize the corpus?
+      - What latent topics can be recovered with LDA?
+      - Which projects are most strongly associated with each topic?
+      - How interpretable and stable are the discovered themes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Collect and freeze project-description documents.
+      - Clean and normalize the text.
+      - Construct a document-term representation.
+      - Fit LDA topic models.
+      - Inspect top terms and document-topic probabilities.
+      - Compare plausible topic counts.
+      - Label and interpret the recovered themes.
+    expected_outputs:
+      - frozen text corpus
+      - document-term matrix
+      - fitted topic model
+      - topic-term tables
+      - document-topic table
+      - topic visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: partial
+  notes: >
+    Verified as a distinct MIT text-mining case. No matching project-description,
+    LDA, or topic-modeling PRE/LAB was found in CLASSROOM.
+
+- id: 5
+  name: News Topic Clustering
+  domain: predictive_analytics
+  source:
+    category: institution_course
+    organization: MIT Professional Education
+    program: Data Science-Data to Insights
+    title: Spectral Clustering - Grouping News Stories
+    url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
+    description: >
+      MIT Professional Education uses approximately 60 news articles from major
+      outlets to build an automatic grouping similar to topic organization in news sites.
+  data:
+    description: >
+      News articles collected from sources such as The Guardian, The Independent,
+      BBC, and CNN. Original tags are ignored during clustering.
+    source_url: null
+    availability: scrape_required
+    files: []
+    notes: >
+      The course material provides instructions for downloading news stories rather
+      than a fixed public dataset. A rewrite should freeze a legal public corpus.
+  original_implementation:
+    technologies:
+      - text vectorization
+      - similarity graph
+      - graph Laplacian
+      - spectral clustering
+    language: Python
+    code_available: partial
+    code_url: null
+  problem:
+    context: >
+      News publishers need to group related stories automatically when explicit
+      editorial topic labels are unavailable or intentionally withheld.
+    objective: >
+      Cluster news stories from their textual content using similarity graphs and
+      spectral clustering.
+    analytical_questions:
+      - How should news articles be represented for similarity analysis?
+      - Which stories form coherent groups without using publisher tags?
+      - How do spectral embeddings reveal cluster structure?
+      - How well do recovered clusters align with the withheld topical tags?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - networkx
+      - matplotlib
+    logical_steps:
+      - Collect and freeze a corpus of news articles.
+      - Clean article text and construct document vectors.
+      - Compute pairwise similarities.
+      - Construct a similarity graph and graph Laplacian.
+      - Compute spectral embeddings.
+      - Cluster the embedded documents.
+      - Compare recovered groups with withheld article tags.
+      - Visualize and interpret the clusters.
+    expected_outputs:
+      - frozen news corpus
+      - document-feature matrix
+      - similarity matrix or graph
+      - spectral embedding
+      - cluster assignments
+      - cluster visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: partial
+  notes: >
+    Verified as distinct from the existing CLASSROOM basic text-classification and
+    tokenization cases; the analytical task is unsupervised graph-based document clustering.
+
+- id: 6
+  name: Document Topic Discovery
+  domain: predictive_analytics
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Applications
+    title: Topic extraction with Non-negative Matrix Factorization and Latent Dirichlet Allocation
+    url: https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html
+    description: >
+      Official scikit-learn example comparing NMF and LDA for extracting latent
+      topics from the 20 Newsgroups corpus.
+  data:
+    description: >
+      20 Newsgroups text corpus retrieved with fetch_20newsgroups. Headers, footers,
+      and quoted replies are removed in the official example.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - count vectorization
+      - NMF
+      - LDA
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html
+  problem:
+    context: >
+      A large unlabeled document collection needs a compact representation of its
+      latent thematic structure.
+    objective: >
+      Extract and compare topics using NMF on TF-IDF features and LDA on count features.
+    analytical_questions:
+      - Which terms dominate the discovered topics?
+      - How do NMF and LDA differ in their topic representations?
+      - How does vectorization affect topic extraction?
+      - Which topics are most interpretable?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - matplotlib
+      - pandas
+    logical_steps:
+      - Load the 20 Newsgroups corpus.
+      - Remove metadata and common terms.
+      - Build TF-IDF and count representations.
+      - Fit NMF topic models.
+      - Fit LDA topic models.
+      - Extract the highest-weight terms per topic.
+      - Compare and visualize topic structures.
+    expected_outputs:
+      - vectorized corpora
+      - fitted NMF model
+      - fitted LDA model
+      - top-term tables
+      - topic visualizations
+      - written comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 7
+  name: Document Clustering
+  domain: predictive_analytics
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Text
+    title: Clustering text documents using k-means
+    url: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
+    description: >
+      Official scikit-learn example clustering documents by topic with Bag of Words,
+      KMeans or MiniBatchKMeans, and optional latent semantic analysis.
+  data:
+    description: >
+      A four-category subset of 20 Newsgroups with approximately 3,400 documents.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - HashingVectorizer
+      - KMeans
+      - MiniBatchKMeans
+      - truncated SVD
+      - latent semantic analysis
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
+  problem:
+    context: >
+      Documents must be grouped by topical similarity without using their known labels
+      during model fitting.
+    objective: >
+      Compare sparse-vector clustering and latent-semantic representations for grouping
+      text documents.
+    analytical_questions:
+      - How do TF-IDF and hashing representations affect clustering?
+      - Does latent semantic analysis improve cluster structure?
+      - How do KMeans and MiniBatchKMeans behave on sparse text?
+      - How closely do clusters correspond to the withheld categories?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load selected 20 Newsgroups categories.
+      - Strip headers, footers, and quotes.
+      - Vectorize documents.
+      - Optionally reduce dimensionality with truncated SVD.
+      - Fit KMeans and MiniBatchKMeans.
+      - Evaluate clusters against withheld labels.
+      - Inspect representative terms per cluster.
+      - Visualize and interpret the document groups.
+    expected_outputs:
+      - document vectors
+      - cluster assignments
+      - clustering metrics
+      - representative-term tables
+      - optional low-dimensional visualization
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 18
+  name: Literary Theme Discovery
+  domain: predictive_analytics
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Topic Modelling
+    url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
+    description: >
+      Official Orange Text Mining example applying topic modeling to a selected
+      corpus of Grimm fairy tales and exploring topic-word and document-topic structure.
+  data:
+    description: >
+      The example uses the bundled grimm-tales-selected.tab corpus.
+    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
+    availability: bundled_with_example
+    files:
+      - grimm-tales-selected.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - text preprocessing
+      - Latent Semantic Indexing
+      - Latent Dirichlet Allocation
+      - Hierarchical Dirichlet Process
+      - MDS
+      - word cloud
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      A literary corpus contains recurring latent themes that can be characterized
+      through the words associated with each topic and the topic mixture of each document.
+    objective: >
+      Discover and visualize latent themes in Grimm fairy tales using multiple topic-modeling approaches.
+    analytical_questions:
+      - Which terms are most representative of each topic?
+      - How strongly is each topic represented across documents?
+      - How do topics relate to one another in a low-dimensional map?
+      - How do LSI and LDA differ in interpretability?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load the Grimm tales corpus.
+      - Tokenize and remove stopwords.
+      - Build a document-term representation.
+      - Fit LSI and LDA topic models.
+      - Extract topic-term and document-topic weights.
+      - Visualize representative words and topic similarities.
+      - Interpret the discovered themes.
+    expected_outputs:
+      - cleaned corpus
+      - topic models
+      - topic-term tables
+      - document-topic matrix
+      - topic visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+
+- id: 28
+  name: Speech Transcript Clustering
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Clustering Speech-to-Text Transcriptions
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-10/text-clustering.ipynb
+    description: >
+      Packt develops an end-to-end workflow from speech recognition to unsupervised
+      clustering and topic discovery of transcribed documents.
+  data:
+    description: >
+      Audio files, reference transcriptions, metadata, and public-domain source texts
+      distributed or referenced by the book repository.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-10/data.zip
+    availability: public
+    files: []
+    notes: >
+      The notebook also references WAV archives and public-domain texts from
+      Internet Archive and Project Gutenberg.
+  original_implementation:
+    technologies:
+      - speech recognition
+      - hierarchical clustering
+      - k-means
+      - DBSCAN
+      - LDA
+      - word error rate
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
+  problem:
+    context: >
+      Organizations may receive large collections of recorded calls, interviews,
+      or meetings whose content must be organized without predefined labels.
+    objective: >
+      Transcribe audio records, assess transcription quality, and group the resulting
+      text into interpretable clusters and topics.
+    analytical_questions:
+      - How accurate are the generated transcriptions?
+      - Which transcripts form coherent groups?
+      - How does clustering change across algorithms?
+      - Which topics characterize each cluster?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - speech_recognition
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load the audio and reference metadata.
+      - Generate or load speech-to-text transcriptions.
+      - Measure transcription error where reference text exists.
+      - Vectorize the transcripts.
+      - Fit hierarchical, k-means, and DBSCAN clustering.
+      - Compare cluster quality and choose plausible structures.
+      - Apply topic modeling within or across clusters.
+      - Interpret the resulting groups.
+    expected_outputs:
+      - transcript dataset
+      - transcription quality metrics
+      - document vectors
+      - cluster assignments
+      - topic summaries
+      - cluster visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 48
+  name: Unlabeled Digit Discovery
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Jake VanderPlas
+    publisher: O'Reilly Media
+    book: Python Data Science Handbook
+    title: k-means on digits
+    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
+    repository:
+      url: https://github.com/jakevdp/PythonDataScienceHandbook
+      path: notebooks_v1/05.11-K-Means.ipynb
+    description: >
+      The O'Reilly example clusters handwritten digit images without using their labels,
+      then interprets cluster centers as representative digit patterns.
+  data:
+    description: >
+      scikit-learn handwritten digits dataset with 1,797 images represented by
+      64 pixel-intensity features.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
+    availability: bundled_with_sklearn
+    files: []
+  original_implementation:
+    technologies:
+      - k-means
+      - scikit-learn
+      - image clustering
+    language: Python
+    code_available: true
+    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
+  problem:
+    context: >
+      Analysts may need to discover meaningful structure in image collections
+      before reliable labels are available.
+    objective: >
+      Group handwritten digit images into latent visual clusters and assess how
+      closely unsupervised groups recover recognizable digit categories.
+    analytical_questions:
+      - What visual groups emerge without using labels?
+      - What does each cluster center represent?
+      - Which true digit classes are recovered cleanly?
+      - Which digits are frequently mixed within the same cluster?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load the digits dataset without exposing labels to the clustering model.
+      - Standardize or inspect pixel features.
+      - Fit k-means with ten clusters.
+      - Visualize cluster centers.
+      - Map clusters to known labels only for evaluation.
+      - Build a cluster-versus-label contingency table.
+      - Interpret ambiguous and well-separated groups.
+    expected_outputs:
+      - image feature matrix
+      - cluster assignments
+      - cluster-center images
+      - cluster-label contingency table
+      - clustering evaluation
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 49
+  name: NYC Taxi Anomaly Detection
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Tarek A. Atwan
+    publisher: Packt
+    book: Time Series Analysis with Python Cookbook
+    title: Outlier Detection Using Statistical Methods and Unsupervised Machine Learning
+    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+    repository:
+      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+      path: code/Ch14/Chapter 14.ipynb
+    description: >
+      Packt analyzes NYC taxi passenger counts with known unusual dates and compares
+      multiple unsupervised anomaly-detection methods, including KNN, Isolation Forest,
+      and COPOD.
+  data:
+    description: >
+      Aggregated NYC taxi passenger counts at 30-minute intervals from July 2014
+      through January 2015, with known anomalies associated with major events and weather.
+    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch14/nyc_taxi.csv
+    availability: repository
+    files:
+      - datasets/Ch14/nyc_taxi.csv
+    notes: >
+      The book states that the raw observations originate from the NYC Taxi and
+      Limousine Commission and are included in aggregated form.
+  original_implementation:
+    technologies:
+      - PyOD
+      - KNN anomaly detection
+      - Isolation Forest
+      - COPOD
+      - pandas
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch14/Chapter%2014.ipynb
+  problem:
+    context: >
+      Transportation systems need to identify demand patterns that deviate sharply
+      from normal behavior because of holidays, events, severe weather, or disruptions.
+    objective: >
+      Detect unusual taxi-demand periods and compare anomaly scores from alternative
+      unsupervised detection methods against known exceptional dates.
+    analytical_questions:
+      - Which dates show the strongest deviations from normal taxi demand?
+      - Do different anomaly detectors identify the same unusual periods?
+      - How do anomaly scores rank known events such as holidays and storms?
+      - Which detected anomalies lack an obvious known explanation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - pyod
+      - matplotlib
+    logical_steps:
+      - Load and validate the taxi-demand series.
+      - Aggregate to an appropriate daily representation.
+      - Mark the known reference anomaly dates.
+      - Fit several unsupervised anomaly detectors.
+      - Standardize or rank anomaly scores.
+      - Compare detected anomalies across methods.
+      - Evaluate overlap with known exceptional events.
+      - Visualize anomalous periods on the time series.
+    expected_outputs:
+      - validated taxi-demand series
+      - anomaly score table
+      - detector comparison
+      - ranked anomaly dates
+      - time-series anomaly plots
+      - written operational interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 55
+  name: Travel Customer Segmentation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Clustering Customer Data from Travel Agency
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Clustering%20Customer%20Data%20from%20Travel%20Agency.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Clustering Customer Data from Travel Agency.ipynb
+    description: >
+      Packt implements a complete customer-segmentation case using travel-agency
+      booking data, business-informed feature selection, standardization, K-means,
+      elbow and silhouette diagnostics, and cluster profiling.
+  data:
+    description: >
+      Travel-agency customer and booking records used to characterize customer
+      behavior and identify groups with similar booking patterns.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/travel.csv
+    availability: public
+    files:
+      - travel.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - feature engineering
+      - standardization
+      - K-means
+      - elbow method
+      - silhouette coefficient
+      - cluster profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Clustering%20Customer%20Data%20from%20Travel%20Agency.ipynb
+  problem:
+    context: >
+      A travel agency has customer booking records but no predefined customer
+      segments. It needs to discover groups with distinct behavioral profiles.
+    objective: >
+      Segment travel customers from booking behavior and profile the resulting
+      groups so that meaningful differences among customer types can be interpreted.
+    analytical_questions:
+      - Which booking variables best characterize differences among customers?
+      - How many customer segments are supported by the observed data?
+      - Which behaviors distinguish the resulting clusters?
+      - How can each segment be described in business terms?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the travel booking dataset.
+      - Perform logical checks on customer and booking variables.
+      - Engineer analytically useful behavioral features.
+      - Select segmentation variables using business reasoning.
+      - Standardize the selected variables.
+      - Fit K-means solutions for alternative cluster counts.
+      - Compare elbow and silhouette diagnostics.
+      - Select a defensible cluster solution.
+      - Profile and interpret the customer segments.
+    expected_outputs:
+      - validated customer feature table
+      - cluster-number diagnostics
+      - customer segment assignments
+      - segment profile table
+      - cluster visualizations
+      - written segment interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
