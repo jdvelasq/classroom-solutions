@@ -4132,6 +4132,80 @@
     data: verified
     code: verified
 
+- id: 109
+  name: Teen Interest Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R, Fourth Edition
+    title: Finding Teen Market Segments
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2009/Chapter_09.R
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition
+      path: Chapter 09/Chapter_09.R
+    description: >
+      Packt cleans adolescent social-network profile data, handles missing age and
+      gender fields, clusters interest indicators, and profiles the resulting market segments.
+  data:
+    description: >
+      Teen social-network profiles containing demographics, friend counts, and
+      multiple interest-word frequency indicators.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2009/snsdata.csv
+    availability: repository
+    files:
+      - Chapter 09/snsdata.csv
+  original_implementation:
+    technologies:
+      - missing-value handling
+      - standardization
+      - K-means
+      - cluster profiling
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2009/Chapter_09.R
+  problem:
+    context: >
+      Social-network profiles contain behavioral signals that can reveal groups of
+      adolescents with distinct interests and social patterns.
+    objective: >
+      Discover and interpret teen market segments from social-network interest profiles.
+    analytical_questions:
+      - How should invalid and missing demographic values be handled?
+      - What interest-based clusters emerge?
+      - How do clusters differ in gender, age, and friend counts?
+      - Which interests characterize each segment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate social-profile data.
+      - Treat invalid ages and missing demographics.
+      - Select and standardize interest features.
+      - Fit candidate K-means solutions.
+      - Attach clusters to original profiles.
+      - Profile demographic and behavioral differences.
+      - Label segments from dominant interests.
+    expected_outputs:
+      - cleaned profile data
+      - cluster assignments
+      - cluster centers
+      - demographic profiles
+      - interest profiles
+      - segment interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -7216,6 +7290,296 @@
       - local explanations
       - error explanation set
       - interpretable feature summaries
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 106
+  name: Breast Cancer Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R, Fourth Edition
+    title: Classifying Cancer Samples
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2003/Chapter_03.R
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition
+      path: Chapter 03/Chapter_03.R
+    description: >
+      Packt develops a k-nearest-neighbors classifier for breast-cancer diagnosis,
+      emphasizing scaling choices, train/test evaluation, and sensitivity to k.
+  data:
+    description: >
+      Wisconsin breast cancer diagnostic measurements with benign and malignant labels.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2003/wisc_bc_data.csv
+    availability: repository
+    files:
+      - Chapter 03/wisc_bc_data.csv
+  original_implementation:
+    technologies:
+      - normalization
+      - z-score standardization
+      - k-nearest neighbors
+      - classification evaluation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2003/Chapter_03.R
+  problem:
+    context: >
+      Diagnostic measurements can be used to distinguish benign from malignant
+      breast-cancer samples, but distance-based models depend strongly on preprocessing.
+    objective: >
+      Build and evaluate a distance-based cancer classifier and study the effect
+      of scaling and neighborhood size.
+    analytical_questions:
+      - How do measurement scales affect nearest-neighbor classification?
+      - Which k values provide stable performance?
+      - Which errors remain on held-out samples?
+      - How does normalization compare with z-score standardization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate diagnostic data.
+      - Remove non-predictive identifiers.
+      - Compare scaling strategies.
+      - Create reproducible train/test data.
+      - Fit KNN across candidate k values.
+      - Compare classification errors.
+      - Diagnose sensitivity to preprocessing.
+    expected_outputs:
+      - prepared diagnostic data
+      - KNN comparison table
+      - confusion matrix
+      - scaling sensitivity analysis
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 107
+  name: Cost-Sensitive Loan Default
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R, Fourth Edition
+    title: Identifying Risky Bank Loans
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2005/Chapter_05.R
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition
+      path: Chapter 05/Chapter_05.R
+    description: >
+      Packt models bank-loan default with decision trees and boosting, then introduces
+      asymmetric error costs so expensive missed defaults receive greater penalty.
+  data:
+    description: >
+      German credit-style loan applicant records with balances, loan duration,
+      amount, applicant attributes, and default outcome.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2005/credit.csv
+    availability: repository
+    files:
+      - Chapter 05/credit.csv
+  original_implementation:
+    technologies:
+      - decision trees
+      - boosting
+      - cost matrix
+      - cost-sensitive classification
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2005/Chapter_05.R
+  problem:
+    context: >
+      A lender faces asymmetric classification consequences because approving a
+      borrower who defaults can be substantially more costly than rejecting a safe borrower.
+    objective: >
+      Predict loan default while explicitly studying how asymmetric error costs
+      change classifier behavior.
+    analytical_questions:
+      - Which applicant attributes help distinguish risky loans?
+      - How does boosting affect predictive performance?
+      - What changes when false negatives receive higher cost?
+      - Which confusion-matrix trade-offs are induced by the cost matrix?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and inspect loan records.
+      - Create reproducible training and test samples.
+      - Fit a decision-tree baseline.
+      - Evaluate default classification.
+      - Fit boosted alternatives.
+      - Introduce asymmetric sample or decision costs.
+      - Compare cost-sensitive and accuracy-focused results.
+    expected_outputs:
+      - loan default classifier
+      - boosted model comparison
+      - confusion matrices
+      - cost-sensitive error summary
+      - borrower risk predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 108
+  name: Auto Insurance Expense Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R, Fourth Edition
+    title: Predicting Insurance Expenses
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2006/Chapter_06.R
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition
+      path: Chapter 06/Chapter_06.R
+    description: >
+      Packt predicts auto-insurance expenses from driver, vehicle, geography, mileage,
+      and driving-behavior attributes using regression with nonlinear and interaction terms.
+  data:
+    description: >
+      Auto-insurance records containing driver age, geography, vehicle type and value,
+      miles driven, education and driving-behavior indicators, and expenses.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2006/autoinsurance.csv
+    availability: repository
+    files:
+      - Chapter 06/autoinsurance.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - nonlinear terms
+      - interaction effects
+      - regression diagnostics
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2006/Chapter_06.R
+  problem:
+    context: >
+      Insurance expenses may depend jointly on vehicle exposure and observed driving
+      behavior, including nonlinear age effects and interactions among risky behaviors.
+    objective: >
+      Estimate insurance expenses and diagnose how driver and vehicle characteristics
+      contribute to expected costs.
+    analytical_questions:
+      - Which behaviors and vehicle attributes explain expenses?
+      - Does a nonlinear age effect improve the model?
+      - Which interactions matter?
+      - How do expected expenses change for hypothetical driver profiles?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load and validate insurance records.
+      - Explore expense distributions and correlations.
+      - Encode categorical predictors.
+      - Fit a baseline multiple regression.
+      - Add nonlinear and interaction terms.
+      - Compare diagnostics and predictive error.
+      - Score hypothetical customer profiles.
+    expected_outputs:
+      - regression coefficient table
+      - model comparison
+      - residual diagnostics
+      - customer expense predictions
+      - scenario comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 110
+  name: Insurance Churn Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R, Fourth Edition
+    title: Predicting Insurance Policyholder Churn
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2006/Chapter_06.R
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition
+      path: Chapter 06/Chapter_06.R
+    description: >
+      Packt fits a logistic regression model to insurance policyholder churn and
+      ranks unseen members by estimated churn probability.
+  data:
+    description: >
+      Insurance policyholder records with churn labels plus a separate test set for scoring.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/tree/main/Chapter%2006
+    availability: repository
+    files:
+      - Chapter 06/insurance_churn.csv
+      - Chapter 06/insurance_churn_test.csv
+  original_implementation:
+    technologies:
+      - logistic regression
+      - probability scoring
+      - customer ranking
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Fourth-Edition/blob/main/Chapter%2006/Chapter_06.R
+  problem:
+    context: >
+      An insurer wants to prioritize policyholders most likely to leave using a
+      transparent probabilistic model.
+    objective: >
+      Estimate churn probabilities for policyholders and rank unseen customers by risk.
+    analytical_questions:
+      - Which policyholder variables are associated with churn?
+      - How should churn probabilities be interpreted?
+      - Which customers have the highest predicted churn risk?
+      - How can a ranked risk list support retention analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load training and scoring datasets.
+      - Inspect churn prevalence and predictors.
+      - Prepare categorical and numeric features.
+      - Fit logistic regression.
+      - Evaluate probability calibration and classification behavior.
+      - Score the unseen policyholders.
+      - Rank customers by churn probability.
+    expected_outputs:
+      - churn model
+      - coefficient interpretation
+      - probability diagnostics
+      - ranked policyholder risk table
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
