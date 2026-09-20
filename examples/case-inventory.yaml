@@ -11758,6 +11758,82 @@
     data: verified
     code: verified
 
+- id: 363
+  name: Student Grade Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: Clustering Student Grades
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2013%20-%20Clustering_Source%20code/BA2-13-Clustering-KMeans_06192022.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chapter 13 - Clustering_Source code/BA2-13-Clustering-KMeans_06192022.ipynb
+    description: >
+      Apress standardizes student grade profiles, compares candidate cluster counts,
+      applies K-means and hierarchical clustering, and uses PCA to visualize
+      performance groups.
+  data:
+    description: >
+      Student-level grade profiles across multiple assessments or subjects.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2013%20-%20Clustering_Source%20code/grades.csv
+    availability: repository
+    files:
+      - Chapter 13 - Clustering_Source code/grades.csv
+  original_implementation:
+    technologies:
+      - standardization
+      - K-means
+      - elbow method
+      - PCA
+      - hierarchical clustering
+      - dendrograms
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2013%20-%20Clustering_Source%20code/BA2-13-Clustering-KMeans_06192022.ipynb
+  problem:
+    context: >
+      Student performance is multidimensional and groups with similar grade profiles
+      may require different instructional support or enrichment.
+    objective: >
+      Discover and characterize student performance segments from multivariate grades.
+    analytical_questions:
+      - How many grade-profile clusters are supported?
+      - Which assessments distinguish the clusters?
+      - Do K-means and hierarchical methods reveal similar structure?
+      - How can PCA help visualize student performance groups?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and validate grade data.
+      - Remove identifiers from clustering features.
+      - Standardize grade variables.
+      - Compare candidate cluster counts.
+      - Fit K-means and hierarchical clustering.
+      - Project observations with PCA.
+      - Profile and interpret the resulting groups.
+    expected_outputs:
+      - clustering diagnostics
+      - student segment assignments
+      - PCA visualization
+      - dendrogram
+      - segment profile table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -22657,6 +22733,222 @@
       - multiclass evaluation report
       - error analysis
       - workflow comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 360
+  name: Sales Effort Response
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: Sales Effort vs Product Sales Regression
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chaoter%207%20-%20SimpleLinearRegression_Source%20code/Sales_Effort%2BVs.%2BProduct_Sales%2BRegression.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chaoter 7 - SimpleLinearRegression_Source code/Sales_Effort+Vs.+Product_Sales+Regression.ipynb
+    description: >
+      Apress models product sales as a function of sales effort, estimates a simple
+      regression, examines model fit, and predicts sales for new effort levels.
+  data:
+    description: >
+      Sales-effort observations paired with realized product sales.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/tree/main/Chaoter%207%20-%20SimpleLinearRegression_Source%20code
+    availability: repository
+    files:
+      - Chaoter 7 - SimpleLinearRegression_Source code/cust1.txt
+  original_implementation:
+    technologies:
+      - simple linear regression
+      - OLS
+      - prediction
+      - scatter plots
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chaoter%207%20-%20SimpleLinearRegression_Source%20code/Sales_Effort%2BVs.%2BProduct_Sales%2BRegression.ipynb
+  problem:
+    context: >
+      A sales organization wants to understand how changes in sales effort relate
+      to product sales and to estimate expected sales at prospective effort levels.
+    objective: >
+      Estimate and interpret the relationship between sales effort and product sales.
+    analytical_questions:
+      - How strongly is sales effort associated with product sales?
+      - What sales increase is implied by an additional unit of effort?
+      - How well does a linear model fit the observed relationship?
+      - What sales are predicted for new effort levels?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate sales observations.
+      - Visualize effort versus sales.
+      - Fit an OLS regression.
+      - Inspect coefficients and goodness of fit.
+      - Diagnose residual behavior.
+      - Predict sales for candidate effort levels.
+    expected_outputs:
+      - regression summary
+      - fitted relationship plot
+      - residual diagnostics
+      - sales prediction table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 361
+  name: Salary Driver Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: Salary vs Experience and Skill Level
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%208%20-%20Multiple%20Linear%20Regression_Source%20code/Salary%2Bvs.%2BExperience%2Band%2BSkill%2BLevel.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chapter 8 - Multiple Linear Regression_Source code/Salary+vs.+Experience+and+Skill+Level.ipynb
+    description: >
+      Apress models annual salary from years of experience and skill level using
+      multiple linear regression and interprets the joint contribution of the predictors.
+  data:
+    description: >
+      Employee-level annual salary, years of experience, and skill-level records.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/tree/main/Chapter%208%20-%20Multiple%20Linear%20Regression_Source%20code
+    availability: repository
+    files:
+      - Chapter 8 - Multiple Linear Regression_Source code/Sal1.txt
+  original_implementation:
+    technologies:
+      - multiple linear regression
+      - OLS
+      - coefficient interpretation
+      - prediction
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%208%20-%20Multiple%20Linear%20Regression_Source%20code/Salary%2Bvs.%2BExperience%2Band%2BSkill%2BLevel.ipynb
+  problem:
+    context: >
+      Compensation analysis requires separating the contribution of work experience
+      from differences in employee skill level.
+    objective: >
+      Estimate annual salary from experience and skill and quantify the contribution
+      of each predictor.
+    analytical_questions:
+      - How much salary variation is explained by experience and skill?
+      - What is the marginal association of each predictor with salary?
+      - Are both predictors useful after controlling for the other?
+      - What salary is predicted for new employee profiles?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate compensation data.
+      - Explore salary and predictor distributions.
+      - Fit multiple linear regression.
+      - Interpret coefficients and uncertainty.
+      - Diagnose model assumptions.
+      - Score hypothetical employee profiles.
+    expected_outputs:
+      - compensation model
+      - coefficient table
+      - regression diagnostics
+      - employee salary predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 362
+  name: Maximum Temperature Forecast
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: ARIMA Model Building in Python
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2012%20source%20code%2Brelated%20files/ARIMA%20Model%20Building%20in%20Python-Final.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chapter 12 source code+related files/ARIMA Model Building in Python-Final.ipynb
+    description: >
+      Apress develops an ARIMA forecasting workflow for maximum temperature,
+      including stationarity testing, automatic ARIMA selection, fitting, and
+      twelve-period forecasting against a separate test file.
+  data:
+    description: >
+      Historical maximum-temperature series with a separate future-period test file.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/tree/main/Chapter%2012%20source%20code%2Brelated%20files
+    availability: repository
+    files:
+      - Chapter 12 source code+related files/Max_Temp.csv.xlsx
+      - Chapter 12 source code+related files/Max_Temp_Test1.csv
+  original_implementation:
+    technologies:
+      - ADF test
+      - ARIMA
+      - auto_arima
+      - time-series forecasting
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2012%20source%20code%2Brelated%20files/ARIMA%20Model%20Building%20in%20Python-Final.ipynb
+  problem:
+    context: >
+      Historical maximum temperatures form a time series whose future values can
+      be forecast after checking stationarity and selecting an appropriate ARIMA structure.
+    objective: >
+      Build and evaluate an ARIMA model for short-horizon maximum-temperature forecasting.
+    analytical_questions:
+      - Is the temperature series stationary?
+      - What differencing and ARIMA orders are supported?
+      - How well does the selected model fit the history?
+      - What temperatures are forecast for the next twelve periods?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - pmdarima
+      - matplotlib
+    logical_steps:
+      - Load and validate the historical series.
+      - Construct a proper time index.
+      - Test stationarity.
+      - Select candidate ARIMA orders.
+      - Fit and diagnose the selected model.
+      - Forecast the next twelve periods.
+      - Compare forecasts with the supplied test period.
+    expected_outputs:
+      - stationarity diagnostics
+      - selected ARIMA model
+      - residual diagnostics
+      - twelve-period forecast
+      - forecast evaluation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
