@@ -888,6 +888,169 @@
     data: verified
     code: verified
 
+- id: 111
+  name: Retail Analytics Engineering
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Fundamentals of Analytics Engineering
+    title: Hands-on Analytics Engineering
+    url: https://github.com/PacktPublishing/Fundamentals-of-Analytics-Engineering/tree/main/chapter_8
+    repository:
+      url: https://github.com/PacktPublishing/Fundamentals-of-Analytics-Engineering
+      path: chapter_8
+    description: >
+      Packt develops an end-to-end analytics engineering exercise for a retail
+      stroopwafel shop using source files, ingestion guidance, dbt staging models,
+      dimensional marts, and an analytical fact table.
+  data:
+    description: >
+      Retail source files for employees, products, promotions, sales, sales lines,
+      and shifts.
+    source_url: https://github.com/PacktPublishing/Fundamentals-of-Analytics-Engineering/tree/main/chapter_8/data
+    availability: repository
+    files:
+      - chapter_8/data/Employees.csv
+      - chapter_8/data/Products.csv
+      - chapter_8/data/Promotions.csv
+      - chapter_8/data/Sales.csv
+      - chapter_8/data/Sales_lines.csv
+      - chapter_8/data/Shifts.csv
+  original_implementation:
+    technologies:
+      - dbt
+      - SQL
+      - staging models
+      - dimensional modeling
+      - fact tables
+      - BigQuery
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Fundamentals-of-Analytics-Engineering/tree/main/chapter_8/dbt_stroopwafelshop
+  problem:
+    context: >
+      Raw retail operational tables need to be transformed into reliable analytical
+      models before sales, promotion, employee, product, and shift performance can be analyzed.
+    objective: >
+      Build a tested analytical data model from raw retail sources through staging
+      and dimensional marts.
+    analytical_questions:
+      - How should raw retail source tables be staged?
+      - Which dimensions and fact tables support downstream analysis?
+      - How should keys and joins be standardized?
+      - What analytical grain should the sales fact table expose?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - duckdb
+      - dbt-duckdb
+    logical_steps:
+      - Load and validate source files.
+      - Define table grain and business keys.
+      - Build staging transformations.
+      - Construct employee, product, promotion, and shift dimensions.
+      - Construct the sales fact table.
+      - Add data-quality tests.
+      - Validate analytical joins and measures.
+    expected_outputs:
+      - staged source models
+      - analytical dimensions
+      - sales fact table
+      - data-quality tests
+      - lineage diagram
+      - analytics-ready retail mart
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 113
+  name: Loan Data Quality
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data-Centric Machine Learning with Python
+    title: Techniques for Data Cleaning and Augmentation
+    url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/blob/main/Chapter%205%20-%20Techniques%20for%20data%20cleaning%20and%20augmentation/Chapter%205-Code.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python
+      path: Chapter 5 - Techniques for data cleaning and augmentation/Chapter 5-Code.ipynb
+    description: >
+      Packt audits a loan-prediction dataset for consistency, uniqueness,
+      completeness, validity, accuracy, freshness, missingness structure, and
+      imputation effects before model development.
+  data:
+    description: >
+      Loan application training and test records containing applicant demographics,
+      income, loan characteristics, credit history, and loan status.
+    source_url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/tree/main/Chapter%205%20-%20Techniques%20for%20data%20cleaning%20and%20augmentation
+    availability: repository
+    files:
+      - Chapter 5 - Techniques for data cleaning and augmentation/train_loan_prediction.csv
+      - Chapter 5 - Techniques for data cleaning and augmentation/test_loan_prediction.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - data quality profiling
+      - duplicate analysis
+      - missingno
+      - missingness diagnosis
+      - imputation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Centric-Machine-Learning-with-Python/blob/main/Chapter%205%20-%20Techniques%20for%20data%20cleaning%20and%20augmentation/Chapter%205-Code.ipynb
+  problem:
+    context: >
+      A loan model can produce misleading results when application records contain
+      duplicate, inconsistent, invalid, stale, or systematically missing information.
+    objective: >
+      Audit and repair loan application data while measuring how cleaning decisions
+      alter the analytical dataset.
+    analytical_questions:
+      - Are identifiers and records unique?
+      - Which variables contain missing values and is missingness associated with outcome?
+      - Which values violate validity or consistency rules?
+      - How do alternative imputation choices change distributions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - missingno
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load training and test loan records.
+      - Check schema and naming consistency.
+      - Diagnose duplicate applications.
+      - Quantify missingness and co-missingness.
+      - Test validity and range rules.
+      - Compare imputation strategies.
+      - Produce a cleaned analytics-ready dataset and quality report.
+    expected_outputs:
+      - data-quality report
+      - duplicate diagnostics
+      - missingness matrix
+      - validity exception table
+      - imputation comparison
+      - cleaned loan dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -4197,6 +4360,82 @@
       - demographic profiles
       - interest profiles
       - segment interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 114
+  name: Vehicle Sales SQL Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: SQL for Data Analytics, Fourth Edition
+    title: Sales Analytics Activities
+    url: https://github.com/PacktPublishing/SQL-for-Data-Analytics-Fourth-Edition/tree/main/Chapter%2012
+    repository:
+      url: https://github.com/PacktPublishing/SQL-for-Data-Analytics-Fourth-Edition
+      path: Chapter 12/Actitivty 12.txt
+    description: >
+      Packt uses a vehicle-sales database to compare dealership and state performance,
+      construct rolling sales metrics, analyze weekday patterns, and examine sales
+      of limited-edition products using SQL.
+  data:
+    description: >
+      Relational vehicle-sales database with customers, products, dealerships, and
+      sales transactions distributed as the book's data dump.
+    source_url: https://github.com/PacktPublishing/SQL-for-Data-Analytics-Fourth-Edition/tree/main/Datasets
+    availability: repository
+    files:
+      - Datasets/data.dump
+      - Datasets/customer_sales.txt
+  original_implementation:
+    technologies:
+      - SQL
+      - joins
+      - grouped aggregation
+      - window functions
+      - rolling averages
+      - deciles
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/SQL-for-Data-Analytics-Fourth-Edition/tree/main/Chapter%2012
+  problem:
+    context: >
+      Business users need relational sales data transformed into interpretable
+      dealership, geography, product, and temporal performance diagnostics.
+    objective: >
+      Answer multi-table sales performance questions directly in SQL using joins,
+      aggregation, and window analytics.
+    analytical_questions:
+      - Which dealerships and states generate the most sales?
+      - How does recent sales performance compare with a rolling baseline?
+      - How do weekday and weekend sales differ?
+      - Are limited-edition products concentrated on particular days?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - duckdb
+      - pandas
+    logical_steps:
+      - Load the relational sales dataset.
+      - Join customer, product, dealership, and sales entities.
+      - Aggregate sales by geography and dealership.
+      - Calculate daily sales and rolling windows.
+      - Rank days using sales deciles.
+      - Compare weekday and product-category behavior.
+    expected_outputs:
+      - dealership sales table
+      - state sales comparison
+      - rolling sales diagnostics
+      - sales decile table
+      - weekday-product analysis
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -8374,6 +8613,84 @@
       - evaluation report
       - reproducible ML pipeline
       - serving-ready artifact
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 112
+  name: Text Prediction API
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Building Data Science Applications with FastAPI
+    title: Machine Learning Prediction Backend
+    url: https://github.com/PacktPublishing/Building-Data-Science-Applications-with-FastAPI/blob/main/chapter13/chapter13_prediction_endpoint.py
+    repository:
+      url: https://github.com/PacktPublishing/Building-Data-Science-Applications-with-FastAPI
+      path: chapter13
+    description: >
+      Packt loads a serialized 20 Newsgroups text-classification pipeline into a
+      FastAPI service and exposes typed prediction requests and responses through
+      an asynchronous endpoint.
+  data:
+    description: >
+      20 Newsgroups text used to train the serialized classification pipeline supplied
+      with the book.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: library_download
+    files:
+      - chapter13/newsgroups_model.joblib
+  original_implementation:
+    technologies:
+      - FastAPI
+      - Pydantic
+      - scikit-learn
+      - joblib
+      - async API
+      - automated testing
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Building-Data-Science-Applications-with-FastAPI/tree/main/chapter13
+  problem:
+    context: >
+      A trained text classifier must be exposed as a reliable application interface
+      with validated inputs, typed outputs, efficient model loading, and testable behavior.
+    objective: >
+      Build a production-style REST prediction backend around a serialized text classifier.
+    analytical_questions:
+      - How should prediction requests and responses be validated?
+      - When should the model artifact be loaded?
+      - How can inference be exposed without retraining?
+      - How should endpoint behavior be tested?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - fastapi
+      - pydantic
+      - scikit-learn
+      - joblib
+      - pytest
+    logical_steps:
+      - Train or load a reproducible text model.
+      - Serialize the full preprocessing and prediction pipeline.
+      - Define typed request and response schemas.
+      - Load the model at application startup.
+      - Implement the prediction dependency and endpoint.
+      - Add valid and invalid request tests.
+      - Package the service for local deployment.
+    expected_outputs:
+      - serialized prediction pipeline
+      - FastAPI prediction endpoint
+      - OpenAPI schema
+      - endpoint tests
+      - working inference service
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
