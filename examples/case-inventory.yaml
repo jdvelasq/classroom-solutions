@@ -3713,6 +3713,75 @@
     data: verified
     code: verified
 
+- id: 389
+  name: Longitudinal Work-School Reshaping
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning Cookbook, Second Edition
+    title: Reshaping Wide Longitudinal Data
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/11.%20TidyingReshaping/4.%20wide_to_long.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition
+      path: 11. TidyingReshaping/4. wide_to_long.py
+    description: >
+      Packt converts repeated yearly work and college-enrollment variables from
+      a wide National Longitudinal Survey structure into a tidy person-year table.
+  data:
+    description: >
+      NLS97 records containing repeated annual weeks-worked and college-enrollment fields.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/11.%20TidyingReshaping/data/nls97g.csv
+    availability: repository
+    files:
+      - 11. TidyingReshaping/data/nls97g.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - wide-to-long reshaping
+      - longitudinal data
+      - tidy data
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/11.%20TidyingReshaping/4.%20wide_to_long.py
+  problem:
+    context: >
+      Repeated annual measures stored as separate columns make panel analysis
+      difficult and can produce inconsistent year alignment.
+    objective: >
+      Transform person-level wide survey records into a validated person-year analytical dataset.
+    analytical_questions:
+      - Which variables form repeated yearly families?
+      - What should the person-year grain be?
+      - Are year suffixes aligned across work and education measures?
+      - How should missing annual measurements be represented?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+    logical_steps:
+      - Load and validate survey records.
+      - Identify repeated variable families and year suffixes.
+      - Check alignment across annual measures.
+      - Reshape from wide to person-year form.
+      - Reconstruct calendar years.
+      - Sort and validate panel records.
+      - Export the tidy longitudinal dataset.
+    expected_outputs:
+      - repeated-variable audit
+      - person-year analytical table
+      - panel completeness checks
+      - reshaping validation report
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
