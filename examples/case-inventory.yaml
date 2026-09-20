@@ -13637,6 +13637,232 @@
     data: verified
     code: verified
 
+- id: 430
+  name: Sales Design Factor Effects
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Statistics Cookbook
+    title: Two-Way ANOVA
+    url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter02/02__05__2wayanova.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Statistics-Cookbook
+      path: Chapter02/02__05__2wayanova.R
+    description: >
+      Packt analyzes sales under combinations of visual design factors using
+      two-way ANOVA, interaction effects, residual diagnostics, and Tukey
+      post-hoc comparisons.
+  data:
+    description: >
+      Sales observations measured under combinations of color and font treatments.
+    source_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter02/2wayanova.csv
+    availability: repository
+    files:
+      - Chapter02/2wayanova.csv
+  original_implementation:
+    technologies:
+      - two-way ANOVA
+      - interaction effects
+      - residual diagnostics
+      - Shapiro-Wilk test
+      - Tukey HSD
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter02/02__05__2wayanova.R
+  problem:
+    context: >
+      A seller wants to understand whether visual presentation choices affect sales
+      independently or through interactions.
+    objective: >
+      Estimate and diagnose the effects of color, font, and their interaction on sales.
+    analytical_questions:
+      - Does color significantly affect sales?
+      - Does font significantly affect sales?
+      - Is there a color-by-font interaction?
+      - Which treatment levels differ after post-hoc comparison?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scipy
+    logical_steps:
+      - Load and validate the factorial sales data.
+      - Visualize sales across treatment combinations.
+      - Fit a two-way ANOVA with interaction.
+      - Diagnose residual normality and influential observations.
+      - Refit after justified data-quality review if necessary.
+      - Perform post-hoc pairwise comparisons.
+      - Interpret main and interaction effects.
+    expected_outputs:
+      - treatment summary table
+      - ANOVA table
+      - residual diagnostics
+      - interaction plot
+      - Tukey comparison table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 431
+  name: Client Deal Mixed Effects
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Statistics Cookbook
+    title: Mixed-Effects Regression
+    url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter08/08__01__mixedintro.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Statistics-Cookbook
+      path: Chapter08/08__01__mixedintro.R
+    description: >
+      Packt models deal size as a function of sales effort while allowing
+      client-specific random effects and slopes through linear mixed models.
+  data:
+    description: >
+      Repeated sales-deal observations by client with deal size, salespeople
+      involved, and time spent on the deal.
+    source_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter08/sample_random_regression.csv
+    availability: repository
+    files:
+      - Chapter08/sample_random_regression.csv
+  original_implementation:
+    technologies:
+      - linear mixed models
+      - random intercepts
+      - random slopes
+      - lme4
+      - grouped repeated observations
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter08/08__01__mixedintro.R
+  problem:
+    context: >
+      Sales observations are nested within clients, so repeated deals from the same
+      client may share unobserved characteristics that violate independent-error assumptions.
+    objective: >
+      Separate population-level sales-effort effects from client-specific variation in deal size.
+    analytical_questions:
+      - How does sales effort relate to deal size on average?
+      - How much variation exists between clients?
+      - Do client-specific slopes improve the model?
+      - Which clients depart most strongly from the population pattern?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate repeated deal observations.
+      - Inspect the number of observations per client.
+      - Fit a fixed-effects baseline.
+      - Fit random-intercept and random-slope models.
+      - Compare model fit and variance components.
+      - Extract client-level effects.
+      - Interpret population and client-specific relationships.
+    expected_outputs:
+      - client observation profile
+      - mixed-model comparison
+      - fixed-effect estimates
+      - random-effect estimates
+      - variance component summary
+      - client-effect visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 432
+  name: Financial Return Regimes
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Statistics Cookbook
+    title: Financial Hidden Markov Model
+    url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter10/10__6__financialdata.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Statistics-Cookbook
+      path: Chapter10/10__6__financialdata.R
+    description: >
+      Packt converts closing prices to returns and fits two- and three-state
+      Gaussian hidden Markov models to discover latent market regimes and their
+      posterior probabilities.
+  data:
+    description: >
+      Historical financial closing-price series distributed with the chapter.
+    source_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter10/hist_PAM20190304.csv
+    availability: repository
+    files:
+      - Chapter10/hist_PAM20190304.csv
+  original_implementation:
+    technologies:
+      - financial returns
+      - hidden Markov models
+      - Gaussian state distributions
+      - latent regimes
+      - posterior state probabilities
+      - depmixS4
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter10/10__6__financialdata.R
+  problem:
+    context: >
+      Financial returns may alternate between unobserved market conditions whose
+      means or volatility differ through time.
+    objective: >
+      Discover latent return regimes and estimate the probability of each regime
+      through the historical series.
+    analytical_questions:
+      - Does a multi-state model describe returns better than a single regime?
+      - What return behavior characterizes each latent state?
+      - When does the most probable state change?
+      - How uncertain are regime assignments through time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - hmmlearn
+      - matplotlib
+    logical_steps:
+      - Load closing prices and calculate returns.
+      - Inspect return distribution and temporal behavior.
+      - Fit candidate Gaussian HMMs with different state counts.
+      - Compare fit and state stability.
+      - Estimate posterior state probabilities.
+      - Assign the most likely regime over time.
+      - Interpret state-specific return distributions.
+    expected_outputs:
+      - return series
+      - HMM comparison
+      - state parameter table
+      - posterior regime probabilities
+      - regime timeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
