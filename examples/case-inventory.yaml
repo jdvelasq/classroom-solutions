@@ -14021,6 +14021,85 @@
     data: verified
     code: verified
 
+- id: 224
+  name: Diamond Price Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Extending Excel with Python and R
+    title: Diamonds EDA and XGBoost Modeling
+    url: https://github.com/PacktPublishing/Extending-Excel-with-Python-and-R/tree/main/Chapter14
+    repository:
+      url: https://github.com/PacktPublishing/Extending-Excel-with-Python-and-R
+      path: Chapter14
+    description: >
+      Packt moves the ggplot2 diamonds data through Excel-oriented preparation,
+      exploratory analysis, automated preprocessing, and XGBoost regression, then
+      persists the fitted workflow for reuse.
+  data:
+    description: >
+      ggplot2 diamonds data containing carat, cut, color, clarity, dimensions,
+      depth, table, and price.
+    source_url: https://ggplot2.tidyverse.org/reference/diamonds.html
+    availability: package_dataset
+    files:
+      - Chapter14/diamonds_split.xlsx
+  original_implementation:
+    technologies:
+      - R
+      - Excel
+      - tidymodels
+      - XGBoost
+      - automated preprocessing
+      - model persistence
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Extending-Excel-with-Python-and-R/blob/main/Chapter14/ch14_diamonds_modeling.R
+  problem:
+    context: >
+      Diamond prices depend on interacting physical and quality characteristics,
+      and the workflow demonstrates how spreadsheet-oriented analysts can move from
+      EDA into a reusable nonlinear valuation model.
+    objective: >
+      Predict diamond prices from gem characteristics and persist the fitted workflow
+      for repeated scoring.
+    analytical_questions:
+      - How do carat, cut, color, and clarity relate to price?
+      - What preprocessing is required before XGBoost modeling?
+      - How well does the automated model explain price variation?
+      - How can the fitted workflow be saved for later use?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - openpyxl
+    logical_steps:
+      - Load or reconstruct the diamonds dataset.
+      - Explore price and price-per-carat relationships.
+      - Encode categorical quality attributes.
+      - Build a reproducible preprocessing pipeline.
+      - Tune and fit an XGBoost regressor.
+      - Evaluate holdout performance.
+      - Persist the complete fitted pipeline.
+    expected_outputs:
+      - diamond EDA summaries
+      - preprocessing pipeline
+      - fitted XGBoost model
+      - validation metrics
+      - serialized scoring pipeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
