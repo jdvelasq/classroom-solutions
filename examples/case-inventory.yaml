@@ -1976,6 +1976,75 @@
     data: verified
     code: verified
 
+- id: 246
+  name: Wage Income Imputation
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning Cookbook, Second Edition
+    title: Identifying and Fixing Missing Values
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/tree/main/7.%20IdentifyingandFixingMissingValues
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition
+      path: 7. IdentifyingandFixingMissingValues
+    description: >
+      Diagnose missing wage data and compare several model-based imputation strategies.
+  data:
+    description: >
+      National Longitudinal Survey records with wage income, weeks worked, parental income, and education.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/tree/main/7.%20IdentifyingandFixingMissingValues/data
+    availability: repository
+    files:
+      - 7. IdentifyingandFixingMissingValues/data/nls97g.csv
+  original_implementation:
+    technologies:
+      - missingness diagnosis
+      - regression imputation
+      - stochastic imputation
+      - MissForest
+      - MICE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/tree/main/7.%20IdentifyingandFixingMissingValues
+  problem:
+    context: >
+      Wage-income data contain nonrandom missing values that can distort downstream analysis if imputed mechanically.
+    objective: >
+      Diagnose missing wage data and compare several model-based imputation strategies.
+    analytical_questions:
+      - Are respondents with missing wages systematically different?
+      - How do deterministic and stochastic regression imputation compare?
+      - How do MissForest and MICE alter the wage distribution?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+      - miceforest
+    logical_steps:
+      - Load and validate survey data.
+      - Convert coded missing values to nulls.
+      - Diagnose missingness patterns.
+      - Fit regression-based imputations.
+      - Compare stochastic, MissForest, and MICE alternatives.
+      - Assess distributional changes.
+    expected_outputs:
+      - missingness profile
+      - imputation comparison
+      - completed wage dataset
+      - distribution diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -8156,6 +8225,73 @@
       - cluster assignments
       - segment profiles
       - scaling sensitivity comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 247
+  name: COVID Country Outlier Diagnosis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning Cookbook, Second Edition
+    title: Multivariate Outliers with Isolation Forest
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/4.%20OutliersMultivariate/6.%20isolation_forest.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition
+      path: 4. OutliersMultivariate/6. isolation_forest.py
+    description: >
+      Identify and interpret multivariate country outliers in COVID outcomes and contextual variables.
+  data:
+    description: >
+      Country-level COVID totals combined with population density, median age, and GDP per capita.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/4.%20OutliersMultivariate/data/covidtotals.csv
+    availability: repository
+    files:
+      - 4. OutliersMultivariate/data/covidtotals.csv
+  original_implementation:
+    technologies:
+      - standardization
+      - Isolation Forest
+      - multivariate anomaly detection
+      - 3D visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/4.%20OutliersMultivariate/6.%20isolation_forest.py
+  problem:
+    context: >
+      Countries may exhibit unusual combinations of pandemic burden and demographic or economic characteristics that univariate rules do not reveal.
+    objective: >
+      Identify and interpret multivariate country outliers in COVID outcomes and contextual variables.
+    analytical_questions:
+      - Which countries are most anomalous in the joint feature space?
+      - How do anomaly scores relate to cases and deaths per million?
+      - Which contextual variables distinguish the strongest outliers?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate country-level data.
+      - Select complete multivariate records.
+      - Standardize numeric features.
+      - Fit Isolation Forest.
+      - Rank countries by anomaly score.
+      - Inspect and visualize outlier profiles.
+    expected_outputs:
+      - country anomaly scores
+      - outlier ranking
+      - multivariate diagnostic plot
+      - outlier profiles
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
