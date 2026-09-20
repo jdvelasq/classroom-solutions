@@ -27405,6 +27405,229 @@
     data: verified
     code: verified
 
+
+- id: 437
+  name: Customer Spend Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Customer Spend Feature Selection
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.02/Activity6.02.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter06/Activity6.02/Activity6.02.ipynb
+    description: >
+      Packt predicts current-year customer spending and uses recursive feature
+      elimination to identify a compact set of informative predictors.
+  data:
+    description: >
+      Customer spending records containing current-year spend and candidate
+      explanatory variables derived from prior customer behavior.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.02/customer_spend.csv
+    availability: repository
+    files:
+      - Chapter06/Activity6.02/customer_spend.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - recursive feature elimination
+      - train/test split
+      - RMSE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.02/Activity6.02.ipynb
+  problem:
+    context: >
+      A marketing team wants to estimate customer spending while retaining only
+      the most useful behavioral predictors.
+    objective: >
+      Predict current-year customer spend and identify a compact predictive feature set.
+    analytical_questions:
+      - Which variables are most useful for predicting customer spend?
+      - How much predictive accuracy is retained with a reduced feature set?
+      - Which predictors are removed by recursive feature elimination?
+      - How accurately can spending be estimated on unseen customers?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate customer spending data.
+      - Separate current-year spend from candidate predictors.
+      - Create reproducible train and test partitions.
+      - Apply recursive feature elimination.
+      - Fit a regression model on selected features.
+      - Evaluate held-out RMSE.
+      - Interpret the retained predictors.
+    expected_outputs:
+      - selected feature set
+      - customer spend model
+      - test predictions
+      - RMSE summary
+      - feature-selection interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 438
+  name: Customer Spend Model Comparison
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Comparing Models for Customer Spend
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.03/Activity6.03.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter06/Activity6.03/Activity6.03.ipynb
+    description: >
+      Packt compares linear regression, decision trees, and random forests for
+      predicting customer spending from age, income, and education.
+  data:
+    description: >
+      Customer records with age, income, years of education, and observed spending.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.03/spend_age_income_ed.csv
+    availability: repository
+    files:
+      - Chapter06/Activity6.03/spend_age_income_ed.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - decision tree regression
+      - random forest regression
+      - model comparison
+      - RMSE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.03/Activity6.03.ipynb
+  problem:
+    context: >
+      Customer spending may depend nonlinearly on demographic and socioeconomic
+      attributes, so alternative regression families should be compared.
+    objective: >
+      Compare linear and tree-based models for predicting customer spending.
+    analytical_questions:
+      - Does a nonlinear model improve spending predictions?
+      - How does tree depth affect generalization?
+      - Does a random forest outperform a single tree?
+      - Which model produces the lowest held-out error?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate customer spend data.
+      - Create train and test partitions.
+      - Fit linear regression.
+      - Fit shallow and deeper decision trees.
+      - Fit shallow and deeper random forests.
+      - Compare held-out RMSE across models.
+      - Summarize the bias-complexity tradeoff.
+    expected_outputs:
+      - fitted regression models
+      - model comparison table
+      - RMSE comparison
+      - selected model
+      - interpretation of model complexity
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 439
+  name: Bank Campaign Response Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Imbalanced Bank Campaign Classification
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter09/Activity9.02/Activity9.02.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter09/Activity9.02/Activity9.02.ipynb
+    description: >
+      Packt predicts bank campaign response with a random forest and explicitly
+      compares performance before and after SMOTE resampling of the minority class.
+  data:
+    description: >
+      Bank marketing records containing customer attributes, contact history,
+      campaign characteristics, and term-deposit subscription outcome.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter09/Activity9.02/bank.csv
+    availability: repository
+    files:
+      - Chapter09/Activity9.02/bank.csv
+  original_implementation:
+    technologies:
+      - random forest
+      - class imbalance
+      - SMOTE
+      - standardization
+      - classification metrics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter09/Activity9.02/Activity9.02.ipynb
+  problem:
+    context: >
+      Positive responses to bank marketing campaigns are relatively rare, so a
+      classifier can appear accurate while failing to identify likely responders.
+    objective: >
+      Predict campaign response and evaluate whether minority-class resampling
+      improves useful detection of positive responses.
+    analytical_questions:
+      - How imbalanced is the campaign response target?
+      - How well does the baseline model identify positive responses?
+      - How does SMOTE change precision and recall?
+      - Which evaluation metrics reveal improvements hidden by overall accuracy?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - imbalanced-learn
+      - matplotlib
+    logical_steps:
+      - Load and encode bank marketing records.
+      - Split data with target stratification.
+      - Standardize predictors.
+      - Train a baseline random forest.
+      - Evaluate class-level precision, recall, and confusion matrix.
+      - Apply SMOTE to the training data only.
+      - Refit and compare minority-class performance.
+    expected_outputs:
+      - baseline classifier
+      - resampled classifier
+      - classification reports
+      - confusion matrices
+      - before/after imbalance comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
