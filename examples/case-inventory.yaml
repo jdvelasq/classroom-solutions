@@ -170,3 +170,105 @@
     This is distinct from the MIT BlueBikes case because its primary pedagogical
     objective is feature representation for periodic variables rather than a
     general regression-model comparison.
+
+- id: 3
+  name: Bike Sharing Demand - Lagged Features Forecasting
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Applications
+    title: Lagged features for time series forecasting
+    url: https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html
+    description: >
+      Official scikit-learn example showing how lagged variables engineered with
+      Polars can be used with HistGradientBoostingRegressor for bike-sharing demand
+      forecasting, including time-aware validation and predictive uncertainty.
+  data:
+    description: >
+      Bike Sharing Demand dataset from OpenML, dataset id 44063. The current
+      scikit-learn example retrieves the raw parquet representation and validates
+      it with a published SHA-256 checksum before loading it with Polars.
+    source_url: https://www.openml.org/search?type=data&status=active&id=44063
+    availability: public
+    files:
+      - dataset_44063.pq
+    dataset_identifier: 44063
+    direct_data_url: https://github.com/scikit-learn/examples-data/raw/refs/heads/master/bike-sharing-demand/dataset_44063.pq
+    sha256: d120af76829af0d256338dc6dd4be5df4fd1f35bf3a283cab66a51c1c6abd06a
+    notes: >
+      The dataset contains 17,379 hourly observations. The direct parquet file and
+      checksum used by the current official example make the case especially easy
+      to reproduce and freeze locally.
+  original_implementation:
+    technologies:
+      - scikit-learn
+      - Polars
+      - HistGradientBoostingRegressor
+      - TimeSeriesSplit
+      - quantile regression
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html
+    notes: >
+      The official example provides complete executable code and downloadable
+      Python and Jupyter notebook versions.
+  problem:
+    context: >
+      Forecasting future bike demand from historical observations requires
+      respecting temporal dependence. Random train-test splitting can leak future
+      information and produce overly optimistic error estimates.
+    objective: >
+      Transform historical bike-demand observations into lagged supervised features,
+      compare naive random validation with time-aware validation, and quantify
+      forecast uncertainty.
+    analytical_questions:
+      - Which lagged demand variables are useful for forecasting the next hour?
+      - How much does a random train-test split underestimate forecasting error?
+      - How does TimeSeriesSplit change the estimated model performance?
+      - What uncertainty intervals can quantile regression provide around forecasts?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - polars
+      - scikit-learn
+      - matplotlib
+      - numpy
+    logical_steps:
+      - Download the verified parquet dataset used by the official example.
+      - Validate the file checksum.
+      - Load the data with Polars.
+      - Explore the demand series and descriptive statistics.
+      - Create lagged and rolling-window predictors from past demand.
+      - Remove observations with incomplete lag histories.
+      - Fit HistGradientBoostingRegressor using a naive random split.
+      - Evaluate forecasting error.
+      - Replace random validation with TimeSeriesSplit.
+      - Compare naive and time-aware performance estimates.
+      - Fit quantile-loss models for lower and upper predictive bounds.
+      - Visualize forecasts, uncertainty intervals, and actual demand.
+      - Interpret temporal-validation and uncertainty results.
+    expected_outputs:
+      - verified local dataset
+      - lagged feature table
+      - fitted forecasting model
+      - random-split evaluation metrics
+      - time-series cross-validation metrics
+      - prediction intervals
+      - forecast visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    This case uses the same underlying Bike Sharing Demand dataset as case 2 but
+    is a distinct case because the pedagogical problem is forecasting with lagged
+    variables, leakage-aware temporal validation, and uncertainty estimation.
