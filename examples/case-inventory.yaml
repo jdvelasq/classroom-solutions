@@ -25162,3 +25162,165 @@
     source: verified
     data: verified
     code: verified
+
+- id: 337
+  name: Penguin Classifier App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Getting Started with Streamlit for Data Science
+    title: Penguin Classifier
+    url: https://github.com/PacktPublishing/Getting-started-with-Streamlit-for-Data-Science/blob/main/Chapter04/penguin_ml/penguins_streamlit.py
+    repository:
+      url: https://github.com/PacktPublishing/Getting-started-with-Streamlit-for-Data-Science
+      path: Chapter04/penguin_ml/penguins_streamlit.py
+    description: >
+      Packt builds an interactive Streamlit application around a random-forest
+      penguin classifier, including optional data upload, retraining, user inputs,
+      model scoring, and interactive inference.
+  data:
+    description: >
+      Palmer Penguins measurements with island, bill dimensions, flipper length,
+      body mass, sex, and species labels.
+    source_url: https://github.com/PacktPublishing/Getting-started-with-Streamlit-for-Data-Science/blob/main/Chapter04/penguin_ml/penguins.csv
+    availability: repository
+    files:
+      - Chapter04/penguin_ml/penguins.csv
+  original_implementation:
+    technologies:
+      - Streamlit
+      - random forest
+      - model serialization
+      - file upload
+      - interactive inference
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Getting-started-with-Streamlit-for-Data-Science/blob/main/Chapter04/penguin_ml/penguins_streamlit.py
+  problem:
+    context: >
+      A classification model becomes an accessible analytical product when users
+      can supply measurements, optionally upload data, and obtain predictions
+      through a simple interface.
+    objective: >
+      Build an interactive species-classification application around a trained model.
+    analytical_questions:
+      - How should user inputs be validated and encoded?
+      - How should a pretrained model be loaded safely?
+      - How can uploaded data trigger retraining?
+      - What model-quality information should be shown to users?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - streamlit
+      - joblib
+    logical_steps:
+      - Load and validate the penguin data.
+      - Train and evaluate a classifier.
+      - Persist the model and label mapping.
+      - Build Streamlit input controls.
+      - Support optional uploaded training data.
+      - Transform inputs consistently.
+      - Display model score and species prediction.
+    expected_outputs:
+      - trained classifier
+      - serialized model
+      - Streamlit interface
+      - interactive prediction
+      - optional retraining workflow
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 338
+  name: IMDB Sentiment Serving at Scale
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Deep Learning at Scale with MLflow
+    title: Batch and Online Inference for Sentiment Models
+    url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/tree/main/chapter08
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow
+      path: chapter08
+    description: >
+      Packt operationalizes an IMDB sentiment classifier with MLflow tracking and
+      registry, a multistep inference pipeline, batch inference with Spark, and
+      deployment paths for managed online serving.
+  data:
+    description: >
+      IMDB movie-review sentiment data split into training, validation, test,
+      and prediction datasets.
+    source_url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/tree/main/chapter08/data/imdb
+    availability: repository
+    files:
+      - chapter08/data/imdb/train.csv
+      - chapter08/data/imdb/valid.csv
+      - chapter08/data/imdb/test.csv
+      - chapter08/data/imdb/predict.csv
+  original_implementation:
+    technologies:
+      - MLflow
+      - Hugging Face
+      - deep learning
+      - model registry
+      - PySpark UDF
+      - batch inference
+      - SageMaker
+      - Ray Serve
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/tree/main/chapter08
+  problem:
+    context: >
+      A sentiment model must support reproducible training, versioned registration,
+      high-volume batch scoring, and online inference without rebuilding the
+      analytical workflow for each serving mode.
+    objective: >
+      Build and operationalize a scalable sentiment-inference product from model
+      training through registry and multiple serving patterns.
+    analytical_questions:
+      - How should training and inference steps be tracked and versioned?
+      - How can a reusable inference pipeline be registered?
+      - How should high-volume batch predictions be executed with Spark?
+      - How can the same model artifact be deployed for online serving?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - mlflow
+      - transformers
+      - pyspark
+      - pandas
+    logical_steps:
+      - Load and validate IMDB sentiment splits.
+      - Fine-tune the text classifier.
+      - Track experiments and artifacts with MLflow.
+      - Build and register an inference pipeline.
+      - Run batch inference through Spark UDFs.
+      - Package the model for online serving.
+      - Validate prediction consistency across serving modes.
+    expected_outputs:
+      - tracked training run
+      - registered sentiment model
+      - reusable inference pipeline
+      - batch prediction dataset
+      - online-serving artifact
+      - serving consistency tests
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
