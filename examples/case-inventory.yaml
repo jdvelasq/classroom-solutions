@@ -13402,6 +13402,84 @@
     data: verified
     code: verified
 
+- id: 420
+  name: Swiss Socioeconomic Structure
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R Cookbook
+    title: Dimension Reduction with PCA, MDS, and SVD
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Cookbook/blob/master/Chapter11/chapter11.Rmd
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Cookbook
+      path: Chapter11/chapter11.Rmd
+    description: >
+      Packt analyzes the Swiss socioeconomic dataset with PCA, scree and Kaiser
+      criteria, biplots, metric and non-metric multidimensional scaling, and SVD
+      to compare alternative low-dimensional representations.
+  data:
+    description: >
+      Standard Swiss fertility and socioeconomic indicators for 47 French-speaking
+      provinces of Switzerland around 1888.
+    source_url: https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - PCA
+      - scree test
+      - Kaiser criterion
+      - biplot
+      - metric MDS
+      - non-metric MDS
+      - SVD
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Cookbook/blob/master/Chapter11/chapter11.Rmd
+  problem:
+    context: >
+      Regional socioeconomic indicators are correlated and can obscure the major
+      dimensions that differentiate geographic areas.
+    objective: >
+      Discover the dominant multivariate structure in regional socioeconomic data
+      and compare several dimension-reduction representations.
+    analytical_questions:
+      - How many principal components retain most of the information?
+      - Which original variables define the leading dimensions?
+      - How are provinces positioned in reduced space?
+      - Do PCA, MDS, and SVD reveal similar regional structure?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and standardize socioeconomic indicators.
+      - Fit PCA and inspect explained variance.
+      - Apply scree and Kaiser criteria.
+      - Interpret loadings and province scores.
+      - Fit metric and non-metric MDS.
+      - Fit an SVD representation.
+      - Compare geometry across reduction methods.
+    expected_outputs:
+      - explained-variance table
+      - scree plot
+      - PCA biplot
+      - MDS maps
+      - SVD diagnostics
+      - cross-method interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
 
 - id: 53
   name: Leakage Diagnosis
