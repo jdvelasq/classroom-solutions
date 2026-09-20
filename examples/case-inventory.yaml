@@ -3663,3 +3663,86 @@
     source: verified
     data: verified
     code: verified
+
+- id: 49
+  name: NYC Taxi Anomaly Detection
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Tarek A. Atwan
+    publisher: Packt
+    book: Time Series Analysis with Python Cookbook
+    title: Outlier Detection Using Statistical Methods and Unsupervised Machine Learning
+    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+    repository:
+      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+      path: code/Ch14/Chapter 14.ipynb
+    description: >
+      Packt analyzes NYC taxi passenger counts with known unusual dates and compares
+      multiple unsupervised anomaly-detection methods, including KNN, Isolation Forest,
+      and COPOD.
+  data:
+    description: >
+      Aggregated NYC taxi passenger counts at 30-minute intervals from July 2014
+      through January 2015, with known anomalies associated with major events and weather.
+    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch14/nyc_taxi.csv
+    availability: repository
+    files:
+      - datasets/Ch14/nyc_taxi.csv
+    notes: >
+      The book states that the raw observations originate from the NYC Taxi and
+      Limousine Commission and are included in aggregated form.
+  original_implementation:
+    technologies:
+      - PyOD
+      - KNN anomaly detection
+      - Isolation Forest
+      - COPOD
+      - pandas
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch14/Chapter%2014.ipynb
+  problem:
+    context: >
+      Transportation systems need to identify demand patterns that deviate sharply
+      from normal behavior because of holidays, events, severe weather, or disruptions.
+    objective: >
+      Detect unusual taxi-demand periods and compare anomaly scores from alternative
+      unsupervised detection methods against known exceptional dates.
+    analytical_questions:
+      - Which dates show the strongest deviations from normal taxi demand?
+      - Do different anomaly detectors identify the same unusual periods?
+      - How do anomaly scores rank known events such as holidays and storms?
+      - Which detected anomalies lack an obvious known explanation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - pyod
+      - matplotlib
+    logical_steps:
+      - Load and validate the taxi-demand series.
+      - Aggregate to an appropriate daily representation.
+      - Mark the known reference anomaly dates.
+      - Fit several unsupervised anomaly detectors.
+      - Standardize or rank anomaly scores.
+      - Compare detected anomalies across methods.
+      - Evaluate overlap with known exceptional events.
+      - Visualize anomalous periods on the time series.
+    expected_outputs:
+      - validated taxi-demand series
+      - anomaly score table
+      - detector comparison
+      - ranked anomaly dates
+      - time-series anomaly plots
+      - written operational interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
