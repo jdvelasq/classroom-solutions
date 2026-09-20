@@ -2045,6 +2045,84 @@
     data: verified
     code: verified
 
+- id: 248
+  name: Book Catalog Acquisition
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Web Scraping with Python, Second Edition
+    title: Multi-Page Book Catalog Scraping
+    url: https://github.com/PacktPublishing/Hands-On-Web-Scraping-with-Python-Second-Edition/tree/main/Chapter05/bookScrapy
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Web-Scraping-with-Python-Second-Edition
+      path: Chapter05/bookScrapy
+    description: >
+      Packt builds a multi-page Scrapy crawler for a book marketplace, follows
+      detail pages, extracts title, price, rating, stock, category, UPC, review
+      count, URL, and image metadata, and then profiles the resulting cleaned dataset.
+  data:
+    description: >
+      Public product pages from Books to Scrape, a web-scraping demonstration site
+      containing a multi-page catalog and individual book detail pages.
+    source_url: https://books.toscrape.com/
+    availability: public_web
+    files:
+      - Chapter05/bookScrapy/bookRecords.csv
+      - Chapter05/bookScrapy/bookRecords.json
+  original_implementation:
+    technologies:
+      - Scrapy
+      - XPath
+      - pagination
+      - detail-page crawling
+      - data cleaning
+      - data profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Web-Scraping-with-Python-Second-Edition/blob/main/Chapter05/bookScrapy/books/spiders/booklist.py
+  problem:
+    context: >
+      Marketplace information is spread across paginated listing and detail pages,
+      so analysts need a reproducible acquisition process before prices, ratings,
+      categories, availability, or review activity can be analyzed.
+    objective: >
+      Build a structured analytics-ready product catalog from multi-page web content.
+    analytical_questions:
+      - Which fields belong to listing pages versus detail pages?
+      - How should pagination and relative URLs be handled?
+      - How should price, rating, availability, and category fields be normalized?
+      - Is the resulting catalog complete and internally consistent?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scrapy
+      - pandas
+      - pydantic
+    logical_steps:
+      - Define the product record schema.
+      - Crawl all listing pages.
+      - Follow each product detail URL.
+      - Extract listing and detail attributes.
+      - Normalize URLs, prices, ratings, and availability.
+      - Validate uniqueness and completeness.
+      - Export and profile the analytics-ready catalog.
+    expected_outputs:
+      - raw scraped product records
+      - cleaned book catalog
+      - data-quality report
+      - category and price summaries
+      - reproducible acquisition pipeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
