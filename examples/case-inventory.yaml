@@ -3278,3 +3278,80 @@
     source: verified
     data: verified
     code: verified
+
+- id: 44
+  name: Household Energy Forecasting
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Manu Joseph and Jeff Tackes
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Forecasting with ML
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter08/01-Forecasting_with_ML.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter08/01-Forecasting_with_ML.ipynb
+    description: >
+      Packt applies machine-learning forecasting workflows to the preprocessed
+      London Smart Meters time-series data.
+  data:
+    description: >
+      Analytics-ready household electricity-consumption time series derived from
+      the London Smart Meters dataset used throughout the book.
+    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
+    availability: public_with_kaggle_access
+    files: []
+    direct_data_url: https://packt-modern-time-series-py.s3.eu-west-1.amazonaws.com/data.zip
+  original_implementation:
+    technologies:
+      - time-series feature engineering
+      - machine-learning forecasting
+      - backtesting
+      - forecast evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter08/01-Forecasting_with_ML.ipynb
+  problem:
+    context: >
+      Utilities and energy users need forecasts of future electricity demand
+      from historical consumption patterns and calendar information.
+    objective: >
+      Forecast household electricity consumption with machine-learning models
+      using leakage-aware time-series features and validation.
+    analytical_questions:
+      - Which historical and calendar features improve consumption forecasts?
+      - How should validation preserve temporal ordering?
+      - How do machine-learning forecasts compare with simple baselines?
+      - Which households or periods are hardest to forecast?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - lightgbm
+      - matplotlib
+    logical_steps:
+      - Load the prepared household time series.
+      - Define forecast horizon and temporal splits.
+      - Construct lagged, rolling, and calendar predictors.
+      - Establish naive forecasting baselines.
+      - Train machine-learning forecasting models.
+      - Evaluate forecasts with time-aware metrics.
+      - Compare performance across households and periods.
+    expected_outputs:
+      - forecasting feature table
+      - baseline forecasts
+      - fitted ML forecasting models
+      - backtesting metrics
+      - forecast plots
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
