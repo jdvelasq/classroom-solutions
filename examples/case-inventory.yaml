@@ -7272,6 +7272,87 @@
     data: verified
     code: verified
 
+- id: 212
+  name: Deep Taxi Anomaly Detection
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Deep Learning for Time Series Data Cookbook
+    title: Deep Learning Anomaly Detection
+    url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/tree/main/Chapter_9
+    repository:
+      url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook
+      path: Chapter_9/9.4_pyod_autoencoder.py
+    description: >
+      Packt converts New York taxi demand into lagged time-series windows and applies
+      deep anomaly detectors, including autoencoder, variational autoencoder, and
+      AnoGAN variants, against labeled anomalous periods.
+  data:
+    description: >
+      Numenta Anomaly Benchmark New York taxi demand series with timestamped demand
+      observations and labeled anomaly intervals.
+    source_url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/tree/main/assets/datasets/taxi
+    availability: repository
+    files:
+      - assets/datasets/taxi/taxi_data.csv
+      - assets/datasets/taxi/taxi_labels.csv
+  original_implementation:
+    technologies:
+      - lagged windows
+      - standardization
+      - autoencoder
+      - variational autoencoder
+      - AnoGAN
+      - PyOD
+      - anomaly probabilities
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/tree/main/Chapter_9
+  problem:
+    context: >
+      Taxi demand contains rare periods of abnormal activity that may be difficult
+      to detect with simple threshold or distance-based methods.
+    objective: >
+      Compare deep representation-based methods for detecting anomalous periods in
+      a univariate demand time series.
+    analytical_questions:
+      - How should a time series be transformed into lagged windows for deep anomaly detection?
+      - Which observations receive the highest anomaly scores?
+      - How do autoencoder, VAE, and GAN-based detectors differ?
+      - How well do detected periods align with known anomalies?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - pyod
+      - matplotlib
+    logical_steps:
+      - Load taxi demand and labeled anomaly intervals.
+      - Convert timestamps and align labels.
+      - Construct fixed-length lagged windows.
+      - Standardize model inputs.
+      - Fit deep anomaly detectors reproducibly.
+      - Convert model scores to anomaly probabilities.
+      - Compare predicted and known anomaly periods.
+    expected_outputs:
+      - lagged time-series matrix
+      - anomaly score distributions
+      - model-specific anomaly probabilities
+      - detected anomaly periods
+      - method comparison visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
