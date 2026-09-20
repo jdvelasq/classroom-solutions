@@ -347,3 +347,84 @@
   notes: >
     Verified as a distinct MIT text-mining case. No matching project-description,
     LDA, or topic-modeling PRE/LAB was found in CLASSROOM.
+
+- id: 5
+  name: Spectral Clustering - Grouping News Stories
+  type: predictiva
+  source:
+    category: institution_course
+    organization: MIT Professional Education
+    program: Data Science: Data to Insights
+    title: Spectral Clustering - Grouping News Stories
+    url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
+    description: >
+      MIT Professional Education uses approximately 60 news articles from major
+      outlets to build an automatic grouping similar to topic organization in news sites.
+  data:
+    description: >
+      News articles collected from sources such as The Guardian, The Independent,
+      BBC, and CNN. Original tags are ignored during clustering.
+    source_url: null
+    availability: scrape_required
+    files: []
+    notes: >
+      The course material provides instructions for downloading news stories rather
+      than a fixed public dataset. A rewrite should freeze a legal public corpus.
+  original_implementation:
+    technologies:
+      - text vectorization
+      - similarity graph
+      - graph Laplacian
+      - spectral clustering
+    language: Python
+    code_available: partial
+    code_url: null
+  problem:
+    context: >
+      News publishers need to group related stories automatically when explicit
+      editorial topic labels are unavailable or intentionally withheld.
+    objective: >
+      Cluster news stories from their textual content using similarity graphs and
+      spectral clustering.
+    analytical_questions:
+      - How should news articles be represented for similarity analysis?
+      - Which stories form coherent groups without using publisher tags?
+      - How do spectral embeddings reveal cluster structure?
+      - How well do recovered clusters align with the withheld topical tags?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - networkx
+      - matplotlib
+    logical_steps:
+      - Collect and freeze a corpus of news articles.
+      - Clean article text and construct document vectors.
+      - Compute pairwise similarities.
+      - Construct a similarity graph and graph Laplacian.
+      - Compute spectral embeddings.
+      - Cluster the embedded documents.
+      - Compare recovered groups with withheld article tags.
+      - Visualize and interpret the clusters.
+    expected_outputs:
+      - frozen news corpus
+      - document-feature matrix
+      - similarity matrix or graph
+      - spectral embedding
+      - cluster assignments
+      - cluster visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: partial
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    Verified as distinct from the existing CLASSROOM basic text-classification and
+    tokenization cases; the analytical task is unsupervised graph-based document clustering.
