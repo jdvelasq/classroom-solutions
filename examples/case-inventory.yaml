@@ -3044,6 +3044,73 @@
     data: verified
     code: verified
 
+- id: 324
+  name: Pageview Stream Cleaning
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics Projects with Apache Spark
+    title: Filter Bots Job
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/FilterBotsJob.scala
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+      path: section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/FilterBotsJob.scala
+    description: >
+      Packt prepares a pageview stream for analytics by ordering events, removing duplicates, filtering bot traffic, maintaining visit counts, and persisting cleaned events.
+  data:
+    description: >
+      Network or pageview event data used by the companion Spark project.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+    availability: repository_or_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Spark Streaming
+      - event ordering
+      - deduplication
+      - bot filtering
+      - stateful counting
+      - HDFS sink
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/FilterBotsJob.scala
+  problem:
+    context: >
+      Raw web-event streams may arrive duplicated, out of order, or contaminated by bots, corrupting downstream traffic and behavior analytics.
+    objective: >
+      Build a streaming data-quality pipeline that produces reliable pageview events for downstream analytics.
+    analytical_questions:
+      - Which pageviews are duplicates?
+      - Which records are bot-generated?
+      - How should out-of-order events be handled?
+      - How should visit counts be maintained after cleaning?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pandas
+    logical_steps:
+      - Load or receive the source data.
+      - Validate schema and event fields.
+      - Apply the case-specific distributed transformations.
+      - Produce analytics-ready outputs.
+      - Validate results on representative edge cases.
+    expected_outputs:
+      - cleaned pageview stream
+      - duplicate diagnostics
+      - bot-filter report
+      - visit counters
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -10791,6 +10858,73 @@
       - humidity relationship plots
       - temporal diagnostics
       - anomaly and structure summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 323
+  name: Distributed Intrusion Anomaly Detection
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics Projects with Apache Spark
+    title: K-means Anomaly Detection
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/src/main/scala/com/tomekl007/anomalydetection/RunKMeans.scala
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+      path: src/main/scala/com/tomekl007/anomalydetection/RunKMeans.scala
+    description: >
+      Packt builds a Spark ML pipeline over KDD Cup network traffic, encodes categorical connection attributes, standardizes features, clusters records, and flags observations whose distance from their assigned centroid exceeds a data-derived threshold.
+  data:
+    description: >
+      Network or pageview event data used by the companion Spark project.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+    availability: repository_or_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Spark MLlib
+      - K-means
+      - StringIndexer
+      - OneHotEncoder
+      - StandardScaler
+      - distance-based anomaly detection
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/src/main/scala/com/tomekl007/anomalydetection/RunKMeans.scala
+  problem:
+    context: >
+      Large-scale network logs contain heterogeneous traffic patterns and rare observations that may indicate anomalous behavior.
+    objective: >
+      Detect unusual network connections at scale using distributed feature preparation and distance-from-cluster anomaly scoring.
+    analytical_questions:
+      - How should mixed categorical and numeric network fields be prepared in Spark?
+      - What cluster structure represents common traffic behavior?
+      - Which observations lie unusually far from their assigned centroid?
+      - How sensitive are anomaly results to cluster count and threshold choice?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pandas
+    logical_steps:
+      - Load or receive the source data.
+      - Validate schema and event fields.
+      - Apply the case-specific distributed transformations.
+      - Produce analytics-ready outputs.
+      - Validate results on representative edge cases.
+    expected_outputs:
+      - distributed feature pipeline
+      - cluster assignments
+      - anomaly threshold
+      - flagged network connections
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
