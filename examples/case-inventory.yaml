@@ -7424,6 +7424,80 @@
     data: verified
     code: verified
 
+- id: 228
+  name: Cancer Gene Expression Clustering
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: An Introduction to Statistical Learning with Applications in Python
+    title: NCI60 Unsupervised Learning
+    url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch12-unsup-lab.ipynb
+    repository:
+      url: https://github.com/intro-stat-learning/ISLP_labs
+      path: Ch12-unsup-lab.ipynb
+    description: >
+      ISLP applies PCA and clustering to high-dimensional NCI60 cancer-cell-line
+      gene-expression data and compares discovered structure with known cancer types.
+  data:
+    description: >
+      NCI60 gene-expression matrix with thousands of genes across cancer cell lines,
+      accompanied by known tissue/cancer labels.
+    source_url: https://github.com/intro-stat-learning/ISLP
+    availability: package_dataset
+    files:
+      - NCI60
+  original_implementation:
+    technologies:
+      - PCA
+      - hierarchical clustering
+      - K-means
+      - high-dimensional visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch12-unsup-lab.ipynb
+  problem:
+    context: >
+      Gene-expression profiles are extremely high-dimensional and may contain latent
+      groups corresponding to biologically meaningful cancer types.
+    objective: >
+      Explore latent structure in cancer gene-expression profiles and compare
+      unsupervised groups with known labels.
+    analytical_questions:
+      - How much expression variance is captured by leading principal components?
+      - Which cell lines are close in reduced-dimensional space?
+      - What clusters emerge from the expression profiles?
+      - How closely do unsupervised clusters align with known cancer types?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and standardize gene-expression data.
+      - Fit PCA and inspect explained variance.
+      - Visualize leading component scores.
+      - Fit hierarchical and K-means clusterings.
+      - Compare cluster assignments across methods.
+      - Cross-tabulate clusters with known labels for interpretation.
+    expected_outputs:
+      - PCA variance summary
+      - low-dimensional cancer map
+      - cluster assignments
+      - cluster-label comparison
+      - dendrogram or cluster visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -14091,6 +14165,222 @@
       - fitted XGBoost model
       - validation metrics
       - serialized scoring pipeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 225
+  name: Insurance Purchase Propensity
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: An Introduction to Statistical Learning with Applications in Python
+    title: K-Nearest Neighbors on Caravan Insurance Data
+    url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch04-classification-lab.ipynb
+    repository:
+      url: https://github.com/intro-stat-learning/ISLP_labs
+      path: Ch04-classification-lab.ipynb
+    description: >
+      ISLP models caravan-insurance purchase propensity using standardized predictors,
+      k-nearest neighbors, class probabilities, and threshold-based evaluation.
+  data:
+    description: >
+      Caravan insurance customer records with demographic and product-ownership
+      attributes plus a purchase indicator, distributed through the ISLP package.
+    source_url: https://github.com/intro-stat-learning/ISLP
+    availability: package_dataset
+    files:
+      - Caravan
+  original_implementation:
+    technologies:
+      - k-nearest neighbors
+      - standardization
+      - class probability
+      - threshold evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch04-classification-lab.ipynb
+  problem:
+    context: >
+      An insurer wants to identify customers most likely to purchase caravan insurance
+      from a large set of customer attributes.
+    objective: >
+      Estimate insurance purchase propensity and evaluate classification behavior
+      in an imbalanced response problem.
+    analytical_questions:
+      - How imbalanced is insurance purchase behavior?
+      - Which scaling choices matter for KNN?
+      - How does neighborhood size affect purchase prediction?
+      - Which customers receive the highest purchase propensity?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate caravan-insurance data.
+      - Separate the purchase target.
+      - Standardize predictors.
+      - Split training and test records.
+      - Fit KNN across candidate neighborhood sizes.
+      - Compare classification and probability performance.
+      - Rank customers by purchase propensity.
+    expected_outputs:
+      - propensity model
+      - k comparison table
+      - classification metrics
+      - ranked customer list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 226
+  name: Stock Market Direction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: An Introduction to Statistical Learning with Applications in Python
+    title: Stock Market Classification
+    url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch04-classification-lab.ipynb
+    repository:
+      url: https://github.com/intro-stat-learning/ISLP_labs
+      path: Ch04-classification-lab.ipynb
+    description: >
+      ISLP predicts daily S&P 500 direction from lagged returns and trading volume
+      using logistic regression, LDA, QDA, and KNN with a chronological test period.
+  data:
+    description: >
+      Daily S&P 500 returns, lagged returns, volume, and market direction from
+      2001 through 2005, distributed through the ISLP package.
+    source_url: https://github.com/intro-stat-learning/ISLP
+    availability: package_dataset
+    files:
+      - Smarket
+  original_implementation:
+    technologies:
+      - logistic regression
+      - LDA
+      - QDA
+      - KNN
+      - chronological validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch04-classification-lab.ipynb
+  problem:
+    context: >
+      Financial time-ordered data require careful validation because random splitting
+      can leak future information into model evaluation.
+    objective: >
+      Predict whether the stock market moves up or down and compare classical
+      classifiers under a chronological holdout.
+    analytical_questions:
+      - Which lagged returns are associated with market direction?
+      - Does chronological validation alter apparent performance?
+      - How do logistic regression, LDA, QDA, and KNN compare?
+      - Is predictive accuracy materially better than a simple baseline?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load and inspect Smarket data.
+      - Preserve temporal order.
+      - Fit classical classifiers on earlier years.
+      - Predict the 2005 holdout period.
+      - Compare confusion matrices and accuracy.
+      - Benchmark against the majority class.
+    expected_outputs:
+      - chronological train/test split
+      - model comparison
+      - confusion matrices
+      - benchmark comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 227
+  name: Brain Cancer Survival
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: An Introduction to Statistical Learning with Applications in Python
+    title: Brain Cancer Survival Analysis
+    url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch11-surv-lab.ipynb
+    repository:
+      url: https://github.com/intro-stat-learning/ISLP_labs
+      path: Ch11-surv-lab.ipynb
+    description: >
+      ISLP analyzes brain-cancer patient survival using Kaplan-Meier estimates,
+      stratified curves, log-rank tests, and Cox proportional-hazards models.
+  data:
+    description: >
+      Brain-cancer patient records containing survival time, censoring status,
+      diagnosis, sex, and clinical attributes, distributed through ISLP.
+    source_url: https://github.com/intro-stat-learning/ISLP
+    availability: package_dataset
+    files:
+      - BrainCancer
+  original_implementation:
+    technologies:
+      - Kaplan-Meier
+      - log-rank test
+      - Cox proportional hazards
+      - censoring
+    language: Python
+    code_available: true
+    code_url: https://github.com/intro-stat-learning/ISLP_labs/blob/main/Ch11-surv-lab.ipynb
+  problem:
+    context: >
+      Patient outcomes are censored because some individuals remain alive at the end
+      of follow-up, requiring survival-specific methods.
+    objective: >
+      Estimate survival functions and model how patient characteristics relate to hazard.
+    analytical_questions:
+      - What survival pattern is observed over follow-up?
+      - Do survival curves differ by patient groups?
+      - Which clinical variables are associated with hazard?
+      - How should censored observations be handled?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - lifelines
+      - matplotlib
+    logical_steps:
+      - Load and validate survival data.
+      - Identify event and censoring indicators.
+      - Estimate Kaplan-Meier curves.
+      - Compare selected groups with log-rank tests.
+      - Fit Cox proportional-hazards models.
+      - Interpret hazard ratios and uncertainty.
+    expected_outputs:
+      - Kaplan-Meier curves
+      - group survival comparison
+      - Cox model summary
+      - hazard-ratio interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
