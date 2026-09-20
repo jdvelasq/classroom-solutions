@@ -2045,6 +2045,171 @@
     why a business metric changed. It is distinct from the existing experiment and
     descriptive-summary cases.
 
+
+- id: 55
+  name: Travel Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Clustering Customer Data from Travel Agency
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Clustering%20Customer%20Data%20from%20Travel%20Agency.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Clustering Customer Data from Travel Agency.ipynb
+    description: >
+      Packt implements a complete customer-segmentation case using travel-agency
+      booking data, business-informed feature selection, standardization, K-means,
+      elbow and silhouette diagnostics, and cluster profiling.
+  data:
+    description: >
+      Travel-agency customer and booking records used to characterize customer
+      behavior and identify groups with similar booking patterns.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/travel.csv
+    availability: public
+    files:
+      - travel.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - feature engineering
+      - standardization
+      - K-means
+      - elbow method
+      - silhouette coefficient
+      - cluster profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Clustering%20Customer%20Data%20from%20Travel%20Agency.ipynb
+  problem:
+    context: >
+      A travel agency has customer booking records but no predefined customer
+      segments. It needs to discover groups with distinct behavioral profiles.
+    objective: >
+      Segment travel customers from booking behavior and profile the resulting
+      groups so that meaningful differences among customer types can be interpreted.
+    analytical_questions:
+      - Which booking variables best characterize differences among customers?
+      - How many customer segments are supported by the observed data?
+      - Which behaviors distinguish the resulting clusters?
+      - How can each segment be described in business terms?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the travel booking dataset.
+      - Perform logical checks on customer and booking variables.
+      - Engineer analytically useful behavioral features.
+      - Select segmentation variables using business reasoning.
+      - Standardize the selected variables.
+      - Fit K-means solutions for alternative cluster counts.
+      - Compare elbow and silhouette diagnostics.
+      - Select a defensible cluster solution.
+      - Profile and interpret the customer segments.
+    expected_outputs:
+      - validated customer feature table
+      - cluster-number diagnostics
+      - customer segment assignments
+      - segment profile table
+      - cluster visualizations
+      - written segment interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 56
+  name: Grocery Basket Affinity
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Market Basket Analysis - Grocery Data
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Market%20Basket%20Anaylsis%20-%20Grocery%20Data.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Market Basket Anaylsis - Grocery Data.ipynb
+    description: >
+      Packt implements market-basket analysis on grocery transactions using
+      frequent itemsets and association rules measured by support, confidence,
+      and lift.
+  data:
+    description: >
+      Grocery transaction records containing customer or member identifiers,
+      purchase dates, and purchased items.
+    source_url: https://github.com/rajeevratan84/datascienceforbusiness/blob/master/Groceries_dataset.csv
+    availability: public
+    files:
+      - Groceries_dataset.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - transaction encoding
+      - Apriori
+      - association rules
+      - support
+      - confidence
+      - lift
+      - mlxtend
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Market%20Basket%20Anaylsis%20-%20Grocery%20Data.ipynb
+  problem:
+    context: >
+      Retailers need to understand which products tend to be purchased together
+      so they can interpret shopping patterns and identify useful product affinities.
+    objective: >
+      Discover frequent grocery-item combinations and quantify association rules
+      using support, confidence, and lift.
+    analytical_questions:
+      - Which grocery items occur most frequently in transactions?
+      - Which item combinations occur together more often than expected?
+      - Which association rules have meaningful support and confidence?
+      - Which relationships remain strong after accounting for item popularity through lift?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - mlxtend
+      - matplotlib
+    logical_steps:
+      - Load and validate grocery transaction records.
+      - Reconstruct customer baskets from item-level purchases.
+      - Encode transactions into a binary basket matrix.
+      - Calculate frequent itemsets with Apriori.
+      - Derive association rules.
+      - Filter and rank rules by support, confidence, and lift.
+      - Visualize the strongest product affinities.
+      - Interpret the resulting purchasing patterns.
+    expected_outputs:
+      - transaction basket matrix
+      - frequent itemset table
+      - association-rule table
+      - ranked product affinities
+      - affinity visualizations
+      - written retail interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 1
   name: BlueBikes Demand Modeling
   domain: predictive_analytics
@@ -3839,6 +4004,259 @@
   verification:
     source: verified
     data: partial
+    code: verified
+
+
+- id: 57
+  name: Customer Churn Prediction
+  domain: predictive_analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Figuring Out Which Customers May Leave - Churn
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Figuring%20Our%20Which%20Customers%20May%20Leave%20-%20Churn.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Figuring Our Which Customers May Leave - Churn.ipynb
+    description: >
+      Packt uses historical telecommunications customer records to identify
+      customers who are likely to churn from service.
+  data:
+    description: >
+      IBM-style telecommunications churn data with 7,043 customers, service
+      subscriptions, contract information, tenure, charges, and observed churn.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/WA_Fn-UseC_-Telco-Customer-Churn.csv
+    availability: public
+    files:
+      - WA_Fn-UseC_-Telco-Customer-Churn.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - exploratory analysis
+      - categorical encoding
+      - classification
+      - model evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Figuring%20Our%20Which%20Customers%20May%20Leave%20-%20Churn.ipynb
+  problem:
+    context: >
+      A telecommunications provider wants to identify existing customers who are
+      at elevated risk of ending their relationship with the company.
+    objective: >
+      Predict customer churn from historical account, service, contract, tenure,
+      and billing characteristics and interpret the resulting risk patterns.
+    analytical_questions:
+      - Which customer characteristics are associated with observed churn?
+      - How should categorical service and contract variables be represented?
+      - How accurately can future churners be distinguished from retained customers?
+      - Which features are most informative for identifying elevated churn risk?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate customer records.
+      - Inspect churn prevalence and data quality.
+      - Prepare numeric and categorical predictors.
+      - Define leakage-safe training and test sets.
+      - Train alternative classification models.
+      - Evaluate discrimination and classification errors.
+      - Interpret important churn drivers.
+      - Produce customer-level churn probabilities.
+    expected_outputs:
+      - prepared customer dataset
+      - churn profile analysis
+      - fitted classification models
+      - evaluation metrics
+      - customer churn probabilities
+      - feature interpretation
+      - written business interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 58
+  name: Credit Card Fraud Detection
+  domain: predictive_analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Credit Card Fraud Detection
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Credit%20card%20Fraud%20Detection.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Credit card Fraud Detection.ipynb
+    description: >
+      Packt develops a credit-card fraud classifier on a highly imbalanced
+      transaction dataset, including duplicate checks, logistic regression,
+      feature selection, confusion-matrix analysis, threshold adjustment, ROC,
+      and AUC.
+  data:
+    description: >
+      Credit-card transaction dataset with 284,807 observations and 31 variables,
+      including a binary fraud indicator. The notebook retrieves a compressed copy
+      of the commonly used anonymized credit-card fraud dataset.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/creditcard.zip
+    availability: public
+    files:
+      - creditcard.zip
+      - creditcard.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - logistic regression
+      - backward feature elimination
+      - confusion matrix
+      - sensitivity and specificity
+      - threshold tuning
+      - ROC
+      - AUC
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Credit%20card%20Fraud%20Detection.ipynb
+  problem:
+    context: >
+      Fraudulent card transactions are rare but costly, so a detection system must
+      identify fraud while explicitly considering the asymmetric consequences of
+      false negatives and false positives.
+    objective: >
+      Predict fraudulent credit-card transactions and examine how classification
+      thresholds change sensitivity, specificity, and fraud-detection errors.
+    analytical_questions:
+      - How imbalanced is the fraud target?
+      - Which variables contribute useful fraud signal?
+      - How well does the classifier separate fraudulent from legitimate transactions?
+      - How does lowering the classification threshold affect missed fraud and false alarms?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Download and validate the transaction dataset.
+      - Check missing values, duplicates, and class imbalance.
+      - Create leakage-safe training and test sets.
+      - Fit a probabilistic fraud classifier.
+      - Evaluate confusion-matrix outcomes.
+      - Calculate sensitivity, specificity, ROC, and AUC.
+      - Compare alternative probability thresholds.
+      - Interpret the operational trade-off between missed fraud and false alarms.
+    expected_outputs:
+      - validated transaction dataset
+      - fitted fraud model
+      - confusion matrices
+      - threshold comparison table
+      - ROC curve and AUC
+      - fraud probabilities
+      - written risk interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 59
+  name: Customer Lifetime Value
+  domain: predictive_analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Customer Life Time Value Modeling
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Customer%20Life%20Time%20Value%20Modeling.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Customer Life Time Value Modeling.ipynb
+    description: >
+      Packt estimates repeat-purchase behavior and customer lifetime value using
+      BG/NBD and Gamma-Gamma models on transactional purchase histories.
+  data:
+    description: >
+      Transaction-level online retail records with customer identifiers, purchase
+      dates, quantities, prices, and monetary values, supplemented in the notebook
+      by the lifetimes package example datasets.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/OnlineRetail.xlsx
+    availability: public
+    files:
+      - OnlineRetail.xlsx
+  original_implementation:
+    technologies:
+      - pandas
+      - lifetimes
+      - BG/NBD
+      - frequency-recency analysis
+      - probability alive
+      - Gamma-Gamma
+      - discounted cash flow
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Customer%20Life%20Time%20Value%20Modeling.ipynb
+  problem:
+    context: >
+      Historical transactions differ both in purchase frequency and monetary value.
+      A business needs forward-looking estimates of which customers are likely to
+      buy again and how much economic value they may generate.
+    objective: >
+      Estimate future purchase activity and customer lifetime value from transaction
+      histories using probabilistic repeat-purchase and monetary-value models.
+    analytical_questions:
+      - How do frequency and recency characterize repeat-purchase behavior?
+      - Which customers are most likely to purchase again?
+      - What future transaction volume is expected for each customer?
+      - What lifetime monetary value is implied by purchase frequency and transaction value?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - lifetimes
+      - matplotlib
+    logical_steps:
+      - Load and validate transaction-level retail data.
+      - Construct customer frequency, recency, age, and monetary-value summaries.
+      - Fit a BG/NBD repeat-purchase model.
+      - Estimate probability of being active and expected future purchases.
+      - Assess model fit against observed purchase patterns.
+      - Test the Gamma-Gamma model assumptions.
+      - Estimate expected transaction value.
+      - Calculate discounted customer lifetime value.
+      - Rank and interpret customers by predicted future value.
+    expected_outputs:
+      - customer transaction summary
+      - fitted BG/NBD model
+      - probability-alive estimates
+      - expected purchase counts
+      - fitted Gamma-Gamma model
+      - customer lifetime value estimates
+      - ranked customer table
+      - written business interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
     code: verified
 
 - id: 54
