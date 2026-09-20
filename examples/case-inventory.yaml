@@ -12581,6 +12581,155 @@
     calls. A classroom rewrite should preferably use a frozen snapshot of the
     collected network to ensure reproducibility.
 
+- id: 387
+  name: Bike Station Availability at Scale
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics with R
+    title: Spark with R
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/blob/master/Chapter%207/BDA_Ch08.R
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R
+      path: Chapter 7/BDA_Ch08.R
+    description: >
+      Packt uses SparkR over bike-share status and trip tables to calculate hourly
+      station availability, identify stations with high dock availability, and rank
+      the most heavily used bikes by month and year.
+  data:
+    description: >
+      Bike-share station status, station metadata, and trip records stored in Hive.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R
+    availability: referenced_big_data_source
+    files: []
+  original_implementation:
+    technologies:
+      - SparkR
+      - Hive
+      - distributed aggregation
+      - station utilization
+      - temporal analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/blob/master/Chapter%207/BDA_Ch08.R
+  problem:
+    context: >
+      Bike-share operators need to understand when and where stations lack bikes
+      or empty docks and which bicycles accumulate the greatest usage.
+    objective: >
+      Diagnose station availability and bike utilization patterns at scale.
+    analytical_questions:
+      - How many bikes are available at each station by hour?
+      - Which stations have high percentages of empty docks?
+      - Which bikes accumulate the greatest monthly usage?
+      - Which bikes are most heavily used across the full year?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load station status, station metadata, and trip data.
+      - Parse timestamps and derive hour and month.
+      - Aggregate mean available bikes by station and hour.
+      - Join station capacity information.
+      - Calculate dock-availability percentages.
+      - Rank bikes by monthly and annual usage.
+      - Summarize operational bottlenecks.
+    expected_outputs:
+      - hourly station availability table
+      - dock availability diagnostics
+      - monthly bike utilization rankings
+      - annual utilization ranking
+      - operational findings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partially_verified
+    code: verified
+  notes: >
+    The implementation assumes the bike tables are already loaded in Hive.
+    A classroom rewrite should freeze the corresponding source tables as files.
+
+- id: 388
+  name: UK Property Market NoSQL Analytics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics with R
+    title: R with NoSQL Databases
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/blob/master/Chapter%206/BDA_Ch07.R
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R
+      path: Chapter 6/BDA_Ch07.R
+    description: >
+      Packt queries UK Land Registry property transactions with MongoDB, builds
+      filtered property subsets, and uses aggregation pipelines and map-reduce to
+      compare transaction counts and average prices across geography and property type.
+  data:
+    description: >
+      UK Land Registry Price Paid Data containing property transaction price,
+      location, property type, tenure, and transaction metadata.
+    source_url: https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - MongoDB
+      - aggregation pipelines
+      - map-reduce
+      - filtering
+      - grouped summaries
+      - R
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/blob/master/Chapter%206/BDA_Ch07.R
+  problem:
+    context: >
+      A national property transaction dataset is too large for ad hoc local analysis
+      and benefits from queryable document storage and database-side aggregation.
+    objective: >
+      Diagnose property-market patterns through scalable NoSQL filtering and aggregation.
+    analytical_questions:
+      - How many transactions occur by county and property type?
+      - Which towns have the highest average sale prices?
+      - How do selected price thresholds change the available property pool?
+      - Which geographic and property-type combinations dominate transactions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pymongo
+      - duckdb
+    logical_steps:
+      - Load a frozen subset of Land Registry transactions.
+      - Normalize location and property-type fields.
+      - Store or query records in a document-oriented structure.
+      - Filter transactions by geography, price, and property type.
+      - Build database-side aggregation pipelines.
+      - Compare transaction counts and average prices.
+      - Produce interpretable market summaries.
+    expected_outputs:
+      - filtered property subsets
+      - county/property-type counts
+      - town average-price rankings
+      - aggregation results
+      - property-market diagnostic summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
