@@ -7210,6 +7210,149 @@
     data: verified
     code: verified
 
+- id: 203
+  name: Bath Soap Consumer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.6 Segmenting Consumers of Bath Soap
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/BathSoapHousehold.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Household bath-soap purchase behavior, promotions, brand shares, price categories, selling-property preferences, and demographics.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - BathSoapHousehold.csv
+  original_implementation:
+    technologies:
+      - K-means
+      - normalization
+      - brand loyalty engineering
+      - cluster profiling
+      - classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.6%20Segmenting%20Consumers%20of%20Bath%20Soap.html
+  problem:
+    context: >
+      A consumer-products firm needs a small number of actionable market segments based on how households buy soap and what drives their purchase choices.
+    objective: >
+      Discover and profile consumer segments using purchase behavior and purchase-basis variables.
+    analytical_questions:
+      - How should brand loyalty be represented?
+      - How many actionable segments are supported?
+      - How do purchase-behavior clusters differ from purchase-basis clusters?
+      - Can demographics predict segment membership?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Group variables by business meaning.
+      - Engineer a brand-loyalty measure.
+      - Normalize clustering inputs.
+      - Compare candidate K values.
+      - Fit alternative segmentations.
+      - Profile clusters and relate them to demographics.
+    expected_outputs:
+      - cluster diagnostics
+      - segment assignments
+      - segment profiles
+      - marketing interpretation
+      - segment classifier
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 205
+  name: Catalog Cross-Sell Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.8 Catalog Cross-Selling
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/CatalogCrossSell.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Customer purchase indicators across catalog divisions such as housewares, electronics, garden, gifts, jewelry, automotive, and clothing.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - CatalogCrossSell.csv
+  original_implementation:
+    technologies:
+      - Apriori
+      - association rules
+      - support
+      - confidence
+      - lift
+      - cross-sell analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.8%20Catalog%20Cross-Selling.html
+  problem:
+    context: >
+      A catalog retailer wants evidence about which product catalogs should be cross-promoted to customers buying from other divisions.
+    objective: >
+      Discover cross-catalog purchase associations and translate them into cross-sell hypotheses.
+    analytical_questions:
+      - Which catalog divisions are frequently purchased together?
+      - Which rules have high confidence and lift?
+      - Which ubiquitous categories create uninformative rules?
+      - Which cross-promotions are best supported by observed associations?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load customer catalog indicators.
+      - Calculate item frequencies.
+      - Mine frequent itemsets.
+      - Generate association rules.
+      - Rank rules by lift and confidence.
+      - Remove ubiquitous categories and compare results.
+      - Interpret cross-sell opportunities.
+    expected_outputs:
+      - catalog frequency table
+      - association rules
+      - lift ranking
+      - cross-sell relationship summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -12869,6 +13012,151 @@
     data: verified
     code: verified
 
+- id: 202
+  name: Taxi Cancellation Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.5 Taxi Cancellations
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/Taxi-cancellation-case.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Taxi booking records with booking channel, travel type, vehicle, origin/destination, timestamps, GPS coordinates, and cancellation outcome.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - Taxi-cancellation-case.csv
+  original_implementation:
+    technologies:
+      - date-time feature engineering
+      - geospatial distance
+      - logistic regression
+      - decision trees
+      - random forest
+      - classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.5%20Taxi%20Cancellations.html
+  problem:
+    context: >
+      A taxi platform wants to identify bookings at high risk of cancellation so that operations can reconfirm them with drivers.
+    objective: >
+      Predict booking cancellation risk and diagnose operational factors associated with cancellations.
+    analytical_questions:
+      - Which booking features distinguish canceled trips?
+      - How should timestamps and GPS fields be engineered?
+      - Which classifier generalizes best?
+      - Which bookings should be flagged for operational follow-up?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and inspect booking records.
+      - Handle missing values.
+      - Engineer time-of-day, weekday, lead-time, and distance features.
+      - Fit alternative classifiers.
+      - Compare validation performance.
+      - Score future bookings for cancellation risk.
+    expected_outputs:
+      - booking feature table
+      - cancellation classifier
+      - model comparison
+      - risk scores
+      - high-risk booking list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 206
+  name: Public Transport Demand Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.9 Forecasting Public Transportation Demand
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/bicup2006.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Public transportation demand observations in 15-minute intervals across weekdays and weekends.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - bicup2006.csv
+  original_implementation:
+    technologies:
+      - time-series EDA
+      - daily seasonality
+      - weekly seasonality
+      - regression forecasting
+      - MAPE
+      - MAE
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.9%20Time%20series%20data%20-%20Forecasting%20public%20transportation%20demands.html
+  problem:
+    context: >
+      A public transportation operator needs short-horizon demand forecasts while accounting for strong intraday and weekday/weekend patterns.
+    objective: >
+      Build and validate a model that forecasts demand in 15-minute bins for the next three days.
+    analytical_questions:
+      - What daily and weekly seasonalities are present?
+      - Which observations appear erroneous or unusual?
+      - How should time-of-day and day-of-week patterns enter the forecast?
+      - How accurate are forecasts on a held-out period?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Build a regular time series.
+      - Explore daily and weekly patterns.
+      - Diagnose unusual observations.
+      - Engineer time-of-day and weekday terms.
+      - Fit candidate regression forecasts.
+      - Evaluate MAPE and MAE.
+      - Refit on all available history and forecast the next three days.
+    expected_outputs:
+      - seasonality diagnostics
+      - forecast model
+      - training and validation errors
+      - 15-minute forecasts
+      - forecast visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -13953,6 +14241,295 @@
       - optimized mixture formulations
       - predicted strength values
       - feasibility audit
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 199
+  name: Book Club Mailing Targeting
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.1 Charles Book Club
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/CharlesBookClub.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Book-club customer records with RFM categories, demographic and purchase-history variables, and response to a Florence book promotion.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - CharlesBookClub.csv
+  original_implementation:
+    technologies:
+      - RFM segmentation
+      - K-nearest neighbors
+      - logistic regression
+      - lift analysis
+      - response targeting
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.1%20Charles%20Book%20Club.html
+  problem:
+    context: >
+      A book club wants to decide which customers should receive a promotional mailing rather than mailing indiscriminately.
+    objective: >
+      Select customer segments or individuals for a promotional mailing using response evidence and predictive scores.
+    analytical_questions:
+      - Which RFM combinations respond above the overall rate?
+      - Do those patterns generalize to validation data?
+      - How do KNN and logistic response models compare?
+      - Which customers should be prioritized for mailing?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and partition customer records.
+      - Calculate RFM response rates.
+      - Build response segments.
+      - Fit KNN and logistic models.
+      - Evaluate lift on validation data.
+      - Translate response scores into a mailing priority.
+    expected_outputs:
+      - RFM response table
+      - response model comparison
+      - lift curve
+      - mailing priority list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 200
+  name: Credit Approval Economics
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.2 German Credit
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/GermanCredit.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      German credit applicant records with financial history, loan information, customer characteristics, and good/bad credit outcome.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - GermanCredit.csv
+  original_implementation:
+    technologies:
+      - logistic regression
+      - decision trees
+      - neural networks
+      - confusion matrices
+      - opportunity cost
+      - net profit
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.2%20German%20Credit.html
+  problem:
+    context: >
+      A lender must decide whether to accept or reject credit applications when false approvals and false rejections have different economic consequences.
+    objective: >
+      Choose a credit decision model and acceptance rule using predictive performance together with explicit opportunity-cost and profit matrices.
+    analytical_questions:
+      - Which applicant characteristics distinguish good and bad credit?
+      - How do alternative classifiers compare?
+      - What is the economic cost of each classification error?
+      - Which model and decision rule produce the best financial result?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Explore applicant risk factors.
+      - Partition the credit data.
+      - Fit logistic, tree, and neural-network classifiers.
+      - Compare confusion matrices.
+      - Apply opportunity-cost and profit matrices.
+      - Select the economically preferred decision model.
+    expected_outputs:
+      - credit risk models
+      - confusion matrices
+      - cost comparison
+      - profit comparison
+      - credit decision rule
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 201
+  name: Catalog Mailing Profit Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.3 Tayko Software Cataloger
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/Tayko.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Software catalog customer records with purchase history, source indicators, recency/frequency variables, purchase response, and spending.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - Tayko.csv
+  original_implementation:
+    technologies:
+      - logistic regression
+      - purchase propensity
+      - spending regression
+      - mailing cost
+      - expected profit
+      - gains analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.3%20Tayko%20software%20cataloger.html
+  problem:
+    context: >
+      A software cataloger can mail only a subset of a large prospect pool and incurs a fixed mailing cost for every catalog sent.
+    objective: >
+      Target catalogs to customers who maximize expected mailing profit using purchase probability and spending models.
+    analytical_questions:
+      - What profit results from random mailing?
+      - Which customers are likely purchasers?
+      - How much are likely purchasers expected to spend?
+      - Which customers should receive the catalog after mailing cost is considered?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Estimate random-mailing economics.
+      - Split training, validation, and test data.
+      - Fit purchase-propensity models.
+      - Model spending conditional on purchase.
+      - Combine response and spending estimates.
+      - Subtract mailing cost and rank prospects by expected profit.
+    expected_outputs:
+      - purchase propensity model
+      - spending model
+      - expected-profit scores
+      - gains chart
+      - profitable mailing list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 204
+  name: Fundraising Mailing Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Data Mining for Business Analytics: Concepts, Techniques, and Applications in Python
+    title: Case 21.7 Direct-Mail Fundraising
+    url: https://www.dataminingbook.com/book/python-edition
+    repository:
+      url: https://github.com/gedeck/dmba
+      path: src/dmba/csvFiles/Fundraising.csv.gz
+    description: >
+      Verified case study from the book's final case-study chapter; executable
+      Python implementation is available in a public mirror of the publisher examples.
+  data:
+    description: >
+      Fundraising prospect records with demographics, wealth indicators, promotion history, donation history, response status, and donation amount.
+    source_url: https://github.com/gedeck/dmba/tree/master/src/dmba/csvFiles
+    availability: repository
+    files:
+      - Fundraising.csv
+  original_implementation:
+    technologies:
+      - logistic regression
+      - classification trees
+      - bagging
+      - boosting
+      - random forest
+      - neural networks
+      - asymmetric cost
+      - net profit
+      - gains curves
+    language: Python
+    code_available: true
+    code_url: https://github.com/chadchae/portfolio_course/blob/main/docs/Course/MGS3701/03_Lecture_Note/LectureNote_Chad/PPT/chapter21/script/chapter21_python/Case%2021.7%20Direct-Mail%20Fundraising.html
+  problem:
+    context: >
+      A fundraising organization must decide whom to contact because each mailing has a cost and only a fraction of prospects donate.
+    objective: >
+      Choose a response model and target list that maximize expected net fundraising profit.
+    analytical_questions:
+      - Which prospects are most likely to donate?
+      - How do candidate classifiers compare?
+      - How should mailing economics alter the decision threshold?
+      - Which model produces the highest net profit on validation data?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Prepare donor-history features.
+      - Fit multiple response classifiers.
+      - Evaluate asymmetric response errors.
+      - Estimate donation economics and mailing cost.
+      - Compute net profit by targeting rule.
+      - Select the preferred model and score future prospects.
+    expected_outputs:
+      - response model comparison
+      - profit table
+      - gains curves
+      - target donor list
+      - expected net fundraising return
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
