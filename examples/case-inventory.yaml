@@ -29236,3 +29236,77 @@
     source: verified
     data: verified
     code: verified
+
+- id: 390
+  name: Open Payments Explorer
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Big Data Analytics
+    title: CMS Open Payments Shiny Application
+    url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics/blob/master/Chapter05/03_r_shiny_web_application.txt
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics
+      path: Chapter05/03_r_shiny_web_application.txt
+    description: >
+      Packt builds a Shiny application over CMS Open Payments data stored in
+      kdb+/q, with interactive filtering and selectable payment aggregations.
+  data:
+    description: >
+      CMS Open Payments records with company, product, geography, payment category,
+      date, recipient, and payment amount.
+    source_url: https://openpaymentsdata.cms.gov/
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - R Shiny
+      - shinydashboard
+      - kdb+
+      - q
+      - interactive filtering
+      - dynamic aggregation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Big-Data-Analytics/blob/master/Chapter05/03_r_shiny_web_application.txt
+  problem:
+    context: >
+      Healthcare payment records are too numerous for manual review and need
+      interactive exploration across companies, products, locations, and dates.
+    objective: >
+      Build an analytical application for filtering and aggregating Open Payments records.
+    analytical_questions:
+      - Which companies and products account for the largest payments?
+      - How do payment patterns vary geographically?
+      - What are the count, minimum, maximum, average, and total payment metrics?
+      - How can users switch between raw and aggregated views?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - duckdb
+      - streamlit
+      - plotly
+    logical_steps:
+      - Load a frozen Open Payments extract.
+      - Normalize key dimensions and payment amounts.
+      - Implement parameterized filters.
+      - Support raw and grouped result modes.
+      - Calculate selectable payment metrics.
+      - Build interactive result tables and summaries.
+    expected_outputs:
+      - cleaned payment dataset
+      - interactive filters
+      - raw and aggregate views
+      - payment KPI summaries
+      - working analytical app
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
