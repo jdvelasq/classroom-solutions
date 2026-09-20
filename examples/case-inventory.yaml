@@ -3856,6 +3856,83 @@
     data: verified
     code: verified
 
+- id: 409
+  name: Resume Skill Extraction
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science on AWS
+    title: Custom Entity Detection with Textract and Comprehend
+    url: https://github.com/data-science-on-aws/data-science-on-aws/blob/oreilly-book/02_usecases/text_extraction/Textract_Comprehend_Custom_Entity_Recognition.ipynb
+    repository:
+      url: https://github.com/data-science-on-aws/data-science-on-aws
+      path: 02_usecases/text_extraction/Textract_Comprehend_Custom_Entity_Recognition.ipynb
+    description: >
+      The O'Reilly companion project OCRs scanned resumes, creates entity labels,
+      trains a custom recognizer for skills, evaluates precision/recall/F1, and
+      converts extracted skill entities into structured output.
+  data:
+    description: >
+      Public resume entity-recognition corpus with approximately 220 candidate resumes
+      and skill annotations, converted to PDF for document-processing workflow.
+    source_url: https://www.kaggle.com/datasets/dataturks/resume-entities-for-ner
+    availability: public
+    files:
+      - 02_usecases/text_extraction/entity_list.csv
+  original_implementation:
+    technologies:
+      - Amazon Textract
+      - OCR
+      - Amazon Ground Truth
+      - Amazon Comprehend
+      - custom NER
+      - entity evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/data-science-on-aws/data-science-on-aws/blob/oreilly-book/02_usecases/text_extraction/Textract_Comprehend_Custom_Entity_Recognition.ipynb
+  problem:
+    context: >
+      Candidate resumes often arrive as scanned documents and the skills they contain
+      must be converted into structured attributes before workforce analytics or matching.
+    objective: >
+      Build a document-processing pipeline that extracts skill entities from scanned resumes.
+    analytical_questions:
+      - How should scanned resumes be converted to machine-readable text?
+      - How should skill entities be labeled for training?
+      - How accurately does the custom recognizer recover skills?
+      - How should extracted entities be transformed into structured candidate data?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pypdf
+      - spacy
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Ingest resume documents.
+      - Extract text from PDFs.
+      - Prepare skill entity annotations.
+      - Train a custom entity recognizer.
+      - Evaluate entity-level precision, recall, and F1.
+      - Run inference on unseen resumes.
+      - Convert skill entities into an analytical table.
+    expected_outputs:
+      - extracted resume text
+      - labeled NER dataset
+      - skill recognizer
+      - entity-level metrics
+      - structured candidate-skill table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -30445,6 +30522,307 @@
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
     authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 406
+  name: Household Demand Forecast Service
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science on AWS
+    title: Amazon Forecast Use Case
+    url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book/02_usecases/forecast
+    repository:
+      url: https://github.com/data-science-on-aws/data-science-on-aws
+      path: 02_usecases/forecast
+    description: >
+      The O'Reilly companion project prepares household electricity demand data,
+      creates an Amazon Forecast dataset group, trains a predictor, deploys it, and
+      queries future hourly demand.
+  data:
+    description: >
+      Household electric power consumption aggregated to hourly demand for forecasting.
+    source_url: https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption
+    availability: public
+    files:
+      - 02_usecases/forecast/data/item-demand-time.csv
+  original_implementation:
+    technologies:
+      - Amazon Forecast
+      - S3
+      - time-series forecasting
+      - predictor deployment
+      - forecast querying
+    language: Python
+    code_available: true
+    code_url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book/02_usecases/forecast
+  problem:
+    context: >
+      Electricity demand changes hourly and a forecasting workflow must support
+      preparation, training, deployment, and repeatable querying rather than a one-off model.
+    objective: >
+      Build an operational forecasting service for future household electricity demand.
+    analytical_questions:
+      - What schema and frequency should the target time series use?
+      - How should chronological train and validation periods be separated?
+      - Which forecast model performs best on held-out demand?
+      - How can future hourly forecasts be served programmatically?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - boto3
+      - statsmodels
+    logical_steps:
+      - Load and aggregate electricity demand.
+      - Create chronological training and validation periods.
+      - Validate the forecast schema.
+      - Train candidate forecasting models.
+      - Compare holdout performance.
+      - Deploy the preferred predictor.
+      - Query and persist future forecasts.
+    expected_outputs:
+      - forecasting dataset
+      - predictor evaluation
+      - deployed forecasting service
+      - future demand forecasts
+      - forecast query workflow
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 407
+  name: Fraud Decision Service
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science on AWS
+    title: Amazon Fraud Detector End-to-End
+    url: https://github.com/data-science-on-aws/data-science-on-aws/blob/oreilly-book/02_usecases/fraud_detector/Fraud_Detector_End_to_End.ipynb
+    repository:
+      url: https://github.com/data-science-on-aws/data-science-on-aws
+      path: 02_usecases/fraud_detector/Fraud_Detector_End_to_End.ipynb
+    description: >
+      The O'Reilly companion project profiles fraud data, trains a managed fraud model,
+      derives model-score rules, defines operational outcomes, assembles a detector,
+      and exposes event-level predictions.
+  data:
+    description: >
+      Synthetic online-event records containing event variables and fraud labels.
+    source_url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book/02_usecases/fraud_detector
+    availability: repository_and_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Amazon Fraud Detector
+      - supervised fraud modeling
+      - rule engine
+      - fraud scoring
+      - operational outcomes
+      - API prediction
+    language: Python
+    code_available: true
+    code_url: https://github.com/data-science-on-aws/data-science-on-aws/blob/oreilly-book/02_usecases/fraud_detector/Fraud_Detector_End_to_End.ipynb
+  problem:
+    context: >
+      Fraud prevention requires more than a probability score: model outputs must
+      be combined with business rules that map events to approve, investigate, or fraud outcomes.
+    objective: >
+      Build an operational fraud-decision service that combines learned risk scores
+      with explicit decision rules.
+    analytical_questions:
+      - Which variables and labels define the fraud event?
+      - How well does the model rank fraudulent events?
+      - What score thresholds support different operational outcomes?
+      - How should rules and model scores be combined in a deployed detector?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - fastapi
+    logical_steps:
+      - Load and profile fraud events.
+      - Define event schema and fraud labels.
+      - Train a probabilistic fraud model.
+      - Evaluate ranking and threshold behavior.
+      - Define approve, investigate, and fraud rules.
+      - Combine rules and scores into a decision function.
+      - Expose event-level decisions through an API.
+    expected_outputs:
+      - fraud risk model
+      - score-threshold analysis
+      - decision rule table
+      - operational fraud outcomes
+      - prediction service
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 408
+  name: Managed Movie Recommendation Service
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science on AWS
+    title: Amazon Personalize Recommendations
+    url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book/02_usecases/personalize_recommendations
+    repository:
+      url: https://github.com/data-science-on-aws/data-science-on-aws
+      path: 02_usecases/personalize_recommendations
+    description: >
+      The O'Reilly companion project validates user-item interactions, trains
+      user-personalization, similar-item, and personalized-ranking solutions,
+      evaluates them, deploys campaigns, and serves recommendations.
+  data:
+    description: >
+      MovieLens-style user-item interaction histories with timestamps and optional item metadata.
+    source_url: https://grouplens.org/datasets/movielens/
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - Amazon Personalize
+      - user personalization
+      - similar items
+      - personalized ranking
+      - recommendation evaluation
+      - campaign deployment
+    language: Python
+    code_available: true
+    code_url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book/02_usecases/personalize_recommendations
+  problem:
+    context: >
+      A media platform needs multiple recommendation behaviors: personalized item
+      selection, similar-item discovery, and personalized ranking of candidate items.
+    objective: >
+      Build, evaluate, deploy, and query a managed recommendation service.
+    analytical_questions:
+      - How should user-item interaction data be validated?
+      - Which recommendation recipe fits each use case?
+      - How should recommendation quality be evaluated?
+      - How can trained recommenders be exposed to applications?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - implicit
+      - scikit-surprise
+      - fastapi
+    logical_steps:
+      - Load and validate interaction data.
+      - Define recommendation tasks and baselines.
+      - Train personalized and item-similarity models.
+      - Evaluate ranking quality.
+      - Select deployable models.
+      - Build recommendation endpoints.
+      - Test personalized and similar-item queries.
+    expected_outputs:
+      - validated interaction dataset
+      - recommender evaluation table
+      - personalized recommendations
+      - similar-item recommendations
+      - deployed recommendation service
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 410
+  name: Multimedia Moderation Service
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science on AWS
+    title: Content Moderation with Amazon Rekognition
+    url: https://github.com/data-science-on-aws/data-science-on-aws/blob/oreilly-book/02_usecases/04_Content_Moderation.ipynb
+    repository:
+      url: https://github.com/data-science-on-aws/data-science-on-aws
+      path: 02_usecases/04_Content_Moderation.ipynb
+    description: >
+      The O'Reilly companion project detects unsafe image and video content,
+      returns moderation labels with confidence scores and timestamps, and
+      demonstrates synchronous and asynchronous moderation workflows.
+  data:
+    description: >
+      Example image and video assets used to demonstrate explicit, suggestive,
+      and violent content moderation.
+    source_url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book/02_usecases/media
+    availability: repository
+    files:
+      - 02_usecases/media/weapon.png
+      - 02_usecases/media/weapon.mp4
+  original_implementation:
+    technologies:
+      - Amazon Rekognition
+      - image moderation
+      - video moderation
+      - confidence thresholds
+      - asynchronous jobs
+    language: Python
+    code_available: true
+    code_url: https://github.com/data-science-on-aws/data-science-on-aws/blob/oreilly-book/02_usecases/04_Content_Moderation.ipynb
+  problem:
+    context: >
+      A media platform must screen images and videos for unsafe content and return
+      structured moderation results that downstream systems can act on.
+    objective: >
+      Build a moderation service that identifies unsafe content in images and video.
+    analytical_questions:
+      - Which moderation labels are detected in an image?
+      - How should confidence thresholds be selected?
+      - At what timestamps does unsafe content occur in video?
+      - How should asynchronous video moderation be orchestrated?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - transformers
+      - torch
+      - opencv-python
+      - fastapi
+    logical_steps:
+      - Load image and video assets.
+      - Apply a pre-trained moderation classifier.
+      - Convert predictions to standardized moderation labels.
+      - Apply configurable confidence thresholds.
+      - Process video frames or segments asynchronously.
+      - Aggregate label timestamps.
+      - Expose moderation results through an API.
+    expected_outputs:
+      - image moderation labels
+      - confidence scores
+      - video moderation timeline
+      - asynchronous processing workflow
+      - moderation service interface
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
   verification:
     source: verified
     data: verified
