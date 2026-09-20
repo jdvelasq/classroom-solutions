@@ -1436,6 +1436,80 @@
     data: verified
     code: verified
 
+- id: 148
+  name: Climate Station Integration
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning Cookbook, Second Edition
+    title: Combining DataFrames Safely
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/10.%20CombiningDataFrames/6.%20merge_routine.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition
+      path: 10. CombiningDataFrames/6. merge_routine.py
+    description: >
+      Packt validates join keys before merging country and station-location tables,
+      identifies unmatched records explicitly, and creates an integrated climate
+      station dataset for downstream analysis.
+  data:
+    description: >
+      Country and weather-station location tables derived from global land-temperature data.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/tree/main/10.%20CombiningDataFrames/data
+    availability: repository
+    files:
+      - 10. CombiningDataFrames/data/ltcountries.csv
+      - 10. CombiningDataFrames/data/ltlocations.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - key validation
+      - outer joins
+      - unmatched-record diagnosis
+      - relational integration
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/10.%20CombiningDataFrames/6.%20merge_routine.py
+  problem:
+    context: >
+      Climate observations and station metadata cannot be combined safely by assuming
+      that join keys are complete and consistent across source tables.
+    objective: >
+      Validate key coverage and produce an integrated station-country table without
+      silently losing or duplicating records.
+    analytical_questions:
+      - Which keys occur in both source tables?
+      - Which countries or stations fail to match?
+      - What join cardinality is expected?
+      - Does the integrated table preserve the intended analytical grain?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+    logical_steps:
+      - Load country and station tables.
+      - Check uniqueness of candidate join keys.
+      - Perform an outer diagnostic merge.
+      - Identify left-only and right-only keys.
+      - Resolve or document unmatched records.
+      - Execute the intended analytical merge.
+      - Validate row counts and cardinality after integration.
+    expected_outputs:
+      - key-quality report
+      - unmatched-record tables
+      - merge cardinality checks
+      - integrated climate station dataset
+      - validation summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -9835,6 +9909,314 @@
     data: verified
     code: verified
 
+- id: 149
+  name: Household Energy Global Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Global Forecasting Models
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter10/01-Global_Forecasting_Models-ML.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter10/01-Global_Forecasting_Models-ML.ipynb
+    description: >
+      Packt builds global machine-learning forecasts across many London smart-meter
+      household series, incorporates lags, rolling features and metadata, tunes
+      LightGBM, and compares alternative household partitioning strategies.
+  data:
+    description: >
+      Half-hourly electricity consumption for thousands of London households
+      enriched with household metadata, weather, and holiday information.
+    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
+    availability: public_platform
+    files: []
+  original_implementation:
+    technologies:
+      - LightGBM
+      - global forecasting
+      - lag features
+      - rolling features
+      - metadata encoding
+      - hyperparameter optimization
+      - clustering
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter10/01-Global_Forecasting_Models-ML.ipynb
+  problem:
+    context: >
+      Thousands of related household electricity series can share predictive
+      information, making one global model an alternative to fitting an independent
+      model for every household.
+    objective: >
+      Build and evaluate global forecasting models for household electricity consumption.
+    analytical_questions:
+      - How much do lag and rolling features improve forecasts?
+      - Does household metadata improve a global model?
+      - How should households be partitioned or clustered for modeling?
+      - How does global forecasting perform across heterogeneous households?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - lightgbm
+      - scikit-learn
+      - optuna
+    logical_steps:
+      - Prepare household time series and metadata.
+      - Create leakage-safe lag and rolling features.
+      - Define chronological train and validation windows.
+      - Fit a global LightGBM baseline.
+      - Add household metadata and categorical encodings.
+      - Tune hyperparameters reproducibly.
+      - Compare global and partitioned modeling strategies.
+    expected_outputs:
+      - global training table
+      - tuned forecasting model
+      - household forecast metrics
+      - partition strategy comparison
+      - feature importance summary
+      - household-level forecasts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 150
+  name: Used Car Model Interpretation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Used Cars Price Prediction
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/04/UsedCars.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 04/UsedCars.ipynb
+    description: >
+      Packt uses used-car price prediction as the worked case for global
+      model-agnostic interpretation methods and examines how fitted models depend on
+      vehicle attributes at population level.
+  data:
+    description: >
+      Used-car records distributed with the book and containing vehicle attributes
+      and observed sale prices.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/datasets/usedcars-2e.csv.zip
+    availability: repository
+    files:
+      - datasets/usedcars-2e.csv.zip
+  original_implementation:
+    technologies:
+      - predictive regression
+      - feature importance
+      - partial dependence
+      - accumulated local effects
+      - SHAP
+      - global interpretation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/04/UsedCars.ipynb
+  problem:
+    context: >
+      A high-performing vehicle-price model is not sufficient when analysts also
+      need to understand how major vehicle attributes influence predictions globally.
+    objective: >
+      Predict used-car prices and compare global interpretation techniques for the fitted model.
+    analytical_questions:
+      - Which vehicle attributes contribute most to predicted price?
+      - How do predictions change across important feature ranges?
+      - Do alternative global interpretation methods agree?
+      - Where do nonlinear or interaction effects appear?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - shap
+      - pdpbox
+      - pyale
+    logical_steps:
+      - Load and prepare used-car records.
+      - Fit a competitive price model.
+      - Establish global feature importance.
+      - Calculate partial dependence profiles.
+      - Calculate accumulated local effects.
+      - Compare interpretation outputs.
+      - Relate model behavior to vehicle economics.
+    expected_outputs:
+      - fitted price model
+      - feature importance ranking
+      - partial dependence plots
+      - ALE plots
+      - SHAP summaries
+      - interpretation comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 151
+  name: Flight Delay Interpretation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Flight Delay Prediction
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/03/FlightDelays.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 03/FlightDelays.ipynb
+    description: >
+      Packt uses flight-delay prediction to examine interpretation challenges and
+      compares predictive modeling with interpretable model structures and diagnostics.
+  data:
+    description: >
+      Flight records with operational and schedule attributes used to predict delayed arrivals.
+    source_url: https://pypi.org/project/machine-learning-datasets/
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - classification
+      - interpretable models
+      - RuleFit
+      - explainable boosting
+      - generalized additive modeling
+      - model comparison
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/03/FlightDelays.ipynb
+  problem:
+    context: >
+      Flight-delay models can be accurate but difficult to trust operationally when
+      their learned relationships are opaque or unstable.
+    objective: >
+      Predict flight delays while comparing models that differ in predictive power
+      and intrinsic interpretability.
+    analytical_questions:
+      - Which operational variables are associated with delays?
+      - How do interpretable models compare with more flexible alternatives?
+      - Which relationships are nonlinear?
+      - What predictive performance is lost or gained through interpretability constraints?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - interpret
+      - matplotlib
+    logical_steps:
+      - Load and prepare flight records.
+      - Create reproducible training and test sets.
+      - Fit a baseline predictive model.
+      - Fit interpretable alternative models.
+      - Compare predictive metrics.
+      - Inspect learned effects and rules.
+      - Summarize interpretability-performance trade-offs.
+    expected_outputs:
+      - flight delay classifier
+      - model comparison table
+      - interpretable rule or effect plots
+      - error diagnostics
+      - interpretation-performance summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 152
+  name: Recidivism Counterfactual Explanations
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Criminal Recidivism Prediction
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/06/Recidivism.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 06/Recidivism.ipynb
+    description: >
+      Packt uses criminal recidivism risk prediction as the worked case for anchor
+      and counterfactual explanations, showing how individual predictions can be
+      explained with sufficient conditions and actionable feature changes.
+  data:
+    description: >
+      Recidivism-risk records distributed through the book's machine-learning-datasets package.
+    source_url: https://pypi.org/project/machine-learning-datasets/
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - classification
+      - anchor explanations
+      - counterfactual explanations
+      - SHAP
+      - Alibi
+      - local interpretability
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/06/Recidivism.ipynb
+  problem:
+    context: >
+      Individual risk predictions are consequential and require explanations that
+      identify both sufficient conditions and changes that would alter the prediction.
+    objective: >
+      Predict recidivism risk and generate local anchor and counterfactual explanations.
+    analytical_questions:
+      - Which features support a specific risk prediction?
+      - What compact rule is sufficient to anchor that prediction?
+      - What feasible feature changes would reverse the predicted class?
+      - How consistent are explanations across similar individuals?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - alibi
+      - shap
+    logical_steps:
+      - Load and prepare recidivism records.
+      - Fit and evaluate a risk classifier.
+      - Select representative individual predictions.
+      - Generate anchor explanations.
+      - Generate counterfactual explanations.
+      - Check feasibility and stability of suggested changes.
+      - Compare local explanation methods.
+    expected_outputs:
+      - recidivism risk model
+      - anchor rules
+      - counterfactual examples
+      - local explanation comparison
+      - explanation stability diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -10610,6 +10992,88 @@
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 153
+  name: Credit Fairness and Treatment Effects
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Loan Default Classification
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/11/CreditCardDefaults.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 11/CreditCardDefaults.ipynb
+    description: >
+      Packt uses credit-card default modeling to diagnose group bias, compare
+      mitigation strategies, and evaluate hypothetical interventions with average
+      and conditional treatment effects.
+  data:
+    description: >
+      Credit-card default records distributed through the book's data utilities,
+      including borrower attributes, protected-group information, and default outcomes.
+    source_url: https://pypi.org/project/machine-learning-datasets/
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - credit default classification
+      - fairness metrics
+      - reweighting
+      - disparate impact mitigation
+      - equalized odds
+      - causal inference
+      - ATE
+      - CATE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/11/CreditCardDefaults.ipynb
+  problem:
+    context: >
+      Credit decisions can exhibit group disparities, and proposed interventions
+      intended to reduce default may have heterogeneous effects across customers.
+    objective: >
+      Diagnose and mitigate unfair predictive behavior and evaluate interventions
+      that could reduce default among vulnerable customers.
+    analytical_questions:
+      - Does predictive performance differ across protected groups?
+      - Which mitigation strategies reduce measured disparities?
+      - What average treatment effect is expected from a proposed intervention?
+      - Which customers have the largest conditional treatment effects?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - fairlearn
+      - aif360
+      - econml
+      - dowhy
+    logical_steps:
+      - Load and prepare credit-default records.
+      - Fit a baseline default model.
+      - Calculate group-specific predictive and fairness metrics.
+      - Apply preprocessing or postprocessing mitigation.
+      - Define candidate treatment interventions.
+      - Estimate average and heterogeneous treatment effects.
+      - Compare predictive, fairness, and intervention outcomes.
+    expected_outputs:
+      - baseline default model
+      - fairness metric table
+      - mitigation comparison
+      - ATE estimates
+      - CATE distribution
+      - intervention targeting analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
     authentication_required: false
   verification:
     source: verified
