@@ -27121,6 +27121,290 @@
     data: verified
     code: verified
 
+
+- id: 433
+  name: SMS Spam Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning with R - Second Edition
+    title: Filtering Spam SMS Messages
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2004/MLwR_v2_04.r
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition
+      path: Chapter 04/MLwR_v2_04.r
+    description: >
+      Packt builds an end-to-end text-classification workflow for SMS spam using
+      corpus cleaning, stemming, a document-term matrix, and Naive Bayes.
+  data:
+    description: >
+      Labeled SMS messages classified as spam or legitimate messages.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2004/sms_spam.csv
+    availability: repository
+    files:
+      - Chapter 04/sms_spam.csv
+  original_implementation:
+    technologies:
+      - text mining
+      - document-term matrix
+      - stemming
+      - Naive Bayes
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2004/MLwR_v2_04.r
+  problem:
+    context: >
+      Messaging services need to distinguish unsolicited spam from legitimate messages.
+    objective: >
+      Transform raw SMS text into predictive features and classify messages as spam or ham.
+    analytical_questions:
+      - Which text-cleaning steps materially change the feature space?
+      - Which terms distinguish spam from legitimate messages?
+      - How accurately does Naive Bayes classify unseen messages?
+      - Does Laplace smoothing improve classification performance?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - nltk
+    logical_steps:
+      - Load and inspect labeled SMS messages.
+      - Normalize case and remove noise.
+      - Tokenize, remove stopwords, and stem terms.
+      - Build sparse document-term features.
+      - Split training and test data.
+      - Fit a multinomial Naive Bayes classifier.
+      - Evaluate confusion matrix and classification metrics.
+      - Compare smoothing settings.
+    expected_outputs:
+      - cleaned SMS corpus
+      - document-term matrix
+      - spam classifier
+      - classification metrics
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 434
+  name: Mushroom Toxicity Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning with R - Second Edition
+    title: Identifying Poisonous Mushrooms
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2005/MLwR_v2_05.r
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition
+      path: Chapter 05/MLwR_v2_05.r
+    description: >
+      Packt classifies edible and poisonous mushrooms using interpretable rule learners.
+  data:
+    description: >
+      Mushroom records described by categorical physical characteristics and an edible/poisonous label.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2005/mushrooms.csv
+    availability: repository
+    files:
+      - Chapter 05/mushrooms.csv
+  original_implementation:
+    technologies:
+      - OneR
+      - JRip
+      - C5.0 rules
+      - rule-based classification
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2005/MLwR_v2_05.r
+  problem:
+    context: >
+      Mushroom identification requires highly interpretable rules because misclassification
+      of poisonous specimens has severe consequences.
+    objective: >
+      Learn compact classification rules that distinguish poisonous from edible mushrooms.
+    analytical_questions:
+      - Which observable feature provides the strongest single-rule classifier?
+      - How much does a multi-rule learner improve classification?
+      - Which rules are easiest to interpret operationally?
+      - Which mistakes remain after model improvement?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - wittgenstein
+    logical_steps:
+      - Load and inspect mushroom attributes.
+      - Remove non-informative fields.
+      - Encode categorical predictors.
+      - Establish a simple one-feature rule baseline.
+      - Fit a multi-rule classifier.
+      - Compare predictive performance and rule complexity.
+      - Inspect misclassified cases.
+    expected_outputs:
+      - cleaned mushroom dataset
+      - baseline rule
+      - learned rule set
+      - classification metrics
+      - interpretable decision summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 435
+  name: Wine Quality Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning with R - Second Edition
+    title: Estimating Wine Quality
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2006/MLwR_v2_06.r
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition
+      path: Chapter 06/MLwR_v2_06.r
+    description: >
+      Packt predicts white-wine quality with a regression tree and improves the model
+      using an M5 model tree.
+  data:
+    description: >
+      White-wine physicochemical measurements with expert quality ratings.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2006/whitewines.csv
+    availability: repository
+    files:
+      - Chapter 06/whitewines.csv
+  original_implementation:
+    technologies:
+      - regression trees
+      - model trees
+      - MAE
+      - holdout validation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2006/MLwR_v2_06.r
+  problem:
+    context: >
+      Wine producers want to estimate perceived quality from measurable chemical characteristics.
+    objective: >
+      Predict wine-quality scores and compare simple regression trees with model trees.
+    analytical_questions:
+      - Which physicochemical variables drive predicted wine quality?
+      - How well does a regression tree predict held-out ratings?
+      - Does a model tree reduce prediction error?
+      - How much better are the models than a mean-value baseline?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and profile white-wine data.
+      - Create deterministic train and test partitions.
+      - Fit a regression-tree baseline.
+      - Visualize and interpret the tree.
+      - Evaluate predictions with MAE and correlation.
+      - Fit a stronger tree-based regression model.
+      - Compare both models against a naive baseline.
+    expected_outputs:
+      - wine-quality dataset
+      - regression tree
+      - prediction table
+      - MAE comparison
+      - model interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 436
+  name: Optical Character Recognition
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning with R - Second Edition
+    title: Optical Character Recognition
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2007/MLwR_v2_07.r
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition
+      path: Chapter 07/MLwR_v2_07.r
+    description: >
+      Packt classifies letter images represented by numeric shape features using
+      linear and radial-basis support vector machines.
+  data:
+    description: >
+      Letter-recognition records containing numeric image-derived attributes and target letters.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2007/letterdata.csv
+    availability: repository
+    files:
+      - Chapter 07/letterdata.csv
+  original_implementation:
+    technologies:
+      - support vector machines
+      - linear kernel
+      - radial basis kernel
+      - multiclass classification
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Second-Edition/blob/master/Chapter%2007/MLwR_v2_07.r
+  problem:
+    context: >
+      Scanned characters must be converted into machine-readable letters from numerical image features.
+    objective: >
+      Classify letters and compare linear and nonlinear SVM decision boundaries.
+    analytical_questions:
+      - How accurately can a linear SVM recognize letters?
+      - Which errors remain under a linear decision boundary?
+      - How much does an RBF kernel improve recognition?
+      - Which letters are most frequently confused?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load letter-recognition features.
+      - Create deterministic training and test partitions.
+      - Fit a linear SVM classifier.
+      - Evaluate multiclass predictions.
+      - Fit an RBF-kernel SVM.
+      - Compare accuracy and confusion patterns.
+    expected_outputs:
+      - prepared OCR dataset
+      - linear SVM model
+      - RBF SVM model
+      - confusion matrix
+      - model comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
