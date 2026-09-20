@@ -7114,6 +7114,102 @@
     data: verified
     code: verified
 
+- id: 198
+  name: Corporate Fraud Investigation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Mining
+    title: Integrated Corporate Fraud and Revenue Investigation
+    url: https://github.com/PacktPublishing/R-Data-Mining
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Mining
+      path: Chapter13/final_report.Rmd
+    description: >
+      The book develops one continuous corporate investigation from heterogeneous
+      operational and customer data through validation, default modeling, ensemble
+      scoring, PDF text mining, sentiment analysis, n-grams, shareholder networks,
+      and a final investigative report focused on a revenue decline and possible fraud.
+  data:
+    description: >
+      Cash-flow reports, customer lists, stored operational attributes, Middle East
+      customer records, company credit-bureau PDFs, and shareholder/industry information.
+    source_url: https://github.com/PacktPublishing/R-Data-Mining/tree/master/Data
+    availability: repository
+    files:
+      - Data/cash_flow.csv
+      - Data/customer_list.txt
+      - Data/stored_data.rds
+      - Data/middle_east_customer_list.xlsx
+      - Data/defaulted_companies.xlsx
+      - Data/corpus.rdata
+      - Data/company_credit_bureau_pdfs
+  original_implementation:
+    technologies:
+      - R
+      - data validation
+      - relational integration
+      - logistic regression
+      - support vector machines
+      - random forest
+      - ensemble classification
+      - PDF extraction
+      - sentiment analysis
+      - n-grams
+      - network analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Mining
+  problem:
+    context: >
+      A commercial company experiences a sharp revenue decline and needs to combine
+      structured customer information with external company reports to identify
+      risky companies, suspicious patterns, and relationships that may explain the loss.
+    objective: >
+      Conduct an end-to-end diagnostic investigation that integrates customer risk,
+      textual intelligence, and shareholder relationships to explain the revenue decline.
+    analytical_questions:
+      - Which source records fail data-quality and domain checks?
+      - Which customer attributes are associated with default risk?
+      - Which target companies are flagged consistently by multiple models?
+      - What sentiment and contextual themes appear in company reports?
+      - Do shareholder relationships reveal concentrated or suspicious structures?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - pypdf
+      - nltk
+      - networkx
+    logical_steps:
+      - Load and validate heterogeneous structured sources.
+      - Normalize customer records and join reference data.
+      - Fit and compare multiple default-risk models.
+      - Ensemble model predictions for target companies.
+      - Extract text and structured facts from company PDFs.
+      - Analyze sentiment and n-grams.
+      - Construct the company-shareholder network.
+      - Integrate findings into an investigative report.
+    expected_outputs:
+      - validated customer dataset
+      - default-risk model comparison
+      - flagged company list
+      - company sentiment and phrase summaries
+      - shareholder network
+      - integrated investigation report
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
