@@ -11834,6 +11834,310 @@
     data: verified
     code: verified
 
+- id: 366
+  name: Network Intrusion Cluster Anomalies
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Anomaly Detection with K-means Clustering
+    url: https://github.com/sryza/aas/tree/master/ch05-kmeans
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch05-kmeans/src/main/scala/com/cloudera/datascience/kmeans/RunKMeans.scala
+    description: >
+      O'Reilly iteratively improves K-means clustering of KDD Cup network traffic
+      through scaling, categorical encoding, cluster-quality diagnostics, and
+      distance-based anomaly detection.
+  data:
+    description: >
+      KDD Cup 1999 network connections with protocol, service, traffic statistics,
+      and labeled normal or attack behavior.
+    source_url: https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html
+    availability: public
+    files:
+      - kddcup.data
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - K-means
+      - scaling
+      - one-hot encoding
+      - cluster entropy
+      - anomaly detection
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch05-kmeans/src/main/scala/com/cloudera/datascience/kmeans/RunKMeans.scala
+  problem:
+    context: >
+      Large network-traffic logs contain heterogeneous connection patterns and
+      rare behaviors that may indicate suspicious activity.
+    objective: >
+      Explore connection structure with clustering and identify observations that
+      lie unusually far from learned cluster centers.
+    analytical_questions:
+      - How does preprocessing affect cluster structure?
+      - What number of clusters gives an interpretable partition?
+      - How pure are clusters relative to known traffic labels?
+      - Which connections are most anomalous by distance to centroid?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load and label network-traffic records.
+      - Separate numeric and categorical fields.
+      - Compare raw and scaled clustering solutions.
+      - Encode categorical variables.
+      - Evaluate cluster cost and entropy.
+      - Fit the selected clustering solution.
+      - Rank distant observations as anomalies.
+    expected_outputs:
+      - clustering diagnostics
+      - cluster-label profile
+      - anomaly threshold
+      - ranked anomalous connections
+      - preprocessing sensitivity analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 367
+  name: Wikipedia Latent Concept Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Understanding Wikipedia with Latent Semantic Analysis
+    url: https://github.com/sryza/aas/tree/master/ch06-lsa
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch06-lsa/src/main/scala/com/cloudera/datascience/lsa/RunLSA.scala
+    description: >
+      O'Reilly builds a distributed TF-IDF document-term matrix from Wikipedia,
+      computes truncated SVD, interprets latent concepts, and implements semantic
+      term and document similarity queries.
+  data:
+    description: >
+      English Wikipedia article dump with article titles and text.
+    source_url: https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream.xml.bz2
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - TF-IDF
+      - latent semantic analysis
+      - SVD
+      - semantic similarity
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch06-lsa/src/main/scala/com/cloudera/datascience/lsa/RunLSA.scala
+  problem:
+    context: >
+      A very large encyclopedia contains latent semantic structure that cannot be
+      inspected directly from raw article text.
+    objective: >
+      Discover major latent concepts and support semantic similarity queries across
+      Wikipedia terms and documents.
+    analytical_questions:
+      - Which concepts explain the largest amount of corpus variation?
+      - Which terms characterize each latent concept?
+      - Which documents are most representative of a concept?
+      - Which terms or articles are semantically similar?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - numpy
+    logical_steps:
+      - Parse the Wikipedia dump.
+      - Tokenize and remove stop words.
+      - Build a distributed TF-IDF matrix.
+      - Compute truncated SVD.
+      - Extract top terms and documents per component.
+      - Normalize latent representations.
+      - Implement semantic similarity queries.
+    expected_outputs:
+      - distributed document-term matrix
+      - singular values
+      - latent concept summaries
+      - term similarity results
+      - article similarity results
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 368
+  name: NYC Taxi Geotemporal Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Geospatial and Temporal Data Analysis
+    url: https://github.com/sryza/aas/tree/master/ch08-geotime
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch08-geotime/src/main/scala/com/cloudera/datascience/geotime/RunGeoTime.scala
+    description: >
+      O'Reilly cleans NYC taxi trips, maps pickup and drop-off coordinates into
+      borough polygons, and analyzes trip and driver idle-time patterns by location.
+  data:
+    description: >
+      NYC taxi trip records with vehicle identifier, pickup/drop-off timestamps,
+      and geographic coordinates, plus borough boundaries.
+    source_url: https://storage.googleapis.com/aas-data-sets/trip_data_1.csv.zip
+    availability: public
+    files:
+      - trip_data_1.csv
+      - ch08-geotime/src/main/resources/nyc-boroughs.geojson
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - geospatial joins
+      - temporal analysis
+      - GeoJSON
+      - session analysis
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch08-geotime/src/main/scala/com/cloudera/datascience/geotime/RunGeoTime.scala
+  problem:
+    context: >
+      Taxi trip logs contain spatial and temporal behavior that can reveal where
+      trips concentrate and where drivers spend time waiting between rides.
+    objective: >
+      Diagnose borough-level trip and idle-time patterns from large geotemporal taxi data.
+    analytical_questions:
+      - Which boroughs receive the most trips?
+      - Which records contain implausible trip durations or coordinates?
+      - How long do drivers wait between consecutive trips?
+      - How does idle time differ by borough?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - geopandas
+      - shapely
+    logical_steps:
+      - Load and safely parse taxi trips.
+      - Remove implausible durations and invalid coordinates.
+      - Load borough polygons.
+      - Assign trips to boroughs spatially.
+      - Order trips by driver and time.
+      - Calculate between-trip idle durations.
+      - Compare trip and idle-time patterns by borough.
+    expected_outputs:
+      - cleaned taxi dataset
+      - borough trip counts
+      - idle-time distributions
+      - borough performance table
+      - geotemporal diagnostic findings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 369
+  name: Portfolio Risk Simulation at Scale
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Estimating Financial Risk through Monte Carlo Simulation
+    url: https://github.com/sryza/aas/tree/master/ch09-risk
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch09-risk/src/main/scala/com/cloudera/datascience/risk/RunRisk.scala
+    description: >
+      O'Reilly models stock returns with market factors and runs distributed Monte
+      Carlo simulations to estimate portfolio VaR, CVaR, confidence intervals, and
+      backtesting diagnostics.
+  data:
+    description: >
+      Historical stock and market-factor price series included with the companion repository.
+    source_url: https://github.com/sryza/aas/tree/master/ch09-risk/data
+    availability: repository
+    files:
+      - ch09-risk/data/stocks.zip
+      - ch09-risk/data/factors.zip
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - Monte Carlo simulation
+      - factor models
+      - VaR
+      - CVaR
+      - bootstrap confidence intervals
+      - Kupiec backtest
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch09-risk/src/main/scala/com/cloudera/datascience/risk/RunRisk.scala
+  problem:
+    context: >
+      Portfolio downside risk depends on correlated market-factor movements and
+      requires many simulated scenarios to estimate tail losses reliably.
+    objective: >
+      Quantify portfolio downside risk with scalable factor-based Monte Carlo simulation.
+    analytical_questions:
+      - How should stock returns be related to common market factors?
+      - What loss distribution results from simulated factor scenarios?
+      - What are the portfolio VaR and CVaR?
+      - How uncertain are those tail-risk estimates?
+      - Does historical backtesting support the selected VaR level?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - numpy
+      - pandas
+      - scipy
+    logical_steps:
+      - Load and align stock and factor histories.
+      - Calculate multi-period returns.
+      - Fit factor regressions for portfolio instruments.
+      - Estimate factor means and covariance.
+      - Simulate large numbers of market scenarios.
+      - Calculate portfolio trial returns.
+      - Estimate VaR, CVaR, and confidence intervals.
+      - Backtest VaR against historical returns.
+    expected_outputs:
+      - fitted factor exposures
+      - simulated return distribution
+      - VaR estimate
+      - CVaR estimate
+      - confidence intervals
+      - backtest result
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -22949,6 +23253,154 @@
       - residual diagnostics
       - twelve-period forecast
       - forecast evaluation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 364
+  name: Artist Recommendation at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Recommender Systems
+    url: https://github.com/sryza/aas/tree/master/ch03-recommender
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch03-recommender/src/main/scala/com/cloudera/datascience/recommender/RunRecommender.scala
+    description: >
+      O'Reilly builds an implicit-feedback music recommender with Spark ALS,
+      artist alias resolution, train-validation evaluation, hyperparameter
+      comparison, and personalized top-N recommendation.
+  data:
+    description: >
+      Large-scale user-artist listening counts, artist metadata, and artist alias mappings.
+    source_url: https://storage.googleapis.com/aas-data-sets/profiledata_06-May-2005.tar.gz
+    availability: public
+    files:
+      - user_artist_data.txt
+      - artist_data.txt
+      - artist_alias.txt
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - ALS
+      - implicit feedback
+      - recommendation
+      - AUC evaluation
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch03-recommender/src/main/scala/com/cloudera/datascience/recommender/RunRecommender.scala
+  problem:
+    context: >
+      A music service wants to recommend artists from large volumes of implicit
+      listening behavior rather than explicit star ratings.
+    objective: >
+      Train and evaluate a scalable implicit-feedback recommender and generate
+      personalized artist recommendations.
+    analytical_questions:
+      - How should artist aliases be normalized before modeling?
+      - How does ALS compare with a popularity baseline?
+      - Which ALS hyperparameters improve ranking quality?
+      - Which artists should be recommended to a given listener?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load listening counts and artist metadata.
+      - Resolve artist aliases.
+      - Construct user-artist implicit-feedback records.
+      - Split training and validation interactions.
+      - Train popularity and ALS recommenders.
+      - Compare ranking quality.
+      - Generate top-N artist recommendations.
+    expected_outputs:
+      - cleaned interaction table
+      - recommender benchmark
+      - hyperparameter comparison
+      - personalized artist recommendations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 365
+  name: Forest Cover Classification at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Predicting Forest Cover with Decision Trees
+    url: https://github.com/sryza/aas/tree/master/ch04-rdf
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch04-rdf/src/main/scala/com/cloudera/datascience/rdf/RunRDF.scala
+    description: >
+      O'Reilly predicts forest cover type with decision trees and random forests,
+      evaluates multiclass performance, handles categorical features, and tunes
+      models with Spark pipelines.
+  data:
+    description: >
+      UCI Covertype records with elevation, slope, hydrology, roadway, fire-point,
+      wilderness-area, soil-type, and forest-cover labels.
+    source_url: https://archive.ics.uci.edu/ml/machine-learning-databases/covtype/
+    availability: public
+    files:
+      - covtype.data
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - decision trees
+      - random forests
+      - multiclass classification
+      - train-validation tuning
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch04-rdf/src/main/scala/com/cloudera/datascience/rdf/RunRDF.scala
+  problem:
+    context: >
+      Forest-cover type can be predicted from terrain and environmental
+      measurements at a scale where distributed model training is useful.
+    objective: >
+      Build and tune scalable multiclass models for forest-cover classification.
+    analytical_questions:
+      - Which terrain variables are most informative?
+      - How does a simple tree compare with random forest?
+      - How should categorical soil and wilderness variables be represented?
+      - What performance generalizes to held-out observations?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Load and label the Covertype dataset.
+      - Build a reproducible train/test split.
+      - Establish a random-classifier baseline.
+      - Train a decision tree.
+      - Tune tree parameters.
+      - Train and evaluate a random forest.
+      - Inspect confusion patterns and feature importance.
+    expected_outputs:
+      - multiclass baseline
+      - tuned decision tree
+      - random forest
+      - confusion matrix
+      - feature importance table
+      - held-out accuracy comparison
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
