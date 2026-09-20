@@ -1128,6 +1128,155 @@
     data: verified
     code: verified
 
+- id: 131
+  name: Retail Customer Feature Synthesis
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Feature Engineering Cookbook, Third Edition
+    title: Creating Features with Aggregation Primitives
+    url: https://github.com/PacktPublishing/Python-Feature-Engineering-Cookbook-Third-Edition/blob/main/ch09-featuretools/Recipe6-Creating-features-with-aggregation-primitives.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Feature-Engineering-Cookbook-Third-Edition
+      path: ch09-featuretools/Recipe6-Creating-features-with-aggregation-primitives.ipynb
+    description: >
+      Packt transforms Online Retail II transactions into customer-level analytical
+      features using entity relationships and automated aggregation primitives in Featuretools.
+  data:
+    description: >
+      UK Online Retail II transactions with customer, invoice, product, quantity,
+      price, and timestamp information.
+    source_url: https://archive.ics.uci.edu/dataset/502/online+retail+ii
+    availability: public
+    files:
+      - ch09-featuretools/retail.csv
+  original_implementation:
+    technologies:
+      - Featuretools
+      - entity relationships
+      - aggregation primitives
+      - customer-level feature synthesis
+      - pandas
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Feature-Engineering-Cookbook-Third-Edition/blob/main/ch09-featuretools/Recipe6-Creating-features-with-aggregation-primitives.ipynb
+  problem:
+    context: >
+      Retail transactions are recorded at invoice-line level, while many downstream
+      customer analyses require compact customer-level behavioral features.
+    objective: >
+      Convert transactional retail history into a reproducible customer-level feature table.
+    analytical_questions:
+      - Which entity relationships exist among customers and transactions?
+      - Which aggregate behaviors can be generated automatically?
+      - How do transaction-level attributes become customer-level features?
+      - Which synthesized features are suitable for downstream segmentation or prediction?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - featuretools
+    logical_steps:
+      - Load and clean retail transactions.
+      - Define customer and transaction entities.
+      - Establish entity relationships.
+      - Configure aggregation primitives.
+      - Generate customer-level features.
+      - Inspect feature definitions and distributions.
+      - Export the analytical feature table.
+    expected_outputs:
+      - cleaned retail transactions
+      - entity set
+      - feature definitions
+      - customer-level feature matrix
+      - feature quality summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 132
+  name: Occupancy Time-Series Features
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Feature Engineering Cookbook, Third Edition
+    title: Extracting Time-Series Features with tsfresh
+    url: https://github.com/PacktPublishing/Python-Feature-Engineering-Cookbook-Third-Edition/blob/main/ch10-tsfresh/Recipe5-extract-features-automatically-within-pipeline.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Feature-Engineering-Cookbook-Third-Edition
+      path: ch10-tsfresh/Recipe5-extract-features-automatically-within-pipeline.ipynb
+    description: >
+      Packt transforms minute-level environmental sensor streams into window-level
+      features for occupancy analysis using tsfresh and a reusable feature-augmentation pipeline.
+  data:
+    description: >
+      UCI Occupancy Detection sensor data with temperature, humidity, light, CO2,
+      humidity ratio, timestamps, and room occupancy.
+    source_url: https://archive.ics.uci.edu/dataset/357/occupancy+detection
+    availability: public
+    files:
+      - ch10-tsfresh/occupancy.csv
+      - ch10-tsfresh/occupancy_target.csv
+  original_implementation:
+    technologies:
+      - tsfresh
+      - time-series windows
+      - automated feature extraction
+      - feature selection
+      - scikit-learn pipeline
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Feature-Engineering-Cookbook-Third-Edition/blob/main/ch10-tsfresh/Recipe5-extract-features-automatically-within-pipeline.ipynb
+  problem:
+    context: >
+      Raw sensor readings arrive as dense time series, while occupancy models often
+      require fixed-length feature vectors representing recent environmental behavior.
+    objective: >
+      Convert multivariate sensor sequences into an analytics-ready window-level
+      feature matrix using automated time-series feature extraction.
+    analytical_questions:
+      - How should raw sensor observations be grouped into analytical windows?
+      - Which time-series characteristics can be extracted automatically?
+      - Which extracted features are relevant to occupancy?
+      - How can feature generation be embedded safely in a modeling pipeline?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - tsfresh
+      - scikit-learn
+    logical_steps:
+      - Load and validate sensor observations.
+      - Define fixed temporal windows.
+      - Separate target occupancy labels.
+      - Configure time-series feature calculators.
+      - Extract candidate features from each sensor.
+      - Select relevant features without leaking test information.
+      - Package extraction in a reproducible pipeline.
+    expected_outputs:
+      - windowed sensor dataset
+      - extracted feature matrix
+      - selected feature list
+      - feature extraction pipeline
+      - analytics-ready occupancy table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -8741,6 +8890,84 @@
     data: verified
     code: verified
 
+- id: 133
+  name: Conformal Demand Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Conformal Techniques
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter17/09-Conformal_Techniques.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter17/09-Conformal_Techniques.ipynb
+    description: >
+      Packt compares vanilla conformal prediction, conformalized quantile regression,
+      weighted conformal prediction, and adaptive online conformal inference for
+      uncertainty-aware time-series forecasting.
+  data:
+    description: >
+      M4 hourly time series used with separate training, calibration, and test periods.
+    source_url: https://github.com/Mcompetitions/M4-methods
+    availability: public
+    files:
+      - data/m4/M4-Hourly.csv
+  original_implementation:
+    technologies:
+      - NeuralForecast
+      - LSTM
+      - conformal prediction
+      - quantile regression
+      - weighted conformal prediction
+      - adaptive conformal inference
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter17/09-Conformal_Techniques.ipynb
+  problem:
+    context: >
+      Point forecasts alone do not communicate forecast risk, and conventional
+      uncertainty intervals may lose calibration when the data distribution changes.
+    objective: >
+      Produce and compare calibrated forecast intervals, including methods designed
+      to adapt under temporal distribution shift.
+    analytical_questions:
+      - How well do nominal interval levels match empirical coverage?
+      - What interval width is required for a given coverage target?
+      - How does weighted conformal prediction react to recent observations?
+      - Can adaptive conformal inference maintain coverage under distribution shift?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - neuralforecast
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load and partition time series into training, calibration, and test periods.
+      - Train a base forecasting model.
+      - Produce point and probabilistic forecasts.
+      - Calibrate vanilla conformal intervals.
+      - Compare conformalized quantile and uncertainty approaches.
+      - Apply weighted and adaptive online variants.
+      - Compare coverage and average interval length.
+    expected_outputs:
+      - point forecasts
+      - calibrated prediction intervals
+      - coverage table
+      - average interval length comparison
+      - distribution-shift diagnostics
+      - uncertainty visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -9356,6 +9583,84 @@
       - treatment recommendation table
       - expected response comparison
       - targeted campaign policy
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 134
+  name: Donation Mailing Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Interpretable Machine Learning with Python, Second Edition
+    title: Non-Profit Donation Prediction
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/10/Mailer.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E
+      path: 10/Mailer.ipynb
+    description: >
+      Packt predicts nonprofit donations, compares feature-selection strategies,
+      and evaluates decision thresholds using mailing cost, profit, ROI, and total
+      donations rather than predictive accuracy alone.
+  data:
+    description: >
+      Nonprofit direct-mail fundraising records distributed through the
+      machine-learning-datasets package.
+    source_url: https://pypi.org/project/machine-learning-datasets/
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - random forest
+      - feature selection
+      - SHAP
+      - decision thresholds
+      - profit curves
+      - ROI analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python-2E/blob/main/10/Mailer.ipynb
+  problem:
+    context: >
+      A nonprofit pays a variable cost for every fundraising mailing, so contacting
+      every prospect may generate more donations but lower net profit.
+    objective: >
+      Select model features and a mailing threshold that maximize fundraising
+      profitability while preserving interpretable targeting logic.
+    analytical_questions:
+      - Which features materially improve donation targeting?
+      - How does feature selection affect model performance and interpretability?
+      - How do mailing costs alter the preferred probability threshold?
+      - Which threshold maximizes profit or ROI?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - shap
+      - matplotlib
+    logical_steps:
+      - Load and validate fundraising records.
+      - Build a baseline donation model.
+      - Compare filter, embedded, wrapper, and model-agnostic feature selection.
+      - Score held-out prospects.
+      - Define mailing cost and realized donation economics.
+      - Calculate profit and ROI across probability thresholds.
+      - Select the operational targeting threshold.
+    expected_outputs:
+      - feature-selection comparison
+      - donor probability scores
+      - threshold profit curve
+      - ROI curve
+      - optimized mailing list
+      - targeting interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
