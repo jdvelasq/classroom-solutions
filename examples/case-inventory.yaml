@@ -18082,6 +18082,84 @@
     data: partially_verified
     code: verified
 
+- id: 287
+  name: Credit Risk Prediction Sets
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Guide to Applied Conformal Prediction
+    title: Classical Full Transductive Conformal Prediction for Binary Classification
+    url: https://github.com/PacktPublishing/Practical-Guide-to-Applied-Conformal-Prediction/blob/main/Chapter_05_TCP.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Guide-to-Applied-Conformal-Prediction
+      path: Chapter_05_TCP.ipynb
+    description: >
+      Packt applies transductive conformal prediction to the German Credit dataset,
+      building prediction sets around a probabilistic classifier and explicitly
+      controlling classification uncertainty at a chosen significance level.
+  data:
+    description: >
+      German Credit data from OpenML with customer financial and demographic
+      attributes and a binary credit-risk target.
+    source_url: https://www.openml.org/d/31
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - logistic regression
+      - XGBoost
+      - transductive conformal prediction
+      - nonconformity scores
+      - prediction sets
+      - coverage
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Guide-to-Applied-Conformal-Prediction/blob/main/Chapter_05_TCP.ipynb
+  problem:
+    context: >
+      Credit-risk classification decisions are uncertain, and a single class label
+      hides whether the model can distinguish a borrower confidently from ambiguous cases.
+    objective: >
+      Produce valid prediction sets for credit-risk classification and quantify
+      uncertainty at a user-selected significance level.
+    analytical_questions:
+      - Which borrowers receive singleton versus ambiguous prediction sets?
+      - How does the significance level affect prediction-set size?
+      - Does empirical coverage match the requested confidence level?
+      - How does conformal uncertainty complement ordinary classification accuracy?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - openml
+    logical_steps:
+      - Load and prepare German Credit data.
+      - Split training and test observations reproducibly.
+      - Fit a probabilistic baseline classifier.
+      - Define nonconformity scores.
+      - Construct conformal p-values for candidate labels.
+      - Generate prediction sets at selected significance levels.
+      - Evaluate empirical coverage and set efficiency.
+    expected_outputs:
+      - probabilistic credit classifier
+      - nonconformity score diagnostics
+      - borrower prediction sets
+      - coverage table
+      - prediction-set size distribution
+      - uncertainty interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -21477,4 +21555,83 @@
   verification:
     source: verified
     data: partially_verified
+    code: verified
+
+- id: 288
+  name: House Price Prediction App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: XGBoost for Regression, Predictive Modeling, and Time Series Analysis
+    title: Streamlit House Price Prediction Application
+    url: https://github.com/PacktPublishing/XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis/blob/main/ch13/windows/streamlit_app.py
+    repository:
+      url: https://github.com/PacktPublishing/XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis
+      path: ch13/windows/streamlit_app.py
+    description: >
+      Packt turns a house-price XGBoost model into a Streamlit application with
+      integrated missing-value handling, scaling, categorical encoding, model
+      evaluation, user inputs, and interactive prediction.
+  data:
+    description: >
+      House-pricing records containing lot size, construction year, floor area,
+      neighborhood, house style, garage type, sale condition, and sale price.
+    source_url: https://github.com/PacktPublishing/XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis/blob/main/ch13/windows/house_pricing.csv
+    availability: repository
+    files:
+      - ch13/windows/house_pricing.csv
+  original_implementation:
+    technologies:
+      - XGBoost
+      - scikit-learn Pipeline
+      - ColumnTransformer
+      - one-hot encoding
+      - Streamlit
+      - interactive inference
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/XGBoost-for-Regression-Predictive-Modeling-and-Time-Series-Analysis/blob/main/ch13/windows/streamlit_app.py
+  problem:
+    context: >
+      A property valuation model becomes more useful when nontechnical users can
+      enter property characteristics and obtain a prediction through a consistent
+      preprocessing and inference workflow.
+    objective: >
+      Build an interactive house-price prediction product around a reproducible
+      preprocessing and XGBoost pipeline.
+    analytical_questions:
+      - How should numeric and categorical inputs be preprocessed consistently?
+      - How well does the fitted model perform on held-out homes?
+      - Which user inputs must the application collect?
+      - How can training-time transformations be reused safely at inference time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - streamlit
+    logical_steps:
+      - Load and validate house-pricing data.
+      - Separate numeric and categorical predictors.
+      - Build preprocessing and XGBoost pipeline.
+      - Evaluate held-out RMSE and R-squared.
+      - Define interactive input controls.
+      - Pass user inputs through the fitted pipeline.
+      - Display predictions and model-performance context.
+    expected_outputs:
+      - fitted valuation pipeline
+      - model performance metrics
+      - Streamlit input interface
+      - interactive house-price prediction
+      - deployable analytical application
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
     code: verified
