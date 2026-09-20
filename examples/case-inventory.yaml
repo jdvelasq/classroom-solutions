@@ -9603,6 +9603,150 @@
     data: verified
     code: verified
 
+- id: 289
+  name: Beer Demand Heterogeneity
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: TaddyLab
+    publisher: McGraw-Hill
+    book: Business Data Science
+    title: Beer Demand and Heterogeneous Price Effects
+    url: https://github.com/TaddyLab/BDS/blob/master/examples/dominicks-beer.R
+    repository:
+      url: https://github.com/TaddyLab/BDS
+      path: examples/dominicks-beer.R
+    description: >
+      Dominick's beer demand is modeled with high-dimensional store, product, week,
+      and product-text controls to estimate average and heterogeneous price elasticities.
+  data:
+    description: >
+      Dominick's beer transactions with store, UPC, week, price, units sold,
+      product descriptions, sizes, and store demographics.
+    source_url: https://github.com/TaddyLab/BDS/blob/master/examples/dominicks-beer.rda
+    availability: repository
+    files:
+      - examples/dominicks-beer.rda
+  original_implementation:
+    technologies:
+      - sparse design matrices
+      - regularized regression
+      - double machine learning
+      - heterogeneous treatment effects
+      - price elasticity
+    language: R
+    code_available: true
+    code_url: https://github.com/TaddyLab/BDS/blob/master/examples/dominicks-beer.R
+  problem:
+    context: >
+      Retail price sensitivity varies by product and is confounded by store, week,
+      product characteristics, and promotional differences.
+    objective: >
+      Estimate average and product-specific price elasticities while controlling
+      flexibly for high-dimensional confounders.
+    analytical_questions:
+      - What is the average price elasticity of beer demand?
+      - How much does elasticity vary across products?
+      - How do naive and orthogonal estimates differ?
+      - Which product features are associated with heterogeneous response?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - scikit-learn
+      - econml
+    logical_steps:
+      - Load beer transaction and product data.
+      - Construct price-per-ounce and log-demand variables.
+      - Encode store, product, week, and product-text controls.
+      - Estimate naive and orthogonal price effects.
+      - Estimate product-level heterogeneous elasticities.
+    expected_outputs:
+      - average elasticity estimates
+      - naive-versus-orthogonal comparison
+      - product-specific elasticity distribution
+      - heterogeneous-effect drivers
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 290
+  name: Hockey Player Impact
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: TaddyLab
+    publisher: McGraw-Hill
+    book: Business Data Science
+    title: NHL Player Effects
+    url: https://github.com/TaddyLab/BDS/blob/master/examples/hockey.R
+    repository:
+      url: https://github.com/TaddyLab/BDS
+      path: examples/hockey.R
+    description: >
+      NHL player contributions are estimated from sparse on-ice configurations using
+      regularized logistic regression, partial plus-minus, resampling, and confounding controls.
+  data:
+    description: >
+      NHL goal events represented by team, on-ice configuration, and player sparse
+      matrices distributed through the gamlr package.
+    source_url: https://cran.r-project.org/package=gamlr
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - sparse logistic regression
+      - lasso
+      - cross-validation
+      - partial plus-minus
+      - bootstrap
+      - orthogonal machine learning
+    language: R
+    code_available: true
+    code_url: https://github.com/TaddyLab/BDS/blob/master/examples/hockey.R
+  problem:
+    context: >
+      Raw plus-minus confounds individual performance with team, season, and on-ice context.
+    objective: >
+      Estimate context-adjusted player effects and compare them with conventional plus-minus.
+    analytical_questions:
+      - Which players have the strongest adjusted scoring effects?
+      - How do model-selection rules change selected players?
+      - How does partial plus-minus differ from conventional plus-minus?
+      - How uncertain are prominent player effects?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - scikit-learn
+      - statsmodels
+    logical_steps:
+      - Load sparse goal-event data.
+      - Separate contextual controls and player indicators.
+      - Fit penalized logistic regression.
+      - Construct adjusted scoring effects and partial plus-minus.
+      - Quantify uncertainty with resampling.
+    expected_outputs:
+      - player effect table
+      - model-selection comparison
+      - partial plus-minus ranking
+      - uncertainty intervals
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
