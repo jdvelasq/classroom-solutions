@@ -6196,6 +6196,84 @@
     data: verified
     code: verified
 
+- id: 173
+  name: Credit Card Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Mastering Machine Learning with R, Third Edition
+    title: Clustering
+    url: https://github.com/PacktPublishing/Mastering-Machine-Learning-with-R-Third-Edition/blob/master/Chapter08/8cluster.R
+    repository:
+      url: https://github.com/PacktPublishing/Mastering-Machine-Learning-with-R-Third-Edition
+      path: Chapter08/8cluster.R
+    description: >
+      Packt explores credit-card customer behavior, handles missing values and
+      scaling, evaluates cluster counts, and compares Ward hierarchical clustering
+      with K-means to derive customer segments.
+  data:
+    description: >
+      Credit-card customer behavioral records including balances, purchase and
+      cash-advance activity, credit limits, payments, full-payment rates, and tenure.
+    source_url: https://github.com/PacktPublishing/Mastering-Machine-Learning-with-R-Third-Edition/blob/master/Data/cc_cluster.csv
+    availability: repository
+    files:
+      - Data/cc_cluster.csv
+  original_implementation:
+    technologies:
+      - R
+      - standardization
+      - hierarchical clustering
+      - Ward linkage
+      - K-means
+      - cluster profiling
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Mastering-Machine-Learning-with-R-Third-Edition/blob/master/Chapter08/8cluster.R
+  problem:
+    context: >
+      Credit-card customers differ substantially in balance, purchase, repayment,
+      and cash-advance behavior, creating an opportunity to discover behavioral segments.
+    objective: >
+      Identify and profile customer groups from multidimensional credit-card usage patterns.
+    analytical_questions:
+      - Which behavioral attributes distinguish customers?
+      - How many clusters are supported by within-cluster variation?
+      - Do hierarchical and K-means solutions reveal similar structures?
+      - What financial behavior characterizes each customer segment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and validate credit-card behavior.
+      - Treat missing values explicitly.
+      - Standardize behavioral variables.
+      - Diagnose candidate cluster counts.
+      - Fit Ward hierarchical clustering.
+      - Fit K-means alternatives.
+      - Profile segments in original business units.
+    expected_outputs:
+      - standardized customer matrix
+      - cluster-count diagnostics
+      - hierarchical cluster assignments
+      - K-means assignments
+      - segment profile table
+      - segment interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -13071,6 +13149,172 @@
       - sales visualizations
       - drill-down views
       - working dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 171
+  name: Spam Classification App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Wrangling with R
+    title: Building an Application with Shiny in R
+    url: https://github.com/PacktPublishing/Data-Wrangling-with-R/blob/main/Part4/Chapter14/app.R
+    repository:
+      url: https://github.com/PacktPublishing/Data-Wrangling-with-R
+      path: Part4/Chapter14/app.R
+    description: >
+      Packt turns a random-forest spam classifier into an interactive Shiny
+      application that accepts arbitrary text, derives the same engineered features
+      used during training, returns class probabilities, and visualizes the input measurements.
+  data:
+    description: >
+      UCI Spambase email records with word frequencies, punctuation frequencies,
+      capitalization measures, and spam labels.
+    source_url: https://archive.ics.uci.edu/dataset/94/spambase
+    availability: public
+    files:
+      - Part4/Chapter13/dataset/spambase.data
+      - Part4/Chapter13/dataset/spambase.names
+      - Part4/Chapter14/rf_model.rds
+  original_implementation:
+    technologies:
+      - R
+      - randomForest
+      - Shiny
+      - Plotly
+      - text feature extraction
+      - interactive inference
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Wrangling-with-R/blob/main/Part4/Chapter14/app.R
+  problem:
+    context: >
+      A trained email-spam model needs to become usable by a person who wants to
+      paste new text and immediately receive both a prediction and interpretable
+      input measurements.
+    objective: >
+      Build an interactive application that converts raw email text into model
+      features and serves spam probabilities to end users.
+    analytical_questions:
+      - How should raw text be transformed consistently with the training features?
+      - What probability does the model assign to spam versus non-spam?
+      - Which measurable text characteristics are present in the submitted message?
+      - How should model inference and explanatory measurements be exposed in a simple UI?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - streamlit
+      - plotly
+    logical_steps:
+      - Train or load the spam classifier.
+      - Implement deterministic text-to-feature transformation.
+      - Validate feature compatibility with training.
+      - Build a text-input interface.
+      - Return class probabilities for submitted text.
+      - Visualize derived spam-related measurements.
+      - Test representative spam and non-spam messages.
+    expected_outputs:
+      - trained spam classifier
+      - reusable text feature function
+      - interactive text input
+      - class probability output
+      - feature measurement chart
+      - working analytical application
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 172
+  name: Prescription Forecasting App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science with R
+    title: R Shiny Forecasting Application
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/blob/master/Chapter07/app.R
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R
+      path: Chapter07/app.R
+    description: >
+      Packt builds a Shiny forecasting application over NHS prescription data,
+      allowing users to choose a product, forecast quantity or sales revenue,
+      compare related products, select among several forecasting models, inspect
+      actuals and forecasts, and view prediction intervals.
+  data:
+    description: >
+      NHS prescription product history with product names, chemical categories,
+      monthly quantities, and actual costs stored in the book's product database.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/tree/master/Chapter07
+    availability: repository
+    files:
+      - Chapter07/productdb.rds
+  original_implementation:
+    technologies:
+      - R
+      - Shiny
+      - forecast
+      - Prophet
+      - Holt-Winters
+      - TBATS
+      - ARIMA
+      - Plotly
+      - interactive forecasting
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/blob/master/Chapter07/app.R
+  problem:
+    context: >
+      Prescription analysts need to explore product histories and generate forecasts
+      interactively without writing a separate forecasting script for every drug.
+    objective: >
+      Build a self-service product forecasting application with selectable models,
+      metrics, related-product comparisons, and forecast intervals.
+    analytical_questions:
+      - How have quantity and sales revenue evolved for a selected product?
+      - Which related products have the largest historical volume?
+      - How do alternative forecasting models change the outlook?
+      - What uncertainty surrounds future product demand or revenue?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - prophet
+      - plotly
+      - streamlit
+    logical_steps:
+      - Load and validate prescription history.
+      - Build product and category selectors.
+      - Generate regular monthly time series by product.
+      - Implement alternative forecasting models.
+      - Generate prediction intervals.
+      - Compare the selected product with related products.
+      - Expose forecasts and underlying data interactively.
+    expected_outputs:
+      - selectable product history
+      - model-specific forecasts
+      - prediction interval table
+      - related-product comparison chart
+      - interactive forecasting interface
+      - working analytical application
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
