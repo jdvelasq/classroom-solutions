@@ -3437,3 +3437,82 @@
     source: verified
     data: verified
     code: verified
+
+- id: 46
+  name: Customer History Tracking
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Anindita Mahapatra
+    publisher: Packt
+    book: Simplifying Data Engineering and Analytics with Delta
+    title: Handling Common Data Patterns with Delta
+    url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta
+      path: Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+    description: >
+      Packt demonstrates MERGE operations, change data feed, and slowly changing
+      dimensions for maintaining customer records and history in Delta tables.
+  data:
+    description: >
+      Small structured customer and sales records created directly in the notebook
+      to demonstrate updates, inserts, deletes, and historical versions.
+    source_url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Delta Lake
+      - Spark SQL
+      - MERGE
+      - change data feed
+      - SCD Type 1
+      - SCD Type 2
+    language:
+      - Python
+      - SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+  problem:
+    context: >
+      Analytical systems need customer dimensions that remain current while
+      preserving historical changes required for time-consistent reporting.
+    objective: >
+      Maintain an analytics-ready customer dimension by applying incremental
+      changes and preserving history with slowly changing dimension patterns.
+    analytical_questions:
+      - Which incoming records represent inserts versus updates?
+      - When should current values be overwritten?
+      - When must previous values remain queryable?
+      - How can consumers reconstruct the customer state at a historical point in time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - duckdb
+      - pyarrow
+    logical_steps:
+      - Create deterministic current and incoming customer datasets.
+      - Identify matching, changed, and new business keys.
+      - Implement Type 1 overwrite logic.
+      - Implement Type 2 history-preserving logic.
+      - Validate effective dates and current-row indicators.
+      - Query current and historical customer states.
+      - Produce an incremental-load audit table.
+    expected_outputs:
+      - current customer dimension
+      - historical customer dimension
+      - incremental change set
+      - merge audit table
+      - point-in-time query examples
+      - validation report
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
