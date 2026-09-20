@@ -22766,3 +22766,193 @@
     source: verified
     data: verified
     code: verified
+
+- id: 304
+  name: Abandoned Cart Stream
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics Projects with Apache Spark
+    title: Abandoned Cart Streaming Job
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/abandonedCart/AbandonedCartJob.scala
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+      path: section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/abandonedCart/AbandonedCartJob.scala
+    description: >
+      Detects users whose observed cart stream contains add-to-cart events without a corresponding completion event and emits abandoned-cart notifications.
+  data:
+    description: >
+      Synthetic or generated event streams embedded in the companion Spark Streaming project.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Spark Streaming
+      - DStreams
+      - Kafka sink
+      - stateful event grouping
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/abandonedCart/AbandonedCartJob.scala
+  problem:
+    context: >
+      An e-commerce platform needs to react to cart abandonment while user activity is still recent rather than waiting for a batch report.
+    objective: >
+      Build a streaming analytical product that identifies abandoned carts and emits user-level notifications.
+    analytical_questions:
+      - Which users have only add-to-cart events in the observed stream?
+      - How should events be grouped by user in real time?
+      - How can abandoned-cart detections be emitted to downstream systems?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pandas
+    logical_steps:
+      - Define and validate the incoming event schema.
+      - Build the streaming transformation and aggregation logic.
+      - Apply the case-specific detection rules.
+      - Emit structured downstream events.
+      - Test representative and edge-case event sequences.
+    expected_outputs:
+      - abandoned-cart event stream
+      - user notification records
+      - stream-processing tests
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 305
+  name: Payment Validation Stream
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics Projects with Apache Spark
+    title: Payment Analyzer
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/financial/PaymentAnalyzer.scala
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+      path: section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/financial/PaymentAnalyzer.scala
+    description: >
+      Filters payment events in real time using blacklist checks and amount validation, then emits validated payment events.
+  data:
+    description: >
+      Synthetic or generated event streams embedded in the companion Spark Streaming project.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Spark Streaming
+      - DStreams
+      - Kafka sink
+      - rule-based validation
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/financial/PaymentAnalyzer.scala
+  problem:
+    context: >
+      A payment platform must screen incoming transfers before downstream processing so invalid or blacklisted transactions do not continue through the pipeline.
+    objective: >
+      Build a streaming payment-screening product that validates transactions against operational rules.
+    analytical_questions:
+      - Which sender or recipient accounts are blacklisted?
+      - Which payment amounts violate validation rules?
+      - How should valid transactions be emitted downstream?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pandas
+    logical_steps:
+      - Define and validate the incoming event schema.
+      - Build the streaming transformation and aggregation logic.
+      - Apply the case-specific detection rules.
+      - Emit structured downstream events.
+      - Test representative and edge-case event sequences.
+    expected_outputs:
+      - validated payment stream
+      - rejected-payment diagnostics
+      - stream-processing tests
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 306
+  name: Streaming Top Seller Detection
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics Projects with Apache Spark
+    title: Find Top Seller Job
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/transactions/FindTopSellerJob.scala
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+      path: section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/transactions/FindTopSellerJob.scala
+    description: >
+      Aggregates transactions in sliding windows and emits products that exceed transaction-count or revenue thresholds, enriching detected products before output.
+  data:
+    description: >
+      Synthetic or generated event streams embedded in the companion Spark Streaming project.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Spark Streaming
+      - sliding windows
+      - combineByKey
+      - Kafka sink
+      - stream enrichment
+    language: Scala
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-Projects-with-Apache-Spark/blob/master/section_4/packt-big-data-spark-streaming/spark-streaming/src/main/scala/com/tomekl007/sparkstreaming/transactions/FindTopSellerJob.scala
+  problem:
+    context: >
+      A retailer wants to identify rapidly selling products while demand is unfolding so merchandising or inventory actions can be triggered quickly.
+    objective: >
+      Detect top-selling products continuously from transaction streams using sliding-window rules.
+    analytical_questions:
+      - Which products exceed count or revenue thresholds in each window?
+      - How should sliding-window aggregates be maintained?
+      - How should detected products be enriched before downstream use?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pandas
+    logical_steps:
+      - Define and validate the incoming event schema.
+      - Build the streaming transformation and aggregation logic.
+      - Apply the case-specific detection rules.
+      - Emit structured downstream events.
+      - Test representative and edge-case event sequences.
+    expected_outputs:
+      - top-seller stream
+      - window-level aggregates
+      - enriched product alerts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
