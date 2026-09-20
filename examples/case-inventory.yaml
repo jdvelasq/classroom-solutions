@@ -18683,6 +18683,80 @@
     data: verified
     code: verified
 
+- id: 296
+  name: Stroke Risk Model Comparison
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Essential Statistics for Non-STEM Data Analysts
+    title: Statistics for Classification
+    url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts/blob/master/Chapter09/Chapter9.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts
+      path: Chapter09/Chapter9.ipynb
+    description: >
+      Packt uses a compact stroke-risk dataset to build classification logic from
+      first principles, compare Naive Bayes with logistic regression, and estimate
+      stroke-risk probabilities from weight, diet, and smoking attributes.
+  data:
+    description: >
+      Stroke-risk records with categorical weight, high-oil-diet, smoking, and
+      stroke-risk outcomes.
+    source_url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts/blob/master/Chapter09/strok_risk.csv
+    availability: repository
+    files:
+      - Chapter09/strok_risk.csv
+  original_implementation:
+    technologies:
+      - Naive Bayes
+      - logistic regression
+      - cross-validation
+      - probability prediction
+      - interpretable classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Essential-Statistics-for-Non-STEM-Data-Analysts/blob/master/Chapter09/Chapter9.ipynb
+  problem:
+    context: >
+      A health-risk screening problem requires estimating stroke risk from a small
+      set of interpretable behavioral and physical attributes.
+    objective: >
+      Compare simple probabilistic classifiers and produce interpretable stroke-risk estimates.
+    analytical_questions:
+      - How do weight, smoking, and diet relate to stroke risk?
+      - How does a hand-built Naive Bayes classifier compare with logistic regression?
+      - How stable are predictions under cross-validation?
+      - Which profiles receive the highest estimated risk?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate stroke-risk data.
+      - Encode categorical predictors.
+      - Estimate class and conditional probabilities.
+      - Build a Naive Bayes baseline.
+      - Fit cross-validated logistic regression.
+      - Compare probabilities and classification results.
+      - Interpret high-risk profiles.
+    expected_outputs:
+      - class probability table
+      - Naive Bayes predictions
+      - logistic regression model
+      - cross-validation results
+      - patient risk scores
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
