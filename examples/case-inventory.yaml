@@ -1,161 +1,65 @@
-- id: 1
-  name: BlueBikes Demand Modeling
-  domain: predictive_analytics
-  type: predictiva
-  source:
-    category: institution_course
-    organization: MIT xPRO
-    program: Professional Certificate in Advanced Analytics with AI, ML, and Data Science
-    title: BlueBike case study
-    url: https://executive-ed.xpro.mit.edu/professional-certificate-in-advanced-analytics-with-ai-ml-and-data-science
-    description: >
-      MIT xPRO presents BlueBike as a case study in which regression is used
-      to predict demand, and participants build regression models and use R²
-      to select the best model.
-  data:
-    description: >
-      Public Bluebikes trip-history data for the Boston metropolitan bike-share
-      system. The official data include trip duration, start and stop time,
-      start and end station identifiers and names, bike identifier, and user type.
-    source_url: https://bluebikes.com/system-data
-    availability: public
-    files: []
-    notes: >
-      Bluebikes publishes downloadable trip-history files periodically and also
-      publishes station data. The exact historical extract used by MIT is not
-      publicly identified on the program page, so a Python rewrite should use
-      a frozen public Bluebikes extract while preserving the MIT analytical problem.
-  original_implementation:
-    technologies:
-      - regression
-    language: unknown
-    code_available: false
-    code_url: null
-    notes: >
-      MIT's public program page describes the case and learning objective but does
-      not expose the instructional code or exact teaching dataset.
-  problem:
-    context: >
-      Demand for a bike-sharing system varies over time and across operating
-      conditions. The case studies how regression can be used to explain and
-      predict Bluebikes demand.
-    objective: >
-      Build and compare regression models for bike-share demand and select the
-      preferred model using R², following the case framing published by MIT xPRO.
-    analytical_questions:
-      - How does demand vary over time?
-      - Which available variables are useful for predicting demand?
-      - How well do alternative regression specifications explain demand?
-      - Which model has the strongest R² performance under a reproducible evaluation?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Download and freeze a public Bluebikes trip-history extract.
-      - Load and validate trip timestamps and station fields.
-      - Aggregate individual trips into a demand measure at an appropriate time resolution.
-      - Create reproducible temporal and contextual predictors from the available data.
-      - Define training and evaluation partitions that respect temporal order where appropriate.
-      - Fit multiple regression specifications.
-      - Calculate R² and complementary error metrics.
-      - Compare models and interpret the most important demand patterns.
-      - Produce plots and a concise evidence-based conclusion.
-    expected_outputs:
-      - validated analytical dataset
-      - demand time series or aggregation
-      - fitted regression models
-      - model-comparison table
-      - diagnostic and explanatory visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: partial
-  notes: >
-    High-value benchmark case because it is explicitly used in MIT xPRO continuing
-    education. The public source confirms the case objective, and the official
-    Bluebikes site provides recoverable public data. The exact MIT dataset and code
-    are not public, so they must not be invented.
-
-- id: 2
-  name: Bike Demand Feature Engineering
-  domain: predictive_analytics
+- id: 13
+  name: Document Entity Extraction
+  domain: data_for_analytics
   type: predictiva
   source:
     category: official_tutorial
-    organization: scikit-learn
-    program: Examples - Applications
-    title: Time-related feature engineering
-    url: https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Named Entity Recognition using Transformers
+    url: https://keras.io/examples/nlp/ner_transformers/
     description: >
-      Official scikit-learn example for a bike-sharing demand regression task.
-      It compares alternative encodings of time-related variables and demonstrates
-      periodic feature engineering with SplineTransformer.
+      Official Keras token-classification example for recognizing people,
+      organizations, locations, and miscellaneous entities.
   data:
     description: >
-      Bike Sharing Demand dataset loaded from OpenML. The official example uses
-      fetch_openml with dataset name Bike_Sharing_Demand and version 2.
-    source_url: https://www.openml.org/search?type=data&status=active&id=44063
+      Processed CoNLL-2003 shared-task corpus with token-level named-entity labels.
+    source_url: https://huggingface.co/datasets/eriktks/conll2003
     availability: public
     files: []
-    dataset_identifier: 44063
-    notes: >
-      The dataset contains 17,379 hourly observations and includes calendar,
-      weather, temperature, humidity, windspeed, and bike-rental count variables.
   original_implementation:
     technologies:
-      - scikit-learn
-      - pandas
-      - matplotlib
+      - Transformer
+      - token classification
+      - subword tokenization
+      - Keras
     language: Python
     code_available: true
-    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html
-    notes: >
-      The official page exposes the complete executable example and downloadable
-      source/notebook through the scikit-learn examples infrastructure.
+    code_url: https://keras.io/examples/nlp/ner_transformers/
   problem:
     context: >
-      Bike-sharing demand is strongly affected by daily, weekly, monthly, and
-      yearly cycles. Raw ordinal representations of time can be inadequate for
-      regression models because periodic relationships are not represented explicitly.
+      Organizations receive large volumes of unstructured documents containing
+      people, organizations, locations, products, dates, and other entities that
+      must be converted into structured data before they can be analyzed.
     objective: >
-      Compare strategies for encoding time-related predictors and evaluate how
-      cyclical and periodic feature engineering affects bike-demand regression.
+      Extract named entities from unstructured documents and transform them into
+      structured analytical tables that support counting, grouping, linkage, and downstream analysis.
     analytical_questions:
-      - What temporal cycles are visible in bike demand?
-      - How do ordinal and one-hot encodings represent time variables?
-      - Do sine/cosine or periodic spline representations improve predictive performance?
-      - How sensitive are regression results to the representation of temporal features?
+      - How are token-level entity labels represented?
+      - How should subword tokenization be reconciled with word-level labels?
+      - Which entity types are easiest and hardest to recognize?
+      - How should NER be evaluated beyond overall token accuracy?
   python_rewrite:
     feasible: true
     suggested_libraries:
-      - pandas
-      - scikit-learn
-      - matplotlib
+      - keras
+      - tensorflow
+      - datasets
     logical_steps:
-      - Load Bike_Sharing_Demand version 2 from OpenML.
-      - Explore hourly and weekly demand patterns.
-      - Define a reproducible regression evaluation setup.
-      - Build baseline models using raw or ordinal time features.
-      - Encode categorical time variables with one-hot encoding.
-      - Construct cyclical sine and cosine features.
-      - Construct periodic spline features with SplineTransformer.
-      - Fit and evaluate the alternative pipelines.
-      - Compare predictive performance and interpret the effect of feature representation.
+      - Load the processed CoNLL-2003 corpus.
+      - Inspect tokens and BIO-style entity labels.
+      - Tokenize text and align token-level labels.
+      - Train or fine-tune a Transformer-based entity extractor.
+      - Evaluate precision, recall, and F1 by entity type.
+      - Convert extracted entities into structured analytical tables.
+      - Aggregate entity frequencies and co-occurrences.
+      - Inspect representative extraction errors.
     expected_outputs:
-      - exploratory demand plots
-      - alternative temporal feature matrices
-      - fitted regression pipelines
-      - model-comparison metrics
-      - visual comparison of feature representations
-      - written interpretation
+      - tokenized labeled corpus
+      - trained NER model
+      - per-entity metrics
+      - representative extracted entities
+      - error analysis
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -164,98 +68,752 @@
     source: verified
     data: verified
     code: verified
-  notes: >
-    This is distinct from the MIT BlueBikes case because its primary pedagogical
-    objective is feature representation for periodic variables rather than a
-    general regression-model comparison.
 
-- id: 3
-  name: Bike Demand Forecasting
-  domain: predictive_analytics
+- id: 14
+  name: Document Fact Extraction
+  domain: data_for_analytics
   type: predictiva
   source:
     category: official_tutorial
-    organization: scikit-learn
-    program: Examples - Applications
-    title: Lagged features for time series forecasting
-    url: https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Text Extraction with BERT
+    url: https://keras.io/examples/nlp/text_extraction_with_bert/
     description: >
-      Official scikit-learn example showing how lagged variables engineered with
-      Polars can be used with HistGradientBoostingRegressor for bike-sharing demand
-      forecasting, including time-aware validation and predictive uncertainty.
+      Official Keras example fine-tuning BERT on SQuAD to identify the span of
+      context text that answers a natural-language question.
   data:
     description: >
-      Bike Sharing Demand dataset from OpenML, dataset id 44063. The current
-      scikit-learn example retrieves the raw parquet representation and validates
-      it with a published SHA-256 checksum before loading it with Polars.
-    source_url: https://www.openml.org/search?type=data&status=active&id=44063
+      Stanford Question Answering Dataset containing questions, context paragraphs,
+      and annotated answer spans.
+    source_url: https://rajpurkar.github.io/SQuAD-explorer/
     availability: public
-    files:
-      - dataset_44063.pq
-    dataset_identifier: 44063
-    direct_data_url: https://github.com/scikit-learn/examples-data/raw/refs/heads/master/bike-sharing-demand/dataset_44063.pq
-    sha256: d120af76829af0d256338dc6dd4be5df4fd1f35bf3a283cab66a51c1c6abd06a
-    notes: >
-      The dataset contains 17,379 hourly observations. The direct parquet file and
-      checksum used by the current official example make the case especially easy
-      to reproduce and freeze locally.
+    files: []
   original_implementation:
     technologies:
-      - scikit-learn
-      - Polars
-      - HistGradientBoostingRegressor
-      - TimeSeriesSplit
-      - quantile regression
-      - matplotlib
+      - BERT
+      - Hugging Face Transformers
+      - extractive question answering
+      - Keras
     language: Python
     code_available: true
-    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html
-    notes: >
-      The official example provides complete executable code and downloadable
-      Python and Jupyter notebook versions.
+    code_url: https://keras.io/examples/nlp/text_extraction_with_bert/
   problem:
     context: >
-      Forecasting future bike demand from historical observations requires
-      respecting temporal dependence. Random train-test splitting can leak future
-      information and produce overly optimistic error estimates.
+      Analysts often need to retrieve specific facts from large collections of
+      unstructured documents without manually reading every document.
     objective: >
-      Transform historical bike-demand observations into lagged supervised features,
-      compare naive random validation with time-aware validation, and quantify
-      forecast uncertainty.
+      Build an information-extraction workflow that answers targeted analytical
+      questions by locating relevant factual spans in business or technical documents.
     analytical_questions:
-      - Which lagged demand variables are useful for forecasting the next hour?
-      - How much does a random train-test split underestimate forecasting error?
-      - How does TimeSeriesSplit change the estimated model performance?
-      - What uncertainty intervals can quantile regression provide around forecasts?
+      - How are questions and contexts jointly tokenized?
+      - How are answer start and end positions encoded?
+      - How accurately can the model identify answer spans?
+      - What kinds of questions produce span-selection errors?
   python_rewrite:
     feasible: true
     suggested_libraries:
-      - polars
-      - scikit-learn
-      - matplotlib
+      - keras
+      - transformers
+      - pandas
       - numpy
     logical_steps:
-      - Download the verified parquet dataset used by the official example.
-      - Validate the file checksum.
-      - Load the data with Polars.
-      - Explore the demand series and descriptive statistics.
-      - Create lagged and rolling-window predictors from past demand.
-      - Remove observations with incomplete lag histories.
-      - Fit HistGradientBoostingRegressor using a naive random split.
-      - Evaluate forecasting error.
-      - Replace random validation with TimeSeriesSplit.
-      - Compare naive and time-aware performance estimates.
-      - Fit quantile-loss models for lower and upper predictive bounds.
-      - Visualize forecasts, uncertainty intervals, and actual demand.
-      - Interpret temporal-validation and uncertainty results.
+      - Load and parse SQuAD question-context-answer records.
+      - Treat question-answer pairs as a benchmark for document fact extraction.
+      - Tokenize questions and document contexts.
+      - Map annotated answer spans to token positions.
+      - Fine-tune BERT for answer-span extraction.
+      - Evaluate exact-match and span-recovery performance.
+      - Convert extracted answers into a structured fact table.
+      - Inspect failed extractions and ambiguous questions.
     expected_outputs:
-      - verified local dataset
-      - lagged feature table
-      - fitted forecasting model
-      - random-split evaluation metrics
-      - time-series cross-validation metrics
-      - prediction intervals
-      - forecast visualizations
+      - processed QA dataset
+      - fine-tuned BERT model
+      - exact-match evaluation
+      - predicted answer spans
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 24
+  name: Legal Contract Extraction
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Practical NLP
+    publisher: O'Reilly Media
+    book: Practical Natural Language Processing
+    title: LexNLP
+    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch10/02_LexNLP.ipynb
+    repository:
+      url: https://github.com/practical-nlp/practical-nlp-code
+      path: Ch10/02_LexNLP.ipynb
+    description: >
+      The O'Reilly companion repository uses LexNLP to extract structured information
+      from an unstructured legal SAFE agreement.
+  data:
+    description: >
+      A SAFE investment agreement based on a Y Combinator document template, with
+      entities such as acts, amounts, dates, definitions, and contract sections.
+    source_url: http://ycombinator.com/documents
+    availability: public_template
+    files: []
+  original_implementation:
+    technologies:
+      - LexNLP
+      - pandas
+      - textract
+    language: Python
+    code_available: true
+    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch10/02_LexNLP.ipynb
+  problem:
+    context: >
+      Legal and commercial contracts contain structured facts that are difficult
+      to aggregate when they remain embedded in free text.
+    objective: >
+      Convert contract text into structured analytical tables containing monetary
+      amounts, dates, legal references, sections, and other relevant entities.
+    analytical_questions:
+      - Which monetary amounts and dates appear in the contract?
+      - Which legal acts and references are cited?
+      - Which sections and definitions organize the document?
+      - Which extracted fields can support contract comparison or risk review?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - regex
+      - spacy
+      - dateparser
+    logical_steps:
+      - Freeze a public SAFE agreement.
+      - Extract plain text from the document.
+      - Segment the document into sections.
+      - Extract dates, amounts, legal references, and defined terms.
+      - Normalize extracted values.
+      - Store the results in structured tables.
+      - Validate extracted values against source spans.
+      - Produce a compact contract summary.
+    expected_outputs:
+      - structured contract table
+      - extracted amounts and dates
+      - legal-reference table
+      - section and definition inventory
+      - validation report
+      - written contract summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 29
+  name: Website Traffic Analysis
+  domain: data_for_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Hands-On Data Science and Python Machine Learning
+    title: Cleaning Your Data
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/TopPages.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning
+      path: TopPages.ipynb
+    description: >
+      Packt analyzes an Apache web access log to identify the most-viewed pages,
+      while detecting malformed requests and removing non-human or irrelevant traffic.
+  data:
+    description: >
+      Apache-style web access log included in the companion repository.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/access_log.txt
+    availability: repository
+    files:
+      - access_log.txt
+  original_implementation:
+    technologies:
+      - regular expressions
+      - Python dictionaries
+      - log parsing
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/TopPages.ipynb
+  problem:
+    context: >
+      Raw web-server logs mix genuine page views with malformed requests, bots,
+      administrative endpoints, and other traffic that can distort website metrics.
+    objective: >
+      Clean web access logs and produce reliable page-traffic indicators for website analytics.
+    analytical_questions:
+      - Which pages receive the most genuine human traffic?
+      - Which requests should be excluded from page-view metrics?
+      - What malformed or suspicious patterns occur in the logs?
+      - How much do cleaning rules change the ranking of top pages?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - re
+      - matplotlib
+    logical_steps:
+      - Load the Apache access log.
+      - Parse log fields into structured columns.
+      - Detect malformed records.
+      - Filter non-GET and irrelevant requests.
+      - Identify likely automated or administrative traffic.
+      - Aggregate valid page views.
+      - Compare raw and cleaned rankings.
+      - Visualize the most-viewed pages.
+    expected_outputs:
+      - parsed log table
+      - data-quality report
+      - exclusion summary
+      - cleaned page-view table
+      - top-page ranking
+      - visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 36
+  name: Scooter Trip Pipeline
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Data Engineering with Python
+    title: Cleaning and Orchestrating Scooter Data
+    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter05/AirflowClean.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
+      path: Chapter05/AirflowClean.py
+    description: >
+      Packt uses Apache Airflow and pandas to clean scooter-trip records,
+      normalize timestamps, filter a target date range, and move the resulting artifact.
+  data:
+    description: >
+      Scooter trip records containing trip timing and location-related fields.
+    source_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/tree/master/Chapter05
+    availability: repository
+    files:
+      - Chapter05/scooter.csv
+  original_implementation:
+    technologies:
+      - Apache Airflow
+      - pandas
+      - PythonOperator
+      - BashOperator
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter05/AirflowClean.py
+  problem:
+    context: >
+      Operational mobility records must be cleaned, standardized, filtered,
+      and delivered reliably before downstream analytics can use them.
+    objective: >
+      Build a reproducible batch pipeline that cleans scooter-trip data and
+      delivers a validated analytical dataset for a defined reporting period.
+    analytical_questions:
+      - Which fields require normalization before analysis?
+      - Which records belong to the requested reporting window?
+      - How should pipeline steps be ordered and made repeatable?
+      - What artifact should be delivered to downstream analytics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pathlib
+    logical_steps:
+      - Load and validate the raw scooter-trip file.
+      - Remove irrelevant fields.
+      - Normalize column names and timestamp types.
+      - Filter the required reporting interval.
+      - Write a deterministic cleaned extract.
+      - Validate row counts, schema, and date boundaries.
+      - Record pipeline execution results.
+    expected_outputs:
+      - cleaned scooter dataset
+      - reporting-period extract
+      - validation summary
+      - deterministic output artifact
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 37
+  name: Civic Issue API Pipeline
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Data Engineering with Python
+    title: Querying SeeClickFix
+    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter06/querySCF.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
+      path: Chapter06/querySCF.py
+    description: >
+      Packt demonstrates API-based ingestion of civic-service issues from
+      SeeClickFix for Bernalillo County and serializes the response as JSON.
+  data:
+    description: >
+      Civic issue reports retrieved from the SeeClickFix API, including
+      issue metadata for a selected geographic area.
+    source_url: https://seeclickfix.com/api/v2/issues
+    availability: live_api_or_frozen_replay
+    files: []
+    notes: >
+      The original example uses a live API. A CLASSROOM rewrite should freeze
+      a representative JSON response to guarantee deterministic execution.
+  original_implementation:
+    technologies:
+      - Apache NiFi
+      - REST API
+      - JSON
+      - Jython
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter06/querySCF.py
+  problem:
+    context: >
+      Public-service analytics often depends on operational records exposed
+      through paginated external APIs rather than local files.
+    objective: >
+      Ingest civic-issue records from an external API, normalize and validate
+      them, and deliver a stable dataset ready for downstream analytics.
+    analytical_questions:
+      - Which fields are returned by the civic-issue API?
+      - How should API parameters and pagination be handled?
+      - Which fields require normalization before storage?
+      - How can the ingestion be made reproducible when the live API changes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - requests
+      - pandas
+      - pydantic
+      - pathlib
+    logical_steps:
+      - Request or replay a fixed civic-issue API response.
+      - Validate HTTP and JSON structure.
+      - Normalize nested records into tabular form.
+      - Validate required fields and data types.
+      - Handle pagination deterministically.
+      - Persist raw and normalized artifacts.
+      - Produce an ingestion summary.
+    expected_outputs:
+      - raw JSON snapshot
+      - normalized civic-issue table
+      - schema validation report
+      - ingestion summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+
+- id: 38
+  name: User Event Streaming
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Data Engineering with Python
+    title: Kafka Producer and Consumer
+    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter13/kproducer.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
+      path: Chapter13
+    description: >
+      Packt generates synthetic user records with Faker, publishes them to
+      a Kafka topic, and consumes the resulting JSON event stream.
+  data:
+    description: >
+      Synthetic user events containing name, age, street, city, state, and ZIP code.
+    source_url: null
+    availability: generated
+    files:
+      - Chapter13/kproducer.py
+      - Chapter13/kclient.py
+  original_implementation:
+    technologies:
+      - Apache Kafka
+      - confluent-kafka
+      - Faker
+      - JSON
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/tree/master/Chapter13
+  problem:
+    context: >
+      Analytics systems increasingly depend on operational event streams that
+      must be captured, validated, and made replayable before they can support analysis.
+    objective: >
+      Generate, publish, consume, validate, and persist a reproducible stream of
+      user events as an analytical data source for downstream processing.
+    analytical_questions:
+      - What schema should each event follow?
+      - How are events partitioned and consumed?
+      - How should malformed events be handled?
+      - How can a finite replayable stream be created for downstream analytics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - confluent-kafka
+      - faker
+      - pydantic
+      - pandas
+    logical_steps:
+      - Define a deterministic user-event schema.
+      - Generate a finite seeded event stream.
+      - Serialize events as JSON.
+      - Publish events to a Kafka topic.
+      - Consume and deserialize the events.
+      - Validate schema and count successful and failed records.
+      - Persist a replayable analytical snapshot.
+    expected_outputs:
+      - generated event dataset
+      - Kafka producer
+      - Kafka consumer
+      - validation summary
+      - replayable event snapshot
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 42
+  name: IMDb Movie Data Extraction
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+    publisher: O'Reilly Media
+    book: R for Data Science, Second Edition
+    title: IMDB top films
+    url: https://github.com/hadley/r4ds/blob/main/webscraping.qmd
+    repository:
+      url: https://github.com/hadley/r4ds
+      path: webscraping.qmd
+    description: >
+      R for Data Science uses rvest to extract the IMDb Top 250 table and
+      transform information from an HTML page into structured movie data.
+  data:
+    description: >
+      Archived IMDb Top Movies page containing ranked movie information in HTML.
+    source_url: https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/
+    availability: archived_web_page
+    files: []
+    notes: >
+      The book intentionally uses an archived page, which makes the source more
+      reproducible than scraping the current IMDb layout.
+  original_implementation:
+    technologies:
+      - R
+      - rvest
+      - HTML
+      - CSS selectors
+      - tidyverse
+    language: R
+    code_available: true
+    code_url: https://github.com/hadley/r4ds/blob/main/webscraping.qmd
+  problem:
+    context: >
+      Public analytical data are often published as human-readable web pages
+      rather than downloadable datasets.
+    objective: >
+      Extract movie-ranking data from an archived HTML page and transform it
+      into a clean tabular dataset ready for analytics.
+    analytical_questions:
+      - Which page elements correspond to analytical observations and variables?
+      - How can ranks, titles, years, and ratings be extracted reliably?
+      - Which parsing and type-conversion problems occur after extraction?
+      - How can the resulting dataset be validated against the source page?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - requests
+      - beautifulsoup4
+      - pandas
+    logical_steps:
+      - Download and freeze the archived IMDb HTML page.
+      - Identify the table or repeated movie elements.
+      - Extract the required fields.
+      - Normalize text, numeric, and year values.
+      - Construct a tidy movie table.
+      - Validate row count, rank uniqueness, and required fields.
+      - Persist the analytical dataset locally.
+    expected_outputs:
+      - frozen HTML source
+      - structured movie dataset
+      - extraction validation report
+      - reproducible data-ingestion script
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 43
+  name: Smart Meter Data Preparation
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Manu Joseph and Jeff Tackes
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Preprocessing London Smart Meter Dataset
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+    description: >
+      Packt transforms raw half-hourly London smart-meter blocks and related
+      metadata into a consistent time-series dataset used throughout the forecasting book.
+  data:
+    description: >
+      Half-hourly electricity-consumption readings for 5,567 London households,
+      collected in the Low Carbon London project between 2011 and 2014, with household metadata.
+    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
+    availability: public_with_kaggle_access
+    files: []
+    direct_data_url: https://packt-modern-time-series-py.s3.eu-west-1.amazonaws.com/data.zip
+  original_implementation:
+    technologies:
+      - pandas
+      - time-series reshaping
+      - data wrangling
+      - metadata joins
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+  problem:
+    context: >
+      Raw smart-meter readings arrive in block-oriented files and must be reshaped,
+      combined, validated, and enriched before time-series analytics can begin.
+    objective: >
+      Transform raw household meter files and metadata into a reproducible
+      analytics-ready time-series dataset.
+    analytical_questions:
+      - How should half-hourly block columns be transformed into timestamped observations?
+      - How can household series from multiple files be consolidated?
+      - Which metadata should be joined to each household series?
+      - Which validation rules ensure temporal and household consistency?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pathlib
+      - pyarrow
+    logical_steps:
+      - Load a frozen subset of raw smart-meter blocks.
+      - Reshape half-hour columns into timestamped observations.
+      - Normalize household identifiers and timestamps.
+      - Join household metadata.
+      - Validate expected interval frequency and duplicates.
+      - Persist analytics-ready Parquet tables.
+      - Produce a transformation summary.
+    expected_outputs:
+      - normalized meter-reading table
+      - household metadata table
+      - analytics-ready time-series dataset
+      - validation report
+      - transformation summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 46
+  name: Customer History Tracking
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Anindita Mahapatra
+    publisher: Packt
+    book: Simplifying Data Engineering and Analytics with Delta
+    title: Handling Common Data Patterns with Delta
+    url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta
+      path: Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+    description: >
+      Packt demonstrates MERGE operations, change data feed, and slowly changing
+      dimensions for maintaining customer records and history in Delta tables.
+  data:
+    description: >
+      Small structured customer and sales records created directly in the notebook
+      to demonstrate updates, inserts, deletes, and historical versions.
+    source_url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Delta Lake
+      - Spark SQL
+      - MERGE
+      - change data feed
+      - SCD Type 1
+      - SCD Type 2
+    language:
+      - Python
+      - SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
+  problem:
+    context: >
+      Analytical systems need customer dimensions that remain current while
+      preserving historical changes required for time-consistent reporting.
+    objective: >
+      Maintain an analytics-ready customer dimension by applying incremental
+      changes and preserving history with slowly changing dimension patterns.
+    analytical_questions:
+      - Which incoming records represent inserts versus updates?
+      - When should current values be overwritten?
+      - When must previous values remain queryable?
+      - How can consumers reconstruct the customer state at a historical point in time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - duckdb
+      - pyarrow
+    logical_steps:
+      - Create deterministic current and incoming customer datasets.
+      - Identify matching, changed, and new business keys.
+      - Implement Type 1 overwrite logic.
+      - Implement Type 2 history-preserving logic.
+      - Validate effective dates and current-row indicators.
+      - Query current and historical customer states.
+      - Produce an incremental-load audit table.
+    expected_outputs:
+      - current customer dimension
+      - historical customer dimension
+      - incremental change set
+      - merge audit table
+      - point-in-time query examples
+      - validation report
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 39
+  name: Website Experiment Analysis
+  domain: analytics_fundamentals
+  type: descriptiva
+  source:
+    category: book
+    organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists, Second Edition
+    title: Statistical Experiments and Significance Testing
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%203%20-%20Statistical%20Experiments%20and%20Significance%20Testing.py
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/code/Chapter 3 - Statistical Experiments and Significance Testing.py
+    description: >
+      The O'Reilly companion repository compares alternative web pages using
+      session-time data, permutation tests, t-tests, and related experimental-analysis tools.
+  data:
+    description: >
+      Session times observed for visitors exposed to alternative web pages.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/web_page_data.csv
+    availability: repository
+    files:
+      - data/web_page_data.csv
+  original_implementation:
+    technologies:
+      - permutation testing
+      - t-test
+      - pandas
+      - scipy
+      - statsmodels
+    language:
+      - Python
+      - R
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/python
+  problem:
+    context: >
+      Digital teams frequently compare alternative page designs and need to
+      distinguish meaningful engagement differences from random variation.
+    objective: >
+      Compare visitor engagement between alternative web pages and quantify the
+      evidence that observed differences are larger than expected by chance.
+    analytical_questions:
+      - How do session times differ between the two page variants?
+      - How large is the observed difference in average engagement?
+      - How unusual is that difference under random reassignment?
+      - Do permutation and parametric tests lead to similar conclusions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and validate the page-session dataset.
+      - Summarize and visualize session times by page.
+      - Compute the observed difference in mean engagement.
+      - Build a reproducible permutation test.
+      - Compare the resampling result with a t-test.
+      - Report the estimated effect and statistical evidence together.
+    expected_outputs:
+      - descriptive comparison table
+      - engagement distribution plots
+      - permutation distribution
+      - effect-size summary
+      - significance-test results
       - written interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
@@ -265,10 +823,94 @@
     source: verified
     data: verified
     code: verified
+
+- id: 53
+  name: Leakage Diagnosis
+  domain: analytics_fundamentals
+  type: predictiva
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: Data Leakage
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch11_data_leakage.ipynb
+    description: >
+      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
+      controls, leakage introduced by incorrect standardization, and misleading
+      classification behavior under quasi-complete separation.
+  data:
+    description: >
+      Synthetic regression and classification data generated in the notebook so
+      that the true data-generating process is known and leakage effects can be
+      measured directly.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - linear regression
+      - logistic regression
+      - gradient boosting
+      - train-test splitting
+      - standardization
+      - simulation
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+  problem:
+    context: >
+      Predictive performance can look unrealistically strong when features or
+      preprocessing steps expose information that would not be available at the
+      moment a real prediction is made.
+    objective: >
+      Diagnose common forms of data leakage by comparing apparently valid models
+      with leakage-safe alternatives under a known data-generating process.
+    analytical_questions:
+      - Which candidate features contain information from the future or from the target?
+      - How does standardizing before the train-test split contaminate evaluation?
+      - How much does leakage inflate apparent predictive performance?
+      - Which validation design better represents the information available at prediction time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Generate a deterministic dataset with a known causal and temporal structure.
+      - Define the intended prediction moment and available information.
+      - Fit a baseline leakage-safe model.
+      - Introduce a post-outcome or bad-control feature.
+      - Compare performance with and without the leaked feature.
+      - Compare preprocessing before versus inside the training pipeline.
+      - Inspect classification behavior under near-separation.
+      - Summarize which design choices create invalid performance estimates.
+    expected_outputs:
+      - reproducible synthetic dataset
+      - leakage-safe baseline metrics
+      - leaked-model metrics
+      - preprocessing comparison
+      - performance inflation table
+      - diagnostic plots
+      - leakage audit
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
   notes: >
-    This case uses the same underlying Bike Sharing Demand dataset as case 2 but
-    is a distinct case because the pedagogical problem is forecasting with lagged
-    variables, leakage-aware temporal validation, and uncertainty estimation.
+    This case is intentionally framed as an analytical quality-control problem,
+    not as a generic modeling tutorial. Its transferable professional skill is
+    detecting invalid predictive evidence before deployment.
 
 - id: 4
   name: Project Theme Discovery
@@ -567,6 +1209,1113 @@
     source: verified
     data: verified
     code: verified
+
+- id: 18
+  name: Literary Theme Discovery
+  domain: descriptive_and_diagnostics_analytics
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Topic Modelling
+    url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
+    description: >
+      Official Orange Text Mining example applying topic modeling to a selected
+      corpus of Grimm fairy tales and exploring topic-word and document-topic structure.
+  data:
+    description: >
+      The example uses the bundled grimm-tales-selected.tab corpus.
+    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
+    availability: bundled_with_example
+    files:
+      - grimm-tales-selected.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - text preprocessing
+      - Latent Semantic Indexing
+      - Latent Dirichlet Allocation
+      - Hierarchical Dirichlet Process
+      - MDS
+      - word cloud
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      A literary corpus contains recurring latent themes that can be characterized
+      through the words associated with each topic and the topic mixture of each document.
+    objective: >
+      Discover and visualize latent themes in Grimm fairy tales using multiple topic-modeling approaches.
+    analytical_questions:
+      - Which terms are most representative of each topic?
+      - How strongly is each topic represented across documents?
+      - How do topics relate to one another in a low-dimensional map?
+      - How do LSI and LDA differ in interpretability?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load the Grimm tales corpus.
+      - Tokenize and remove stopwords.
+      - Build a document-term representation.
+      - Fit LSI and LDA topic models.
+      - Extract topic-term and document-topic weights.
+      - Visualize representative words and topic similarities.
+      - Interpret the discovered themes.
+    expected_outputs:
+      - cleaned corpus
+      - topic models
+      - topic-term tables
+      - document-topic matrix
+      - topic visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+
+- id: 19
+  name: Election Sentiment Analytics
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Sentiment Analysis
+    url: https://orange3-text.readthedocs.io/en/stable/widgets/sentimentanalysis.html
+    description: >
+      Official Orange example computing document-level sentiment features on a corpus
+      of 2016 election tweets using lexicon-based sentiment methods.
+  data:
+    description: >
+      Bundled Election-2016-tweets.tab corpus used in the Orange Text Mining example.
+    source_url: https://orange3-text.readthedocs.io/en/stable/widgets/sentimentanalysis.html
+    availability: bundled_with_example
+    files:
+      - Election-2016-tweets.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - VADER
+      - Liu-Hu sentiment
+      - multilingual sentiment lexicons
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      Social-media messages can be summarized through sentiment scores to compare
+      the tone of different authors or groups.
+    objective: >
+      Compute sentiment features for election-related tweets and compare sentiment patterns.
+    analytical_questions:
+      - What is the distribution of positive, negative, neutral, and compound sentiment?
+      - How does sentiment differ across authors?
+      - How sensitive are conclusions to the sentiment method used?
+      - Which tweets produce extreme sentiment scores?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - nltk
+      - matplotlib
+    logical_steps:
+      - Load the election-tweet corpus.
+      - Normalize text while preserving sentiment-bearing tokens.
+      - Apply VADER and a second lexicon-based method.
+      - Append sentiment scores to each document.
+      - Compare score distributions across authors.
+      - Inspect extreme and conflicting cases.
+      - Visualize and interpret the results.
+    expected_outputs:
+      - sentiment-enriched corpus
+      - author-level summaries
+      - distribution plots
+      - method-comparison table
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+  notes: >
+    This is a descriptive lexicon-based social-media sentiment case, not a duplicate
+    of CLASSROOM's supervised Financial PhraseBank classifier.
+
+- id: 20
+  name: Election Emotion Analytics
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Tweet Profiler
+    url: https://orange3-text.readthedocs.io/en/latest/widgets/tweetprofiler.html
+    description: >
+      Official Orange example profiling emotions in election tweets using Ekman,
+      Plutchik, or Profile of Mood States emotion taxonomies.
+  data:
+    description: >
+      Election-2016-tweets.tab corpus used in the official Orange example.
+    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/tweetprofiler.html
+    availability: bundled_with_example
+    files:
+      - Election-2016-tweets.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - emotion classification
+      - Ekman taxonomy
+      - Plutchik taxonomy
+      - POMS
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      Sentiment polarity alone can hide important distinctions among emotions such
+      as anger, fear, joy, and sadness in political social-media messages.
+    objective: >
+      Profile and compare emotional patterns across authors in a tweet corpus.
+    analytical_questions:
+      - Which emotions dominate the corpus?
+      - How do emotion distributions differ across authors?
+      - How do multi-class and multi-label outputs differ?
+      - Which messages have the strongest emotion probabilities?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - transformers
+      - matplotlib
+    logical_steps:
+      - Load the election-tweet corpus.
+      - Select an open emotion-classification model or reproducible lexicon.
+      - Compute emotion probabilities for each document.
+      - Aggregate emotion scores by author.
+      - Compare dominant emotions and uncertainty.
+      - Visualize and interpret author-level emotion profiles.
+    expected_outputs:
+      - emotion-enriched corpus
+      - author-level profiles
+      - emotion-distribution plots
+      - representative examples
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+
+- id: 21
+  name: Customer Review Analytics
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: official_tutorial
+    organization: KNIME
+    program: KNIME Analytics Platform AI Tutorials
+    title: Build a restaurant assistant agent
+    url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
+    description: >
+      Official KNIME tutorial includes a tool workflow that classifies restaurant
+      customer reviews as positive or negative with an LLM and summarizes the results.
+  data:
+    description: >
+      Customer-review table with a Review column supplied to the tool workflow.
+    source_url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
+    availability: tutorial_example
+    files: []
+  original_implementation:
+    technologies:
+      - KNIME Analytics Platform
+      - LLM Prompter
+      - Value Counter
+      - Table Transposer
+      - agent tool workflow
+    language: visual_workflow
+    code_available: true
+    code_url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
+  problem:
+    context: >
+      Restaurant operators need a compact summary of qualitative customer feedback.
+      The workflow classifies each review and converts row-level predictions into
+      an aggregate message usable by an agent.
+    objective: >
+      Classify customer-review sentiment with an LLM and summarize the resulting distribution.
+    analytical_questions:
+      - How consistently does the LLM classify review sentiment?
+      - What proportion of reviews are positive and negative?
+      - Which reviews are ambiguous or inconsistent?
+      - How can row-level results be converted into a concise analytical summary?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - openai
+      - pydantic
+      - matplotlib
+    logical_steps:
+      - Load a fixed customer-review dataset.
+      - Define a deterministic sentiment-classification prompt and output schema.
+      - Classify each review.
+      - Validate and normalize model outputs.
+      - Count sentiment categories.
+      - Produce a summary table and visualization.
+      - Inspect ambiguous or invalid responses.
+    expected_outputs:
+      - sentiment-enriched review table
+      - category counts
+      - validation report
+      - visualization
+      - concise summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: partial
+    code: verified
+
+- id: 23
+  name: Customer Aspect Analytics
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Practical NLP
+    publisher: O'Reilly Media
+    book: Practical Natural Language Processing
+    title: Aspect Based Sentiment Analysis
+    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
+    repository:
+      url: https://github.com/practical-nlp/practical-nlp-code
+      path: Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
+    description: >
+      The O'Reilly companion repository demonstrates aspect-based sentiment analysis
+      with restaurant-review statements using VADER and Stanford CoreNLP.
+  data:
+    description: >
+      Review-like restaurant sentences that contain positive and negative opinions
+      about different product or service aspects.
+    source_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
+    availability: embedded_examples
+    files: []
+  original_implementation:
+    technologies:
+      - VADER
+      - Stanford CoreNLP
+      - NLTK
+    language: Python
+    code_available: true
+    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
+  problem:
+    context: >
+      Aggregate sentiment can hide the fact that customers evaluate different
+      aspects of the same product or service differently.
+    objective: >
+      Identify product or service aspects in customer feedback and summarize
+      sentiment separately for each aspect.
+    analytical_questions:
+      - Which product or service aspects receive the most feedback?
+      - Which aspects have predominantly positive or negative sentiment?
+      - Which reviews contain mixed sentiment across aspects?
+      - Which aspects should be prioritized for managerial attention?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - nltk
+      - spacy
+      - matplotlib
+    logical_steps:
+      - Load or freeze a review corpus with multiple aspects per review.
+      - Normalize and sentence-split the review text.
+      - Identify candidate aspects.
+      - Compute sentiment at phrase or aspect level.
+      - Aggregate sentiment by aspect.
+      - Rank aspects by volume and negative sentiment.
+      - Visualize the results and interpret operational implications.
+    expected_outputs:
+      - aspect-level review table
+      - aspect frequency table
+      - aspect sentiment summary
+      - priority ranking
+      - visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 25
+  name: Social Trend Monitoring
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Practical NLP
+    publisher: O'Reilly Media
+    book: Practical Natural Language Processing
+    title: Trending Topics
+    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch8/03_TrendingTopics.ipynb
+    repository:
+      url: https://github.com/practical-nlp/practical-nlp-code
+      path: Ch8/03_TrendingTopics.ipynb
+    description: >
+      The O'Reilly companion repository retrieves trending Twitter topics by
+      geographic location and compares overlapping trends.
+  data:
+    description: >
+      Location-specific social-media trend lists originally retrieved through
+      the Twitter API.
+    source_url: null
+    availability: live_api_or_frozen_replay
+    files: []
+    notes: >
+      A CLASSROOM rewrite should use a frozen historical trend snapshot or an open
+      alternative source so that execution does not depend on current Twitter/X access.
+  original_implementation:
+    technologies:
+      - Tweepy
+      - Twitter API
+      - JSON
+    language: Python
+    code_available: true
+    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch8/03_TrendingTopics.ipynb
+  problem:
+    context: >
+      Organizations need to detect which topics are gaining attention and how
+      trend patterns differ across geographic markets.
+    objective: >
+      Compare social-media trend lists across locations and identify common,
+      local, and emerging topics for monitoring.
+    analytical_questions:
+      - Which topics are trending in each location?
+      - Which trends are shared across markets?
+      - Which trends are unique to a location?
+      - Which topics persist or disappear across successive snapshots?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load frozen trend snapshots for multiple locations and times.
+      - Normalize topic names.
+      - Compare intersections and differences across locations.
+      - Measure persistence across snapshots.
+      - Rank topics by geographic reach and persistence.
+      - Visualize trend overlap and evolution.
+    expected_outputs:
+      - normalized trend table
+      - cross-location overlap table
+      - persistence metrics
+      - ranked trend list
+      - visualizations
+      - written monitoring summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+
+- id: 28
+  name: Speech Transcript Clustering
+  domain: descriptive_and_diagnostics_analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Clustering Speech-to-Text Transcriptions
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-10/text-clustering.ipynb
+    description: >
+      Packt develops an end-to-end workflow from speech recognition to unsupervised
+      clustering and topic discovery of transcribed documents.
+  data:
+    description: >
+      Audio files, reference transcriptions, metadata, and public-domain source texts
+      distributed or referenced by the book repository.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-10/data.zip
+    availability: public
+    files: []
+    notes: >
+      The notebook also references WAV archives and public-domain texts from
+      Internet Archive and Project Gutenberg.
+  original_implementation:
+    technologies:
+      - speech recognition
+      - hierarchical clustering
+      - k-means
+      - DBSCAN
+      - LDA
+      - word error rate
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
+  problem:
+    context: >
+      Organizations may receive large collections of recorded calls, interviews,
+      or meetings whose content must be organized without predefined labels.
+    objective: >
+      Transcribe audio records, assess transcription quality, and group the resulting
+      text into interpretable clusters and topics.
+    analytical_questions:
+      - How accurate are the generated transcriptions?
+      - Which transcripts form coherent groups?
+      - How does clustering change across algorithms?
+      - Which topics characterize each cluster?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - speech_recognition
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load the audio and reference metadata.
+      - Generate or load speech-to-text transcriptions.
+      - Measure transcription error where reference text exists.
+      - Vectorize the transcripts.
+      - Fit hierarchical, k-means, and DBSCAN clustering.
+      - Compare cluster quality and choose plausible structures.
+      - Apply topic modeling within or across clusters.
+      - Interpret the resulting groups.
+    expected_outputs:
+      - transcript dataset
+      - transcription quality metrics
+      - document vectors
+      - cluster assignments
+      - topic summaries
+      - cluster visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 47
+  name: Seattle Bicycle Patterns
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Jake VanderPlas
+    publisher: O'Reilly Media
+    book: Python Data Science Handbook
+    title: Visualizing Seattle Bicycle Counts
+    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/03.11-Working-with-Time-Series.ipynb
+    repository:
+      url: https://github.com/jakevdp/PythonDataScienceHandbook
+      path: notebooks_v1/03.11-Working-with-Time-Series.ipynb
+    description: >
+      The O'Reilly case analyzes hourly bicycle counts from Seattle's Fremont Bridge
+      using resampling, rolling windows, and time-based summaries.
+  data:
+    description: >
+      Hourly east- and west-side bicycle counts from the Fremont Bridge automated counter.
+    source_url: https://data.seattle.gov/Transportation/Fremont-Bridge-Hourly-Bicycle-Counts-by-Month-Octo/65db-xm6k
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - time-series resampling
+      - rolling windows
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/03.11-Working-with-Time-Series.ipynb
+  problem:
+    context: >
+      Urban mobility planners need to understand recurring bicycle-traffic patterns
+      across hours, days, and longer periods.
+    objective: >
+      Analyze Fremont Bridge bicycle counts to reveal temporal traffic patterns,
+      directional differences, and longer-term variation.
+    analytical_questions:
+      - How does bicycle traffic vary by hour and day?
+      - How do east- and west-side counts differ?
+      - Which weekly and seasonal patterns are visible?
+      - How do rolling summaries reveal longer-term changes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Download and freeze a public Fremont Bridge extract.
+      - Parse timestamps and validate hourly frequency.
+      - Create total and directional counts.
+      - Resample to daily and weekly summaries.
+      - Compute rolling averages.
+      - Compare temporal patterns by hour, weekday, and direction.
+      - Visualize and interpret recurring mobility patterns.
+    expected_outputs:
+      - validated bicycle-count dataset
+      - temporal summary tables
+      - rolling trend series
+      - hourly and weekly pattern plots
+      - directional comparison
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 48
+  name: Unlabeled Digit Discovery
+  domain: descriptive_and_diagnostics_analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Jake VanderPlas
+    publisher: O'Reilly Media
+    book: Python Data Science Handbook
+    title: k-means on digits
+    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
+    repository:
+      url: https://github.com/jakevdp/PythonDataScienceHandbook
+      path: notebooks_v1/05.11-K-Means.ipynb
+    description: >
+      The O'Reilly example clusters handwritten digit images without using their labels,
+      then interprets cluster centers as representative digit patterns.
+  data:
+    description: >
+      scikit-learn handwritten digits dataset with 1,797 images represented by
+      64 pixel-intensity features.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
+    availability: bundled_with_sklearn
+    files: []
+  original_implementation:
+    technologies:
+      - k-means
+      - scikit-learn
+      - image clustering
+    language: Python
+    code_available: true
+    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
+  problem:
+    context: >
+      Analysts may need to discover meaningful structure in image collections
+      before reliable labels are available.
+    objective: >
+      Group handwritten digit images into latent visual clusters and assess how
+      closely unsupervised groups recover recognizable digit categories.
+    analytical_questions:
+      - What visual groups emerge without using labels?
+      - What does each cluster center represent?
+      - Which true digit classes are recovered cleanly?
+      - Which digits are frequently mixed within the same cluster?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load the digits dataset without exposing labels to the clustering model.
+      - Standardize or inspect pixel features.
+      - Fit k-means with ten clusters.
+      - Visualize cluster centers.
+      - Map clusters to known labels only for evaluation.
+      - Build a cluster-versus-label contingency table.
+      - Interpret ambiguous and well-separated groups.
+    expected_outputs:
+      - image feature matrix
+      - cluster assignments
+      - cluster-center images
+      - cluster-label contingency table
+      - clustering evaluation
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 49
+  name: NYC Taxi Anomaly Detection
+  domain: descriptive_and_diagnostics_analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Tarek A. Atwan
+    publisher: Packt
+    book: Time Series Analysis with Python Cookbook
+    title: Outlier Detection Using Statistical Methods and Unsupervised Machine Learning
+    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+    repository:
+      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+      path: code/Ch14/Chapter 14.ipynb
+    description: >
+      Packt analyzes NYC taxi passenger counts with known unusual dates and compares
+      multiple unsupervised anomaly-detection methods, including KNN, Isolation Forest,
+      and COPOD.
+  data:
+    description: >
+      Aggregated NYC taxi passenger counts at 30-minute intervals from July 2014
+      through January 2015, with known anomalies associated with major events and weather.
+    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch14/nyc_taxi.csv
+    availability: repository
+    files:
+      - datasets/Ch14/nyc_taxi.csv
+    notes: >
+      The book states that the raw observations originate from the NYC Taxi and
+      Limousine Commission and are included in aggregated form.
+  original_implementation:
+    technologies:
+      - PyOD
+      - KNN anomaly detection
+      - Isolation Forest
+      - COPOD
+      - pandas
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch14/Chapter%2014.ipynb
+  problem:
+    context: >
+      Transportation systems need to identify demand patterns that deviate sharply
+      from normal behavior because of holidays, events, severe weather, or disruptions.
+    objective: >
+      Detect unusual taxi-demand periods and compare anomaly scores from alternative
+      unsupervised detection methods against known exceptional dates.
+    analytical_questions:
+      - Which dates show the strongest deviations from normal taxi demand?
+      - Do different anomaly detectors identify the same unusual periods?
+      - How do anomaly scores rank known events such as holidays and storms?
+      - Which detected anomalies lack an obvious known explanation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - pyod
+      - matplotlib
+    logical_steps:
+      - Load and validate the taxi-demand series.
+      - Aggregate to an appropriate daily representation.
+      - Mark the known reference anomaly dates.
+      - Fit several unsupervised anomaly detectors.
+      - Standardize or rank anomaly scores.
+      - Compare detected anomalies across methods.
+      - Evaluate overlap with known exceptional events.
+      - Visualize anomalous periods on the time series.
+    expected_outputs:
+      - validated taxi-demand series
+      - anomaly score table
+      - detector comparison
+      - ranked anomaly dates
+      - time-series anomaly plots
+      - written operational interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 52
+  name: Growth Driver Decomposition
+  domain: descriptive_and_diagnostics_analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: Growth Decompositions
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch3_growth_decompositions.ipynb
+    description: >
+      The O'Reilly notebook develops additive, multiplicative, and mix-rate
+      decompositions for understanding which components generate observed growth.
+      It includes revenue decomposed into active users and revenue per user and a
+      multi-segment mix-rate example.
+  data:
+    description: >
+      Deterministic synthetic time series and customer-segment data generated in
+      the notebook to isolate and explain the mechanics of growth decomposition.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - numpy
+      - additive decomposition
+      - multiplicative decomposition
+      - mix-rate decomposition
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
+  problem:
+    context: >
+      Business growth can hide opposing movements in customer volume, customer
+      value, and segment mix. Looking only at the aggregate metric does not reveal
+      which forces created the observed change.
+    objective: >
+      Decompose changes in an aggregate business metric into interpretable growth
+      drivers and distinguish volume, rate, and mix effects.
+    analytical_questions:
+      - How much of total growth comes from changes in volume versus rate?
+      - How do multiplicative drivers such as active users and revenue per user combine?
+      - How much apparent growth is caused by changes in customer-segment mix?
+      - Which components are tailwinds and which are headwinds?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Create or load a reproducible business-metric time series.
+      - Validate the accounting relationship between the aggregate metric and its drivers.
+      - Compute additive changes between periods.
+      - Compute multiplicative growth contributions.
+      - Build a segmented dataset with segment volumes and rates.
+      - Separate within-segment rate effects from mix effects.
+      - Reconcile component contributions with the observed aggregate change.
+      - Visualize and interpret the resulting growth drivers.
+    expected_outputs:
+      - driver-level decomposition table
+      - reconciled aggregate growth calculation
+      - volume and rate contribution analysis
+      - segment mix-rate decomposition
+      - contribution visualizations
+      - written business interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    Strong analytics case because the core task is not forecasting but explaining
+    why a business metric changed. It is distinct from the existing experiment and
+    descriptive-summary cases.
+
+- id: 1
+  name: BlueBikes Demand Modeling
+  domain: predictive_analytics
+  type: predictiva
+  source:
+    category: institution_course
+    organization: MIT xPRO
+    program: Professional Certificate in Advanced Analytics with AI, ML, and Data Science
+    title: BlueBike case study
+    url: https://executive-ed.xpro.mit.edu/professional-certificate-in-advanced-analytics-with-ai-ml-and-data-science
+    description: >
+      MIT xPRO presents BlueBike as a case study in which regression is used
+      to predict demand, and participants build regression models and use R²
+      to select the best model.
+  data:
+    description: >
+      Public Bluebikes trip-history data for the Boston metropolitan bike-share
+      system. The official data include trip duration, start and stop time,
+      start and end station identifiers and names, bike identifier, and user type.
+    source_url: https://bluebikes.com/system-data
+    availability: public
+    files: []
+    notes: >
+      Bluebikes publishes downloadable trip-history files periodically and also
+      publishes station data. The exact historical extract used by MIT is not
+      publicly identified on the program page, so a Python rewrite should use
+      a frozen public Bluebikes extract while preserving the MIT analytical problem.
+  original_implementation:
+    technologies:
+      - regression
+    language: unknown
+    code_available: false
+    code_url: null
+    notes: >
+      MIT's public program page describes the case and learning objective but does
+      not expose the instructional code or exact teaching dataset.
+  problem:
+    context: >
+      Demand for a bike-sharing system varies over time and across operating
+      conditions. The case studies how regression can be used to explain and
+      predict Bluebikes demand.
+    objective: >
+      Build and compare regression models for bike-share demand and select the
+      preferred model using R², following the case framing published by MIT xPRO.
+    analytical_questions:
+      - How does demand vary over time?
+      - Which available variables are useful for predicting demand?
+      - How well do alternative regression specifications explain demand?
+      - Which model has the strongest R² performance under a reproducible evaluation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Download and freeze a public Bluebikes trip-history extract.
+      - Load and validate trip timestamps and station fields.
+      - Aggregate individual trips into a demand measure at an appropriate time resolution.
+      - Create reproducible temporal and contextual predictors from the available data.
+      - Define training and evaluation partitions that respect temporal order where appropriate.
+      - Fit multiple regression specifications.
+      - Calculate R² and complementary error metrics.
+      - Compare models and interpret the most important demand patterns.
+      - Produce plots and a concise evidence-based conclusion.
+    expected_outputs:
+      - validated analytical dataset
+      - demand time series or aggregation
+      - fitted regression models
+      - model-comparison table
+      - diagnostic and explanatory visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+  notes: >
+    High-value benchmark case because it is explicitly used in MIT xPRO continuing
+    education. The public source confirms the case objective, and the official
+    Bluebikes site provides recoverable public data. The exact MIT dataset and code
+    are not public, so they must not be invented.
+
+- id: 2
+  name: Bike Demand Feature Engineering
+  domain: predictive_analytics
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Applications
+    title: Time-related feature engineering
+    url: https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html
+    description: >
+      Official scikit-learn example for a bike-sharing demand regression task.
+      It compares alternative encodings of time-related variables and demonstrates
+      periodic feature engineering with SplineTransformer.
+  data:
+    description: >
+      Bike Sharing Demand dataset loaded from OpenML. The official example uses
+      fetch_openml with dataset name Bike_Sharing_Demand and version 2.
+    source_url: https://www.openml.org/search?type=data&status=active&id=44063
+    availability: public
+    files: []
+    dataset_identifier: 44063
+    notes: >
+      The dataset contains 17,379 hourly observations and includes calendar,
+      weather, temperature, humidity, windspeed, and bike-rental count variables.
+  original_implementation:
+    technologies:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html
+    notes: >
+      The official page exposes the complete executable example and downloadable
+      source/notebook through the scikit-learn examples infrastructure.
+  problem:
+    context: >
+      Bike-sharing demand is strongly affected by daily, weekly, monthly, and
+      yearly cycles. Raw ordinal representations of time can be inadequate for
+      regression models because periodic relationships are not represented explicitly.
+    objective: >
+      Compare strategies for encoding time-related predictors and evaluate how
+      cyclical and periodic feature engineering affects bike-demand regression.
+    analytical_questions:
+      - What temporal cycles are visible in bike demand?
+      - How do ordinal and one-hot encodings represent time variables?
+      - Do sine/cosine or periodic spline representations improve predictive performance?
+      - How sensitive are regression results to the representation of temporal features?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load Bike_Sharing_Demand version 2 from OpenML.
+      - Explore hourly and weekly demand patterns.
+      - Define a reproducible regression evaluation setup.
+      - Build baseline models using raw or ordinal time features.
+      - Encode categorical time variables with one-hot encoding.
+      - Construct cyclical sine and cosine features.
+      - Construct periodic spline features with SplineTransformer.
+      - Fit and evaluate the alternative pipelines.
+      - Compare predictive performance and interpret the effect of feature representation.
+    expected_outputs:
+      - exploratory demand plots
+      - alternative temporal feature matrices
+      - fitted regression pipelines
+      - model-comparison metrics
+      - visual comparison of feature representations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    This is distinct from the MIT BlueBikes case because its primary pedagogical
+    objective is feature representation for periodic variables rather than a
+    general regression-model comparison.
+
+- id: 3
+  name: Bike Demand Forecasting
+  domain: predictive_analytics
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Applications
+    title: Lagged features for time series forecasting
+    url: https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html
+    description: >
+      Official scikit-learn example showing how lagged variables engineered with
+      Polars can be used with HistGradientBoostingRegressor for bike-sharing demand
+      forecasting, including time-aware validation and predictive uncertainty.
+  data:
+    description: >
+      Bike Sharing Demand dataset from OpenML, dataset id 44063. The current
+      scikit-learn example retrieves the raw parquet representation and validates
+      it with a published SHA-256 checksum before loading it with Polars.
+    source_url: https://www.openml.org/search?type=data&status=active&id=44063
+    availability: public
+    files:
+      - dataset_44063.pq
+    dataset_identifier: 44063
+    direct_data_url: https://github.com/scikit-learn/examples-data/raw/refs/heads/master/bike-sharing-demand/dataset_44063.pq
+    sha256: d120af76829af0d256338dc6dd4be5df4fd1f35bf3a283cab66a51c1c6abd06a
+    notes: >
+      The dataset contains 17,379 hourly observations. The direct parquet file and
+      checksum used by the current official example make the case especially easy
+      to reproduce and freeze locally.
+  original_implementation:
+    technologies:
+      - scikit-learn
+      - Polars
+      - HistGradientBoostingRegressor
+      - TimeSeriesSplit
+      - quantile regression
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_time_series_lagged_features.html
+    notes: >
+      The official example provides complete executable code and downloadable
+      Python and Jupyter notebook versions.
+  problem:
+    context: >
+      Forecasting future bike demand from historical observations requires
+      respecting temporal dependence. Random train-test splitting can leak future
+      information and produce overly optimistic error estimates.
+    objective: >
+      Transform historical bike-demand observations into lagged supervised features,
+      compare naive random validation with time-aware validation, and quantify
+      forecast uncertainty.
+    analytical_questions:
+      - Which lagged demand variables are useful for forecasting the next hour?
+      - How much does a random train-test split underestimate forecasting error?
+      - How does TimeSeriesSplit change the estimated model performance?
+      - What uncertainty intervals can quantile regression provide around forecasts?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - polars
+      - scikit-learn
+      - matplotlib
+      - numpy
+    logical_steps:
+      - Download the verified parquet dataset used by the official example.
+      - Validate the file checksum.
+      - Load the data with Polars.
+      - Explore the demand series and descriptive statistics.
+      - Create lagged and rolling-window predictors from past demand.
+      - Remove observations with incomplete lag histories.
+      - Fit HistGradientBoostingRegressor using a naive random split.
+      - Evaluate forecasting error.
+      - Replace random validation with TimeSeriesSplit.
+      - Compare naive and time-aware performance estimates.
+      - Fit quantile-loss models for lower and upper predictive bounds.
+      - Visualize forecasts, uncertainty intervals, and actual demand.
+      - Interpret temporal-validation and uncertainty results.
+    expected_outputs:
+      - verified local dataset
+      - lagged feature table
+      - fitted forecasting model
+      - random-split evaluation metrics
+      - time-series cross-validation metrics
+      - prediction intervals
+      - forecast visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    This case uses the same underlying Bike Sharing Demand dataset as case 2 but
+    is a distinct case because the pedagogical problem is forecasting with lagged
+    variables, leakage-aware temporal validation, and uncertainty estimation.
 
 - id: 8
   name: Document Classification
@@ -930,149 +2679,6 @@
     data: verified
     code: verified
 
-- id: 13
-  name: Document Entity Extraction
-  domain: data_for_analytics
-  type: predictiva
-  source:
-    category: official_tutorial
-    organization: Keras
-    program: Code Examples - Natural Language Processing
-    title: Named Entity Recognition using Transformers
-    url: https://keras.io/examples/nlp/ner_transformers/
-    description: >
-      Official Keras token-classification example for recognizing people,
-      organizations, locations, and miscellaneous entities.
-  data:
-    description: >
-      Processed CoNLL-2003 shared-task corpus with token-level named-entity labels.
-    source_url: https://huggingface.co/datasets/eriktks/conll2003
-    availability: public
-    files: []
-  original_implementation:
-    technologies:
-      - Transformer
-      - token classification
-      - subword tokenization
-      - Keras
-    language: Python
-    code_available: true
-    code_url: https://keras.io/examples/nlp/ner_transformers/
-  problem:
-    context: >
-      Organizations receive large volumes of unstructured documents containing
-      people, organizations, locations, products, dates, and other entities that
-      must be converted into structured data before they can be analyzed.
-    objective: >
-      Extract named entities from unstructured documents and transform them into
-      structured analytical tables that support counting, grouping, linkage, and downstream analysis.
-    analytical_questions:
-      - How are token-level entity labels represented?
-      - How should subword tokenization be reconciled with word-level labels?
-      - Which entity types are easiest and hardest to recognize?
-      - How should NER be evaluated beyond overall token accuracy?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - keras
-      - tensorflow
-      - datasets
-    logical_steps:
-      - Load the processed CoNLL-2003 corpus.
-      - Inspect tokens and BIO-style entity labels.
-      - Tokenize text and align token-level labels.
-      - Train or fine-tune a Transformer-based entity extractor.
-      - Evaluate precision, recall, and F1 by entity type.
-      - Convert extracted entities into structured analytical tables.
-      - Aggregate entity frequencies and co-occurrences.
-      - Inspect representative extraction errors.
-    expected_outputs:
-      - tokenized labeled corpus
-      - trained NER model
-      - per-entity metrics
-      - representative extracted entities
-      - error analysis
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 14
-  name: Document Fact Extraction
-  domain: data_for_analytics
-  type: predictiva
-  source:
-    category: official_tutorial
-    organization: Keras
-    program: Code Examples - Natural Language Processing
-    title: Text Extraction with BERT
-    url: https://keras.io/examples/nlp/text_extraction_with_bert/
-    description: >
-      Official Keras example fine-tuning BERT on SQuAD to identify the span of
-      context text that answers a natural-language question.
-  data:
-    description: >
-      Stanford Question Answering Dataset containing questions, context paragraphs,
-      and annotated answer spans.
-    source_url: https://rajpurkar.github.io/SQuAD-explorer/
-    availability: public
-    files: []
-  original_implementation:
-    technologies:
-      - BERT
-      - Hugging Face Transformers
-      - extractive question answering
-      - Keras
-    language: Python
-    code_available: true
-    code_url: https://keras.io/examples/nlp/text_extraction_with_bert/
-  problem:
-    context: >
-      Analysts often need to retrieve specific facts from large collections of
-      unstructured documents without manually reading every document.
-    objective: >
-      Build an information-extraction workflow that answers targeted analytical
-      questions by locating relevant factual spans in business or technical documents.
-    analytical_questions:
-      - How are questions and contexts jointly tokenized?
-      - How are answer start and end positions encoded?
-      - How accurately can the model identify answer spans?
-      - What kinds of questions produce span-selection errors?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - keras
-      - transformers
-      - pandas
-      - numpy
-    logical_steps:
-      - Load and parse SQuAD question-context-answer records.
-      - Treat question-answer pairs as a benchmark for document fact extraction.
-      - Tokenize questions and document contexts.
-      - Map annotated answer spans to token positions.
-      - Fine-tune BERT for answer-span extraction.
-      - Evaluate exact-match and span-recovery performance.
-      - Convert extracted answers into a structured fact table.
-      - Inspect failed extractions and ambiguous questions.
-    expected_outputs:
-      - processed QA dataset
-      - fine-tuned BERT model
-      - exact-match evaluation
-      - predicted answer spans
-      - error analysis
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
 - id: 15
   name: Efficient Review Labeling
   domain: predictive_analytics
@@ -1216,683 +2822,6 @@
   verification:
     source: verified
     data: verified
-    code: verified
-
-- id: 17
-  name: Social Sentiment Analytics
-  domain: data_products
-  type: descriptiva
-  source:
-    category: official_repository
-    organization: Hortonworks
-    program: Hortonworks HDP Tutorials
-    title: Analyzing Twitter Data With Apache NiFi and HDP Search
-    url: https://github.com/jdvelasq/hortonworks-hdp/blob/hdp/tutorials/hortonworks/analyzing-social-media-sentiment-data/tutorial.md
-    repository:
-      url: https://github.com/jdvelasq/hortonworks-hdp
-      path: tutorials/hortonworks/analyzing-social-media-sentiment-data
-    description: >
-      Hortonworks tutorial ingesting Twitter data, searching it in Solr, analyzing
-      social sentiment in Hive, and visualizing results in Zeppelin.
-  data:
-    description: >
-      Tweets collected from the Twitter API, with an optional synthetic/random data
-      path documented by the tutorial so that the analytical workflow need not
-      depend on live API access.
-    source_url: null
-    availability: repository_and_generated
-    files:
-      - assets/nifi-sentiment-analytics/assets/default.json
-      - assets/nifi-sentiment-analytics/assets/sentiment-analysis.sql
-    notes: >
-      The original live Twitter API path now has external-access constraints; a
-      Python rewrite should freeze or generate a deterministic tweet-like dataset.
-  original_implementation:
-    technologies:
-      - Apache NiFi
-      - Twitter API
-      - Solr
-      - Hive
-      - Zeppelin
-    language:
-      - SQL
-    code_available: true
-    code_url: https://github.com/jdvelasq/hortonworks-hdp/tree/hdp/tutorials/hortonworks/analyzing-social-media-sentiment-data
-  problem:
-    context: >
-      Streaming social-media messages must be ingested, searched, classified by
-      sentiment, aggregated, and visualized as the data arrives.
-    objective: >
-      Build an end-to-end social-sentiment analysis pipeline and summarize sentiment patterns.
-    analytical_questions:
-      - How should raw social messages be ingested and normalized?
-      - How can text be indexed for search and exploration?
-      - How is sentiment assigned and aggregated?
-      - How do sentiment patterns change across the collected stream?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - matplotlib
-      - sqlite3
-    logical_steps:
-      - Freeze or deterministically generate tweet-like records.
-      - Parse and normalize text and metadata.
-      - Create a searchable local representation.
-      - Apply a reproducible sentiment-analysis method.
-      - Aggregate sentiment by relevant dimensions.
-      - Visualize sentiment distributions and temporal patterns.
-      - Produce an evidence-based summary.
-    expected_outputs:
-      - local tweet-like corpus
-      - cleaned text dataset
-      - sentiment labels or scores
-      - aggregate tables
-      - visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: partial
-    code: verified
-  notes: >
-    Distinct from the existing CLASSROOM financial-sentence sentiment classifier:
-    this case emphasizes streaming/social ingestion, search, aggregation, and
-    descriptive sentiment analytics rather than only supervised classification.
-
-- id: 18
-  name: Literary Theme Discovery
-  domain: descriptive_and_diagnostics_analytics
-  type: predictiva
-  source:
-    category: official_tutorial
-    organization: Orange Data Mining
-    program: Orange3 Text Mining Documentation
-    title: Topic Modelling
-    url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
-    description: >
-      Official Orange Text Mining example applying topic modeling to a selected
-      corpus of Grimm fairy tales and exploring topic-word and document-topic structure.
-  data:
-    description: >
-      The example uses the bundled grimm-tales-selected.tab corpus.
-    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
-    availability: bundled_with_example
-    files:
-      - grimm-tales-selected.tab
-  original_implementation:
-    technologies:
-      - Orange Text Mining
-      - text preprocessing
-      - Latent Semantic Indexing
-      - Latent Dirichlet Allocation
-      - Hierarchical Dirichlet Process
-      - MDS
-      - word cloud
-    language: visual_workflow
-    code_available: false
-    code_url: null
-  problem:
-    context: >
-      A literary corpus contains recurring latent themes that can be characterized
-      through the words associated with each topic and the topic mixture of each document.
-    objective: >
-      Discover and visualize latent themes in Grimm fairy tales using multiple topic-modeling approaches.
-    analytical_questions:
-      - Which terms are most representative of each topic?
-      - How strongly is each topic represented across documents?
-      - How do topics relate to one another in a low-dimensional map?
-      - How do LSI and LDA differ in interpretability?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - gensim
-      - matplotlib
-    logical_steps:
-      - Load the Grimm tales corpus.
-      - Tokenize and remove stopwords.
-      - Build a document-term representation.
-      - Fit LSI and LDA topic models.
-      - Extract topic-term and document-topic weights.
-      - Visualize representative words and topic similarities.
-      - Interpret the discovered themes.
-    expected_outputs:
-      - cleaned corpus
-      - topic models
-      - topic-term tables
-      - document-topic matrix
-      - topic visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: partial
-
-- id: 19
-  name: Election Sentiment Analytics
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: official_tutorial
-    organization: Orange Data Mining
-    program: Orange3 Text Mining Documentation
-    title: Sentiment Analysis
-    url: https://orange3-text.readthedocs.io/en/stable/widgets/sentimentanalysis.html
-    description: >
-      Official Orange example computing document-level sentiment features on a corpus
-      of 2016 election tweets using lexicon-based sentiment methods.
-  data:
-    description: >
-      Bundled Election-2016-tweets.tab corpus used in the Orange Text Mining example.
-    source_url: https://orange3-text.readthedocs.io/en/stable/widgets/sentimentanalysis.html
-    availability: bundled_with_example
-    files:
-      - Election-2016-tweets.tab
-  original_implementation:
-    technologies:
-      - Orange Text Mining
-      - VADER
-      - Liu-Hu sentiment
-      - multilingual sentiment lexicons
-    language: visual_workflow
-    code_available: false
-    code_url: null
-  problem:
-    context: >
-      Social-media messages can be summarized through sentiment scores to compare
-      the tone of different authors or groups.
-    objective: >
-      Compute sentiment features for election-related tweets and compare sentiment patterns.
-    analytical_questions:
-      - What is the distribution of positive, negative, neutral, and compound sentiment?
-      - How does sentiment differ across authors?
-      - How sensitive are conclusions to the sentiment method used?
-      - Which tweets produce extreme sentiment scores?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - nltk
-      - matplotlib
-    logical_steps:
-      - Load the election-tweet corpus.
-      - Normalize text while preserving sentiment-bearing tokens.
-      - Apply VADER and a second lexicon-based method.
-      - Append sentiment scores to each document.
-      - Compare score distributions across authors.
-      - Inspect extreme and conflicting cases.
-      - Visualize and interpret the results.
-    expected_outputs:
-      - sentiment-enriched corpus
-      - author-level summaries
-      - distribution plots
-      - method-comparison table
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: partial
-  notes: >
-    This is a descriptive lexicon-based social-media sentiment case, not a duplicate
-    of CLASSROOM's supervised Financial PhraseBank classifier.
-
-- id: 20
-  name: Election Emotion Analytics
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: official_tutorial
-    organization: Orange Data Mining
-    program: Orange3 Text Mining Documentation
-    title: Tweet Profiler
-    url: https://orange3-text.readthedocs.io/en/latest/widgets/tweetprofiler.html
-    description: >
-      Official Orange example profiling emotions in election tweets using Ekman,
-      Plutchik, or Profile of Mood States emotion taxonomies.
-  data:
-    description: >
-      Election-2016-tweets.tab corpus used in the official Orange example.
-    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/tweetprofiler.html
-    availability: bundled_with_example
-    files:
-      - Election-2016-tweets.tab
-  original_implementation:
-    technologies:
-      - Orange Text Mining
-      - emotion classification
-      - Ekman taxonomy
-      - Plutchik taxonomy
-      - POMS
-    language: visual_workflow
-    code_available: false
-    code_url: null
-  problem:
-    context: >
-      Sentiment polarity alone can hide important distinctions among emotions such
-      as anger, fear, joy, and sadness in political social-media messages.
-    objective: >
-      Profile and compare emotional patterns across authors in a tweet corpus.
-    analytical_questions:
-      - Which emotions dominate the corpus?
-      - How do emotion distributions differ across authors?
-      - How do multi-class and multi-label outputs differ?
-      - Which messages have the strongest emotion probabilities?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - transformers
-      - matplotlib
-    logical_steps:
-      - Load the election-tweet corpus.
-      - Select an open emotion-classification model or reproducible lexicon.
-      - Compute emotion probabilities for each document.
-      - Aggregate emotion scores by author.
-      - Compare dominant emotions and uncertainty.
-      - Visualize and interpret author-level emotion profiles.
-    expected_outputs:
-      - emotion-enriched corpus
-      - author-level profiles
-      - emotion-distribution plots
-      - representative examples
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: partial
-
-- id: 21
-  name: Customer Review Analytics
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: official_tutorial
-    organization: KNIME
-    program: KNIME Analytics Platform AI Tutorials
-    title: Build a restaurant assistant agent
-    url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
-    description: >
-      Official KNIME tutorial includes a tool workflow that classifies restaurant
-      customer reviews as positive or negative with an LLM and summarizes the results.
-  data:
-    description: >
-      Customer-review table with a Review column supplied to the tool workflow.
-    source_url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
-    availability: tutorial_example
-    files: []
-  original_implementation:
-    technologies:
-      - KNIME Analytics Platform
-      - LLM Prompter
-      - Value Counter
-      - Table Transposer
-      - agent tool workflow
-    language: visual_workflow
-    code_available: true
-    code_url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
-  problem:
-    context: >
-      Restaurant operators need a compact summary of qualitative customer feedback.
-      The workflow classifies each review and converts row-level predictions into
-      an aggregate message usable by an agent.
-    objective: >
-      Classify customer-review sentiment with an LLM and summarize the resulting distribution.
-    analytical_questions:
-      - How consistently does the LLM classify review sentiment?
-      - What proportion of reviews are positive and negative?
-      - Which reviews are ambiguous or inconsistent?
-      - How can row-level results be converted into a concise analytical summary?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - openai
-      - pydantic
-      - matplotlib
-    logical_steps:
-      - Load a fixed customer-review dataset.
-      - Define a deterministic sentiment-classification prompt and output schema.
-      - Classify each review.
-      - Validate and normalize model outputs.
-      - Count sentiment categories.
-      - Produce a summary table and visualization.
-      - Inspect ambiguous or invalid responses.
-    expected_outputs:
-      - sentiment-enriched review table
-      - category counts
-      - validation report
-      - visualization
-      - concise summary
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: true
-    authentication_required: true
-  verification:
-    source: verified
-    data: partial
-    code: verified
-
-- id: 22
-  name: Market Social Monitoring
-  domain: data_products
-  type: descriptiva
-  source:
-    category: official_repository
-    organization: Hortonworks
-    program: Streaming Workshop Demo
-    title: Monitor Twitter stream for S&P 500 companies
-    url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
-    repository:
-      url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
-      path: /
-    description: >
-      Hortonworks workshop demo for monitoring tweets about S&P 500 companies,
-      detecting unexpected increases in tweet volume, and supporting sentiment analysis.
-  data:
-    description: >
-      Streaming Twitter messages related to S&P 500 companies, with operational
-      thresholds used to flag unusual increases in volume.
-    source_url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
-    availability: live_or_replay
-    files: []
-    notes: >
-      A classroom rewrite should use a frozen replay dataset because current live
-      Twitter/X API access is not required for the analytical objective.
-  original_implementation:
-    technologies:
-      - Twitter streaming
-      - HBase
-      - HDFS
-      - Hive
-      - Solr
-      - Banana dashboard
-      - sentiment analysis
-    language: mixed
-    code_available: true
-    code_url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
-  problem:
-    context: >
-      Sudden changes in social-media activity around listed companies may signal
-      emerging events that merit investigation.
-    objective: >
-      Monitor company-related tweet streams, detect anomalous volume increases,
-      and enrich the signal with searchable text and sentiment information.
-    analytical_questions:
-      - Which companies experience abnormal increases in tweet volume?
-      - How should alert thresholds be defined?
-      - What text or sentiment accompanies the volume anomaly?
-      - How can batch history and real-time signals be combined?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Freeze a historical stream of company-related social posts.
-      - Aggregate message volume by company and time window.
-      - Define baseline volume and anomaly thresholds.
-      - Detect unexpected increases.
-      - Analyze text and sentiment around flagged windows.
-      - Produce an alert table and diagnostic visualizations.
-    expected_outputs:
-      - replayable social stream
-      - time-window aggregates
-      - anomaly flags
-      - sentiment or text summaries
-      - alert dashboard or plots
-      - written incident interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: partial
-    code: verified
-
-- id: 23
-  name: Customer Aspect Analytics
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: book
-    organization: Practical NLP
-    publisher: O'Reilly Media
-    book: Practical Natural Language Processing
-    title: Aspect Based Sentiment Analysis
-    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
-    repository:
-      url: https://github.com/practical-nlp/practical-nlp-code
-      path: Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
-    description: >
-      The O'Reilly companion repository demonstrates aspect-based sentiment analysis
-      with restaurant-review statements using VADER and Stanford CoreNLP.
-  data:
-    description: >
-      Review-like restaurant sentences that contain positive and negative opinions
-      about different product or service aspects.
-    source_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
-    availability: embedded_examples
-    files: []
-  original_implementation:
-    technologies:
-      - VADER
-      - Stanford CoreNLP
-      - NLTK
-    language: Python
-    code_available: true
-    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch9/01_Aspect_Based_Sentiment_analysis.ipynb
-  problem:
-    context: >
-      Aggregate sentiment can hide the fact that customers evaluate different
-      aspects of the same product or service differently.
-    objective: >
-      Identify product or service aspects in customer feedback and summarize
-      sentiment separately for each aspect.
-    analytical_questions:
-      - Which product or service aspects receive the most feedback?
-      - Which aspects have predominantly positive or negative sentiment?
-      - Which reviews contain mixed sentiment across aspects?
-      - Which aspects should be prioritized for managerial attention?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - nltk
-      - spacy
-      - matplotlib
-    logical_steps:
-      - Load or freeze a review corpus with multiple aspects per review.
-      - Normalize and sentence-split the review text.
-      - Identify candidate aspects.
-      - Compute sentiment at phrase or aspect level.
-      - Aggregate sentiment by aspect.
-      - Rank aspects by volume and negative sentiment.
-      - Visualize the results and interpret operational implications.
-    expected_outputs:
-      - aspect-level review table
-      - aspect frequency table
-      - aspect sentiment summary
-      - priority ranking
-      - visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 24
-  name: Legal Contract Extraction
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Practical NLP
-    publisher: O'Reilly Media
-    book: Practical Natural Language Processing
-    title: LexNLP
-    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch10/02_LexNLP.ipynb
-    repository:
-      url: https://github.com/practical-nlp/practical-nlp-code
-      path: Ch10/02_LexNLP.ipynb
-    description: >
-      The O'Reilly companion repository uses LexNLP to extract structured information
-      from an unstructured legal SAFE agreement.
-  data:
-    description: >
-      A SAFE investment agreement based on a Y Combinator document template, with
-      entities such as acts, amounts, dates, definitions, and contract sections.
-    source_url: http://ycombinator.com/documents
-    availability: public_template
-    files: []
-  original_implementation:
-    technologies:
-      - LexNLP
-      - pandas
-      - textract
-    language: Python
-    code_available: true
-    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch10/02_LexNLP.ipynb
-  problem:
-    context: >
-      Legal and commercial contracts contain structured facts that are difficult
-      to aggregate when they remain embedded in free text.
-    objective: >
-      Convert contract text into structured analytical tables containing monetary
-      amounts, dates, legal references, sections, and other relevant entities.
-    analytical_questions:
-      - Which monetary amounts and dates appear in the contract?
-      - Which legal acts and references are cited?
-      - Which sections and definitions organize the document?
-      - Which extracted fields can support contract comparison or risk review?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - regex
-      - spacy
-      - dateparser
-    logical_steps:
-      - Freeze a public SAFE agreement.
-      - Extract plain text from the document.
-      - Segment the document into sections.
-      - Extract dates, amounts, legal references, and defined terms.
-      - Normalize extracted values.
-      - Store the results in structured tables.
-      - Validate extracted values against source spans.
-      - Produce a compact contract summary.
-    expected_outputs:
-      - structured contract table
-      - extracted amounts and dates
-      - legal-reference table
-      - section and definition inventory
-      - validation report
-      - written contract summary
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 25
-  name: Social Trend Monitoring
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: book
-    organization: Practical NLP
-    publisher: O'Reilly Media
-    book: Practical Natural Language Processing
-    title: Trending Topics
-    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch8/03_TrendingTopics.ipynb
-    repository:
-      url: https://github.com/practical-nlp/practical-nlp-code
-      path: Ch8/03_TrendingTopics.ipynb
-    description: >
-      The O'Reilly companion repository retrieves trending Twitter topics by
-      geographic location and compares overlapping trends.
-  data:
-    description: >
-      Location-specific social-media trend lists originally retrieved through
-      the Twitter API.
-    source_url: null
-    availability: live_api_or_frozen_replay
-    files: []
-    notes: >
-      A CLASSROOM rewrite should use a frozen historical trend snapshot or an open
-      alternative source so that execution does not depend on current Twitter/X access.
-  original_implementation:
-    technologies:
-      - Tweepy
-      - Twitter API
-      - JSON
-    language: Python
-    code_available: true
-    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch8/03_TrendingTopics.ipynb
-  problem:
-    context: >
-      Organizations need to detect which topics are gaining attention and how
-      trend patterns differ across geographic markets.
-    objective: >
-      Compare social-media trend lists across locations and identify common,
-      local, and emerging topics for monitoring.
-    analytical_questions:
-      - Which topics are trending in each location?
-      - Which trends are shared across markets?
-      - Which trends are unique to a location?
-      - Which topics persist or disappear across successive snapshots?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - matplotlib
-    logical_steps:
-      - Load frozen trend snapshots for multiple locations and times.
-      - Normalize topic names.
-      - Compare intersections and differences across locations.
-      - Measure persistence across snapshots.
-      - Rank topics by geographic reach and persistence.
-      - Visualize trend overlap and evolution.
-    expected_outputs:
-      - normalized trend table
-      - cross-location overlap table
-      - persistence metrics
-      - ranked trend list
-      - visualizations
-      - written monitoring summary
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: partial
     code: verified
 
 - id: 26
@@ -2040,164 +2969,6 @@
       - evaluation table
       - human-review queue
       - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 28
-  name: Speech Transcript Clustering
-  domain: descriptive_and_diagnostics_analytics
-  type: predictiva
-  source:
-    category: book
-    organization: Packt Publishing
-    publisher: Packt
-    book: Machine Learning Techniques for Text
-    title: Clustering Speech-to-Text Transcriptions
-    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
-    repository:
-      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
-      path: chapter-10/text-clustering.ipynb
-    description: >
-      Packt develops an end-to-end workflow from speech recognition to unsupervised
-      clustering and topic discovery of transcribed documents.
-  data:
-    description: >
-      Audio files, reference transcriptions, metadata, and public-domain source texts
-      distributed or referenced by the book repository.
-    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-10/data.zip
-    availability: public
-    files: []
-    notes: >
-      The notebook also references WAV archives and public-domain texts from
-      Internet Archive and Project Gutenberg.
-  original_implementation:
-    technologies:
-      - speech recognition
-      - hierarchical clustering
-      - k-means
-      - DBSCAN
-      - LDA
-      - word error rate
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
-  problem:
-    context: >
-      Organizations may receive large collections of recorded calls, interviews,
-      or meetings whose content must be organized without predefined labels.
-    objective: >
-      Transcribe audio records, assess transcription quality, and group the resulting
-      text into interpretable clusters and topics.
-    analytical_questions:
-      - How accurate are the generated transcriptions?
-      - Which transcripts form coherent groups?
-      - How does clustering change across algorithms?
-      - Which topics characterize each cluster?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - speech_recognition
-      - gensim
-      - matplotlib
-    logical_steps:
-      - Load the audio and reference metadata.
-      - Generate or load speech-to-text transcriptions.
-      - Measure transcription error where reference text exists.
-      - Vectorize the transcripts.
-      - Fit hierarchical, k-means, and DBSCAN clustering.
-      - Compare cluster quality and choose plausible structures.
-      - Apply topic modeling within or across clusters.
-      - Interpret the resulting groups.
-    expected_outputs:
-      - transcript dataset
-      - transcription quality metrics
-      - document vectors
-      - cluster assignments
-      - topic summaries
-      - cluster visualizations
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 29
-  name: Website Traffic Analysis
-  domain: data_for_analytics
-  type: descriptiva
-  source:
-    category: book
-    organization: Packt Publishing
-    publisher: Packt
-    book: Hands-On Data Science and Python Machine Learning
-    title: Cleaning Your Data
-    url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/TopPages.ipynb
-    repository:
-      url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning
-      path: TopPages.ipynb
-    description: >
-      Packt analyzes an Apache web access log to identify the most-viewed pages,
-      while detecting malformed requests and removing non-human or irrelevant traffic.
-  data:
-    description: >
-      Apache-style web access log included in the companion repository.
-    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/access_log.txt
-    availability: repository
-    files:
-      - access_log.txt
-  original_implementation:
-    technologies:
-      - regular expressions
-      - Python dictionaries
-      - log parsing
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/TopPages.ipynb
-  problem:
-    context: >
-      Raw web-server logs mix genuine page views with malformed requests, bots,
-      administrative endpoints, and other traffic that can distort website metrics.
-    objective: >
-      Clean web access logs and produce reliable page-traffic indicators for website analytics.
-    analytical_questions:
-      - Which pages receive the most genuine human traffic?
-      - Which requests should be excluded from page-view metrics?
-      - What malformed or suspicious patterns occur in the logs?
-      - How much do cleaning rules change the ranking of top pages?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - re
-      - matplotlib
-    logical_steps:
-      - Load the Apache access log.
-      - Parse log fields into structured columns.
-      - Detect malformed records.
-      - Filter non-GET and irrelevant requests.
-      - Identify likely automated or administrative traffic.
-      - Aggregate valid page views.
-      - Compare raw and cleaned rankings.
-      - Visualize the most-viewed pages.
-    expected_outputs:
-      - parsed log table
-      - data-quality report
-      - exclusion summary
-      - cleaned page-view table
-      - top-page ranking
-      - visualization
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -2665,309 +3436,6 @@
     data: verified
     code: verified
 
-- id: 36
-  name: Scooter Trip Pipeline
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Packt Publishing
-    publisher: Packt
-    book: Data Engineering with Python
-    title: Cleaning and Orchestrating Scooter Data
-    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter05/AirflowClean.py
-    repository:
-      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
-      path: Chapter05/AirflowClean.py
-    description: >
-      Packt uses Apache Airflow and pandas to clean scooter-trip records,
-      normalize timestamps, filter a target date range, and move the resulting artifact.
-  data:
-    description: >
-      Scooter trip records containing trip timing and location-related fields.
-    source_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/tree/master/Chapter05
-    availability: repository
-    files:
-      - Chapter05/scooter.csv
-  original_implementation:
-    technologies:
-      - Apache Airflow
-      - pandas
-      - PythonOperator
-      - BashOperator
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter05/AirflowClean.py
-  problem:
-    context: >
-      Operational mobility records must be cleaned, standardized, filtered,
-      and delivered reliably before downstream analytics can use them.
-    objective: >
-      Build a reproducible batch pipeline that cleans scooter-trip data and
-      delivers a validated analytical dataset for a defined reporting period.
-    analytical_questions:
-      - Which fields require normalization before analysis?
-      - Which records belong to the requested reporting window?
-      - How should pipeline steps be ordered and made repeatable?
-      - What artifact should be delivered to downstream analytics?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - pathlib
-    logical_steps:
-      - Load and validate the raw scooter-trip file.
-      - Remove irrelevant fields.
-      - Normalize column names and timestamp types.
-      - Filter the required reporting interval.
-      - Write a deterministic cleaned extract.
-      - Validate row counts, schema, and date boundaries.
-      - Record pipeline execution results.
-    expected_outputs:
-      - cleaned scooter dataset
-      - reporting-period extract
-      - validation summary
-      - deterministic output artifact
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 37
-  name: Civic Issue API Pipeline
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Packt Publishing
-    publisher: Packt
-    book: Data Engineering with Python
-    title: Querying SeeClickFix
-    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter06/querySCF.py
-    repository:
-      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
-      path: Chapter06/querySCF.py
-    description: >
-      Packt demonstrates API-based ingestion of civic-service issues from
-      SeeClickFix for Bernalillo County and serializes the response as JSON.
-  data:
-    description: >
-      Civic issue reports retrieved from the SeeClickFix API, including
-      issue metadata for a selected geographic area.
-    source_url: https://seeclickfix.com/api/v2/issues
-    availability: live_api_or_frozen_replay
-    files: []
-    notes: >
-      The original example uses a live API. A CLASSROOM rewrite should freeze
-      a representative JSON response to guarantee deterministic execution.
-  original_implementation:
-    technologies:
-      - Apache NiFi
-      - REST API
-      - JSON
-      - Jython
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter06/querySCF.py
-  problem:
-    context: >
-      Public-service analytics often depends on operational records exposed
-      through paginated external APIs rather than local files.
-    objective: >
-      Ingest civic-issue records from an external API, normalize and validate
-      them, and deliver a stable dataset ready for downstream analytics.
-    analytical_questions:
-      - Which fields are returned by the civic-issue API?
-      - How should API parameters and pagination be handled?
-      - Which fields require normalization before storage?
-      - How can the ingestion be made reproducible when the live API changes?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - requests
-      - pandas
-      - pydantic
-      - pathlib
-    logical_steps:
-      - Request or replay a fixed civic-issue API response.
-      - Validate HTTP and JSON structure.
-      - Normalize nested records into tabular form.
-      - Validate required fields and data types.
-      - Handle pagination deterministically.
-      - Persist raw and normalized artifacts.
-      - Produce an ingestion summary.
-    expected_outputs:
-      - raw JSON snapshot
-      - normalized civic-issue table
-      - schema validation report
-      - ingestion summary
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: partial
-    code: verified
-
-- id: 38
-  name: User Event Streaming
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Packt Publishing
-    publisher: Packt
-    book: Data Engineering with Python
-    title: Kafka Producer and Consumer
-    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter13/kproducer.py
-    repository:
-      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
-      path: Chapter13
-    description: >
-      Packt generates synthetic user records with Faker, publishes them to
-      a Kafka topic, and consumes the resulting JSON event stream.
-  data:
-    description: >
-      Synthetic user events containing name, age, street, city, state, and ZIP code.
-    source_url: null
-    availability: generated
-    files:
-      - Chapter13/kproducer.py
-      - Chapter13/kclient.py
-  original_implementation:
-    technologies:
-      - Apache Kafka
-      - confluent-kafka
-      - Faker
-      - JSON
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/tree/master/Chapter13
-  problem:
-    context: >
-      Analytics systems increasingly depend on operational event streams that
-      must be captured, validated, and made replayable before they can support analysis.
-    objective: >
-      Generate, publish, consume, validate, and persist a reproducible stream of
-      user events as an analytical data source for downstream processing.
-    analytical_questions:
-      - What schema should each event follow?
-      - How are events partitioned and consumed?
-      - How should malformed events be handled?
-      - How can a finite replayable stream be created for downstream analytics?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - confluent-kafka
-      - faker
-      - pydantic
-      - pandas
-    logical_steps:
-      - Define a deterministic user-event schema.
-      - Generate a finite seeded event stream.
-      - Serialize events as JSON.
-      - Publish events to a Kafka topic.
-      - Consume and deserialize the events.
-      - Validate schema and count successful and failed records.
-      - Persist a replayable analytical snapshot.
-    expected_outputs:
-      - generated event dataset
-      - Kafka producer
-      - Kafka consumer
-      - validation summary
-      - replayable event snapshot
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 39
-  name: Website Experiment Analysis
-  domain: analytics_fundamentals
-  type: descriptiva
-  source:
-    category: book
-    organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
-    publisher: O'Reilly Media
-    book: Practical Statistics for Data Scientists, Second Edition
-    title: Statistical Experiments and Significance Testing
-    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%203%20-%20Statistical%20Experiments%20and%20Significance%20Testing.py
-    repository:
-      url: https://github.com/gedeck/practical-statistics-for-data-scientists
-      path: python/code/Chapter 3 - Statistical Experiments and Significance Testing.py
-    description: >
-      The O'Reilly companion repository compares alternative web pages using
-      session-time data, permutation tests, t-tests, and related experimental-analysis tools.
-  data:
-    description: >
-      Session times observed for visitors exposed to alternative web pages.
-    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/web_page_data.csv
-    availability: repository
-    files:
-      - data/web_page_data.csv
-  original_implementation:
-    technologies:
-      - permutation testing
-      - t-test
-      - pandas
-      - scipy
-      - statsmodels
-    language:
-      - Python
-      - R
-    code_available: true
-    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/python
-  problem:
-    context: >
-      Digital teams frequently compare alternative page designs and need to
-      distinguish meaningful engagement differences from random variation.
-    objective: >
-      Compare visitor engagement between alternative web pages and quantify the
-      evidence that observed differences are larger than expected by chance.
-    analytical_questions:
-      - How do session times differ between the two page variants?
-      - How large is the observed difference in average engagement?
-      - How unusual is that difference under random reassignment?
-      - Do permutation and parametric tests lead to similar conclusions?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - numpy
-      - scipy
-      - matplotlib
-    logical_steps:
-      - Load and validate the page-session dataset.
-      - Summarize and visualize session times by page.
-      - Compute the observed difference in mean engagement.
-      - Build a reproducible permutation test.
-      - Compare the resampling result with a t-test.
-      - Report the estimated effect and statistical evidence together.
-    expected_outputs:
-      - descriptive comparison table
-      - engagement distribution plots
-      - permutation distribution
-      - effect-size summary
-      - significance-test results
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
 - id: 40
   name: Loan Default Prediction
   domain: predictive_analytics
@@ -3128,157 +3596,6 @@
     data: verified
     code: verified
 
-- id: 42
-  name: IMDb Movie Data Extraction
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
-    publisher: O'Reilly Media
-    book: R for Data Science, Second Edition
-    title: IMDB top films
-    url: https://github.com/hadley/r4ds/blob/main/webscraping.qmd
-    repository:
-      url: https://github.com/hadley/r4ds
-      path: webscraping.qmd
-    description: >
-      R for Data Science uses rvest to extract the IMDb Top 250 table and
-      transform information from an HTML page into structured movie data.
-  data:
-    description: >
-      Archived IMDb Top Movies page containing ranked movie information in HTML.
-    source_url: https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/
-    availability: archived_web_page
-    files: []
-    notes: >
-      The book intentionally uses an archived page, which makes the source more
-      reproducible than scraping the current IMDb layout.
-  original_implementation:
-    technologies:
-      - R
-      - rvest
-      - HTML
-      - CSS selectors
-      - tidyverse
-    language: R
-    code_available: true
-    code_url: https://github.com/hadley/r4ds/blob/main/webscraping.qmd
-  problem:
-    context: >
-      Public analytical data are often published as human-readable web pages
-      rather than downloadable datasets.
-    objective: >
-      Extract movie-ranking data from an archived HTML page and transform it
-      into a clean tabular dataset ready for analytics.
-    analytical_questions:
-      - Which page elements correspond to analytical observations and variables?
-      - How can ranks, titles, years, and ratings be extracted reliably?
-      - Which parsing and type-conversion problems occur after extraction?
-      - How can the resulting dataset be validated against the source page?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - requests
-      - beautifulsoup4
-      - pandas
-    logical_steps:
-      - Download and freeze the archived IMDb HTML page.
-      - Identify the table or repeated movie elements.
-      - Extract the required fields.
-      - Normalize text, numeric, and year values.
-      - Construct a tidy movie table.
-      - Validate row count, rank uniqueness, and required fields.
-      - Persist the analytical dataset locally.
-    expected_outputs:
-      - frozen HTML source
-      - structured movie dataset
-      - extraction validation report
-      - reproducible data-ingestion script
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 43
-  name: Smart Meter Data Preparation
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Manu Joseph and Jeff Tackes
-    publisher: Packt
-    book: Modern Time Series Forecasting with Python, Second Edition
-    title: Preprocessing London Smart Meter Dataset
-    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
-    repository:
-      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
-      path: notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
-    description: >
-      Packt transforms raw half-hourly London smart-meter blocks and related
-      metadata into a consistent time-series dataset used throughout the forecasting book.
-  data:
-    description: >
-      Half-hourly electricity-consumption readings for 5,567 London households,
-      collected in the Low Carbon London project between 2011 and 2014, with household metadata.
-    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
-    availability: public_with_kaggle_access
-    files: []
-    direct_data_url: https://packt-modern-time-series-py.s3.eu-west-1.amazonaws.com/data.zip
-  original_implementation:
-    technologies:
-      - pandas
-      - time-series reshaping
-      - data wrangling
-      - metadata joins
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
-  problem:
-    context: >
-      Raw smart-meter readings arrive in block-oriented files and must be reshaped,
-      combined, validated, and enriched before time-series analytics can begin.
-    objective: >
-      Transform raw household meter files and metadata into a reproducible
-      analytics-ready time-series dataset.
-    analytical_questions:
-      - How should half-hourly block columns be transformed into timestamped observations?
-      - How can household series from multiple files be consolidated?
-      - Which metadata should be joined to each household series?
-      - Which validation rules ensure temporal and household consistency?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - pathlib
-      - pyarrow
-    logical_steps:
-      - Load a frozen subset of raw smart-meter blocks.
-      - Reshape half-hour columns into timestamped observations.
-      - Normalize household identifiers and timestamps.
-      - Join household metadata.
-      - Validate expected interval frequency and duplicates.
-      - Persist analytics-ready Parquet tables.
-      - Produce a transformation summary.
-    expected_outputs:
-      - normalized meter-reading table
-      - household metadata table
-      - analytics-ready time-series dataset
-      - validation report
-      - transformation summary
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
 - id: 44
   name: Household Energy Forecasting
   domain: predictive_analytics
@@ -3347,397 +3664,6 @@
       - backtesting metrics
       - forecast plots
       - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 45
-  name: Global Poverty Dashboard
-  domain: data_products
-  type: descriptiva
-  source:
-    category: book
-    organization: Elias Dabbas
-    publisher: Packt
-    book: Interactive Dashboards and Data Apps with Plotly and Dash
-    title: World Bank Poverty and Equity Dashboard
-    url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash
-    repository:
-      url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash
-      path: chapter_11/app_v11_1.py
-    description: >
-      Packt develops an interactive analytical application from the World Bank
-      Poverty and Equity data, allowing users to compare indicators across
-      countries, regions, years, and measures.
-  data:
-    description: >
-      World Bank poverty, inequality, income, demographic, regional, and country metadata
-      distributed with the book repository.
-    source_url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash/tree/master/data
-    availability: repository
-    files:
-      - data/poverty.csv
-      - data/PovStatsData.csv
-      - data/PovStatsSeries.csv
-      - data/PovStatsCountry.csv
-      - data/lat_long.csv
-  original_implementation:
-    technologies:
-      - pandas
-      - Plotly
-      - Dash
-      - interactive filtering
-      - data visualization
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash/blob/master/chapter_11/app_v11_1.py
-  problem:
-    context: >
-      Development indicators span many countries, years, regions, and measures,
-      making static summaries insufficient for comparative exploration.
-    objective: >
-      Build an interactive analytical dashboard for exploring and comparing
-      poverty and inequality indicators across countries and time.
-    analytical_questions:
-      - How do selected poverty indicators differ across countries and regions?
-      - How have indicators changed over time?
-      - Which countries can be compared meaningfully for a selected measure?
-      - How can users interactively move from global patterns to country detail?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - plotly
-      - dash
-    logical_steps:
-      - Load and validate the World Bank-derived tables.
-      - Normalize indicator, country, region, and year dimensions.
-      - Build reusable filtering logic.
-      - Create interactive charts and maps.
-      - Connect controls to analytical views.
-      - Add country and indicator drill-downs.
-      - Validate dashboard calculations against source tables.
-    expected_outputs:
-      - prepared analytical dataset
-      - interactive comparison charts
-      - geographic views
-      - indicator filters
-      - country drill-downs
-      - working dashboard
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 46
-  name: Customer History Tracking
-  domain: data_for_analytics
-  type: datos
-  source:
-    category: book
-    organization: Anindita Mahapatra
-    publisher: Packt
-    book: Simplifying Data Engineering and Analytics with Delta
-    title: Handling Common Data Patterns with Delta
-    url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
-    repository:
-      url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta
-      path: Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
-    description: >
-      Packt demonstrates MERGE operations, change data feed, and slowly changing
-      dimensions for maintaining customer records and history in Delta tables.
-  data:
-    description: >
-      Small structured customer and sales records created directly in the notebook
-      to demonstrate updates, inserts, deletes, and historical versions.
-    source_url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
-    availability: embedded_generated
-    files: []
-  original_implementation:
-    technologies:
-      - Delta Lake
-      - Spark SQL
-      - MERGE
-      - change data feed
-      - SCD Type 1
-      - SCD Type 2
-    language:
-      - Python
-      - SQL
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Simplifying-Data-Engineering-and-Analytics-with-Delta/blob/main/Chapter06/Ch-06-HandlingCommonDataPatternsWithDelta.ipynb
-  problem:
-    context: >
-      Analytical systems need customer dimensions that remain current while
-      preserving historical changes required for time-consistent reporting.
-    objective: >
-      Maintain an analytics-ready customer dimension by applying incremental
-      changes and preserving history with slowly changing dimension patterns.
-    analytical_questions:
-      - Which incoming records represent inserts versus updates?
-      - When should current values be overwritten?
-      - When must previous values remain queryable?
-      - How can consumers reconstruct the customer state at a historical point in time?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - duckdb
-      - pyarrow
-    logical_steps:
-      - Create deterministic current and incoming customer datasets.
-      - Identify matching, changed, and new business keys.
-      - Implement Type 1 overwrite logic.
-      - Implement Type 2 history-preserving logic.
-      - Validate effective dates and current-row indicators.
-      - Query current and historical customer states.
-      - Produce an incremental-load audit table.
-    expected_outputs:
-      - current customer dimension
-      - historical customer dimension
-      - incremental change set
-      - merge audit table
-      - point-in-time query examples
-      - validation report
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 47
-  name: Seattle Bicycle Patterns
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: book
-    organization: Jake VanderPlas
-    publisher: O'Reilly Media
-    book: Python Data Science Handbook
-    title: Visualizing Seattle Bicycle Counts
-    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/03.11-Working-with-Time-Series.ipynb
-    repository:
-      url: https://github.com/jakevdp/PythonDataScienceHandbook
-      path: notebooks_v1/03.11-Working-with-Time-Series.ipynb
-    description: >
-      The O'Reilly case analyzes hourly bicycle counts from Seattle's Fremont Bridge
-      using resampling, rolling windows, and time-based summaries.
-  data:
-    description: >
-      Hourly east- and west-side bicycle counts from the Fremont Bridge automated counter.
-    source_url: https://data.seattle.gov/Transportation/Fremont-Bridge-Hourly-Bicycle-Counts-by-Month-Octo/65db-xm6k
-    availability: public
-    files: []
-  original_implementation:
-    technologies:
-      - pandas
-      - time-series resampling
-      - rolling windows
-      - matplotlib
-    language: Python
-    code_available: true
-    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/03.11-Working-with-Time-Series.ipynb
-  problem:
-    context: >
-      Urban mobility planners need to understand recurring bicycle-traffic patterns
-      across hours, days, and longer periods.
-    objective: >
-      Analyze Fremont Bridge bicycle counts to reveal temporal traffic patterns,
-      directional differences, and longer-term variation.
-    analytical_questions:
-      - How does bicycle traffic vary by hour and day?
-      - How do east- and west-side counts differ?
-      - Which weekly and seasonal patterns are visible?
-      - How do rolling summaries reveal longer-term changes?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - matplotlib
-    logical_steps:
-      - Download and freeze a public Fremont Bridge extract.
-      - Parse timestamps and validate hourly frequency.
-      - Create total and directional counts.
-      - Resample to daily and weekly summaries.
-      - Compute rolling averages.
-      - Compare temporal patterns by hour, weekday, and direction.
-      - Visualize and interpret recurring mobility patterns.
-    expected_outputs:
-      - validated bicycle-count dataset
-      - temporal summary tables
-      - rolling trend series
-      - hourly and weekly pattern plots
-      - directional comparison
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 48
-  name: Unlabeled Digit Discovery
-  domain: descriptive_and_diagnostics_analytics
-  type: predictiva
-  source:
-    category: book
-    organization: Jake VanderPlas
-    publisher: O'Reilly Media
-    book: Python Data Science Handbook
-    title: k-means on digits
-    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
-    repository:
-      url: https://github.com/jakevdp/PythonDataScienceHandbook
-      path: notebooks_v1/05.11-K-Means.ipynb
-    description: >
-      The O'Reilly example clusters handwritten digit images without using their labels,
-      then interprets cluster centers as representative digit patterns.
-  data:
-    description: >
-      scikit-learn handwritten digits dataset with 1,797 images represented by
-      64 pixel-intensity features.
-    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
-    availability: bundled_with_sklearn
-    files: []
-  original_implementation:
-    technologies:
-      - k-means
-      - scikit-learn
-      - image clustering
-    language: Python
-    code_available: true
-    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/05.11-K-Means.ipynb
-  problem:
-    context: >
-      Analysts may need to discover meaningful structure in image collections
-      before reliable labels are available.
-    objective: >
-      Group handwritten digit images into latent visual clusters and assess how
-      closely unsupervised groups recover recognizable digit categories.
-    analytical_questions:
-      - What visual groups emerge without using labels?
-      - What does each cluster center represent?
-      - Which true digit classes are recovered cleanly?
-      - Which digits are frequently mixed within the same cluster?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - scikit-learn
-      - pandas
-      - matplotlib
-    logical_steps:
-      - Load the digits dataset without exposing labels to the clustering model.
-      - Standardize or inspect pixel features.
-      - Fit k-means with ten clusters.
-      - Visualize cluster centers.
-      - Map clusters to known labels only for evaluation.
-      - Build a cluster-versus-label contingency table.
-      - Interpret ambiguous and well-separated groups.
-    expected_outputs:
-      - image feature matrix
-      - cluster assignments
-      - cluster-center images
-      - cluster-label contingency table
-      - clustering evaluation
-      - written interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-
-- id: 49
-  name: NYC Taxi Anomaly Detection
-  domain: descriptive_and_diagnostics_analytics
-  type: predictiva
-  source:
-    category: book
-    organization: Tarek A. Atwan
-    publisher: Packt
-    book: Time Series Analysis with Python Cookbook
-    title: Outlier Detection Using Statistical Methods and Unsupervised Machine Learning
-    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
-    repository:
-      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
-      path: code/Ch14/Chapter 14.ipynb
-    description: >
-      Packt analyzes NYC taxi passenger counts with known unusual dates and compares
-      multiple unsupervised anomaly-detection methods, including KNN, Isolation Forest,
-      and COPOD.
-  data:
-    description: >
-      Aggregated NYC taxi passenger counts at 30-minute intervals from July 2014
-      through January 2015, with known anomalies associated with major events and weather.
-    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch14/nyc_taxi.csv
-    availability: repository
-    files:
-      - datasets/Ch14/nyc_taxi.csv
-    notes: >
-      The book states that the raw observations originate from the NYC Taxi and
-      Limousine Commission and are included in aggregated form.
-  original_implementation:
-    technologies:
-      - PyOD
-      - KNN anomaly detection
-      - Isolation Forest
-      - COPOD
-      - pandas
-    language: Python
-    code_available: true
-    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch14/Chapter%2014.ipynb
-  problem:
-    context: >
-      Transportation systems need to identify demand patterns that deviate sharply
-      from normal behavior because of holidays, events, severe weather, or disruptions.
-    objective: >
-      Detect unusual taxi-demand periods and compare anomaly scores from alternative
-      unsupervised detection methods against known exceptional dates.
-    analytical_questions:
-      - Which dates show the strongest deviations from normal taxi demand?
-      - Do different anomaly detectors identify the same unusual periods?
-      - How do anomaly scores rank known events such as holidays and storms?
-      - Which detected anomalies lack an obvious known explanation?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - scikit-learn
-      - pyod
-      - matplotlib
-    logical_steps:
-      - Load and validate the taxi-demand series.
-      - Aggregate to an appropriate daily representation.
-      - Mark the known reference anomaly dates.
-      - Fit several unsupervised anomaly detectors.
-      - Standardize or rank anomaly scores.
-      - Compare detected anomalies across methods.
-      - Evaluate overlap with known exceptional events.
-      - Visualize anomalous periods on the time series.
-    expected_outputs:
-      - validated taxi-demand series
-      - anomaly score table
-      - detector comparison
-      - ranked anomaly dates
-      - time-series anomaly plots
-      - written operational interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -3915,179 +3841,6 @@
     data: partial
     code: verified
 
-- id: 52
-  name: Growth Driver Decomposition
-  domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
-  source:
-    category: book
-    organization: Daniel Vaughan
-    publisher: O'Reilly Media
-    book: Data Science: The Hard Parts
-    title: Growth Decompositions
-    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
-    repository:
-      url: https://github.com/dvaughan79/data-science-hard-parts-code
-      path: ch3_growth_decompositions.ipynb
-    description: >
-      The O'Reilly notebook develops additive, multiplicative, and mix-rate
-      decompositions for understanding which components generate observed growth.
-      It includes revenue decomposed into active users and revenue per user and a
-      multi-segment mix-rate example.
-  data:
-    description: >
-      Deterministic synthetic time series and customer-segment data generated in
-      the notebook to isolate and explain the mechanics of growth decomposition.
-    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
-    availability: embedded_generated
-    files: []
-  original_implementation:
-    technologies:
-      - pandas
-      - numpy
-      - additive decomposition
-      - multiplicative decomposition
-      - mix-rate decomposition
-      - matplotlib
-    language: Python
-    code_available: true
-    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
-  problem:
-    context: >
-      Business growth can hide opposing movements in customer volume, customer
-      value, and segment mix. Looking only at the aggregate metric does not reveal
-      which forces created the observed change.
-    objective: >
-      Decompose changes in an aggregate business metric into interpretable growth
-      drivers and distinguish volume, rate, and mix effects.
-    analytical_questions:
-      - How much of total growth comes from changes in volume versus rate?
-      - How do multiplicative drivers such as active users and revenue per user combine?
-      - How much apparent growth is caused by changes in customer-segment mix?
-      - Which components are tailwinds and which are headwinds?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - numpy
-      - matplotlib
-    logical_steps:
-      - Create or load a reproducible business-metric time series.
-      - Validate the accounting relationship between the aggregate metric and its drivers.
-      - Compute additive changes between periods.
-      - Compute multiplicative growth contributions.
-      - Build a segmented dataset with segment volumes and rates.
-      - Separate within-segment rate effects from mix effects.
-      - Reconcile component contributions with the observed aggregate change.
-      - Visualize and interpret the resulting growth drivers.
-    expected_outputs:
-      - driver-level decomposition table
-      - reconciled aggregate growth calculation
-      - volume and rate contribution analysis
-      - segment mix-rate decomposition
-      - contribution visualizations
-      - written business interpretation
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-  notes: >
-    Strong analytics case because the core task is not forecasting but explaining
-    why a business metric changed. It is distinct from the existing experiment and
-    descriptive-summary cases.
-
-- id: 53
-  name: Leakage Diagnosis
-  domain: analytics_fundamentals
-  type: predictiva
-  source:
-    category: book
-    organization: Daniel Vaughan
-    publisher: O'Reilly Media
-    book: Data Science: The Hard Parts
-    title: Data Leakage
-    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-    repository:
-      url: https://github.com/dvaughan79/data-science-hard-parts-code
-      path: ch11_data_leakage.ipynb
-    description: >
-      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
-      controls, leakage introduced by incorrect standardization, and misleading
-      classification behavior under quasi-complete separation.
-  data:
-    description: >
-      Synthetic regression and classification data generated in the notebook so
-      that the true data-generating process is known and leakage effects can be
-      measured directly.
-    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-    availability: embedded_generated
-    files: []
-  original_implementation:
-    technologies:
-      - linear regression
-      - logistic regression
-      - gradient boosting
-      - train-test splitting
-      - standardization
-      - simulation
-      - scikit-learn
-    language: Python
-    code_available: true
-    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-  problem:
-    context: >
-      Predictive performance can look unrealistically strong when features or
-      preprocessing steps expose information that would not be available at the
-      moment a real prediction is made.
-    objective: >
-      Diagnose common forms of data leakage by comparing apparently valid models
-      with leakage-safe alternatives under a known data-generating process.
-    analytical_questions:
-      - Which candidate features contain information from the future or from the target?
-      - How does standardizing before the train-test split contaminate evaluation?
-      - How much does leakage inflate apparent predictive performance?
-      - Which validation design better represents the information available at prediction time?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - numpy
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Generate a deterministic dataset with a known causal and temporal structure.
-      - Define the intended prediction moment and available information.
-      - Fit a baseline leakage-safe model.
-      - Introduce a post-outcome or bad-control feature.
-      - Compare performance with and without the leaked feature.
-      - Compare preprocessing before versus inside the training pipeline.
-      - Inspect classification behavior under near-separation.
-      - Summarize which design choices create invalid performance estimates.
-    expected_outputs:
-      - reproducible synthetic dataset
-      - leakage-safe baseline metrics
-      - leaked-model metrics
-      - preprocessing comparison
-      - performance inflation table
-      - diagnostic plots
-      - leakage audit
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-  notes: >
-    This case is intentionally framed as an analytical quality-control problem,
-    not as a generic modeling tutorial. Its transferable professional skill is
-    detecting invalid predictive evidence before deployment.
-
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -4179,3 +3932,249 @@
     Particularly valuable for the inventory because it bridges predictive and
     prescriptive analytics without requiring a large operations-research model.
 
+- id: 17
+  name: Social Sentiment Analytics
+  domain: data_products
+  type: descriptiva
+  source:
+    category: official_repository
+    organization: Hortonworks
+    program: Hortonworks HDP Tutorials
+    title: Analyzing Twitter Data With Apache NiFi and HDP Search
+    url: https://github.com/jdvelasq/hortonworks-hdp/blob/hdp/tutorials/hortonworks/analyzing-social-media-sentiment-data/tutorial.md
+    repository:
+      url: https://github.com/jdvelasq/hortonworks-hdp
+      path: tutorials/hortonworks/analyzing-social-media-sentiment-data
+    description: >
+      Hortonworks tutorial ingesting Twitter data, searching it in Solr, analyzing
+      social sentiment in Hive, and visualizing results in Zeppelin.
+  data:
+    description: >
+      Tweets collected from the Twitter API, with an optional synthetic/random data
+      path documented by the tutorial so that the analytical workflow need not
+      depend on live API access.
+    source_url: null
+    availability: repository_and_generated
+    files:
+      - assets/nifi-sentiment-analytics/assets/default.json
+      - assets/nifi-sentiment-analytics/assets/sentiment-analysis.sql
+    notes: >
+      The original live Twitter API path now has external-access constraints; a
+      Python rewrite should freeze or generate a deterministic tweet-like dataset.
+  original_implementation:
+    technologies:
+      - Apache NiFi
+      - Twitter API
+      - Solr
+      - Hive
+      - Zeppelin
+    language:
+      - SQL
+    code_available: true
+    code_url: https://github.com/jdvelasq/hortonworks-hdp/tree/hdp/tutorials/hortonworks/analyzing-social-media-sentiment-data
+  problem:
+    context: >
+      Streaming social-media messages must be ingested, searched, classified by
+      sentiment, aggregated, and visualized as the data arrives.
+    objective: >
+      Build an end-to-end social-sentiment analysis pipeline and summarize sentiment patterns.
+    analytical_questions:
+      - How should raw social messages be ingested and normalized?
+      - How can text be indexed for search and exploration?
+      - How is sentiment assigned and aggregated?
+      - How do sentiment patterns change across the collected stream?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - sqlite3
+    logical_steps:
+      - Freeze or deterministically generate tweet-like records.
+      - Parse and normalize text and metadata.
+      - Create a searchable local representation.
+      - Apply a reproducible sentiment-analysis method.
+      - Aggregate sentiment by relevant dimensions.
+      - Visualize sentiment distributions and temporal patterns.
+      - Produce an evidence-based summary.
+    expected_outputs:
+      - local tweet-like corpus
+      - cleaned text dataset
+      - sentiment labels or scores
+      - aggregate tables
+      - visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+  notes: >
+    Distinct from the existing CLASSROOM financial-sentence sentiment classifier:
+    this case emphasizes streaming/social ingestion, search, aggregation, and
+    descriptive sentiment analytics rather than only supervised classification.
+
+- id: 22
+  name: Market Social Monitoring
+  domain: data_products
+  type: descriptiva
+  source:
+    category: official_repository
+    organization: Hortonworks
+    program: Streaming Workshop Demo
+    title: Monitor Twitter stream for S&P 500 companies
+    url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+    repository:
+      url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+      path: /
+    description: >
+      Hortonworks workshop demo for monitoring tweets about S&P 500 companies,
+      detecting unexpected increases in tweet volume, and supporting sentiment analysis.
+  data:
+    description: >
+      Streaming Twitter messages related to S&P 500 companies, with operational
+      thresholds used to flag unusual increases in volume.
+    source_url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+    availability: live_or_replay
+    files: []
+    notes: >
+      A classroom rewrite should use a frozen replay dataset because current live
+      Twitter/X API access is not required for the analytical objective.
+  original_implementation:
+    technologies:
+      - Twitter streaming
+      - HBase
+      - HDFS
+      - Hive
+      - Solr
+      - Banana dashboard
+      - sentiment analysis
+    language: mixed
+    code_available: true
+    code_url: https://github.com/hortonworks-gallery/hdp22-twitter-demo
+  problem:
+    context: >
+      Sudden changes in social-media activity around listed companies may signal
+      emerging events that merit investigation.
+    objective: >
+      Monitor company-related tweet streams, detect anomalous volume increases,
+      and enrich the signal with searchable text and sentiment information.
+    analytical_questions:
+      - Which companies experience abnormal increases in tweet volume?
+      - How should alert thresholds be defined?
+      - What text or sentiment accompanies the volume anomaly?
+      - How can batch history and real-time signals be combined?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Freeze a historical stream of company-related social posts.
+      - Aggregate message volume by company and time window.
+      - Define baseline volume and anomaly thresholds.
+      - Detect unexpected increases.
+      - Analyze text and sentiment around flagged windows.
+      - Produce an alert table and diagnostic visualizations.
+    expected_outputs:
+      - replayable social stream
+      - time-window aggregates
+      - anomaly flags
+      - sentiment or text summaries
+      - alert dashboard or plots
+      - written incident interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+
+- id: 45
+  name: Global Poverty Dashboard
+  domain: data_products
+  type: descriptiva
+  source:
+    category: book
+    organization: Elias Dabbas
+    publisher: Packt
+    book: Interactive Dashboards and Data Apps with Plotly and Dash
+    title: World Bank Poverty and Equity Dashboard
+    url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash
+    repository:
+      url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash
+      path: chapter_11/app_v11_1.py
+    description: >
+      Packt develops an interactive analytical application from the World Bank
+      Poverty and Equity data, allowing users to compare indicators across
+      countries, regions, years, and measures.
+  data:
+    description: >
+      World Bank poverty, inequality, income, demographic, regional, and country metadata
+      distributed with the book repository.
+    source_url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash/tree/master/data
+    availability: repository
+    files:
+      - data/poverty.csv
+      - data/PovStatsData.csv
+      - data/PovStatsSeries.csv
+      - data/PovStatsCountry.csv
+      - data/lat_long.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - Plotly
+      - Dash
+      - interactive filtering
+      - data visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash/blob/master/chapter_11/app_v11_1.py
+  problem:
+    context: >
+      Development indicators span many countries, years, regions, and measures,
+      making static summaries insufficient for comparative exploration.
+    objective: >
+      Build an interactive analytical dashboard for exploring and comparing
+      poverty and inequality indicators across countries and time.
+    analytical_questions:
+      - How do selected poverty indicators differ across countries and regions?
+      - How have indicators changed over time?
+      - Which countries can be compared meaningfully for a selected measure?
+      - How can users interactively move from global patterns to country detail?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - plotly
+      - dash
+    logical_steps:
+      - Load and validate the World Bank-derived tables.
+      - Normalize indicator, country, region, and year dimensions.
+      - Build reusable filtering logic.
+      - Create interactive charts and maps.
+      - Connect controls to analytical views.
+      - Add country and indicator drill-downs.
+      - Validate dashboard calculations against source tables.
+    expected_outputs:
+      - prepared analytical dataset
+      - interactive comparison charts
+      - geographic views
+      - indicator filters
+      - country drill-downs
+      - working dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
