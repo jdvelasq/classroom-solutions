@@ -2075,3 +2075,88 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 28
+  name: Speech Transcript Clustering
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Clustering Speech-to-Text Transcriptions
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-10/text-clustering.ipynb
+    description: >
+      Packt develops an end-to-end workflow from speech recognition to unsupervised
+      clustering and topic discovery of transcribed documents.
+  data:
+    description: >
+      Audio files, reference transcriptions, metadata, and public-domain source texts
+      distributed or referenced by the book repository.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-10/data.zip
+    availability: public
+    files: []
+    notes: >
+      The notebook also references WAV archives and public-domain texts from
+      Internet Archive and Project Gutenberg.
+  original_implementation:
+    technologies:
+      - speech recognition
+      - hierarchical clustering
+      - k-means
+      - DBSCAN
+      - LDA
+      - word error rate
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-10/text-clustering.ipynb
+  problem:
+    context: >
+      Organizations may receive large collections of recorded calls, interviews,
+      or meetings whose content must be organized without predefined labels.
+    objective: >
+      Transcribe audio records, assess transcription quality, and group the resulting
+      text into interpretable clusters and topics.
+    analytical_questions:
+      - How accurate are the generated transcriptions?
+      - Which transcripts form coherent groups?
+      - How does clustering change across algorithms?
+      - Which topics characterize each cluster?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - speech_recognition
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load the audio and reference metadata.
+      - Generate or load speech-to-text transcriptions.
+      - Measure transcription error where reference text exists.
+      - Vectorize the transcripts.
+      - Fit hierarchical, k-means, and DBSCAN clustering.
+      - Compare cluster quality and choose plausible structures.
+      - Apply topic modeling within or across clusters.
+      - Interpret the resulting groups.
+    expected_outputs:
+      - transcript dataset
+      - transcription quality metrics
+      - document vectors
+      - cluster assignments
+      - topic summaries
+      - cluster visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
