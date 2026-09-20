@@ -2819,6 +2819,79 @@
     data: verified
     code: verified
 
+- id: 307
+  name: Production Log Integration
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Junglivet
+    publisher: Springer
+    book: The Modern Business Data Analyst
+    title: Business Data Preparation
+    url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/4%20Business%20Data%20Preparation.R
+    repository:
+      url: https://github.com/dominikjung42/BusinessAnalyticsBook
+      path: code/4 Business Data Preparation.R
+    description: >
+      Operational whisky-production logs are loaded from multiple spreadsheets, harmonized, joined, audited, and exported as a single analytics-ready table.
+  data:
+    description: >
+      Production logs split across recurring Excel files with day, shift, and operational fields.
+    source_url: https://github.com/dominikjung42/BusinessAnalyticsBook/tree/main/data/productionlogs
+    availability: repository
+    files:
+      - data/productionlog_sample.xlsx
+      - data/productionlogs/productionlog_1.xlsx
+      - data/productionlogs/productionlog_2.xlsx
+      - data/productionlogs/productionlog_3.xlsx
+  original_implementation:
+    technologies:
+      - R
+      - readxl
+      - dplyr
+      - file ingestion
+      - joins
+    language: R
+    code_available: true
+    code_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/4%20Business%20Data%20Preparation.R
+  problem:
+    context: >
+      Production information is distributed across recurring spreadsheets and must be integrated before reliable operational analysis.
+    objective: >
+      Build a reproducible pipeline that combines production logs into one validated analytical dataset.
+    analytical_questions:
+      - Which files belong to the production history?
+      - Are join keys consistent across files?
+      - Which records fail to match?
+      - What grain should the final table preserve?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pathlib
+      - openpyxl
+    logical_steps:
+      - Discover log files.
+      - Load and validate schemas.
+      - Harmonize join keys.
+      - Concatenate recurring logs.
+      - Merge complementary records.
+      - Audit duplicates and unmatched keys.
+      - Export the integrated dataset.
+    expected_outputs:
+      - source inventory
+      - join audit
+      - integrated production table
+      - validation report
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -10264,6 +10337,75 @@
       - support comparison
       - customer-journey patterns
       - interpretation of sequential relationships
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 308
+  name: Whisky Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Junglivet
+    publisher: Springer
+    book: The Modern Business Data Analyst
+    title: Business Data Analytics
+    url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/5%20Business%20Data%20Analytics.R
+    repository:
+      url: https://github.com/dominikjung42/BusinessAnalyticsBook
+      path: code/5 Business Data Analytics.R
+    description: >
+      Online-shop transactions are aggregated to customer level and segmented with K-means using age, expenditure, and interaction frequency.
+  data:
+    description: >
+      Junglivet online-shop transactions with customer, turnover, demographic, and interaction fields.
+    source_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/data/onlineshop.xlsx
+    availability: repository
+    files:
+      - data/onlineshop.xlsx
+  original_implementation:
+    technologies:
+      - R
+      - customer aggregation
+      - scaling
+      - K-means
+      - cluster profiling
+    language: R
+    code_available: true
+    code_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/5%20Business%20Data%20Analytics.R
+  problem:
+    context: >
+      Transaction-level data hide heterogeneous customer engagement and spending behavior.
+    objective: >
+      Discover and profile customer segments from age, expenditure, and interaction patterns.
+    analytical_questions:
+      - How should transactions be summarized per customer?
+      - How does scaling affect segmentation?
+      - How many clusters are useful?
+      - How do segments differ in spending and engagement?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Aggregate customer behavior.
+      - Select segmentation variables.
+      - Standardize features.
+      - Compare candidate cluster counts.
+      - Fit K-means.
+      - Profile and interpret clusters.
+    expected_outputs:
+      - customer analytical table
+      - cluster diagnostics
+      - segment assignments
+      - segment profiles
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -19291,6 +19433,75 @@
     data: verified
     code: verified
 
+- id: 309
+  name: Whisky Cost Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Junglivet
+    publisher: Springer
+    book: The Modern Business Data Analyst
+    title: Business Data Analytics
+    url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/5%20Business%20Data%20Analytics.R
+    repository:
+      url: https://github.com/dominikjung42/BusinessAnalyticsBook
+      path: code/5 Business Data Analytics.R
+    description: >
+      Monthly operating costs are modeled with automatic ARIMA and Prophet to compare future cost forecasts.
+  data:
+    description: >
+      Junglivet historical operating costs with calendar fields and cost values.
+    source_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/data/costs.xlsx
+    availability: repository
+    files:
+      - data/costs.xlsx
+  original_implementation:
+    technologies:
+      - R
+      - auto.arima
+      - Prophet
+      - forecasting
+    language: R
+    code_available: true
+    code_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/5%20Business%20Data%20Analytics.R
+  problem:
+    context: >
+      Future operating costs are needed for budgeting and financial planning.
+    objective: >
+      Compare time-series approaches and forecast future operating costs.
+    analytical_questions:
+      - What temporal structure appears in costs?
+      - Which ARIMA specification is selected?
+      - How do ARIMA and Prophet forecasts differ?
+      - What future cost range should management expect?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - prophet
+      - matplotlib
+    logical_steps:
+      - Build a regular cost time series.
+      - Diagnose temporal structure.
+      - Create a chronological validation split.
+      - Fit ARIMA and Prophet.
+      - Compare holdout errors.
+      - Forecast future costs.
+    expected_outputs:
+      - cost time series
+      - model comparison
+      - validation metrics
+      - future cost forecasts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -22948,6 +23159,76 @@
       - top-seller stream
       - window-level aggregates
       - enriched product alerts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 310
+  name: Whisky Portfolio Dashboard
+  domain: data_products
+  source:
+    category: book
+    organization: Junglivet
+    publisher: Springer
+    book: The Modern Business Data Analyst
+    title: Whisky Exploration Dashboard
+    url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/6%20dashboard.Rmd
+    repository:
+      url: https://github.com/dominikjung42/BusinessAnalyticsBook
+      path: code/6 dashboard.Rmd
+    description: >
+      A flexdashboard/Shiny product lets users filter whiskies by origin and rating and compare products, prices, and types interactively.
+  data:
+    description: >
+      Whisky portfolio records with origin, region, type, ratings, critic scores, prices, and distillery fields.
+    source_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/data/whisky_collection.xlsx
+    availability: repository
+    files:
+      - data/whisky_collection.xlsx
+  original_implementation:
+    technologies:
+      - R
+      - flexdashboard
+      - Shiny
+      - ggplot2
+      - interactive filtering
+    language: R
+    code_available: true
+    code_url: https://github.com/dominikjung42/BusinessAnalyticsBook/blob/main/code/6%20dashboard.Rmd
+  problem:
+    context: >
+      Users need an interactive way to explore a product portfolio and compare filtered alternatives.
+    objective: >
+      Deliver an interactive analytical dashboard for whisky portfolio exploration.
+    analytical_questions:
+      - Which products satisfy selected filters?
+      - How do prices compare?
+      - Which whisky types dominate the filtered set?
+      - How should all views update consistently?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - streamlit
+      - plotly
+    logical_steps:
+      - Load portfolio data.
+      - Define shared filters.
+      - Build filtered tables.
+      - Create price comparisons.
+      - Summarize product types.
+      - Connect all views reactively.
+    expected_outputs:
+      - interactive filters
+      - product table
+      - price chart
+      - type summary
+      - working dashboard
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
