@@ -12428,6 +12428,159 @@
     data: verified
     code: verified
 
+- id: 385
+  name: Movie Affinity Rules
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Data Mining with Python, Second Edition
+    title: Movie Recommendation
+    url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition/blob/master/Chapter04/ch4_movie_recommendation.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+      path: Chapter04/ch4_movie_recommendation.ipynb
+    description: >
+      Packt converts favorable MovieLens ratings into frequent itemsets and
+      association rules, validates rules on unseen users, and translates item IDs
+      back into movie titles.
+  data:
+    description: >
+      MovieLens 100K user ratings and movie metadata.
+    source_url: https://grouplens.org/datasets/movielens/100k/
+    availability: public
+    files:
+      - u.data
+      - u.item
+  original_implementation:
+    technologies:
+      - frequent itemsets
+      - association rules
+      - support
+      - confidence
+      - train/test validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition/blob/master/Chapter04/ch4_movie_recommendation.ipynb
+  problem:
+    context: >
+      Favorable user ratings can reveal recurring combinations of movies that
+      tend to be liked by the same users.
+    objective: >
+      Discover and validate interpretable movie affinity rules from favorable ratings.
+    analytical_questions:
+      - Which movies frequently receive favorable ratings together?
+      - Which affinity rules have the strongest support and confidence?
+      - Do discovered rules generalize to unseen users?
+      - Which movie combinations are most interpretable for recommendation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - mlxtend
+    logical_steps:
+      - Load ratings and movie metadata.
+      - Define favorable ratings.
+      - Build user-level favorable itemsets.
+      - Mine frequent movie combinations.
+      - Derive association rules.
+      - Validate rules on held-out users.
+      - Map item IDs to movie titles.
+    expected_outputs:
+      - frequent movie itemsets
+      - association rule table
+      - held-out rule validation
+      - interpretable movie affinity list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 386
+  name: Social Network Community Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Data Mining with Python, Second Edition
+    title: Discovering Social Groups
+    url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition/blob/master/Chapter07/ch7_graph.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+      path: Chapter07/ch7_graph.ipynb
+    description: >
+      Packt builds a social graph from relevant Twitter users and their friend
+      relationships, computes pairwise similarity, thresholds graph edges, and
+      examines connected social groups.
+  data:
+    description: >
+      Twitter users and friend lists collected from the platform after filtering
+      users with a previously trained relevance classifier.
+    source_url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition/tree/master/Chapter07
+    availability: api_retrieval
+    files: []
+  original_implementation:
+    technologies:
+      - Twitter API
+      - NetworkX
+      - graph construction
+      - similarity networks
+      - connected components
+      - community exploration
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition/blob/master/Chapter07/ch7_graph.ipynb
+  problem:
+    context: >
+      Users who discuss a relevant topic may still belong to different social
+      groups whose structure can be inferred from overlapping friendship patterns.
+    objective: >
+      Construct and explore a social similarity network to reveal groups of
+      related users.
+    analytical_questions:
+      - Which relevant users share similar friendship neighborhoods?
+      - How does the similarity threshold alter the graph?
+      - What connected groups emerge?
+      - Which users bridge otherwise separate groups?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - matplotlib
+    logical_steps:
+      - Start from a set of relevant users.
+      - Retrieve or load user friend lists.
+      - Calculate pairwise neighborhood similarity.
+      - Build weighted similarity graphs.
+      - Apply alternative edge thresholds.
+      - Identify connected components and bridges.
+      - Visualize and interpret the social groups.
+    expected_outputs:
+      - user similarity matrix
+      - weighted social graph
+      - connected-component table
+      - threshold sensitivity analysis
+      - community visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: partially_verified
+    code: verified
+  notes: >
+    The original workflow retrieves Twitter friend data through authenticated API
+    calls. A classroom rewrite should preferably use a frozen snapshot of the
+    collected network to ensure reproducibility.
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
