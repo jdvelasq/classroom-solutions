@@ -1997,3 +1997,81 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 27
+  name: Toxic Content Detection
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Detecting Hateful and Offensive Language
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-08/social-networks-bert.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-08/social-networks-bert.ipynb
+    description: >
+      Packt uses a public Twitter corpus to classify hate speech, offensive
+      language, and neither, with BERT-based models and other classifiers.
+  data:
+    description: >
+      Publicly labeled tweet corpus created for hate-speech and offensive-language detection.
+    source_url: https://github.com/t-davidson/hate-speech-and-offensive-language
+    availability: public
+    files:
+      - labeled_data.csv
+    direct_data_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-08/data.zip
+  original_implementation:
+    technologies:
+      - BERT
+      - CNN
+      - boosting
+      - class imbalance handling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-08/social-networks-bert.ipynb
+  problem:
+    context: >
+      Digital platforms need scalable ways to prioritize potentially harmful
+      user-generated content for moderation.
+    objective: >
+      Classify social-media posts into harmful-content categories and identify
+      records that should be prioritized for human moderation.
+    analytical_questions:
+      - How imbalanced are the moderation classes?
+      - Which model best separates hate speech, offensive language, and other content?
+      - Which categories generate the largest classification errors?
+      - Which low-confidence predictions should be routed to human review?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - transformers
+      - matplotlib
+    logical_steps:
+      - Load and validate the labeled tweet corpus.
+      - Explore class imbalance and text characteristics.
+      - Build reproducible train, validation, and test splits.
+      - Train baseline and pretrained-language-model classifiers.
+      - Evaluate precision, recall, F1, and confusion patterns.
+      - Identify low-confidence predictions for human review.
+      - Summarize operational moderation implications.
+    expected_outputs:
+      - cleaned moderation dataset
+      - class distribution analysis
+      - trained classifiers
+      - evaluation table
+      - human-review queue
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
