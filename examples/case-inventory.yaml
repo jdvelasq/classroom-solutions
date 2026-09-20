@@ -869,3 +869,74 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 12
+  name: Semantic Similarity and Natural Language Inference with SNLI
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Semantic Similarity with KerasHub
+    url: https://keras.io/examples/nlp/semantic_similarity_with_keras_hub/
+    description: >
+      Official Keras example classifying sentence pairs as entailment,
+      contradiction, or neutral using pretrained language models.
+  data:
+    description: >
+      Stanford Natural Language Inference corpus containing premise-hypothesis pairs
+      and human-annotated semantic-relation labels.
+    source_url: https://www.tensorflow.org/datasets/catalog/snli
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - KerasHub
+      - BERT
+      - RoBERTa
+      - transfer learning
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/semantic_similarity_with_keras_hub/
+  problem:
+    context: >
+      Systems must determine whether the meaning of one sentence follows from,
+      contradicts, or is neutral with respect to another sentence.
+    objective: >
+      Fine-tune pretrained language models for sentence-pair semantic inference.
+    analytical_questions:
+      - How are premise and hypothesis pairs represented?
+      - How does a pretrained BERT baseline perform?
+      - Does a RoBERTa checkpoint improve accuracy?
+      - Which semantic relations are hardest to distinguish?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - keras-hub
+      - tensorflow-datasets
+      - numpy
+    logical_steps:
+      - Load SNLI train, validation, and test splits.
+      - Remove invalid labels.
+      - Inspect premise-hypothesis pairs.
+      - Fine-tune a BERT classifier.
+      - Evaluate semantic-relation predictions.
+      - Compare with a RoBERTa model.
+      - Inspect errors by relation type.
+    expected_outputs:
+      - cleaned sentence-pair datasets
+      - fine-tuned model
+      - classification metrics
+      - model comparison
+      - error examples
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
