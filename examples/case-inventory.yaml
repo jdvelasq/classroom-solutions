@@ -21404,3 +21404,77 @@
     source: verified
     data: verified
     code: verified
+
+- id: 286
+  name: Managed Text Classification Service
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Mastering Machine Learning on AWS
+    title: Amazon Comprehend Text Classification
+    url: https://github.com/PacktPublishing/Mastering-Machine-Learning-on-AWS/blob/master/Chapter10/comprehend-text-classification.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Mastering-Machine-Learning-on-AWS
+      path: Chapter10/comprehend-text-classification.ipynb
+    description: >
+      Packt trains and executes a managed document classifier with Amazon Comprehend,
+      placing training and test data in S3 and running asynchronous classification jobs.
+  data:
+    description: >
+      Labeled text training and test files used for document classification, with a
+      20 Newsgroups-style classifier and a movie-sentiment job shown in the implementation.
+    source_url: https://github.com/PacktPublishing/Mastering-Machine-Learning-on-AWS
+    availability: repository_workflow
+    files:
+      - train.csv
+      - test.csv
+  original_implementation:
+    technologies:
+      - Amazon Comprehend
+      - Amazon S3
+      - boto3
+      - managed document classification
+      - asynchronous inference
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Mastering-Machine-Learning-on-AWS/blob/master/Chapter10/comprehend-text-classification.ipynb
+  problem:
+    context: >
+      A text-classification capability must be trained, stored, executed, and monitored
+      as a cloud service rather than remaining a local notebook model.
+    objective: >
+      Build a managed text-classification workflow using cloud storage, training jobs,
+      and batch inference.
+    analytical_questions:
+      - How should labeled text be prepared for a managed classifier?
+      - How are training data and model outputs organized in cloud storage?
+      - How is a classification job submitted and tracked?
+      - What artifacts are required for repeatable batch inference?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - boto3
+      - pandas
+    logical_steps:
+      - Prepare labeled training and test files.
+      - Upload data to object storage.
+      - Create a managed document classifier.
+      - Track classifier training status.
+      - Submit a document-classification job.
+      - Retrieve and validate prediction outputs.
+    expected_outputs:
+      - cloud training dataset
+      - managed classifier
+      - inference job
+      - prediction output files
+      - operational runbook
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: partially_verified
+    code: verified
