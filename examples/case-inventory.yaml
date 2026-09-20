@@ -428,3 +428,75 @@
   notes: >
     Verified as distinct from the existing CLASSROOM basic text-classification and
     tokenization cases; the analytical task is unsupervised graph-based document clustering.
+
+- id: 6
+  name: Topic Extraction with NMF and LDA
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Applications
+    title: Topic extraction with Non-negative Matrix Factorization and Latent Dirichlet Allocation
+    url: https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html
+    description: >
+      Official scikit-learn example comparing NMF and LDA for extracting latent
+      topics from the 20 Newsgroups corpus.
+  data:
+    description: >
+      20 Newsgroups text corpus retrieved with fetch_20newsgroups. Headers, footers,
+      and quoted replies are removed in the official example.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - count vectorization
+      - NMF
+      - LDA
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_topics_extraction_with_nmf_lda.html
+  problem:
+    context: >
+      A large unlabeled document collection needs a compact representation of its
+      latent thematic structure.
+    objective: >
+      Extract and compare topics using NMF on TF-IDF features and LDA on count features.
+    analytical_questions:
+      - Which terms dominate the discovered topics?
+      - How do NMF and LDA differ in their topic representations?
+      - How does vectorization affect topic extraction?
+      - Which topics are most interpretable?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - matplotlib
+      - pandas
+    logical_steps:
+      - Load the 20 Newsgroups corpus.
+      - Remove metadata and common terms.
+      - Build TF-IDF and count representations.
+      - Fit NMF topic models.
+      - Fit LDA topic models.
+      - Extract the highest-weight terms per topic.
+      - Compare and visualize topic structures.
+    expected_outputs:
+      - vectorized corpora
+      - fitted NMF model
+      - fitted LDA model
+      - top-term tables
+      - topic visualizations
+      - written comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
