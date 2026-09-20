@@ -5891,6 +5891,165 @@
     data: verified
     code: verified
 
+- id: 161
+  name: Streaming Viewership Drivers
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with Real World Projects
+    title: Media Company Case Study
+    url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%203/Hotstar_Netflix_Case%20Study/Media%2BCompany.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects
+      path: Section 3/Hotstar_Netflix_Case Study/Media+Company.ipynb
+    description: >
+      Packt investigates a decline in viewership for a streaming show by comparing
+      alternative regression specifications using visitors, weekends, character
+      appearances, advertising impressions, lagged views, and sports events.
+  data:
+    description: >
+      Daily streaming-platform observations with show views, platform visitors,
+      advertising impressions, character appearances, weekday/weekend indicators,
+      and cricket-event information.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%203/Hotstar_Netflix_Case%20Study/mediacompany.csv
+    availability: repository
+    files:
+      - Section 3/Hotstar_Netflix_Case Study/mediacompany.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - exploratory visualization
+      - linear regression
+      - correlation analysis
+      - residual analysis
+      - model comparison
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%203/Hotstar_Netflix_Case%20Study/Media%2BCompany.ipynb
+  problem:
+    context: >
+      A digital media company launched a show that initially performed well but then
+      experienced declining viewership and needs to understand what changed.
+    objective: >
+      Diagnose the main drivers of show viewership and explain the observed decline.
+    analytical_questions:
+      - How do platform visitors and show views evolve over time?
+      - Do weekends or featured characters affect viewership?
+      - How strongly are advertising impressions associated with views?
+      - Do major cricket matches explain part of the decline?
+      - Which candidate explanatory model best accounts for observed viewership?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and validate daily media data.
+      - Create calendar and lagged-view features.
+      - Visualize viewership, traffic, and advertising trends.
+      - Fit alternative explanatory regressions.
+      - Compare fit and residual behavior.
+      - Diagnose omitted or redundant drivers.
+      - Summarize the most plausible causes of declining views.
+    expected_outputs:
+      - viewership trend charts
+      - driver correlation table
+      - model comparison
+      - residual diagnostics
+      - driver effect summary
+      - diagnostic narrative
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 163
+  name: Lending Default Drivers
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with Real World Projects
+    title: Lending Club Default Analysis
+    url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%2021/Teclov_Loan%20Analysis/Teclov_Loan.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects
+      path: Section 21/Teclov_Loan Analysis/Teclov_Loan.ipynb
+    description: >
+      Packt cleans Lending Club records, removes post-approval behavior variables
+      that would create leakage, and compares observed default rates across applicant
+      and loan characteristics without fitting a predictive model.
+  data:
+    description: >
+      Lending Club loan records with loan characteristics, applicant attributes,
+      status, grade, purpose, income, interest rate, and post-approval behavior fields.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/tree/master/Section%2021/Teclov_Loan%20Analysis
+    availability: repository
+    files:
+      - Section 21/Teclov_Loan Analysis/loan.zip
+      - Section 21/Teclov_Loan Analysis/Data_Dictionary.xlsx
+  original_implementation:
+    technologies:
+      - pandas
+      - missing-data diagnosis
+      - leakage avoidance
+      - binning
+      - univariate analysis
+      - segmented analysis
+      - default-rate comparison
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%2021/Teclov_Loan%20Analysis/Teclov_Loan.ipynb
+  problem:
+    context: >
+      A lender wants to understand which characteristics available at application
+      time are associated with later default and must avoid relying on information
+      generated only after loan approval.
+    objective: >
+      Diagnose applicant and loan characteristics associated with elevated default rates.
+    analytical_questions:
+      - Which variables are available at loan-approval time?
+      - Which fields would introduce post-outcome or post-approval leakage?
+      - How does default rate vary by grade, term, purpose, amount, income, and interest rate?
+      - Which segments show the largest differences in observed default rate?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and profile loan records.
+      - Remove unusable and heavily missing fields.
+      - Separate application-time from post-approval variables.
+      - Define a clean binary default outcome.
+      - Bin selected continuous attributes.
+      - Compare default rates across categories.
+      - Perform segmented analysis by loan purpose.
+      - Rank variables by observed default-rate spread.
+    expected_outputs:
+      - cleaned application-time dataset
+      - leakage exclusion table
+      - default-rate summaries
+      - segment comparison charts
+      - ranked diagnostic drivers
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -10599,6 +10758,85 @@
     data: verified
     code: verified
 
+- id: 164
+  name: Duplicate Question Detection
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with Real World Projects
+    title: Quora Question Pair Classification
+    url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/tree/master/Section%2019/Quora%20Project
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects
+      path: Section 19/Quora Project/4.ML_models.ipynb
+    description: >
+      Packt builds a duplicate-question classifier from engineered lexical, fuzzy,
+      frequency, and embedding features and compares logistic regression, linear SVM,
+      and XGBoost using log loss.
+  data:
+    description: >
+      Quora question pairs labeled as duplicate or non-duplicate and enriched through
+      the project's preceding feature-engineering notebooks.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/tree/master/Section%2019/Quora%20Project
+    availability: repository_archive
+    files:
+      - Section 19/Quora Project/Quora Project.zip
+  original_implementation:
+    technologies:
+      - text preprocessing
+      - fuzzy similarity
+      - word embeddings
+      - logistic regression
+      - linear SVM
+      - XGBoost
+      - log loss
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%2019/Quora%20Project/4.ML_models.ipynb
+  problem:
+    context: >
+      A question-answer platform needs to identify semantically duplicate questions
+      even when their wording differs substantially.
+    objective: >
+      Estimate the probability that two user-submitted questions express the same intent.
+    analytical_questions:
+      - Which lexical and semantic features distinguish duplicate pairs?
+      - How much do fuzzy similarity and embedding features contribute?
+      - How do linear and boosted classifiers compare on log loss?
+      - Which question pairs remain ambiguous for the best model?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - rapidfuzz
+      - gensim
+      - xgboost
+    logical_steps:
+      - Load labeled question pairs.
+      - Clean and normalize text.
+      - Generate length, overlap, frequency, and fuzzy-match features.
+      - Add embedding-based similarity features.
+      - Split training and validation data reproducibly.
+      - Fit logistic, SVM, and boosted models.
+      - Compare probabilistic performance with log loss.
+    expected_outputs:
+      - engineered question-pair dataset
+      - classifier comparison
+      - duplicate probability scores
+      - log-loss diagnostics
+      - ambiguous-pair analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -11453,6 +11691,87 @@
       - ATE estimates
       - CATE distribution
       - intervention targeting analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 162
+  name: Startup Investment Screening
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with Real World Projects
+    title: Investment Requirement Analysis
+    url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/tree/master/Section%2020/Investment%20Requirement%20Analysis
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects
+      path: Section 20/Investment Requirement Analysis/Teclov_Investment Requirement Analysis/teclov_3_Analysis.ipynb
+    description: >
+      Packt screens startup investment opportunities by funding type, investment
+      size, country, and sector, applying an explicit USD 5–15 million investment
+      constraint and ranking attractive markets and sectors.
+  data:
+    description: >
+      Crunchbase-style company, funding-round, and sector-mapping tables containing
+      funding type, amount, country, company categories, and sector classifications.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/tree/master/Section%2020/Investment%20Requirement%20Analysis/Teclov_Investment%20Requirement%20Analysis
+    availability: repository
+    files:
+      - companies.txt
+      - rounds2.csv
+      - mapping.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - data cleaning
+      - descriptive statistics
+      - constrained screening
+      - country ranking
+      - sector ranking
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-Real-World-Projects/blob/master/Section%2020/Investment%20Requirement%20Analysis/Teclov_Investment%20Requirement%20Analysis/teclov_3_Analysis.ipynb
+  problem:
+    context: >
+      An investment firm wants to deploy capital in startup opportunities but limits
+      individual investments to a target range and needs to choose suitable funding
+      types, countries, and sectors.
+    objective: >
+      Narrow the investment universe to funding types, countries, and sectors that
+      satisfy the firm's investment constraints and historical market evidence.
+    analytical_questions:
+      - Which funding type has a representative investment size within the target range?
+      - Which countries attract the most capital for that funding type?
+      - Which sectors dominate investment activity in shortlisted countries?
+      - Which combinations satisfy the stated investment mandate?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and clean company and funding-round data.
+      - Restrict candidate funding types.
+      - Compare robust representative investment sizes.
+      - Apply the investment-size constraint.
+      - Rank countries by total qualifying investment.
+      - Normalize and map company categories to sectors.
+      - Rank sectors within shortlisted countries.
+      - Produce the final investment screening table.
+    expected_outputs:
+      - funding-type comparison
+      - qualifying country ranking
+      - sector investment table
+      - constrained opportunity shortlist
+      - investment screening recommendation set
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
