@@ -12352,6 +12352,82 @@
     data: verified
     code: verified
 
+- id: 384
+  name: Country Wellbeing Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Preprocessing in Python
+    title: Clustering Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python/blob/main/Chapter08/Chapter%208.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python
+      path: Chapter08/Chapter 8.ipynb
+    description: >
+      Packt uses World Happiness Report indicators to cluster countries and interpret
+      multivariate wellbeing profiles through centroid analysis and heatmaps.
+  data:
+    description: >
+      Preprocessed World Happiness Report data with life ladder, GDP per capita,
+      social support, healthy life expectancy, freedom, generosity, corruption
+      perceptions, and positive and negative affect.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python/blob/main/Chapter08/WH%20Report_preprocessed.csv
+    availability: repository
+    files:
+      - Chapter08/WH Report_preprocessed.csv
+  original_implementation:
+    technologies:
+      - K-means
+      - multivariate clustering
+      - centroid analysis
+      - heatmaps
+      - exploratory visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python/blob/main/Chapter08/Chapter%208.ipynb
+  problem:
+    context: >
+      Countries differ simultaneously across economic, social, health, freedom,
+      affect, and governance indicators, making single-variable rankings incomplete.
+    objective: >
+      Discover and characterize groups of countries with similar multidimensional
+      wellbeing profiles.
+    analytical_questions:
+      - Which countries form similar wellbeing groups?
+      - Which indicators most distinguish the clusters?
+      - How do two-dimensional patterns compare with multivariate segmentation?
+      - What do cluster centroids reveal about country profiles?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and filter the selected year.
+      - Select wellbeing dimensions.
+      - Inspect bivariate relationships.
+      - Standardize features where appropriate.
+      - Fit candidate K-means segmentations.
+      - Profile clusters using original-unit medians.
+      - Visualize centroid differences with a heatmap.
+    expected_outputs:
+      - country cluster assignments
+      - cluster centroid table
+      - cluster membership lists
+      - centroid heatmap
+      - wellbeing profile interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
