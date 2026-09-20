@@ -6274,6 +6274,162 @@
     data: verified
     code: verified
 
+- id: 175
+  name: Equity Market Regime Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science with R
+    title: Hidden Markov Models
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/blob/master/Chapter09/chap_9.R
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R
+      path: Chapter09/chap_9.R
+    description: >
+      Packt analyzes S&P 500 log returns, initializes latent market states with
+      K-means, and fits a hidden Markov model to identify persistent return regimes
+      and estimate transitions between them.
+  data:
+    description: >
+      Historical S&P 500 closing prices and daily log returns obtained through the
+      ldhmm package.
+    source_url: https://cran.r-project.org/package=ldhmm
+    availability: package_download
+    files: []
+  original_implementation:
+    technologies:
+      - R
+      - K-means
+      - hidden Markov models
+      - maximum likelihood
+      - regime decoding
+      - transition matrices
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/blob/master/Chapter09/chap_9.R
+  problem:
+    context: >
+      Financial returns may alternate between latent market conditions with
+      different average returns and volatility rather than following one stable distribution.
+    objective: >
+      Discover and characterize latent market regimes and the probabilities of
+      transitioning between them.
+    analytical_questions:
+      - How many distinct return regimes appear in the series?
+      - What mean and volatility characterize each state?
+      - How persistent is each market regime?
+      - What transition probabilities govern movements between states?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - hmmlearn
+      - matplotlib
+    logical_steps:
+      - Load and validate market prices.
+      - Calculate log returns.
+      - Explore return distributions through time.
+      - Initialize candidate regimes with clustering.
+      - Fit a Gaussian hidden Markov model.
+      - Decode the most likely state sequence.
+      - Summarize regime statistics and transition probabilities.
+    expected_outputs:
+      - return time series
+      - latent regime assignments
+      - regime mean and volatility table
+      - transition matrix
+      - regime timeline visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 176
+  name: Inequality Education Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science with R
+    title: World Bank Data Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/blob/master/Chapter10/chap_10.R
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R
+      path: Chapter10/chap_10.R
+    description: >
+      Packt retrieves World Bank indicators for inequality, schooling, and
+      population, aligns them by country and year, and explores cross-country
+      relationships through static, interactive, and geographic visualizations.
+  data:
+    description: >
+      World Bank country-year indicators for the Gini index, schooling, and total population.
+    source_url: https://data.worldbank.org/
+    availability: public_api
+    files: []
+  original_implementation:
+    technologies:
+      - R
+      - World Bank API
+      - relational integration
+      - ggplot2
+      - Plotly
+      - interactive visualization
+      - choropleth mapping
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-with-R/blob/master/Chapter10/chap_10.R
+  problem:
+    context: >
+      Inequality, education, and population indicators are published separately,
+      so comparative country analysis requires harmonizing them at a common
+      country-year grain before relationships can be explored.
+    objective: >
+      Diagnose cross-country relationships between inequality and education while
+      accounting for population and temporal variation.
+    analytical_questions:
+      - How does mean schooling relate to income inequality?
+      - Which countries occupy unusual combinations of education and inequality?
+      - How does population alter the interpretation of country comparisons?
+      - How do inequality patterns vary geographically and through time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - requests
+      - plotly
+      - geopandas
+    logical_steps:
+      - Retrieve the three World Bank indicators.
+      - Normalize country and year identifiers.
+      - Construct a common country-year key.
+      - Join inequality, education, and population observations.
+      - Diagnose missing country-year combinations.
+      - Build weighted and interactive comparisons.
+      - Map selected inequality snapshots.
+    expected_outputs:
+      - integrated country-year dataset
+      - inequality-education scatterplots
+      - population-weighted bubble chart
+      - interactive country comparison
+      - inequality map
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
