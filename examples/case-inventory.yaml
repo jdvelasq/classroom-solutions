@@ -1589,6 +1589,84 @@
     data: verified
     code: verified
 
+- id: 156
+  name: E-Commerce Sales Report Automation
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics Made Easy
+    title: Sales Report Automation
+    url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%203
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy
+      path: Chapter 3/Chapter 3 - Ecommerce.knwf
+    description: >
+      Packt implements a KNIME workflow for a UK online retailer that combines
+      customer, product, and transaction sources, automates recurring sales reporting,
+      and replaces a manual Excel-based reporting process.
+  data:
+    description: >
+      E-commerce customer, product, historical transaction, and recent transaction tables.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%203
+    availability: repository
+    files:
+      - Chapter 3/eCommerce-CustomerMD.csv
+      - Chapter 3/eCommerce-ProductMD.csv
+      - Chapter 3/eCommerce-TransactionsHistory.xlsx
+      - Chapter 3/eCommerce-TransactionsL3M.xlsx
+  original_implementation:
+    technologies:
+      - KNIME
+      - data integration
+      - aggregation
+      - pivoting
+      - date filtering
+      - report automation
+    language: KNIME
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%203
+  problem:
+    context: >
+      A growing online retailer relies on a finance analyst to manually assemble
+      weekly Excel reports from website exports, creating avoidable effort and delay.
+    objective: >
+      Build a repeatable workflow that integrates retail data and automatically
+      produces recurring sales reporting outputs.
+    analytical_questions:
+      - Which source tables are needed for sales reporting?
+      - How should customer, product, and transaction tables be joined?
+      - Which aggregations and pivots reproduce the required business measures?
+      - How can the process be rerun automatically when new transactions arrive?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - openpyxl
+    logical_steps:
+      - Load customer, product, and transaction sources.
+      - Validate keys and analytical grain.
+      - Combine historical and recent transactions.
+      - Join customer and product metadata.
+      - Derive calendar and sales measures.
+      - Aggregate and pivot recurring report tables.
+      - Export validated reporting outputs.
+    expected_outputs:
+      - integrated retail dataset
+      - automated KPI tables
+      - recurring sales report
+      - data-quality checks
+      - reusable reporting pipeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -5729,6 +5807,81 @@
       - integrated food-nutrient dataset
       - food-group nutrient profiles
       - extreme nutrient rankings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 159
+  name: Retail Consumer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics Made Easy
+    title: Segmenting Consumers with Clustering
+    url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy
+      path: Chapter 5/Chapter 5 - Segmenting Consumers.knwf
+    description: >
+      Packt returns to the online retailer and uses CRM data, normalization,
+      outlier handling, and K-means to build customer segments for differentiated newsletters.
+  data:
+    description: >
+      E-commerce CRM records containing customer attributes and behavioral variables
+      for customers eligible to receive marketing communications.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/blob/main/Chapter%205/eCommerce-CRM.csv
+    availability: repository
+    files:
+      - Chapter 5/eCommerce-CRM.csv
+  original_implementation:
+    technologies:
+      - KNIME
+      - outlier handling
+      - normalization
+      - K-means
+      - cluster profiling
+      - visualization
+    language: KNIME
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+  problem:
+    context: >
+      An online retailer wants to replace one-size-fits-all newsletters with
+      differentiated communication based on meaningful customer groups.
+    objective: >
+      Discover and profile consumer segments that can support personalized CRM communication.
+    analytical_questions:
+      - Which customer variables should drive segmentation?
+      - Which observations require outlier treatment?
+      - What cluster structure emerges after normalization?
+      - How should each customer segment be characterized for CRM use?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate CRM records.
+      - Select segmentation variables.
+      - Diagnose and treat extreme observations.
+      - Standardize features.
+      - Fit candidate K-means solutions.
+      - Attach cluster labels to customers.
+      - Profile and interpret the segments.
+    expected_outputs:
+      - prepared CRM dataset
+      - cluster diagnostics
+      - customer segment assignments
+      - segment profiles
+      - CRM interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -10296,6 +10449,156 @@
     data: verified
     code: verified
 
+- id: 157
+  name: Rome Rental Valuation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics Made Easy
+    title: Predicting Numbers through Regressions
+    url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy
+      path: Chapter 5/Chapter 5 - Rome Houses.knwf
+    description: >
+      Packt predicts fair monthly rents for Rome properties from historical rental
+      agreements using property characteristics, train/test validation, and linear regression.
+  data:
+    description: >
+      Historical Rome rental agreements and a separate table of incoming properties
+      requiring rent estimates.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+    availability: repository
+    files:
+      - Chapter 5/RomeHousing-History.xlsx
+      - Chapter 5/RomeHousing-NewProperties.xlsx
+  original_implementation:
+    technologies:
+      - KNIME
+      - linear regression
+      - train/test split
+      - RMSE
+      - R-squared
+      - scoring
+    language: KNIME
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+  problem:
+    context: >
+      A Rome real-estate agency needs objective rent estimates because prices set
+      too low reduce commission while prices set too high delay transactions and cash flow.
+    objective: >
+      Estimate fair monthly rent for new properties from characteristics of previously rented homes.
+    analytical_questions:
+      - Which property characteristics explain monthly rent?
+      - How accurately does the regression generalize to held-out agreements?
+      - Which factors increase or decrease expected rent?
+      - What rent should be proposed for incoming properties?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load historical and new-property tables.
+      - Validate and encode property attributes.
+      - Create reproducible training and test samples.
+      - Fit a linear regression model.
+      - Evaluate RMSE and R-squared.
+      - Interpret major coefficients.
+      - Score incoming properties.
+    expected_outputs:
+      - rental valuation model
+      - regression summary
+      - holdout error metrics
+      - property-level rent estimates
+      - valuation interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 158
+  name: Bank Telemarketing Propensity
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics Made Easy
+    title: Anticipating Preferences with Classification
+    url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy
+      path: Chapter 5/Chapter 5 - Bank Telemarketing.knwf
+    description: >
+      Packt uses bank telemarketing data to build and compare classification models
+      for customer response and to expose the patterns associated with product preference.
+  data:
+    description: >
+      Bank telemarketing campaign records with customer, contact, campaign, and
+      response attributes.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/blob/main/Chapter%205/BankTelemarketing.csv
+    availability: repository
+    files:
+      - Chapter 5/BankTelemarketing.csv
+  original_implementation:
+    technologies:
+      - KNIME
+      - decision tree
+      - random forest
+      - classification
+      - model validation
+      - propensity modeling
+    language: KNIME
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%205
+  problem:
+    context: >
+      A bank wants to learn which customer and campaign characteristics distinguish
+      people likely to respond positively to a telemarketing offer.
+    objective: >
+      Predict customer response and compare interpretable and ensemble classification approaches.
+    analytical_questions:
+      - Which attributes are associated with positive campaign response?
+      - How accurately can response be predicted?
+      - How do decision-tree and random-forest models compare?
+      - Which customers have the strongest response propensity?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate telemarketing records.
+      - Prepare categorical and numeric features.
+      - Split training and test data.
+      - Fit a decision-tree classifier.
+      - Fit a random-forest classifier.
+      - Compare held-out performance.
+      - Produce response probabilities and interpretable drivers.
+    expected_outputs:
+      - response classifiers
+      - model comparison table
+      - confusion metrics
+      - response propensity scores
+      - driver interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -11855,6 +12158,85 @@
       - staging transition
       - batch predictions
       - reproducible lifecycle workflow
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 160
+  name: Retail Sales Dashboard
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics Made Easy
+    title: Sales Dashboard
+    url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%206
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy
+      path: Chapter 6/SalesDashboard.pbix
+    description: >
+      Packt develops a Power BI sales dashboard for the online retailer, enabling
+      users to explore performance by quarter, country, customer, and product instead
+      of relying on a fixed set of static Excel reports.
+  data:
+    description: >
+      Sales transactions plus customer and product metadata distributed with the dashboard.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%206
+    availability: repository
+    files:
+      - Chapter 6/SalesDashboard-CustomerMD.csv
+      - Chapter 6/SalesDashboard-ProductMD.csv
+      - Chapter 6/SalesDashboard-Transactions.xlsx
+      - Chapter 6/SalesDashboard.pbix
+  original_implementation:
+    technologies:
+      - Power BI
+      - data modeling
+      - interactive filtering
+      - drill-down
+      - business visualization
+    language: Power BI
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-Made-Easy/tree/main/Chapter%206
+  problem:
+    context: >
+      A growing retailer needs self-service descriptive analytics because static
+      Excel reports no longer support managers who want to explore product, country,
+      and period details independently.
+    objective: >
+      Build an interactive sales dashboard that supports recurring management exploration.
+    analytical_questions:
+      - How are sales evolving quarter by quarter?
+      - Which countries, products, and customers drive performance?
+      - How should users move from summary KPIs to detailed records?
+      - Which filters and drill-downs support recurring management questions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - plotly
+      - dash
+    logical_steps:
+      - Load and validate transactions and metadata.
+      - Build the analytical sales model.
+      - Calculate reusable sales KPIs.
+      - Create country, product, customer, and time dimensions.
+      - Build interactive views and filters.
+      - Add drill-down behavior.
+      - Validate dashboard totals against source data.
+    expected_outputs:
+      - analytical sales model
+      - KPI layer
+      - interactive filters
+      - sales visualizations
+      - drill-down views
+      - working dashboard
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
