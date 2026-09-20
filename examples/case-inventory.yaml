@@ -10125,6 +10125,154 @@
     data: verified
     code: verified
 
+- id: 301
+  name: Bike Buyer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science with SQL Server Quick Start Guide
+    title: PCA and Gaussian Mixture Clustering
+    url: https://github.com/PacktPublishing/Data-Science-with-SQL-Server-Quick-Start-Guide/blob/master/Chapter07.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-with-SQL-Server-Quick-Start-Guide
+      path: Chapter07.py
+    description: >
+      Packt extracts AdventureWorks target-mail customer data from SQL Server,
+      reduces correlated behavioral and demographic variables with PCA, and
+      applies Gaussian-mixture clustering to discover customer groups.
+  data:
+    description: >
+      AdventureWorks target-mail customer records with children, home ownership,
+      age, income, cars owned, bike-buyer status, commute distance, education,
+      occupation, and region.
+    source_url: https://github.com/microsoft/sql-server-samples
+    availability: public_database
+    files: []
+  original_implementation:
+    technologies:
+      - SQL Server
+      - pandas
+      - PCA
+      - Gaussian mixture models
+      - customer profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-with-SQL-Server-Quick-Start-Guide/blob/master/Chapter07.py
+  problem:
+    context: >
+      A retailer wants to understand heterogeneous customer structure in its
+      target-mail population before designing differentiated marketing actions.
+    objective: >
+      Discover and interpret customer segments from demographic, household, and
+      purchasing attributes.
+    analytical_questions:
+      - Which variables dominate the main dimensions of customer variation?
+      - How much information is retained in two principal components?
+      - What customer groups emerge from a Gaussian mixture model?
+      - How do clusters differ in commute distance, occupation, car ownership, and bike buying?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Extract or load the target-mail customer table.
+      - Select and validate segmentation variables.
+      - Standardize features where appropriate.
+      - Fit PCA and inspect explained variance.
+      - Fit candidate Gaussian mixture models.
+      - Attach cluster memberships to customers.
+      - Profile and interpret the clusters.
+    expected_outputs:
+      - PCA score table
+      - explained-variance summary
+      - customer cluster assignments
+      - segment profile table
+      - cluster visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 303
+  name: Sequential Purchase Patterns
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning with R Cookbook
+    title: Mining Frequent Sequential Patterns with cSPADE
+    url: https://github.com/PacktPublishing/Machine-Learning-with-R-Cookbook/blob/master/Chapter10/chapter10.Rmd
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-with-R-Cookbook
+      path: Chapter10/chapter10.Rmd
+    description: >
+      Packt extends market-basket analysis from unordered baskets to ordered
+      transaction sequences and applies cSPADE to identify frequent temporal
+      purchase patterns.
+  data:
+    description: >
+      Example transaction sequences with sequence and event identifiers, together
+      with the built-in Zaki sequential-pattern dataset.
+    source_url: https://cran.r-project.org/package=arulesSequences
+    availability: embedded_and_package
+    files: []
+  original_implementation:
+    technologies:
+      - sequential pattern mining
+      - cSPADE
+      - transaction sequences
+      - support
+      - arulesSequences
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-with-R-Cookbook/blob/master/Chapter10/chapter10.Rmd
+  problem:
+    context: >
+      Purchase order matters when a retailer wants to understand recurring
+      customer journeys rather than only products bought in the same basket.
+    objective: >
+      Discover frequent ordered purchase sequences from transaction histories.
+    analytical_questions:
+      - Which item sequences recur across customers?
+      - How does minimum support change the discovered sequence set?
+      - Which patterns would be invisible to ordinary basket analysis?
+      - How can sequence patterns be translated into customer-journey hypotheses?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - prefixspan
+    logical_steps:
+      - Represent transactions with customer or sequence and event identifiers.
+      - Sort events within each sequence.
+      - Convert event histories into ordered item sequences.
+      - Mine frequent sequences across support thresholds.
+      - Rank patterns by support and length.
+      - Compare sequential findings with unordered association rules.
+    expected_outputs:
+      - ordered transaction histories
+      - frequent sequence table
+      - support comparison
+      - customer-journey patterns
+      - interpretation of sequential relationships
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -19069,6 +19217,79 @@
   notes: >
     The implementation references airline data files that are not included in the
     repository tree, so a rewrite requires obtaining equivalent source files.
+
+- id: 302
+  name: Bike Buyer Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science with SQL Server Quick Start Guide
+    title: Predicting Bike Buyers
+    url: https://github.com/PacktPublishing/Data-Science-with-SQL-Server-Quick-Start-Guide/blob/master/Chapter08.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-with-SQL-Server-Quick-Start-Guide
+      path: Chapter08.py
+    description: >
+      Packt prepares AdventureWorks target-mail data in SQL Server, encodes
+      ordinal customer attributes, trains a Naive Bayes classifier, and evaluates
+      bike-buyer predictions on a predefined test set.
+  data:
+    description: >
+      AdventureWorks target-mail customer train/test tables with household,
+      demographic, commute, education, occupation, vehicle, and bike-purchase attributes.
+    source_url: https://github.com/microsoft/sql-server-samples
+    availability: public_database
+    files: []
+  original_implementation:
+    technologies:
+      - SQL Server
+      - ordinal encoding
+      - Naive Bayes
+      - train/test evaluation
+      - confusion matrix
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-with-SQL-Server-Quick-Start-Guide/blob/master/Chapter08.py
+  problem:
+    context: >
+      A bicycle retailer wants to identify customers likely to purchase a bike
+      from demographic and household information already stored in its data warehouse.
+    objective: >
+      Build and evaluate a classifier that predicts bike-purchase propensity.
+    analytical_questions:
+      - Which customer attributes are useful for predicting bike purchase?
+      - How should ordinal fields such as education and commute distance be encoded?
+      - How accurate is the model on held-out customers?
+      - Which customer profiles are most frequently misclassified?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load the train and test customer records.
+      - Encode ordinal attributes reproducibly.
+      - Separate predictors and bike-buyer target.
+      - Fit a Naive Bayes baseline.
+      - Generate held-out predictions.
+      - Calculate accuracy and confusion matrix.
+      - Profile false positives and false negatives.
+    expected_outputs:
+      - encoded customer dataset
+      - fitted bike-buyer classifier
+      - confusion matrix
+      - accuracy summary
+      - customer propensity predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
 
 - id: 54
   name: Prediction to Action
