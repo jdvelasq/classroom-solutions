@@ -3914,3 +3914,268 @@
     source: verified
     data: partial
     code: verified
+
+- id: 52
+  name: Growth Driver Decomposition
+  domain: analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: Growth Decompositions
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch3_growth_decompositions.ipynb
+    description: >
+      The O'Reilly notebook develops additive, multiplicative, and mix-rate
+      decompositions for understanding which components generate observed growth.
+      It includes revenue decomposed into active users and revenue per user and a
+      multi-segment mix-rate example.
+  data:
+    description: >
+      Deterministic synthetic time series and customer-segment data generated in
+      the notebook to isolate and explain the mechanics of growth decomposition.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - numpy
+      - additive decomposition
+      - multiplicative decomposition
+      - mix-rate decomposition
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch3_growth_decompositions.ipynb
+  problem:
+    context: >
+      Business growth can hide opposing movements in customer volume, customer
+      value, and segment mix. Looking only at the aggregate metric does not reveal
+      which forces created the observed change.
+    objective: >
+      Decompose changes in an aggregate business metric into interpretable growth
+      drivers and distinguish volume, rate, and mix effects.
+    analytical_questions:
+      - How much of total growth comes from changes in volume versus rate?
+      - How do multiplicative drivers such as active users and revenue per user combine?
+      - How much apparent growth is caused by changes in customer-segment mix?
+      - Which components are tailwinds and which are headwinds?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Create or load a reproducible business-metric time series.
+      - Validate the accounting relationship between the aggregate metric and its drivers.
+      - Compute additive changes between periods.
+      - Compute multiplicative growth contributions.
+      - Build a segmented dataset with segment volumes and rates.
+      - Separate within-segment rate effects from mix effects.
+      - Reconcile component contributions with the observed aggregate change.
+      - Visualize and interpret the resulting growth drivers.
+    expected_outputs:
+      - driver-level decomposition table
+      - reconciled aggregate growth calculation
+      - volume and rate contribution analysis
+      - segment mix-rate decomposition
+      - contribution visualizations
+      - written business interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    Strong analytics case because the core task is not forecasting but explaining
+    why a business metric changed. It is distinct from the existing experiment and
+    descriptive-summary cases.
+
+- id: 53
+  name: Leakage Diagnosis
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: Data Leakage
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch11_data_leakage.ipynb
+    description: >
+      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
+      controls, leakage introduced by incorrect standardization, and misleading
+      classification behavior under quasi-complete separation.
+  data:
+    description: >
+      Synthetic regression and classification data generated in the notebook so
+      that the true data-generating process is known and leakage effects can be
+      measured directly.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - linear regression
+      - logistic regression
+      - gradient boosting
+      - train-test splitting
+      - standardization
+      - simulation
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+  problem:
+    context: >
+      Predictive performance can look unrealistically strong when features or
+      preprocessing steps expose information that would not be available at the
+      moment a real prediction is made.
+    objective: >
+      Diagnose common forms of data leakage by comparing apparently valid models
+      with leakage-safe alternatives under a known data-generating process.
+    analytical_questions:
+      - Which candidate features contain information from the future or from the target?
+      - How does standardizing before the train-test split contaminate evaluation?
+      - How much does leakage inflate apparent predictive performance?
+      - Which validation design better represents the information available at prediction time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Generate a deterministic dataset with a known causal and temporal structure.
+      - Define the intended prediction moment and available information.
+      - Fit a baseline leakage-safe model.
+      - Introduce a post-outcome or bad-control feature.
+      - Compare performance with and without the leaked feature.
+      - Compare preprocessing before versus inside the training pipeline.
+      - Inspect classification behavior under near-separation.
+      - Summarize which design choices create invalid performance estimates.
+    expected_outputs:
+      - reproducible synthetic dataset
+      - leakage-safe baseline metrics
+      - leaked-model metrics
+      - preprocessing comparison
+      - performance inflation table
+      - diagnostic plots
+      - leakage audit
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    This case is intentionally framed as an analytical quality-control problem,
+    not as a generic modeling tutorial. Its transferable professional skill is
+    detecting invalid predictive evidence before deployment.
+
+- id: 54
+  name: Prediction to Action
+  domain: analytics
+  type: prescriptiva
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: From Prediction to Decisions
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch14_decisions.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch14_decisions.ipynb
+    description: >
+      The O'Reilly notebook moves from classifier probabilities to operational
+      decisions by varying the decision threshold and optimizing expected profit
+      or expected cost using confusion-matrix outcomes and user-supplied economics.
+  data:
+    description: >
+      Synthetic latent-variable classification data generated in the notebook,
+      with intentionally omitted information to produce realistic imperfect
+      prediction probabilities.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch14_decisions.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - logistic regression
+      - probability scoring
+      - confusion matrix
+      - precision and recall
+      - threshold optimization
+      - expected profit
+      - expected cost
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch14_decisions.ipynb
+  problem:
+    context: >
+      A predictive model does not determine an operational action by itself.
+      Different probability thresholds create different volumes of true positives,
+      false positives, false negatives, and true negatives, each with a different
+      business consequence.
+    objective: >
+      Convert prediction probabilities into an economically justified action rule
+      by selecting the threshold that maximizes expected profit or minimizes
+      expected cost.
+    analytical_questions:
+      - How do precision, recall, and action volume change with the threshold?
+      - What economic value or cost should be assigned to each confusion-matrix outcome?
+      - Which threshold maximizes expected profit under the stated assumptions?
+      - How sensitive is the preferred action rule to changes in costs and benefits?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Generate a deterministic binary classification problem.
+      - Split the data and fit a probabilistic classifier.
+      - Produce out-of-sample class probabilities.
+      - Evaluate confusion-matrix outcomes across a threshold grid.
+      - Calculate precision, recall, false-positive rate, and action volume.
+      - Assign explicit economic values to decision outcomes.
+      - Calculate expected profit or expected cost at each threshold.
+      - Select and stress-test the economically preferred threshold.
+      - Compare the economic rule with a default probability threshold.
+    expected_outputs:
+      - probability-scored evaluation set
+      - threshold-performance table
+      - confusion-matrix outcome table
+      - expected-profit or expected-cost curve
+      - selected decision threshold
+      - sensitivity analysis
+      - written operational recommendation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    Particularly valuable for the inventory because it bridges predictive and
+    prescriptive analytics without requiring a large operations-research model.
+
