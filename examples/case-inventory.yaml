@@ -2967,3 +2967,82 @@
     source: verified
     data: verified
     code: verified
+
+- id: 40
+  name: Loan Default Prediction
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists, Second Edition
+    title: Classification
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%205%20-%20Classification.py
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/code/Chapter 5 - Classification.py
+    description: >
+      The O'Reilly companion repository uses consumer-loan data to demonstrate
+      classification methods for predicting whether loans are paid off or default.
+  data:
+    description: >
+      Lending records containing borrower, loan-purpose, housing, employment,
+      payment, and outcome variables.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/data
+    availability: repository
+    files:
+      - data/loan_data.csv.gz
+      - data/loan3000.csv
+  original_implementation:
+    technologies:
+      - naive Bayes
+      - discriminant analysis
+      - logistic regression
+      - evaluation metrics
+    language:
+      - Python
+      - R
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%205%20-%20Classification.py
+  problem:
+    context: >
+      Lenders need to estimate default risk from historical borrower and loan
+      characteristics while understanding class probabilities and classification errors.
+    objective: >
+      Predict loan repayment outcomes and compare classification approaches for
+      identifying borrowers with elevated default risk.
+    analytical_questions:
+      - Which borrower and loan characteristics distinguish defaults from paid-off loans?
+      - How accurately can repayment outcomes be classified?
+      - How do alternative classifiers differ in predicted probabilities?
+      - Which types of classification errors matter most for credit-risk analysis?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the lending dataset.
+      - Explore outcome balance and predictor distributions.
+      - Encode categorical predictors reproducibly.
+      - Create training and evaluation partitions.
+      - Fit multiple classification models.
+      - Compare probability estimates and classification metrics.
+      - Inspect confusion patterns and high-risk cases.
+    expected_outputs:
+      - cleaned lending dataset
+      - fitted classifiers
+      - probability predictions
+      - model-comparison table
+      - confusion analysis
+      - written risk interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
