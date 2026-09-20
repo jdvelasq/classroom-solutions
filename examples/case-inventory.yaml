@@ -2892,6 +2892,158 @@
     data: verified
     code: verified
 
+- id: 314
+  name: News Extractive Summarization
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Social Media Analytics with R
+    title: Text Summarization
+    url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter08/B06056_08_04_code.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R
+      path: Chapter08/B06056_08_04_code.R
+    description: >
+      Packt transforms long news articles into concise extractive summaries by
+      scoring sentence importance with LexRank/PageRank over sentence similarity.
+  data:
+    description: >
+      Full-text news articles covering housing and business topics.
+    source_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/tree/master/Chapter08
+    availability: repository
+    files:
+      - Chapter08/Article-housing_crisis.txt
+      - Chapter08/Article-chris_woakes.txt
+  original_implementation:
+    technologies:
+      - text cleaning
+      - sentence segmentation
+      - LexRank
+      - PageRank
+      - extractive summarization
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter08/B06056_08_04_code.R
+  problem:
+    context: >
+      Analysts often need to reduce long text documents into a smaller information
+      representation before review or downstream analysis.
+    objective: >
+      Generate concise extractive summaries that preserve the most influential
+      sentences in a news article.
+    analytical_questions:
+      - How should article text be segmented into candidate sentences?
+      - Which sentences are most central to the document?
+      - How does similarity threshold affect selected sentences?
+      - How much can the document be compressed while retaining its main content?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - scikit-learn
+      - nltk
+    logical_steps:
+      - Load and normalize article text.
+      - Segment the article into sentences.
+      - Build sentence vector representations.
+      - Calculate sentence similarities.
+      - Construct the similarity graph.
+      - Rank sentences with PageRank.
+      - Reassemble the top sentences in source order.
+    expected_outputs:
+      - sentence similarity matrix
+      - sentence centrality scores
+      - ranked influential sentences
+      - extractive article summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 315
+  name: Ski Performance Weather Integration
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Getting Started with DuckDB
+    title: Temporal Joins with ASOF
+    url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB/tree/main/chapter_10
+    repository:
+      url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB
+      path: chapter_10/README.md
+    description: >
+      Packt uses DuckDB temporal ASOF joins to align skier performance records
+      with the latest available weather measurement and demonstrates robust
+      analytical integration of asynchronous event streams.
+  data:
+    description: >
+      Skier profiles and scores with timestamps together with weather measurements
+      containing observation times, wind speed, and temperature.
+    source_url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB/tree/main/chapter_10
+    availability: repository
+    files:
+      - chapter_10/skiers.csv
+      - chapter_10/skier_scores.csv
+      - chapter_10/weather.csv
+  original_implementation:
+    technologies:
+      - DuckDB
+      - SQL
+      - ASOF joins
+      - temporal integration
+      - window functions
+    language: SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Getting-Started-with-DuckDB/blob/main/chapter_10/README.md
+  problem:
+    context: >
+      Performance events and environmental measurements occur at different times,
+      so ordinary equality joins cannot correctly attach the relevant weather
+      conditions to each performance observation.
+    objective: >
+      Build an analytics-ready skier-performance dataset by aligning each score
+      with the latest preceding weather observation.
+    analytical_questions:
+      - Which weather observation should be associated with each skier score?
+      - Why does an equality join fail for asynchronous timestamps?
+      - How can ASOF joins create reproducible temporal alignment?
+      - What performance-weather relationships become analyzable after integration?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - duckdb
+      - pandas
+    logical_steps:
+      - Load skier, score, and weather tables.
+      - Parse and validate timestamps.
+      - Inspect temporal coverage and ordering.
+      - Join skier profiles to scores.
+      - Apply an ASOF join from scores to weather.
+      - Validate matched timestamps.
+      - Export the integrated analytical table.
+    expected_outputs:
+      - temporal coverage diagnostics
+      - ASOF joined dataset
+      - unmatched-record audit
+      - performance-weather analytical table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -10406,6 +10558,81 @@
       - cluster diagnostics
       - segment assignments
       - segment profiles
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 313
+  name: GitHub Language Trends
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Social Media Analytics with R
+    title: GitHub Language Trend Analysis
+    url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter05/github_language_trend_analysis.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R
+      path: Chapter05/github_language_trend_analysis.R
+    description: >
+      Packt analyzes trending GitHub repositories by programming language,
+      creation year, open issues, repository features, popularity, and
+      cross-language usage correlations.
+  data:
+    description: >
+      Trending GitHub repository metadata including language, creation date,
+      stars, forks, open issues, wiki/pages flags, owner, and repository name.
+    source_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter05/trending_repos.RData
+    availability: repository
+    files:
+      - Chapter05/trending_repos.RData
+  original_implementation:
+    technologies:
+      - GitHub metadata
+      - grouped aggregation
+      - temporal trend analysis
+      - correlation analysis
+      - visualization
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter05/github_language_trend_analysis.R
+  problem:
+    context: >
+      Repository metadata can reveal how programming-language ecosystems differ
+      in popularity, activity, issue burden, and co-usage over time.
+    objective: >
+      Diagnose technology trends and relationships across programming languages
+      using GitHub repository activity.
+    analytical_questions:
+      - Which languages dominate trending repositories?
+      - How has language representation changed over time?
+      - Which languages have the highest issue burden or popularity?
+      - Which languages tend to be used by the same repository owners?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate repository metadata.
+      - Derive creation-year and popularity measures.
+      - Aggregate repository counts by language and year.
+      - Compare issue and popularity metrics by language.
+      - Build owner-language incidence data.
+      - Calculate language correlations.
+      - Interpret technology trends.
+    expected_outputs:
+      - language trend tables
+      - issue and popularity rankings
+      - longitudinal language charts
+      - language correlation matrix
+      - technology trend interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -19571,6 +19798,82 @@
       - ROC and precision-recall curves
       - selected threshold
       - predicted future links
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 312
+  name: Collaboration Link Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Graph Data Science with Neo4j
+    title: Link Prediction for Future Collaborations
+    url: https://github.com/PacktPublishing/Graph-Data-Science-with-Neo4j/blob/main/Chapter09/notebooks/Link_Prediction_Collaboration.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Graph-Data-Science-with-Neo4j
+      path: Chapter09/notebooks/Link_Prediction_Collaboration.ipynb
+    description: >
+      Packt builds a graph-data-science pipeline for predicting future
+      collaboration links using graph embeddings, community membership, and
+      link-level similarity features.
+  data:
+    description: >
+      Collaboration graph stored in Neo4j with nodes, historical relationships,
+      training edges, and graph-derived node representations.
+    source_url: https://github.com/PacktPublishing/Graph-Data-Science-with-Neo4j/tree/main/Chapter09
+    availability: repository
+    files: []
+  original_implementation:
+    technologies:
+      - Neo4j
+      - Graph Data Science
+      - Node2Vec
+      - Louvain
+      - cosine similarity
+      - link prediction pipeline
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Graph-Data-Science-with-Neo4j/blob/main/Chapter09/notebooks/Link_Prediction_Collaboration.ipynb
+  problem:
+    context: >
+      Historical collaboration networks can contain structural signals that help
+      identify pairs of actors likely to collaborate in the future.
+    objective: >
+      Build and evaluate a graph-based model that predicts future collaboration links.
+    analytical_questions:
+      - Which graph features help distinguish future collaborations?
+      - How useful are embedding similarity and shared community membership?
+      - How should positive and negative links be sampled for training?
+      - Which candidate collaborations receive the highest predicted scores?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - node2vec
+      - scikit-learn
+    logical_steps:
+      - Load the historical collaboration graph.
+      - Create reproducible train and test edge sets.
+      - Generate graph embeddings and communities.
+      - Construct link-level similarity features.
+      - Train a binary link classifier.
+      - Evaluate held-out links.
+      - Rank non-existing edges by predicted collaboration likelihood.
+    expected_outputs:
+      - graph feature table
+      - link-prediction model
+      - evaluation metrics
+      - ranked future collaboration candidates
+      - graph-based interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
