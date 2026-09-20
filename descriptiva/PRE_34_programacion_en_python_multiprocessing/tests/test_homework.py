@@ -4,7 +4,7 @@
 
 import os
 
-import homework.word_count as wc
+import src.word_count as wc
 
 
 def test_01():

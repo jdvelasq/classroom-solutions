@@ -13,7 +13,7 @@ dia.
 
 """
 
-from homework.plugboard import apply_plugboard, make_plugboard
+from src.plugboard import apply_plugboard, make_plugboard
 
 REFLECTOR_A = make_plugboard(seed=1, n=13)
 REFLECTOR_B = make_plugboard(seed=2, n=13)

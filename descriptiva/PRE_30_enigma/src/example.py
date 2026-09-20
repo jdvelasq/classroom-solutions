@@ -1,13 +1,13 @@
 """Ejemplo del uso de la máquina Enigma."""
 
-from homework.enigma_machine import (
+from src.enigma_machine import (
     apply_enigma_machine,
     initialize_enigma_machine,
     make_enigma_machine,
 )
-from homework.plugboard import make_plugboard
-from homework.reflector import REFLECTOR_B
-from homework.rotor import (
+from src.plugboard import make_plugboard
+from src.reflector import REFLECTOR_B
+from src.rotor import (
     ROTOR_1,
     ROTOR_3,
     ROTOR_5,

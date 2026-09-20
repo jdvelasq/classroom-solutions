@@ -3,15 +3,15 @@
 # pylint: disable=broad-exception-raised
 
 
-from homework.constants import LETTERS
-from homework.enigma_machine import (
+from src.constants import LETTERS
+from src.enigma_machine import (
     apply_enigma_machine,
     initialize_enigma_machine,
     make_enigma_machine,
 )
-from homework.plugboard import apply_plugboard, make_plugboard
-from homework.reflector import REFLECTOR_A, REFLECTOR_B, REFLECTOR_C, apply_reflector
-from homework.rotor import (
+from src.plugboard import apply_plugboard, make_plugboard
+from src.reflector import REFLECTOR_A, REFLECTOR_B, REFLECTOR_C, apply_reflector
+from src.rotor import (
     ROTOR_1,
     ROTOR_2,
     ROTOR_3,

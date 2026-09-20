@@ -7,7 +7,7 @@ intercambiados, mientras que el resto permanecen sin modificación.
 
 import random
 
-from homework.constants import LETTERS
+from src.constants import LETTERS
 
 
 def make_symmetric_mapping(seed, n=13):

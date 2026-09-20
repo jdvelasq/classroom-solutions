@@ -6,6 +6,8 @@ Curso que diseña, entrega, gobierna y evoluciona capacidades de datos y analít
 
 La secuencia siguiente es conceptual, no un calendario ni una asignación de duración.
 
+En la programación detallada, una sesión puede incluir varios `PRE_*` autocontenidos cuando su complejidad y progresión pedagógica lo permitan.
+
 ## Unidades
 
 ### 1. Productos de datos y productos analíticos

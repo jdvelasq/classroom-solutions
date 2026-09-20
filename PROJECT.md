@@ -92,6 +92,8 @@ Los directorios vacíos se preservan con `.gitkeep`.
 
 Cada actividad representa un caso práctico completo y su solución debe permitir desarrollo incremental durante una clase presencial. El problema real y la decisión que habilita organizan la actividad; un algoritmo, paquete o biblioteca se introduce solamente cuando ayuda a resolver ese problema.
 
+La unidad básica de `schedule.md` es el taller `PRE_*`, no la unidad de `curriculum.md`. La cobertura de una unidad curricular se determina al agregar los conceptos e ideas desarrollados por uno o varios `PRE_*`; la matriz de cobertura es una comprobación derivada, no la secuencia de enseñanza. Los `LAB_*` son actividades de evaluación y no se usan para justificar cobertura curricular, secuenciar unidades ni estimar la carga de enseñanza presencial.
+
 La progresión de referencia es:
 
 ```text
@@ -116,7 +118,7 @@ En cursos cuya pregunta no es prescriptiva, el flujo se detiene en la evidencia,
 
 ### Notebooks
 
-Se usan notebooks cuando el razonamiento analítico se beneficia del desarrollo incremental, experimentación, visualización o interpretación. Su código debe ser conciso, legible, secuencial, con celdas razonablemente cortas y resultados intermedios cuando ayuden a explicar el razonamiento. Debe ser apto para *live coding*.
+Un `PRE_*` puede desarrollarse mediante código en `src/` o mediante notebooks en `notebooks/`; no necesita usar ambos. La elección depende del caso y de qué se desea ejemplificar. Se usan notebooks cuando el razonamiento analítico se beneficia del desarrollo incremental, experimentación, visualización o interpretación. Su código debe ser conciso, legible, secuencial, con celdas razonablemente cortas y resultados intermedios cuando ayuden a explicar el razonamiento. Debe ser apto para *live coding*.
 
 Los notebooks evitan Markdown excesivo, explicaciones extensas de estilo tutorial, abstracciones innecesarias y comentarios que narren sintaxis obvia de Python. Los comentarios aclaran el razonamiento analítico o computacional cuando sea útil. Una actividad puede contener uno o varios notebooks si ello mejora la progresión analítica.
 
@@ -165,3 +167,46 @@ Antes de dar una actividad por terminada, el notebook se reinicia desde un kerne
 ### Portabilidad
 
 Al evaluar una nueva dependencia aprobada, se verifica que sea compatible con el entorno y requisitos completos del curso, así como con las principales plataformas de estudiantes: macOS Apple Silicon, macOS Intel y Windows; Linux cuando sea práctico. Se prefieren paquetes `pip` con ruedas precompiladas y APIs Python antes que instalaciones dependientes de sistema, ejecutables externos, variables de entorno, licencias o cuentas. Una dependencia frágil o específica de plataforma no se vuelve obligatoria sin aprobación explícita y justificación pedagógica.
+
+## Calibración de duración de talleres
+
+Las estimaciones futuras de duración de `PRE_*` se fundamentan en observaciones de clase, considerando el tiempo de presentar datos, problema, razonamiento y solución, no solo el tiempo de ejecutar código. La duración observada en aula tiene precedencia sobre cualquier estimación documental.
+
+Solo se estima la duración de un `PRE_*` cuyo material esté desarrollado de forma observable. Toda estimación se redondea a múltiplos de cinco minutos; actividades enunciadas, esqueletos o materiales parciales conservan duración sin estimar hasta completar su desarrollo.
+
+La estimación no se obtiene asignando una duración uniforme a todo taller desarrollado. Antes de estimar, se identifica su **perfil didáctico** y se estima la secuencia que realmente se enseña:
+
+- **Microcaso técnico autocontenido (≈30 min como referencia inicial):** una transformación, consulta, validación o artefacto puntual, con datos pequeños, un objetivo único y razonamiento acotado. `PRE_03_csv2json` es la calibración: leer el CSV, convertirlo, verificar el JSON y explicar el resultado tomó 30 minutos.
+- **Caso analítico acotado (≈45–60 min como referencia inicial):** exige comprender los datos y la pregunta, desarrollar o recorrer una secuencia analítica e interpretar un resultado; puede incluir una decisión simple.
+- **Caso analítico sustantivo (≈60–90 min como referencia inicial):** combina datos, problema, varias etapas de razonamiento, validación o interpretación y una solución más rica. El tiempo aumenta por la complejidad pedagógica, no por la longitud del código.
+- **Inducción operativa:** se estima por separado según sus pasos de entorno, repositorio, pruebas, entrega y retroalimentación; no se clasifica por la complejidad del algoritmo. `PRE_01_hola_mundo` es la calibración de 50 minutos.
+
+Estas bandas orientan inventarios futuros, no reemplazan la medición. Un mismo `PRE_*` puede ocupar menos o más tiempo si sus datos, contexto, decisiones de explicación o interacción de clase lo justifican. El `schedule.md` debe registrar, cuando se conozca, la duración observada; si no se conoce, una estimación marcada como tal.
+
+### Selección para una capacidad práctica finita
+
+Cada `schedule.md` clasifica el material heredado respecto de la capacidad práctica real del curso. La clasificación no equivale al nivel de desarrollo ni a la cobertura curricular:
+
+- **`BASE`:** actividad prevista para ser utilizada en la oferta regular, salvo ajuste posterior de la programación detallada. Solo las actividades `BASE` cuentan para demostrar la cobertura de `curriculum.md` en la oferta vigente. Puede estar por desarrollar: en ese caso expresa una necesidad curricular y se convierte en trabajo obligatorio de diseño antes de dictar el curso.
+- **`OPT`:** actividad opcional: alternativa, extensión, sustitución o uso si el grupo avanza más rápido. No se presupone en la carga mínima del curso ni se usa para justificar cobertura obligatoria.
+
+La clasificación se realiza contra la capacidad práctica declarada para cada curso: **30 horas** en los cursos de pregrado (10 sesiones de 3 horas) y **6 sesiones prácticas de 5 o 5,5 horas** en los cursos de posgrado (30–33 horas según la duración efectiva de cada sesión). Se pueden realizar varios `PRE_*` en una sesión.
+
+**Regla estricta de carga:** la suma de los tiempos de todos los `PRE_*` clasificados `BASE` debe ser exactamente igual a la duración total de la parte práctica del curso. No hay holgura implícita ni tiempo práctico sin un PRE `BASE` asociado. En posgrado, primero se declara la duración real de cada una de las seis sesiones (5 o 5,5 horas) y luego se cierra la suma `BASE` contra ese total; no se asigna una duración fija de sesión a cada PRE y un PRE puede continuar en la siguiente sesión. Si un PRE `BASE` aún no está desarrollado, su columna de tiempo registra una **asignación de diseño** —distinta de una duración observada— para que la igualdad pueda verificarse; cuando se implemente, esa asignación se recalibra sin romper el total. Los `OPT` quedan fuera de la suma y solo se usan mediante sustitución explícita de PRE `BASE` o en una oferta cuya duración haya sido rediseñada.
+
+La programación posterior distribuye esos PRE `BASE` en las sesiones disponibles y puede incorporar nuevos PRE `BASE` para las unidades de `curriculum.md` que el inventario heredado no cubra. Un `OPT` nunca se convierte automáticamente en `BASE` solo porque queda tiempo. El nivel observable de la actividad y su clasificación curricular son atributos independientes.
+
+### Referentes internacionales y selección de casos
+
+La regla práctica de *benchmark* es: si MIT, Berkeley u otra institución comparable enseña un caso, una capacidad o un tipo de decisión `X`, CLASSROOM debe poder responder **«también lo hacemos»**, preferiblemente mediante una versión en Python que esté mejor integrada con el currículo, el flujo de los `PRE_*`, las pruebas y los resultados reproducibles.
+
+La equivalencia no exige copiar el caso ni reemplazar automáticamente un caso propio. Se conserva el caso de CLASSROOM como `BASE` cuando su desarrollo es más sólido, más pedagógico o cubre mejor los objetivos curriculares. En esa situación, el caso del referente puede incorporarse como `LAB_*` si aporta una evaluación auténtica y complementaria. Los `LAB_*` siguen siendo evaluación: no justifican cobertura curricular ni se incluyen en el tiempo práctico de los `PRE_*` `BASE`.
+
+Al comparar casos se privilegian, en este orden: la cobertura de objetivos y frontera del curso; la claridad del problema y decisión realista; la progresión apta para aula; la integración con Python, datos, tests y artefactos; y, finalmente, la novedad o prestigio del referente.
+
+- **Referencia reportada:** 50 minutos para cubrir y explicar en detalle los datos, el problema y la solución del notebook de *clustering de demanda* de Predictiva.
+- **Discrepancia de ruta pendiente de confirmación:** la referencia recibida fue `predictiva/PRE_08_clustering_demanda/notebooks/notebook.ipynb`; en el repositorio actual existe `predictiva/PRE_05_clustering_demanda/notebooks/notebook.ipynb` y no existe `PRE_08_clustering_demanda`.
+- **Inducción `PRE_01_hola_mundo`:** aproximadamente 50 minutos. Incluye descargar el repositorio del curso desde GitHub, resolver la actividad, ejecutar `pytest` desde VS Code, subir el repositorio con GitHub Desktop y verificar la calificación mediante GitHub Actions.
+- **Microcaso `PRE_03_csv2json`:** 30 minutos observados. Comprende transformar un CSV pequeño a JSON, verificar el artefacto y explicar la conversión; reemplaza la estimación anterior de 45 minutos.
+
+Hasta confirmar la numeración, el dato se conserva como calibración de un caso de clustering de demanda y no se asigna definitivamente a un identificador de actividad.

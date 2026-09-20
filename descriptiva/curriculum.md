@@ -6,6 +6,8 @@ Curso que produce evidencia sobre qué ocurre en los datos y la comunica para un
 
 La secuencia siguiente es conceptual, no un calendario ni una asignación de duración.
 
+En la programación detallada, una sesión puede incluir varios `PRE_*` autocontenidos cuando su complejidad y progresión pedagógica lo permitan.
+
 ## Unidades
 
 ### 1. Python para Analytics
