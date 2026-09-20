@@ -12799,6 +12799,80 @@
     data: verified
     code: verified
 
+- id: 397
+  name: Rossmann Customer Flow Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Principles of Data Science, Third Edition
+    title: Rossmann Sales Exploration
+    url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/Code/chapter_09.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition
+      path: Code/chapter_09.ipynb
+    description: >
+      Packt uses Rossmann retail data to explore customer-count distributions,
+      descriptive statistics, and store-level variation as part of a practical
+      introduction to correlation and exploratory analysis.
+  data:
+    description: >
+      Rossmann store records with store identifiers, customer counts, sales,
+      promotions, calendar attributes, and related retail variables.
+    source_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/data/rossmann.csv
+    availability: repository
+    files:
+      - data/rossmann.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - descriptive statistics
+      - histograms
+      - boxplots
+      - correlation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/Code/chapter_09.ipynb
+  problem:
+    context: >
+      Retail stores experience heterogeneous customer traffic that should be
+      understood before modeling sales or operational demand.
+    objective: >
+      Diagnose customer-flow distributions and store-level variation in a retail dataset.
+    analytical_questions:
+      - How are customer counts distributed within a store?
+      - Which observations appear unusual?
+      - How much variability exists in customer traffic?
+      - Which variables show meaningful association with customer activity?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+      - seaborn
+    logical_steps:
+      - Load and validate Rossmann store data.
+      - Select store-level customer observations.
+      - Calculate descriptive statistics.
+      - Visualize customer-count distributions.
+      - Identify unusual observations.
+      - Explore correlations with selected store and calendar variables.
+    expected_outputs:
+      - customer traffic summary
+      - distribution plots
+      - outlier diagnostics
+      - correlation table
+      - written retail interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -24740,6 +24814,157 @@
       - forecast error comparison
       - model component plots
       - future electricity-demand forecast
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 398
+  name: Bike Rental Linear Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Principles of Data Science, Third Edition
+    title: Bike Sharing Regression
+    url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/Code/chapter_10.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition
+      path: Code/chapter_10.ipynb
+    description: >
+      Packt models bike-sharing demand with simple and multiple linear regression,
+      compares feature sets, and evaluates predictive error on train/test splits.
+  data:
+    description: >
+      Bike-sharing demand observations with total rental count, temperature,
+      humidity, season, weather, holiday, working-day, and wind-speed variables.
+    source_url: https://raw.githubusercontent.com/justmarkham/DAT8/master/data/bikeshare.csv
+    availability: public
+    files:
+      - bikeshare.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - multiple regression
+      - train/test split
+      - MAE
+      - MSE
+      - RMSE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/Code/chapter_10.ipynb
+  problem:
+    context: >
+      Bike-sharing demand varies with environmental and calendar conditions, and
+      operators need a transparent baseline for predicting rental volume.
+    objective: >
+      Build and evaluate linear models for bike-rental demand and quantify the
+      incremental value of additional predictors.
+    analytical_questions:
+      - How strongly is temperature associated with rental demand?
+      - Which additional predictors improve demand estimates?
+      - How does model error change as features are added?
+      - What prediction error remains on held-out observations?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - seaborn
+    logical_steps:
+      - Load and validate bike-sharing observations.
+      - Explore demand versus temperature.
+      - Fit a single-predictor regression baseline.
+      - Add weather and calendar predictors.
+      - Split data into training and test sets.
+      - Compare MAE, MSE, and RMSE across models.
+      - Interpret coefficients and residual error.
+    expected_outputs:
+      - regression baseline
+      - coefficient table
+      - feature-set comparison
+      - holdout error metrics
+      - demand predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 399
+  name: IMDB Transformer Sentiment
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Principles of Data Science, Third Edition
+    title: Transformer Sentiment Analysis
+    url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/Code/chapter_12.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition
+      path: Code/chapter_12.ipynb
+    description: >
+      Packt fine-tunes BERT for binary sentiment classification on IMDB movie
+      reviews and packages the trained model in a reusable inference pipeline.
+  data:
+    description: >
+      IMDB movie reviews with binary positive and negative sentiment labels,
+      loaded through Hugging Face Datasets.
+    source_url: https://huggingface.co/datasets/stanfordnlp/imdb
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - BERT
+      - Hugging Face Transformers
+      - tokenization
+      - fine-tuning
+      - sentiment classification
+      - inference pipeline
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Principles-of-Data-Science-Third-Edition/blob/main/Code/chapter_12.ipynb
+  problem:
+    context: >
+      Large collections of movie reviews can be automatically classified to
+      summarize customer sentiment without manually reading each review.
+    objective: >
+      Fine-tune a pretrained Transformer and use it to classify sentiment in unseen reviews.
+    analytical_questions:
+      - How should review text be tokenized for BERT?
+      - What data structure is required for fine-tuning?
+      - How can the trained model be reused for new review inference?
+      - What confidence accompanies sentiment predictions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - datasets
+      - transformers
+      - torch
+      - pandas
+    logical_steps:
+      - Load a labeled IMDB review sample.
+      - Tokenize and encode text.
+      - Fine-tune a pretrained BERT classifier.
+      - Save the trained model.
+      - Build an inference pipeline.
+      - Score unseen review text.
+      - Inspect predicted labels and confidence scores.
+    expected_outputs:
+      - fine-tuned Transformer model
+      - sentiment predictions
+      - prediction confidence scores
+      - reusable inference pipeline
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
