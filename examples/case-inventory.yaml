@@ -5284,6 +5284,85 @@
     data: verified
     code: verified
 
+- id: 141
+  name: Web Conversion Experiment
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Statistical Experiments and Significance Testing
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%203%20-%20Statistical%20Experiments%20and%20Significance%20Testing.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 3 - Statistical Experiments and Significance Testing.ipynb
+    description: >
+      O'Reilly compares web-page session and conversion outcomes using permutation
+      tests, t-tests, chi-square methods, and power/sample-size reasoning.
+  data:
+    description: >
+      Web-page session times, click rates, and conversion counts used for controlled
+      experiment and significance-testing examples.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/data
+    availability: repository
+    files:
+      - data/web_page_data.csv
+      - data/click_rates.csv
+      - data/four_sessions.csv
+  original_implementation:
+    technologies:
+      - permutation testing
+      - t-tests
+      - chi-square tests
+      - ANOVA
+      - power analysis
+      - resampling
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%203%20-%20Statistical%20Experiments%20and%20Significance%20Testing.ipynb
+  problem:
+    context: >
+      Website changes may alter engagement or conversion, but observed differences
+      must be distinguished from sampling variation before they are interpreted.
+    objective: >
+      Evaluate whether observed web-experiment differences are statistically meaningful
+      and quantify the role of sample size and test design.
+    analytical_questions:
+      - Are session-time differences between page variants larger than expected by chance?
+      - Do conversion rates differ materially?
+      - Which test is appropriate for continuous versus categorical outcomes?
+      - What sample size is needed to detect a practically relevant effect?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - statsmodels
+      - numpy
+    logical_steps:
+      - Load experiment outcome data.
+      - Summarize treatment and control groups.
+      - Build resampling and permutation null distributions.
+      - Run parametric and categorical significance tests.
+      - Compare p-values with practical effect sizes.
+      - Perform power and sample-size calculations.
+      - Summarize statistical and operational conclusions.
+    expected_outputs:
+      - treatment-control summaries
+      - permutation distributions
+      - significance test table
+      - effect-size comparison
+      - power or sample-size calculation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -9370,6 +9449,170 @@
     data: verified
     code: verified
 
+- id: 142
+  name: House Price Regression Diagnostics
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Regression and Prediction
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%204%20-%20Regression%20and%20Prediction.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 4 - Regression and Prediction.ipynb
+    description: >
+      O'Reilly uses house-sales data to develop multiple regression, model selection,
+      weighted regression, factor encoding, interactions, influence diagnostics,
+      splines, generalized additive models, and regularization.
+  data:
+    description: >
+      Residential house-sales records containing adjusted sale price, living area,
+      lot size, bathrooms, bedrooms, grade, property type, ZIP code, and sale date.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/house_sales.csv
+    availability: repository
+    files:
+      - data/house_sales.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - weighted regression
+      - stepwise selection
+      - interactions
+      - influence diagnostics
+      - splines
+      - GAM
+      - Lasso
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%204%20-%20Regression%20and%20Prediction.ipynb
+  problem:
+    context: >
+      Residential valuation depends on physical, temporal, and geographic attributes,
+      and a useful model must also diagnose nonlinearities, influential observations,
+      and confounding.
+    objective: >
+      Build and critically diagnose a house-price regression model rather than relying
+      only on a single fit statistic.
+    analytical_questions:
+      - Which property characteristics explain adjusted sale price?
+      - Do time weighting and geographic factors improve the model?
+      - Which observations are influential or anomalous?
+      - Are interactions or nonlinear relationships needed?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - pygam
+    logical_steps:
+      - Load and prepare house-sales data.
+      - Fit a multiple-regression baseline.
+      - Evaluate residual and fit metrics.
+      - Add categorical and geographic effects.
+      - Diagnose outliers and influential observations.
+      - Test interactions and nonlinear terms.
+      - Compare regularized and flexible alternatives.
+    expected_outputs:
+      - valuation model
+      - coefficient and fit summary
+      - residual diagnostics
+      - influence report
+      - nonlinear effect plots
+      - model comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 143
+  name: Imbalanced Loan Default Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Classification
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%205%20-%20Classification.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 5 - Classification.ipynb
+    description: >
+      O'Reilly models loan default using Naive Bayes, discriminant analysis,
+      logistic regression, decision trees, ROC/AUC, and multiple strategies for
+      class imbalance including weighting, SMOTE, and ADASYN.
+  data:
+    description: >
+      Loan records with borrower score, payment-to-income ratio, purpose, housing,
+      employment length, and paid-off/default outcomes.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/data
+    availability: repository
+    files:
+      - data/loan_data.csv.gz
+      - data/loan3000.csv
+      - data/full_train_set.csv.gz
+  original_implementation:
+    technologies:
+      - Naive Bayes
+      - LDA
+      - logistic regression
+      - decision trees
+      - ROC AUC
+      - class weighting
+      - SMOTE
+      - ADASYN
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%205%20-%20Classification.ipynb
+  problem:
+    context: >
+      Loan-default events may be imbalanced, causing accuracy-focused models to
+      underrepresent the minority outcome that is operationally important.
+    objective: >
+      Compare default classifiers and quantify how imbalance-handling strategies
+      change predictive behavior.
+    analytical_questions:
+      - Which borrower attributes distinguish default from paid-off loans?
+      - How do alternative classifiers compare?
+      - What does ROC/AUC reveal beyond accuracy?
+      - How do weighting, SMOTE, and ADASYN affect minority-class predictions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - imbalanced-learn
+      - statsmodels
+    logical_steps:
+      - Load and prepare loan data.
+      - Encode categorical predictors.
+      - Fit several baseline classifiers.
+      - Evaluate confusion-matrix and ROC metrics.
+      - Diagnose class imbalance.
+      - Compare weighting, SMOTE, and ADASYN strategies.
+      - Interpret changes in minority-class performance.
+    expected_outputs:
+      - classifier comparison table
+      - confusion matrices
+      - ROC curves and AUC
+      - imbalance-strategy comparison
+      - default probability scores
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -10693,6 +10936,83 @@
       - OpenAPI schema
       - endpoint tests
       - working inference service
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 144
+  name: Model Serving and Versioning
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, Third Edition
+    title: Training and Deploying TensorFlow Models at Scale
+    url: https://github.com/ageron/handson-ml3/blob/main/19_training_and_deploying_at_scale.ipynb
+    repository:
+      url: https://github.com/ageron/handson-ml3
+      path: 19_training_and_deploying_at_scale.ipynb
+    description: >
+      O'Reilly trains and exports a TensorFlow model, serves it through TensorFlow
+      Serving over REST and gRPC, deploys new model versions, and demonstrates
+      cloud batch and online serving workflows.
+  data:
+    description: >
+      MNIST image data used as the worked model-serving example.
+    source_url: https://www.tensorflow.org/api_docs/python/tf/keras/datasets/mnist/load_data
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - TensorFlow
+      - SavedModel
+      - TensorFlow Serving
+      - REST
+      - gRPC
+      - model versioning
+      - Vertex AI
+    language: Python
+    code_available: true
+    code_url: https://github.com/ageron/handson-ml3/blob/main/19_training_and_deploying_at_scale.ipynb
+  problem:
+    context: >
+      A trained model must be packaged, versioned, queried, updated, and deployed
+      reliably before it can function as a reusable analytical service.
+    objective: >
+      Turn a trained model into a versioned prediction service and validate multiple
+      serving modes.
+    analytical_questions:
+      - How should a trained model be exported for serving?
+      - How can clients request predictions through REST and gRPC?
+      - How can a new model version be deployed without redesigning the client?
+      - What changes when inference is moved to managed cloud serving?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - requests
+      - grpcio
+    logical_steps:
+      - Train a reproducible image classifier.
+      - Export a SavedModel artifact.
+      - Launch a local TensorFlow Serving instance.
+      - Send REST and gRPC prediction requests.
+      - Export and deploy a second model version.
+      - Validate versioned serving behavior.
+      - Compare local and managed-cloud deployment patterns.
+    expected_outputs:
+      - exported model artifact
+      - REST prediction example
+      - gRPC prediction example
+      - versioned serving directory
+      - deployment validation
+      - working prediction service
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
