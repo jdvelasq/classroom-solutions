@@ -3516,3 +3516,76 @@
     source: verified
     data: verified
     code: verified
+
+- id: 47
+  name: Seattle Bicycle Patterns
+  domain: analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Jake VanderPlas
+    publisher: O'Reilly Media
+    book: Python Data Science Handbook
+    title: Visualizing Seattle Bicycle Counts
+    url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/03.11-Working-with-Time-Series.ipynb
+    repository:
+      url: https://github.com/jakevdp/PythonDataScienceHandbook
+      path: notebooks_v1/03.11-Working-with-Time-Series.ipynb
+    description: >
+      The O'Reilly case analyzes hourly bicycle counts from Seattle's Fremont Bridge
+      using resampling, rolling windows, and time-based summaries.
+  data:
+    description: >
+      Hourly east- and west-side bicycle counts from the Fremont Bridge automated counter.
+    source_url: https://data.seattle.gov/Transportation/Fremont-Bridge-Hourly-Bicycle-Counts-by-Month-Octo/65db-xm6k
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - time-series resampling
+      - rolling windows
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks_v1/03.11-Working-with-Time-Series.ipynb
+  problem:
+    context: >
+      Urban mobility planners need to understand recurring bicycle-traffic patterns
+      across hours, days, and longer periods.
+    objective: >
+      Analyze Fremont Bridge bicycle counts to reveal temporal traffic patterns,
+      directional differences, and longer-term variation.
+    analytical_questions:
+      - How does bicycle traffic vary by hour and day?
+      - How do east- and west-side counts differ?
+      - Which weekly and seasonal patterns are visible?
+      - How do rolling summaries reveal longer-term changes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Download and freeze a public Fremont Bridge extract.
+      - Parse timestamps and validate hourly frequency.
+      - Create total and directional counts.
+      - Resample to daily and weekly summaries.
+      - Compute rolling averages.
+      - Compare temporal patterns by hour, weekday, and direction.
+      - Visualize and interpret recurring mobility patterns.
+    expected_outputs:
+      - validated bicycle-count dataset
+      - temporal summary tables
+      - rolling trend series
+      - hourly and weekly pattern plots
+      - directional comparison
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
