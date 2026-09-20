@@ -20551,6 +20551,236 @@
     data: verified
     code: verified
 
+- id: 325
+  name: Australian Tourism Reconciliation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: OTexts
+    publisher: OTexts
+    book: Forecasting: Principles and Practice, Third Edition
+    title: Forecast Reconciliation
+    url: https://otexts.com/fpp3/reconciliation.html
+    repository:
+      url: https://github.com/tidyverts/fpp3
+      path: R
+    description: >
+      The book forecasts Australian tourism across geographic aggregation levels
+      and reconciles independently generated forecasts so national, state, region,
+      and purpose totals remain coherent.
+  data:
+    description: >
+      Quarterly Australian domestic tourism trips organized by state, region, and
+      travel purpose and distributed through the fpp3/tourism data ecosystem.
+    source_url: https://otexts.com/fpp3/reconciliation.html
+    availability: package_dataset
+    files:
+      - tourism
+  original_implementation:
+    technologies:
+      - hierarchical forecasting
+      - grouped time series
+      - bottom-up reconciliation
+      - MinT reconciliation
+      - forecast evaluation
+    language: R
+    code_available: true
+    code_url: https://otexts.com/fpp3/reconciliation.html
+  problem:
+    context: >
+      Tourism forecasts are required simultaneously at national, state, regional,
+      and purpose levels, but independently produced forecasts will generally not add up.
+    objective: >
+      Produce accurate tourism forecasts that are coherent across the full geographic
+      and purpose hierarchy.
+    analytical_questions:
+      - Which seasonal patterns differ across geographic levels?
+      - How inconsistent are independently generated forecasts?
+      - How do bottom-up and MinT reconciliation compare?
+      - Which reconciliation strategy gives the best out-of-sample accuracy?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - hierarchicalforecast
+      - statsforecast
+      - matplotlib
+    logical_steps:
+      - Load and structure the tourism hierarchy.
+      - Identify aggregation constraints.
+      - Fit base forecasts to component series.
+      - Generate unreconciled forecasts.
+      - Apply bottom-up and MinT reconciliation.
+      - Verify aggregation coherence.
+      - Compare accuracy by hierarchy level.
+    expected_outputs:
+      - hierarchical tourism panel
+      - base forecasts
+      - reconciled forecasts
+      - coherence checks
+      - accuracy comparison by level
+      - forecast visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 326
+  name: Takeaway Forecast Combination
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: OTexts
+    publisher: OTexts
+    book: Forecasting: Principles and Practice, Third Edition
+    title: Forecast Combinations
+    url: https://otexts.com/fpp3/combinations.html
+    repository:
+      url: https://github.com/tidyverts/fpp3
+      path: R
+    description: >
+      The book forecasts Australian take-away food turnover with ETS, STL-ETS,
+      and ARIMA models and evaluates whether a simple forecast combination improves
+      holdout accuracy.
+  data:
+    description: >
+      Monthly Australian retail turnover for take-away food services from the
+      Australian retail trade dataset.
+    source_url: https://otexts.com/fpp3/combinations.html
+    availability: package_dataset
+    files:
+      - aus_retail
+  original_implementation:
+    technologies:
+      - ETS
+      - STL decomposition
+      - ARIMA
+      - forecast combinations
+      - temporal holdout evaluation
+    language: R
+    code_available: true
+    code_url: https://otexts.com/fpp3/combinations.html
+  problem:
+    context: >
+      Different forecasting methods capture different aspects of retail demand,
+      so combining models can be more robust than relying on a single specification.
+    objective: >
+      Compare individual and combined forecasts for monthly take-away food turnover.
+    analytical_questions:
+      - How do ETS, STL-ETS, and ARIMA differ on the same series?
+      - Which model performs best on the five-year holdout?
+      - Does a simple average improve forecast accuracy?
+      - When do individual models disagree most strongly?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - statsforecast
+      - matplotlib
+    logical_steps:
+      - Load and aggregate monthly take-away turnover.
+      - Define a chronological training and holdout period.
+      - Fit ETS, decomposition-based, and ARIMA models.
+      - Generate common-horizon forecasts.
+      - Combine forecasts by simple averaging.
+      - Compare holdout errors.
+      - Diagnose periods where models disagree.
+    expected_outputs:
+      - monthly turnover series
+      - individual model forecasts
+      - combined forecast
+      - holdout accuracy table
+      - forecast comparison chart
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 327
+  name: Electricity Demand Dynamic Regression
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: OTexts
+    publisher: OTexts
+    book: Forecasting: Principles and Practice, Third Edition
+    title: Dynamic Regression with Electricity Demand
+    url: https://otexts.com/fpp3/dynamic.html
+    repository:
+      url: https://github.com/tidyverts/fpp3
+      path: R
+    description: >
+      The book models electricity demand as a function of temperature, holidays,
+      and day type while using time-series errors to account for residual serial dependence.
+  data:
+    description: >
+      Half-hourly Victorian electricity demand, temperature, and holiday observations,
+      aggregated to daily demand and daily maximum temperature.
+    source_url: https://otexts.com/fpp3/dynamic-exercises.html
+    availability: package_dataset
+    files:
+      - vic_elec
+  original_implementation:
+    technologies:
+      - dynamic regression
+      - temperature effects
+      - calendar effects
+      - ARIMA errors
+      - time-series forecasting
+    language: R
+    code_available: true
+    code_url: https://otexts.com/fpp3/dynamic-exercises.html
+  problem:
+    context: >
+      Electricity demand responds nonlinearly to temperature and differs across
+      working days, weekends, and holidays while retaining serial dependence over time.
+    objective: >
+      Forecast electricity demand using weather and calendar predictors with
+      autocorrelated errors.
+    analytical_questions:
+      - How does demand respond to temperature?
+      - Where should a temperature-response knot be placed?
+      - How do weekday, weekend, and holiday demand differ?
+      - How much do ARIMA errors improve inference and forecasting?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - pmdarima
+      - matplotlib
+    logical_steps:
+      - Aggregate half-hourly demand to daily totals.
+      - Construct daily temperature and calendar predictors.
+      - Explore nonlinear temperature response.
+      - Fit regression with piecewise temperature effects.
+      - Diagnose autocorrelation in residuals.
+      - Add ARIMA error structure.
+      - Generate weather-conditioned demand forecasts.
+    expected_outputs:
+      - daily electricity dataset
+      - temperature-response plot
+      - dynamic regression model
+      - residual diagnostics
+      - demand forecasts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
