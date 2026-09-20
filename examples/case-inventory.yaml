@@ -20220,3 +20220,86 @@
     source: verified
     data: verified
     code: verified
+
+- id: 270
+  name: Temperature Forecast MLOps
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Time Series Analysis with Spark
+    title: Going to Production
+    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Spark/blob/main/ch9/dags/ts-spark_ch9_data-ml-ops.py
+    repository:
+      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Spark
+      path: ch9/dags/ts-spark_ch9_data-ml-ops.py
+    description: >
+      Packt operationalizes daily minimum-temperature forecasting with a complete
+      Spark time-series pipeline using Delta tables, Prophet, MLflow model tracking
+      and registry, Airflow orchestration, forecast persistence, and post-run evaluation.
+  data:
+    description: >
+      Daily minimum-temperature time series used throughout the book's Spark
+      forecasting workflow.
+    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Spark/blob/main/ch1/ts-spark_ch1_ds2.csv
+    availability: repository
+    files:
+      - ch1/ts-spark_ch1_ds2.csv
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - Delta Lake
+      - Prophet
+      - MLflow
+      - Airflow
+      - model registry
+      - forecast evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Spark/blob/main/ch9/dags/ts-spark_ch9_data-ml-ops.py
+  problem:
+    context: >
+      A forecasting model becomes operational only when ingestion, transformation,
+      training, registration, scoring, persistence, and evaluation run reproducibly
+      as a coordinated pipeline.
+    objective: >
+      Build an end-to-end production forecasting workflow that can be rerun for
+      different training and evaluation periods.
+    analytical_questions:
+      - How should raw time-series data move through bronze, silver, and forecast layers?
+      - How should forecast models and metrics be tracked and versioned?
+      - How can a registered model generate future forecasts reproducibly?
+      - How should later observed values be joined back to forecasts for evaluation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - delta-spark
+      - prophet
+      - mlflow
+      - apache-airflow
+    logical_steps:
+      - Ingest raw time-series observations into Delta.
+      - Transform them to model-ready form.
+      - Train Prophet and calculate cross-validation metrics.
+      - Log and register the model with MLflow.
+      - Generate and persist forecasts.
+      - Ingest later observations.
+      - Evaluate forecast RMSE against realized data.
+      - Orchestrate the full workflow with Airflow.
+    expected_outputs:
+      - bronze and silver Delta tables
+      - registered forecasting model
+      - versioned forecast table
+      - forecast intervals
+      - evaluation metrics
+      - reproducible Airflow DAG
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
