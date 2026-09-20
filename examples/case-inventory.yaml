@@ -8873,6 +8873,165 @@
     data: verified
     code: verified
 
+- id: 262
+  name: TV Pilot Preference Factors
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: TaddyLab
+    publisher: McGraw-Hill
+    book: Business Data Science
+    title: NBC Pilot Survey Analysis
+    url: https://github.com/TaddyLab/BDS/blob/master/examples/nbc.R
+    repository:
+      url: https://github.com/TaddyLab/BDS
+      path: examples/nbc.R
+    description: >
+      The book aggregates pilot focus-group survey responses by television show,
+      applies PCA to uncover latent perception dimensions, and relates principal
+      components to audience engagement.
+  data:
+    description: >
+      NBC show details, pilot-survey responses, and audience demographic information.
+    source_url: https://github.com/TaddyLab/BDS/tree/master/examples
+    availability: repository
+    files:
+      - examples/nbc_showdetails.csv
+      - examples/nbc_pilotsurvey.csv
+      - examples/nbc_demographics.csv
+  original_implementation:
+    technologies:
+      - PCA
+      - principal components regression
+      - lasso
+      - survey aggregation
+      - decision trees
+    language: R
+    code_available: true
+    code_url: https://github.com/TaddyLab/BDS/blob/master/examples/nbc.R
+  problem:
+    context: >
+      Pilot surveys contain many correlated perception questions, making it difficult
+      to understand the underlying dimensions that distinguish television shows.
+    objective: >
+      Discover latent audience-perception dimensions and assess how they relate to
+      show engagement and genre.
+    analytical_questions:
+      - What latent dimensions summarize pilot-survey responses?
+      - Which survey items dominate each principal component?
+      - How many components retain useful information?
+      - How strongly do latent dimensions relate to audience engagement?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load show and pilot-survey data.
+      - Aggregate responses by show.
+      - Standardize survey variables.
+      - Fit PCA and inspect explained variance.
+      - Interpret component loadings.
+      - Relate component scores to engagement.
+      - Compare component-based and raw-variable models.
+    expected_outputs:
+      - survey summary matrix
+      - scree plot
+      - component loading table
+      - show component scores
+      - engagement relationship diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 263
+  name: Medicaid Utilization Impact
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: TaddyLab
+    publisher: McGraw-Hill
+    book: Business Data Science
+    title: Oregon Health Insurance Experiment
+    url: https://github.com/TaddyLab/BDS/blob/master/examples/ORhealth.R
+    repository:
+      url: https://github.com/TaddyLab/BDS
+      path: examples/ORhealth.R
+    description: >
+      The book analyzes the Oregon Health Insurance Experiment using randomized
+      selection, regression adjustment, clustered uncertainty, instrumental variables,
+      bootstrap inference, and heterogeneous treatment-effect methods.
+  data:
+    description: >
+      Oregon Health Insurance Experiment public-use files with lottery selection,
+      Medicaid enrollment, household structure, health-care utilization, and survey outcomes.
+    source_url: https://github.com/TaddyLab/BDS/tree/master/examples/OHIE_Public_Use_Files
+    availability: repository
+    files:
+      - examples/OHIE_Public_Use_Files/OHIE_Data/oregonhie_descriptive_vars.dta
+      - examples/OHIE_Public_Use_Files/OHIE_Data/oregonhie_stateprograms_vars.dta
+      - examples/OHIE_Public_Use_Files/OHIE_Data/oregonhie_survey12m_vars.dta
+  original_implementation:
+    technologies:
+      - randomized experiments
+      - instrumental variables
+      - clustered standard errors
+      - bootstrap
+      - treatment-effect heterogeneity
+      - causal trees
+    language: R
+    code_available: true
+    code_url: https://github.com/TaddyLab/BDS/blob/master/examples/ORhealth.R
+  problem:
+    context: >
+      Medicaid enrollment is not identical to lottery selection, so estimating the
+      effect of insurance on health-care utilization requires distinguishing assignment
+      from actual treatment uptake.
+    objective: >
+      Estimate the causal effect of Medicaid coverage on health-care utilization
+      and examine treatment-effect heterogeneity.
+    analytical_questions:
+      - What is the intention-to-treat effect of lottery selection?
+      - How does Medicaid enrollment change doctor or hospital utilization?
+      - How should household clustering affect uncertainty?
+      - Does treatment response vary across participant characteristics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - linearmodels
+      - econml
+    logical_steps:
+      - Load and integrate experiment files by participant.
+      - Define lottery assignment, enrollment, and utilization outcomes.
+      - Estimate unadjusted and regression-adjusted effects.
+      - Calculate clustered and bootstrap uncertainty.
+      - Use lottery selection as an instrument for Medicaid enrollment.
+      - Estimate treatment-effect heterogeneity.
+      - Compare causal estimands and interpretations.
+    expected_outputs:
+      - experiment balance diagnostics
+      - intention-to-treat estimate
+      - instrumental-variable estimate
+      - confidence intervals
+      - heterogeneous-effect analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -16575,6 +16734,83 @@
       - model-selection comparison
       - selected domain effects
       - spending predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 264
+  name: Semiconductor Failure Screening
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: TaddyLab
+    publisher: McGraw-Hill
+    book: Business Data Science
+    title: Semiconductor Failure Modeling
+    url: https://github.com/TaddyLab/BDS/blob/master/examples/semiconductor.R
+    repository:
+      url: https://github.com/TaddyLab/BDS
+      path: examples/semiconductor.R
+    description: >
+      The book models semiconductor failures in a high-dimensional setting, compares
+      full and selected models, controls false discovery rate, and contrasts
+      stepwise and regularized selection under out-of-sample evaluation.
+  data:
+    description: >
+      Semiconductor manufacturing measurements with a binary failure outcome and
+      many candidate process variables.
+    source_url: https://github.com/TaddyLab/BDS/blob/master/examples/semiconductor.csv
+    availability: repository
+    files:
+      - examples/semiconductor.csv
+  original_implementation:
+    technologies:
+      - logistic regression
+      - false discovery rate
+      - forward selection
+      - lasso
+      - cross-validation
+      - information criteria
+    language: R
+    code_available: true
+    code_url: https://github.com/TaddyLab/BDS/blob/master/examples/semiconductor.R
+  problem:
+    context: >
+      Semiconductor production generates many correlated process measurements but
+      relatively few failures, so naive high-dimensional models can overfit badly.
+    objective: >
+      Predict manufacturing failures while comparing variable-selection strategies
+      and controlling false discoveries.
+    analytical_questions:
+      - Which process variables show evidence of association with failure?
+      - How many variables survive FDR control?
+      - Does aggressive variable selection improve out-of-sample performance?
+      - How do lasso, information criteria, and stepwise selection differ?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load and validate manufacturing measurements.
+      - Fit a high-dimensional baseline logistic model.
+      - Calculate variable p-values and FDR thresholds.
+      - Build reduced models.
+      - Fit regularized alternatives.
+      - Evaluate all candidates by cross-validation.
+      - Compare selected variables and predictive performance.
+    expected_outputs:
+      - FDR screening table
+      - selected variable sets
+      - regularization path
+      - cross-validation comparison
+      - failure probability model
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
