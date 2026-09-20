@@ -7972,6 +7972,199 @@
     data: verified
     code: verified
 
+- id: 241
+  name: Loan Income Bootstrap
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Data and Sampling Distributions
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%202%20-%20Data%20and%20sampling%20distributions.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 2 - Data and sampling distributions.ipynb
+    description: >
+      Quantify sampling variability and bootstrap uncertainty for applicant-income statistics.
+  data:
+    description: >
+      Applicant income observations used for repeated sampling and bootstrap analysis.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/loans_income.csv
+    availability: repository
+    files:
+      - data/loans_income.csv
+  original_implementation:
+    technologies:
+      - sampling distributions
+      - bootstrap
+      - resampling
+      - confidence intervals
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%202%20-%20Data%20and%20sampling%20distributions.ipynb
+  problem:
+    context: >
+      A lender needs to understand how stable income summaries are under repeated sampling.
+    objective: >
+      Quantify sampling variability and bootstrap uncertainty for applicant-income statistics.
+    analytical_questions:
+      - How does sampling variability change with sample size?
+      - What bias and standard error arise in bootstrap estimates?
+      - What confidence intervals surround selected income statistics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate income observations.
+      - Draw repeated samples at several sizes.
+      - Compare sampling distributions.
+      - Generate bootstrap resamples.
+      - Estimate bias, standard error, and confidence intervals.
+    expected_outputs:
+      - sampling distribution plots
+      - bootstrap summary table
+      - confidence intervals
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 242
+  name: Equity Return Factor Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Principal Components Analysis of Stock Returns
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%207%20-%20Unsupervised%20Learning.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 7 - Unsupervised Learning.ipynb
+    description: >
+      Discover latent return factors and interpret the stocks and sectors driving them.
+  data:
+    description: >
+      Daily S&P 500 stock-return data with sector metadata.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/data
+    availability: repository
+    files:
+      - data/sp500_data.csv.gz
+      - data/sp500_sectors.csv
+  original_implementation:
+    technologies:
+      - PCA
+      - explained variance
+      - component loadings
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%207%20-%20Unsupervised%20Learning.ipynb
+  problem:
+    context: >
+      Equity returns share market and sector structure that is difficult to see in high dimensions.
+    objective: >
+      Discover latent return factors and interpret the stocks and sectors driving them.
+    analytical_questions:
+      - How much variance is explained by the leading components?
+      - Which stocks dominate each component?
+      - Do latent components align with sectors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load returns and sector metadata.
+      - Prepare a consistent analysis window.
+      - Fit PCA.
+      - Analyze explained variance and loadings.
+      - Map important loadings to sectors.
+    expected_outputs:
+      - scree plot
+      - component loading table
+      - factor interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 243
+  name: Defaulted Loan Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Clustering Loan Defaults
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%207%20-%20Unsupervised%20Learning.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 7 - Unsupervised Learning.ipynb
+    description: >
+      Discover and interpret segments among defaulted loans and assess sensitivity to scaling.
+  data:
+    description: >
+      Lending records containing loan, income, revolving balance, account, delinquency, and outcome variables.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/loan_data.csv.gz
+    availability: repository
+    files:
+      - data/loan_data.csv.gz
+  original_implementation:
+    technologies:
+      - K-means
+      - standardization
+      - cluster profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%207%20-%20Unsupervised%20Learning.ipynb
+  problem:
+    context: >
+      Defaulted borrowers may represent several distinct financial profiles.
+    objective: >
+      Discover and interpret segments among defaulted loans and assess sensitivity to scaling.
+    analytical_questions:
+      - What borrower groups emerge?
+      - Which variables dominate before scaling?
+      - How does standardization change the cluster solution?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Isolate defaulted loans.
+      - Select financial features.
+      - Fit unscaled and scaled K-means models.
+      - Compare cluster profiles in original units.
+    expected_outputs:
+      - cluster assignments
+      - segment profiles
+      - scaling sensitivity comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -15239,6 +15432,142 @@
       - revised predictor specification
       - stable sales regression
       - coefficient interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 244
+  name: Imbalanced Loan Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists
+    title: Classification and Imbalanced Data
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%205%20-%20Classification.ipynb
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/notebooks/Chapter 5 - Classification.ipynb
+    description: >
+      Compare default classifiers and diagnose how imbalance remedies alter minority-class performance.
+  data:
+    description: >
+      Loan records with borrower, payment burden, employment, housing, purpose, and default outcome.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/data
+    availability: repository
+    files:
+      - data/loan3000.csv
+      - data/loan_data.csv.gz
+      - data/full_train_set.csv.gz
+  original_implementation:
+    technologies:
+      - naive Bayes
+      - LDA
+      - logistic regression
+      - ROC AUC
+      - SMOTE
+      - ADASYN
+    language: Python
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/notebooks/Chapter%205%20-%20Classification.ipynb
+  problem:
+    context: >
+      Loan defaults are imbalanced, making overall accuracy potentially misleading.
+    objective: >
+      Compare default classifiers and diagnose how imbalance remedies alter minority-class performance.
+    analytical_questions:
+      - How do candidate classifiers compare?
+      - What do ROC and confusion-matrix metrics reveal?
+      - How do weighting, SMOTE, and ADASYN change default detection?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - imbalanced-learn
+    logical_steps:
+      - Prepare loan data.
+      - Fit baseline classifiers.
+      - Evaluate ROC and confusion metrics.
+      - Apply weighting and resampling methods.
+      - Compare minority-class performance.
+    expected_outputs:
+      - classifier comparison
+      - ROC curves
+      - confusion matrices
+      - imbalance-remedy comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 245
+  name: Ames Price Explanation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: CRC
+    publisher: CRC Press
+    book: Tidy Modeling with R
+    title: Explaining Models and Predictions
+    url: https://github.com/tidymodels/TMwR/blob/main/18-explaining-models-and-predictions.Rmd
+    repository:
+      url: https://github.com/tidymodels/TMwR
+      path: 18-explaining-models-and-predictions.Rmd
+    description: >
+      Compare local and global explanations for alternative house-price models.
+  data:
+    description: >
+      Ames, Iowa housing records with sale prices, location, size, age, and building characteristics.
+    source_url: https://CRAN.R-project.org/package=modeldata
+    availability: package_dataset
+    files:
+      []
+  original_implementation:
+    technologies:
+      - tidymodels
+      - random forest
+      - DALEX
+      - SHAP
+      - permutation importance
+    language: R
+    code_available: true
+    code_url: https://github.com/tidymodels/TMwR/blob/main/18-explaining-models-and-predictions.Rmd
+  problem:
+    context: >
+      Accurate house-price models still need explanations at individual-property and portfolio levels.
+    objective: >
+      Compare local and global explanations for alternative house-price models.
+    analytical_questions:
+      - Which features drive a particular prediction?
+      - How do explanations differ between models?
+      - Which features are globally most important?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - shap
+    logical_steps:
+      - Prepare Ames housing data.
+      - Fit linear and nonlinear models.
+      - Compare predictive performance.
+      - Produce local SHAP explanations.
+      - Calculate global permutation importance.
+    expected_outputs:
+      - local explanation plots
+      - SHAP tables
+      - global importance rankings
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
