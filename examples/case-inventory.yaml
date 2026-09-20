@@ -2190,6 +2190,142 @@
     data: verified
     code: verified
 
+- id: 254
+  name: Taxi Feature Store
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Machine Learning Design Patterns
+    title: Feature Store
+    url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/feature_store.ipynb
+    repository:
+      url: https://github.com/GoogleCloudPlatform/ml-design-patterns
+      path: 06_reproducibility/feature_store.ipynb
+    description: >
+      Build and use a feature store that serves consistent taxi features for training and online prediction.
+  data:
+    description: >
+      Taxi fare observations with pickup/dropoff coordinates, passenger count, timestamps, taxi identifiers, and fares.
+    source_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/taxi-train.csv
+    availability: repository_or_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Feast
+      - offline features
+      - online features
+      - feature registry
+      - batch retrieval
+      - online serving
+    language: Python
+    code_available: true
+    code_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/feature_store.ipynb
+  problem:
+    context: >
+      Training and serving can silently use inconsistent features unless the same definitions and historical values are managed centrally.
+    objective: >
+      Build and use a feature store that serves consistent taxi features for training and online prediction.
+    analytical_questions:
+      - How should reusable taxi features be defined and registered?
+      - How are historical features retrieved without leakage?
+      - How are the same features served online at inference time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - feast
+      - xgboost
+    logical_steps:
+      - Load taxi records.
+      - Engineer reusable distance features.
+      - Register entity and feature definitions.
+      - Ingest feature values.
+      - Retrieve historical training features.
+      - Train a fare model.
+      - Retrieve online features and score entities.
+    expected_outputs:
+      - feature definitions
+      - offline training dataset
+      - online feature retrieval
+      - model predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 256
+  name: Transaction Schema Bridging
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Machine Learning Design Patterns
+    title: Bridging Schema
+    url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/bridging_schema.ipynb
+    repository:
+      url: https://github.com/GoogleCloudPlatform/ml-design-patterns
+      path: 06_reproducibility/bridging_schema.ipynb
+    description: >
+      Bridge old and new transaction schemas and determine how much historical data can be reused without degrading performance.
+  data:
+    description: >
+      Synthetic old and new transaction schemas with a shared tipping prediction task.
+    source_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/bridging_schema.ipynb
+    availability: repository_or_generated
+    files: []
+  original_implementation:
+    technologies:
+      - schema evolution
+      - backward compatibility
+      - bridging data
+      - holdout evaluation
+      - grid search
+    language: Python
+    code_available: true
+    code_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/bridging_schema.ipynb
+  problem:
+    context: >
+      A production data schema can change while historical data remain valuable for model training.
+    objective: >
+      Bridge old and new transaction schemas and determine how much historical data can be reused without degrading performance.
+    analytical_questions:
+      - How should legacy categories be mapped into the new schema?
+      - How much new data must be reserved for reliable evaluation?
+      - How much bridged historical data improves rather than harms performance?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+    logical_steps:
+      - Simulate old and new schemas.
+      - Hold out new-schema evaluation data.
+      - Define a static bridging transformation.
+      - Augment new training data with varying amounts of bridged history.
+      - Measure validation performance.
+      - Select the useful historical-data volume.
+    expected_outputs:
+      - bridged dataset
+      - validation curve
+      - recommended historical-data amount
+      - schema migration diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -19030,3 +19166,142 @@
     The original implementation calls Azure Text Analytics and therefore requires
     credentials; a self-contained Python rewrite can replace that dependency with
     local open-source models.
+
+- id: 255
+  name: Text Model Continuous Evaluation
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Machine Learning Design Patterns
+    title: Continuous Evaluation
+    url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/05_resilience/continuous_eval.ipynb
+    repository:
+      url: https://github.com/GoogleCloudPlatform/ml-design-patterns
+      path: 05_resilience/continuous_eval.ipynb
+    description: >
+      Deploy a text classifier and establish a continuous evaluation loop for online predictions.
+  data:
+    description: >
+      Hacker News article titles labeled by source such as NYTimes, GitHub, and TechCrunch.
+    source_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/tree/master/05_resilience
+    availability: repository_or_generated
+    files: []
+  original_implementation:
+    technologies:
+      - TensorFlow
+      - online serving
+      - BigQuery
+      - continuous evaluation
+      - ground truth capture
+      - classification monitoring
+    language: Python
+    code_available: true
+    code_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/05_resilience/continuous_eval.ipynb
+  problem:
+    context: >
+      A deployed text classifier can degrade or fail in production even when offline test metrics looked acceptable.
+    objective: >
+      Deploy a text classifier and establish a continuous evaluation loop for online predictions.
+    analytical_questions:
+      - How should production predictions be captured?
+      - How is delayed ground truth joined to predictions?
+      - Which metrics reveal production model quality over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - google-cloud-bigquery
+      - scikit-learn
+    logical_steps:
+      - Train and validate a text classifier.
+      - Export a serving signature.
+      - Deploy the model.
+      - Capture online prediction requests.
+      - Attach ground-truth labels.
+      - Calculate ongoing classification metrics.
+      - Review production errors.
+    expected_outputs:
+      - deployed classifier
+      - prediction log
+      - ground-truth-enriched evaluation table
+      - continuous evaluation report
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 257
+  name: Flight Model Versioning
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Machine Learning Design Patterns
+    title: Model Versioning
+    url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/model_versioning.ipynb
+    repository:
+      url: https://github.com/GoogleCloudPlatform/ml-design-patterns
+      path: 06_reproducibility/model_versioning.ipynb
+    description: >
+      Deploy multiple compatible versions of a flight-delay model and manage a later reframing from classification to regression.
+  data:
+    description: >
+      Flight records with schedule and operational variables plus arrival-delay outcomes.
+    source_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/model_versioning.ipynb
+    availability: repository_or_generated
+    files: []
+  original_implementation:
+    technologies:
+      - model versioning
+      - XGBoost
+      - TensorFlow
+      - REST endpoints
+      - backward compatibility
+      - deployment
+    language: Python
+    code_available: true
+    code_url: https://github.com/GoogleCloudPlatform/ml-design-patterns/blob/master/06_reproducibility/model_versioning.ipynb
+  problem:
+    context: >
+      Production models evolve in algorithm and even task definition, but consumers need stable interfaces and controlled migration.
+    objective: >
+      Deploy multiple compatible versions of a flight-delay model and manage a later reframing from classification to regression.
+    analytical_questions:
+      - When should a model change become a new version versus a new resource?
+      - How can two implementations coexist behind versioned endpoints?
+      - What breaks when the prediction contract changes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - xgboost
+      - tensorflow
+      - google-cloud-aiplatform
+      - pandas
+    logical_steps:
+      - Prepare flight-delay data.
+      - Train a first classification model.
+      - Deploy version 1.
+      - Train an alternative TensorFlow implementation.
+      - Deploy version 2 under the same model resource.
+      - Reframe the task as delay regression.
+      - Deploy the changed contract separately.
+    expected_outputs:
+      - versioned model endpoints
+      - v1/v2 prediction comparison
+      - deployment contract
+      - classification-to-regression migration plan
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
