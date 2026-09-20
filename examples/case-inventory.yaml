@@ -1919,3 +1919,81 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 26
+  name: Music Recommendation
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Recommending Music Titles
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-05/recommender-systems.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-05/recommender-systems.ipynb
+    description: >
+      Packt develops content-based and collaborative-filtering music recommenders
+      using Amazon product data from SNAP.
+  data:
+    description: >
+      Amazon music product and review/link data distributed through the Stanford
+      Network Analysis Project and mirrored by the book repository.
+    source_url: https://snap.stanford.edu/data/web-Amazon-links.html
+    availability: public
+    files: []
+    direct_data_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-05/data.zip
+  original_implementation:
+    technologies:
+      - content-based recommendation
+      - collaborative filtering
+      - t-SNE
+      - restricted Boltzmann machines
+      - grid search
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-05/recommender-systems.ipynb
+  problem:
+    context: >
+      Online retailers and media services can use historical product information
+      and user behavior to generate personalized recommendations.
+    objective: >
+      Build and compare recommendation strategies for suggesting music titles to customers.
+    analytical_questions:
+      - Which items are most similar based on content or interaction patterns?
+      - How do content-based and collaborative recommendations differ?
+      - Which recommendations are generated for selected users or items?
+      - How sensitive are recommendations to model hyperparameters?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - surprise
+      - matplotlib
+    logical_steps:
+      - Download and validate the music data.
+      - Construct item and user interaction tables.
+      - Explore sparsity and popularity patterns.
+      - Build a content-based recommender.
+      - Build a collaborative-filtering recommender.
+      - Tune relevant hyperparameters.
+      - Compare recommendation outputs and quality metrics.
+    expected_outputs:
+      - user-item interaction table
+      - item similarity representation
+      - content-based recommendations
+      - collaborative recommendations
+      - evaluation metrics
+      - written comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
