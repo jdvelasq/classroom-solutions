@@ -3355,3 +3355,85 @@
     source: verified
     data: verified
     code: verified
+
+- id: 45
+  name: Global Poverty Dashboard
+  domain: analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Elias Dabbas
+    publisher: Packt
+    book: Interactive Dashboards and Data Apps with Plotly and Dash
+    title: World Bank Poverty and Equity Dashboard
+    url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash
+    repository:
+      url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash
+      path: chapter_11/app_v11_1.py
+    description: >
+      Packt develops an interactive analytical application from the World Bank
+      Poverty and Equity data, allowing users to compare indicators across
+      countries, regions, years, and measures.
+  data:
+    description: >
+      World Bank poverty, inequality, income, demographic, regional, and country metadata
+      distributed with the book repository.
+    source_url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash/tree/master/data
+    availability: repository
+    files:
+      - data/poverty.csv
+      - data/PovStatsData.csv
+      - data/PovStatsSeries.csv
+      - data/PovStatsCountry.csv
+      - data/lat_long.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - Plotly
+      - Dash
+      - interactive filtering
+      - data visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interactive-Dashboards-and-Data-Apps-with-Plotly-and-Dash/blob/master/chapter_11/app_v11_1.py
+  problem:
+    context: >
+      Development indicators span many countries, years, regions, and measures,
+      making static summaries insufficient for comparative exploration.
+    objective: >
+      Build an interactive analytical dashboard for exploring and comparing
+      poverty and inequality indicators across countries and time.
+    analytical_questions:
+      - How do selected poverty indicators differ across countries and regions?
+      - How have indicators changed over time?
+      - Which countries can be compared meaningfully for a selected measure?
+      - How can users interactively move from global patterns to country detail?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - plotly
+      - dash
+    logical_steps:
+      - Load and validate the World Bank-derived tables.
+      - Normalize indicator, country, region, and year dimensions.
+      - Build reusable filtering logic.
+      - Create interactive charts and maps.
+      - Connect controls to analytical views.
+      - Add country and indicator drill-downs.
+      - Validate dashboard calculations against source tables.
+    expected_outputs:
+      - prepared analytical dataset
+      - interactive comparison charts
+      - geographic views
+      - indicator filters
+      - country drill-downs
+      - working dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
