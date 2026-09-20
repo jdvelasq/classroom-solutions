@@ -12947,6 +12947,83 @@
     data: verified
     code: verified
 
+- id: 404
+  name: Hair-Eye Correspondence Map
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Statistics with R
+    title: Correspondence Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Statistics-with-R/blob/master/Chapter%204/Chapter%204.R
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Statistics-with-R
+      path: Chapter 4/Chapter 4.R
+    description: >
+      Packt builds a hair-color by eye-color contingency table, tests independence,
+      inspects observed-versus-expected frequencies, and applies correspondence
+      analysis to visualize the association structure in low-dimensional space.
+  data:
+    description: >
+      HairEyeColor contingency data containing frequencies for combinations of
+      hair color, eye color, and sex.
+    source_url: https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - contingency tables
+      - chi-square test
+      - correspondence analysis
+      - ca
+      - biplot
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Statistics-with-R/blob/master/Chapter%204/Chapter%204.R
+  problem:
+    context: >
+      Cross-tabulated categorical data may contain structured associations that are
+      difficult to interpret from frequencies or a chi-square p-value alone.
+    objective: >
+      Diagnose the association between hair and eye color and represent category
+      relationships geometrically with correspondence analysis.
+    analytical_questions:
+      - Are hair color and eye color statistically independent?
+      - Which cells contribute most to departure from independence?
+      - Which hair and eye categories are positioned near one another?
+      - How much association structure is captured by the first two dimensions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - prince
+      - matplotlib
+    logical_steps:
+      - Construct the hair-eye contingency table.
+      - Calculate row and column profiles.
+      - Perform a chi-square independence test.
+      - Inspect observed-minus-expected frequencies.
+      - Fit correspondence analysis.
+      - Examine eigenvalues and explained inertia.
+      - Plot and interpret row and column coordinates.
+    expected_outputs:
+      - contingency table
+      - chi-square diagnostics
+      - correspondence dimensions
+      - explained inertia table
+      - correspondence map
+      - association interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
