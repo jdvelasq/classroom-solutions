@@ -1,6 +1,6 @@
 - id: 1
   name: BlueBikes Demand Modeling
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: institution_course
@@ -86,7 +86,7 @@
 
 - id: 2
   name: Bike Demand Feature Engineering
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -171,7 +171,7 @@
 
 - id: 3
   name: Bike Demand Forecasting
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -272,7 +272,7 @@
 
 - id: 4
   name: Project Theme Discovery
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: institution_course
@@ -346,7 +346,7 @@
 
 - id: 5
   name: News Topic Clustering
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: institution_course
@@ -426,7 +426,7 @@
 
 - id: 6
   name: Document Topic Discovery
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -497,7 +497,7 @@
 
 - id: 7
   name: Document Clustering
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -570,7 +570,7 @@
 
 - id: 8
   name: Document Classification
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -643,7 +643,7 @@
 
 - id: 9
   name: Review Sentiment Classification
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -719,7 +719,7 @@
 
 - id: 10
   name: News Topic Classification
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -790,7 +790,7 @@
 
 - id: 11
   name: Research Topic Classification
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -861,7 +861,7 @@
 
 - id: 12
   name: Statement Relationship Analysis
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -932,7 +932,7 @@
 
 - id: 13
   name: Document Entity Extraction
-  domain: analytics
+  domain: data_for_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1003,7 +1003,7 @@
 
 - id: 14
   name: Document Fact Extraction
-  domain: analytics
+  domain: data_for_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1075,7 +1075,7 @@
 
 - id: 15
   name: Efficient Review Labeling
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1148,7 +1148,7 @@
 
 - id: 16
   name: Review Sentiment Modeling
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1220,7 +1220,7 @@
 
 - id: 17
   name: Social Sentiment Analytics
-  domain: analytics
+  domain: data_products
   type: descriptiva
   source:
     category: official_repository
@@ -1306,7 +1306,7 @@
 
 - id: 18
   name: Literary Theme Discovery
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1380,7 +1380,7 @@
 
 - id: 19
   name: Election Sentiment Analytics
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1452,7 +1452,7 @@
 
 - id: 20
   name: Election Emotion Analytics
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1521,7 +1521,7 @@
 
 - id: 21
   name: Customer Review Analytics
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1592,7 +1592,7 @@
 
 - id: 22
   name: Market Social Monitoring
-  domain: analytics
+  domain: data_products
   type: descriptiva
   source:
     category: official_repository
@@ -1671,7 +1671,7 @@
 
 - id: 23
   name: Customer Aspect Analytics
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: book
@@ -1822,7 +1822,7 @@
 
 - id: 25
   name: Social Trend Monitoring
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: book
@@ -1897,7 +1897,7 @@
 
 - id: 26
   name: Music Recommendation
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -1974,7 +1974,7 @@
 
 - id: 27
   name: Toxic Content Detection
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2051,7 +2051,7 @@
 
 - id: 28
   name: Speech Transcript Clustering
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: book
@@ -2135,7 +2135,7 @@
 
 - id: 29
   name: Website Traffic Analysis
-  domain: analytics
+  domain: data_for_analytics
   type: descriptiva
   source:
     category: book
@@ -2209,7 +2209,7 @@
 
 - id: 30
   name: Movie Recommendation
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2281,7 +2281,7 @@
 
 - id: 31
   name: Hiring Outcome Modeling
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2355,7 +2355,7 @@
 
 - id: 32
   name: Fetal Health Classification
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2430,7 +2430,7 @@
 
 - id: 33
   name: Ad Click Prediction
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2505,7 +2505,7 @@
 
 - id: 34
   name: Stock Price Forecasting
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2585,7 +2585,7 @@
 
 - id: 35
   name: California Housing Valuation
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -2892,7 +2892,7 @@
 
 - id: 39
   name: Website Experiment Analysis
-  domain: analytics
+  domain: analytics_fundamentals
   type: descriptiva
   source:
     category: book
@@ -2970,7 +2970,7 @@
 
 - id: 40
   name: Loan Default Prediction
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -3049,7 +3049,7 @@
 
 - id: 41
   name: House Price Regression
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -3281,7 +3281,7 @@
 
 - id: 44
   name: Household Energy Forecasting
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -3358,7 +3358,7 @@
 
 - id: 45
   name: Global Poverty Dashboard
-  domain: analytics
+  domain: data_products
   type: descriptiva
   source:
     category: book
@@ -3519,7 +3519,7 @@
 
 - id: 47
   name: Seattle Bicycle Patterns
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: book
@@ -3592,7 +3592,7 @@
 
 - id: 48
   name: Unlabeled Digit Discovery
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: book
@@ -3666,7 +3666,7 @@
 
 - id: 49
   name: NYC Taxi Anomaly Detection
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: predictiva
   source:
     category: book
@@ -3749,7 +3749,7 @@
 
 - id: 50
   name: Movie Content Recommendation
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -3832,7 +3832,7 @@
 
 - id: 51
   name: Hybrid Movie Recommendation
-  domain: analytics
+  domain: predictive_analytics
   type: predictiva
   source:
     category: book
@@ -3917,7 +3917,7 @@
 
 - id: 52
   name: Growth Driver Decomposition
-  domain: analytics
+  domain: descriptive_and_diagnostics_analytics
   type: descriptiva
   source:
     category: book
@@ -4002,7 +4002,7 @@
 
 - id: 53
   name: Leakage Diagnosis
-  domain: analytics
+  domain: analytics_fundamentals
   type: predictiva
   source:
     category: book
@@ -4090,7 +4090,7 @@
 
 - id: 54
   name: Prediction to Action
-  domain: analytics
+  domain: prescriptive_analytics
   type: prescriptiva
   source:
     category: book
