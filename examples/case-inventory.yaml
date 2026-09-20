@@ -11586,6 +11586,87 @@
     data: verified
     code: verified
 
+- id: 179
+  name: Emergency Admission Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Healthcare Analytics Made Simple
+    title: Predicting Emergency Department Admission
+    url: https://github.com/PacktPublishing/Healthcare-Analytics-Made-Simple/blob/master/Chapter07/ED_predict.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Healthcare-Analytics-Made-Simple
+      path: Chapter07/ED_predict.ipynb
+    description: >
+      Packt develops an emergency-department admission prediction workflow from
+      raw clinical survey data, including target construction, feature-by-feature
+      preprocessing, clinically informed feature engineering, logistic regression,
+      and random forest classification.
+  data:
+    description: >
+      Emergency department visit records derived from the 2013 National Hospital
+      Ambulatory Medical Care Survey, together with metadata and reason-for-visit codes.
+    source_url: https://www.cdc.gov/nchs/ahcd/datasets_documentation_related.htm
+    availability: public
+    files:
+      - ED2013
+      - ED_metadata.csv
+      - RFV_CODES.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - clinical feature engineering
+      - logistic regression
+      - random forest
+      - classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Healthcare-Analytics-Made-Simple/blob/master/Chapter07/ED_predict.ipynb
+  problem:
+    context: >
+      Emergency departments need early signals of whether an arriving patient is
+      likely to require hospital admission, but raw visit data contain many coded,
+      missing, and clinically irrelevant fields.
+    objective: >
+      Prepare a clinical analytical dataset and predict whether an emergency visit
+      results in hospital admission.
+    analytical_questions:
+      - How should the admission target be constructed from multiple disposition fields?
+      - Which visit, demographic, timing, and clinical variables are usable at prediction time?
+      - How do logistic regression and random forest compare?
+      - Which predictors contribute most to admission risk?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load visit data, metadata, and reason-for-visit codes.
+      - Construct the admission outcome.
+      - Remove post-outcome and unusable variables.
+      - Engineer time-of-arrival and clinical features.
+      - Handle coded categorical and missing values.
+      - Fit transparent and nonlinear classifiers.
+      - Compare held-out performance and important predictors.
+    expected_outputs:
+      - cleaned clinical dataset
+      - admission target definition
+      - model comparison
+      - confusion matrices
+      - admission risk scores
+      - feature importance summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
