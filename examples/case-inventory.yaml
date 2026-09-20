@@ -2160,3 +2160,78 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 29
+  name: Website Traffic Analysis
+  type: descriptiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Hands-On Data Science and Python Machine Learning
+    title: Cleaning Your Data
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/TopPages.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning
+      path: TopPages.ipynb
+    description: >
+      Packt analyzes an Apache web access log to identify the most-viewed pages,
+      while detecting malformed requests and removing non-human or irrelevant traffic.
+  data:
+    description: >
+      Apache-style web access log included in the companion repository.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/access_log.txt
+    availability: repository
+    files:
+      - access_log.txt
+  original_implementation:
+    technologies:
+      - regular expressions
+      - Python dictionaries
+      - log parsing
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/TopPages.ipynb
+  problem:
+    context: >
+      Raw web-server logs mix genuine page views with malformed requests, bots,
+      administrative endpoints, and other traffic that can distort website metrics.
+    objective: >
+      Clean web access logs and produce reliable page-traffic indicators for website analytics.
+    analytical_questions:
+      - Which pages receive the most genuine human traffic?
+      - Which requests should be excluded from page-view metrics?
+      - What malformed or suspicious patterns occur in the logs?
+      - How much do cleaning rules change the ranking of top pages?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - re
+      - matplotlib
+    logical_steps:
+      - Load the Apache access log.
+      - Parse log fields into structured columns.
+      - Detect malformed records.
+      - Filter non-GET and irrelevant requests.
+      - Identify likely automated or administrative traffic.
+      - Aggregate valid page views.
+      - Compare raw and cleaned rankings.
+      - Visualize the most-viewed pages.
+    expected_outputs:
+      - parsed log table
+      - data-quality report
+      - exclusion summary
+      - cleaned page-view table
+      - top-page ranking
+      - visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
