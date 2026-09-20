@@ -1,7 +1,6 @@
 - id: 13
   name: Document Entity Extraction
   domain: data_for_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -72,7 +71,6 @@
 - id: 14
   name: Document Fact Extraction
   domain: data_for_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -144,7 +142,6 @@
 - id: 24
   name: Legal Contract Extraction
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Practical NLP
@@ -220,7 +217,6 @@
 - id: 29
   name: Website Traffic Analysis
   domain: data_for_analytics
-  type: descriptiva
   source:
     category: book
     organization: Packt Publishing
@@ -294,7 +290,6 @@
 - id: 36
   name: Scooter Trip Pipeline
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Packt Publishing
@@ -366,7 +361,6 @@
 - id: 37
   name: Civic Issue API Pipeline
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Packt Publishing
@@ -443,7 +437,6 @@
 - id: 38
   name: User Event Streaming
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Packt Publishing
@@ -519,7 +512,6 @@
 - id: 42
   name: IMDb Movie Data Extraction
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
@@ -595,7 +587,6 @@
 - id: 43
   name: Smart Meter Data Preparation
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Manu Joseph and Jeff Tackes
@@ -670,7 +661,6 @@
 - id: 46
   name: Customer History Tracking
   domain: data_for_analytics
-  type: datos
   source:
     category: book
     organization: Anindita Mahapatra
@@ -749,7 +739,6 @@
 - id: 39
   name: Website Experiment Analysis
   domain: analytics_fundamentals
-  type: descriptiva
   source:
     category: book
     organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
@@ -827,7 +816,6 @@
 - id: 53
   name: Leakage Diagnosis
   domain: analytics_fundamentals
-  type: predictiva
   source:
     category: book
     organization: Daniel Vaughan
@@ -915,7 +903,6 @@
 - id: 4
   name: Project Theme Discovery
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: institution_course
     organization: MIT Professional Education
@@ -989,7 +976,6 @@
 - id: 5
   name: News Topic Clustering
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: institution_course
     organization: MIT Professional Education
@@ -1069,7 +1055,6 @@
 - id: 6
   name: Document Topic Discovery
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -1140,7 +1125,6 @@
 - id: 7
   name: Document Clustering
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -1213,7 +1197,6 @@
 - id: 18
   name: Literary Theme Discovery
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Orange Data Mining
@@ -1287,7 +1270,6 @@
 - id: 19
   name: Election Sentiment Analytics
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: official_tutorial
     organization: Orange Data Mining
@@ -1359,7 +1341,6 @@
 - id: 20
   name: Election Emotion Analytics
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: official_tutorial
     organization: Orange Data Mining
@@ -1428,7 +1409,6 @@
 - id: 21
   name: Customer Review Analytics
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: official_tutorial
     organization: KNIME
@@ -1499,7 +1479,6 @@
 - id: 23
   name: Customer Aspect Analytics
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: book
     organization: Practical NLP
@@ -1574,7 +1553,6 @@
 - id: 25
   name: Social Trend Monitoring
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: book
     organization: Practical NLP
@@ -1649,7 +1627,6 @@
 - id: 28
   name: Speech Transcript Clustering
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -1733,7 +1710,6 @@
 - id: 47
   name: Seattle Bicycle Patterns
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: book
     organization: Jake VanderPlas
@@ -1806,7 +1782,6 @@
 - id: 48
   name: Unlabeled Digit Discovery
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: book
     organization: Jake VanderPlas
@@ -1880,7 +1855,6 @@
 - id: 49
   name: NYC Taxi Anomaly Detection
   domain: descriptive_and_diagnostics_analytics
-  type: predictiva
   source:
     category: book
     organization: Tarek A. Atwan
@@ -1963,7 +1937,6 @@
 - id: 52
   name: Growth Driver Decomposition
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: book
     organization: Daniel Vaughan
@@ -2049,7 +2022,6 @@
 - id: 55
   name: Travel Customer Segmentation
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: book
     organization: Packt
@@ -2131,7 +2103,6 @@
 - id: 56
   name: Grocery Basket Affinity
   domain: descriptive_and_diagnostics_analytics
-  type: descriptiva
   source:
     category: book
     organization: Packt
@@ -2213,7 +2184,6 @@
 - id: 1
   name: BlueBikes Demand Modeling
   domain: predictive_analytics
-  type: predictiva
   source:
     category: institution_course
     organization: MIT xPRO
@@ -2299,7 +2269,6 @@
 - id: 2
   name: Bike Demand Feature Engineering
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -2384,7 +2353,6 @@
 - id: 3
   name: Bike Demand Forecasting
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -2485,7 +2453,6 @@
 - id: 8
   name: Document Classification
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: scikit-learn
@@ -2558,7 +2525,6 @@
 - id: 9
   name: Review Sentiment Classification
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -2634,7 +2600,6 @@
 - id: 10
   name: News Topic Classification
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -2705,7 +2670,6 @@
 - id: 11
   name: Research Topic Classification
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -2776,7 +2740,6 @@
 - id: 12
   name: Statement Relationship Analysis
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -2847,7 +2810,6 @@
 - id: 15
   name: Efficient Review Labeling
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -2920,7 +2882,6 @@
 - id: 16
   name: Review Sentiment Modeling
   domain: predictive_analytics
-  type: predictiva
   source:
     category: official_tutorial
     organization: Keras
@@ -2992,7 +2953,6 @@
 - id: 26
   name: Music Recommendation
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3069,7 +3029,6 @@
 - id: 27
   name: Toxic Content Detection
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3146,7 +3105,6 @@
 - id: 30
   name: Movie Recommendation
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3218,7 +3176,6 @@
 - id: 31
   name: Hiring Outcome Modeling
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3292,7 +3249,6 @@
 - id: 32
   name: Fetal Health Classification
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3367,7 +3323,6 @@
 - id: 33
   name: Ad Click Prediction
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3442,7 +3397,6 @@
 - id: 34
   name: Stock Price Forecasting
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt Publishing
@@ -3522,7 +3476,6 @@
 - id: 35
   name: California Housing Valuation
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Aurélien Géron
@@ -3604,7 +3557,6 @@
 - id: 40
   name: Loan Default Prediction
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
@@ -3683,7 +3635,6 @@
 - id: 41
   name: House Price Regression
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
@@ -3764,7 +3715,6 @@
 - id: 44
   name: Household Energy Forecasting
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Manu Joseph and Jeff Tackes
@@ -3841,7 +3791,6 @@
 - id: 50
   name: Movie Content Recommendation
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Rounak Banik
@@ -3924,7 +3873,6 @@
 - id: 51
   name: Hybrid Movie Recommendation
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Rounak Banik
@@ -4010,7 +3958,6 @@
 - id: 57
   name: Customer Churn Prediction
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt
@@ -4089,7 +4036,6 @@
 - id: 58
   name: Credit Card Fraud Detection
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt
@@ -4177,7 +4123,6 @@
 - id: 59
   name: Customer Lifetime Value
   domain: predictive_analytics
-  type: predictiva
   source:
     category: book
     organization: Packt
@@ -4262,7 +4207,6 @@
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
-  type: prescriptiva
   source:
     category: book
     organization: Daniel Vaughan
@@ -4353,7 +4297,6 @@
 - id: 17
   name: Social Sentiment Analytics
   domain: data_products
-  type: descriptiva
   source:
     category: official_repository
     organization: Hortonworks
@@ -4439,7 +4382,6 @@
 - id: 22
   name: Market Social Monitoring
   domain: data_products
-  type: descriptiva
   source:
     category: official_repository
     organization: Hortonworks
@@ -4518,7 +4460,6 @@
 - id: 45
   name: Global Poverty Dashboard
   domain: data_products
-  type: descriptiva
   source:
     category: book
     organization: Elias Dabbas
