@@ -9032,6 +9032,158 @@
     data: verified
     code: verified
 
+- id: 266
+  name: Utility Company Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Clustering Utilities
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap16.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap16.Rmd
+    description: >
+      The book compares hierarchical and K-means clustering on utility-company
+      operating and financial characteristics, with normalization, distance
+      analysis, cluster validation, and profile interpretation.
+  data:
+    description: >
+      Utility-company records with operating, financial, and performance variables
+      distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - Utilities
+  original_implementation:
+    technologies:
+      - normalization
+      - hierarchical clustering
+      - K-means
+      - distance analysis
+      - cluster validation
+      - heatmaps
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap16.Rmd
+  problem:
+    context: >
+      Utility companies differ across multiple operating and financial dimensions,
+      making one-variable comparisons insufficient for understanding peer groups.
+    objective: >
+      Discover and profile groups of similar utility companies using multivariate clustering.
+    analytical_questions:
+      - How does normalization change inter-company distances?
+      - What cluster structure appears under hierarchical methods?
+      - How many clusters are supported by the data?
+      - Do K-means and hierarchical solutions tell a consistent story?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate utility-company data.
+      - Select clustering variables.
+      - Normalize numeric features.
+      - Calculate pairwise distances.
+      - Fit hierarchical clustering.
+      - Fit candidate K-means solutions.
+      - Compare and profile resulting clusters.
+    expected_outputs:
+      - normalized utility dataset
+      - dendrogram
+      - cluster assignments
+      - cluster profile table
+      - method comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 269
+  name: Pharmaceutical Relationship Network
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Network Analytics
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap20.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap20.Rmd
+    description: >
+      The book constructs and analyzes a pharmaceutical relationship network,
+      using centrality, ego networks, and graph-level metrics to characterize
+      relational structure.
+  data:
+    description: >
+      Pharmaceutical relationship edge data distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - Drug
+  original_implementation:
+    technologies:
+      - igraph
+      - centrality
+      - ego networks
+      - network metrics
+      - graph visualization
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap20.Rmd
+  problem:
+    context: >
+      Relationship data among pharmaceutical entities form a network whose important
+      actors and local structures cannot be understood from a flat edge table alone.
+    objective: >
+      Diagnose the structure of a pharmaceutical relationship network and identify
+      central and locally influential entities.
+    analytical_questions:
+      - Which nodes occupy the most central positions?
+      - What local neighborhoods surround focal entities?
+      - Which actors connect otherwise separate parts of the network?
+      - What graph-level measures characterize the network?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - matplotlib
+    logical_steps:
+      - Load and validate relationship edges.
+      - Construct the graph.
+      - Calculate node-level centrality metrics.
+      - Extract ego networks for focal entities.
+      - Calculate network-level metrics.
+      - Identify structurally important nodes.
+      - Visualize and interpret network structure.
+    expected_outputs:
+      - network graph
+      - node centrality table
+      - ego-network views
+      - graph-level metrics
+      - structural interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -16820,6 +16972,81 @@
     data: verified
     code: verified
 
+- id: 268
+  name: Flight Delay Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Predicting Delayed Flights
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap10.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap10.Rmd
+    description: >
+      The book develops a complete delayed-flight classification workflow using
+      exploratory summaries, logistic regression, variable selection, probability
+      scoring, and holdout evaluation.
+  data:
+    description: >
+      Flight records with route, departure, carrier, weather, and delay indicators
+      distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - FlightDelays
+  original_implementation:
+    technologies:
+      - logistic regression
+      - probability scoring
+      - variable selection
+      - confusion matrix
+      - holdout evaluation
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap10.Rmd
+  problem:
+    context: >
+      Travelers and airlines need to estimate delay risk before departure using
+      information available about route, schedule, carrier, and conditions.
+    objective: >
+      Predict whether a flight will be delayed and identify the strongest delay-risk factors.
+    analytical_questions:
+      - Which operational variables are associated with delay risk?
+      - How accurately can delayed flights be classified?
+      - Which predictors can be removed without materially reducing performance?
+      - How should predicted probabilities be translated into useful risk categories?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load and inspect flight records.
+      - Prepare categorical and numeric predictors.
+      - Create reproducible training and holdout samples.
+      - Fit logistic regression.
+      - Perform variable selection.
+      - Evaluate probabilities and classifications.
+      - Interpret risk drivers and errors.
+    expected_outputs:
+      - delay-risk model
+      - coefficient interpretation
+      - holdout classification metrics
+      - confusion matrix
+      - flight-level delay probabilities
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -18425,6 +18652,80 @@
       - strategy performance metrics
       - buy-and-hold comparison
       - policy sensitivity analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 267
+  name: Voter Persuasion Uplift
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Uplift Modeling
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap14.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap14.Rmd
+    description: >
+      The book develops an uplift model on voter-persuasion data to distinguish
+      individuals whose outcomes are most likely to change because of treatment.
+  data:
+    description: >
+      Voter persuasion experiment data with treatment assignment, predictors,
+      and observed response distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - VoterPersuasion
+  original_implementation:
+    technologies:
+      - uplift modeling
+      - treatment effect estimation
+      - random forest
+      - treatment-control comparison
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap14.Rmd
+  problem:
+    context: >
+      A campaign should target people who are persuadable because of an intervention,
+      not merely those already likely to respond without treatment.
+    objective: >
+      Estimate heterogeneous persuasion effects and rank individuals by expected incremental response.
+    analytical_questions:
+      - Which individuals are most likely to change because of treatment?
+      - How does uplift differ from ordinary response propensity?
+      - Which segments should be prioritized for intervention?
+      - How much incremental response is concentrated among the highest-uplift cases?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - econml
+      - matplotlib
+    logical_steps:
+      - Load treatment, outcome, and predictor data.
+      - Inspect treatment balance and response rates.
+      - Fit a baseline response model.
+      - Estimate treatment-specific response differences.
+      - Rank observations by uplift.
+      - Compare uplift across ranked groups.
+      - Construct a targeting policy from incremental response.
+    expected_outputs:
+      - uplift scores
+      - ranked persuasion table
+      - uplift-by-decile chart
+      - treatment targeting rule
+      - incremental response summary
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
