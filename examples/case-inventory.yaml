@@ -19883,6 +19883,159 @@
     data: verified
     code: verified
 
+- id: 316
+  name: Tomorrow Rain Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: Data Mining with Rattle and R
+    title: Weather Data Mining Case
+    url: https://github.com/gjwgit/rattle
+    repository:
+      url: https://github.com/gjwgit/rattle
+      path: assets/data/weather.csv
+    description: >
+      The Rattle book workflow uses daily Canberra weather observations to move
+      from exploration and missing-data treatment through decision-tree modeling
+      and independent evaluation of whether it will rain the following day.
+  data:
+    description: >
+      Daily Canberra weather observations with temperatures, rainfall, evaporation,
+      sunshine, wind, humidity, pressure, cloud, current rain, and next-day rain.
+    source_url: https://github.com/gjwgit/rattle/blob/dev/assets/data/weather.csv
+    availability: repository
+    files:
+      - assets/data/weather.csv
+  original_implementation:
+    technologies:
+      - Rattle
+      - R
+      - decision trees
+      - missing-data exploration
+      - classification evaluation
+      - confusion matrix
+    language: R
+    code_available: true
+    code_url: https://github.com/gjwgit/rattle/blob/dev/integration_test/comp3425_w05_weather_evaluate_rpart_test.dart
+  problem:
+    context: >
+      Short-term weather observations can support a practical binary forecast of
+      whether rain will occur the next day.
+    objective: >
+      Predict next-day rain from meteorological conditions and evaluate the
+      difference between training and validation performance.
+    analytical_questions:
+      - Which weather variables are most useful for next-day rain prediction?
+      - How should missing meteorological measurements be handled?
+      - How well does a decision tree generalize?
+      - Which rain events are missed or falsely predicted?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate daily weather observations.
+      - Profile missing values and class balance.
+      - Prepare categorical and numeric weather predictors.
+      - Partition observations reproducibly.
+      - Fit a decision-tree classifier.
+      - Evaluate training and validation confusion matrices.
+      - Interpret weather drivers and errors.
+    expected_outputs:
+      - cleaned weather dataset
+      - rain classifier
+      - decision tree
+      - validation confusion matrix
+      - next-day rain probabilities
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 317
+  name: Audit Adjustment Screening
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: Data Mining with Rattle and R
+    title: Audit Data Mining Case
+    url: https://github.com/gjwgit/rattle
+    repository:
+      url: https://github.com/gjwgit/rattle
+      path: assets/data/audit.csv
+    description: >
+      The Rattle audit case models whether a tax-record audit produces an
+      adjustment using demographic, employment, income, deduction, account, and
+      work-pattern attributes.
+  data:
+    description: >
+      Audit records with age, employment, education, marital status, occupation,
+      income, gender, deductions, working hours, country/account field, adjustment
+      amount, and an adjusted/not-adjusted target.
+    source_url: https://github.com/gjwgit/rattle/blob/dev/assets/data/audit.csv
+    availability: repository
+    files:
+      - assets/data/audit.csv
+  original_implementation:
+    technologies:
+      - Rattle
+      - R
+      - decision trees
+      - risk classification
+      - validation
+    language: R
+    code_available: true
+    code_url: https://github.com/gjwgit/rattle/blob/dev/integration_test/comp3425_w05_audit_model_rpart_test.dart
+  problem:
+    context: >
+      Audit resources are limited, so records can be prioritized by estimating
+      which cases are most likely to produce an adjustment.
+    objective: >
+      Predict audit adjustment outcomes and identify records with elevated
+      adjustment risk for review.
+    analytical_questions:
+      - Which taxpayer characteristics are associated with an adjustment?
+      - How should missing employment or occupation fields be treated?
+      - How accurately can adjustment outcomes be classified?
+      - Which records should be prioritized for audit review?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate audit records.
+      - Separate identifiers, predictors, and target.
+      - Diagnose missing and categorical values.
+      - Create reproducible train/validation partitions.
+      - Fit an interpretable classification tree.
+      - Evaluate class-specific errors.
+      - Rank cases by estimated adjustment probability.
+    expected_outputs:
+      - prepared audit dataset
+      - adjustment classifier
+      - decision tree
+      - validation metrics
+      - ranked audit-risk table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
