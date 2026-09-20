@@ -4749,6 +4749,154 @@
     data: verified
     code: verified
 
+- id: 129
+  name: Social Media Causal Impact
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Causal Inference and Discovery in Python
+    title: Causality and Time Series
+    url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python/blob/main/Chapter_11.2.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python
+      path: Chapter_11.2.ipynb
+    description: >
+      Packt uses Bayesian synthetic control on social-media time series to estimate
+      the post-intervention effect of a known platform event relative to a constructed counterfactual.
+  data:
+    description: >
+      Social-media time series aligned around an intervention date and accompanied
+      by comparison series for counterfactual construction.
+    source_url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python/blob/main/data/gt_social_media_data.csv
+    availability: repository
+    files:
+      - data/gt_social_media_data.csv
+  original_implementation:
+    technologies:
+      - Bayesian synthetic control
+      - time-series causal inference
+      - counterfactual estimation
+      - CausalPy
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python/blob/main/Chapter_11.2.ipynb
+  problem:
+    context: >
+      A major platform event occurs at a known date and analysts need to distinguish
+      its impact from the trajectory that would likely have occurred without the event.
+    objective: >
+      Estimate the intervention effect on a social-media time series using a synthetic counterfactual.
+    analytical_questions:
+      - What pre-intervention relationship exists among the target and comparison series?
+      - How well does the synthetic control reproduce the untreated trajectory?
+      - What post-intervention gap appears?
+      - How uncertain is the estimated effect through time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - causalpy
+      - pymc
+      - matplotlib
+    logical_steps:
+      - Load and align the social-media time series.
+      - Define the intervention date.
+      - Select comparison series.
+      - Fit the pre-intervention synthetic-control model.
+      - Generate the counterfactual post-intervention trajectory.
+      - Calculate treatment-effect differences.
+      - Visualize posterior uncertainty around the effect.
+    expected_outputs:
+      - fitted synthetic control
+      - counterfactual time series
+      - post-intervention effect series
+      - uncertainty intervals
+      - causal-impact visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 130
+  name: Project Completion Risk
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Simulation Modeling with Python, Second Edition
+    title: Monte Carlo Task Scheduling
+    url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition/blob/main/Chapter11/montecarlo_tasks_scheduling.py
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition
+      path: Chapter11/montecarlo_tasks_scheduling.py
+    description: >
+      Packt simulates uncertain task durations with triangular distributions and
+      propagates them through parallel and sequential project activities to obtain
+      the distribution of total completion time.
+  data:
+    description: >
+      Synthetic six-task project with optimistic, most-likely, and pessimistic
+      duration estimates embedded in the implementation.
+    source_url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition/blob/main/Chapter11/montecarlo_tasks_scheduling.py
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Monte Carlo simulation
+      - triangular distributions
+      - task networks
+      - uncertainty propagation
+      - scheduling risk
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition/blob/main/Chapter11/montecarlo_tasks_scheduling.py
+  problem:
+    context: >
+      Project activities have uncertain durations and some tasks execute in parallel,
+      so a single deterministic completion date hides schedule risk.
+    objective: >
+      Simulate project completion time and quantify the uncertainty created by task-duration risk.
+    analytical_questions:
+      - What distribution of completion time follows from uncertain task durations?
+      - Which parallel branches dominate total duration?
+      - What are plausible minimum, mean, and maximum completion times?
+      - What completion date corresponds to selected confidence levels?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Define the project task network.
+      - Encode optimistic, likely, and pessimistic task durations.
+      - Sample triangular task durations reproducibly.
+      - Propagate samples through sequential and parallel dependencies.
+      - Calculate total completion time for each simulation.
+      - Summarize percentiles and schedule risk.
+      - Identify tasks or branches driving variability.
+    expected_outputs:
+      - simulated task-duration table
+      - completion-time distribution
+      - schedule percentiles
+      - probability of meeting candidate deadlines
+      - schedule-risk interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -9129,6 +9277,85 @@
       - state value function
       - optimal harvest policy
       - sensitivity comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 128
+  name: Causal Campaign Targeting
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Causal Inference and Discovery in Python
+    title: Heterogeneous Treatment Effects with Experimental Data
+    url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python/blob/main/Chapter_10.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python
+      path: Chapter_10.ipynb
+    description: >
+      Packt uses the Hillstrom email-marketing experiment to estimate heterogeneous
+      treatment effects with causal learners, compare uplift by decile, and choose
+      the treatment with the highest predicted response for each customer.
+  data:
+    description: >
+      Hillstrom email-marketing experiment with customer features, randomized
+      treatment assignments, visits, conversions, and spend outcomes.
+    source_url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python/blob/main/data/hillstrom_clean.csv
+    availability: repository
+    files:
+      - data/hillstrom_clean.csv
+      - data/hillstrom_clean_label_mapping.json
+  original_implementation:
+    technologies:
+      - causal forests
+      - doubly robust learning
+      - heterogeneous treatment effects
+      - uplift modeling
+      - treatment assignment
+      - expected response
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Causal-Inference-and-Discovery-in-Python/blob/main/Chapter_10.ipynb
+  problem:
+    context: >
+      Different customers may respond differently to alternative marketing messages,
+      so selecting a treatment from average response alone can waste campaign opportunity.
+    objective: >
+      Estimate customer-level treatment effects and assign the treatment expected
+      to produce the highest response.
+    analytical_questions:
+      - How heterogeneous are treatment effects across customers?
+      - Which causal learner produces useful uplift separation?
+      - Which customers should receive each treatment rather than control?
+      - What expected response follows from individualized treatment assignment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - econml
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the randomized marketing experiment.
+      - Separate features, treatment, and spend outcome.
+      - Fit candidate heterogeneous-treatment-effect models.
+      - Estimate treatment-specific effects for each customer.
+      - Evaluate uplift by decile.
+      - Select the treatment with maximum estimated effect.
+      - Calculate expected response under the targeting policy.
+    expected_outputs:
+      - customer-level treatment effects
+      - uplift-by-decile charts
+      - treatment recommendation table
+      - expected response comparison
+      - targeted campaign policy
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
