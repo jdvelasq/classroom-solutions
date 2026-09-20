@@ -1510,6 +1510,85 @@
     data: verified
     code: verified
 
+- id: 154
+  name: Retail Feature Store
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Essential PySpark for Scalable Data Analytics
+    title: Feature Engineering and Feature Store
+    url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics/blob/main/Chapter06/feature_enineering.py
+    repository:
+      url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics
+      path: Chapter06/feature_enineering.py
+    description: >
+      Packt transforms cleaned online-retail data into scalable machine-learning
+      features using text vectors, categorical encoding, binarization, temporal
+      features, scaling, selection, and Delta Lake persistence as a feature store.
+  data:
+    description: >
+      Online retail transactions enriched with customer demographic attributes and
+      persisted through the book's Spark/Delta pipeline.
+    source_url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics/tree/main/data
+    availability: repository
+    files:
+      - data/online_retail.zip
+      - data/adult.data
+      - data/countries_codes.csv
+  original_implementation:
+    technologies:
+      - PySpark
+      - CountVectorizer
+      - Word2Vec
+      - StringIndexer
+      - OneHotEncoder
+      - StandardScaler
+      - ChiSqSelector
+      - Delta Lake
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics/blob/main/Chapter06/feature_enineering.py
+  problem:
+    context: >
+      Large retail datasets require a reproducible feature layer that can be reused
+      by multiple downstream Spark machine-learning tasks.
+    objective: >
+      Build and persist a scalable retail feature store from cleaned transactional data.
+    analytical_questions:
+      - Which raw fields require textual, categorical, temporal, or numerical transformations?
+      - How should engineered features be assembled consistently?
+      - Which features should be selected for downstream modeling?
+      - How can the resulting feature layer be persisted and reused?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - delta-spark
+    logical_steps:
+      - Load cleaned retail data from Delta.
+      - Extract text features.
+      - Encode categorical variables.
+      - Derive temporal and price features.
+      - Assemble and scale the feature vector.
+      - Apply feature selection.
+      - Persist the reusable feature table in Delta.
+    expected_outputs:
+      - engineered feature table
+      - text and categorical encodings
+      - selected feature vector
+      - feature-store table
+      - reusable Spark feature pipeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -11699,6 +11778,83 @@
       - versioned serving directory
       - deployment validation
       - working prediction service
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 155
+  name: Retail ML Lifecycle
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Essential PySpark for Scalable Data Analytics
+    title: Machine Learning Lifecycle Management
+    url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics/blob/main/Chapter09/ml-lifecycle.py
+    repository:
+      url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics
+      path: Chapter09/ml-lifecycle.py
+    description: >
+      Packt trains a Spark model from a retail feature store, tracks cross-validation
+      experiments with MLflow, logs the best model, registers and stages versions,
+      reloads a registered model, and performs offline inference.
+  data:
+    description: >
+      Retail feature-store table created from the book's online-retail Spark pipeline.
+    source_url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics
+    availability: derived_repository
+    files:
+      - feature_store.retail_features
+  original_implementation:
+    technologies:
+      - PySpark ML
+      - cross-validation
+      - MLflow tracking
+      - model registry
+      - model staging
+      - Spark UDF inference
+      - Delta Lake
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Essential-PySpark-for-Scalable-Data-Analytics/blob/main/Chapter09/ml-lifecycle.py
+  problem:
+    context: >
+      A distributed machine-learning model must be tracked, versioned, promoted,
+      reloaded, and applied to data reproducibly before it becomes an operational analytical asset.
+    objective: >
+      Implement a scalable ML lifecycle from experiment tracking through model registry and inference.
+    analytical_questions:
+      - How should cross-validation runs and metrics be tracked?
+      - How is the best Spark model stored as an artifact?
+      - How are model versions promoted through lifecycle stages?
+      - How can a registered model be loaded for batch inference?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - mlflow
+      - delta-spark
+    logical_steps:
+      - Load the retail feature-store table.
+      - Define training and test partitions.
+      - Tune the Spark model with cross-validation.
+      - Track metrics and artifacts in MLflow.
+      - Register and stage the best model version.
+      - Reload the registered model.
+      - Run and persist offline inference.
+    expected_outputs:
+      - tracked ML experiment
+      - best-model artifact
+      - registered model version
+      - staging transition
+      - batch predictions
+      - reproducible lifecycle workflow
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
