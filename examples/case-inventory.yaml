@@ -574,3 +574,77 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 8
+  name: Classification of Text Documents Using Sparse Features
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Text
+    title: Classification of text documents using sparse features
+    url: https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html
+    description: >
+      Official scikit-learn benchmark for topic classification of 20 Newsgroups
+      documents represented as TF-IDF-weighted sparse matrices.
+  data:
+    description: >
+      20 Newsgroups corpus split into training and testing subsets with multiple topic categories.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - sparse matrices
+      - multiple linear classifiers
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html
+  problem:
+    context: >
+      Newsgroup messages have known topic labels and must be automatically assigned
+      to categories from their text.
+    objective: >
+      Benchmark multiple classifiers that can efficiently learn from high-dimensional
+      sparse text representations.
+    analytical_questions:
+      - Which classifiers perform best on sparse document-term matrices?
+      - How do training time and prediction quality trade off?
+      - Which categories are most frequently confused?
+      - Which terms contribute most strongly to classification?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load training and test subsets.
+      - Remove metadata that can leak category information.
+      - Build TF-IDF sparse features.
+      - Fit multiple sparse-compatible classifiers.
+      - Compare accuracy, F1, training time, and prediction time.
+      - Inspect confusion patterns and influential terms.
+    expected_outputs:
+      - sparse feature matrices
+      - fitted classifiers
+      - benchmark table
+      - confusion analysis
+      - feature interpretation
+      - written conclusions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    Distinct from CLASSROOM PRE_04_clasificacion_basica_texto, which uses financial
+    phrases with positive, neutral, and negative sentiment labels rather than
+    20 Newsgroups topic classification.
