@@ -4597,6 +4597,81 @@
     data: verified
     code: verified
 
+- id: 122
+  name: Network Intrusion Anomaly Detection
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Machine Learning with Scikit-Learn and Scientific Python Toolkits
+    title: Outliers
+    url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/blob/master/Chapter12/Outliers.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits
+      path: Chapter12/Outliers.ipynb
+    description: >
+      Packt compares percentile rules, Local Outlier Factor, novelty detection,
+      and Isolation Forest on network-traffic and synthetic anomaly data.
+  data:
+    description: >
+      KDD Cup 1999 network traffic available through scikit-learn together with
+      synthetic data for controlled anomaly-evaluation experiments.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_kddcup99.html
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - percentile thresholds
+      - Local Outlier Factor
+      - novelty detection
+      - Isolation Forest
+      - precision
+      - recall
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/blob/master/Chapter12/Outliers.ipynb
+  problem:
+    context: >
+      Network traffic contains rare patterns that may represent attacks or unusual
+      behavior, but anomaly methods differ in assumptions and sensitivity.
+    objective: >
+      Compare unsupervised and novelty-detection methods for identifying anomalous
+      network behavior.
+    analytical_questions:
+      - Which observations are flagged by each anomaly method?
+      - How sensitive are findings to neighborhood and contamination settings?
+      - How do LOF and Isolation Forest differ?
+      - What precision-recall trade-offs appear when labels are available for evaluation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and prepare network-traffic features.
+      - Establish simple percentile baselines.
+      - Fit Local Outlier Factor under alternative settings.
+      - Evaluate novelty-detection mode.
+      - Fit Isolation Forest.
+      - Compare anomaly rankings and labeled performance.
+      - Interpret method disagreements.
+    expected_outputs:
+      - anomaly score table
+      - LOF anomaly flags
+      - Isolation Forest flags
+      - precision-recall comparison
+      - sensitivity analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -8280,6 +8355,158 @@
       - source prediction diagnostics
       - shift-driving feature ranking
       - validation-risk interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 121
+  name: Automobile Price Ensemble
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Machine Learning with Scikit-Learn and Scientific Python Toolkits
+    title: Car Prices
+    url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/blob/master/Chapter08/Car%20Prices.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits
+      path: Chapter08/Car Prices.ipynb
+    description: >
+      Packt predicts automobile prices and compares several ensemble-regression
+      strategies including random forests, bagging, gradient boosting, AdaBoost,
+      early stopping, and random-tree embeddings.
+  data:
+    description: >
+      UCI Automobile data with vehicle specifications, performance attributes,
+      body characteristics, and observed prices.
+    source_url: https://archive.ics.uci.edu/dataset/10/automobile
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - random forest
+      - bagging
+      - gradient boosting
+      - AdaBoost
+      - early stopping
+      - ensemble regression
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/blob/master/Chapter08/Car%20Prices.ipynb
+  problem:
+    context: >
+      Automobile valuation depends on many interacting technical and market
+      attributes, making it suitable for comparing nonlinear ensemble models.
+    objective: >
+      Predict vehicle prices and evaluate how alternative ensemble methods trade
+      off predictive accuracy and model complexity.
+    analytical_questions:
+      - Which vehicle attributes explain price variation?
+      - How do bagging and boosting approaches compare?
+      - Does early stopping improve generalization?
+      - Which model yields the most stable held-out predictions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and clean automobile data.
+      - Handle missing prices and predictors.
+      - Encode categorical vehicle attributes.
+      - Create reproducible training and test samples.
+      - Fit several ensemble regressors.
+      - Compare held-out errors and learning behavior.
+      - Explain the preferred model and its predictions.
+    expected_outputs:
+      - prepared automobile dataset
+      - ensemble model comparison
+      - prediction error table
+      - learning or early-stopping diagnostics
+      - vehicle price predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 123
+  name: Music Rating Recommendation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Machine Learning with Scikit-Learn and Scientific Python Toolkits
+    title: Recommendation Systems
+    url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/blob/master/Chapter13/RecSys.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits
+      path: Chapter13/RecSys.ipynb
+    description: >
+      Packt compares random, neighborhood, baseline, and SVD recommenders with
+      train/test splits, cross-validation, grid search, and a music-ratings example.
+  data:
+    description: >
+      User-item ratings used for collaborative filtering together with a worked
+      music artist-rating example.
+    source_url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/tree/master/Chapter13
+    availability: embedded_and_public
+    files: []
+  original_implementation:
+    technologies:
+      - collaborative filtering
+      - KNN
+      - baseline recommenders
+      - SVD
+      - cross-validation
+      - grid search
+      - top-N recommendation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Machine-Learning-with-scikit-learn-and-Scientific-Python-Toolkits/blob/master/Chapter13/RecSys.ipynb
+  problem:
+    context: >
+      A media service wants to infer user preferences for unseen artists or items
+      from sparse historical ratings.
+    objective: >
+      Compare collaborative-filtering approaches and generate personalized
+      recommendations from user-item interactions.
+    analytical_questions:
+      - How sparse is the rating matrix?
+      - Which recommender minimizes out-of-sample rating error?
+      - How much does tuning improve neighborhood or factorization methods?
+      - Which artists or items should be recommended to each user?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-surprise
+      - scikit-learn
+    logical_steps:
+      - Load and inspect user-item ratings.
+      - Create reproducible evaluation splits.
+      - Establish random and baseline recommenders.
+      - Fit neighborhood-based recommenders.
+      - Fit matrix-factorization models.
+      - Tune candidate methods with cross-validation.
+      - Generate personalized top-N recommendations.
+    expected_outputs:
+      - rating sparsity summary
+      - recommender comparison table
+      - cross-validation results
+      - tuned recommendation model
+      - personalized recommendation lists
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
