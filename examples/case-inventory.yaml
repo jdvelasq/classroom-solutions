@@ -24375,6 +24375,225 @@
     data: verified
     code: verified
 
+
+- id: 392
+  name: Divvy Bike Demand Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Forecasting Time Series Data with Prophet, Second Edition
+    title: Non-Daily Data and Seasonality
+    url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/tree/main/Chapter04
+    repository:
+      url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition
+      path: Chapter04/Chapter_04.ipynb
+    description: >
+      Packt models hourly Divvy bicycle demand with Prophet, handling sub-daily
+      seasonality and producing forecasts at the operational hourly grain.
+  data:
+    description: >
+      Hourly Divvy bicycle usage time series.
+    source_url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/blob/main/data/divvy_hourly.csv
+    availability: repository
+    files:
+      - data/divvy_hourly.csv
+  original_implementation:
+    technologies:
+      - Prophet
+      - hourly forecasting
+      - multiplicative seasonality
+      - component analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/tree/main/Chapter04
+  problem:
+    context: >
+      Bicycle demand varies strongly by hour and recurring temporal cycles, making
+      daily models too coarse for operational planning.
+    objective: >
+      Forecast hourly bicycle demand while modeling sub-daily seasonal structure.
+    analytical_questions:
+      - What intra-day and weekly seasonal patterns dominate demand?
+      - How should future hourly timestamps be generated?
+      - How well does multiplicative seasonality represent demand variation?
+      - What hourly demand is expected over the forecast horizon?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - prophet
+      - matplotlib
+    logical_steps:
+      - Load and validate hourly demand.
+      - Build the Prophet time-series schema.
+      - Fit an hourly forecasting model.
+      - Generate future timestamps.
+      - Produce forecasts and intervals.
+      - Inspect trend and seasonal components.
+      - Diagnose forecast behavior at peak hours.
+    expected_outputs:
+      - hourly forecast table
+      - prediction intervals
+      - seasonal component plots
+      - operational demand forecast
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+
+- id: 393
+  name: Retail Forecast Cross-Validation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Forecasting Time Series Data with Prophet, Second Edition
+    title: Cross-Validation
+    url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/tree/main/Chapter12
+    repository:
+      url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition
+      path: Chapter12/Chapter_12.ipynb
+    description: >
+      Packt forecasts daily online retail sales and uses rolling-origin Prophet
+      cross-validation to evaluate performance across multiple historical cutoffs.
+  data:
+    description: >
+      Online retail transactions aggregated to daily sales.
+    source_url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/blob/main/data/online_retail.csv
+    availability: repository
+    files:
+      - data/online_retail.csv
+  original_implementation:
+    technologies:
+      - Prophet
+      - rolling-origin validation
+      - time-series cross-validation
+      - forecast diagnostics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/tree/main/Chapter12
+  problem:
+    context: >
+      A retail forecast should be evaluated at several historical origins rather
+      than against a single arbitrary holdout period.
+    objective: >
+      Forecast daily retail sales and measure generalization using temporal cross-validation.
+    analytical_questions:
+      - How stable is forecast accuracy across cutoffs?
+      - How far ahead does performance deteriorate?
+      - Which seasonal components are persistent?
+      - What uncertainty should accompany future sales forecasts?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - prophet
+      - matplotlib
+    logical_steps:
+      - Load and aggregate retail sales.
+      - Fit the baseline Prophet model.
+      - Define forecast horizon and rolling cutoffs.
+      - Run time-series cross-validation.
+      - Calculate horizon-specific error metrics.
+      - Refit on all available history.
+      - Produce future forecasts and intervals.
+    expected_outputs:
+      - daily sales series
+      - rolling-origin predictions
+      - forecast error by horizon
+      - future sales forecast
+      - validation diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+
+- id: 394
+  name: Pedestrian Shock Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Forecasting Time Series Data with Prophet, Second Edition
+    title: Outliers and Special Events
+    url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/tree/main/Chapter10
+    repository:
+      url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition
+      path: Chapter10/Chapter_10.ipynb
+    description: >
+      Packt models pedestrian counts and explicitly represents lockdown periods as
+      special events so structural shocks do not distort ordinary trend and seasonality.
+  data:
+    description: >
+      Daily pedestrian-count time series spanning normal periods and lockdown shocks.
+    source_url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/blob/main/data/pedestrian_counts.csv
+    availability: repository
+    files:
+      - data/pedestrian_counts.csv
+  original_implementation:
+    technologies:
+      - Prophet
+      - special events
+      - structural shocks
+      - outlier handling
+      - time-series forecasting
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Forecasting-Time-Series-Data-with-Prophet-Second-Edition/tree/main/Chapter10
+  problem:
+    context: >
+      Pedestrian traffic experienced abrupt lockdown-driven shocks that should not
+      be learned as ordinary recurring demand behavior.
+    objective: >
+      Forecast pedestrian activity while isolating known structural shocks as explicit events.
+    analytical_questions:
+      - How do lockdown periods distort an untreated forecast?
+      - How should shock windows be encoded as special events?
+      - Does explicit event modeling improve trend and seasonal interpretation?
+      - What post-shock pedestrian trajectory does the model imply?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - prophet
+      - matplotlib
+    logical_steps:
+      - Load and validate pedestrian counts.
+      - Fit a baseline forecast.
+      - Identify shock periods.
+      - Encode lockdown windows as special events.
+      - Refit and compare the event-aware model.
+      - Inspect trend, seasonality, and uncertainty.
+      - Produce post-shock forecasts.
+    expected_outputs:
+      - baseline forecast
+      - event-aware forecast
+      - shock effect comparison
+      - component diagnostics
+      - pedestrian forecast table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
