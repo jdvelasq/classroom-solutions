@@ -7498,6 +7498,82 @@
     data: verified
     code: verified
 
+- id: 229
+  name: Bean Morphology Reduction
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Tidymodels
+    publisher: O'Reilly Media
+    book: Tidy Modeling with R
+    title: Dimensionality Reduction
+    url: https://github.com/tidymodels/TMwR/blob/main/16-dimensionality-reduction.Rmd
+    repository:
+      url: https://github.com/tidymodels/TMwR
+      path: 16-dimensionality-reduction.Rmd
+    description: >
+      Kuhn and Silge use dry-bean morphology measurements to demonstrate PCA and
+      related dimensionality-reduction methods for revealing lower-dimensional
+      structure before predictive modeling.
+  data:
+    description: >
+      13,611 labeled dry beans from seven varieties described by image-derived
+      morphology measurements such as area, perimeter, axes, roundness, and convexity.
+    source_url: https://github.com/tidymodels/TMwR
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - R
+      - tidymodels
+      - PCA
+      - dimensionality reduction
+      - feature recipes
+      - visualization
+    language: R
+    code_available: true
+    code_url: https://github.com/tidymodels/TMwR/blob/main/16-dimensionality-reduction.Rmd
+  problem:
+    context: >
+      Morphological descriptors are correlated and difficult to interpret jointly,
+      so lower-dimensional representations can reveal structure among bean varieties.
+    objective: >
+      Explore and summarize latent structure in bean morphology while preserving
+      information useful for later modeling.
+    analytical_questions:
+      - Which morphology variables are strongly correlated?
+      - How many latent dimensions capture most of the structure?
+      - Which measurements dominate the leading components?
+      - Do known bean varieties separate in reduced-dimensional space?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate bean morphology data.
+      - Create training and validation partitions.
+      - Standardize morphology variables.
+      - Fit PCA and alternative reduction methods.
+      - Inspect explained variance and loadings.
+      - Visualize observations in reduced space.
+      - Compare latent structure with known varieties.
+    expected_outputs:
+      - correlation diagnostics
+      - explained-variance table
+      - loading table
+      - low-dimensional embeddings
+      - variety structure visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -14381,6 +14457,159 @@
       - group survival comparison
       - Cox model summary
       - hazard-ratio interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 230
+  name: Concrete Strength Stacking
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Tidymodels
+    publisher: O'Reilly Media
+    book: Tidy Modeling with R
+    title: Ensembles of Models
+    url: https://github.com/tidymodels/TMwR/blob/main/20-ensemble-models.Rmd
+    repository:
+      url: https://github.com/tidymodels/TMwR
+      path: 20-ensemble-models.Rmd
+    description: >
+      Kuhn and Silge predict concrete compressive strength by stacking resampled
+      predictions from diverse tuned model types and learning regularized blending weights.
+  data:
+    description: >
+      Concrete mixture ingredients and measured compressive strength used throughout
+      the book's workflow-set and ensemble examples.
+    source_url: https://github.com/tidymodels/TMwR
+    availability: package_and_repository
+    files:
+      - RData/concrete_results.RData
+  original_implementation:
+    technologies:
+      - tidymodels
+      - workflow sets
+      - resampling
+      - model stacking
+      - lasso blending
+      - ensemble learning
+    language: R
+    code_available: true
+    code_url: https://github.com/tidymodels/TMwR/blob/main/20-ensemble-models.Rmd
+  problem:
+    context: >
+      Concrete strength is nonlinear and different model families capture different
+      aspects of the mixture-response relationship.
+    objective: >
+      Combine diverse tuned models into a stacked ensemble that improves compressive-strength prediction.
+    analytical_questions:
+      - Which candidate models contribute useful out-of-sample information?
+      - How should highly correlated model predictions be blended?
+      - Which members survive regularized stacking?
+      - Does the ensemble outperform its strongest individual members?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - mlxtend
+    logical_steps:
+      - Load and split concrete-mixture data.
+      - Tune diverse regression models with common resamples.
+      - Retain out-of-fold predictions.
+      - Fit a regularized meta-model over candidate predictions.
+      - Select ensemble members and weights.
+      - Refit retained members on the full training data.
+      - Compare ensemble and individual holdout performance.
+    expected_outputs:
+      - candidate model leaderboard
+      - out-of-fold prediction matrix
+      - ensemble weights
+      - stacked model
+      - holdout performance comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 231
+  name: Ridership Prediction Applicability
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Tidymodels
+    publisher: O'Reilly Media
+    book: Tidy Modeling with R
+    title: When Should You Trust Your Predictions?
+    url: https://github.com/tidymodels/TMwR/blob/main/19-when-should-you-trust-predictions.Rmd
+    repository:
+      url: https://github.com/tidymodels/TMwR
+      path: 19-when-should-you-trust-predictions.Rmd
+    description: >
+      Kuhn and Silge model daily Chicago rail ridership using date features and
+      partial least squares, then examine prediction intervals and applicability
+      diagnostics to identify inputs for which predictions should not be trusted.
+  data:
+    description: >
+      Daily Chicago rail-station ridership with lagged ridership from multiple
+      stations and calendar information.
+    source_url: https://github.com/tidymodels/TMwR
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - tidymodels
+      - partial least squares
+      - time-based validation
+      - prediction intervals
+      - applicability domains
+      - extrapolation diagnostics
+    language: R
+    code_available: true
+    code_url: https://github.com/tidymodels/TMwR/blob/main/19-when-should-you-trust-predictions.Rmd
+  problem:
+    context: >
+      A ridership forecast can be numerically precise yet unreliable when new
+      predictor combinations fall outside the region represented by training data.
+    objective: >
+      Predict daily rail ridership while diagnosing whether each new observation
+      lies inside a trustworthy model applicability region.
+    analytical_questions:
+      - How accurately can daily ridership be predicted?
+      - How wide are prediction intervals for future observations?
+      - Which new observations represent extrapolation?
+      - When should the model abstain or flag a prediction for review?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and chronologically split ridership data.
+      - Engineer calendar and holiday features.
+      - Reduce correlated station predictors with PLS.
+      - Fit a regression model.
+      - Generate predictions and prediction intervals.
+      - Calculate distance or applicability diagnostics.
+      - Flag low-trust predictions.
+    expected_outputs:
+      - ridership forecast model
+      - prediction interval table
+      - applicability scores
+      - flagged low-trust predictions
+      - reliability visualizations
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
