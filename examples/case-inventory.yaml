@@ -11215,6 +11215,80 @@
     data: verified
     code: verified
 
+- id: 339
+  name: NFT Price Outlier Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Web3
+    title: Outliers
+    url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter06/3.Outliers.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Web3
+      path: Chapter06/3.Outliers.ipynb
+    description: >
+      Packt analyzes NFT sale prices, identifies extreme Ethereum-denominated sales
+      using IQR rules, and profiles the traits and timing of anomalous tokens.
+  data:
+    description: >
+      NFT token records with sales counts, ETH sale prices, token identifiers,
+      timestamps, names, descriptions, and categorical traits.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter06/witches.csv
+    availability: repository
+    files:
+      - Chapter06/witches.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - IQR outlier detection
+      - boxplots
+      - pairplots
+      - categorical profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter06/3.Outliers.ipynb
+  problem:
+    context: >
+      NFT collections can contain unusually high or low sale prices that may reflect
+      rare traits, market anomalies, or data issues rather than typical trading behavior.
+    objective: >
+      Identify and characterize extreme NFT sales and investigate the traits associated with them.
+    analytical_questions:
+      - Which sale prices are statistical outliers?
+      - Which token IDs correspond to extreme transactions?
+      - Do outlier tokens share particular traits?
+      - How are extreme sales distributed over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - seaborn
+      - matplotlib
+    logical_steps:
+      - Load and validate NFT sales records.
+      - Convert raw Ethereum values into interpretable units.
+      - Inspect price distributions.
+      - Calculate IQR-based outlier thresholds.
+      - Identify outlier tokens.
+      - Profile outliers by year and token traits.
+      - Compare anomalous and typical sales.
+    expected_outputs:
+      - NFT price distribution
+      - outlier threshold table
+      - anomalous token list
+      - trait profile of outliers
+      - temporal anomaly summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -21427,6 +21501,237 @@
     data: verified
     code: verified
 
+- id: 340
+  name: Ethereum Fraud Detection
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Web3
+    title: Fraud Modeling
+    url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter10/3.Models.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Web3
+      path: Chapter10/3.Models.ipynb
+    description: >
+      Packt compares KNN, decision trees, AdaBoost, gradient boosting, and random
+      forests for classifying fraudulent blockchain addresses, then tunes the best
+      candidate with grid search.
+  data:
+    description: >
+      Engineered Ethereum-address features with a binary fraud flag.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter10/final.csv
+    availability: repository
+    files:
+      - Chapter10/final.csv
+  original_implementation:
+    technologies:
+      - KNN
+      - decision trees
+      - AdaBoost
+      - gradient boosting
+      - random forest
+      - cross-validation
+      - grid search
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter10/3.Models.ipynb
+  problem:
+    context: >
+      Blockchain transaction histories can be summarized into address-level features
+      that may distinguish fraudulent accounts from legitimate ones.
+    objective: >
+      Compare and tune classifiers for detecting fraudulent Ethereum addresses.
+    analytical_questions:
+      - Which address features distinguish fraud from legitimate behavior?
+      - Which model family performs best under cross-validation?
+      - How much does hyperparameter tuning improve performance?
+      - Where does the final model still make classification errors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate address-level features.
+      - Separate target and predictors.
+      - Create reproducible train/test data.
+      - Compare several classification algorithms.
+      - Tune the strongest model.
+      - Evaluate confusion matrix and class-level metrics.
+      - Inspect error cases and important predictors.
+    expected_outputs:
+      - model comparison table
+      - tuned fraud classifier
+      - classification report
+      - confusion matrix
+      - address-level fraud predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 341
+  name: Bitcoin Sentiment Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Web3
+    title: Traditional Time-Series Models
+    url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter11/1.Traditional_time_series_models.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Web3
+      path: Chapter11/1.Traditional_time_series_models.ipynb
+    description: >
+      Packt forecasts Bitcoin prices with ARIMA and Auto-ARIMA, then adds daily
+      news sentiment as an exogenous variable in SARIMAX and compares forecast error.
+  data:
+    description: >
+      Bitcoin daily closing prices combined with daily aggregated news-sentiment signals.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter11/joint_news_df.csv
+    availability: repository_and_external
+    files:
+      - Chapter11/joint_news_df.csv
+  original_implementation:
+    technologies:
+      - ARIMA
+      - Auto-ARIMA
+      - SARIMAX
+      - sentiment aggregation
+      - exogenous forecasting
+      - RMSE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter11/1.Traditional_time_series_models.ipynb
+  problem:
+    context: >
+      Bitcoin prices are volatile and may react to contemporaneous news sentiment,
+      so an analyst can compare purely autoregressive forecasts with models that
+      incorporate external sentiment signals.
+    objective: >
+      Forecast Bitcoin prices and evaluate whether news sentiment improves out-of-sample accuracy.
+    analytical_questions:
+      - What differencing and autocorrelation structure is present?
+      - How do manual ARIMA and Auto-ARIMA compare?
+      - Does aggregated news sentiment improve forecast accuracy?
+      - How stable are results over the final holdout period?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - pmdarima
+      - scikit-learn
+    logical_steps:
+      - Load and transform Bitcoin prices.
+      - Split chronologically into training and test periods.
+      - Diagnose autocorrelation and differencing needs.
+      - Fit ARIMA baselines.
+      - Aggregate and align daily news sentiment.
+      - Fit SARIMAX or Auto-ARIMA with exogenous sentiment.
+      - Compare holdout RMSE.
+    expected_outputs:
+      - time-series diagnostics
+      - baseline forecasts
+      - sentiment-enhanced forecasts
+      - RMSE comparison
+      - forecast plots
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 342
+  name: Blockchain Community Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Web3
+    title: GraphSAGE Node Classification
+    url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter12/2.graphsage_node_classification.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Web3
+      path: Chapter12/2.graphsage_node_classification.ipynb
+    description: >
+      Packt constructs a blockchain transaction graph, derives node features from
+      influential addresses, and trains GraphSAGE to classify addresses into graph communities.
+  data:
+    description: >
+      Binance and OpenSea transaction edges, community labels, and centrality-based
+      influencer features for blockchain addresses.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Web3/tree/main/Chapter12
+    availability: repository
+    files:
+      - Chapter12/joint_binance_opensea.csv
+      - Chapter12/modularity2comunities.csv
+      - Chapter12/influencers.csv
+  original_implementation:
+    technologies:
+      - NetworkX
+      - Louvain
+      - GraphSAGE
+      - StellarGraph
+      - node classification
+      - graph neural networks
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Web3/blob/main/Chapter12/2.graphsage_node_classification.ipynb
+  problem:
+    context: >
+      Blockchain addresses participate in transaction networks whose local topology
+      and relationships to influential nodes can help predict community membership.
+    objective: >
+      Predict address communities from transaction-graph structure using GraphSAGE.
+    analytical_questions:
+      - What graph communities exist in the transaction network?
+      - Which influential nodes are useful as structural features?
+      - How accurately can GraphSAGE classify unseen addresses?
+      - Which communities are most often confused?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - stellargraph
+      - tensorflow
+      - scikit-learn
+    logical_steps:
+      - Load transaction edges and community labels.
+      - Construct the transaction graph.
+      - Identify influential nodes.
+      - Build address-level structural features.
+      - Split nodes into stratified train and test sets.
+      - Train GraphSAGE.
+      - Evaluate class-level predictions.
+    expected_outputs:
+      - transaction graph
+      - node feature matrix
+      - trained GraphSAGE model
+      - classification report
+      - confusion matrix
+      - address community predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -25320,6 +25625,83 @@
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
     authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 343
+  name: Behavioral Marketing RAG
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning and Generative AI for Marketing
+    title: Micro-Targeting with Retrieval-Augmented Generation
+    url: https://github.com/PacktPublishing/Machine-Learning-and-Generative-AI-for-Marketing/blob/main/ch.11/ch-11.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-and-Generative-AI-for-Marketing
+      path: ch.11/ch-11.ipynb
+    description: >
+      Packt builds a behavioral retrieval layer from e-commerce events and uses
+      retrieved customer-product interactions to generate individualized re-engagement,
+      discount, upsell, and brand-targeting messages.
+  data:
+    description: >
+      December 2019 e-commerce event logs containing users, product interactions,
+      brands, prices, event types, and timestamps.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-and-Generative-AI-for-Marketing/tree/main/ch.11
+    availability: repository
+    files:
+      - ch.11/2019-Dec.csv.zip
+  original_implementation:
+    technologies:
+      - behavioral retrieval
+      - embeddings
+      - LangChain
+      - retrieval-augmented generation
+      - personalized messaging
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-and-Generative-AI-for-Marketing/blob/main/ch.11/ch-11.ipynb
+  problem:
+    context: >
+      E-commerce behavior contains signals about abandoned carts, product interest,
+      and brand affinity that can be retrieved to personalize marketing outreach.
+    objective: >
+      Build a data-driven RAG workflow that retrieves relevant customer behavior
+      and produces individualized marketing messages.
+    analytical_questions:
+      - Which historical interactions are relevant to a given user?
+      - What complementary or upsell products should be surfaced?
+      - How can abandoned-cart context be incorporated into a message?
+      - How should retrieved evidence be passed to the generation layer?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - langchain
+      - sentence-transformers
+      - chromadb
+    logical_steps:
+      - Load and clean e-commerce events.
+      - Construct behavioral documents from user-product interactions.
+      - Embed and index the behavioral records.
+      - Retrieve relevant context for a customer.
+      - Define campaign strategy prompts.
+      - Generate personalized messages grounded in retrieved behavior.
+      - Validate retrieved evidence and generated outputs.
+    expected_outputs:
+      - behavioral retrieval index
+      - customer context records
+      - product targeting candidates
+      - personalized campaign messages
+      - reproducible RAG workflow
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
   verification:
     source: verified
     data: verified
