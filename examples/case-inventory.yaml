@@ -1,5 +1,5 @@
 - id: 1
-  name: BlueBikes Demand Prediction
+  name: BlueBikes Demand Modeling
   type: predictiva
   source:
     category: institution_course
@@ -86,7 +86,7 @@
     are not public, so they must not be invented.
 
 - id: 2
-  name: Bike Sharing Demand - Time-Related Feature Engineering
+  name: Bike Demand Feature Engineering
   type: predictiva
   source:
     category: official_tutorial
@@ -172,7 +172,7 @@
     general regression-model comparison.
 
 - id: 3
-  name: Bike Sharing Demand - Lagged Features Forecasting
+  name: Bike Demand Forecasting
   type: predictiva
   source:
     category: official_tutorial
@@ -274,7 +274,7 @@
     variables, leakage-aware temporal validation, and uncertainty estimation.
 
 - id: 4
-  name: Finding Themes in Project Descriptions
+  name: Project Theme Discovery
   type: predictiva
   source:
     category: institution_course
@@ -349,7 +349,7 @@
     LDA, or topic-modeling PRE/LAB was found in CLASSROOM.
 
 - id: 5
-  name: Spectral Clustering - Grouping News Stories
+  name: News Topic Clustering
   type: predictiva
   source:
     category: institution_course
@@ -430,7 +430,7 @@
     tokenization cases; the analytical task is unsupervised graph-based document clustering.
 
 - id: 6
-  name: Topic Extraction with NMF and LDA
+  name: Document Topic Discovery
   type: predictiva
   source:
     category: official_tutorial
@@ -502,7 +502,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 7
-  name: Clustering Text Documents with K-Means
+  name: Document Clustering
   type: predictiva
   source:
     category: official_tutorial
@@ -576,7 +576,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 8
-  name: Classification of Text Documents Using Sparse Features
+  name: Document Classification
   type: predictiva
   source:
     category: official_tutorial
@@ -650,7 +650,7 @@
     20 Newsgroups topic classification.
 
 - id: 9
-  name: IMDB Sentiment Classification from Raw Text
+  name: Review Sentiment Classification
   type: predictiva
   source:
     category: official_tutorial
@@ -727,7 +727,7 @@
     domain, dataset scale, binary target, raw-file ingestion, and neural workflow.
 
 - id: 10
-  name: 20 Newsgroups Classification with Pretrained GloVe Embeddings
+  name: News Topic Classification
   type: predictiva
   source:
     category: official_tutorial
@@ -799,7 +799,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 11
-  name: Multi-Label Classification of arXiv Paper Abstracts
+  name: Research Topic Classification
   type: predictiva
   source:
     category: official_tutorial
@@ -871,7 +871,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 12
-  name: Semantic Similarity and Natural Language Inference with SNLI
+  name: Statement Relationship Analysis
   type: predictiva
   source:
     category: official_tutorial
@@ -900,10 +900,11 @@
     code_url: https://keras.io/examples/nlp/semantic_similarity_with_keras_hub/
   problem:
     context: >
-      Systems must determine whether the meaning of one sentence follows from,
-      contradicts, or is neutral with respect to another sentence.
+      Organizations often need to compare textual statements, claims, or records
+      to determine whether they support, contradict, or remain unrelated to one another.
     objective: >
-      Fine-tune pretrained language models for sentence-pair semantic inference.
+      Classify relationships between pairs of textual statements to support consistency
+      checking, evidence comparison, and analytical review of unstructured information.
     analytical_questions:
       - How are premise and hypothesis pairs represented?
       - How does a pretrained BERT baseline perform?
@@ -917,13 +918,13 @@
       - tensorflow-datasets
       - numpy
     logical_steps:
-      - Load SNLI train, validation, and test splits.
-      - Remove invalid labels.
-      - Inspect premise-hypothesis pairs.
-      - Fine-tune a BERT classifier.
-      - Evaluate semantic-relation predictions.
-      - Compare with a RoBERTa model.
-      - Inspect errors by relation type.
+      - Load and clean the SNLI sentence-pair dataset.
+      - Map entailment, contradiction, and neutral labels to an analytical consistency framework.
+      - Inspect class balance and representative statement pairs.
+      - Fine-tune a pretrained language model for relationship classification.
+      - Evaluate precision, recall, F1, and confusion patterns.
+      - Identify low-confidence or contradictory cases for human review.
+      - Summarize how the model can support document and evidence comparison workflows.
     expected_outputs:
       - cleaned sentence-pair datasets
       - fine-tuned model
@@ -942,7 +943,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 13
-  name: Named Entity Recognition with Transformers
+  name: Document Entity Extraction
   type: predictiva
   source:
     category: official_tutorial
@@ -970,10 +971,12 @@
     code_url: https://keras.io/examples/nlp/ner_transformers/
   problem:
     context: >
-      Unstructured text must be transformed into structured entity mentions such
-      as persons, organizations, and locations.
+      Organizations receive large volumes of unstructured documents containing
+      people, organizations, locations, products, dates, and other entities that
+      must be converted into structured data before they can be analyzed.
     objective: >
-      Train and evaluate a Transformer-based named-entity recognition model.
+      Extract named entities from unstructured documents and transform them into
+      structured analytical tables that support counting, grouping, linkage, and downstream analysis.
     analytical_questions:
       - How are token-level entity labels represented?
       - How should subword tokenization be reconciled with word-level labels?
@@ -988,10 +991,12 @@
     logical_steps:
       - Load the processed CoNLL-2003 corpus.
       - Inspect tokens and BIO-style entity labels.
-      - Tokenize and align entity labels.
-      - Train a Transformer token classifier.
+      - Tokenize text and align token-level labels.
+      - Train or fine-tune a Transformer-based entity extractor.
       - Evaluate precision, recall, and F1 by entity type.
-      - Inspect representative prediction errors.
+      - Convert extracted entities into structured analytical tables.
+      - Aggregate entity frequencies and co-occurrences.
+      - Inspect representative extraction errors.
     expected_outputs:
       - tokenized labeled corpus
       - trained NER model
@@ -1010,7 +1015,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 14
-  name: Extractive Question Answering with BERT
+  name: Document Fact Extraction
   type: predictiva
   source:
     category: official_tutorial
@@ -1039,10 +1044,11 @@
     code_url: https://keras.io/examples/nlp/text_extraction_with_bert/
   problem:
     context: >
-      Given a question and a context paragraph, the model must locate the exact
-      span in the paragraph that answers the question.
+      Analysts often need to retrieve specific facts from large collections of
+      unstructured documents without manually reading every document.
     objective: >
-      Fine-tune BERT for extractive question answering and evaluate exact answer-span recovery.
+      Build an information-extraction workflow that answers targeted analytical
+      questions by locating relevant factual spans in business or technical documents.
     analytical_questions:
       - How are questions and contexts jointly tokenized?
       - How are answer start and end positions encoded?
@@ -1056,13 +1062,14 @@
       - pandas
       - numpy
     logical_steps:
-      - Download SQuAD data.
-      - Parse contexts, questions, and answer spans.
-      - Tokenize question-context pairs.
-      - Map answer character offsets to token positions.
-      - Fine-tune BERT for start and end token prediction.
-      - Evaluate exact-match behavior.
-      - Inspect correct and incorrect answer spans.
+      - Load and parse SQuAD question-context-answer records.
+      - Treat question-answer pairs as a benchmark for document fact extraction.
+      - Tokenize questions and document contexts.
+      - Map annotated answer spans to token positions.
+      - Fine-tune BERT for answer-span extraction.
+      - Evaluate exact-match and span-recovery performance.
+      - Convert extracted answers into a structured fact table.
+      - Inspect failed extractions and ambiguous questions.
     expected_outputs:
       - processed QA dataset
       - fine-tuned BERT model
@@ -1081,7 +1088,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 15
-  name: IMDB Review Classification with Active Learning
+  name: Efficient Review Labeling
   type: predictiva
   source:
     category: official_tutorial
@@ -1109,10 +1116,12 @@
     code_url: https://keras.io/examples/nlp/active_learning_review_classification/
   problem:
     context: >
-      Labeling text can be costly, so the model should identify which additional
-      examples are most valuable for annotation.
+      Building supervised text-mining systems can require expensive manual labeling.
+      Active learning can reduce this cost by prioritizing the records whose labels
+      are expected to provide the greatest analytical value.
     objective: >
-      Compare full-data training with iterative active-learning sampling for review classification.
+      Measure how active learning can reduce the amount of manually labeled customer-review
+      data required to obtain a useful sentiment classifier.
     analytical_questions:
       - How much labeled data is needed to approach full-data performance?
       - How should new samples be selected for annotation?
@@ -1126,13 +1135,14 @@
       - tensorflow-datasets
       - matplotlib
     logical_steps:
-      - Load and rebalance IMDB reviews.
-      - Create initial labeled and unlabeled pools.
-      - Train a full-data benchmark model.
-      - Train an initial active-learning model.
-      - Select additional samples based on uncertainty-related criteria.
-      - Iteratively retrain and evaluate.
-      - Compare labeling cost and model performance.
+      - Load and prepare the IMDB review dataset.
+      - Create initial labeled and unlabeled data pools.
+      - Train a full-data benchmark sentiment classifier.
+      - Train an initial classifier using a small labeled sample.
+      - Select additional reviews using uncertainty-based sampling.
+      - Simulate iterative human labeling and model retraining.
+      - Track performance against cumulative labeling effort.
+      - Quantify labeling savings for a target performance level.
     expected_outputs:
       - labeled and pool splits
       - benchmark model
@@ -1152,7 +1162,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 16
-  name: IMDB Text Classification with a Transformer
+  name: Review Sentiment Modeling
   type: predictiva
   source:
     category: official_tutorial
@@ -1182,10 +1192,11 @@
     code_url: https://keras.io/examples/nlp/text_classification_with_transformer/
   problem:
     context: >
-      Sentiment classification is used to demonstrate how self-attention and
-      positional representations can replace recurrent architectures for text.
+      Customer reviews provide high-volume unstructured feedback that can be converted
+      into sentiment indicators for monitoring products, services, or customer experience.
     objective: >
-      Implement a Transformer encoder block and evaluate it on binary review classification.
+      Build and evaluate a Transformer-based sentiment model that converts customer-review
+      text into structured positive or negative analytical indicators.
     analytical_questions:
       - How are token and positional embeddings combined?
       - How does self-attention transform review sequences?
@@ -1198,13 +1209,14 @@
       - numpy
       - matplotlib
     logical_steps:
-      - Load the Keras IMDB sequences.
-      - Pad reviews to a fixed sequence length.
-      - Implement token and position embeddings.
+      - Load the Keras IMDB review dataset.
+      - Pad or standardize review sequences.
+      - Implement token and positional embeddings.
       - Implement a Transformer block with multi-head attention.
-      - Build and train the classifier.
-      - Evaluate validation performance.
-      - Inspect learning curves and predictions.
+      - Train the sentiment classifier.
+      - Evaluate classification performance and inspect errors.
+      - Generate sentiment predictions for the review corpus.
+      - Aggregate predictions into descriptive customer-sentiment indicators.
     expected_outputs:
       - padded sequence datasets
       - custom Transformer layer
@@ -1223,7 +1235,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 17
-  name: Twitter Sentiment Analytics Pipeline
+  name: Social Sentiment Analytics
   type: descriptiva
   source:
     category: official_repository
@@ -1310,7 +1322,7 @@
     descriptive sentiment analytics rather than only supervised classification.
 
 - id: 18
-  name: Topic Modeling of Grimm Fairy Tales
+  name: Literary Theme Discovery
   type: predictiva
   source:
     category: official_tutorial
@@ -1385,7 +1397,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 19
-  name: Sentiment Analysis of 2016 Election Tweets
+  name: Election Sentiment Analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1458,7 +1470,7 @@
     of CLASSROOM's supervised Financial PhraseBank classifier.
 
 - id: 20
-  name: Emotion Profiling of 2016 Election Tweets
+  name: Election Emotion Analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1528,7 +1540,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 21
-  name: LLM-Based Customer Review Sentiment Analysis
+  name: Customer Review Analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1600,7 +1612,7 @@
     already_in_classroom_pre_or_lab: false
 
 - id: 22
-  name: Real-Time Twitter Monitoring for S&P 500 Companies
+  name: Market Social Monitoring
   type: descriptiva
   source:
     category: official_repository
