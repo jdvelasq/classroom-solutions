@@ -19502,6 +19502,84 @@
     data: verified
     code: verified
 
+- id: 311
+  name: Network Link Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Graph Analytics with Neo4j
+    title: Predicting Relationships
+    url: https://github.com/PacktPublishing/Hands-On-Graph-Analytics-with-Neo4j/blob/master/Chapter09/notebooks/Link_Prediction.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Graph-Analytics-with-Neo4j
+      path: Chapter09/notebooks/Link_Prediction.ipynb
+    description: >
+      Packt compares graph states at two times, calculates Adamic-Adar similarity
+      scores for candidate node pairs, chooses a threshold from ROC and precision-recall
+      curves, and predicts which relationships appear later.
+  data:
+    description: >
+      Two temporal snapshots of a graph plus labeled candidate pairs with Adamic-Adar scores.
+    source_url: https://github.com/PacktPublishing/Hands-On-Graph-Analytics-with-Neo4j/tree/master/Chapter09/data
+    availability: repository
+    files:
+      - Chapter09/data/graph_T1.edgelist
+      - Chapter09/data/graph_T2.edgelist
+      - Chapter09/data/adamic_adar_scores_labelled.csv
+  original_implementation:
+    technologies:
+      - Neo4j
+      - Graph Data Science
+      - Adamic-Adar
+      - link prediction
+      - ROC
+      - precision-recall
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Graph-Analytics-with-Neo4j/blob/master/Chapter09/notebooks/Link_Prediction.ipynb
+  problem:
+    context: >
+      A network evolves over time and analysts want to identify currently unconnected
+      node pairs that are likely to form relationships in a later graph snapshot.
+    objective: >
+      Predict future links from graph topology and choose an operating threshold
+      using temporal ground truth.
+    analytical_questions:
+      - Which unconnected node pairs have high structural similarity?
+      - How well does Adamic-Adar discriminate future links?
+      - Which threshold balances precision and recall?
+      - Which predicted links are confirmed in the later graph?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - scikit-learn
+    logical_steps:
+      - Load graph snapshots at two times.
+      - Generate candidate non-edge pairs.
+      - Calculate Adamic-Adar scores.
+      - Label candidates using the later graph.
+      - Split candidate pairs reproducibly.
+      - Analyze ROC and precision-recall curves.
+      - Select a threshold and produce future-link predictions.
+    expected_outputs:
+      - candidate link table
+      - similarity scores
+      - ROC and precision-recall curves
+      - selected threshold
+      - predicted future links
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
