@@ -17354,6 +17354,163 @@
     data: verified
     code: verified
 
+- id: 275
+  name: Birth Weight Gradient Boosting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: Gradient-Boosted Birth Weight Modeling
+    url: https://github.com/WinVector/PDSwR2/blob/main/RenderedExamples/c10_Exploring_advanced_methods.md
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: RenderedExamples/c10_Exploring_advanced_methods.md
+    description: >
+      The book prepares CDC natality data with vtreat and fits an XGBoost regression
+      model to predict newborn birth weight from maternal, prenatal, gestational,
+      and obstetric characteristics.
+  data:
+    description: >
+      CDC natality records containing maternal weight, pregnancy weight gain,
+      maternal age, prenatal visits, smoking, gestation, plurality, risk factors,
+      and observed birth weight.
+    source_url: https://github.com/WinVector/PDSwR2/tree/main/CDC
+    availability: repository
+    files:
+      - CDC/NatalBirthData.rData
+      - CDC/natal2010Sample.tsv.gz
+  original_implementation:
+    technologies:
+      - vtreat
+      - XGBoost
+      - regression
+      - train/test partitioning
+      - feature treatment
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/blob/main/RenderedExamples/c10_Exploring_advanced_methods.md
+  problem:
+    context: >
+      Birth weight is a clinically important continuous outcome influenced by
+      maternal characteristics, prenatal care, gestation, and pregnancy risk factors.
+    objective: >
+      Predict newborn birth weight and evaluate a boosted-tree model on a held-out sample.
+    analytical_questions:
+      - Which maternal and pregnancy variables help predict birth weight?
+      - How should mixed numeric and categorical predictors be treated?
+      - How well does gradient boosting generalize to the held-out group?
+      - Which records produce the largest prediction errors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - xgboost
+      - scikit-learn
+    logical_steps:
+      - Load the prepared natality dataset.
+      - Reproduce the predefined train/test split.
+      - Encode and transform predictors reproducibly.
+      - Fit an XGBoost regressor.
+      - Evaluate held-out prediction error.
+      - Inspect important predictors and residuals.
+      - Score representative birth records.
+    expected_outputs:
+      - prepared model matrix
+      - boosted birth-weight model
+      - holdout error metrics
+      - feature importance summary
+      - prediction residual analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 276
+  name: High-Dimensional Customer Churn
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Practical Data Science with R, Second Edition
+    title: KDD 2009 Customer Churn Modeling
+    url: https://github.com/WinVector/PDSwR2/blob/main/KDD2009/KDD2009vtreat.md
+    repository:
+      url: https://github.com/WinVector/PDSwR2
+      path: KDD2009/KDD2009vtreat.md
+    description: >
+      The book uses the KDD Cup 2009 customer-relationship dataset to demonstrate
+      high-dimensional variable treatment, cross-frame construction, XGBoost,
+      early stopping, and independent churn evaluation.
+  data:
+    description: >
+      KDD Cup 2009 customer relationship records with many anonymized numeric and
+      categorical predictors and churn labels.
+    source_url: https://github.com/WinVector/PDSwR2/tree/main/KDD2009
+    availability: repository
+    files:
+      - KDD2009/orange_small_train.data.zip
+      - KDD2009/orange_small_train_churn.labels.txt
+  original_implementation:
+    technologies:
+      - vtreat
+      - high-dimensional feature treatment
+      - cross frames
+      - XGBoost
+      - early stopping
+      - ROC AUC
+      - precision-recall analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/WinVector/PDSwR2/blob/main/KDD2009/KDD2009vtreat.md
+  problem:
+    context: >
+      Customer churn must be predicted from a wide anonymous dataset containing
+      many variables, missing values, and potentially high-cardinality predictors.
+    objective: >
+      Build a leakage-resistant churn model for high-dimensional customer data and
+      evaluate its discrimination on a disjoint test set.
+    analytical_questions:
+      - Which variables retain predictive value after treatment?
+      - How should high-cardinality and missing predictors be encoded safely?
+      - How does cross-frame preparation reduce nested-model bias?
+      - What ROC and precision-recall performance is achieved on unseen customers?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - category-encoders
+    logical_steps:
+      - Load predictors and churn labels.
+      - Split observations before supervised feature treatment.
+      - Diagnose missingness and cardinality.
+      - Build cross-fitted encoded features.
+      - Select informative treated variables.
+      - Tune XGBoost with early stopping.
+      - Evaluate ROC AUC and precision-recall on the test set.
+    expected_outputs:
+      - treated high-dimensional feature matrix
+      - selected predictor set
+      - churn probability model
+      - ROC and precision-recall curves
+      - independent test metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
