@@ -2535,3 +2535,84 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 34
+  name: Stock Price Forecasting
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Python Machine Learning By Example, Second Edition
+    title: Stock Price Prediction with Regression Algorithms
+    url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/blob/master/Chapter09/stock_prediction.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition
+      path: Chapter09/stock_prediction.py
+    description: >
+      Packt builds lagged price, return, volatility, and volume features and compares
+      several regression algorithms for financial time-series prediction.
+  data:
+    description: >
+      Historical daily market data supplied with the book for 1988-2016,
+      including open, high, low, close, adjusted close, and volume.
+    source_url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/tree/master/Chapter09
+    availability: repository
+    files:
+      - Chapter09/19880101_20161231.csv
+      - Chapter09/20051201_20051210.csv
+  original_implementation:
+    technologies:
+      - lagged features
+      - rolling statistics
+      - SGD regression
+      - random forest regression
+      - support vector regression
+      - neural network regression
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/blob/master/Chapter09/stock_prediction.py
+  problem:
+    context: >
+      Financial time series can be transformed into supervised learning problems
+      by deriving predictors from historical price and volume information.
+    objective: >
+      Forecast future closing prices from lagged market features while preserving
+      temporal ordering and comparing alternative regression models.
+    analytical_questions:
+      - Which lagged price, return, volatility, and volume features are informative?
+      - How should training and testing periods be separated to avoid leakage?
+      - Which regression model performs best on a future holdout period?
+      - How stable are prediction errors over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - numpy
+    logical_steps:
+      - Load and sort historical market data by date.
+      - Generate lagged returns and rolling price and volume statistics.
+      - Remove rows with incomplete histories.
+      - Define chronological training and test periods.
+      - Fit several regression models.
+      - Evaluate MAE, RMSE, and R-squared on the holdout period.
+      - Plot actual versus predicted prices and residuals over time.
+    expected_outputs:
+      - engineered time-series dataset
+      - fitted regression models
+      - holdout performance table
+      - actual-versus-predicted chart
+      - residual diagnostics
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
