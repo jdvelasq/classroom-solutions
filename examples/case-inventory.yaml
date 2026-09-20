@@ -3111,6 +3111,148 @@
     data: verified
     code: verified
 
+- id: 335
+  name: Streaming Service Data Integration
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analysis with Polars and Python
+    title: Joins
+    url: https://github.com/PacktPublishing/Data-Analysis-with-Polars-and-Python/blob/main/complete/07%20-%20Joins.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analysis-with-Polars-and-Python
+      path: complete/07 - Joins.ipynb
+    description: >
+      Packt integrates users, subscription plans, movie catalog, watch history, and support tickets for a fictional streaming service, using multiple join types to expose consumption behavior and data-integrity problems.
+  data:
+    description: >
+      Relational CSV tables for streaming-service users, plans, movies, watch history, and support tickets.
+    source_url: https://github.com/PacktPublishing/Data-Analysis-with-Polars-and-Python/tree/main/complete/streaming_service
+    availability: repository_or_public
+    files:
+      - complete/streaming_service/users.csv
+      - complete/streaming_service/plans.csv
+      - complete/streaming_service/movies.csv
+      - complete/streaming_service/watch_history.csv
+      - complete/streaming_service/support.csv
+  original_implementation:
+    technologies:
+      - Polars
+      - inner joins
+      - full joins
+      - semi joins
+      - anti joins
+      - join validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analysis-with-Polars-and-Python/blob/main/complete/07%20-%20Joins.ipynb
+  problem:
+    context: >
+      Streaming-service data are distributed across several operational tables and contain unmatched records that must be identified before behavioral or customer analytics.
+    objective: >
+      Build and validate an integrated analytical view of subscribers, plans, viewing history, catalog content, and support interactions.
+    analytical_questions:
+      - Which users have viewing history and which do not?
+      - Which subscriptions reference nonexistent plans?
+      - Which support tickets can be linked to known customers?
+      - What orphan records reveal data-quality problems?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - polars
+    logical_steps:
+      - Load and validate all relational tables.
+      - Define keys and expected cardinalities.
+      - Join users to plans and viewing history.
+      - Attach movie and support information.
+      - Use anti/full joins to identify orphan records.
+      - Validate one-to-many relationships and resulting grain.
+    expected_outputs:
+      - integrated subscriber-viewing table
+      - orphan-record report
+      - join-cardinality audit
+      - analytics-ready streaming-service dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 336
+  name: Global Population Projection Preparation
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Advanced Analytics with R and Tableau
+    title: Population Data Preparation
+    url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau/blob/master/Chapter03/Chapter%203%20dplyr.R
+    repository:
+      url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau
+      path: Chapter03/Chapter 3 dplyr.R
+    description: >
+      Packt cleans and reshapes UN population projections from wide yearly columns into a long analytical table, standardizes country identifiers, and enriches the data for visualization and temporal analysis.
+  data:
+    description: >
+      UN World Population Prospects projections by region/country, variant, year, and population count, with country-code enrichment.
+    source_url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau/tree/master/Chapter03
+    availability: repository_or_public
+    files:
+      []
+  original_implementation:
+    technologies:
+      - R
+      - dplyr
+      - reshape
+      - countrycode
+      - World Bank data
+      - Tableau preparation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Advanced-Analytics-with-R-and-Tableau/blob/master/Chapter03/Chapter%203%20dplyr.R
+  problem:
+    context: >
+      International population projections arrive in a wide statistical format with many year columns and coded geographic identifiers that are inconvenient for longitudinal analytics.
+    objective: >
+      Transform demographic projection tables into a normalized country-year dataset suitable for time-series comparison and visualization.
+    analytical_questions:
+      - How should annual columns be reshaped into observation rows?
+      - How should country and region identifiers be standardized?
+      - Which projection variants should be retained?
+      - What validation checks ensure population values remain numeric and complete?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - polars
+    logical_steps:
+      - Load population projection data.
+      - Select and rename identifiers and year fields.
+      - Reshape annual columns from wide to long format.
+      - Clean population values and convert types.
+      - Standardize country codes.
+      - Validate country-year uniqueness and completeness.
+    expected_outputs:
+      - normalized country-year projection table
+      - country-code mapping
+      - data-quality diagnostics
+      - Tableau-ready demographic dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
