@@ -84,3 +84,89 @@
     education. The public source confirms the case objective, and the official
     Bluebikes site provides recoverable public data. The exact MIT dataset and code
     are not public, so they must not be invented.
+
+- id: 2
+  name: Bike Sharing Demand - Time-Related Feature Engineering
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Applications
+    title: Time-related feature engineering
+    url: https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html
+    description: >
+      Official scikit-learn example for a bike-sharing demand regression task.
+      It compares alternative encodings of time-related variables and demonstrates
+      periodic feature engineering with SplineTransformer.
+  data:
+    description: >
+      Bike Sharing Demand dataset loaded from OpenML. The official example uses
+      fetch_openml with dataset name Bike_Sharing_Demand and version 2.
+    source_url: https://www.openml.org/search?type=data&status=active&id=44063
+    availability: public
+    files: []
+    dataset_identifier: 44063
+    notes: >
+      The dataset contains 17,379 hourly observations and includes calendar,
+      weather, temperature, humidity, windspeed, and bike-rental count variables.
+  original_implementation:
+    technologies:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/applications/plot_cyclical_feature_engineering.html
+    notes: >
+      The official page exposes the complete executable example and downloadable
+      source/notebook through the scikit-learn examples infrastructure.
+  problem:
+    context: >
+      Bike-sharing demand is strongly affected by daily, weekly, monthly, and
+      yearly cycles. Raw ordinal representations of time can be inadequate for
+      regression models because periodic relationships are not represented explicitly.
+    objective: >
+      Compare strategies for encoding time-related predictors and evaluate how
+      cyclical and periodic feature engineering affects bike-demand regression.
+    analytical_questions:
+      - What temporal cycles are visible in bike demand?
+      - How do ordinal and one-hot encodings represent time variables?
+      - Do sine/cosine or periodic spline representations improve predictive performance?
+      - How sensitive are regression results to the representation of temporal features?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load Bike_Sharing_Demand version 2 from OpenML.
+      - Explore hourly and weekly demand patterns.
+      - Define a reproducible regression evaluation setup.
+      - Build baseline models using raw or ordinal time features.
+      - Encode categorical time variables with one-hot encoding.
+      - Construct cyclical sine and cosine features.
+      - Construct periodic spline features with SplineTransformer.
+      - Fit and evaluate the alternative pipelines.
+      - Compare predictive performance and interpret the effect of feature representation.
+    expected_outputs:
+      - exploratory demand plots
+      - alternative temporal feature matrices
+      - fitted regression pipelines
+      - model-comparison metrics
+      - visual comparison of feature representations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    This is distinct from the MIT BlueBikes case because its primary pedagogical
+    objective is feature representation for periodic variables rather than a
+    general regression-model comparison.
