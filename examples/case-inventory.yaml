@@ -16392,6 +16392,83 @@
     data: verified
     code: verified
 
+- id: 236
+  name: Credit Risk Recourse
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Genetic Algorithms with Python, Second Edition
+    title: Counterfactual Search
+    url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_12/01_counterfactual_search.py
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition
+      path: chapter_12/01_counterfactual_search.py
+    description: >
+      Packt combines a fitted credit-risk classifier with a genetic search that
+      minimizes changes to an applicant's loan amount, duration, checking status,
+      and savings while penalizing solutions that remain high risk.
+  data:
+    description: >
+      German-style credit-risk records with applicant and loan characteristics,
+      accompanied by a trained random-forest risk model.
+    source_url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_12/data/credit_risk_data.csv
+    availability: repository
+    files:
+      - chapter_12/data/credit_risk_data.csv
+  original_implementation:
+    technologies:
+      - random forest
+      - counterfactual search
+      - genetic algorithms
+      - bounded optimization
+      - actionable recourse
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_12/01_counterfactual_search.py
+  problem:
+    context: >
+      A high-risk credit prediction is more useful when accompanied by a feasible
+      set of changes that would alter the decision, rather than by a prediction alone.
+    objective: >
+      Find the smallest feasible changes to actionable applicant attributes that
+      move a credit-risk prediction into the acceptable-risk region.
+    analytical_questions:
+      - Which applicant variables are treated as actionable?
+      - How should change magnitude be normalized across heterogeneous variables?
+      - What penalty prevents low-cost solutions that remain risky?
+      - Which counterfactual change set achieves acceptable risk at minimum cost?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - deap
+      - numpy
+    logical_steps:
+      - Load credit records and fit a probabilistic risk model.
+      - Select an applicant predicted as risky.
+      - Define actionable variables and feasible bounds.
+      - Define normalized change cost.
+      - Penalize counterfactuals that remain risky.
+      - Optimize candidate changes with a genetic algorithm.
+      - Compare the original and recommended applicant profiles.
+    expected_outputs:
+      - original risk probability
+      - optimized counterfactual profile
+      - normalized recourse cost
+      - post-change risk probability
+      - actionable change summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 17
   name: Social Sentiment Analytics
   domain: data_products
