@@ -10934,6 +10934,145 @@
     data: verified
     code: verified
 
+- id: 332
+  name: Student Grade Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: Student Grade Clustering
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2013%20-%20Clustering_Source%20code/BA2-13-Clustering-KMeans_06192022.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chapter 13 - Clustering_Source code/BA2-13-Clustering-KMeans_06192022.ipynb
+    description: >
+      Apress standardizes student grades and compares K-means, PCA visualization, and hierarchical clustering to discover performance profiles.
+  data:
+    description: >
+      Student-level grade records across multiple assessed components.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2013%20-%20Clustering_Source%20code/grades.csv
+    availability: repository
+    files:
+      - Chapter 13 - Clustering_Source code/grades.csv
+  original_implementation:
+    technologies:
+      - standardization
+      - K-means
+      - elbow method
+      - PCA
+      - hierarchical clustering
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2013%20-%20Clustering_Source%20code/BA2-13-Clustering-KMeans_06192022.ipynb
+  problem:
+    context: >
+      Aggregate grades can hide different patterns of strengths and weaknesses across students.
+    objective: >
+      Discover and compare student performance profiles from multivariate grade patterns.
+    analytical_questions:
+      - How many student profiles are supported by the data?
+      - Which assessments distinguish the clusters?
+      - Do hierarchical and K-means solutions agree?
+      - How can PCA help visualize the segments?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and standardize grades.
+      - Evaluate candidate cluster counts.
+      - Fit K-means.
+      - Project results with PCA.
+      - Fit hierarchical clustering.
+      - Compare and profile the discovered groups.
+    expected_outputs:
+      - cluster diagnostics
+      - student segment assignments
+      - PCA map
+      - dendrogram
+      - segment profiles
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 333
+  name: Retail Basket Rules
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: Association Rule Mining
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2014%20-%20Association%20Rule_Source%20code/MBA-07252022.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chapter 14 - Association Rule_Source code/MBA-07252022.ipynb
+    description: >
+      Apress mines frequent itemsets and association rules from Mary's transaction baskets using support, confidence, and related rule measures.
+  data:
+    description: >
+      Binary transaction-basket data with transaction IDs and purchased-item indicators.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2014%20-%20Association%20Rule_Source%20code/marys.csv
+    availability: repository
+    files:
+      - Chapter 14 - Association Rule_Source code/marys.csv
+  original_implementation:
+    technologies:
+      - Apriori
+      - frequent itemsets
+      - association rules
+      - support
+      - confidence
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2014%20-%20Association%20Rule_Source%20code/MBA-07252022.ipynb
+  problem:
+    context: >
+      A retailer wants to identify products that repeatedly occur together in shopping baskets.
+    objective: >
+      Discover and rank product associations that can inform cross-selling and merchandising.
+    analytical_questions:
+      - Which itemsets satisfy minimum support?
+      - Which rules have strong confidence?
+      - Which relationships are potentially useful for cross-selling?
+      - How sensitive are results to thresholds?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - mlxtend
+    logical_steps:
+      - Load basket data.
+      - Remove transaction identifiers from item indicators.
+      - Mine frequent itemsets.
+      - Generate association rules.
+      - Rank rules by multiple measures.
+      - Interpret merchandising implications.
+    expected_outputs:
+      - frequent itemsets
+      - association rule table
+      - rule ranking
+      - cross-sell candidates
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -20930,6 +21069,220 @@
   verification:
     source: verified
     data: externally_generated
+    code: verified
+
+- id: 330
+  name: Employee Attrition Tree
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: Decision Tree Classification for Attrition
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Classification-Chapter%209_Source%20code/DecisionTree/BA2-DecisionTree_Classifier-Attrition-06082022Final.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Classification-Chapter 9_Source code/DecisionTree/BA2-DecisionTree_Classifier-Attrition-06082022Final.ipynb
+    description: >
+      Apress builds, evaluates, and prunes a decision-tree classifier for employee attrition using work, family, education, housing, and loan attributes.
+  data:
+    description: >
+      Employee attrition records with target Attrition and ten explanatory variables.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Classification-Chapter%209_Source%20code/DecisionTree/attrdataDecisionTree.csv
+    availability: repository
+    files:
+      - Classification-Chapter 9_Source code/DecisionTree/attrdataDecisionTree.csv
+  original_implementation:
+    technologies:
+      - decision tree
+      - pruning
+      - classification report
+      - confusion matrix
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Classification-Chapter%209_Source%20code/DecisionTree/BA2-DecisionTree_Classifier-Attrition-06082022Final.ipynb
+  problem:
+    context: >
+      An organization wants to identify employees at risk of attrition using interpretable decision rules.
+    objective: >
+      Build and prune a decision tree for employee attrition prediction.
+    analytical_questions:
+      - Which factors split employees into high- and low-attrition groups?
+      - How does pruning affect generalization?
+      - Which errors remain on unseen employees?
+      - How interpretable is the final tree?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and encode employee data.
+      - Split training and test data.
+      - Fit a baseline tree.
+      - Evaluate classification performance.
+      - Tune tree complexity.
+      - Prune and compare models.
+      - Interpret decision paths.
+    expected_outputs:
+      - trained decision tree
+      - pruned tree
+      - classification report
+      - confusion matrix
+      - decision-rule interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 331
+  name: Loan Approval KNN
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: KNN Classification for Loan Approval
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Classification-Chapter%209_Source%20code/KNN/ALY6020_KNN_Classifier-LoanApproval-05192022.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Classification-Chapter 9_Source code/KNN/ALY6020_KNN_Classifier-LoanApproval-05192022.ipynb
+    description: >
+      Apress uses K-nearest neighbors to predict loan approval and selects neighborhood size through an empirical error curve.
+  data:
+    description: >
+      Loan-approval training and test records prepared for distance-based classification.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/tree/main/Classification-Chapter%209_Source%20code/KNN
+    availability: repository
+    files:
+      - Classification-Chapter 9_Source code/KNN/knn-data.csv
+      - Classification-Chapter 9_Source code/KNN/knntestdata.csv
+  original_implementation:
+    technologies:
+      - KNN
+      - classification
+      - confusion matrix
+      - classification report
+      - elbow method
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Classification-Chapter%209_Source%20code/KNN/ALY6020_KNN_Classifier-LoanApproval-05192022.ipynb
+  problem:
+    context: >
+      A lender wants to classify new loan applications from similarity to previously observed applicants.
+    objective: >
+      Predict loan approval and determine an appropriate number of neighbors.
+    analytical_questions:
+      - How should variables be scaled for KNN?
+      - How does predictive error vary with k?
+      - Which k is supported by the validation curve?
+      - Which approval errors are most common?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load training and test applications.
+      - Prepare and scale predictors.
+      - Fit KNN across candidate k values.
+      - Evaluate test predictions.
+      - Plot error versus k.
+      - Select a stable neighborhood size.
+    expected_outputs:
+      - KNN validation curve
+      - selected k
+      - loan predictions
+      - classification report
+      - confusion matrix
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 334
+  name: Maximum Temperature Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Apress
+    publisher: Apress
+    book: Practical Business Analytics Using R and Python
+    title: ARIMA Model Building in Python
+    url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2012%20source%20code%2Brelated%20files/ARIMA%20Model%20Building%20in%20Python-Final.ipynb
+    repository:
+      url: https://github.com/Apress/practical-business-analytics-r-python
+      path: Chapter 12 source code+related files/ARIMA Model Building in Python-Final.ipynb
+    description: >
+      Apress builds an ARIMA forecasting workflow for maximum temperature, including stationarity testing, automatic model selection, and a 12-period holdout forecast.
+  data:
+    description: >
+      Historical maximum-temperature time series with a separate test period.
+    source_url: https://github.com/Apress/practical-business-analytics-r-python/tree/main/Chapter%2012%20source%20code%2Brelated%20files
+    availability: repository
+    files:
+      - Chapter 12 source code+related files/Max_Temp.csv.xlsx
+      - Chapter 12 source code+related files/Max_Temp_Test1.csv
+  original_implementation:
+    technologies:
+      - ADF test
+      - ARIMA
+      - auto_arima
+      - forecasting
+      - holdout evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/Apress/practical-business-analytics-r-python/blob/main/Chapter%2012%20source%20code%2Brelated%20files/ARIMA%20Model%20Building%20in%20Python-Final.ipynb
+  problem:
+    context: >
+      Temperature planning requires forecasts that respect temporal dependence rather than treating observations as independent.
+    objective: >
+      Build and validate an ARIMA model for future maximum temperature.
+    analytical_questions:
+      - Is the series stationary?
+      - What differencing or ARIMA orders are appropriate?
+      - Which model is selected automatically?
+      - How accurate are forecasts on the held-out period?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pmdarima
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and order the temperature series.
+      - Test stationarity.
+      - Determine differencing requirements.
+      - Fit candidate ARIMA models.
+      - Select a model using information criteria.
+      - Forecast the holdout period.
+      - Compare forecasts with observed temperatures.
+    expected_outputs:
+      - stationarity diagnostics
+      - ARIMA model summary
+      - 12-period forecast
+      - holdout error analysis
+      - forecast plot
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
     code: verified
 
 - id: 54
