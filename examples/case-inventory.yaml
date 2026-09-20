@@ -22591,6 +22591,81 @@
     data: verified
     code: verified
 
+- id: 359
+  name: Reuters AutoML Text Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Practical MLOps
+    title: Ludwig AutoML with Text Categorization
+    url: https://github.com/paiml/practical-mlops-book/blob/main/Ludwig.ipynb
+    repository:
+      url: https://github.com/paiml/practical-mlops-book
+      path: Ludwig.ipynb
+    description: >
+      O'Reilly uses Ludwig to configure and run an automated text-classification
+      experiment on Reuters documents with a declarative model specification.
+  data:
+    description: >
+      Reuters news text paired with category labels in a prepared all-categories dataset.
+    source_url: https://github.com/paiml/practical-mlops-book/blob/main/chap05/reuters-allcats.csv
+    availability: repository
+    files:
+      - chap05/reuters-allcats.csv
+      - chap05/config.yaml
+  original_implementation:
+    technologies:
+      - Ludwig
+      - AutoML
+      - convolutional text encoder
+      - multiclass classification
+      - declarative model configuration
+    language: Python
+    code_available: true
+    code_url: https://github.com/paiml/practical-mlops-book/blob/main/Ludwig.ipynb
+  problem:
+    context: >
+      Analysts may need to build a document classifier quickly without manually
+      implementing the entire training pipeline and architecture.
+    objective: >
+      Configure and evaluate an automated multiclass text classifier for Reuters news.
+    analytical_questions:
+      - How can text and target fields be specified declaratively?
+      - What predictive performance is obtained with the automated pipeline?
+      - Which modeling choices are hidden or exposed by AutoML?
+      - How does this workflow compare with a hand-built text-classification pipeline?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - ludwig
+      - scikit-learn
+    logical_steps:
+      - Load and validate Reuters text and labels.
+      - Inspect class balance.
+      - Define a declarative text-classification configuration.
+      - Train the AutoML model.
+      - Evaluate multiclass predictions.
+      - Inspect errors and per-class performance.
+      - Compare workflow complexity with a manual baseline.
+    expected_outputs:
+      - prepared Reuters dataset
+      - AutoML configuration
+      - trained text classifier
+      - multiclass evaluation report
+      - error analysis
+      - workflow comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -26805,6 +26880,95 @@
       - alert records
       - persisted telemetry index
       - operational monitoring feed
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 358
+  name: Amazon Review ML Lifecycle
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science on AWS
+    title: End-to-End BERT Review Classification Pipeline
+    url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book
+    repository:
+      url: https://github.com/data-science-on-aws/data-science-on-aws
+      path: 10_pipeline
+    description: >
+      O'Reilly develops an end-to-end machine-learning product around Amazon
+      customer reviews, covering data ingestion, bias analysis, BERT feature
+      preparation, feature storage, model training, evaluation, registration,
+      deployment, A/B testing, and streaming inference.
+  data:
+    description: >
+      Amazon Customer Reviews with product category, review text, star rating,
+      helpful votes, verified-purchase status, and related metadata.
+    source_url: https://s3.amazonaws.com/amazon-reviews-pds/readme.html
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - Amazon SageMaker
+      - BERT
+      - TensorFlow
+      - SageMaker Feature Store
+      - SageMaker Pipelines
+      - model registry
+      - REST endpoints
+      - A/B testing
+      - Kinesis
+    language: Python
+    code_available: true
+    code_url: https://github.com/data-science-on-aws/data-science-on-aws/tree/oreilly-book
+  problem:
+    context: >
+      A product-review classifier must move from raw text to a governed production
+      service with reproducible preparation, evaluation, versioning, deployment,
+      and live inference.
+    objective: >
+      Build and operate an end-to-end text-classification lifecycle that predicts
+      star ratings from review text.
+    analytical_questions:
+      - How should raw review data be validated and balanced before training?
+      - How can BERT features be generated and stored reproducibly?
+      - What model-quality threshold should gate registration?
+      - How should model versions be deployed and compared online?
+      - How can predictions be integrated into a streaming application?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - transformers
+      - tensorflow
+      - scikit-learn
+      - mlflow
+      - fastapi
+    logical_steps:
+      - Acquire and profile review data.
+      - Diagnose label imbalance and data bias.
+      - Build reproducible text preprocessing and BERT features.
+      - Train and evaluate a star-rating classifier.
+      - Register model artifacts and metadata.
+      - Deploy a prediction endpoint.
+      - Compare candidate model versions with controlled traffic.
+      - Add streaming or batch inference.
+    expected_outputs:
+      - validated review dataset
+      - feature pipeline
+      - trained review classifier
+      - evaluation report
+      - versioned model artifact
+      - serving endpoint
+      - deployment comparison
+      - operational inference pipeline
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
