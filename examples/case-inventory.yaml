@@ -1526,3 +1526,75 @@
     code: partial
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 21
+  name: LLM-Based Customer Review Sentiment Analysis
+  type: descriptiva
+  source:
+    category: official_tutorial
+    organization: KNIME
+    program: KNIME Analytics Platform AI Tutorials
+    title: Build a restaurant assistant agent
+    url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
+    description: >
+      Official KNIME tutorial includes a tool workflow that classifies restaurant
+      customer reviews as positive or negative with an LLM and summarizes the results.
+  data:
+    description: >
+      Customer-review table with a Review column supplied to the tool workflow.
+    source_url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
+    availability: tutorial_example
+    files: []
+  original_implementation:
+    technologies:
+      - KNIME Analytics Platform
+      - LLM Prompter
+      - Value Counter
+      - Table Transposer
+      - agent tool workflow
+    language: visual_workflow
+    code_available: true
+    code_url: https://docs.knime.com/ap/latest/ai/tutorials/restaurant-agent
+  problem:
+    context: >
+      Restaurant operators need a compact summary of qualitative customer feedback.
+      The workflow classifies each review and converts row-level predictions into
+      an aggregate message usable by an agent.
+    objective: >
+      Classify customer-review sentiment with an LLM and summarize the resulting distribution.
+    analytical_questions:
+      - How consistently does the LLM classify review sentiment?
+      - What proportion of reviews are positive and negative?
+      - Which reviews are ambiguous or inconsistent?
+      - How can row-level results be converted into a concise analytical summary?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - openai
+      - pydantic
+      - matplotlib
+    logical_steps:
+      - Load a fixed customer-review dataset.
+      - Define a deterministic sentiment-classification prompt and output schema.
+      - Classify each review.
+      - Validate and normalize model outputs.
+      - Count sentiment categories.
+      - Produce a summary table and visualization.
+      - Inspect ambiguous or invalid responses.
+    expected_outputs:
+      - sentiment-enriched review table
+      - category counts
+      - validation report
+      - visualization
+      - concise summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: partial
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
