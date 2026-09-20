@@ -5363,6 +5363,228 @@
     data: verified
     code: verified
 
+- id: 145
+  name: Movie Audience Preferences
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Python for Data Analysis, Third Edition
+    title: MovieLens 1M Dataset Analysis
+    url: https://github.com/wesm/pydata-book/blob/3rd-edition/ch13.ipynb
+    repository:
+      url: https://github.com/wesm/pydata-book
+      path: ch13.ipynb
+    description: >
+      O'Reilly joins MovieLens user, rating, and movie tables and analyzes audience
+      preferences by gender, age, genre, rating volume, and disagreement.
+  data:
+    description: >
+      MovieLens 1M users, movies, and ratings with demographic attributes and genres.
+    source_url: https://github.com/wesm/pydata-book/tree/3rd-edition/datasets/movielens
+    availability: repository
+    files:
+      - datasets/movielens/users.dat
+      - datasets/movielens/ratings.dat
+      - datasets/movielens/movies.dat
+  original_implementation:
+    technologies:
+      - pandas
+      - relational joins
+      - pivot tables
+      - grouped summaries
+      - audience segmentation
+    language: Python
+    code_available: true
+    code_url: https://github.com/wesm/pydata-book/blob/3rd-edition/ch13.ipynb
+  problem:
+    context: >
+      Movie ratings become more informative when user demographics and movie genres
+      are integrated, allowing preference differences and disagreement to be measured.
+    objective: >
+      Diagnose how movie preferences vary across audience segments and genres.
+    analytical_questions:
+      - Which movies receive the highest ratings among active titles?
+      - How do ratings differ by gender?
+      - Which movies generate the greatest disagreement?
+      - How do genre preferences vary across age groups?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load user, movie, and rating tables.
+      - Validate identifiers and join cardinalities.
+      - Merge the three sources.
+      - Restrict analysis to sufficiently rated titles.
+      - Compare segment-level mean ratings.
+      - Measure rating dispersion and disagreement.
+      - Expand genres and summarize preferences by age.
+    expected_outputs:
+      - integrated MovieLens table
+      - active-title rankings
+      - audience preference tables
+      - disagreement ranking
+      - genre-by-age profiles
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 146
+  name: Baby Name Evolution
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Python for Data Analysis, Third Edition
+    title: US Baby Names Analysis
+    url: https://github.com/wesm/pydata-book/blob/3rd-edition/ch13.ipynb
+    repository:
+      url: https://github.com/wesm/pydata-book
+      path: ch13.ipynb
+    description: >
+      O'Reilly combines more than a century of annual US baby-name files and studies
+      popularity, diversity, naming concentration, ending-letter patterns, and
+      long-run changes in specific name families.
+  data:
+    description: >
+      US Social Security baby-name counts by year, sex, and given name from 1880 onward.
+    source_url: https://github.com/wesm/pydata-book/tree/3rd-edition/datasets/babynames
+    availability: repository
+    files:
+      - datasets/babynames/yob1880.txt
+      - datasets/babynames/yearly yob files
+  original_implementation:
+    technologies:
+      - pandas
+      - multi-file ingestion
+      - longitudinal aggregation
+      - concentration measures
+      - pivot tables
+      - trend analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/wesm/pydata-book/blob/3rd-edition/ch13.ipynb
+  problem:
+    context: >
+      Naming preferences evolve over generations and thousands of annual observations
+      must be combined before long-run cultural patterns can be observed.
+    objective: >
+      Characterize long-run shifts in baby-name popularity, diversity, and naming conventions.
+    analytical_questions:
+      - How concentrated are births among the most popular names over time?
+      - Has naming diversity increased or decreased?
+      - How have last-letter patterns changed by sex?
+      - How do selected name families rise and decline over decades?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load yearly name files.
+      - Append year and combine all observations.
+      - Calculate annual name shares.
+      - Identify top names by year and sex.
+      - Measure concentration and diversity.
+      - Analyze ending-letter distributions.
+      - Track selected name families longitudinally.
+    expected_outputs:
+      - longitudinal names dataset
+      - popularity trends
+      - diversity indicators
+      - ending-letter profiles
+      - selected-name time series
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 147
+  name: Food Nutrient Profiling
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Python for Data Analysis, Third Edition
+    title: USDA Food Database Analysis
+    url: https://github.com/wesm/pydata-book/blob/3rd-edition/ch13.ipynb
+    repository:
+      url: https://github.com/wesm/pydata-book
+      path: ch13.ipynb
+    description: >
+      O'Reilly normalizes nested USDA food records, joins food and nutrient tables,
+      and identifies characteristic and extreme nutrient values across food groups.
+  data:
+    description: >
+      USDA food database represented as nested JSON with food descriptions,
+      food groups, nutrient names, units, and measured values.
+    source_url: https://github.com/wesm/pydata-book/blob/3rd-edition/datasets/usda_food/database.json
+    availability: repository
+    files:
+      - datasets/usda_food/database.json
+  original_implementation:
+    technologies:
+      - JSON normalization
+      - pandas
+      - relational transformation
+      - grouped quantiles
+      - extrema analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/wesm/pydata-book/blob/3rd-edition/ch13.ipynb
+  problem:
+    context: >
+      Food-composition data are stored as nested records, while nutritional comparison
+      requires a normalized table linking foods, food groups, nutrients, units, and values.
+    objective: >
+      Transform the nested food database and compare nutrient profiles across food groups.
+    analytical_questions:
+      - How should nested food and nutrient records be normalized?
+      - Which food groups have high or low typical nutrient values?
+      - Which foods contain the maximum values for selected nutrients?
+      - How do nutrient distributions differ across food groups?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - json
+    logical_steps:
+      - Load nested USDA JSON records.
+      - Normalize food metadata.
+      - Normalize nutrient observations.
+      - Harmonize field names and units.
+      - Join nutrient and food tables.
+      - Calculate group-level nutrient summaries.
+      - Identify extreme nutrient-food combinations.
+    expected_outputs:
+      - normalized food table
+      - normalized nutrient table
+      - integrated food-nutrient dataset
+      - food-group nutrient profiles
+      - extreme nutrient rankings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
