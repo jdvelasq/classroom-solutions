@@ -6507,6 +6507,408 @@
     data: verified
     code: verified
 
+- id: 182
+  name: Bank Campaign Conversion Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Analyzing Conversion Rates of Marketing Campaigns
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Analyzing Conversion Rates of Marketing Campaigns.ipynb
+    description: >
+      Packt analyzes bank marketing conversion rates across contact frequency, age, education, job, and marital-status segments while explicitly identifying call duration as unavailable before the call.
+  data:
+    description: >
+      UCI Bank Marketing customer, campaign, economic-context, and term-deposit-response records.
+    source_url: https://archive.ics.uci.edu/dataset/222/bank+marketing
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - conversion-rate analysis
+      - segmentation
+      - pivot tables
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+  problem:
+    context: >
+      A bank wants to understand which customer and campaign segments convert at different rates before designing the next marketing round.
+    objective: >
+      Diagnose variation in campaign conversion rates across customer and contact characteristics.
+    analytical_questions:
+      - What is the overall conversion rate?
+      - How does conversion vary with contact frequency?
+      - Which demographic segments show higher or lower conversion?
+      - Which variables create time-of-prediction leakage?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate campaign records.
+      - Encode the conversion outcome.
+      - Calculate overall and campaign-level conversion rates.
+      - Build customer and contact segments.
+      - Compare conversion across segments.
+      - Identify variables unavailable before contact.
+    expected_outputs:
+      - conversion KPI table
+      - segment conversion tables
+      - conversion-rate charts
+      - leakage warning list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 183
+  name: Brewery Market Geography
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Brewery and Pub Analysis
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Brewery and Pub Analysis.ipynb
+    description: >
+      Packt analyzes brewery and pub locations by city, province, category, postal code, and state, joins ZIP codes to geography, and maps market concentration.
+  data:
+    description: >
+      US brewery and pub business-location records combined with ZIP-to-state mappings.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/data-analyst-bootcamp/master/7160_1.csv
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - geospatial enrichment
+      - grouped aggregation
+      - choropleth visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+  problem:
+    context: >
+      A market analyst wants to understand where breweries and pubs are concentrated and which establishment categories dominate different geographic markets.
+    objective: >
+      Characterize the geographic distribution and category composition of breweries and pubs.
+    analytical_questions:
+      - Which cities and states contain the most establishments?
+      - Which business categories are most common?
+      - How should postal-code records be enriched with geography?
+      - Where are market concentrations strongest?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate establishment records.
+      - Standardize postal codes.
+      - Join ZIP codes to geographic metadata.
+      - Aggregate by city, state, and category.
+      - Rank and map market concentrations.
+    expected_outputs:
+      - city and state rankings
+      - category frequency table
+      - enriched location dataset
+      - geographic concentration map
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 184
+  name: Streaming Catalog Benchmark
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Movies on Streaming Platforms Analysis
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Movies on Streaming Platforms Analysis.ipynb
+    description: >
+      Packt compares Netflix, Hulu, Prime Video, and Disney+ movie catalogs by volume, IMDb ratings, release year, directors, genres, and runtime.
+  data:
+    description: >
+      Cross-platform movie catalog with availability, titles, ratings, directors, genres, release years, and runtimes.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/MoviesOnStreamingPlatforms_updated.csv
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - catalog benchmarking
+      - ranking
+      - Plotly
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+  problem:
+    context: >
+      Streaming services compete on catalog breadth and perceived quality, but raw listings make cross-platform comparison difficult.
+    objective: >
+      Benchmark streaming-platform catalogs by availability, quality, genre, director, release period, and runtime.
+    analytical_questions:
+      - Which platform has the largest movie catalog?
+      - Which platform has the most highly rated films?
+      - Which genres and directors dominate each catalog?
+      - How have movie volume and runtime changed over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate the catalog.
+      - Create platform-specific views.
+      - Compare catalog size and high-rating counts.
+      - Rank top films by platform.
+      - Aggregate by year, director, and genre.
+      - Diagnose runtime and quality patterns.
+    expected_outputs:
+      - platform benchmark table
+      - high-rating comparison
+      - top-movie lists
+      - genre and director rankings
+      - temporal catalog charts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 185
+  name: Pizza Market Geography
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Pizza Restaurants Analysis
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Pizza Resturants Analysis.ipynb
+    description: >
+      Packt profiles US pizza restaurants and menu offerings, enriches records with state geography, compares restaurant and pizza-name popularity, analyzes average prices, and maps restaurant locations.
+  data:
+    description: >
+      US restaurant and menu records with names, addresses, coordinates, pizza items, and price ranges.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/data-analyst-bootcamp/master/8358_1.csv
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - deduplication
+      - geospatial enrichment
+      - pricing analysis
+      - mapping
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+  problem:
+    context: >
+      Restaurant location and menu data can reveal market concentration, popular pizza offerings, and geographic price differences.
+    objective: >
+      Diagnose US pizza-market structure across restaurant chains, menu items, states, cities, and prices.
+    analytical_questions:
+      - Which restaurant chains appear most frequently?
+      - Which pizza names are most common?
+      - Which states have the highest restaurant concentration?
+      - How does average pizza price vary geographically?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate restaurant and menu records.
+      - Deduplicate restaurant-item combinations.
+      - Count restaurant and menu-item frequency.
+      - Enrich postal codes with state information.
+      - Calculate representative menu prices.
+      - Compare prices and counts geographically.
+    expected_outputs:
+      - restaurant-chain ranking
+      - pizza-item ranking
+      - state concentration table
+      - geographic price comparison
+      - restaurant maps
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 186
+  name: African Financial Crisis Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Africa Economic, Banking and Systemic Crisis Data
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Africa Economic, Banking _ Systematic Crisis Data.ipynb
+    description: >
+      Packt explores African exchange rates, inflation, systemic crises, domestic and sovereign defaults, currency crises, and banking crises across countries and time.
+  data:
+    description: >
+      Historical macro-financial crisis records for African countries.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/data-analyst-bootcamp/master/african_crises.csv
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - longitudinal analysis
+      - correlation analysis
+      - crisis counts
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+  problem:
+    context: >
+      Financial crises combine exchange-rate, inflation, banking, currency, and sovereign-debt dimensions whose historical co-occurrence differs across countries.
+    objective: >
+      Characterize macro-financial crisis patterns across African countries and time.
+    analytical_questions:
+      - How do exchange-rate and inflation histories differ across countries?
+      - Which countries experienced the most crisis episodes?
+      - Which crisis indicators tend to co-occur?
+      - How have crisis patterns changed through time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate crisis records.
+      - Construct country and year summaries.
+      - Compare exchange-rate and inflation trajectories.
+      - Count default and crisis events.
+      - Analyze correlations among crisis indicators.
+      - Visualize country-level and temporal patterns.
+    expected_outputs:
+      - macro-financial KPI tables
+      - country crisis rankings
+      - crisis correlation matrix
+      - longitudinal charts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 187
+  name: Cricket Match Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: IPL Cricket Data Analytics
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/IPL Cricket Data Analytics.ipynb
+    description: >
+      Packt analyzes IPL match and delivery data to compare venues, seasons, players, toss decisions, batting order, and team performance.
+  data:
+    description: >
+      Indian Premier League match summaries and ball-by-ball delivery records.
+    source_url: https://github.com/rajeevratan84/data-analyst-bootcamp
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - grouped aggregation
+      - venue analysis
+      - event analysis
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+  problem:
+    context: >
+      Match and ball-level sports data permit systematic examination of venue effects, toss decisions, batting order, and team performance.
+    objective: >
+      Diagnose match-performance patterns across teams, venues, seasons, and game decisions.
+    analytical_questions:
+      - Which venues favor batting first or second?
+      - How strongly is winning the toss associated with match outcomes?
+      - Which players and teams dominate selected performance metrics?
+      - How do match patterns vary across seasons?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load match and delivery data.
+      - Validate season, venue, team, and outcome fields.
+      - Build season and venue summaries.
+      - Compare toss and match outcomes.
+      - Analyze batting-order results by venue.
+      - Rank selected player and team metrics.
+    expected_outputs:
+      - venue performance table
+      - toss-outcome comparison
+      - season summaries
+      - player and team rankings
+      - diagnostic visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
