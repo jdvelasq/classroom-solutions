@@ -3520,6 +3520,306 @@
     data: verified
     code: verified
 
+- id: 95
+  name: Sales Anomaly Detection
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Anomaly Detection
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter06/anomaly-detection.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter06/anomaly-detection.ipynb
+    description: >
+      Packt compares residual-based statistical anomaly detection, Isolation Forest,
+      and forecast-interval methods for identifying unusual sales observations.
+  data:
+    description: >
+      Monthly and daily sales time series with injected or observed anomalous periods.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/tree/main/Chapter06/data
+    availability: repository
+    files:
+      - Chapter06/data/anomaly_data.csv
+      - Chapter06/data/anomaly_daily_sales.csv
+  original_implementation:
+    technologies:
+      - seasonal decomposition
+      - generalized ESD
+      - Isolation Forest
+      - AutoETS
+      - prediction intervals
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter06/anomaly-detection.ipynb
+  problem:
+    context: >
+      Marketing and retail sales contain seasonal variation, so unusually high or
+      low observations should be separated from expected temporal behavior.
+    objective: >
+      Detect and compare unusual sales periods using statistical, machine-learning,
+      and forecasting-based anomaly methods.
+    analytical_questions:
+      - Which observations are unusual after accounting for seasonality?
+      - Do statistical and Isolation Forest methods flag the same periods?
+      - How does contamination choice affect the findings?
+      - Which observations fall outside forecast-based uncertainty bands?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - scikit-learn
+      - statsmodels
+      - statsforecast
+      - matplotlib
+    logical_steps:
+      - Load and validate sales time series.
+      - Diagnose seasonal structure.
+      - Calculate decomposition residuals.
+      - Apply a statistical outlier test.
+      - Fit Isolation Forest.
+      - Fit a forecasting model with prediction intervals.
+      - Compare anomaly sets and explain disagreements.
+    expected_outputs:
+      - anomaly score table
+      - statistical anomaly flags
+      - Isolation Forest flags
+      - forecast-interval flags
+      - method comparison
+      - anomaly visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 97
+  name: Retail Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Customer Segmentation
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter07/segmentation.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter07/segmentation.ipynb
+    description: >
+      Packt segments retail customers with K-means and hierarchical clustering,
+      profiles segments using sales and profit economics, and examines their attractiveness.
+  data:
+    description: >
+      Customer-level retail behavioral features including order size, frequency,
+      return rate, tenure, marketing contacts, sales, and profit-related fields.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter07/data/retail_segmentation.csv
+    availability: repository
+    files:
+      - Chapter07/data/retail_segmentation.csv
+  original_implementation:
+    technologies:
+      - K-means
+      - hierarchical clustering
+      - segment profiling
+      - customer economics
+      - intercluster visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter07/segmentation.ipynb
+  problem:
+    context: >
+      A retailer needs to understand heterogeneous customer behavior and the
+      economic attractiveness of the groups that emerge.
+    objective: >
+      Discover retail customer segments and characterize them by behavior, sales,
+      and profitability.
+    analytical_questions:
+      - Which behavioral dimensions separate customers?
+      - How many segments are useful?
+      - How do segments differ in order behavior and returns?
+      - Which segments contribute the most sales and profit?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - yellowbrick
+      - matplotlib
+    logical_steps:
+      - Load and validate customer features.
+      - Select segmentation variables.
+      - Standardize where appropriate.
+      - Fit candidate K-means solutions.
+      - Compare with hierarchical clustering.
+      - Profile segments using behavioral and economic metrics.
+      - Interpret segment attractiveness.
+    expected_outputs:
+      - cluster diagnostics
+      - segment assignments
+      - behavior profile table
+      - sales and profit profile
+      - segment visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 98
+  name: Product Preference Conjoint
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Conjoint Analysis
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter10/conjoint.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter10/conjoint.ipynb
+    description: >
+      Packt estimates product attribute part-worth utilities and willingness to pay
+      from observed product choices using multinomial logistic regression.
+  data:
+    description: >
+      Choice observations for alternative product configurations defined by seat,
+      cargo, engine, and price attributes.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter10/data/conjoint.csv
+    availability: repository
+    files:
+      - Chapter10/data/conjoint.csv
+  original_implementation:
+    technologies:
+      - conjoint analysis
+      - multinomial logistic regression
+      - part-worth utility
+      - willingness to pay
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter10/conjoint.ipynb
+  problem:
+    context: >
+      Product choices reflect trade-offs among features and price, but raw choice
+      counts do not reveal the value customers assign to individual attributes.
+    objective: >
+      Estimate attribute utilities and willingness to pay for alternative product features.
+    analytical_questions:
+      - Which product features increase choice probability?
+      - What utility is associated with each attribute level?
+      - How price-sensitive are observed choices?
+      - How much are customers willing to pay for selected feature improvements?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - numpy
+    logical_steps:
+      - Load and validate choice observations.
+      - Encode categorical product attributes.
+      - Fit a multinomial choice model.
+      - Extract part-worth utilities.
+      - Translate attribute coefficients into willingness to pay.
+      - Compare feature trade-offs.
+    expected_outputs:
+      - choice-model coefficients
+      - part-worth utility table
+      - willingness-to-pay estimates
+      - feature preference ranking
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 99
+  name: Marketing Channel Attribution
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Markov Chain Attribution
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter11/Markov%20Chain.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter11/Markov Chain.ipynb
+    description: >
+      Packt reconstructs customer channel paths, estimates Markov transition
+      probabilities, calculates channel removal effects, and attributes conversions.
+  data:
+    description: >
+      Customer interaction paths with channel, cookie, timestamp, and conversion outcome.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter11/data/attribution%20data%20markov%20chain.csv
+    availability: repository
+    files:
+      - Chapter11/data/attribution data markov chain.csv
+  original_implementation:
+    technologies:
+      - customer journey paths
+      - Markov chains
+      - transition matrix
+      - removal effects
+      - conversion attribution
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter11/Markov%20Chain.ipynb
+  problem:
+    context: >
+      Customers often interact with several marketing channels before conversion,
+      so last-touch counts can obscure the contribution of earlier interactions.
+    objective: >
+      Estimate the contribution of marketing channels to observed conversions using
+      path-based Markov attribution.
+    analytical_questions:
+      - What channel paths lead to conversion or abandonment?
+      - What transition probabilities characterize the customer journey?
+      - How much does conversion probability change when each channel is removed?
+      - How should observed conversions be attributed across channels?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - networkx
+    logical_steps:
+      - Sort interactions into customer journeys.
+      - Add start, conversion, and null states.
+      - Count channel transitions.
+      - Build the transition probability matrix.
+      - Calculate baseline conversion probability.
+      - Calculate channel removal effects.
+      - Allocate conversions from relative removal effects.
+    expected_outputs:
+      - customer path table
+      - transition matrix
+      - channel removal effects
+      - attributed conversions
+      - channel contribution summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -6459,6 +6759,85 @@
     The implementation references osvisit.dat, which is not included in the
     repository tree; a rewrite requires obtaining or reconstructing the series.
 
+- id: 94
+  name: Retail Sales Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Forecasting
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter05/forecasting.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter05/forecasting.ipynb
+    description: >
+      Packt develops a monthly retail-sales forecasting workflow using decomposition,
+      seasonal-naive baselines, transformations, AutoARIMA, ETS, Holt-Winters,
+      Prophet, and forecast accuracy comparisons.
+  data:
+    description: >
+      Superstore transactions with order dates, product categories, and sales values.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter05/data/superstore.csv
+    availability: repository
+    files:
+      - Chapter05/data/superstore.csv
+  original_implementation:
+    technologies:
+      - seasonal decomposition
+      - seasonal naive
+      - AutoARIMA
+      - ETS
+      - Holt-Winters
+      - Prophet
+      - forecast accuracy
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter05/forecasting.ipynb
+  problem:
+    context: >
+      Retail sales exhibit trend, seasonality, and category differences that must
+      be understood before future demand can be forecast for planning.
+    objective: >
+      Compare forecasting methods for monthly retail sales and produce defensible
+      out-of-sample forecasts.
+    analytical_questions:
+      - What trend and seasonal patterns drive monthly sales?
+      - Which baseline is appropriate for comparison?
+      - How do ARIMA, ETS, Holt-Winters, and Prophet compare?
+      - How sensitive are forecasts to transformation and model choice?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - statsforecast
+      - matplotlib
+    logical_steps:
+      - Load and aggregate transactions to monthly sales.
+      - Diagnose trend and seasonality.
+      - Split the series chronologically.
+      - Build seasonal-naive benchmarks.
+      - Fit candidate statistical forecasting models.
+      - Compare holdout accuracy.
+      - Refit the preferred candidates and forecast future sales.
+    expected_outputs:
+      - monthly sales series
+      - decomposition diagnostics
+      - forecast benchmark table
+      - holdout predictions
+      - future sales forecasts
+      - prediction intervals
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -6696,6 +7075,81 @@
       - optimal counseling threshold
       - precision-recall trade-off
       - financial impact summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 96
+  name: RFM Campaign Targeting
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: RFM Analysis
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter07/rfm.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter07/rfm.ipynb
+    description: >
+      Packt constructs independent and sequential RFM scores, compares purchase
+      response by segment, selects target segments, and calculates campaign profit.
+  data:
+    description: >
+      Customer-level recency, order-frequency, revenue, purchase-response, and
+      campaign economics data.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter07/data/retail_rfm.csv
+    availability: repository
+    files:
+      - Chapter07/data/retail_rfm.csv
+  original_implementation:
+    technologies:
+      - RFM scoring
+      - customer ranking
+      - response analysis
+      - segment targeting
+      - campaign profitability
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter07/rfm.ipynb
+  problem:
+    context: >
+      A marketing campaign should not necessarily contact every customer because
+      campaign, shipping, and product costs can overwhelm revenue from low-response groups.
+    objective: >
+      Use RFM behavior and observed response economics to select profitable customer
+      segments for a campaign.
+    analytical_questions:
+      - How do independent and sequential RFM scores differ?
+      - Which RFM groups have the highest purchase rates?
+      - Which segments should be targeted under the stated economics?
+      - What revenue and profit result from the targeting rule?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load customer-level RFM data.
+      - Construct independent and sequential RFM scores.
+      - Estimate response rates by segment.
+      - Define campaign revenue and cost components.
+      - Evaluate segment-level expected profitability.
+      - Select target segments.
+      - Calculate campaign profit and compare alternatives.
+    expected_outputs:
+      - RFM score table
+      - segment response table
+      - targeting rule
+      - targeted customer list
+      - campaign revenue and profit analysis
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -7012,6 +7466,83 @@
       - inference function
       - working web application
       - deployment validation tests
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 93
+  name: Marketing Performance Dashboard
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Marketing Dashboard
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter03/dashboard.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter03/dashboard.py
+    description: >
+      Packt builds a Streamlit marketing dashboard with campaign, traffic-source,
+      country, device, account, campaign, and date filters plus interactive KPIs
+      and Plotly views.
+  data:
+    description: >
+      Marketing campaign performance records with impressions, clicks, revenue,
+      advertising spend, gross profit, CPC, RPC, CPA, ROAS, device, country, and source.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter03/data/campaign_data.csv
+    availability: repository
+    files:
+      - Chapter03/data/campaign_data.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - Streamlit
+      - Plotly
+      - interactive filtering
+      - KPI reporting
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter03/dashboard.py
+  problem:
+    context: >
+      Marketing teams need to monitor campaign economics across multiple sources,
+      countries, devices, accounts, campaigns, and time periods without rebuilding
+      static reports for every question.
+    objective: >
+      Build an interactive marketing performance product that supports filtering,
+      KPI monitoring, campaign comparison, and temporal exploration.
+    analytical_questions:
+      - Which traffic sources and campaigns generate the strongest gross profit?
+      - How do impressions and profit evolve over time?
+      - How do CPC, RPC, CPA, and ROAS differ across campaign slices?
+      - How should users drill into country, device, account, and campaign detail?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - streamlit
+      - plotly
+    logical_steps:
+      - Load and validate campaign data.
+      - Derive campaign and calendar fields.
+      - Implement reusable filters.
+      - Calculate campaign KPIs.
+      - Build source and campaign summary tables.
+      - Create interactive temporal charts.
+      - Validate filtered totals against source data.
+    expected_outputs:
+      - campaign KPI layer
+      - interactive filters
+      - campaign and source tables
+      - temporal charts
+      - working Streamlit dashboard
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
