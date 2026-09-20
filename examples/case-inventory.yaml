@@ -1742,6 +1742,83 @@
     data: verified
     code: verified
 
+- id: 180
+  name: Restaurant Entity Resolution
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Extending Power BI with Python and R, Second Edition
+    title: Deduplicating Restaurants with Splink
+    url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition/blob/main/Ch13%20-%20Calculating%20Columns%20Using%20Complex%20Algorithms%2C%20Fuzzy%20Matching/Python/01-dedup-resturants-with-splink.py
+    repository:
+      url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition
+      path: Ch13 - Calculating Columns Using Complex Algorithms, Fuzzy Matching/Python/01-dedup-resturants-with-splink.py
+    description: >
+      Packt cleans restaurant names and addresses, blocks candidate pairs, estimates
+      probabilistic comparison parameters with expectation maximization in Splink,
+      predicts duplicate pairs, and validates the matches against known classes.
+  data:
+    description: >
+      Restaurant records containing IDs, names, addresses, cities, and known duplicate classes.
+    source_url: https://www.cs.utexas.edu/users/ml/riddle/data.html
+    availability: repository_and_public
+    files:
+      - Ch13 - Calculating Columns Using Complex Algorithms, Fuzzy Matching/restaurants.csv
+  original_implementation:
+    technologies:
+      - Splink
+      - DuckDB
+      - probabilistic record linkage
+      - blocking
+      - Jaro-Winkler similarity
+      - expectation maximization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition/blob/main/Ch13%20-%20Calculating%20Columns%20Using%20Complex%20Algorithms%2C%20Fuzzy%20Matching/Python/01-dedup-resturants-with-splink.py
+  problem:
+    context: >
+      Restaurant databases can contain multiple records for the same establishment
+      with spelling, punctuation, and address variations, producing duplicated analytical entities.
+    objective: >
+      Identify duplicate restaurant records using probabilistic entity resolution
+      and quantify match quality against known duplicate classes.
+    analytical_questions:
+      - How should names and addresses be standardized before matching?
+      - Which blocking rules balance recall and computational cost?
+      - How should name, address, and city similarities be weighted?
+      - What match threshold produces acceptable false-positive and false-negative behavior?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - splink
+      - duckdb
+    logical_steps:
+      - Load and standardize restaurant identity fields.
+      - Define candidate blocking rules.
+      - Define exact and fuzzy comparison features.
+      - Estimate probabilistic linkage parameters.
+      - Generate pairwise match scores.
+      - Choose a match threshold.
+      - Compare predicted matches with known duplicate classes.
+    expected_outputs:
+      - standardized restaurant table
+      - candidate pair table
+      - match probability table
+      - duplicate pair decisions
+      - confusion matrix
+      - resolved entity dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -12602,6 +12679,81 @@
       - sector investment table
       - constrained opportunity shortlist
       - investment screening recommendation set
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 181
+  name: Distribution Cost Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Extending Power BI with Python and R, Second Edition
+    title: Linear Optimization in Python
+    url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition/blob/main/Ch14%20-%20Calculating%20Columns%20Using%20Complex%20Algorithms%2C%20Optimization%20Problems/Python/01-linear-optimization-in-python.py
+    repository:
+      url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition
+      path: Ch14 - Calculating Columns Using Complex Algorithms, Optimization Problems/Python/01-linear-optimization-in-python.py
+    description: >
+      Packt formulates a warehouse-to-country transportation model with integer
+      shipment quantities, warehouse supply limits, country demand requirements,
+      and shipping costs, then solves it with PuLP.
+  data:
+    description: >
+      Retail workbook containing warehouse supply, country demand, and a
+      warehouse-to-country shipping-cost matrix.
+    source_url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition/blob/main/Ch14%20-%20Calculating%20Columns%20Using%20Complex%20Algorithms%2C%20Optimization%20Problems/RetailData.xlsx
+    availability: repository
+    files:
+      - Ch14 - Calculating Columns Using Complex Algorithms, Optimization Problems/RetailData.xlsx
+  original_implementation:
+    technologies:
+      - PuLP
+      - linear programming
+      - integer decision variables
+      - transportation model
+      - supply constraints
+      - demand constraints
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Extending-Power-BI-with-Python-and-R-2nd-edition/blob/main/Ch14%20-%20Calculating%20Columns%20Using%20Complex%20Algorithms%2C%20Optimization%20Problems/Python/01-linear-optimization-in-python.py
+  problem:
+    context: >
+      A retailer must decide how much product to ship from each warehouse to each
+      destination country while meeting demand without exceeding supply.
+    objective: >
+      Determine the shipment plan that satisfies supply and demand constraints at minimum total cost.
+    analytical_questions:
+      - How much should each warehouse ship to each country?
+      - Which supply constraints become binding?
+      - Which destinations are served by multiple warehouses?
+      - What is the minimum feasible total shipping cost?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pulp
+    logical_steps:
+      - Load warehouse supply, country demand, and shipping costs.
+      - Create warehouse-country shipment variables.
+      - Define the total shipping-cost objective.
+      - Add warehouse supply constraints.
+      - Add country demand constraints.
+      - Solve the integer linear program.
+      - Audit feasibility and summarize the shipment plan.
+    expected_outputs:
+      - optimized shipment matrix
+      - total shipping cost
+      - warehouse utilization table
+      - destination fulfillment table
+      - constraint audit
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
