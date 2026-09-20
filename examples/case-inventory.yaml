@@ -1667,6 +1667,81 @@
     data: verified
     code: verified
 
+- id: 165
+  name: Green Bond Currency Integration
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Data Analysis Using Jupyter Notebook
+    title: Capstone Exercise
+    url: https://github.com/PacktPublishing/Practical-Data-Analysis-using-Jupyter-Notebook/blob/master/Chapter12/ch_12_exercises.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Analysis-using-Jupyter-Notebook
+      path: Chapter12/ch_12_exercises.ipynb
+    description: >
+      Packt combines green-bond issuance records with European Central Bank exchange
+      rates, reshapes the FX table, validates the latest-rate snapshot, converts
+      issuance values across currencies, and produces comparable currency-level summaries.
+  data:
+    description: >
+      Green bond issuance records since 2008 and ECB USD-quoted foreign-exchange rates.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Analysis-using-Jupyter-Notebook/tree/master/Chapter12
+    availability: repository
+    files:
+      - Chapter12/Green_Bonds_since_2008.csv
+      - Chapter12/ECB_FX_USD-quote.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - reshaping
+      - latest-record selection
+      - joins
+      - currency conversion
+      - grouped aggregation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Analysis-using-Jupyter-Notebook/blob/master/Chapter12/ch_12_exercises.ipynb
+  problem:
+    context: >
+      Green-bond issues are denominated in multiple currencies, so meaningful
+      comparisons require a clean and auditable currency reference table and consistent conversion.
+    objective: >
+      Integrate bond and FX data to create comparable issuance values across currencies.
+    analytical_questions:
+      - Which exchange-rate snapshot should be used?
+      - How should the wide FX table be reshaped for joining?
+      - Which bond currencies lack an explicit FX record?
+      - How do issuance totals compare after normalization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load bond and FX sources.
+      - Validate source row counts and schemas.
+      - Select the latest FX date.
+      - Reshape currencies from columns to rows.
+      - Join FX rates to bond issues.
+      - Handle the USD base-currency case explicitly.
+      - Calculate normalized currency values and aggregate results.
+    expected_outputs:
+      - cleaned FX reference table
+      - integrated bond dataset
+      - currency conversion audit
+      - issuance summary by currency
+      - comparative visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
