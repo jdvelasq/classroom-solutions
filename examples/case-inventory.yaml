@@ -24375,7 +24375,6 @@
     data: verified
     code: verified
 
-
 - id: 392
   name: Divvy Bike Demand Forecasting
   domain: predictive_analytics
@@ -24446,7 +24445,6 @@
     source: verified
     data: verified
     code: verified
-
 
 - id: 393
   name: Retail Forecast Cross-Validation
@@ -24520,7 +24518,6 @@
     data: verified
     code: verified
 
-
 - id: 394
   name: Pedestrian Shock Forecasting
   domain: predictive_analytics
@@ -24585,6 +24582,164 @@
       - shock effect comparison
       - component diagnostics
       - pedestrian forecast table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 395
+  name: Macroeconomic VAR Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Time Series Analysis with Python Cookbook
+    title: Forecasting Multivariate Time Series Data using VAR
+    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch11/Chapter%2011.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+      path: code/Ch11/Chapter 11.ipynb
+    description: >
+      Packt models interacting macroeconomic series with vector autoregression,
+      tests Granger relationships, selects lag order, produces forecast intervals,
+      and compares unemployment forecasts with a univariate autoregressive model.
+  data:
+    description: >
+      Monthly macroeconomic series retrieved from FRED, including the federal funds
+      rate and unemployment rate, with a frozen copy supplied in the repository.
+    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch11/economic_df.csv
+    availability: repository
+    files:
+      - datasets/Ch11/economic_df.csv
+      - datasets/Ch11/economic_df.pickle
+  original_implementation:
+    technologies:
+      - VAR
+      - Granger causality tests
+      - stationarity testing
+      - lag selection
+      - forecast intervals
+      - ARIMA benchmark
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch11/Chapter%2011.ipynb
+  problem:
+    context: >
+      Unemployment and monetary-policy variables evolve jointly, so forecasts may
+      benefit from modeling cross-series dynamics rather than each series independently.
+    objective: >
+      Build and evaluate a multivariate macroeconomic forecast and compare it with
+      a univariate benchmark.
+    analytical_questions:
+      - Are the macroeconomic series stationary?
+      - Does one series provide predictive information about another?
+      - What lag order is supported by the data?
+      - Does VAR improve unemployment forecasting over an autoregressive benchmark?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and align monthly macroeconomic series.
+      - Diagnose stationarity.
+      - Test Granger relationships.
+      - Split chronologically into training and test periods.
+      - Select VAR lag order and fit the model.
+      - Produce multivariate forecasts and intervals.
+      - Compare unemployment forecasts with a univariate AR model.
+    expected_outputs:
+      - stationarity diagnostics
+      - Granger test summary
+      - lag-order comparison
+      - VAR forecast table
+      - forecast intervals
+      - benchmark error comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 396
+  name: Multi-Seasonal Electricity Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Time Series Analysis with Python Cookbook
+    title: Advanced Techniques for Complex Time Series
+    url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch15/Chapter%2015.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook
+      path: code/Ch15/Chapter 15.ipynb
+    description: >
+      Packt models hourly electricity demand with multiple seasonal patterns using
+      MSTL decomposition, an unobserved-components model, Prophet, and NeuralProphet.
+  data:
+    description: >
+      Hourly AEP electricity load from the PJM energy dataset, with related regional
+      hourly load series included in the repository.
+    source_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/datasets/Ch15/AEP_hourly.csv
+    availability: repository
+    files:
+      - datasets/Ch15/AEP_hourly.csv
+  original_implementation:
+    technologies:
+      - MSTL
+      - multiple seasonality
+      - unobserved components
+      - Prophet
+      - NeuralProphet
+      - forecast evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Time-Series-Analysis-with-Python-Cookbook/blob/main/code/Ch15/Chapter%2015.ipynb
+  problem:
+    context: >
+      Hourly electricity load exhibits overlapping daily, weekly, and longer
+      seasonal patterns that simpler single-season models may fail to capture.
+    objective: >
+      Diagnose multiple seasonalities and compare forecasting models designed for
+      complex electricity-demand patterns.
+    analytical_questions:
+      - Which seasonal cycles are present in hourly electricity demand?
+      - How does MSTL separate overlapping seasonal components?
+      - How do structural and Prophet-family models compare out of sample?
+      - Which model best captures turning points and recurring load patterns?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - prophet
+      - neuralprophet
+      - matplotlib
+    logical_steps:
+      - Load and validate hourly demand.
+      - Regularize timestamps and inspect missing intervals.
+      - Decompose multiple seasonalities with MSTL.
+      - Create chronological training and test periods.
+      - Fit an unobserved-components forecast.
+      - Fit Prophet and NeuralProphet alternatives.
+      - Compare holdout errors and component behavior.
+    expected_outputs:
+      - multi-seasonal decomposition
+      - holdout forecasts
+      - forecast error comparison
+      - model component plots
+      - future electricity-demand forecast
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
