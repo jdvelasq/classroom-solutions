@@ -2123,6 +2123,73 @@
     data: verified
     code: verified
 
+- id: 249
+  name: Smart Meter Gap Imputation
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Handling Missing Data: Long Gaps
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/03-Handling_Missing_Data_(Long%20Gaps).ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter02/03-Handling_Missing_Data_(Long Gaps).ipynb
+    description: >
+      Compare time-series-specific imputation strategies for long missing consumption windows.
+  data:
+    description: >
+      Half-hourly London smart-meter electricity consumption for residential households.
+    source_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+    availability: repository_workflow
+    files: []
+  original_implementation:
+    technologies:
+      - missingness visualization
+      - pattern-based imputation
+      - seasonal interpolation
+      - MAE comparison
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/03-Handling_Missing_Data_(Long%20Gaps).ipynb
+  problem:
+    context: >
+      Long gaps in smart-meter series cannot be handled safely with simple forward filling because demand has strong intraday and weekly patterns.
+    objective: >
+      Compare time-series-specific imputation strategies for long missing consumption windows.
+    analytical_questions:
+      - How well does previous-day repetition reconstruct missing demand?
+      - Do hourly and weekday-hour profiles improve recovery?
+      - Which seasonal interpolation period minimizes imputation error?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - missingno
+      - matplotlib
+    logical_steps:
+      - Load a household energy series.
+      - Artificially mask a known interval.
+      - Apply previous-day, hourly-profile, and weekday-hour imputations.
+      - Apply daily and weekly seasonal interpolation.
+      - Compare methods using MAE against the hidden truth.
+    expected_outputs:
+      - missingness plot
+      - imputation comparison table
+      - reconstructed time series
+      - MAE ranking
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -8370,6 +8437,75 @@
       - outlier ranking
       - multivariate diagnostic plot
       - outlier profiles
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 250
+  name: Household Forecastability Diagnosis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Forecastability
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter04/03-Forecastability.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter04/03-Forecastability.ipynb
+    description: >
+      Measure and compare the intrinsic forecastability of household energy time series.
+  data:
+    description: >
+      Stratified sample of London smart-meter household electricity time series across ACORN socioeconomic groups.
+    source_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+    availability: repository_workflow
+    files: []
+  original_implementation:
+    technologies:
+      - coefficient of variation
+      - residual variability
+      - spectral entropy
+      - Kaboudan metric
+      - rank correlation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter04/03-Forecastability.ipynb
+  problem:
+    context: >
+      Not all household demand series are equally predictable, so model error should be interpreted together with intrinsic forecastability.
+    objective: >
+      Measure and compare the intrinsic forecastability of household energy time series.
+    analytical_questions:
+      - Which households are intrinsically easier or harder to forecast?
+      - How do alternative forecastability metrics agree?
+      - Which forecastability measures correlate with actual baseline forecast errors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scipy
+      - statsforecast
+      - matplotlib
+    logical_steps:
+      - Sample households across ACORN groups.
+      - Impute remaining missing values.
+      - Deseasonalize and detrend each series.
+      - Calculate multiple forecastability metrics.
+      - Rank households by each metric.
+      - Compare metric rankings with baseline forecast errors.
+    expected_outputs:
+      - household forecastability table
+      - metric distributions
+      - rank-correlation matrix
+      - forecastability versus error comparison
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
