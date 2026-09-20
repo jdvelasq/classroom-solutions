@@ -26420,3 +26420,86 @@
     source: verified
     data: verified
     code: verified
+
+- id: 353
+  name: Vehicle Geofencing Stream
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Real-time Data Processing and Analytics
+    title: Real-Time Vehicle Geofencing
+    url: https://github.com/PacktPublishing/Practical-Real-time-Processing-and-Analytics/tree/master/Chapter13
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Real-time-Processing-and-Analytics
+      path: Chapter13
+    description: >
+      Packt implements an end-to-end real-time geofencing system that simulates
+      vehicle telemetry, publishes locations through Kafka, evaluates distance
+      thresholds in Storm, generates alerts, and persists telemetry and alerts
+      in Elasticsearch.
+  data:
+    description: >
+      Synthetic streaming vehicle telemetry containing vehicle IDs, latitude,
+      longitude, speed, timestamps, and configured vehicle start locations and
+      alert-distance thresholds.
+    source_url: https://github.com/PacktPublishing/Practical-Real-time-Processing-and-Analytics/tree/master/Chapter13
+    availability: embedded_generated
+    files:
+      - Chapter13/src/main/java/com/book/simulator/VehicleDataGeneration.java
+      - Chapter13/src/main/java/com/book/simulator/VehicleStartPointGenerator.java
+  original_implementation:
+    technologies:
+      - Apache Kafka
+      - Apache Storm
+      - Hazelcast
+      - Elasticsearch
+      - geospatial distance
+      - real-time alerts
+    language: Java
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Real-time-Processing-and-Analytics/tree/master/Chapter13
+  problem:
+    context: >
+      A fleet operator needs to detect in real time when a vehicle moves farther
+      than an allowed radius from its configured starting location and persist both
+      telemetry and alerts for operational monitoring.
+    objective: >
+      Build a streaming analytics product that ingests vehicle locations, evaluates
+      geofence rules continuously, and emits persistent alerts.
+    analytical_questions:
+      - How should real-time vehicle locations be ingested and parsed?
+      - How is distance from the configured origin calculated for each event?
+      - Which telemetry events exceed vehicle-specific thresholds?
+      - How should alerts and telemetry be persisted for downstream monitoring?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - kafka-python
+      - faust-streaming
+      - pandas
+      - elasticsearch
+    logical_steps:
+      - Generate deterministic vehicle start points and streaming telemetry.
+      - Publish telemetry to a Kafka topic.
+      - Parse and validate each event.
+      - Retrieve vehicle-specific geofence configuration.
+      - Calculate geodesic distance from the configured origin.
+      - Emit alerts for threshold violations.
+      - Persist telemetry and alerts.
+      - Validate end-to-end stream behavior.
+    expected_outputs:
+      - vehicle telemetry stream
+      - geofence violation events
+      - alert records
+      - persisted telemetry index
+      - operational monitoring feed
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
