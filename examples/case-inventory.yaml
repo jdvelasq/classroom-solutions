@@ -3746,3 +3746,86 @@
     source: verified
     data: verified
     code: verified
+
+- id: 50
+  name: Movie Content Recommendation
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Rounak Banik
+    publisher: Packt
+    book: Hands-On Recommendation Systems with Python
+    title: Content Based Recommenders
+    url: https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python/blob/master/Chapter4/Content%20Based%20Recommenders.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python
+      path: Chapter4/Content Based Recommenders.ipynb
+    description: >
+      Packt builds movie recommendations from plot overviews and richer metadata,
+      using TF-IDF, cosine similarity, keywords, cast, crew, and genres.
+  data:
+    description: >
+      Movie metadata, plot overviews, credits, and keywords referenced by the book notebooks.
+    source_url: null
+    availability: external_not_bundled
+    files:
+      - movies_metadata.csv
+      - credits.csv
+      - keywords.csv
+      - metadata_clean.csv
+    notes: >
+      The repository code clearly identifies the expected files, but the data are not
+      bundled in the repository. The original external download source was not verified
+      in this pass and should be resolved before implementation.
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - cosine similarity
+      - metadata engineering
+      - pandas
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python/blob/master/Chapter4/Content%20Based%20Recommenders.ipynb
+  problem:
+    context: >
+      A media service can recommend items even without user-history data by
+      comparing item descriptions and metadata.
+    objective: >
+      Generate movie recommendations from textual and categorical movie attributes
+      and compare simple plot-based similarity with richer metadata-based similarity.
+    analytical_questions:
+      - Which movies are most similar based on plot descriptions?
+      - How do cast, crew, genres, and keywords change recommendations?
+      - Which metadata fields add useful discriminatory information?
+      - How different are recommendations from simple popularity rankings?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - numpy
+    logical_steps:
+      - Acquire and freeze the required movie metadata files.
+      - Clean plot and metadata fields.
+      - Build TF-IDF vectors from movie overviews.
+      - Compute pairwise cosine similarity.
+      - Generate content recommendations.
+      - Engineer richer metadata features.
+      - Compare plot-only and metadata-based recommendation lists.
+    expected_outputs:
+      - cleaned movie metadata
+      - text feature matrix
+      - similarity representation
+      - plot-based recommendations
+      - metadata-based recommendations
+      - comparison table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
