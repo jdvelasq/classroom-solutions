@@ -7892,6 +7892,86 @@
     data: verified
     code: verified
 
+- id: 240
+  name: Clinical Treatment Meta-Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Biostatistics with Python
+    title: Meta-Analysis of Survival Data in Clinical Research
+    url: https://github.com/PacktPublishing/Biostatistics-with-Python/blob/main/Chapter_14.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Biostatistics-with-Python
+      path: Chapter_14.ipynb
+    description: >
+      Packt synthesizes treatment outcomes from multiple clinical studies by
+      calculating study-level risk ratios and variances, pooled effects, forest
+      plots, funnel plots, and Mantel-Haenszel estimates.
+  data:
+    description: >
+      Embedded clinical-study summary data comparing targeted therapy and
+      chemotherapy across four published studies, including event and subject counts.
+    source_url: https://github.com/PacktPublishing/Biostatistics-with-Python/blob/main/Chapter_14.ipynb
+    availability: embedded
+    files: []
+  original_implementation:
+    technologies:
+      - meta-analysis
+      - risk ratios
+      - inverse-variance weighting
+      - Mantel-Haenszel pooling
+      - forest plots
+      - funnel plots
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Biostatistics-with-Python/blob/main/Chapter_14.ipynb
+  problem:
+    context: >
+      Individual clinical studies provide uncertain and sometimes differing treatment
+      estimates, so evidence must be synthesized across studies before drawing an
+      overall conclusion about comparative outcomes.
+    objective: >
+      Combine study-level treatment effects, visualize between-study evidence, and
+      examine whether the pooled conclusion is sensitive to weighting method.
+    analytical_questions:
+      - What risk ratio is observed in each study?
+      - How should studies be weighted by uncertainty?
+      - What pooled treatment effect is obtained?
+      - Does Mantel-Haenszel pooling materially change the conclusion?
+      - Does the funnel plot suggest asymmetry that merits further investigation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Build the study-level evidence table.
+      - Calculate study risk ratios and variances.
+      - Calculate inverse-variance weights.
+      - Estimate the pooled effect.
+      - Construct a forest plot.
+      - Construct a funnel plot.
+      - Compare with a Mantel-Haenszel pooled estimate.
+    expected_outputs:
+      - study effect table
+      - pooled risk ratio
+      - forest plot
+      - funnel plot
+      - alternative pooled estimate
+      - evidence synthesis interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
