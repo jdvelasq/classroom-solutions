@@ -2308,3 +2308,78 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 31
+  name: Hiring Outcome Modeling
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Hands-On Data Science and Python Machine Learning
+    title: Decision Trees
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/DecisionTree.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning
+      path: DecisionTree.ipynb
+    description: >
+      Packt uses a synthetic past-hiring dataset to model whether a candidate
+      was hired from experience, employment, education, school, and internship attributes.
+  data:
+    description: >
+      Synthetic historical hiring records provided with the book.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/PastHires.csv
+    availability: repository
+    files:
+      - PastHires.csv
+  original_implementation:
+    technologies:
+      - decision tree
+      - pandas
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/DecisionTree.ipynb
+  problem:
+    context: >
+      Historical hiring records can be used to illustrate predictive HR analytics,
+      while also exposing the limitations and risks of learning from past decisions.
+    objective: >
+      Model historical hiring outcomes and interpret which recorded attributes drive
+      the predictions, without treating the model as an automated hiring policy.
+    analytical_questions:
+      - Which variables are associated with historical hiring outcomes?
+      - How does the decision tree partition candidate records?
+      - Which rules dominate predictions?
+      - What limitations or bias risks arise from using historical hiring data?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and inspect the synthetic hiring dataset.
+      - Encode categorical variables reproducibly.
+      - Fit a decision-tree classifier.
+      - Visualize and interpret the learned rules.
+      - Evaluate predictions on held-out or synthetic test cases.
+      - Examine sensitivity to individual attributes.
+      - Document fairness and decision-support limitations.
+    expected_outputs:
+      - encoded analytical dataset
+      - fitted decision tree
+      - tree visualization
+      - prediction examples
+      - variable-importance summary
+      - limitations and bias discussion
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
