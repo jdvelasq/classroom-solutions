@@ -1766,3 +1766,80 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 24
+  name: Legal Contract Extraction
+  type: descriptiva
+  source:
+    category: book_repository
+    organization: Practical NLP
+    publisher: O'Reilly Media
+    book: Practical Natural Language Processing
+    title: LexNLP
+    url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch10/02_LexNLP.ipynb
+    repository:
+      url: https://github.com/practical-nlp/practical-nlp-code
+      path: Ch10/02_LexNLP.ipynb
+    description: >
+      The O'Reilly companion repository uses LexNLP to extract structured information
+      from an unstructured legal SAFE agreement.
+  data:
+    description: >
+      A SAFE investment agreement based on a Y Combinator document template, with
+      entities such as acts, amounts, dates, definitions, and contract sections.
+    source_url: http://ycombinator.com/documents
+    availability: public_template
+    files: []
+  original_implementation:
+    technologies:
+      - LexNLP
+      - pandas
+      - textract
+    language: Python
+    code_available: true
+    code_url: https://github.com/practical-nlp/practical-nlp-code/blob/master/Ch10/02_LexNLP.ipynb
+  problem:
+    context: >
+      Legal and commercial contracts contain structured facts that are difficult
+      to aggregate when they remain embedded in free text.
+    objective: >
+      Convert contract text into structured analytical tables containing monetary
+      amounts, dates, legal references, sections, and other relevant entities.
+    analytical_questions:
+      - Which monetary amounts and dates appear in the contract?
+      - Which legal acts and references are cited?
+      - Which sections and definitions organize the document?
+      - Which extracted fields can support contract comparison or risk review?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - regex
+      - spacy
+      - dateparser
+    logical_steps:
+      - Freeze a public SAFE agreement.
+      - Extract plain text from the document.
+      - Segment the document into sections.
+      - Extract dates, amounts, legal references, and defined terms.
+      - Normalize extracted values.
+      - Store the results in structured tables.
+      - Validate extracted values against source spans.
+      - Produce a compact contract summary.
+    expected_outputs:
+      - structured contract table
+      - extracted amounts and dates
+      - legal-reference table
+      - section and definition inventory
+      - validation report
+      - written contract summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
