@@ -20781,6 +20781,157 @@
     data: verified
     code: verified
 
+- id: 328
+  name: Personalized News Selection
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Machine Learning Blueprints, Second Edition
+    title: Building a Personalized News Feed
+    url: https://github.com/PacktPublishing/Python-Machine-Learning-Blueprints-Second-Edition/blob/master/Chapter05/PMLB%20SE%20-%20Ch%205.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Machine-Learning-Blueprints-Second-Edition
+      path: Chapter05/PMLB SE - Ch 5.ipynb
+    description: >
+      Packt collects articles explicitly tagged as wanted or unwanted, extracts
+      article text, trains a TF-IDF linear SVM preference classifier, scores new
+      stories, corrects labels, and retrains the model.
+  data:
+    description: >
+      User-curated Pocket articles labeled as wanted or unwanted plus candidate
+      news stories supplied through a spreadsheet.
+    source_url: https://getpocket.com/developer/
+    availability: authenticated_external
+    files: []
+  original_implementation:
+    technologies:
+      - Pocket API
+      - article extraction
+      - TF-IDF
+      - n-grams
+      - LinearSVC
+      - active relabeling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Machine-Learning-Blueprints-Second-Edition/blob/master/Chapter05/PMLB%20SE%20-%20Ch%205.ipynb
+  problem:
+    context: >
+      A reader faces more incoming articles than can be reviewed manually and has
+      historical examples of stories they did and did not want to read.
+    objective: >
+      Learn individual article preferences from text and rank or filter incoming
+      news stories.
+    analytical_questions:
+      - Which textual features distinguish wanted from unwanted articles?
+      - How accurately can preferences be predicted for unseen stories?
+      - Which prediction errors should be relabeled?
+      - How does feedback improve the personalized classifier?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - beautifulsoup4
+      - requests
+    logical_steps:
+      - Acquire labeled article URLs.
+      - Extract and clean article text.
+      - Build TF-IDF n-gram features.
+      - Train a linear preference classifier.
+      - Score candidate stories.
+      - Review and correct uncertain or wrong predictions.
+      - Retrain and compare the updated model.
+    expected_outputs:
+      - labeled article corpus
+      - preference classifier
+      - candidate story scores
+      - error review table
+      - updated personalized model
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: externally_generated
+    code: verified
+
+- id: 329
+  name: GitHub Repository Recommendation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Machine Learning Blueprints, Second Edition
+    title: Build a Recommendation Engine
+    url: https://github.com/PacktPublishing/Python-Machine-Learning-Blueprints-Second-Edition/blob/master/Chapter10/PMLB%20SE%20Ch%2010.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Machine-Learning-Blueprints-Second-Edition
+      path: Chapter10/PMLB SE Ch 10.ipynb
+    description: >
+      Packt retrieves GitHub starred repositories, constructs user-repository
+      interaction vectors, measures user similarity, and recommends repositories
+      starred by similar users but not yet starred by the target user.
+  data:
+    description: >
+      GitHub users and their starred repositories acquired through the GitHub API.
+    source_url: https://docs.github.com/en/rest/activity/starring
+    availability: authenticated_external
+    files: []
+  original_implementation:
+    technologies:
+      - GitHub API
+      - collaborative filtering
+      - binary interaction matrix
+      - cosine similarity
+      - Pearson similarity
+      - neighborhood recommendation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Machine-Learning-Blueprints-Second-Edition/blob/master/Chapter10/PMLB%20SE%20Ch%2010.ipynb
+  problem:
+    context: >
+      Developers discover repositories through their own activity and the activity
+      of similar users, creating an implicit-feedback recommendation problem.
+    objective: >
+      Recommend unseen GitHub repositories from similarity among users' starred-repository profiles.
+    analytical_questions:
+      - How should implicit starring behavior be represented?
+      - Which users have the most similar repository interests?
+      - Which unseen repositories are common among similar users?
+      - How should candidate recommendations be ranked?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - requests
+    logical_steps:
+      - Retrieve the target user's starred repositories.
+      - Identify users associated with those repositories.
+      - Retrieve their starred repositories.
+      - Construct a user-repository interaction matrix.
+      - Calculate user similarities.
+      - Select nearest users.
+      - Rank unseen repositories by neighbor support.
+    expected_outputs:
+      - interaction matrix
+      - user similarity table
+      - nearest-neighbor users
+      - ranked repository recommendations
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: externally_generated
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
