@@ -24053,6 +24053,90 @@
     data: verified
     code: verified
 
+- id: 354
+  name: Churn Incentive Targeting
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Data Science for Business
+    title: Churn Reduction via Targeted Incentives
+    url: https://www.oreilly.com/library/view/data-science-for/9781449374273/apb.html
+    repository:
+      url:
+      path:
+    description: >
+      Provost and Fawcett use telecommunications churn as a running business case
+      and explicitly critique a proposal that targets likely churners without
+      accounting for customer value, treatment cost, treatment effectiveness, and
+      the economics of unnecessary incentives.
+  data:
+    description: >
+      Conceptual telecommunications customer data containing churn propensity,
+      customer value, treatment cost, and treatment-response assumptions.
+    source_url:
+    availability: conceptual
+    files: []
+    notes: >
+      The book develops the decision problem conceptually rather than distributing
+      a companion dataset. A classroom rewrite can use synthetic or public churn data.
+  original_implementation:
+    technologies:
+      - churn probabilities
+      - expected value
+      - cost-benefit analysis
+      - treatment targeting
+      - decision thresholds
+    language: conceptual
+    code_available: false
+    code_url:
+  problem:
+    context: >
+      A telecommunications provider can offer retention incentives to customers
+      predicted to churn, but contacting every high-risk customer may destroy value
+      when incentives are costly, some customers would stay anyway, and customer
+      lifetime values differ.
+    objective: >
+      Convert churn predictions into an economically defensible targeting policy
+      using expected value rather than classification accuracy alone.
+    analytical_questions:
+      - Which customers should receive a retention incentive?
+      - How should customer value alter the targeting decision?
+      - What is the cost of giving incentives to customers who would stay anyway?
+      - How does treatment effectiveness change the optimal targeting threshold?
+      - How should a predictive model be evaluated in business-value terms?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Obtain or generate customer churn and value data.
+      - Estimate calibrated churn probabilities.
+      - Define incentive cost and expected treatment effectiveness.
+      - Calculate expected value with and without intervention for each customer.
+      - Derive the customer-level targeting rule.
+      - Compare value-based targeting with probability-only thresholds.
+      - Run sensitivity analysis on cost, value, and treatment effectiveness.
+    expected_outputs:
+      - scored customer table
+      - expected-value calculation
+      - targeted customer list
+      - value-versus-threshold curve
+      - sensitivity analysis
+      - business decision summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: not_provided
+    code: not_provided
+
 - id: 17
   name: Social Sentiment Analytics
   domain: data_products
