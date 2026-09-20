@@ -18355,6 +18355,85 @@
     data: verified
     code: verified
 
+- id: 265
+  name: Trading Policy Simulation
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: DMwR2
+    publisher: CRC Press
+    book: Data Mining with R: Learning with Case Studies, Second Edition
+    title: Trading Simulation
+    url: https://github.com/ltorgo/DMwR2/blob/master/R/trading.R
+    repository:
+      url: https://github.com/ltorgo/DMwR2
+      path: R/trading.R
+    description: >
+      The book implements a daily trading simulator that converts model signals
+      into buy, sell, hold, limit, and stop orders under configurable policy rules,
+      transaction costs, holding periods, and capital constraints.
+  data:
+    description: >
+      Historical S&P 500 daily OHLCV market quotes distributed with the DMwR2 package,
+      together with model-generated trading signals.
+    source_url: https://github.com/ltorgo/DMwR2/blob/master/data/GSPC.RData
+    availability: repository
+    files:
+      - data/GSPC.RData
+      - data/sp500.csv
+  original_implementation:
+    technologies:
+      - trading simulation
+      - decision policies
+      - limit orders
+      - stop orders
+      - transaction costs
+      - performance evaluation
+    language: R
+    code_available: true
+    code_url: https://github.com/ltorgo/DMwR2/blob/master/R/trading.R
+  problem:
+    context: >
+      Predictive market signals have no economic meaning until they are translated
+      into concrete trading decisions under capital, transaction-cost, and risk rules.
+    objective: >
+      Evaluate alternative trading policies that transform buy/sell signals into
+      executable positions and compare their economic performance.
+    analytical_questions:
+      - How should model signals be converted into orders?
+      - How do transaction costs alter strategy performance?
+      - What profit targets, stop losses, and holding periods should be used?
+      - How does the policy compare with buy-and-hold?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load and validate market quotes.
+      - Generate or import daily trading signals.
+      - Define position-sizing and order rules.
+      - Simulate order execution day by day.
+      - Apply transaction costs, profit targets, and stop losses.
+      - Track cash, holdings, and equity.
+      - Compare return, drawdown, Sharpe ratio, and buy-and-hold performance.
+    expected_outputs:
+      - trading ledger
+      - position history
+      - equity curve
+      - strategy performance metrics
+      - buy-and-hold comparison
+      - policy sensitivity analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 17
   name: Social Sentiment Analytics
   domain: data_products
