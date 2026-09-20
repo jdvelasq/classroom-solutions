@@ -1277,6 +1277,165 @@
     data: verified
     code: verified
 
+- id: 135
+  name: Survey Data Validation
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning Cookbook, Second Edition
+    title: Running Reusable Data Checks
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/12.%20FunctionsClasses/7.%20data_checks.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition
+      path: 12. FunctionsClasses/7. data_checks.py
+    description: >
+      Packt defines a metadata-driven data-checking routine for the National
+      Longitudinal Survey, separating numeric, categorical, and unique identifier
+      checks and deliberately injecting data problems to validate the checker.
+  data:
+    description: >
+      National Longitudinal Survey records together with a table of expected variable
+      types, inclusion flags, and validation targets.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/tree/main/12.%20FunctionsClasses/data
+    availability: repository
+    files:
+      - 12. FunctionsClasses/data/nls97g.csv
+      - 12. FunctionsClasses/data/datacheckingtargets.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - metadata-driven validation
+      - uniqueness checks
+      - type checks
+      - range and category checks
+      - reusable functions
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/12.%20FunctionsClasses/7.%20data_checks.py
+  problem:
+    context: >
+      Large survey datasets require repeatable validation rules rather than ad hoc
+      manual inspection, especially when identifiers, coded values, and numeric
+      ranges must satisfy different constraints.
+    objective: >
+      Build a metadata-driven validation routine that detects data-quality failures
+      before analysis.
+    analytical_questions:
+      - Which fields should be unique, numeric, or categorical?
+      - Which values violate allowed categories or ranges?
+      - Are identifiers missing or duplicated?
+      - Can validation rules be externalized so they are reusable across datasets?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pandera
+    logical_steps:
+      - Load survey data and validation metadata.
+      - Translate metadata into field-level rules.
+      - Validate uniqueness and missing identifiers.
+      - Check numeric ranges and categorical domains.
+      - Record violations in a structured exception table.
+      - Inject known errors to test rule coverage.
+      - Produce a reusable validation report.
+    expected_outputs:
+      - validation metadata table
+      - field-level rule set
+      - data-quality exception table
+      - validation summary
+      - reusable checking function
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 136
+  name: Smart Meter Data Pipeline
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Preprocessing the London Smart Meter Dataset
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+    description: >
+      Packt reconstructs half-hourly household electricity series from raw block
+      files, reshapes compact records, combines all blocks, enriches households with
+      metadata, weather and holidays, and persists partitioned analytical data.
+  data:
+    description: >
+      London Smart Meter data for 5,567 households with half-hourly consumption,
+      household metadata, weather observations, and UK bank holidays.
+    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
+    availability: public_platform
+    files:
+      - hhblock_dataset
+      - informations_households.csv
+      - weather_hourly_darksky.csv
+      - uk_bank_holidays.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - reshaping
+      - multi-file ingestion
+      - temporal joins
+      - metadata enrichment
+      - parquet
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+  problem:
+    context: >
+      Raw smart-meter readings are split across block files and require temporal
+      reconstruction plus household, weather, and holiday enrichment before
+      forecasting models can use them.
+    objective: >
+      Build an analytics-ready household electricity time-series dataset from
+      heterogeneous raw sources.
+    analytical_questions:
+      - How should half-hourly compact readings be reconstructed into regular time series?
+      - How should thousands of household files be combined efficiently?
+      - How can household, weather, and holiday metadata be aligned safely?
+      - What storage layout supports downstream forecasting efficiently?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pyarrow
+      - duckdb
+    logical_steps:
+      - Load raw smart-meter blocks.
+      - Reshape half-hour columns into timestamped observations.
+      - Validate household and timestamp uniqueness.
+      - Combine all household blocks.
+      - Join household metadata.
+      - Align weather and holiday features by time.
+      - Partition and persist the enriched dataset.
+    expected_outputs:
+      - reconstructed meter time series
+      - enriched household dataset
+      - join validation report
+      - partitioned parquet files
+      - analytics-ready forecasting table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -8959,6 +9118,88 @@
       - average interval length comparison
       - distribution-shift diagnostics
       - uncertainty visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 137
+  name: Energy Forecast Ensembling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Forecast Combinations
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter09/01-Forecast_Combinations.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter09/01-Forecast_Combinations.ipynb
+    description: >
+      Packt combines household energy forecasts using best-fit selection, mean and
+      median ensembles, greedy search, stochastic hill climbing, simulated annealing,
+      optimized weights, and regression-based stacking.
+  data:
+    description: >
+      London Smart Meter household electricity consumption together with validation
+      and test forecasts generated by multiple baseline and machine-learning models.
+    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
+    availability: public_platform_and_generated
+    files:
+      - london_smart_meters preprocessed data
+      - validation predictions
+      - test predictions
+  original_implementation:
+    technologies:
+      - forecast ensembles
+      - greedy optimization
+      - stochastic hill climbing
+      - simulated annealing
+      - weighted averaging
+      - stacking
+      - forecast bias
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter09/01-Forecast_Combinations.ipynb
+  problem:
+    context: >
+      Individual forecasting models make different errors across households, so a
+      portfolio of forecasts may outperform any single model if combination weights
+      are learned without leaking test information.
+    objective: >
+      Compare and optimize forecast-combination strategies for household energy demand.
+    analytical_questions:
+      - Does simple averaging outperform the best single model?
+      - Which model combinations minimize validation error?
+      - Do optimized weights generalize to the test period?
+      - How do ensemble methods affect forecast bias as well as absolute error?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - scipy
+    logical_steps:
+      - Load validation and test forecasts from candidate models.
+      - Establish best-single-model and simple ensemble baselines.
+      - Optimize model subsets with greedy and stochastic search.
+      - Learn nonnegative combination weights on validation data.
+      - Fit regression-based stacking models.
+      - Evaluate all combinations on held-out test data.
+      - Compare MAE, MASE, MSE, and forecast bias.
+    expected_outputs:
+      - individual forecast benchmark
+      - ensemble comparison table
+      - optimized model subsets
+      - learned ensemble weights
+      - held-out forecast metrics
+      - forecast bias comparison
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
