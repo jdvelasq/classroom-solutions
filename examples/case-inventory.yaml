@@ -28631,3 +28631,161 @@
     source: verified
     data: verified
     code: verified
+
+- id: 382
+  name: Citi Bike Exploration App
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Business Intelligence with Qlik Sense
+    title: On-Demand Citi Bike Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Business-Intelligence-with-Qlik-Sense/tree/master/Chapter08
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Business-Intelligence-with-Qlik-Sense
+      path: Chapter08/04 - Full Script.qvs
+    description: >
+      Packt builds an on-demand BI workflow over New York Citi Bike trips in
+      BigQuery, dynamically generating SQL from user-selected months and stations
+      and loading only the requested slice into Qlik Sense.
+  data:
+    description: >
+      New York Citi Bike trip records in the BigQuery public dataset with timestamps,
+      origins, destinations, and trip duration.
+    source_url: https://console.cloud.google.com/marketplace/product/city-of-new-york/nyc-citi-bike
+    availability: public_cloud
+    files:
+      - Chapter08/NYC Bikes.zip
+  original_implementation:
+    technologies:
+      - Qlik Sense
+      - BigQuery
+      - dynamic SQL
+      - on-demand app generation
+      - interactive filtering
+    language:
+      - Qlik Script
+      - SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Business-Intelligence-with-Qlik-Sense/tree/master/Chapter08
+  problem:
+    context: >
+      A full bike-sharing trip table can be too large for interactive BI, while
+      analysts usually need only selected months and station combinations.
+    objective: >
+      Build an interactive analytical product that queries and loads only the
+      user-selected slice of trip data.
+    analytical_questions:
+      - Which origin-destination station pairs generate the most trips?
+      - How does trip activity vary by month?
+      - How can user selections be translated safely into source queries?
+      - How can large source data remain explorable without loading everything?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - duckdb
+      - streamlit
+      - plotly
+    logical_steps:
+      - Define trip dimensions and measures.
+      - Capture month and station selections.
+      - Translate selections into parameterized queries.
+      - Aggregate trip counts and durations.
+      - Build interactive origin-destination views.
+      - Validate filtered totals.
+      - Package the workflow as an on-demand analytical app.
+    expected_outputs:
+      - parameterized trip query
+      - trip KPI table
+      - station-pair analysis
+      - interactive filters
+      - working mobility analytics app
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 383
+  name: NYC Collision Geoanalytics
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Business Intelligence with Qlik Sense
+    title: GeoAnalytics Collision Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Business-Intelligence-with-Qlik-Sense/blob/master/Chapter09/01%20-%20Script.qvs
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Business-Intelligence-with-Qlik-Sense
+      path: Chapter09/01 - Script.qvs
+    description: >
+      Packt loads NYC motor-vehicle collision records from BigQuery, harmonizes
+      borough geography, constructs geospatial points, and prepares vehicle-level
+      structures for interactive GeoAnalytics exploration.
+  data:
+    description: >
+      NYPD motor-vehicle collision records with date, borough, coordinates,
+      contributing factors, vehicle types, injuries, and fatalities.
+    source_url: https://console.cloud.google.com/marketplace/product/city-of-new-york/nypd-mv-collisions
+    availability: public_cloud
+    files: []
+  original_implementation:
+    technologies:
+      - Qlik Sense
+      - GeoAnalytics
+      - BigQuery
+      - geospatial points
+      - data modeling
+    language:
+      - Qlik Script
+      - SQL
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Business-Intelligence-with-Qlik-Sense/blob/master/Chapter09/01%20-%20Script.qvs
+  problem:
+    context: >
+      Collision records contain spatial, temporal, severity, vehicle, and causal
+      attributes that need to be integrated into an interactive geographic analysis.
+    objective: >
+      Build a geospatial analytical product for diagnosing collision concentration,
+      severity, vehicle involvement, and contributing factors across New York City.
+    analytical_questions:
+      - Where are collisions geographically concentrated?
+      - Which boroughs show higher injury or fatality burden?
+      - Which vehicle types and contributing factors dominate?
+      - How do collision patterns change over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - geopandas
+      - plotly
+      - streamlit
+    logical_steps:
+      - Load collision data.
+      - Harmonize borough names and geographic fields.
+      - Construct point geometries.
+      - Normalize vehicle records.
+      - Calculate severity and frequency metrics.
+      - Build spatial and temporal filters.
+      - Create an interactive collision analytics interface.
+    expected_outputs:
+      - cleaned collision dataset
+      - geospatial point layer
+      - severity KPI table
+      - vehicle and factor summaries
+      - interactive collision map
+      - analytical dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
