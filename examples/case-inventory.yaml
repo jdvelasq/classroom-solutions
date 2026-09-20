@@ -3046,3 +3046,84 @@
     source: verified
     data: verified
     code: verified
+
+- id: 41
+  name: House Price Regression
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists, Second Edition
+    title: Regression and Prediction
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%204%20-%20Regression%20and%20Prediction.py
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/code/Chapter 4 - Regression and Prediction.py
+    description: >
+      The O'Reilly companion repository models residential sale prices and
+      illustrates multiple regression, model selection, weighting, categorical
+      predictors, residual analysis, and confounding.
+  data:
+    description: >
+      Residential property sales with adjusted sale price, size, lot, bathrooms,
+      bedrooms, building grade, property type, ZIP code, construction, and date fields.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/house_sales.csv
+    availability: repository
+    files:
+      - data/house_sales.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - weighted regression
+      - stepwise selection
+      - residual analysis
+      - categorical encoding
+    language:
+      - Python
+      - R
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%204%20-%20Regression%20and%20Prediction.py
+  problem:
+    context: >
+      Property valuation requires explaining and predicting sale prices from
+      physical, geographic, and temporal characteristics.
+    objective: >
+      Model residential sale prices while examining feature effects, categorical
+      variables, confounding, model selection, and residual behavior.
+    analytical_questions:
+      - Which property characteristics are most associated with sale price?
+      - How do location and property type alter the regression specification?
+      - Which predictors improve model fit without unnecessary complexity?
+      - Where does the model systematically under- or over-predict?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and inspect the property-sales dataset.
+      - Define a baseline multiple-regression model.
+      - Encode categorical and geographic predictors.
+      - Compare candidate model specifications.
+      - Examine residuals and influential observations.
+      - Evaluate predictive error.
+      - Interpret coefficients and model limitations.
+    expected_outputs:
+      - prepared property dataset
+      - regression models
+      - model-selection results
+      - residual diagnostics
+      - prediction-error metrics
+      - written valuation interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
