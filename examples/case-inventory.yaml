@@ -3203,3 +3203,78 @@
     source: verified
     data: verified
     code: verified
+
+- id: 43
+  name: Smart Meter Data Preparation
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Manu Joseph and Jeff Tackes
+    publisher: Packt
+    book: Modern Time Series Forecasting with Python, Second Edition
+    title: Preprocessing London Smart Meter Dataset
+    url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E
+      path: notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+    description: >
+      Packt transforms raw half-hourly London smart-meter blocks and related
+      metadata into a consistent time-series dataset used throughout the forecasting book.
+  data:
+    description: >
+      Half-hourly electricity-consumption readings for 5,567 London households,
+      collected in the Low Carbon London project between 2011 and 2014, with household metadata.
+    source_url: https://www.kaggle.com/datasets/jeanmidev/smart-meters-in-london
+    availability: public_with_kaggle_access
+    files: []
+    direct_data_url: https://packt-modern-time-series-py.s3.eu-west-1.amazonaws.com/data.zip
+  original_implementation:
+    technologies:
+      - pandas
+      - time-series reshaping
+      - data wrangling
+      - metadata joins
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Modern-Time-Series-Forecasting-with-Python-2E/blob/main/notebooks/Chapter02/02-Preprocessing_London_Smart_Meter_Dataset.ipynb
+  problem:
+    context: >
+      Raw smart-meter readings arrive in block-oriented files and must be reshaped,
+      combined, validated, and enriched before time-series analytics can begin.
+    objective: >
+      Transform raw household meter files and metadata into a reproducible
+      analytics-ready time-series dataset.
+    analytical_questions:
+      - How should half-hourly block columns be transformed into timestamped observations?
+      - How can household series from multiple files be consolidated?
+      - Which metadata should be joined to each household series?
+      - Which validation rules ensure temporal and household consistency?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pathlib
+      - pyarrow
+    logical_steps:
+      - Load a frozen subset of raw smart-meter blocks.
+      - Reshape half-hour columns into timestamped observations.
+      - Normalize household identifiers and timestamps.
+      - Join household metadata.
+      - Validate expected interval frequency and duplicates.
+      - Persist analytics-ready Parquet tables.
+      - Produce a transformation summary.
+    expected_outputs:
+      - normalized meter-reading table
+      - household metadata table
+      - analytics-ready time-series dataset
+      - validation report
+      - transformation summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
