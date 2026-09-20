@@ -1308,3 +1308,78 @@
     Distinct from the existing CLASSROOM financial-sentence sentiment classifier:
     this case emphasizes streaming/social ingestion, search, aggregation, and
     descriptive sentiment analytics rather than only supervised classification.
+
+- id: 18
+  name: Topic Modeling of Grimm Fairy Tales
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Orange Data Mining
+    program: Orange3 Text Mining Documentation
+    title: Topic Modelling
+    url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
+    description: >
+      Official Orange Text Mining example applying topic modeling to a selected
+      corpus of Grimm fairy tales and exploring topic-word and document-topic structure.
+  data:
+    description: >
+      The example uses the bundled grimm-tales-selected.tab corpus.
+    source_url: https://orange3-text.readthedocs.io/en/latest/widgets/topicmodelling-widget.html
+    availability: bundled_with_example
+    files:
+      - grimm-tales-selected.tab
+  original_implementation:
+    technologies:
+      - Orange Text Mining
+      - text preprocessing
+      - Latent Semantic Indexing
+      - Latent Dirichlet Allocation
+      - Hierarchical Dirichlet Process
+      - MDS
+      - word cloud
+    language: visual_workflow
+    code_available: false
+    code_url: null
+  problem:
+    context: >
+      A literary corpus contains recurring latent themes that can be characterized
+      through the words associated with each topic and the topic mixture of each document.
+    objective: >
+      Discover and visualize latent themes in Grimm fairy tales using multiple topic-modeling approaches.
+    analytical_questions:
+      - Which terms are most representative of each topic?
+      - How strongly is each topic represented across documents?
+      - How do topics relate to one another in a low-dimensional map?
+      - How do LSI and LDA differ in interpretability?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load the Grimm tales corpus.
+      - Tokenize and remove stopwords.
+      - Build a document-term representation.
+      - Fit LSI and LDA topic models.
+      - Extract topic-term and document-topic weights.
+      - Visualize representative words and topic similarities.
+      - Interpret the discovered themes.
+    expected_outputs:
+      - cleaned corpus
+      - topic models
+      - topic-term tables
+      - document-topic matrix
+      - topic visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: partial
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
