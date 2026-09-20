@@ -2022,7 +2022,7 @@
 
 - id: 48
   name: Unlabeled Digit Discovery
-  domain: predictive_analytics
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: book
     organization: Jake VanderPlas
