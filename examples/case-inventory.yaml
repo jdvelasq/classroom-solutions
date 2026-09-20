@@ -7353,6 +7353,77 @@
     data: verified
     code: verified
 
+- id: 217
+  name: Book Purchase Affinity
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Rules for Similar Book Purchases
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap15.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap15.Rmd
+    description: >
+      The book mines association rules from book-club purchase behavior to discover
+      combinations of titles and categories that tend to be purchased together.
+  data:
+    description: >
+      Charles Book Club customer and purchase indicators distributed through the
+      mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - CharlesBookClub
+  original_implementation:
+    technologies:
+      - association rules
+      - support
+      - confidence
+      - lift
+      - Apriori
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap15.Rmd
+  problem:
+    context: >
+      Book-club purchase histories can reveal product affinities useful for
+      merchandising and cross-selling.
+    objective: >
+      Discover and rank interpretable book-purchase association rules.
+    analytical_questions:
+      - Which book combinations occur frequently?
+      - Which rules have meaningful confidence and lift?
+      - Which affinities are nontrivial relative to item popularity?
+      - Which rules are plausible cross-sell candidates?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - mlxtend
+    logical_steps:
+      - Load purchase indicators.
+      - Convert records to transaction format.
+      - Mine frequent itemsets.
+      - Generate association rules.
+      - Filter and rank by support, confidence, and lift.
+      - Interpret cross-sell candidates.
+    expected_outputs:
+      - frequent itemsets
+      - association rule table
+      - rule ranking
+      - cross-sell recommendations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -13510,6 +13581,292 @@
     data: verified
     code: verified
 
+- id: 213
+  name: Used Car Valuation in R
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Predicting the Price of Used Toyota Corolla Cars
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap6.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap6.Rmd
+    description: >
+      The book develops a used-car valuation model for Toyota Corolla vehicles,
+      partitions data into training and holdout samples, compares model specifications,
+      and evaluates predictive error.
+  data:
+    description: >
+      Toyota Corolla used-car records distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - ToyotaCorolla
+  original_implementation:
+    technologies:
+      - multiple regression
+      - predictor selection
+      - holdout validation
+      - regression diagnostics
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap6.Rmd
+  problem:
+    context: >
+      Used-car prices depend on age, mileage, equipment, and vehicle characteristics,
+      and sellers need a defensible estimate for unseen vehicles.
+    objective: >
+      Build and validate a regression model for used Toyota Corolla prices.
+    analytical_questions:
+      - Which vehicle attributes explain price variation?
+      - How much does predictor reduction affect accuracy?
+      - How does holdout error compare with training error?
+      - What price is predicted for a new vehicle profile?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - scikit-learn
+    logical_steps:
+      - Load and validate used-car records.
+      - Separate training and holdout data.
+      - Fit a multiple-regression baseline.
+      - Compare reduced predictor sets.
+      - Evaluate holdout errors.
+      - Score new vehicle profiles.
+    expected_outputs:
+      - fitted valuation model
+      - predictor comparison
+      - holdout error table
+      - predicted car values
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 214
+  name: Riding Mower Purchase Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Riding Mowers
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap7.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap7.Rmd
+    description: >
+      The book classifies riding-mower ownership from household income and lot size
+      using k-nearest neighbors, normalization, nearest-neighbor inspection, and
+      leave-one-out model selection.
+  data:
+    description: >
+      Household income, lot size, and riding-mower ownership data distributed
+      through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - RidingMowers
+  original_implementation:
+    technologies:
+      - k-nearest neighbors
+      - scaling
+      - leave-one-out cross-validation
+      - distance analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap7.Rmd
+  problem:
+    context: >
+      A retailer wants to identify households likely to own or purchase riding
+      mowers from simple socioeconomic and property characteristics.
+    objective: >
+      Classify mower ownership and understand how scaling and neighborhood size
+      influence local classification.
+    analytical_questions:
+      - Which households are closest to a new prospect?
+      - How does normalization change neighborhood structure?
+      - Which value of k performs best?
+      - How should the new household be classified?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load the household data.
+      - Standardize numeric predictors.
+      - Create a reproducible split.
+      - Fit KNN classifiers across k values.
+      - Inspect nearest neighbors for a focal household.
+      - Compare validation performance.
+    expected_outputs:
+      - nearest-neighbor table
+      - k comparison
+      - ownership predictions
+      - decision visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 215
+  name: Accident Severity Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Classifying Accident Severity
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap11.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap11.Rmd
+    description: >
+      The book trains a neural-network classifier to predict accident-severity
+      categories and evaluates predictions on a holdout sample.
+  data:
+    description: >
+      Accident records with roadway, vehicle, and incident attributes plus
+      maximum-severity labels, distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - AccidentsNN
+  original_implementation:
+    technologies:
+      - neural networks
+      - multiclass classification
+      - train/holdout validation
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap11.Rmd
+  problem:
+    context: >
+      Accident records can be used to anticipate severity classes from conditions
+      known about the crash and its environment.
+    objective: >
+      Predict accident-severity classes and evaluate class-specific errors.
+    analytical_questions:
+      - Which accident attributes are useful for severity prediction?
+      - How well does the neural network separate severity classes?
+      - Which severity categories are most frequently confused?
+      - How stable is performance on held-out accidents?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate accident records.
+      - Encode categorical predictors.
+      - Split training and holdout data.
+      - Fit a multiclass neural-network classifier.
+      - Evaluate confusion patterns.
+      - Inspect representative errors.
+    expected_outputs:
+      - trained severity classifier
+      - classification report
+      - confusion matrix
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 218
+  name: Amtrak Ridership Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Ridership on Amtrak Trains
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap17.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap17.Rmd
+    description: >
+      The book develops a forecasting workflow for monthly Amtrak ridership using
+      time-series visualization, naive and seasonal-naive benchmarks, trend
+      characterization, and future forecasts.
+  data:
+    description: >
+      Monthly Amtrak ridership time series distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - Amtrak
+  original_implementation:
+    technologies:
+      - time-series visualization
+      - naive forecasting
+      - seasonal naive forecasting
+      - benchmark evaluation
+      - future forecasting
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap17.Rmd
+  problem:
+    context: >
+      Rail ridership varies through time and exhibits trend and seasonal structure,
+      requiring explicit benchmarks before more complex forecasting is justified.
+    objective: >
+      Forecast monthly Amtrak ridership and compare simple benchmark methods.
+    analytical_questions:
+      - What trend and seasonal structure appear in ridership?
+      - How do naive and seasonal-naive forecasts perform?
+      - Which benchmark is harder for advanced methods to beat?
+      - What future ridership trajectory is implied?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load monthly ridership data.
+      - Create a regular time index.
+      - Explore trend and seasonal structure.
+      - Split training and holdout periods.
+      - Generate naive and seasonal-naive forecasts.
+      - Compare holdout errors.
+      - Produce future forecasts.
+    expected_outputs:
+      - ridership time-series diagnostics
+      - benchmark forecast table
+      - holdout accuracy comparison
+      - future ridership forecast
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -14883,6 +15240,82 @@
       - gains curves
       - target donor list
       - expected net fundraising return
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 216
+  name: Contextual Movie Recommendation
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Wiley
+    publisher: Wiley
+    book: Machine Learning for Business Analytics, Second Edition
+    title: Contextual Multi-Arm Bandit for Movie Recommendations
+    url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap14.Rmd
+    repository:
+      url: https://github.com/gedeck/mlba-R-code
+      path: Rmd/chap14.Rmd
+    description: >
+      The book formulates movie recommendation as a contextual multi-armed bandit,
+      using MovieLens ratings, user profiles, and movie genre features to learn
+      which movie to recommend under sequential feedback.
+  data:
+    description: >
+      MovieLens movie metadata and user ratings distributed through the mlba R package.
+    source_url: https://github.com/gedeck/mlba
+    availability: package_dataset
+    files:
+      - MovieLensMovies
+      - MovieLensRatings
+  original_implementation:
+    technologies:
+      - contextual bandits
+      - sequential decision making
+      - user profiles
+      - movie genre features
+      - online recommendation
+    language: R
+    code_available: true
+    code_url: https://github.com/gedeck/mlba-R-code/blob/main/Rmd/chap14.Rmd
+  problem:
+    context: >
+      A recommendation service must balance exploitation of known user preferences
+      with exploration of alternative movies whose value is uncertain.
+    objective: >
+      Learn a sequential recommendation policy that selects movies using user and
+      item context plus observed feedback.
+    analytical_questions:
+      - How should user and movie context be represented?
+      - Which movie should be selected for each user interaction?
+      - How does exploration affect cumulative reward?
+      - How does a contextual policy compare with static recommendation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - vowpalwabbit
+    logical_steps:
+      - Load MovieLens movies and ratings.
+      - Construct movie genre features.
+      - Build user preference profiles.
+      - Define recommendation arms and rewards.
+      - Train a contextual bandit sequentially.
+      - Track cumulative reward and selected actions.
+      - Compare with non-contextual baselines.
+    expected_outputs:
+      - user and movie feature tables
+      - learned recommendation policy
+      - cumulative reward curve
+      - recommended movie actions
+      - policy comparison
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
