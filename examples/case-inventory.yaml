@@ -2093,6 +2093,378 @@
     data: verified
     code: verified
 
+- id: 64
+  name: Retail Performance Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Product & Retail Analytics-Exploratory Data Analysis
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Product%20%26%20Retail%20Analytics-Exploratory%20Data%20Analysis.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Product & Retail Analytics-Exploratory Data Analysis.ipynb
+    description: >
+      Packt performs exploratory analysis of a UK online retailer, covering transaction
+      quality, country patterns, repeat customers, free items, unit prices, and product trends.
+  data:
+    description: >
+      One year of online-retail transactions for a UK non-store retailer.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/ecommerce_data.zip
+    availability: public
+    files:
+      - ecommerce_data.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - exploratory data analysis
+      - grouping
+      - customer analysis
+      - product analysis
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Product%20%26%20Retail%20Analytics-Exploratory%20Data%20Analysis.ipynb
+  problem:
+    context: >
+      A retailer needs to understand purchasing patterns, repeat behavior, product
+      demand, pricing, and geographic performance from transaction records.
+    objective: >
+      Diagnose retail performance and identify meaningful customer, product, country,
+      and temporal patterns.
+    analytical_questions:
+      - Which products and countries account for the most activity?
+      - How important are repeat customers?
+      - What unusual price or quantity patterns require attention?
+      - How do product sales evolve over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate the transaction data.
+      - Identify invalid, returned, or unusual transaction values.
+      - Build customer, product, country, and time summaries.
+      - Quantify repeat-customer activity.
+      - Analyze unit-price and product-demand patterns.
+      - Visualize the major performance drivers.
+    expected_outputs:
+      - retail KPI table
+      - customer repeat analysis
+      - product ranking tables
+      - geographic summaries
+      - temporal trend charts
+      - diagnostic findings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 65
+  name: Supply Chain Delivery Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Supply-Chain for Shipping Data Analytics
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Supply-Chain%20for%20Shipping%20Data%20Analytics.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Supply-Chain for Shipping Data Analytics.ipynb
+    description: >
+      Packt analyzes shipment pricing, delivery delays, shipment modes, countries,
+      and manufacturing sites in a supply-chain delivery dataset.
+  data:
+    description: >
+      Supply-chain shipment history containing countries, shipment modes, pricing,
+      delivery timing, products, and manufacturing sites.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/data-analyst-bootcamp/master/SCMS_Delivery_History_Dataset.csv
+    availability: public
+    files:
+      - SCMS_Delivery_History_Dataset.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - exploratory data analysis
+      - delivery delay analysis
+      - grouping
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Supply-Chain%20for%20Shipping%20Data%20Analytics.ipynb
+  problem:
+    context: >
+      Shipment records can reveal operational concentration, delivery delays, and
+      pricing patterns across countries, shipment modes, and manufacturing sites.
+    objective: >
+      Diagnose supply-chain delivery performance and identify operational patterns
+      that merit attention.
+    analytical_questions:
+      - Which countries and manufacturing sites dominate shipment activity?
+      - Where are delivery delays concentrated?
+      - How do shipment modes differ in volume and price?
+      - Which operational segments show unusual delivery behavior?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate shipment history.
+      - Prepare date, price, shipment-mode, and location fields.
+      - Calculate delivery delay indicators.
+      - Aggregate performance by country, site, and mode.
+      - Compare shipment-price distributions.
+      - Visualize operational concentrations and delays.
+    expected_outputs:
+      - supply-chain KPI table
+      - delivery delay summaries
+      - mode and country comparisons
+      - manufacturing-site rankings
+      - diagnostic visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 66
+  name: Home Advantage Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Home Advantage in Soccer and Basketball
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Home%20Advantage%20in%20Soccer%20and%20Basketball.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Home Advantage in Soccer and Basketball.ipynb
+    description: >
+      Packt compares home and away winning performance in NBA and soccer data,
+      constructs a home-advantage factor, and examines how the effect changes over time.
+  data:
+    description: >
+      Historical NBA and soccer league performance data, supplemented with country information.
+    source_url: https://github.com/rajeevratan84/data-analyst-bootcamp
+    availability: public
+    files:
+      - NBA.csv
+      - SoccerLEagues.csv
+      - Country_facts.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - comparative analysis
+      - derived metrics
+      - time trend analysis
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Home%20Advantage%20in%20Soccer%20and%20Basketball.ipynb
+  problem:
+    context: >
+      Sports teams appear to perform differently at home and away, but the magnitude
+      and stability of that difference can be tested empirically.
+    objective: >
+      Quantify and compare home advantage across basketball and soccer and examine
+      whether it changes over time.
+    analytical_questions:
+      - How large is the home-away performance gap?
+      - Does home advantage differ between basketball and soccer?
+      - How does the effect vary across teams and leagues?
+      - Has home advantage changed over time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load and validate league performance data.
+      - Calculate home and away performance metrics.
+      - Construct a comparable home-advantage index.
+      - Compare distributions across sports.
+      - Analyze temporal changes.
+      - Summarize robustness and limitations.
+    expected_outputs:
+      - home-away comparison tables
+      - home-advantage index
+      - cross-sport visualizations
+      - time-trend analysis
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 69
+  name: Retail Sales Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Becoming a Data Analyst, First Edition
+    title: EDA Case Study
+    url: https://github.com/PacktPublishing/Becoming-a-Data-Analyst-First-Edition/blob/main/Chapter-17-EDA-Case-Study/EDA_Case_Study_Answers.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Becoming-a-Data-Analyst-First-Edition
+      path: Chapter-17-EDA-Case-Study/EDA_Case_Study_Answers.ipynb
+    description: >
+      Packt uses a retail sales dataset to investigate monthly seasonality, weekday
+      versus weekend activity, high-value customers, product performance, payment
+      behavior, and product-return patterns.
+  data:
+    description: >
+      ShopEase retail transactions with orders, customers, products, categories,
+      quantities, values, payment methods, dates, and return indicators.
+    source_url: https://github.com/PacktPublishing/Becoming-a-Data-Analyst-First-Edition/blob/main/Chapter-17-EDA-Case-Study/ShopEase_Sales_Data.csv
+    availability: repository
+    files:
+      - Chapter-17-EDA-Case-Study/ShopEase_Sales_Data.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - exploratory data analysis
+      - customer ranking
+      - return-rate analysis
+      - time aggregation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Becoming-a-Data-Analyst-First-Edition/blob/main/Chapter-17-EDA-Case-Study/EDA_Case_Study_Answers.ipynb
+  problem:
+    context: >
+      A retailer wants to understand unstable sales, customer value, product
+      performance, and return behavior before changing staffing, marketing, and policy.
+    objective: >
+      Diagnose sales and return patterns and identify customer and product segments
+      that explain business performance.
+    analytical_questions:
+      - What seasonal and weekly patterns appear in sales?
+      - Which customers account for the highest spending?
+      - Which products lead sales within each category?
+      - Which products, categories, or payment methods have elevated return rates?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load and validate transactions.
+      - Create calendar and order-value features.
+      - Analyze monthly and weekday patterns.
+      - Rank customers by spend.
+      - Rank products within categories.
+      - Calculate product, category, and payment-method return rates.
+      - Summarize operational implications.
+    expected_outputs:
+      - sales trend charts
+      - high-value customer table
+      - category product rankings
+      - return-rate diagnostics
+      - written business findings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 70
+  name: Bank Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Bank Customer Segmentation for Loan Campaign
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter03/Activity3.01-3.02.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter03/Activity3.01-3.02.ipynb
+    description: >
+      Packt segments bank customers for a loan campaign using standardized customer
+      attributes, K-means, cluster profiling, and PCA for low-dimensional visualization.
+  data:
+    description: >
+      Bank customer records containing demographics, income, spending, and other
+      attributes relevant to personal-loan marketing.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/tree/master/Chapter03/Datasets
+    availability: repository
+    files:
+      - Chapter03/Datasets/Bank_Personal_Loan_Modelling-1.csv
+      - Chapter03/Datasets/Bank_Personal_Loan_Modelling-2.csv
+  original_implementation:
+    technologies:
+      - standardization
+      - K-means
+      - PCA
+      - cluster profiling
+      - visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter03/Activity3.01-3.02.ipynb
+  problem:
+    context: >
+      A bank wants interpretable customer groups that can support differentiated
+      personal-loan marketing rather than treating all customers alike.
+    objective: >
+      Discover and profile customer segments using financial and demographic behavior.
+    analytical_questions:
+      - Which variables meaningfully differentiate bank customers?
+      - What customer groups emerge from standardized attributes?
+      - How can PCA help visualize the segment structure?
+      - How do segment profiles differ in income, spending, and demographics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate customer data.
+      - Select segmentation variables.
+      - Standardize numeric attributes.
+      - Fit and inspect K-means segments.
+      - Project customers with PCA for visualization.
+      - Profile clusters in original units.
+      - Translate clusters into marketing descriptions.
+    expected_outputs:
+      - standardized feature matrix
+      - customer segment assignments
+      - PCA visualization
+      - segment profile table
+      - marketing interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -4202,6 +4574,526 @@
     data: verified
     code: verified
 
+- id: 60
+  name: Employee Retention Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Human Resources Retention
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Human%20Resources%20Retention.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Human Resources Retention.ipynb
+    description: >
+      Packt combines HR records with employee satisfaction and evaluation data,
+      prepares the merged dataset, and compares logistic regression, random forest,
+      and neural-network models for employee-retention prediction.
+  data:
+    description: >
+      Human-resources records combined with employee satisfaction and performance
+      evaluation data.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/hr_data.csv
+    availability: public
+    files:
+      - hr_data.csv
+      - employee_satisfaction_evaluation.xlsx
+  original_implementation:
+    technologies:
+      - pandas
+      - data integration
+      - logistic regression
+      - random forest
+      - neural networks
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Human%20Resources%20Retention.ipynb
+  problem:
+    context: >
+      An organization wants to identify employees at risk of leaving by combining
+      personnel records with satisfaction and evaluation information.
+    objective: >
+      Build and compare models that estimate employee attrition risk from available
+      workforce characteristics.
+    analytical_questions:
+      - Which employee attributes are associated with attrition?
+      - How should HR and satisfaction data be integrated before modeling?
+      - How do alternative classifiers compare on held-out data?
+      - Which employees receive the highest estimated attrition risk?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate the HR and evaluation tables.
+      - Join the datasets at employee level.
+      - Handle missing values and encode predictors.
+      - Split training and test data reproducibly.
+      - Fit baseline and ensemble classifiers.
+      - Compare predictive performance.
+      - Produce employee-level attrition probabilities.
+    expected_outputs:
+      - integrated HR dataset
+      - model comparison table
+      - confusion matrices
+      - attrition risk scores
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 61
+  name: Diabetes Risk Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Healthcare Analytics Diabeties data
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Healthcare%20Analytics%20Diabeties%20data.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Healthcare Analytics Diabeties data.ipynb
+    description: >
+      Packt integrates multiple NHANES-derived files and compares several machine
+      learning models for identifying diabetes from demographic, examination,
+      laboratory, dietary, and questionnaire information.
+  data:
+    description: >
+      NHANES-derived demographic, examination, laboratory, dietary, and questionnaire
+      tables used to construct a diabetes modeling dataset.
+    source_url: https://github.com/rajeevratan84/data-analyst-bootcamp
+    availability: public
+    files:
+      - labs.csv
+      - examination.csv
+      - demographic.csv
+      - diet.csv
+      - questionnaire.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - data integration
+      - classification
+      - ensemble models
+      - neural networks
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Healthcare%20Analytics%20Diabeties%20data.ipynb
+  problem:
+    context: >
+      Health survey information is distributed across multiple tables and can be
+      combined to study whether observed characteristics discriminate diabetes status.
+    objective: >
+      Integrate the survey components and compare predictive models for diabetes status.
+    analytical_questions:
+      - Which source tables and variables are needed for the analytical dataset?
+      - Which predictors are most informative for diabetes classification?
+      - How do alternative models compare on unseen observations?
+      - Where do classification errors concentrate?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate the component datasets.
+      - Integrate records using common respondent identifiers.
+      - Select and prepare candidate predictors.
+      - Split the data reproducibly.
+      - Train several classification models.
+      - Compare out-of-sample performance.
+      - Inspect errors and important predictors.
+    expected_outputs:
+      - integrated analytical dataset
+      - model comparison table
+      - classification metrics
+      - confusion matrix
+      - predictor importance summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 62
+  name: Airbnb Property Valuation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Predict AirBnB Prices in Sydney
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Predict%20AirBnB%20Prices%20in%20Sydney.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Predict AirBnB Prices in Sydney.ipynb
+    description: >
+      Packt frames an end-to-end valuation task for a Sydney Airbnb property and
+      compares regression approaches using property, host, review, availability,
+      and location attributes.
+  data:
+    description: >
+      Sydney Airbnb listings with prices and property, host, review, availability,
+      and geographic attributes.
+    source_url: https://github.com/Finance-781/FinML
+    availability: public
+    files:
+      - datasets/sydney_airbnb.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - feature preparation
+      - linear regression
+      - random forest regression
+      - model evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Predict%20AirBnB%20Prices%20in%20Sydney.ipynb
+  problem:
+    context: >
+      A property owner needs a defensible daily accommodation rate and the same
+      approach could be generalized to other listings.
+    objective: >
+      Estimate fair nightly prices for Airbnb listings and assess the value of a
+      specific property relative to comparable listings.
+    analytical_questions:
+      - Which listing attributes explain variation in nightly prices?
+      - How should price and date fields be cleaned before modeling?
+      - Which regression approach generalizes best?
+      - What nightly rate does the model imply for the target property?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the listing data.
+      - Clean monetary, date, categorical, and geographic fields.
+      - Explore price distributions and important relationships.
+      - Create a reproducible train/test split.
+      - Fit baseline and nonlinear regression models.
+      - Compare out-of-sample errors.
+      - Score the target property and explain the estimate.
+    expected_outputs:
+      - cleaned listing dataset
+      - valuation model comparison
+      - prediction diagnostics
+      - target-property price estimate
+      - written valuation interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 63
+  name: Insurance Premium Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Predicting Insurance Premiums
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Predicting%20Insurance%20Premiums.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Predicting Insurance Premiums.ipynb
+    description: >
+      Packt compares linear, polynomial, decision-tree, random-forest, and support-vector
+      regression for predicting insurance charges from customer characteristics.
+  data:
+    description: >
+      Insurance records containing age, sex, BMI, children, smoking status, region,
+      and observed charges.
+    source_url: https://raw.githubusercontent.com/rajeevratan84/datascienceforbusiness/master/insurance.csv
+    availability: public
+    files:
+      - insurance.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - polynomial regression
+      - decision tree regression
+      - random forest regression
+      - support vector regression
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Predicting%20Insurance%20Premiums.ipynb
+  problem:
+    context: >
+      An insurer wants to estimate expected customer charges using basic demographic
+      and risk-related attributes.
+    objective: >
+      Compare regression models and predict insurance charges for new customers.
+    analytical_questions:
+      - Which customer attributes are associated with higher charges?
+      - Do nonlinear models improve predictive accuracy?
+      - Which model generalizes best to held-out customers?
+      - How stable are predictions for new customer profiles?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the insurance dataset.
+      - Encode categorical variables and inspect distributions.
+      - Split training and test data.
+      - Fit multiple regression families.
+      - Compare out-of-sample RMSE and R-squared.
+      - Score example customer profiles.
+    expected_outputs:
+      - prepared insurance dataset
+      - model comparison table
+      - prediction diagnostics
+      - customer charge estimates
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 71
+  name: Store Revenue Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Storefront Location Associations
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter05/Activity5.01-5.02.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter05/Activity5.01-5.02.ipynb
+    description: >
+      Packt develops a regression case linking store-location characteristics to
+      revenue and evaluates predictions on held-out locations.
+  data:
+    description: >
+      Store-location characteristics paired with observed revenue.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Exercise6.01/location_rev.csv
+    availability: repository
+    files:
+      - Chapter06/Exercise6.01/location_rev.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - linear regression
+      - train/test split
+      - prediction diagnostics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter05/Activity5.01-5.02.ipynb
+  problem:
+    context: >
+      A retailer needs to estimate the revenue potential of storefront locations
+      from measurable location characteristics.
+    objective: >
+      Build and evaluate a regression model for store-location revenue.
+    analytical_questions:
+      - Which location features are associated with revenue?
+      - How accurately can revenue be predicted for unseen locations?
+      - Where does the model systematically over- or under-predict?
+      - How can the model support comparison of prospective locations?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate location data.
+      - Explore predictor-revenue relationships.
+      - Split training and test locations.
+      - Fit a baseline regression model.
+      - Evaluate predictions against observed revenue.
+      - Diagnose residual patterns.
+      - Score prospective locations.
+    expected_outputs:
+      - location analysis table
+      - fitted revenue model
+      - test-set error metrics
+      - prediction-versus-actual chart
+      - scored candidate locations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 72
+  name: Offer Response Drivers
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Offer Response Modeling
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.01/Activity6.01.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter06/Activity6.01/Activity6.01.ipynb
+    description: >
+      Packt models marketing-offer responses from offer quality, discount, and reach,
+      then removes predictors in turn to assess their contribution to predictive error.
+  data:
+    description: >
+      Marketing offers with quality, discount, reach, and observed response counts.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.01/offer_responses.csv
+    availability: repository
+    files:
+      - Chapter06/Activity6.01/offer_responses.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - ablation analysis
+      - RMSE
+      - train/test split
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter06/Activity6.01/Activity6.01.ipynb
+  problem:
+    context: >
+      Marketing managers need to understand which offer characteristics materially
+      contribute to customer response rather than relying only on overall model fit.
+    objective: >
+      Predict offer responses and quantify the predictive contribution of quality,
+      discount, and reach.
+    analytical_questions:
+      - How accurately can offer response be predicted?
+      - Which offer attributes reduce prediction error the most?
+      - What happens when each candidate driver is removed?
+      - Which variables deserve the most attention in offer design?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate offer-response data.
+      - Split observations reproducibly.
+      - Fit the full regression model.
+      - Calculate held-out RMSE.
+      - Remove each predictor separately and refit.
+      - Compare error changes across ablations.
+      - Summarize the most informative offer drivers.
+    expected_outputs:
+      - baseline response model
+      - ablation comparison table
+      - RMSE summary
+      - driver interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 73
+  name: Marketing Channel Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science for Marketing Analytics, Second Edition
+    title: Marketing Channel Classification
+    url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter09/Activity9.01/Activity9.01.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition
+      path: Chapter09/Activity9.01/Activity9.01.ipynb
+    description: >
+      Packt builds a multiclass random-forest model for predicting the marketing
+      channel associated with customer records and evaluates class-level performance.
+  data:
+    description: >
+      Marketing records labeled with channel categories including retail, roadshow,
+      social media, and television.
+    source_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter09/Activity9.01/MarketingData.csv
+    availability: repository
+    files:
+      - Chapter09/Activity9.01/MarketingData.csv
+  original_implementation:
+    technologies:
+      - random forest
+      - multiclass classification
+      - confusion matrix
+      - precision
+      - recall
+      - F-score
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-for-Marketing-Analytics-Second-Edition/blob/master/Chapter09/Activity9.01/Activity9.01.ipynb
+  problem:
+    context: >
+      Marketing records span several channels and a model can be used to learn which
+      observed customer or campaign patterns distinguish those channels.
+    objective: >
+      Build and evaluate a multiclass model that predicts marketing channel.
+    analytical_questions:
+      - Which classes are easiest or hardest to distinguish?
+      - How accurate is the model on held-out records?
+      - Which channel confusions occur most often?
+      - Which predictors contribute most to channel discrimination?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate marketing data.
+      - Separate predictors and channel target.
+      - Create a stratified train/test split.
+      - Fit a random-forest classifier.
+      - Calculate multiclass precision, recall, and F-score.
+      - Inspect the confusion matrix.
+      - Rank important predictors.
+    expected_outputs:
+      - trained multiclass classifier
+      - classification report
+      - confusion matrix
+      - feature importance table
+      - channel-level error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -4291,6 +5183,80 @@
   notes: >
     Particularly valuable for the inventory because it bridges predictive and
     prescriptive analytics without requiring a large operations-research model.
+
+- id: 67
+  name: Airline Price Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Price Optimization Airline Ticket Price Optimization
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Price%20Optimization%20Airline%20Ticket%20Price%20Optimization.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Price Optimization Airline Ticket Price Optimization.ipynb
+    description: >
+      Packt formulates airline ticket pricing as a finite-horizon dynamic-programming
+      problem using value and Q functions to select prices that maximize expected revenue.
+  data:
+    description: >
+      Synthetic demand and inventory states generated by the pricing model rather than
+      an external observational dataset.
+    source_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - dynamic programming
+      - value function
+      - Q function
+      - revenue optimization
+      - finite-horizon decisions
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Price%20Optimization%20Airline%20Ticket%20Price%20Optimization.ipynb
+  problem:
+    context: >
+      An airline must choose ticket prices while seats and selling time are depleted,
+      trading off immediate sales against future revenue opportunities.
+    objective: >
+      Compute a dynamic pricing policy that maximizes expected ticket revenue over
+      the remaining selling horizon.
+    analytical_questions:
+      - How does the optimal price depend on tickets and days remaining?
+      - What is the expected value of each feasible price decision?
+      - How does the optimal policy change as departure approaches?
+      - How much revenue does the optimized policy generate relative to fixed pricing?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Define the demand response and feasible price grid.
+      - Specify inventory and time states.
+      - Solve the one-day terminal problem.
+      - Apply backward induction across the selling horizon.
+      - Store value and decision functions.
+      - Simulate the resulting pricing policy.
+      - Compare optimized and fixed-price revenue.
+    expected_outputs:
+      - value-function table
+      - optimal price policy
+      - state-dependent decision table
+      - simulated revenue comparison
+      - policy visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
 
 - id: 17
   name: Social Sentiment Analytics
@@ -4527,6 +5493,78 @@
       - indicator filters
       - country drill-downs
       - working dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 68
+  name: Text Classifier Deployment
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Science, Analytics & AI for Business & the Real World
+    title: Production Deplyoment using Flask Heroku
+    url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Production%20Deplyoment%20using%20Flask%20Heroku.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-
+      path: All Resource files/Case Studies/Production Deplyoment using Flask Heroku.ipynb
+    description: >
+      Packt trains a text classifier, serializes the model, wraps it in a Flask
+      application, and demonstrates deployment as a user-facing prediction service.
+  data:
+    description: >
+      Scikit-learn 20 Newsgroups text corpus used to train and evaluate the classifier.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - scikit-learn
+      - text classification
+      - model serialization
+      - Flask
+      - Heroku
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Science-Analytics-AI-for-Business-the-Real-World-/blob/main/All%20Resource%20files/Case%20Studies/Production%20Deplyoment%20using%20Flask%20Heroku.ipynb
+  problem:
+    context: >
+      A trained analytical model creates value only when users or applications can
+      submit new text and obtain predictions reliably.
+    objective: >
+      Turn a trained text-classification model into a deployable prediction application.
+    analytical_questions:
+      - What artifacts must be persisted from model training?
+      - How should inference inputs be transformed consistently?
+      - How can predictions be exposed through a simple web application?
+      - What checks are required before deployment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - joblib
+      - flask
+    logical_steps:
+      - Load and prepare the text corpus.
+      - Train and validate a text classifier.
+      - Persist the fitted preprocessing and model artifacts.
+      - Build a prediction function.
+      - Expose inference through a Flask endpoint or form.
+      - Test valid and invalid requests.
+      - Package the application for reproducible local deployment.
+    expected_outputs:
+      - trained classifier
+      - serialized model artifact
+      - inference function
+      - working web application
+      - deployment validation tests
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
