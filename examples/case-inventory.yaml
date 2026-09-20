@@ -6909,6 +6909,211 @@
     data: verified
     code: verified
 
+- id: 190
+  name: Retail Product Performance
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science for Marketing
+    title: Product Analytics
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+      path: Chapter05/python/Product Analytics.ipynb
+    description: >
+      Implemented case from the book companion repository.
+  data:
+    description: >
+      Online retail transactions with invoice dates, customers, products, quantities, and sales values.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing/tree/master/Chapter05
+    availability: public_or_repository
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - time-series aggregation
+      - repeat-customer analysis
+      - product ranking
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+  problem:
+    context: >
+      A retailer needs to understand not only total sales but repeat-customer contribution and changing product popularity through time.
+    objective: >
+      Diagnose product, revenue, order, and repeat-customer performance over time.
+    analytical_questions:
+      - How do order volume and revenue evolve monthly?
+      - What share of customers are repeat buyers?
+      - How much revenue comes from repeat customers?
+      - Which products are gaining or losing popularity?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and clean retail transactions.
+      - Calculate monthly order and revenue series.
+      - Identify repeat customers by month.
+      - Measure repeat-customer revenue contribution.
+      - Rank products over time.
+      - Interpret performance changes.
+    expected_outputs:
+      - monthly order and revenue trends
+      - repeat-customer KPIs
+      - repeat-revenue analysis
+      - product popularity trends
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 192
+  name: Customer Value Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science for Marketing
+    title: Customer Segmentation
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+      path: Chapter10/python/CustomerSegmentation.ipynb
+    description: >
+      Implemented case from the book companion repository.
+  data:
+    description: >
+      Online retail customer transactions summarized into sales, order count, and average order value.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing/tree/master/Chapter10/data
+    availability: public_or_repository
+    files: []
+  original_implementation:
+    technologies:
+      - transaction cleaning
+      - customer aggregation
+      - K-means
+      - elbow method
+      - cluster profiling
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+  problem:
+    context: >
+      A retailer wants to distinguish low-, medium-, and high-value customer groups from transactional behavior.
+    objective: >
+      Discover and interpret customer-value segments from sales and order behavior.
+    analytical_questions:
+      - Which customer-level measures capture commercial value?
+      - How many segments are supported?
+      - Which cluster contains the highest-value customers?
+      - What purchasing behavior characterizes each segment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Clean transaction records.
+      - Aggregate to customer-level metrics.
+      - Rank or scale customer variables.
+      - Compare candidate cluster counts.
+      - Fit K-means.
+      - Profile clusters in business units.
+      - Identify high-value segments.
+    expected_outputs:
+      - customer analytical table
+      - cluster diagnostics
+      - segment assignments
+      - segment profile table
+      - high-value customer list
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 193
+  name: Promotion Experiment Analysis
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science for Marketing
+    title: A/B Testing
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+      path: Chapter12/python/ABTesting.ipynb
+    description: >
+      Implemented case from the book companion repository.
+  data:
+    description: >
+      Fast-food promotion experiment with market size, store age, week, promotion assignment, and sales.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing/tree/master/Chapter12/data
+    availability: public_or_repository
+    files: []
+  original_implementation:
+    technologies:
+      - experimental comparison
+      - t-tests
+      - sales analysis
+      - group diagnostics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+  problem:
+    context: >
+      A business tests alternative promotions across stores and needs to determine whether observed sales differences are statistically meaningful.
+    objective: >
+      Compare promotion performance and quantify the statistical evidence for sales differences.
+    analytical_questions:
+      - Are treatment groups comparable on store characteristics?
+      - Which promotion produces higher observed sales?
+      - Are promotion differences statistically significant?
+      - Do effects appear stable across weeks?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate experimental data.
+      - Compare treatment-group composition.
+      - Summarize sales by promotion and week.
+      - Visualize treatment distributions.
+      - Run pairwise significance tests.
+      - Interpret effect direction and uncertainty.
+    expected_outputs:
+      - promotion KPI table
+      - group-balance diagnostics
+      - sales comparison charts
+      - t-test results
+      - experiment conclusion
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -12137,6 +12342,211 @@
       - confusion matrices
       - admission risk scores
       - feature importance summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 188
+  name: NBA Winner Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Data Mining with Python, Second Edition
+    title: Predicting Sports Winners with Decision Trees
+    url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+      path: Chapter03/chapter3_nba_prediction.ipynb
+    description: >
+      Implemented case from the book companion repository.
+  data:
+    description: >
+      Historical NBA game results combined with season standings.
+    source_url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition/tree/master/Chapter03
+    availability: public_or_repository
+    files: []
+  original_implementation:
+    technologies:
+      - pandas
+      - decision trees
+      - feature engineering
+      - classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+  problem:
+    context: >
+      Past team form, home-court status, and standings can be transformed into features for predicting the winner of a future basketball game.
+    objective: >
+      Predict game winners from historical outcomes and team-strength indicators.
+    analytical_questions:
+      - How much does home advantage contribute?
+      - Do recent wins improve game prediction?
+      - How much do standings improve the baseline?
+      - Which features drive the decision tree?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load game results and standings.
+      - Create winner and home-team indicators.
+      - Derive recent-form and standings features.
+      - Split games chronologically or reproducibly.
+      - Fit decision-tree models.
+      - Compare successive feature sets.
+    expected_outputs:
+      - game-level feature table
+      - winner classifier
+      - model comparison
+      - feature importance summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 189
+  name: Enron Email Authorship
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Data Mining with Python, Second Edition
+    title: Authorship Analysis
+    url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+      path: Chapter09/Chapter 9 Authorship Analysis.ipynb
+    description: >
+      Implemented case from the book companion repository.
+  data:
+    description: >
+      Enron employee email messages grouped by author.
+    source_url: https://www.cs.cmu.edu/~enron/
+    availability: public_or_repository
+    files: []
+  original_implementation:
+    technologies:
+      - email parsing
+      - function-word features
+      - text classification
+      - confusion matrix
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Data-Mining-with-Python-Second-Edition
+  problem:
+    context: >
+      Writing style can contain stable signals that distinguish authors even when message topics vary.
+    objective: >
+      Identify the likely author of an email from stylistic text features.
+    analytical_questions:
+      - Which function words differ most across authors?
+      - How accurately can authorship be classified?
+      - Which authors are most frequently confused?
+      - What stylistic signals appear stable?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and parse author email folders.
+      - Clean message bodies.
+      - Construct stylistic and function-word features.
+      - Create training and test partitions.
+      - Fit the authorship classifier.
+      - Analyze the confusion matrix.
+    expected_outputs:
+      - author corpus
+      - stylistic feature matrix
+      - authorship classifier
+      - confusion matrix
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 191
+  name: Marketing Engagement Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Science for Marketing
+    title: Predicting Engagement
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+      path: Chapter08/python/PredictingEngagement.ipynb
+    description: >
+      Implemented case from the book companion repository.
+  data:
+    description: >
+      Customer-value and marketing-response records with demographics, policy characteristics, and response outcome.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing/tree/master/Chapter08/data
+    availability: public_or_repository
+    files: []
+  original_implementation:
+    technologies:
+      - categorical encoding
+      - random forest
+      - ROC AUC
+      - precision
+      - recall
+      - feature importance
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-for-Marketing
+  problem:
+    context: >
+      A marketing team wants to identify customers most likely to respond to outreach and understand the factors associated with engagement.
+    objective: >
+      Predict customer marketing response and identify the strongest engagement drivers.
+    analytical_questions:
+      - Which customer characteristics predict response?
+      - How well does the model generalize?
+      - Which features are most influential?
+      - What precision-recall trade-off is appropriate?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate customer records.
+      - Encode response and predictors.
+      - Split training and test data.
+      - Fit a random-forest classifier.
+      - Evaluate accuracy, precision, recall, ROC, and AUC.
+      - Rank feature importance.
+    expected_outputs:
+      - response classifier
+      - classification metrics
+      - ROC curve
+      - feature importance table
+      - customer engagement scores
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
