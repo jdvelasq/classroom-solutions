@@ -13255,6 +13255,154 @@
     data: verified
     code: verified
 
+- id: 414
+  name: Lending Club Default Drivers
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Practical Data Science using Python
+    title: Lending Club Case Study
+    url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/EDA-Overview-Lending-Club.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+      path: EDA-Overview-Lending-Club.ipynb
+    description: >
+      Packt performs exploratory analysis of Lending Club loans to identify
+      customer and loan attributes associated with default.
+  data:
+    description: >
+      Lending Club loan records with borrower, loan-purpose, debt-to-income,
+      status, and other credit attributes.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+    availability: repository
+    files:
+      - loan.csv
+  original_implementation:
+    technologies:
+      - pandas
+      - exploratory data analysis
+      - univariate analysis
+      - bivariate analysis
+      - correlation analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/EDA-Overview-Lending-Club.ipynb
+  problem:
+    context: >
+      A lender is experiencing defaults and needs to understand which borrower
+      and loan characteristics are associated with higher default rates.
+    objective: >
+      Diagnose the main drivers of loan default using exploratory and comparative analysis.
+    analytical_questions:
+      - Which borrower characteristics differ most between repaid and defaulted loans?
+      - How does debt-to-income relate to default?
+      - Which loan purposes have the highest default proportions?
+      - Which variables show the strongest associations with default?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - matplotlib
+      - scipy
+    logical_steps:
+      - Load and profile the loan data.
+      - Remove irrelevant and low-information fields.
+      - Quantify missingness and default prevalence.
+      - Transform selected variables and create analytical bins.
+      - Compare default rates across borrower and loan segments.
+      - Examine correlations and bivariate relationships.
+      - Summarize the strongest default drivers.
+    expected_outputs:
+      - cleaned loan dataset
+      - missingness report
+      - default-rate summary
+      - segmented default analysis
+      - diagnostic visualizations
+      - written findings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 415
+  name: Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Practical Data Science using Python
+    title: K-Means Clustering - Customer Segmentation
+    url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/customer-segmentation-k-means-analysis.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+      path: customer-segmentation-k-means-analysis.ipynb
+    description: >
+      Packt segments retail customers using age, gender, annual income, and
+      spending score to support targeted merchandising campaigns.
+  data:
+    description: >
+      Store-customer records with age, gender, annual income, and spending score.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Mall_Customers.csv
+    availability: repository
+    files:
+      - Mall_Customers.csv
+  original_implementation:
+    technologies:
+      - K-Means
+      - silhouette score
+      - elbow method
+      - exploratory visualization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/customer-segmentation-k-means-analysis.ipynb
+  problem:
+    context: >
+      A large store wants to identify groups of customers with similar profiles
+      and spending behavior so that promotions can be targeted more effectively.
+    objective: >
+      Discover interpretable customer segments and characterize each segment.
+    analytical_questions:
+      - How many customer segments are supported by the data?
+      - Which variables distinguish the resulting segments?
+      - How do income and spending patterns differ across segments?
+      - Which segments suggest distinct campaign strategies?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and inspect the customer data.
+      - Encode and scale relevant features.
+      - Fit K-Means across candidate values of k.
+      - Compare inertia and silhouette scores.
+      - Select a practical number of clusters.
+      - Assign cluster labels and profile each segment.
+      - Visualize and interpret the customer groups.
+    expected_outputs:
+      - segmented customer dataset
+      - cluster-selection diagnostics
+      - customer profiles by segment
+      - cluster visualizations
+      - campaign-oriented interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -25731,6 +25879,301 @@
       - per-series forecast errors
       - multi-step forecasts
       - comparison of local demand trajectories
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 416
+  name: Car Price Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Practical Data Science using Python
+    title: Linear Regression - Car Price Prediction
+    url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Car-price-prediction-linear-regression-Intro-version.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+      path: Car-price-prediction-linear-regression-Intro-version.ipynb
+    description: >
+      Packt builds a regression model for automobile prices, including data
+      correction, feature engineering, significance testing, and recursive feature elimination.
+  data:
+    description: >
+      Automobile records with price, make, body, engine, dimensions, performance,
+      and other vehicle characteristics.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/CarPrice_Assignment.csv
+    availability: repository
+    files:
+      - CarPrice_Assignment.csv
+  original_implementation:
+    technologies:
+      - linear regression
+      - statsmodels
+      - recursive feature elimination
+      - feature engineering
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Car-price-prediction-linear-regression-Intro-version.ipynb
+  problem:
+    context: >
+      A vehicle seller needs to estimate prices for new cars entering inventory.
+    objective: >
+      Build and validate a regression model that predicts vehicle price from product attributes.
+    analytical_questions:
+      - Which vehicle attributes have the strongest relationship with price?
+      - Which features remain significant after controlling for others?
+      - How much predictive performance is retained after feature selection?
+      - How well does the model generalize to held-out vehicles?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+    logical_steps:
+      - Load and clean automobile records.
+      - Correct inconsistent categorical values.
+      - Engineer and encode predictors.
+      - Split training and test data.
+      - Fit baseline linear regression.
+      - Remove collinear or insignificant features.
+      - Apply recursive feature elimination.
+      - Evaluate holdout prediction performance.
+    expected_outputs:
+      - cleaned vehicle dataset
+      - selected feature set
+      - regression diagnostics
+      - test predictions
+      - performance comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 417
+  name: Employee Attrition Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Practical Data Science using Python
+    title: Employee Attrition Prediction using Naive Bayes
+    url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Employee-Attrition-using-Naive-Bayes.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+      path: Employee-Attrition-using-Naive-Bayes.ipynb
+    description: >
+      Packt predicts employee attrition from historical workforce attributes
+      using a Gaussian Naive Bayes classifier.
+  data:
+    description: >
+      Employee records containing demographic, job, compensation, satisfaction,
+      tenure, and attrition attributes.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/HR-Employee-Attrition.csv
+    availability: repository
+    files:
+      - HR-Employee-Attrition.csv
+  original_implementation:
+    technologies:
+      - Gaussian Naive Bayes
+      - dummy encoding
+      - train-test split
+      - classification metrics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Employee-Attrition-using-Naive-Bayes.ipynb
+  problem:
+    context: >
+      An organization wants to identify employees at risk of leaving based on
+      historical workforce characteristics.
+    objective: >
+      Predict employee attrition and evaluate classification performance.
+    analytical_questions:
+      - Which workforce attributes are available for attrition prediction?
+      - How should categorical employee attributes be encoded?
+      - How accurately can attrition be predicted on unseen employees?
+      - Which errors matter most for a retention use case?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and inspect employee records.
+      - Encode the attrition target.
+      - Remove constant fields.
+      - Encode categorical predictors.
+      - Create train and test partitions.
+      - Fit a Naive Bayes classifier.
+      - Evaluate confusion matrix and classification metrics.
+      - Inspect representative classification errors.
+    expected_outputs:
+      - model-ready employee dataset
+      - attrition classifier
+      - confusion matrix
+      - classification report
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 418
+  name: Credit Default Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Practical Data Science using Python
+    title: Random Forest - Credit Default Prediction
+    url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Random-Forest-Credit-Default-Prediction.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+      path: Random-Forest-Credit-Default-Prediction.ipynb
+    description: >
+      Packt builds and tunes a random-forest classifier for credit default,
+      studying depth, number of trees, feature sampling, and leaf-size controls.
+  data:
+    description: >
+      Credit-card customer records with repayment, billing, demographic, and default outcome fields.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/credit-card-default.csv
+    availability: repository
+    files:
+      - credit-card-default.csv
+  original_implementation:
+    technologies:
+      - random forest
+      - hyperparameter tuning
+      - classification
+      - model validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/Random-Forest-Credit-Default-Prediction.ipynb
+  problem:
+    context: >
+      A credit provider wants to predict which customers are at risk of default.
+    objective: >
+      Train and tune a random-forest model for credit-default prediction.
+    analytical_questions:
+      - How does tree depth affect overfitting?
+      - How many trees are sufficient for stable performance?
+      - How do feature-sampling and leaf-size settings affect generalization?
+      - Which model configuration performs best on held-out data?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load the credit-default data.
+      - Separate predictors and target.
+      - Create train and test partitions.
+      - Fit a baseline random forest.
+      - Tune depth, number of trees, feature sampling, and leaf size.
+      - Compare training and test metrics.
+      - Select and evaluate the final model.
+    expected_outputs:
+      - baseline model
+      - tuning curves
+      - selected hyperparameters
+      - test-set predictions
+      - final classification metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 419
+  name: Telecom Churn Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Practical Data Science using Python
+    title: Logistic Regression - Telecom Churn Case Study
+    url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/telecom-churn-prediction-logistic-regression.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+      path: telecom-churn-prediction-logistic-regression.ipynb
+    description: >
+      Packt integrates three telecom customer tables, performs exploratory analysis
+      and preprocessing, and builds a logistic-regression churn model.
+  data:
+    description: >
+      Telecom customer data split across churn, customer, and internet-service tables,
+      including demographics, tenure, services, charges, contracts, and churn.
+    source_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python
+    availability: repository
+    files:
+      - churn_data.csv
+      - customer_data.csv
+      - internet_data.csv
+  original_implementation:
+    technologies:
+      - logistic regression
+      - table joins
+      - exploratory data analysis
+      - feature selection
+      - classification metrics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Data-Science-using-Python/blob/main/telecom-churn-prediction-logistic-regression.ipynb
+  problem:
+    context: >
+      A telecom provider is losing customers and wants to identify current customers
+      with a high probability of churn.
+    objective: >
+      Integrate customer data and predict churn probability using logistic regression.
+    analytical_questions:
+      - Which customer, service, contract, and charge variables are associated with churn?
+      - How should the three source tables be integrated?
+      - Which predictors remain useful after significance and correlation checks?
+      - How well does the final model identify customers who actually churn?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load the three customer source tables.
+      - Join them by customer identifier.
+      - Clean charges and missing values.
+      - Explore churn by tenure, contract, service, and charges.
+      - Encode categorical features and scale predictors.
+      - Remove highly correlated or insignificant variables.
+      - Fit logistic regression models.
+      - Evaluate probability predictions and classification metrics.
+    expected_outputs:
+      - integrated customer dataset
+      - churn diagnostic analysis
+      - selected feature set
+      - churn probabilities
+      - classification report
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
