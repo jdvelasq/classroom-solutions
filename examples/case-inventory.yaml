@@ -3127,3 +3127,79 @@
     source: verified
     data: verified
     code: verified
+
+- id: 42
+  name: IMDb Movie Data Extraction
+  domain: data_for_analytics
+  type: datos
+  source:
+    category: book
+    organization: Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+    publisher: O'Reilly Media
+    book: R for Data Science, Second Edition
+    title: IMDB top films
+    url: https://github.com/hadley/r4ds/blob/main/webscraping.qmd
+    repository:
+      url: https://github.com/hadley/r4ds
+      path: webscraping.qmd
+    description: >
+      R for Data Science uses rvest to extract the IMDb Top 250 table and
+      transform information from an HTML page into structured movie data.
+  data:
+    description: >
+      Archived IMDb Top Movies page containing ranked movie information in HTML.
+    source_url: https://web.archive.org/web/20220201012049/https://www.imdb.com/chart/top/
+    availability: archived_web_page
+    files: []
+    notes: >
+      The book intentionally uses an archived page, which makes the source more
+      reproducible than scraping the current IMDb layout.
+  original_implementation:
+    technologies:
+      - R
+      - rvest
+      - HTML
+      - CSS selectors
+      - tidyverse
+    language: R
+    code_available: true
+    code_url: https://github.com/hadley/r4ds/blob/main/webscraping.qmd
+  problem:
+    context: >
+      Public analytical data are often published as human-readable web pages
+      rather than downloadable datasets.
+    objective: >
+      Extract movie-ranking data from an archived HTML page and transform it
+      into a clean tabular dataset ready for analytics.
+    analytical_questions:
+      - Which page elements correspond to analytical observations and variables?
+      - How can ranks, titles, years, and ratings be extracted reliably?
+      - Which parsing and type-conversion problems occur after extraction?
+      - How can the resulting dataset be validated against the source page?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - requests
+      - beautifulsoup4
+      - pandas
+    logical_steps:
+      - Download and freeze the archived IMDb HTML page.
+      - Identify the table or repeated movie elements.
+      - Extract the required fields.
+      - Normalize text, numeric, and year values.
+      - Construct a tidy movie table.
+      - Validate row count, rank uniqueness, and required fields.
+      - Persist the analytical dataset locally.
+    expected_outputs:
+      - frozen HTML source
+      - structured movie dataset
+      - extraction validation report
+      - reproducible data-ingestion script
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
