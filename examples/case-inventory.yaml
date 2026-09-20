@@ -13157,6 +13157,359 @@
     data: verified
     code: verified
 
+- id: 207
+  name: Spam Email Detection
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Detecting Spam Emails
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-02/spam-detection.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-02/spam-detection.ipynb
+    description: >
+      Packt builds a spam detector from raw SpamAssassin email messages, progressing
+      through text EDA, representation, preprocessing, Naive Bayes, and SVM evaluation.
+  data:
+    description: >
+      Labeled SpamAssassin public email corpus containing ham and spam messages.
+    source_url: https://spamassassin.apache.org/old/publiccorpus/
+    availability: repository_and_public
+    files:
+      - chapter-02/data.zip
+  original_implementation:
+    technologies:
+      - bag of words
+      - tf-idf
+      - text preprocessing
+      - Naive Bayes
+      - SVM
+      - ROC analysis
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-02/spam-detection.ipynb
+  problem:
+    context: >
+      Email systems need to separate unwanted or dangerous spam from legitimate correspondence.
+    objective: >
+      Build and compare text classifiers for detecting spam from raw email content.
+    analytical_questions:
+      - Which terms distinguish spam from legitimate email?
+      - How do alternative text representations affect classification?
+      - How do Naive Bayes and SVM compare on held-out messages?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - nltk
+    logical_steps:
+      - Parse raw email bodies.
+      - Explore class balance and characteristic terms.
+      - Normalize and vectorize text.
+      - Fit baseline and SVM classifiers.
+      - Compare held-out metrics and ROC behavior.
+    expected_outputs:
+      - cleaned email corpus
+      - characteristic-term analysis
+      - classifier comparison
+      - confusion matrix
+      - ROC curve
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 208
+  name: Newsgroup Topic Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Classifying Topics of Newsgroup Posts
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-03/topic-classification.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-03/topic-classification.ipynb
+    description: >
+      Packt develops a topic-classification workflow on 20 Newsgroups while using
+      PCA/LDA for exploration and comparing KNN and random forests.
+  data:
+    description: >
+      Approximately 18,000 labeled messages from the scikit-learn 20 Newsgroups corpus.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - text EDA
+      - PCA
+      - LDA
+      - word embeddings
+      - KNN
+      - random forest
+      - cross-validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-03/topic-classification.ipynb
+  problem:
+    context: >
+      Organizations need to route or organize large collections of unstructured posts,
+      tickets, or messages into topical categories automatically.
+    objective: >
+      Classify posts by topic and study how representation and dimensionality reduction affect the task.
+    analytical_questions:
+      - How separable are topics in reduced-dimensional spaces?
+      - Which text representation works best?
+      - How do KNN and random forest compare?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load and profile selected categories.
+      - Prepare text representations.
+      - Explore reduced-dimensional spaces.
+      - Tune KNN with cross-validation.
+      - Fit random forest alternatives.
+      - Compare class-level performance.
+    expected_outputs:
+      - topic EDA
+      - reduced-space visualization
+      - classifier comparison
+      - classification report
+      - confusion matrix
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 209
+  name: Software Review Sentiment
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Extracting Sentiments from Product Reviews
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-04/sentiment-analysis.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-04/sentiment-analysis.ipynb
+    description: >
+      Packt explores Amazon software reviews and reviewer helpfulness before building
+      logistic and neural sentiment classifiers.
+  data:
+    description: >
+      SNAP Amazon product metadata and software review text with ratings, users,
+      products, and helpfulness indicators.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-04/data.zip
+    availability: repository
+    files:
+      - chapter-04/data.zip
+  original_implementation:
+    technologies:
+      - text EDA
+      - logistic regression
+      - neural networks
+      - vectorization
+      - sentiment classification
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-04/sentiment-analysis.ipynb
+  problem:
+    context: >
+      Product-review text and star ratings can be used to infer sentiment while
+      reviewer behavior provides additional diagnostic context.
+    objective: >
+      Build sentiment classifiers for software reviews and diagnose review structure.
+    analytical_questions:
+      - How are ratings and review lengths distributed?
+      - How does reviewer helpfulness differ across reviewer types?
+      - How accurately can review text predict sentiment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - tensorflow
+    logical_steps:
+      - Load and deduplicate reviews.
+      - Explore ratings and helpfulness.
+      - Construct the sentiment target.
+      - Vectorize review text.
+      - Fit logistic and neural classifiers.
+      - Compare held-out performance.
+    expected_outputs:
+      - review diagnostics
+      - sentiment model comparison
+      - classification metrics
+      - example predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 210
+  name: English French Translation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Teaching Machines to Translate
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-06/seq2seq-LSTM.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-06/seq2seq-LSTM.ipynb
+    description: >
+      Packt trains an encoder-decoder LSTM on English-French sentence pairs and
+      evaluates generated translations with BLEU.
+  data:
+    description: >
+      English-French bilingual sentence pairs; the worked neural example uses 8,000 pairs.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/raw/main/chapter-06/data.zip
+    availability: repository
+    files:
+      - chapter-06/data.zip
+      - chapter-06/data/fra.txt
+  original_implementation:
+    technologies:
+      - sequence-to-sequence learning
+      - LSTM
+      - encoder-decoder
+      - neural machine translation
+      - BLEU
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-06/seq2seq-LSTM.ipynb
+  problem:
+    context: >
+      Translation requires mapping variable-length source-language sequences into coherent target-language sequences.
+    objective: >
+      Train and evaluate an end-to-end English-to-French neural translation model.
+    analytical_questions:
+      - How should source and target vocabularies be encoded?
+      - How does the encoder-decoder architecture represent context?
+      - How well do translations score under BLEU?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - tensorflow
+      - nltk
+    logical_steps:
+      - Load bilingual sentence pairs.
+      - Tokenize and encode both languages.
+      - Build encoder-decoder inputs.
+      - Train the seq2seq model.
+      - Generate translations.
+      - Evaluate representative outputs with BLEU.
+    expected_outputs:
+      - bilingual corpus
+      - trained translation model
+      - generated translations
+      - BLEU scores
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 211
+  name: Wikipedia Article Summarization
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Techniques for Text
+    title: Summarizing Wikipedia Articles
+    url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-07/text-summarization-transformer.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text
+      path: chapter-07/text-summarization-transformer.ipynb
+    description: >
+      Packt acquires Wikipedia pages for world capitals, creates article-summary
+      pairs, trains a Transformer for abstractive summarization, and evaluates with ROUGE.
+  data:
+    description: >
+      Wikipedia content and lead summaries for forty capital-city pages.
+    source_url: https://www.wikipedia.org/
+    availability: public_web
+    files: []
+  original_implementation:
+    technologies:
+      - Wikipedia acquisition
+      - Transformer
+      - attention
+      - abstractive summarization
+      - ROUGE
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Techniques-for-Text/blob/main/chapter-07/text-summarization-transformer.ipynb
+  problem:
+    context: >
+      Long reference articles must be condensed while preserving their main information.
+    objective: >
+      Build an abstractive summarizer from Wikipedia article-summary pairs.
+    analytical_questions:
+      - How should article and summary pairs be constructed?
+      - How does a Transformer generate summaries?
+      - How close are generated summaries to references under ROUGE?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - tensorflow
+      - wikipedia
+      - rouge-score
+    logical_steps:
+      - Acquire a fixed snapshot of selected pages.
+      - Separate content and reference summaries.
+      - Tokenize both corpora.
+      - Train an encoder-decoder Transformer.
+      - Generate held-out summaries.
+      - Calculate ROUGE metrics.
+    expected_outputs:
+      - article-summary corpus
+      - trained summarizer
+      - generated summaries
+      - ROUGE evaluation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
