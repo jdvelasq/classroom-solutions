@@ -810,6 +810,84 @@
     data: verified
     code: verified
 
+- id: 103
+  name: Reuters Knowledge Graph
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Blueprints for Text Analytics Using Python
+    title: Building a Knowledge Graph
+    url: https://github.com/blueprints-for-text-analytics-python/blueprints-text/blob/master/ch12/Knowledge_Graph.ipynb
+    repository:
+      url: https://github.com/blueprints-for-text-analytics-python/blueprints-text
+      path: ch12/Knowledge_Graph.ipynb
+    description: >
+      O'Reilly builds a knowledge graph from Reuters acquisition news through text
+      cleaning, named-entity recognition, entity normalization, coreference resolution,
+      co-occurrence analysis, relation extraction, and graph construction.
+  data:
+    description: >
+      Reuters acquisition news from the NLTK Reuters corpus.
+    source_url: https://www.nltk.org/book/ch02.html
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - spaCy
+      - NLTK Reuters
+      - named-entity recognition
+      - entity normalization
+      - coreference resolution
+      - relation extraction
+      - NetworkX
+    language: Python
+    code_available: true
+    code_url: https://github.com/blueprints-for-text-analytics-python/blueprints-text/blob/master/ch12/Knowledge_Graph.ipynb
+  problem:
+    context: >
+      Acquisition news contains organizations and relationships in unstructured prose;
+      downstream analysis requires these entities and relationships to be normalized
+      into a structured graph.
+    objective: >
+      Transform acquisition news into a curated entity-relation knowledge graph.
+    analytical_questions:
+      - Which organizations and entities occur in the corpus?
+      - How should aliases and name variations be resolved?
+      - Which entities co-occur and what relationships connect them?
+      - What graph structure emerges after normalization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - nltk
+      - spacy
+      - networkx
+    logical_steps:
+      - Load and clean Reuters acquisition articles.
+      - Extract named entities.
+      - Normalize aliases and entity variants.
+      - Resolve selected references and coreference patterns.
+      - Extract co-occurrences and relations.
+      - Construct a directed multigraph.
+      - Validate and inspect graph structure.
+    expected_outputs:
+      - cleaned Reuters corpus
+      - normalized entity table
+      - relation table
+      - co-occurrence graph
+      - knowledge graph
+      - graph diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -3811,6 +3889,240 @@
       - channel removal effects
       - attributed conversions
       - channel contribution summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 100
+  name: NASA Dataset Relationship Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Text Mining with R
+    title: Mining NASA Metadata
+    url: https://github.com/juliasilge/tidy-text-mining/blob/main/08-nasa-metadata.Rmd
+    repository:
+      url: https://github.com/juliasilge/tidy-text-mining
+      path: 08-nasa-metadata.Rmd
+    description: >
+      The book treats NASA dataset metadata as text and combines word co-occurrence,
+      correlations, tf-idf, networks, and topic modeling to reveal relationships
+      among thousands of datasets.
+  data:
+    description: >
+      NASA open-data metadata containing dataset titles, descriptions, keywords,
+      publishers, identifiers, and other catalog fields.
+    source_url: https://data.nasa.gov/data.json
+    availability: public
+    files:
+      - data/metadata.rda
+  original_implementation:
+    technologies:
+      - tidytext
+      - tf-idf
+      - pairwise co-occurrence
+      - correlation networks
+      - topic modeling
+      - igraph
+      - ggraph
+    language: R
+    code_available: true
+    code_url: https://github.com/juliasilge/tidy-text-mining/blob/main/08-nasa-metadata.Rmd
+  problem:
+    context: >
+      A large scientific data catalog contains tens of thousands of datasets whose
+      textual metadata can reveal thematic connections and redundancies not obvious
+      from individual catalog records.
+    objective: >
+      Discover thematic relationships among NASA datasets from titles, descriptions,
+      and keywords.
+    analytical_questions:
+      - Which terms and keywords commonly occur together?
+      - What networks of related datasets or concepts emerge?
+      - Which keywords are redundant or strongly correlated?
+      - What latent thematic structure appears in the catalog?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - networkx
+      - gensim
+      - matplotlib
+    logical_steps:
+      - Load and normalize NASA metadata.
+      - Tokenize title, description, and keyword fields.
+      - Calculate term frequencies and tf-idf.
+      - Build word and keyword co-occurrence relationships.
+      - Construct and analyze correlation networks.
+      - Fit exploratory topic models.
+      - Interpret thematic structure across datasets.
+    expected_outputs:
+      - cleaned metadata corpus
+      - characteristic-term tables
+      - keyword relationship network
+      - topic summaries
+      - dataset-theme diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 101
+  name: Social Language Evolution
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Text Mining with R
+    title: Comparing Twitter Archives
+    url: https://github.com/juliasilge/tidy-text-mining/blob/main/07-tweet-archives.Rmd
+    repository:
+      url: https://github.com/juliasilge/tidy-text-mining
+      path: 07-tweet-archives.Rmd
+    description: >
+      The book compares complete Twitter archives using word frequencies, log-odds,
+      sentiment, and time-varying word-use models to characterize how language differs
+      between users and changes over time.
+  data:
+    description: >
+      Archived tweets from two authors, including timestamps and tweet text.
+    source_url: https://github.com/juliasilge/tidy-text-mining/tree/main/data
+    availability: repository
+    files:
+      - data/tweets_julia.csv
+      - data/tweets_dave.csv
+  original_implementation:
+    technologies:
+      - tidytext
+      - log odds
+      - sentiment analysis
+      - binomial regression
+      - temporal text analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/juliasilge/tidy-text-mining/blob/main/07-tweet-archives.Rmd
+  problem:
+    context: >
+      Longitudinal social-media archives can reveal differences in vocabulary,
+      sentiment, and changing interests that raw tweet counts cannot capture.
+    objective: >
+      Compare language use across authors and identify terms whose usage changes
+      systematically through time.
+    analytical_questions:
+      - Which terms distinguish the authors?
+      - How do sentiment patterns compare?
+      - Which words become more or less common over time?
+      - How can temporal word-use trends be quantified?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - nltk
+      - statsmodels
+      - matplotlib
+    logical_steps:
+      - Load and normalize archived posts.
+      - Remove retweets, links, and platform artifacts.
+      - Tokenize text and calculate author-specific frequencies.
+      - Estimate distinctive-word log odds.
+      - Calculate sentiment summaries.
+      - Aggregate word counts over time.
+      - Fit trend models for changing word usage.
+    expected_outputs:
+      - author word-frequency comparison
+      - distinctive-term table
+      - sentiment comparison
+      - temporal trend models
+      - language-evolution charts
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 102
+  name: Usenet Text Landscape
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Text Mining with R
+    title: Analyzing Usenet Text
+    url: https://github.com/juliasilge/tidy-text-mining/blob/main/09-usenet.Rmd
+    repository:
+      url: https://github.com/juliasilge/tidy-text-mining
+      path: 09-usenet.Rmd
+    description: >
+      The book performs a start-to-finish analysis of 20 Newsgroups messages using
+      text cleaning, tf-idf, similarity networks, topic modeling, and sentiment diagnostics.
+  data:
+    description: >
+      Approximately 20,000 historical Usenet messages from 20 topical newsgroups.
+    source_url: https://github.com/juliasilge/tidy-text-mining/tree/main/data/20news-bydate
+    availability: repository
+    files:
+      - data/20news-bydate
+  original_implementation:
+    technologies:
+      - tidytext
+      - tf-idf
+      - pairwise correlation
+      - network analysis
+      - LDA
+      - sentiment analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/juliasilge/tidy-text-mining/blob/main/09-usenet.Rmd
+  problem:
+    context: >
+      Large discussion archives contain overlapping topical communities, distinctive
+      vocabulary, and sentiment patterns that can be reconstructed from raw messages.
+    objective: >
+      Characterize the topical and relational structure of a large discussion corpus.
+    analytical_questions:
+      - Which terms are characteristic of each discussion group?
+      - Which groups are linguistically similar?
+      - Can unsupervised topics recover known communities?
+      - How do sentiment patterns vary across groups?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - gensim
+      - networkx
+      - nltk
+    logical_steps:
+      - Load raw messages and remove headers, signatures, and quoted material.
+      - Tokenize and remove stop words.
+      - Calculate group-specific tf-idf.
+      - Build similarity relationships among groups.
+      - Fit exploratory topic models.
+      - Compare topic assignments with known groups.
+      - Diagnose sentiment patterns and influential terms.
+    expected_outputs:
+      - cleaned message corpus
+      - distinctive-term tables
+      - group similarity network
+      - topic model summaries
+      - sentiment diagnostics
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -6838,6 +7150,81 @@
     data: verified
     code: verified
 
+- id: 105
+  name: Bug Triage Explanation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Blueprints for Text Analytics Using Python
+    title: How to Explain a Text Classifier
+    url: https://github.com/blueprints-for-text-analytics-python/blueprints-text/blob/master/ch07/Explainable_AI.ipynb
+    repository:
+      url: https://github.com/blueprints-for-text-analytics-python/blueprints-text
+      path: ch07/Explainable_AI.ipynb
+    description: >
+      O'Reilly trains a component classifier for software bug reports and applies
+      model-explanation techniques such as LIME, ELI5, and anchors to understand predictions.
+  data:
+    description: >
+      Eclipse JDT bug reports with textual descriptions and component labels.
+    source_url: https://github.com/blueprints-for-text-analytics-python/blueprints-text/blob/master/data/jdt-bugs-dataset/eclipse_jdt.csv.gz
+    availability: repository
+    files:
+      - data/jdt-bugs-dataset/eclipse_jdt.csv.gz
+  original_implementation:
+    technologies:
+      - text classification
+      - SVM
+      - LIME
+      - ELI5
+      - anchors
+      - classification diagnostics
+    language: Python
+    code_available: true
+    code_url: https://github.com/blueprints-for-text-analytics-python/blueprints-text/blob/master/ch07/Explainable_AI.ipynb
+  problem:
+    context: >
+      Automated bug routing can assign reports to software components, but engineering
+      teams need to understand why a text classifier makes particular assignments.
+    objective: >
+      Predict bug-report components and explain individual and global classifier behavior.
+    analytical_questions:
+      - How accurately can bug reports be routed from text?
+      - Which words or phrases drive component predictions?
+      - How stable are local explanations?
+      - Which misclassifications are understandable from the explanation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - lime
+      - shap
+    logical_steps:
+      - Load and clean bug-report text.
+      - Construct a reproducible train/test split.
+      - Build the text classification pipeline.
+      - Evaluate class-level performance.
+      - Explain representative predictions.
+      - Inspect explanations for errors and ambiguous reports.
+      - Summarize global and local model behavior.
+    expected_outputs:
+      - bug component classifier
+      - classification report
+      - local explanations
+      - error explanation set
+      - interpretable feature summaries
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -7543,6 +7930,86 @@
       - campaign and source tables
       - temporal charts
       - working Streamlit dashboard
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 104
+  name: Consumer Complaint ML Pipeline
+  domain: data_products
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Building Machine Learning Pipelines
+    title: Consumer Complaint Pipeline
+    url: https://github.com/Building-ML-Pipelines/building-machine-learning-pipelines
+    repository:
+      url: https://github.com/Building-ML-Pipelines/building-machine-learning-pipelines
+      path: interactive-pipeline
+    description: >
+      The O'Reilly companion project turns a consumer-complaint model into a complete
+      TensorFlow Extended pipeline covering ingestion, validation, transformation,
+      training, analysis, orchestration, and serving.
+  data:
+    description: >
+      Consumer Financial Protection Bureau complaints containing product fields,
+      complaint narratives, company responses, and dispute outcomes.
+    source_url: https://www.consumerfinance.gov/data-research/consumer-complaints/
+    availability: public
+    files:
+      - consumer_complaints_with_narrative.csv
+  original_implementation:
+    technologies:
+      - TensorFlow
+      - TFX
+      - TensorFlow Data Validation
+      - TensorFlow Transform
+      - TensorFlow Model Analysis
+      - Apache Beam
+      - pipeline orchestration
+    language: Python
+    code_available: true
+    code_url: https://github.com/Building-ML-Pipelines/building-machine-learning-pipelines
+  problem:
+    context: >
+      A useful complaint model must move beyond a notebook into a reproducible
+      production pipeline with consistent data validation, feature transformation,
+      training, evaluation, and deployment.
+    objective: >
+      Build an end-to-end machine-learning pipeline for consumer complaint modeling.
+    analytical_questions:
+      - How should complaint data be validated before training?
+      - How can transformations be kept consistent between training and serving?
+      - What model-quality checks should gate deployment?
+      - How should pipeline components be orchestrated reproducibly?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - tensorflow
+      - tfx
+      - apache-beam
+      - pandas
+    logical_steps:
+      - Acquire and filter complaint data.
+      - Define data schema and validation checks.
+      - Implement reusable feature transformations.
+      - Train the complaint model.
+      - Evaluate model quality with pipeline-aware metrics.
+      - Package and orchestrate pipeline components.
+      - Validate serving behavior.
+    expected_outputs:
+      - validated complaint dataset
+      - transformation graph
+      - trained model
+      - evaluation report
+      - reproducible ML pipeline
+      - serving-ready artifact
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
