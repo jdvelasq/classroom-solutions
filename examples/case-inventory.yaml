@@ -10642,6 +10642,164 @@
     data: verified
     code: verified
 
+- id: 319
+  name: Bank Marketing Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Exploratory Data Analysis with R
+    title: Bank Marketing Exploratory Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R/blob/master/Chapter06/Chapter_6.r
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R
+      path: Chapter06/Chapter_6.r
+    description: >
+      Packt explores bank marketing data through cleaning, distribution analysis,
+      nonparametric associations, outlier diagnostics, mixture-based structure,
+      and probability-distribution checks.
+  data:
+    description: >
+      Bank marketing customer records with age, job, marital status, education,
+      balance, housing and personal loans, contact history, campaign duration,
+      and campaign variables.
+    source_url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R/blob/master/Chapter06/bank-additional-full.csv
+    availability: repository
+    files:
+      - Chapter06/bank-additional-full.csv
+  original_implementation:
+    technologies:
+      - exploratory data analysis
+      - rank correlations
+      - outlier detection
+      - mixture clustering
+      - distribution diagnostics
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R/blob/master/Chapter06/Chapter_6.r
+  problem:
+    context: >
+      Bank campaign records combine customer attributes and contact behavior, and
+      analysts need to understand distributions, anomalies, and latent structure
+      before building targeting models.
+    objective: >
+      Diagnose customer and campaign data quality and reveal meaningful structure
+      in bank marketing records.
+    analytical_questions:
+      - What unusual balance values or distributions require attention?
+      - How are age and balance associated?
+      - What latent groups appear in account balances?
+      - Which assumptions about normality or homogeneity are questionable?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate bank campaign records.
+      - Standardize types and categorical fields.
+      - Profile customer and campaign distributions.
+      - Calculate rank-based associations.
+      - Detect and inspect extreme balance values.
+      - Fit exploratory mixture models.
+      - Summarize distribution and structural diagnostics.
+    expected_outputs:
+      - data-quality summary
+      - distribution diagnostics
+      - correlation table
+      - outlier report
+      - exploratory customer groupings
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 320
+  name: Air Quality Anomaly Diagnostics
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Exploratory Data Analysis with R
+    title: Air Quality Exploratory Analysis
+    url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R/blob/master/Chapter07/Chapter_7.r
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R
+      path: Chapter07/Chapter_7.r
+    description: >
+      Packt examines multivariate air-quality sensor data with cleaning, humidity
+      relationships, iterative outlier detection, mixture-based grouping,
+      variance tests, autocorrelation, and spectral exploration.
+  data:
+    description: >
+      UCI Air Quality measurements with gas-sensor responses, temperature,
+      relative humidity, absolute humidity, dates, and times.
+    source_url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R/blob/master/Chapter07/AirQualityUCI.xlsx
+    availability: repository
+    files:
+      - Chapter07/AirQualityUCI.xlsx
+  original_implementation:
+    technologies:
+      - exploratory data analysis
+      - Grubbs outlier test
+      - mixture clustering
+      - Bartlett test
+      - autocorrelation
+      - spectral analysis
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Exploratory-Data-Analysis-with-R/blob/master/Chapter07/Chapter_7.r
+  problem:
+    context: >
+      Environmental sensor data contain temporal dependence, unusual observations,
+      and correlated humidity and pollutant measurements that can distort later analysis.
+    objective: >
+      Diagnose anomalies, distributional structure, and temporal dependence in
+      air-quality sensor measurements.
+    analytical_questions:
+      - Which sensor values are statistically unusual?
+      - How do absolute and relative humidity relate?
+      - Are variance assumptions stable across time?
+      - What autocorrelation or periodic structure appears in the measurements?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scipy
+      - statsmodels
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and clean air-quality measurements.
+      - Parse date and time fields.
+      - Profile humidity and sensor distributions.
+      - Detect candidate outliers iteratively.
+      - Explore mixture-based group structure.
+      - Examine autocorrelation and spectral behavior.
+      - Document observations requiring downstream treatment.
+    expected_outputs:
+      - cleaned sensor dataset
+      - outlier report
+      - humidity relationship plots
+      - temporal diagnostics
+      - anomaly and structure summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
