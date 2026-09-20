@@ -2459,3 +2459,79 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 33
+  name: Ad Click Prediction
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Python Machine Learning By Example, Second Edition
+    title: Predicting Online Ads Click-through with Tree-Based Algorithms
+    url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/blob/master/Chapter06/avazu_ctr.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition
+      path: Chapter06/avazu_ctr.py
+    description: >
+      Packt models online advertising click-through using categorical ad-serving
+      features, one-hot encoding, decision trees, and random forests.
+  data:
+    description: >
+      Avazu click-through-rate competition data with ad, device, site, app,
+      and contextual categorical variables.
+    source_url: https://www.kaggle.com/c/avazu-ctr-prediction
+    availability: public_with_kaggle_access
+    files: []
+  original_implementation:
+    technologies:
+      - one-hot encoding
+      - decision tree
+      - random forest
+      - ROC AUC
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/blob/master/Chapter06/avazu_ctr.py
+  problem:
+    context: >
+      Digital advertising platforms need to estimate the probability that an
+      impression will generate a click so campaigns can be evaluated and targeted.
+    objective: >
+      Predict ad click-through probability from high-cardinality categorical
+      impression data and compare tree-based models.
+    analytical_questions:
+      - Which contextual variables are informative for click-through prediction?
+      - How should high-cardinality categorical variables be represented?
+      - How well do decision trees and random forests rank likely clicks?
+      - Which segments have the highest predicted click propensity?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load a reproducible subset of the Avazu data.
+      - Remove identifiers that should not be modeled directly.
+      - Encode categorical predictors.
+      - Split observations reproducibly.
+      - Train decision-tree and random-forest classifiers.
+      - Compare ROC AUC and calibration-oriented diagnostics.
+      - Analyze predicted click propensity by segment.
+    expected_outputs:
+      - encoded analytical dataset
+      - fitted classifiers
+      - ROC AUC comparison
+      - click-propensity scores
+      - segment summary
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
