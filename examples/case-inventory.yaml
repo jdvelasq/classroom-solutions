@@ -797,3 +797,75 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 11
+  name: Multi-Label Classification of arXiv Paper Abstracts
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Large-scale multi-label text classification
+    url: https://keras.io/examples/nlp/multi_label_classification/
+    description: >
+      Official Keras example predicting one or more arXiv subject areas from paper abstracts.
+  data:
+    description: >
+      arXiv paper titles, abstracts, and subject-area labels collected through the arXiv API.
+    source_url: https://github.com/soumik12345/multi-label-text-classification/releases/download/v0.2/arxiv_data.csv
+    availability: public
+    files:
+      - arxiv_data.csv
+  original_implementation:
+    technologies:
+      - TextVectorization
+      - bigram TF-IDF
+      - multi-hot labels
+      - multilabel neural classification
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/multi_label_classification/
+  problem:
+    context: >
+      Scientific papers may belong to several subject areas simultaneously, so the
+      classification target is multi-label rather than mutually exclusive.
+    objective: >
+      Predict appropriate arXiv subject labels from abstract text.
+    analytical_questions:
+      - How should multiple labels per document be encoded?
+      - How imbalanced are the subject labels?
+      - How can abstract text be represented with n-gram TF-IDF?
+      - How accurately can a model recover multiple subject areas?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - tensorflow
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and inspect arXiv metadata.
+      - Parse label lists and analyze label frequencies.
+      - Create reproducible train, validation, and test splits.
+      - Vectorize abstracts with n-gram TF-IDF.
+      - Multi-hot encode target labels.
+      - Train a multilabel classifier.
+      - Evaluate and decode predicted subject areas.
+    expected_outputs:
+      - cleaned arXiv dataset
+      - label-frequency analysis
+      - vectorized abstracts
+      - trained multilabel model
+      - evaluation metrics
+      - decoded predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
