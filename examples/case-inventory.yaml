@@ -2383,3 +2383,79 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 32
+  name: Fetal Health Classification
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Python Machine Learning By Example, Second Edition
+    title: Cardiotocography Classification
+    url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/blob/master/Chapter05/B12322_05_code%20upload/ctg.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition
+      path: Chapter05/B12322_05_code upload/ctg.py
+    description: >
+      Packt uses cardiotocography measurements to classify fetal health states
+      with an RBF support vector machine and grid-search tuning.
+  data:
+    description: >
+      Cardiotocography records with fetal heart-rate and uterine-contraction features.
+    source_url: https://archive.ics.uci.edu/dataset/193/cardiotocography
+    availability: public
+    files:
+      - Chapter05/B12322_05_code upload/CTG.xls
+  original_implementation:
+    technologies:
+      - support vector machine
+      - RBF kernel
+      - grid search
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Machine-Learning-By-Example-Second-Edition/blob/master/Chapter05/B12322_05_code%20upload/ctg.py
+  problem:
+    context: >
+      Clinical monitoring records can be used to support the identification of
+      fetal health states from multiple physiological measurements.
+    objective: >
+      Classify fetal health states from cardiotocography features and evaluate
+      the effect of model tuning on predictive performance.
+    analytical_questions:
+      - How balanced are the fetal health classes?
+      - Which feature patterns distinguish the classes?
+      - How sensitive is performance to SVM hyperparameters?
+      - Which classes generate the largest prediction errors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the CTG dataset.
+      - Inspect class balance and feature distributions.
+      - Create reproducible train and test partitions.
+      - Standardize predictors where appropriate.
+      - Tune an RBF SVM with cross-validation.
+      - Evaluate class-level precision, recall, F1, and confusion patterns.
+      - Interpret model limitations.
+    expected_outputs:
+      - cleaned analytical dataset
+      - class distribution summary
+      - tuned classifier
+      - evaluation metrics
+      - confusion matrix
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
