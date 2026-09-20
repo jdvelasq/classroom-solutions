@@ -1,5 +1,6 @@
 - id: 1
   name: BlueBikes Demand Modeling
+  domain: analytics
   type: predictiva
   source:
     category: institution_course
@@ -77,8 +78,6 @@
     source: verified
     data: verified
     code: partial
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     High-value benchmark case because it is explicitly used in MIT xPRO continuing
     education. The public source confirms the case objective, and the official
@@ -87,6 +86,7 @@
 
 - id: 2
   name: Bike Demand Feature Engineering
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -164,8 +164,6 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     This is distinct from the MIT BlueBikes case because its primary pedagogical
     objective is feature representation for periodic variables rather than a
@@ -173,6 +171,7 @@
 
 - id: 3
   name: Bike Demand Forecasting
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -266,8 +265,6 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     This case uses the same underlying Bike Sharing Demand dataset as case 2 but
     is a distinct case because the pedagogical problem is forecasting with lagged
@@ -275,6 +272,7 @@
 
 - id: 4
   name: Project Theme Discovery
+  domain: analytics
   type: predictiva
   source:
     category: institution_course
@@ -342,14 +340,13 @@
     source: verified
     data: partial
     code: partial
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     Verified as a distinct MIT text-mining case. No matching project-description,
     LDA, or topic-modeling PRE/LAB was found in CLASSROOM.
 
 - id: 5
   name: News Topic Clustering
+  domain: analytics
   type: predictiva
   source:
     category: institution_course
@@ -423,14 +420,13 @@
     source: verified
     data: partial
     code: partial
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     Verified as distinct from the existing CLASSROOM basic text-classification and
     tokenization cases; the analytical task is unsupervised graph-based document clustering.
 
 - id: 6
   name: Document Topic Discovery
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -498,11 +494,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 7
   name: Document Clustering
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -572,11 +567,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 8
   name: Document Classification
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -642,8 +636,6 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     Distinct from CLASSROOM PRE_04_clasificacion_basica_texto, which uses financial
     phrases with positive, neutral, and negative sentiment labels rather than
@@ -651,6 +643,7 @@
 
 - id: 9
   name: Review Sentiment Classification
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -720,14 +713,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     Distinct from the existing CLASSROOM financial-sentence sentiment case in
     domain, dataset scale, binary target, raw-file ingestion, and neural workflow.
 
 - id: 10
   name: News Topic Classification
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -795,11 +787,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 11
   name: Research Topic Classification
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -867,11 +858,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 12
   name: Statement Relationship Analysis
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -939,11 +929,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 13
   name: Document Entity Extraction
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1011,11 +1000,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 14
   name: Document Fact Extraction
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1084,11 +1072,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 15
   name: Efficient Review Labeling
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1158,11 +1145,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 16
   name: Review Sentiment Modeling
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1231,11 +1217,10 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 17
   name: Social Sentiment Analytics
+  domain: analytics
   type: descriptiva
   source:
     category: official_repository
@@ -1314,8 +1299,6 @@
     source: verified
     data: partial
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     Distinct from the existing CLASSROOM financial-sentence sentiment classifier:
     this case emphasizes streaming/social ingestion, search, aggregation, and
@@ -1323,6 +1306,7 @@
 
 - id: 18
   name: Literary Theme Discovery
+  domain: analytics
   type: predictiva
   source:
     category: official_tutorial
@@ -1393,11 +1377,10 @@
     source: verified
     data: verified
     code: partial
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 19
   name: Election Sentiment Analytics
+  domain: analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1463,14 +1446,13 @@
     source: verified
     data: verified
     code: partial
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
   notes: >
     This is a descriptive lexicon-based social-media sentiment case, not a duplicate
     of CLASSROOM's supervised Financial PhraseBank classifier.
 
 - id: 20
   name: Election Emotion Analytics
+  domain: analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1536,11 +1518,10 @@
     source: verified
     data: verified
     code: partial
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 21
   name: Customer Review Analytics
+  domain: analytics
   type: descriptiva
   source:
     category: official_tutorial
@@ -1608,11 +1589,10 @@
     source: verified
     data: partial
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 22
   name: Market Social Monitoring
+  domain: analytics
   type: descriptiva
   source:
     category: official_repository
@@ -1688,14 +1668,13 @@
     source: verified
     data: partial
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 23
   name: Customer Aspect Analytics
+  domain: analytics
   type: descriptiva
   source:
-    category: book_repository
+    category: book
     organization: Practical NLP
     publisher: O'Reilly Media
     book: Practical Natural Language Processing
@@ -1764,14 +1743,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 24
   name: Legal Contract Extraction
-  type: descriptiva
+  domain: data_for_analytics
+  type: datos
   source:
-    category: book_repository
+    category: book
     organization: Practical NLP
     publisher: O'Reilly Media
     book: Practical Natural Language Processing
@@ -1841,14 +1819,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 25
   name: Social Trend Monitoring
+  domain: analytics
   type: descriptiva
   source:
-    category: book_repository
+    category: book
     organization: Practical NLP
     publisher: O'Reilly Media
     book: Practical Natural Language Processing
@@ -1917,14 +1894,13 @@
     source: verified
     data: partial
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 26
   name: Music Recommendation
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Machine Learning Techniques for Text
@@ -1995,14 +1971,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 27
   name: Toxic Content Detection
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Machine Learning Techniques for Text
@@ -2073,14 +2048,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 28
   name: Speech Transcript Clustering
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Machine Learning Techniques for Text
@@ -2158,14 +2132,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 29
   name: Website Traffic Analysis
+  domain: analytics
   type: descriptiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Hands-On Data Science and Python Machine Learning
@@ -2233,14 +2206,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 30
   name: Movie Recommendation
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Hands-On Data Science and Python Machine Learning
@@ -2306,14 +2278,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 31
   name: Hiring Outcome Modeling
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Hands-On Data Science and Python Machine Learning
@@ -2381,14 +2352,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 32
   name: Fetal Health Classification
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Python Machine Learning By Example, Second Edition
@@ -2457,14 +2427,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 33
   name: Ad Click Prediction
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Python Machine Learning By Example, Second Edition
@@ -2533,14 +2502,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 34
   name: Stock Price Forecasting
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Python Machine Learning By Example, Second Edition
@@ -2614,14 +2582,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 35
   name: California Housing Valuation
+  domain: analytics
   type: predictiva
   source:
-    category: book_repository
+    category: book
     organization: Aurélien Géron
     publisher: O'Reilly Media
     book: Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, Third Edition
@@ -2697,14 +2664,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 36
   name: Scooter Trip Pipeline
+  domain: data_for_analytics
   type: datos
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Data Engineering with Python
@@ -2738,7 +2704,7 @@
       and delivered reliably before downstream analytics can use them.
     objective: >
       Build a reproducible batch pipeline that cleans scooter-trip data and
-      produces a validated analytical extract for a defined reporting period.
+      delivers a validated analytical dataset for a defined reporting period.
     analytical_questions:
       - Which fields require normalization before analysis?
       - Which records belong to the requested reporting window?
@@ -2770,14 +2736,13 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 37
   name: Civic Issue API Pipeline
+  domain: data_for_analytics
   type: datos
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Data Engineering with Python
@@ -2813,8 +2778,8 @@
       Public-service analytics often depends on operational records exposed
       through paginated external APIs rather than local files.
     objective: >
-      Ingest civic-issue records from an external API, normalize the JSON
-      response, and produce a stable analytical dataset.
+      Ingest civic-issue records from an external API, normalize and validate
+      them, and deliver a stable dataset ready for downstream analytics.
     analytical_questions:
       - Which fields are returned by the civic-issue API?
       - How should API parameters and pagination be handled?
@@ -2848,14 +2813,13 @@
     source: verified
     data: partial
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
 
 - id: 38
   name: User Event Streaming
+  domain: data_for_analytics
   type: datos
   source:
-    category: book_repository
+    category: book
     organization: Packt Publishing
     publisher: Packt
     book: Data Engineering with Python
@@ -2886,10 +2850,11 @@
     code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/tree/master/Chapter13
   problem:
     context: >
-      Event-driven systems require producers and consumers that exchange
-      structured records reliably through a streaming platform.
+      Analytics systems increasingly depend on operational event streams that
+      must be captured, validated, and made replayable before they can support analysis.
     objective: >
-      Generate, publish, consume, and validate a reproducible stream of user events.
+      Generate, publish, consume, validate, and persist a reproducible stream of
+      user events as an analytical data source for downstream processing.
     analytical_questions:
       - What schema should each event follow?
       - How are events partitioned and consumed?
@@ -2924,5 +2889,3 @@
     source: verified
     data: verified
     code: verified
-    already_in_inventory: false
-    already_in_classroom_pre_or_lab: false
