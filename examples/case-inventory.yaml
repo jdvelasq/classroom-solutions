@@ -2235,3 +2235,76 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 30
+  name: Movie Recommendation
+  type: predictiva
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Hands-On Data Science and Python Machine Learning
+    title: Item-Based Collaborative Filtering
+    url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/ItemBasedCF.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning
+      path: ItemBasedCF.ipynb
+    description: >
+      Packt builds an item-based collaborative-filtering recommender from the
+      MovieLens 100K ratings matrix.
+  data:
+    description: >
+      MovieLens 100K movie ratings and movie metadata included in the repository.
+    source_url: https://grouplens.org/datasets/movielens/100k/
+    availability: public
+    files:
+      - ml-100k/u.data
+      - ml-100k/u.item
+  original_implementation:
+    technologies:
+      - pandas
+      - item-item correlation
+      - collaborative filtering
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Science-and-Python-Machine-Learning/blob/master/ItemBasedCF.ipynb
+  problem:
+    context: >
+      Media platforms need to recommend items that are likely to interest users
+      based on patterns in historical ratings.
+    objective: >
+      Use item-to-item similarity in a sparse ratings matrix to generate personalized movie recommendations.
+    analytical_questions:
+      - Which movies exhibit similar rating patterns?
+      - Which similarities are unreliable because of low support?
+      - What movies should be recommended to a selected user?
+      - How does minimum-rating support affect recommendation quality?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load and join MovieLens ratings and movie metadata.
+      - Construct the user-item ratings matrix.
+      - Compute item-to-item rating correlations.
+      - Filter similarities using minimum support.
+      - Generate recommendations for selected users.
+      - Inspect recommendation plausibility and popularity bias.
+    expected_outputs:
+      - user-item matrix
+      - item similarity matrix
+      - filtered similarity table
+      - user recommendation list
+      - diagnostic summaries
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
