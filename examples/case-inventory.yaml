@@ -20273,6 +20273,150 @@
     data: verified
     code: verified
 
+- id: 321
+  name: Business Process Next-Activity Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Memorial University of Newfoundland
+    publisher: Memorial University of Newfoundland
+    book: Business Analytics: Theory and Applications
+    title: Business Process Prediction with LSTM
+    url: https://github.com/jevermann/busi4720-ml/blob/main/process_prediction.py
+    repository:
+      url: https://github.com/jevermann/busi4720-ml
+      path: process_prediction.py
+    description: >
+      The textbook companion builds LSTM sequences from a BPI Challenge event log and predicts the next process activity from the five preceding activities.
+  data:
+    description: >
+      BPI Challenge 2012 event log with case identifiers, timestamps, activities, lifecycle states, resources, and case attributes.
+    source_url: https://data.4tu.nl/articles/dataset/BPI_Challenge_2012/12689204
+    availability: public
+    files:
+      - BPI_Challenge_2012.xes.gz
+  original_implementation:
+    technologies:
+      - Python
+      - pm4py
+      - event-log preprocessing
+      - embeddings
+      - LSTM
+      - next-activity prediction
+    language: Python
+    code_available: true
+    code_url: https://github.com/jevermann/busi4720-ml/blob/main/process_prediction.py
+  problem:
+    context: >
+      Running business-process cases generate sequences of events, and predicting the next activity can support proactive monitoring and intervention.
+    objective: >
+      Learn sequence patterns from completed cases and predict the next process activity for an ongoing case.
+    analytical_questions:
+      - How should event logs be converted into supervised sequences?
+      - Which prefix length provides sufficient process context?
+      - How accurately can the next activity be predicted?
+      - How can predictions be rolled forward to simulate a possible continuation of a case?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pm4py
+      - tensorflow
+    logical_steps:
+      - Load and clean the XES event log.
+      - Retain completed events and order them within cases.
+      - Build activity vocabularies and fixed-length prefixes.
+      - Create training and validation sequences.
+      - Fit an embedding-plus-LSTM classifier.
+      - Evaluate next-activity accuracy.
+      - Generate recursive process continuations.
+    expected_outputs:
+      - prepared event-log sequences
+      - next-activity classifier
+      - validation metrics
+      - activity probability distributions
+      - simulated case continuation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 322
+  name: DJIA LSTM Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Memorial University of Newfoundland
+    publisher: Memorial University of Newfoundland
+    book: Business Analytics: Theory and Applications
+    title: Stock Market Prediction
+    url: https://github.com/jevermann/busi4720-ml/blob/main/lstm_example.py
+    repository:
+      url: https://github.com/jevermann/busi4720-ml
+      path: lstm_example.py
+    description: >
+      The textbook companion predicts next-day DJIA closing-price changes from rolling sequences of market variables and compares stateless, stateful, and stacked LSTM architectures.
+  data:
+    description: >
+      Daily Dow Jones Industrial Average market data from 2000 to 2021 with open, close, high, low, volume, differences, and percentage changes.
+    source_url: https://evermann.ca/busi4720/djia.data.csv
+    availability: public
+    files:
+      []
+  original_implementation:
+    technologies:
+      - Python
+      - TensorFlow
+      - Keras
+      - time-series windows
+      - LSTM
+      - stateful LSTM
+      - sequence-to-sequence
+    language: Python
+    code_available: true
+    code_url: https://github.com/jevermann/busi4720-ml/blob/main/lstm_example.py
+  problem:
+    context: >
+      Financial market variables form ordered sequences where temporal context may contain information about the next day's price movement.
+    objective: >
+      Compare recurrent neural-network architectures for forecasting next-day DJIA closing-price changes.
+    analytical_questions:
+      - How should market data be transformed into leakage-safe sequences?
+      - Does a stateful LSTM improve on a stateless model?
+      - Does stacking recurrent layers improve validation error?
+      - How sensitive are results to sequence length and normalization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - tensorflow
+      - matplotlib
+    logical_steps:
+      - Load daily DJIA data.
+      - Create difference and percentage-change features.
+      - Split chronologically into training and validation periods.
+      - Normalize using training statistics only.
+      - Construct rolling input sequences.
+      - Fit alternative LSTM architectures.
+      - Compare validation losses and forecast behavior.
+    expected_outputs:
+      - sequence datasets
+      - LSTM model comparison
+      - validation loss curves
+      - next-day price-change predictions
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
