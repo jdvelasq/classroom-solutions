@@ -12556,6 +12556,223 @@
     data: verified
     code: verified
 
+- id: 194
+  name: Fuel Economy Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: Applied Predictive Modeling
+    title: Predicting Fuel Economy
+    url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/02_A_Short_Tour.R
+    repository:
+      url: https://github.com/cran/AppliedPredictiveModeling
+      path: inst/chapters/02_A_Short_Tour.R
+    description: >
+      Kuhn and Johnson compare linear, quadratic, and MARS models for vehicle fuel
+      economy, training on 2010 vehicles and testing generalization on 2011 vehicles.
+  data:
+    description: >
+      Vehicle records for consecutive model years containing engine displacement
+      and measured fuel efficiency.
+    source_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/data/FuelEconomy.RData
+    availability: repository_package_dataset
+    files:
+      - data/FuelEconomy.RData
+  original_implementation:
+    technologies:
+      - caret
+      - linear regression
+      - polynomial regression
+      - MARS
+      - cross-validation
+      - temporal holdout
+    language: R
+    code_available: true
+    code_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/02_A_Short_Tour.R
+  problem:
+    context: >
+      Fuel efficiency must be estimated for new vehicles while accounting for
+      nonlinear relationships and generalization to a later model year.
+    objective: >
+      Compare regression forms and validate fuel-economy predictions on a later vehicle cohort.
+    analytical_questions:
+      - Is engine displacement related linearly to fuel efficiency?
+      - Do nonlinear models improve cross-validated performance?
+      - How well do 2010 models generalize to 2011 vehicles?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load the two model-year datasets.
+      - Explore displacement versus fuel economy.
+      - Fit linear and nonlinear models.
+      - Compare cross-validation error.
+      - Score the later model year.
+      - Compare out-of-year performance.
+    expected_outputs:
+      - model comparison table
+      - cross-validation metrics
+      - temporal holdout metrics
+      - prediction plots
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 195
+  name: Grant Success Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: Applied Predictive Modeling
+    title: Predicting Successful Grant Applications
+    url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/12_Discriminant_Analysis.R
+    repository:
+      url: https://github.com/cran/AppliedPredictiveModeling
+      path: inst/chapters/12_Discriminant_Analysis.R
+    description: >
+      Kuhn and Johnson compare several classification families for grant success
+      while contrasting ordinary cross-validation with a later-year holdout.
+  data:
+    description: >
+      Historical grant applications with applicant and proposal descriptors and
+      successful or unsuccessful outcomes.
+    source_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/CreateGrantData.R
+    availability: reproducible_from_source
+    files:
+      - inst/chapters/CreateGrantData.R
+  original_implementation:
+    technologies:
+      - logistic regression
+      - LDA
+      - PLS
+      - elastic net
+      - sparse LDA
+      - ROC AUC
+      - temporal validation
+    language: R
+    code_available: true
+    code_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/12_Discriminant_Analysis.R
+  problem:
+    context: >
+      Grant-review data can shift across funding cycles, so random validation may
+      overstate how well a model will perform on future applications.
+    objective: >
+      Predict grant success and compare model families under random and later-year validation.
+    analytical_questions:
+      - Which application characteristics are informative?
+      - How do alternative classifiers compare?
+      - How different are cross-validation and later-year ROC estimates?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Reconstruct the grant dataset.
+      - Separate historical and later-year cohorts.
+      - Build full and reduced feature sets.
+      - Fit several classifiers.
+      - Compare random and temporal validation.
+      - Interpret ROC and feature importance.
+    expected_outputs:
+      - grant modeling dataset
+      - classifier comparison
+      - ROC curves
+      - temporal validation analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 196
+  name: Cost-Sensitive Job Scheduling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: Applied Predictive Modeling
+    title: Job Scheduling
+    url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/17_Job_Scheduling.R
+    repository:
+      url: https://github.com/cran/AppliedPredictiveModeling
+      path: inst/chapters/17_Job_Scheduling.R
+    description: >
+      Kuhn and Johnson model HPC scheduling classes with explicit asymmetric
+      misclassification costs and compare ordinary and cost-sensitive classifiers.
+  data:
+    description: >
+      High-performance-computing scheduling records with protocol, compounds,
+      input fields, iterations, queue state, time variables, and four outcome classes.
+    source_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/data/schedulingData.RData
+    availability: repository_package_dataset
+    files:
+      - data/schedulingData.RData
+  original_implementation:
+    technologies:
+      - caret
+      - cost-sensitive classification
+      - CART
+      - random forest
+      - SVM
+      - C5.0
+      - repeated cross-validation
+    language: R
+    code_available: true
+    code_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/17_Job_Scheduling.R
+  problem:
+    context: >
+      Underestimating the resource class of a computing job can be much more costly
+      than nearby classification errors.
+    objective: >
+      Predict scheduling classes while explicitly minimizing asymmetric classification cost.
+    analytical_questions:
+      - Which job attributes distinguish scheduling classes?
+      - How should asymmetric errors be represented?
+      - Which classifier minimizes expected cost rather than only error rate?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and transform scheduling records.
+      - Define the asymmetric cost matrix.
+      - Fit baseline classifiers.
+      - Fit cost-sensitive alternatives.
+      - Evaluate repeated cross-validation by cost.
+      - Compare held-out confusion matrices and total cost.
+    expected_outputs:
+      - cost matrix
+      - classifier comparison
+      - cost-sensitive validation table
+      - confusion matrices
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -13566,6 +13783,80 @@
       - warehouse utilization table
       - destination fulfillment table
       - constraint audit
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 197
+  name: Concrete Mixture Optimization
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Springer
+    publisher: Springer
+    book: Applied Predictive Modeling
+    title: Compressive Strength of Concrete Mixtures
+    url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/10_Case_Study_Concrete.R
+    repository:
+      url: https://github.com/cran/AppliedPredictiveModeling
+      path: inst/chapters/10_Case_Study_Concrete.R
+    description: >
+      Kuhn and Johnson compare models for concrete compressive strength and then
+      optimize feasible mixture proportions using fitted response surfaces.
+  data:
+    description: >
+      Concrete mixtures with cement, slag, fly ash, water, superplasticizer,
+      aggregates, age, and measured compressive strength.
+    source_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/data/concrete.RData
+    availability: repository_package_dataset
+    files:
+      - data/concrete.RData
+  original_implementation:
+    technologies:
+      - caret
+      - neural networks
+      - boosted trees
+      - Cubist
+      - Nelder-Mead optimization
+      - mixture constraints
+    language: R
+    code_available: true
+    code_url: https://github.com/cran/AppliedPredictiveModeling/blob/master/inst/chapters/10_Case_Study_Concrete.R
+  problem:
+    context: >
+      After learning the nonlinear relationship between concrete composition and
+      strength, the practical decision is which feasible mixture should be produced.
+    objective: >
+      Learn strength response models and optimize mixture proportions for maximum predicted strength.
+    analytical_questions:
+      - Which model best estimates compressive strength?
+      - What constraints define feasible mixtures?
+      - Which ingredient proportions maximize predicted 28-day strength?
+      - Do different fitted models recommend similar formulations?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and consolidate concrete mixtures.
+      - Fit and compare nonlinear regression models.
+      - Select strong response-surface models.
+      - Define mixture feasibility constraints.
+      - Optimize predicted strength from multiple starts.
+      - Compare recommended formulations.
+    expected_outputs:
+      - regression model comparison
+      - optimized mixture formulations
+      - predicted strength values
+      - feasibility audit
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
