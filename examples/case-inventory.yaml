@@ -1897,6 +1897,85 @@
     data: verified
     code: verified
 
+- id: 239
+  name: Wage Modeling Preprocessing
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Cleaning Cookbook, Second Edition
+    title: Building a Complex Preprocessing Pipeline
+    url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/12.%20FunctionsClasses/9.%20pipeline_preprocessing_complicated.py
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition
+      path: 12. FunctionsClasses/9. pipeline_preprocessing_complicated.py
+    description: >
+      Packt builds a reusable preprocessing pipeline for NLS97 wage modeling,
+      combining outlier treatment, scaling, categorical encoding, KNN imputation,
+      target transformation, and cross-validation.
+  data:
+    description: >
+      National Longitudinal Survey of Youth 1997-derived wage records with GPA,
+      parental education and income, work history, gender, degree completion, and wages.
+    source_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/12.%20FunctionsClasses/data/nls97wages.csv
+    availability: repository
+    files:
+      - 12. FunctionsClasses/data/nls97wages.csv
+  original_implementation:
+    technologies:
+      - ColumnTransformer
+      - outlier treatment
+      - scaling
+      - categorical encoding
+      - KNN imputation
+      - target transformation
+      - cross-validation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Cleaning-Cookbook-Second-Edition/blob/main/12.%20FunctionsClasses/9.%20pipeline_preprocessing_complicated.py
+  problem:
+    context: >
+      Wage modeling combines numeric, binary, and categorical predictors with
+      missing values and outliers, making ad hoc preprocessing prone to leakage
+      and inconsistent treatment.
+    objective: >
+      Build a reproducible preprocessing workflow that prepares heterogeneous survey
+      variables correctly inside model validation.
+    analytical_questions:
+      - Which preprocessing steps belong to each variable type?
+      - How should outliers and missing values be handled within validation folds?
+      - How can target scaling be separated from predictor transformation?
+      - What cross-validated performance follows from the complete preprocessing pipeline?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - feature-engine
+    logical_steps:
+      - Load and validate wage records.
+      - Separate numerical, categorical, and binary predictors.
+      - Define type-specific preprocessing pipelines.
+      - Add outlier handling and imputation.
+      - Combine transformations with ColumnTransformer.
+      - Wrap preprocessing with the regression model.
+      - Evaluate the full pipeline by cross-validation.
+    expected_outputs:
+      - preprocessing specification
+      - transformed feature pipeline
+      - cross-validation metrics
+      - leakage-safe wage modeling workflow
+      - reusable preprocessing artifact
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
