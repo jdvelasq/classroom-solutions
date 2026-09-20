@@ -1150,3 +1150,74 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 16
+  name: IMDB Text Classification with a Transformer
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Text classification with Transformer
+    url: https://keras.io/examples/nlp/text_classification_with_transformer/
+    description: >
+      Official Keras example implementing a Transformer block and positional
+      embeddings for IMDB sentiment classification.
+  data:
+    description: >
+      Pre-tokenized IMDB movie-review dataset distributed through Keras.
+    source_url: https://storage.googleapis.com/tensorflow/tf-keras-datasets/imdb.npz
+    availability: public
+    files:
+      - imdb.npz
+  original_implementation:
+    technologies:
+      - multi-head attention
+      - Transformer
+      - token embeddings
+      - positional embeddings
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/text_classification_with_transformer/
+  problem:
+    context: >
+      Sentiment classification is used to demonstrate how self-attention and
+      positional representations can replace recurrent architectures for text.
+    objective: >
+      Implement a Transformer encoder block and evaluate it on binary review classification.
+    analytical_questions:
+      - How are token and positional embeddings combined?
+      - How does self-attention transform review sequences?
+      - What performance is achieved with a small custom Transformer?
+      - What are the model's main architectural components?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - numpy
+      - matplotlib
+    logical_steps:
+      - Load the Keras IMDB sequences.
+      - Pad reviews to a fixed sequence length.
+      - Implement token and position embeddings.
+      - Implement a Transformer block with multi-head attention.
+      - Build and train the classifier.
+      - Evaluate validation performance.
+      - Inspect learning curves and predictions.
+    expected_outputs:
+      - padded sequence datasets
+      - custom Transformer layer
+      - trained classifier
+      - evaluation metrics
+      - learning curves
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
