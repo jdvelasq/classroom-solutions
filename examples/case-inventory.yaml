@@ -2667,6 +2667,81 @@
     data: verified
     code: verified
 
+- id: 297
+  name: Churn Feature Reduction
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Data Preprocessing in Python
+    title: Data Reduction
+    url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python/blob/main/Chapter13/Chapter%2013.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python
+      path: Chapter13/Chapter 13.ipynb
+    description: >
+      Packt uses customer churn data to compare sampling, feature subset selection,
+      decision-tree and random-forest importance, and brute-force dimensionality
+      reduction before downstream predictive modeling.
+  data:
+    description: >
+      Customer churn records with behavioral and account variables used for
+      classification and feature-reduction experiments.
+    source_url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python
+    availability: repository
+    files:
+      - Customer Churn.csv
+  original_implementation:
+    technologies:
+      - random sampling
+      - stratified sampling
+      - feature subset selection
+      - decision trees
+      - random forests
+      - dimensionality reduction
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Data-Preprocessing-in-Python/blob/main/Chapter13/Chapter%2013.ipynb
+  problem:
+    context: >
+      A churn dataset may contain more predictors than are necessary for an accurate
+      model, increasing computation and potentially weakening generalization.
+    objective: >
+      Construct a smaller analytics-ready predictor set while preserving useful
+      information for churn modeling.
+    analytical_questions:
+      - Which variables contribute most to churn prediction?
+      - How small can the feature set become without substantial performance loss?
+      - How do filter, tree-based, and brute-force selection methods compare?
+      - What computational savings result from feature reduction?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate churn data.
+      - Establish a baseline feature set and model.
+      - Rank variables with model-based importance.
+      - Evaluate reduced subsets.
+      - Compare predictive performance and runtime.
+      - Select a compact feature representation.
+    expected_outputs:
+      - feature importance ranking
+      - reduced feature subsets
+      - performance comparison
+      - runtime comparison
+      - analytics-ready reduced dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
