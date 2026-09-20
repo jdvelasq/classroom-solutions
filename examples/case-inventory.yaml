@@ -279,7 +279,7 @@
   source:
     category: institution_course
     organization: MIT Professional Education
-    program: Data Science: Data to Insights
+    program: Data Science-Data to Insights
     title: LDA Analysis - Finding Themes in Project Descriptions
     url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
     description: >
@@ -354,7 +354,7 @@
   source:
     category: institution_course
     organization: MIT Professional Education
-    program: Data Science: Data to Insights
+    program: Data Science-Data to Insights
     title: Spectral Clustering - Grouping News Stories
     url: https://w10.naukri.com/mailers/2019/upload/xpro.pdf
     description: >
