@@ -13481,6 +13481,162 @@
     data: verified
     code: verified
 
+- id: 426
+  name: Football Page Network
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Social Media Analytics with R
+    title: Facebook Page Network Analysis
+    url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter03/fb_pages_network_analysis.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R
+      path: Chapter03/fb_pages_network_analysis.R
+    description: >
+      Packt analyzes a network of football-related Facebook pages using activity
+      metrics, graph distances, centrality, coreness, cliques, and community detection.
+  data:
+    description: >
+      Facebook page graph for Premier League-related pages with page categories,
+      fan counts, talking-about counts, posting activity, and network links.
+    source_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter03/pl.gml
+    availability: repository
+    files:
+      - Chapter03/pl.gml
+  original_implementation:
+    technologies:
+      - igraph
+      - degree centrality
+      - closeness
+      - betweenness
+      - PageRank
+      - coreness
+      - community detection
+      - modularity
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter03/fb_pages_network_analysis.R
+  problem:
+    context: >
+      Social-media pages form a relational ecosystem in which popularity, structural
+      influence, and community membership can differ substantially.
+    objective: >
+      Diagnose the structure of a football social-media ecosystem and identify
+      influential pages, core-periphery structure, and communities.
+    analytical_questions:
+      - Which pages are most influential under alternative centrality measures?
+      - How dense and clustered is the page network?
+      - Which pages form the structural core?
+      - What communities emerge and how cohesive are they?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - networkx
+      - cdlib
+      - matplotlib
+    logical_steps:
+      - Load the page graph and node attributes.
+      - Profile activity and audience variables.
+      - Calculate graph-level structural metrics.
+      - Rank nodes by several centrality measures.
+      - Analyze coreness and local neighborhoods.
+      - Detect communities with multiple algorithms.
+      - Compare modularity and community membership.
+    expected_outputs:
+      - page activity table
+      - network summary metrics
+      - centrality rankings
+      - core-periphery analysis
+      - community assignments
+      - network visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 427
+  name: Linux Repository Activity
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Learning Social Media Analytics with R
+    title: Mining and Analyzing Repository Activity in GitHub
+    url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter05/github_repo_activity_analysis.R
+    repository:
+      url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R
+      path: Chapter05/github_repo_activity_analysis.R
+    description: >
+      Packt retrieves GitHub repository statistics and analyzes Linux kernel
+      commit frequency, day-of-week activity, contributor participation, and
+      additions/deletions over time.
+  data:
+    description: >
+      GitHub API repository statistics for the Linux kernel, including weekly
+      commit activity, contributor participation, and code-frequency histories.
+    source_url: https://api.github.com/repos/torvalds/linux/stats/commit_activity
+    availability: public_api
+    files: []
+  original_implementation:
+    technologies:
+      - GitHub API
+      - temporal aggregation
+      - commit activity
+      - contributor analysis
+      - code frequency
+      - ggplot2
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Learning-Social-Media-Analytics-with-R/blob/master/Chapter05/github_repo_activity_analysis.R
+  problem:
+    context: >
+      Repository activity histories can reveal development cadence, contributor
+      participation, and bursts of code change that are not visible from aggregate
+      repository statistics.
+    objective: >
+      Characterize the temporal development activity of a large open-source repository.
+    analytical_questions:
+      - How does commit volume vary by week and day of week?
+      - How does owner participation compare with other contributors?
+      - When do additions and deletions peak?
+      - Are there persistent temporal patterns in repository activity?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - requests
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Retrieve repository activity statistics from the GitHub API.
+      - Convert epoch timestamps to calendar time.
+      - Reconstruct daily and weekly commit histories.
+      - Compare owner and contributor participation.
+      - Analyze additions and deletions through time.
+      - Identify bursts and recurring temporal patterns.
+      - Summarize repository development cadence.
+    expected_outputs:
+      - weekly commit series
+      - day-of-week activity distributions
+      - contributor participation comparison
+      - code-change timeline
+      - repository activity diagnostics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -26586,7 +26742,6 @@
     source: verified
     data: verified
     code: verified
-
 
 - id: 54
   name: Prediction to Action
