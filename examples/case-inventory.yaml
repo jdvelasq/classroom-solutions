@@ -26339,6 +26339,255 @@
     data: verified
     code: verified
 
+- id: 422
+  name: Cardiovascular Risk Interpretation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Interpretable Machine Learning with Python
+    title: Cardiovascular Disease Risk Factors
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter02/CVD.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python
+      path: Chapter02/CVD.ipynb
+    description: >
+      Packt models cardiovascular disease risk and uses the case to study interpretable predictions, non-linearity, and model interpretation.
+  data:
+    description: >
+      Case dataset supplied or downloaded by the companion implementation.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/tree/master/datasets
+    availability: repository_or_download
+    files: []
+  original_implementation:
+    technologies:
+      - logistic regression
+      - interpretable machine learning
+      - classification
+      - model diagnostics
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter02/CVD.ipynb
+  problem:
+    context: >
+      Clinical risk models must provide useful predictions while remaining understandable enough to inspect individual risk estimates.
+    objective: >
+      Predict cardiovascular disease risk and interpret the factors contributing to predictions.
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the case data.
+      - Prepare predictors and target.
+      - Reproduce the original model.
+      - Evaluate predictive performance.
+      - Apply the case-specific interpretation or robustness analysis.
+      - Summarize actionable analytical findings.
+    expected_outputs:
+      - prepared dataset
+      - fitted model
+      - performance metrics
+      - case-specific diagnostic outputs
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 423
+  name: Chocolate Rating Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Interpretable Machine Learning with Python
+    title: Chocolate Rating Classification
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter06/ChocoRatings.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python
+      path: Chapter06/ChocoRatings.ipynb
+    description: >
+      Packt classifies chocolate ratings and explains predictions with SHAP and LIME, including tabular and text-based local explanations.
+  data:
+    description: >
+      Case dataset supplied or downloaded by the companion implementation.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/tree/master/datasets
+    availability: repository_or_download
+    files: []
+  original_implementation:
+    technologies:
+      - support vector classification
+      - LightGBM
+      - SHAP
+      - LIME
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter06/ChocoRatings.ipynb
+  problem:
+    context: >
+      Product-quality predictions can combine structured attributes and textual information, but analysts also need to understand why particular products receive predicted quality classes.
+    objective: >
+      Classify chocolate quality and explain individual predictions from tabular and textual evidence.
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the case data.
+      - Prepare predictors and target.
+      - Reproduce the original model.
+      - Evaluate predictive performance.
+      - Apply the case-specific interpretation or robustness analysis.
+      - Summarize actionable analytical findings.
+    expected_outputs:
+      - prepared dataset
+      - fitted model
+      - performance metrics
+      - case-specific diagnostic outputs
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 424
+  name: Fruit Image Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Interpretable Machine Learning with Python
+    title: Fruit Classification
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter08/FruitClassifier_part1.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python
+      path: Chapter08/FruitClassifier_part1.ipynb
+    description: >
+      Packt classifies fruit images with a convolutional neural network and investigates errors using activation maps, saliency, Grad-CAM, and integrated gradients.
+  data:
+    description: >
+      Case dataset supplied or downloaded by the companion implementation.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/tree/master/datasets
+    availability: repository_or_download
+    files: []
+  original_implementation:
+    technologies:
+      - convolutional neural networks
+      - image classification
+      - Grad-CAM
+      - integrated gradients
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter08/FruitClassifier_part1.ipynb
+  problem:
+    context: >
+      Automated visual inspection can classify products from images, but misclassifications need to be understood before such models can be trusted.
+    objective: >
+      Classify fruit images and diagnose why the model succeeds or fails on individual images.
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the case data.
+      - Prepare predictors and target.
+      - Reproduce the original model.
+      - Evaluate predictive performance.
+      - Apply the case-specific interpretation or robustness analysis.
+      - Summarize actionable analytical findings.
+    expected_outputs:
+      - prepared dataset
+      - fitted model
+      - performance metrics
+      - case-specific diagnostic outputs
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 425
+  name: Face Mask Robustness
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt Publishing
+    publisher: Packt
+    book: Interpretable Machine Learning with Python
+    title: Face Mask Classification
+    url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter13/Masks_part1.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python
+      path: Chapter13/Masks_part1.ipynb
+    description: >
+      Packt trains a face-mask image classifier, subjects it to adversarial attacks, applies defenses, and evaluates robustness.
+  data:
+    description: >
+      Case dataset supplied or downloaded by the companion implementation.
+    source_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/tree/master/datasets
+    availability: repository_or_download
+    files: []
+  original_implementation:
+    technologies:
+      - convolutional neural networks
+      - adversarial attacks
+      - adversarial training
+      - robustness evaluation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Interpretable-Machine-Learning-with-Python/blob/master/Chapter13/Masks_part1.ipynb
+  problem:
+    context: >
+      Image classifiers can perform well on ordinary samples while failing under small adversarial perturbations.
+    objective: >
+      Measure and improve the robustness of a face-mask classifier under adversarial attacks.
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate the case data.
+      - Prepare predictors and target.
+      - Reproduce the original model.
+      - Evaluate predictive performance.
+      - Apply the case-specific interpretation or robustness analysis.
+      - Summarize actionable analytical findings.
+    expected_outputs:
+      - prepared dataset
+      - fitted model
+      - performance metrics
+      - case-specific diagnostic outputs
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
