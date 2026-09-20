@@ -3933,6 +3933,80 @@
     data: verified
     code: verified
 
+- id: 411
+  name: Airbnb Review Mongo Ingestion
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Ingestion with Python Cookbook
+    title: Ingesting Data from MongoDB Using PySpark
+    url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook/blob/main/Chapter_5/ingesting_data_from_mongodb_using_pyspark/Ingesting%20data%20from%20MongoDB%20using%20PySpark.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook
+      path: Chapter_5/ingesting_data_from_mongodb_using_pyspark/Ingesting data from MongoDB using PySpark.ipynb
+    description: >
+      Packt configures Spark with the MongoDB connector and ingests Airbnb listing
+      and review documents from a NoSQL database into a distributed analytical dataframe.
+  data:
+    description: >
+      MongoDB sample Airbnb listings and reviews containing property, host, review,
+      pricing, and location information.
+    source_url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook/tree/main/Chapter_5/datasets/sample_airbnb
+    availability: repository
+    files:
+      - Chapter_5/datasets/sample_airbnb/listingsAndReviews.json
+  original_implementation:
+    technologies:
+      - MongoDB
+      - PySpark
+      - SparkSession
+      - MongoDB Spark Connector
+      - distributed ingestion
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook/blob/main/Chapter_5/ingesting_data_from_mongodb_using_pyspark/Ingesting%20data%20from%20MongoDB%20using%20PySpark.ipynb
+  problem:
+    context: >
+      Airbnb-style operational data may be stored as nested NoSQL documents, while
+      downstream analytics require scalable tabular access through Spark.
+    objective: >
+      Ingest nested Airbnb records from MongoDB into a distributed analytics-ready dataframe.
+    analytical_questions:
+      - How should Spark be configured to access MongoDB securely?
+      - Which collection and document fields are required for downstream analysis?
+      - How are nested fields represented after ingestion?
+      - Which schema or flattening operations are needed before analytics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pymongo
+      - pandas
+    logical_steps:
+      - Load the sample Airbnb documents into MongoDB.
+      - Configure the Spark MongoDB connector.
+      - Create a Spark session with the database URI and collection.
+      - Ingest the collection as a Spark dataframe.
+      - Inspect and validate inferred schema.
+      - Flatten selected nested property and review fields.
+      - Persist an analytics-ready distributed table.
+    expected_outputs:
+      - MongoDB source collection
+      - Spark dataframe
+      - schema profile
+      - flattened analytical table
+      - ingestion validation summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
