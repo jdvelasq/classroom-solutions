@@ -1008,3 +1008,74 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 14
+  name: Extractive Question Answering with BERT
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Text Extraction with BERT
+    url: https://keras.io/examples/nlp/text_extraction_with_bert/
+    description: >
+      Official Keras example fine-tuning BERT on SQuAD to identify the span of
+      context text that answers a natural-language question.
+  data:
+    description: >
+      Stanford Question Answering Dataset containing questions, context paragraphs,
+      and annotated answer spans.
+    source_url: https://rajpurkar.github.io/SQuAD-explorer/
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - BERT
+      - Hugging Face Transformers
+      - extractive question answering
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/text_extraction_with_bert/
+  problem:
+    context: >
+      Given a question and a context paragraph, the model must locate the exact
+      span in the paragraph that answers the question.
+    objective: >
+      Fine-tune BERT for extractive question answering and evaluate exact answer-span recovery.
+    analytical_questions:
+      - How are questions and contexts jointly tokenized?
+      - How are answer start and end positions encoded?
+      - How accurately can the model identify answer spans?
+      - What kinds of questions produce span-selection errors?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - transformers
+      - pandas
+      - numpy
+    logical_steps:
+      - Download SQuAD data.
+      - Parse contexts, questions, and answer spans.
+      - Tokenize question-context pairs.
+      - Map answer character offsets to token positions.
+      - Fine-tune BERT for start and end token prediction.
+      - Evaluate exact-match behavior.
+      - Inspect correct and incorrect answer spans.
+    expected_outputs:
+      - processed QA dataset
+      - fine-tuned BERT model
+      - exact-match evaluation
+      - predicted answer spans
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
