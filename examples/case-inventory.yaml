@@ -1130,7 +1130,7 @@
 
 - id: 39
   name: Website Experiment Analysis
-  domain: descriptive_and_diagnostics_analytics
+  domain: analytics_fundamentals
   source:
     category: book
     organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
@@ -1196,6 +1196,170 @@
       - effect-size summary
       - significance-test results
       - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 53
+  name: Leakage Diagnosis
+  domain: analytics_fundamentals
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: Data Leakage
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch11_data_leakage.ipynb
+    description: >
+      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
+      controls, leakage introduced by incorrect standardization, and misleading
+      classification behavior under quasi-complete separation.
+  data:
+    description: >
+      Synthetic regression and classification data generated in the notebook so
+      that the true data-generating process is known and leakage effects can be
+      measured directly.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - linear regression
+      - logistic regression
+      - gradient boosting
+      - train-test splitting
+      - standardization
+      - simulation
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+  problem:
+    context: >
+      Predictive performance can look unrealistically strong when features or
+      preprocessing steps expose information that would not be available at the
+      moment a real prediction is made.
+    objective: >
+      Diagnose common forms of data leakage by comparing apparently valid models
+      with leakage-safe alternatives under a known data-generating process.
+    analytical_questions:
+      - Which candidate features contain information from the future or from the target?
+      - How does standardizing before the train-test split contaminate evaluation?
+      - How much does leakage inflate apparent predictive performance?
+      - Which validation design better represents the information available at prediction time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Generate a deterministic dataset with a known causal and temporal structure.
+      - Define the intended prediction moment and available information.
+      - Fit a baseline leakage-safe model.
+      - Introduce a post-outcome or bad-control feature.
+      - Compare performance with and without the leaked feature.
+      - Compare preprocessing before versus inside the training pipeline.
+      - Inspect classification behavior under near-separation.
+      - Summarize which design choices create invalid performance estimates.
+    expected_outputs:
+      - reproducible synthetic dataset
+      - leakage-safe baseline metrics
+      - leaked-model metrics
+      - preprocessing comparison
+      - performance inflation table
+      - diagnostic plots
+      - leakage audit
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    This case is intentionally framed as an analytical quality-control problem,
+    not as a generic modeling tutorial. Its transferable professional skill is
+    detecting invalid predictive evidence before deployment.
+
+- id: 124
+  name: Bayesian Experiment Lift
+  domain: analytics_fundamentals
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Analytics for Marketing
+    title: Experiments
+    url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter13/Experiments.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing
+      path: Chapter13/Experiments.ipynb
+    description: >
+      Packt develops an experiment-analysis case around binomial outcomes, Type I
+      and Type II errors, Beta posteriors, credible intervals, and posterior lift
+      between treatment and control conversion rates.
+  data:
+    description: >
+      Synthetic control and treatment conversion counts used to illustrate
+      frequentist error and Bayesian uncertainty.
+    source_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter13/Experiments.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - binomial testing
+      - Type I error
+      - Type II error
+      - Beta distributions
+      - Bayesian credible intervals
+      - treatment lift
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Analytics-for-Marketing/blob/main/Chapter13/Experiments.ipynb
+  problem:
+    context: >
+      Marketing experiments require more than a point estimate of conversion lift;
+      decision makers need to understand sampling error and uncertainty around
+      treatment-versus-control differences.
+    objective: >
+      Quantify experiment uncertainty and estimate the posterior distribution of
+      treatment lift.
+    analytical_questions:
+      - What do Type I and Type II errors mean operationally?
+      - How does sample size affect uncertainty in conversion rates?
+      - What credible interval surrounds each conversion rate?
+      - What is the posterior distribution and credible interval of treatment lift?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Define control and treatment successes and trials.
+      - Demonstrate frequentist error concepts.
+      - Construct Beta posterior distributions.
+      - Calculate credible intervals for conversion rates.
+      - Sample posterior treatment and control rates.
+      - Derive posterior lift samples.
+      - Summarize uncertainty around lift.
+    expected_outputs:
+      - experiment error illustration
+      - posterior conversion distributions
+      - credible intervals
+      - posterior lift distribution
+      - lift credible interval
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -4671,93 +4835,6 @@
     source: verified
     data: verified
     code: verified
-
-- id: 53
-  name: Leakage Diagnosis
-  domain: predictive_analytics
-  source:
-    category: book
-    organization: Daniel Vaughan
-    publisher: O'Reilly Media
-    book: Data Science: The Hard Parts
-    title: Data Leakage
-    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-    repository:
-      url: https://github.com/dvaughan79/data-science-hard-parts-code
-      path: ch11_data_leakage.ipynb
-    description: >
-      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
-      controls, leakage introduced by incorrect standardization, and misleading
-      classification behavior under quasi-complete separation.
-  data:
-    description: >
-      Synthetic regression and classification data generated in the notebook so
-      that the true data-generating process is known and leakage effects can be
-      measured directly.
-    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-    availability: embedded_generated
-    files: []
-  original_implementation:
-    technologies:
-      - linear regression
-      - logistic regression
-      - gradient boosting
-      - train-test splitting
-      - standardization
-      - simulation
-      - scikit-learn
-    language: Python
-    code_available: true
-    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-  problem:
-    context: >
-      Predictive performance can look unrealistically strong when features or
-      preprocessing steps expose information that would not be available at the
-      moment a real prediction is made.
-    objective: >
-      Diagnose common forms of data leakage by comparing apparently valid models
-      with leakage-safe alternatives under a known data-generating process.
-    analytical_questions:
-      - Which candidate features contain information from the future or from the target?
-      - How does standardizing before the train-test split contaminate evaluation?
-      - How much does leakage inflate apparent predictive performance?
-      - Which validation design better represents the information available at prediction time?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - numpy
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Generate a deterministic dataset with a known causal and temporal structure.
-      - Define the intended prediction moment and available information.
-      - Fit a baseline leakage-safe model.
-      - Introduce a post-outcome or bad-control feature.
-      - Compare performance with and without the leaked feature.
-      - Compare preprocessing before versus inside the training pipeline.
-      - Inspect classification behavior under near-separation.
-      - Summarize which design choices create invalid performance estimates.
-    expected_outputs:
-      - reproducible synthetic dataset
-      - leakage-safe baseline metrics
-      - leaked-model metrics
-      - preprocessing comparison
-      - performance inflation table
-      - diagnostic plots
-      - leakage audit
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-  notes: >
-    This case is intentionally framed as an analytical quality-control problem,
-    not as a generic modeling tutorial. Its transferable professional skill is
-    detecting invalid predictive evidence before deployment.
 
 - id: 1
   name: BlueBikes Demand Modeling
@@ -8828,6 +8905,230 @@
       - targeting rule
       - targeted customer list
       - campaign revenue and profit analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 125
+  name: Multi-Vehicle Routing
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Genetic Algorithms with Python, Second Edition
+    title: Vehicle Routing Problem
+    url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_04/04_solve_vrp.py
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition
+      path: chapter_04/04_solve_vrp.py
+    description: >
+      Packt formulates a multi-vehicle routing problem and uses a genetic algorithm
+      to minimize the maximum distance traveled by any vehicle while preserving
+      feasible route structure.
+  data:
+    description: >
+      TSPLIB-style city locations and distance matrices based on the bayg29 instance,
+      with a specified depot and three vehicles.
+    source_url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/tree/main/chapter_04/tsp-data
+    availability: repository
+    files:
+      - chapter_04/tsp-data/bayg29.tsp
+      - chapter_04/tsp-data/bayg29-dist.pickle
+      - chapter_04/tsp-data/bayg29-loc.pickle
+  original_implementation:
+    technologies:
+      - DEAP
+      - genetic algorithms
+      - vehicle routing
+      - elitism
+      - route optimization
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_04/04_solve_vrp.py
+  problem:
+    context: >
+      Multiple vehicles must serve a set of locations from a common depot while
+      avoiding an excessively long route for any single vehicle.
+    objective: >
+      Find a multi-vehicle routing plan that minimizes the longest vehicle route.
+    analytical_questions:
+      - How should locations be partitioned among vehicles?
+      - What route should each vehicle follow?
+      - How does the objective differ from minimizing only total distance?
+      - How quickly does the genetic algorithm converge?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - deap
+      - matplotlib
+    logical_steps:
+      - Load city locations and distances.
+      - Define depot and fleet size.
+      - Encode candidate multi-vehicle routes.
+      - Define maximum-route-distance fitness.
+      - Configure crossover, mutation, selection, and elitism.
+      - Run the genetic algorithm reproducibly.
+      - Decode and visualize the best route plan.
+    expected_outputs:
+      - vehicle route assignments
+      - total and maximum route distances
+      - convergence history
+      - route visualization
+      - optimized routing plan
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 126
+  name: Nurse Shift Scheduling
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Genetic Algorithms with Python, Second Edition
+    title: Nurse Scheduling Problem
+    url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_05/02_solve_nurses.py
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition
+      path: chapter_05/02_solve_nurses.py
+    description: >
+      Packt encodes nurse-shift assignments as a constrained optimization problem
+      and uses a genetic algorithm with penalties for hard-constraint violations.
+  data:
+    description: >
+      Scheduling parameters and constraints embedded in the companion nurse-scheduling
+      problem class.
+    source_url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_05/nurses.py
+    availability: embedded
+    files:
+      - chapter_05/nurses.py
+  original_implementation:
+    technologies:
+      - DEAP
+      - genetic algorithms
+      - constraint penalties
+      - workforce scheduling
+      - elitism
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Genetic-Algorithms-with-Python-Second-Edition/blob/main/chapter_05/02_solve_nurses.py
+  problem:
+    context: >
+      A care service must assign nurses to shifts while satisfying staffing and
+      scheduling constraints and minimizing the total penalty of undesirable assignments.
+    objective: >
+      Produce a feasible low-cost nurse schedule under explicit hard and soft constraints.
+    analytical_questions:
+      - Which candidate schedules violate hard constraints?
+      - How should hard violations be penalized?
+      - Which schedule minimizes total assignment cost?
+      - How does the solution improve across generations?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - deap
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Define nurses, shifts, and scheduling constraints.
+      - Encode a schedule as a binary decision vector.
+      - Separate hard and soft constraints.
+      - Define the penalized objective function.
+      - Configure genetic operators.
+      - Optimize the schedule reproducibly.
+      - Decode and audit the best schedule.
+    expected_outputs:
+      - optimized shift schedule
+      - hard-constraint audit
+      - soft-constraint cost
+      - convergence history
+      - schedule summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 127
+  name: Forest Harvest Policy
+  domain: prescriptive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Simulation Modeling with Python, Second Edition
+    title: Forest Management
+    url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition/blob/main/Chapter11/tiny_forest_management_modified.py
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition
+      path: Chapter11/tiny_forest_management_modified.py
+    description: >
+      Packt models forest management as a Markov decision process and uses policy
+      iteration to choose between harvest and wait decisions under stochastic fire risk.
+  data:
+    description: >
+      Synthetic forest-state transition and reward matrices generated with
+      pymdptoolbox's canonical forest-management example.
+    source_url: https://pymdptoolbox.readthedocs.io/
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - Markov decision process
+      - policy iteration
+      - stochastic transitions
+      - discounted rewards
+      - mdptoolbox
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Simulation-Modeling-with-Python-Second-Edition/blob/main/Chapter11/tiny_forest_management_modified.py
+  problem:
+    context: >
+      A forest manager repeatedly chooses whether to harvest or wait while forest
+      age and stochastic fire risk affect future rewards.
+    objective: >
+      Determine the long-run state-dependent harvest policy that maximizes discounted reward.
+    analytical_questions:
+      - How do transition probabilities represent forest growth and fire risk?
+      - What rewards are associated with waiting and harvesting?
+      - Which action is optimal in each forest state?
+      - How sensitive is the policy to discounting and fire probability?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - pymdptoolbox
+    logical_steps:
+      - Define forest states and actions.
+      - Construct stochastic transition matrices.
+      - Define state-action rewards.
+      - Choose a discount factor.
+      - Solve the MDP with policy iteration.
+      - Inspect the value function and optimal policy.
+      - Run sensitivity scenarios for rewards and fire risk.
+    expected_outputs:
+      - transition matrices
+      - reward matrix
+      - state value function
+      - optimal harvest policy
+      - sensitivity comparison
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
