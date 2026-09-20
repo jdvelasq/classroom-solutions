@@ -7733,6 +7733,86 @@
     data: verified
     code: verified
 
+- id: 238
+  name: Subway Operating State Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Statistics Cookbook
+    title: Hidden Markov Subway Model
+    url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter10/10__5__subwaymodel.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Statistics-Cookbook
+      path: Chapter10/10__5__subwaymodel.R
+    description: >
+      Packt applies Poisson hidden Markov models to subway passenger counts to infer
+      latent open and closed operating states and extends state transitions with
+      weather and machinery-road information.
+  data:
+    description: >
+      Subway observations containing passenger counts, weather, latent operating
+      state labels for evaluation, and an extended machinery-road indicator.
+    source_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/tree/master/Chapter10
+    availability: repository
+    files:
+      - Chapter10/subway_data.csv
+      - Chapter10/subway_data_extended.csv
+  original_implementation:
+    technologies:
+      - R
+      - hidden Markov models
+      - Poisson emissions
+      - latent states
+      - transition covariates
+      - posterior probabilities
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter10/10__5__subwaymodel.R
+  problem:
+    context: >
+      Passenger counts contain indirect evidence about whether a subway system is
+      operating normally, while weather and infrastructure conditions may affect
+      transitions between latent operating regimes.
+    objective: >
+      Infer hidden subway operating states from passenger-flow data and diagnose
+      the variables associated with state transitions.
+    analytical_questions:
+      - Can passenger counts separate open and closed states?
+      - What posterior probability is assigned to each operating regime?
+      - How accurately do inferred states recover known states?
+      - How do weather and machinery conditions affect transition behavior?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - hmmlearn
+      - matplotlib
+    logical_steps:
+      - Load and validate subway observations.
+      - Encode weather and infrastructure covariates.
+      - Fit a count-oriented latent-state model.
+      - Estimate posterior state probabilities.
+      - Assign the most likely operating state.
+      - Compare inferred and known states.
+      - Examine transition behavior under operational covariates.
+    expected_outputs:
+      - latent state assignments
+      - posterior state probability series
+      - state confusion table
+      - transition diagnostics
+      - operating-regime visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 53
   name: Leakage Diagnosis
   domain: predictive_analytics
@@ -14925,6 +15005,81 @@
       - selected speech features
       - random-subset benchmark
       - held-out classification metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 237
+  name: Shoe Sales Multicollinearity
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Statistics Cookbook
+    title: Diagnosing Correlated Predictors
+    url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter03/03__03_correlations.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Statistics-Cookbook
+      path: Chapter03/03__03_correlations.R
+    description: >
+      Packt models sales from apparel and footwear price variables and diagnoses
+      linear dependencies and multicollinearity before constructing a more stable
+      regression specification with aggregated predictors.
+  data:
+    description: >
+      Sales observations with prices for women's and men's apparel and several
+      footwear categories.
+    source_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter03/shoes_sales.csv
+    availability: repository
+    files:
+      - Chapter03/shoes_sales.csv
+  original_implementation:
+    technologies:
+      - R
+      - linear regression
+      - linear-combination detection
+      - variance inflation factors
+      - predictor aggregation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Statistics-Cookbook/blob/master/Chapter03/03__03_correlations.R
+  problem:
+    context: >
+      Sales regressions can become unstable when related price variables encode
+      overlapping information, producing ill-conditioned models and unreliable coefficients.
+    objective: >
+      Diagnose multicollinearity and redesign the predictor representation before
+      fitting a more stable sales model.
+    analytical_questions:
+      - Which price variables are linearly dependent?
+      - How severe is multicollinearity in the initial model?
+      - Which variables can be removed or combined?
+      - How does the revised specification change model stability and interpretation?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - numpy
+    logical_steps:
+      - Load and inspect sales and price variables.
+      - Fit an initial multiple regression.
+      - Detect linear combinations and inspect matrix conditioning.
+      - Calculate variance inflation factors.
+      - Remove or aggregate redundant price variables.
+      - Refit and compare the revised regression.
+    expected_outputs:
+      - initial regression diagnostics
+      - collinearity and VIF table
+      - revised predictor specification
+      - stable sales regression
+      - coefficient interpretation
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
