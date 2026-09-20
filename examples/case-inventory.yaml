@@ -2699,3 +2699,76 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 36
+  name: Scooter Trip Pipeline
+  type: datos
+  source:
+    category: book_repository
+    organization: Packt Publishing
+    publisher: Packt
+    book: Data Engineering with Python
+    title: Cleaning and Orchestrating Scooter Data
+    url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter05/AirflowClean.py
+    repository:
+      url: https://github.com/PacktPublishing/Data-Engineering-with-Python
+      path: Chapter05/AirflowClean.py
+    description: >
+      Packt uses Apache Airflow and pandas to clean scooter-trip records,
+      normalize timestamps, filter a target date range, and move the resulting artifact.
+  data:
+    description: >
+      Scooter trip records containing trip timing and location-related fields.
+    source_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/tree/master/Chapter05
+    availability: repository
+    files:
+      - Chapter05/scooter.csv
+  original_implementation:
+    technologies:
+      - Apache Airflow
+      - pandas
+      - PythonOperator
+      - BashOperator
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Engineering-with-Python/blob/master/Chapter05/AirflowClean.py
+  problem:
+    context: >
+      Operational mobility records must be cleaned, standardized, filtered,
+      and delivered reliably before downstream analytics can use them.
+    objective: >
+      Build a reproducible batch pipeline that cleans scooter-trip data and
+      produces a validated analytical extract for a defined reporting period.
+    analytical_questions:
+      - Which fields require normalization before analysis?
+      - Which records belong to the requested reporting window?
+      - How should pipeline steps be ordered and made repeatable?
+      - What artifact should be delivered to downstream analytics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pathlib
+    logical_steps:
+      - Load and validate the raw scooter-trip file.
+      - Remove irrelevant fields.
+      - Normalize column names and timestamp types.
+      - Filter the required reporting interval.
+      - Write a deterministic cleaned extract.
+      - Validate row counts, schema, and date boundaries.
+      - Record pipeline execution results.
+    expected_outputs:
+      - cleaned scooter dataset
+      - reporting-period extract
+      - validation summary
+      - deterministic output artifact
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
