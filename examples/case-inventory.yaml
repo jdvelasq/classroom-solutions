@@ -940,3 +940,71 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 13
+  name: Named Entity Recognition with Transformers
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: Keras
+    program: Code Examples - Natural Language Processing
+    title: Named Entity Recognition using Transformers
+    url: https://keras.io/examples/nlp/ner_transformers/
+    description: >
+      Official Keras token-classification example for recognizing people,
+      organizations, locations, and miscellaneous entities.
+  data:
+    description: >
+      Processed CoNLL-2003 shared-task corpus with token-level named-entity labels.
+    source_url: https://huggingface.co/datasets/eriktks/conll2003
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - Transformer
+      - token classification
+      - subword tokenization
+      - Keras
+    language: Python
+    code_available: true
+    code_url: https://keras.io/examples/nlp/ner_transformers/
+  problem:
+    context: >
+      Unstructured text must be transformed into structured entity mentions such
+      as persons, organizations, and locations.
+    objective: >
+      Train and evaluate a Transformer-based named-entity recognition model.
+    analytical_questions:
+      - How are token-level entity labels represented?
+      - How should subword tokenization be reconciled with word-level labels?
+      - Which entity types are easiest and hardest to recognize?
+      - How should NER be evaluated beyond overall token accuracy?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - keras
+      - tensorflow
+      - datasets
+    logical_steps:
+      - Load the processed CoNLL-2003 corpus.
+      - Inspect tokens and BIO-style entity labels.
+      - Tokenize and align entity labels.
+      - Train a Transformer token classifier.
+      - Evaluate precision, recall, and F1 by entity type.
+      - Inspect representative prediction errors.
+    expected_outputs:
+      - tokenized labeled corpus
+      - trained NER model
+      - per-entity metrics
+      - representative extracted entities
+      - error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
