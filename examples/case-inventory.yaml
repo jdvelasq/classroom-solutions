@@ -25583,6 +25583,163 @@
     data: verified
     code: verified
 
+- id: 412
+  name: Vehicle Time-Series Classification
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Deep Learning for Time Series Data Cookbook
+    title: CNN Time-Series Classification
+    url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/blob/main/Chapter_8/8.3_cnn_tsc.py
+    repository:
+      url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook
+      path: Chapter_8/8.3_cnn_tsc.py
+    description: >
+      Packt trains a one-dimensional convolutional neural network on the UCR Car
+      time-series dataset, using train/validation/test separation, scaling, early
+      stopping, and confusion-matrix evaluation.
+  data:
+    description: >
+      UCR Car time-series classification dataset with labeled univariate sequences
+      representing four vehicle classes.
+    source_url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/tree/main/assets/datasets/Car
+    availability: repository
+    files:
+      - assets/datasets/Car/Car_TRAIN.tsv
+      - assets/datasets/Car/Car_TEST.tsv
+  original_implementation:
+    technologies:
+      - PyTorch
+      - Lightning
+      - one-dimensional CNN
+      - time-series classification
+      - early stopping
+      - confusion matrix
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/blob/main/Chapter_8/8.3_cnn_tsc.py
+  problem:
+    context: >
+      Sequential sensor-like profiles may contain shape patterns that distinguish
+      object classes even when individual time points are not independently informative.
+    objective: >
+      Classify complete time-series profiles into vehicle classes using a convolutional model.
+    analytical_questions:
+      - How should time-series observations be scaled without leaking test information?
+      - Which temporal patterns can a one-dimensional CNN learn?
+      - Which vehicle classes are most frequently confused?
+      - How does early stopping affect generalization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - torch
+      - lightning
+      - scikit-learn
+    logical_steps:
+      - Load predefined training and test series.
+      - Separate class labels from sequential measurements.
+      - Fit scaling on training data only.
+      - Create an internal validation split.
+      - Train a one-dimensional CNN with early stopping.
+      - Evaluate held-out predictions.
+      - Inspect confusion patterns by class.
+    expected_outputs:
+      - prepared time-series tensors
+      - trained CNN classifier
+      - validation learning curves
+      - confusion matrix
+      - class-level error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 413
+  name: ATM Global Demand Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Deep Learning for Time Series Data Cookbook
+    title: Global LSTM Forecasting
+    url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/blob/main/Chapter_5/5.5_global_lstm.py
+    repository:
+      url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook
+      path: Chapter_5/5.5_global_lstm.py
+    description: >
+      Packt converts the NN5 collection of daily cash-withdrawal series into a
+      global forecasting problem, applies local scaling per series, and trains one
+      LSTM across many related demand histories.
+  data:
+    description: >
+      NN5 daily time-series collection containing multiple related cash-withdrawal
+      demand series distributed through the GluonTS dataset repository.
+    source_url: https://ts.gluon.ai/stable/api/gluonts/gluonts.dataset.repository.datasets.html
+    availability: library_download
+    files: []
+  original_implementation:
+    technologies:
+      - global forecasting
+      - LSTM
+      - PyTorch Forecasting
+      - local scaling
+      - multi-series learning
+      - temporal holdout
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Deep-Learning-for-Time-Series-Data-Cookbook/blob/main/Chapter_5/5.5_global_lstm.py
+  problem:
+    context: >
+      Cash-demand locations generate related time series with different scales;
+      training a separate model for each series can waste common temporal structure.
+    objective: >
+      Train one global neural forecasting model that learns across many related
+      demand series and predicts future demand for each location.
+    analytical_questions:
+      - How should multiple related time series be represented in one training table?
+      - Why is local scaling needed across locations?
+      - Can a single global LSTM learn transferable demand patterns?
+      - How should chronological validation and multi-step forecasts be evaluated?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - torch
+      - lightning
+      - pytorch-forecasting
+      - gluonts
+    logical_steps:
+      - Load the NN5 collection.
+      - Convert individual series to long panel format.
+      - Create chronological train, validation, and test periods.
+      - Fit location-specific scaling on training data.
+      - Construct lag windows and multi-step targets.
+      - Train a global LSTM across all series.
+      - Invert scaling and evaluate forecasts by series.
+    expected_outputs:
+      - panel time-series dataset
+      - global LSTM model
+      - per-series forecast errors
+      - multi-step forecasts
+      - comparison of local demand trajectories
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
