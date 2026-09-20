@@ -738,7 +738,7 @@
 
 - id: 39
   name: Website Experiment Analysis
-  domain: analytics_fundamentals
+  domain: descriptive_and_diagnostics_analytics
   source:
     category: book
     organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
@@ -812,93 +812,6 @@
     source: verified
     data: verified
     code: verified
-
-- id: 53
-  name: Leakage Diagnosis
-  domain: analytics_fundamentals
-  source:
-    category: book
-    organization: Daniel Vaughan
-    publisher: O'Reilly Media
-    book: Data Science: The Hard Parts
-    title: Data Leakage
-    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-    repository:
-      url: https://github.com/dvaughan79/data-science-hard-parts-code
-      path: ch11_data_leakage.ipynb
-    description: >
-      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
-      controls, leakage introduced by incorrect standardization, and misleading
-      classification behavior under quasi-complete separation.
-  data:
-    description: >
-      Synthetic regression and classification data generated in the notebook so
-      that the true data-generating process is known and leakage effects can be
-      measured directly.
-    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-    availability: embedded_generated
-    files: []
-  original_implementation:
-    technologies:
-      - linear regression
-      - logistic regression
-      - gradient boosting
-      - train-test splitting
-      - standardization
-      - simulation
-      - scikit-learn
-    language: Python
-    code_available: true
-    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
-  problem:
-    context: >
-      Predictive performance can look unrealistically strong when features or
-      preprocessing steps expose information that would not be available at the
-      moment a real prediction is made.
-    objective: >
-      Diagnose common forms of data leakage by comparing apparently valid models
-      with leakage-safe alternatives under a known data-generating process.
-    analytical_questions:
-      - Which candidate features contain information from the future or from the target?
-      - How does standardizing before the train-test split contaminate evaluation?
-      - How much does leakage inflate apparent predictive performance?
-      - Which validation design better represents the information available at prediction time?
-  python_rewrite:
-    feasible: true
-    suggested_libraries:
-      - pandas
-      - numpy
-      - scikit-learn
-      - matplotlib
-    logical_steps:
-      - Generate a deterministic dataset with a known causal and temporal structure.
-      - Define the intended prediction moment and available information.
-      - Fit a baseline leakage-safe model.
-      - Introduce a post-outcome or bad-control feature.
-      - Compare performance with and without the leaked feature.
-      - Compare preprocessing before versus inside the training pipeline.
-      - Inspect classification behavior under near-separation.
-      - Summarize which design choices create invalid performance estimates.
-    expected_outputs:
-      - reproducible synthetic dataset
-      - leakage-safe baseline metrics
-      - leaked-model metrics
-      - preprocessing comparison
-      - performance inflation table
-      - diagnostic plots
-      - leakage audit
-  reproducibility:
-    self_contained_python_rewrite_possible: true
-    external_web_required_after_data_download: false
-    authentication_required: false
-  verification:
-    source: verified
-    data: verified
-    code: verified
-  notes: >
-    This case is intentionally framed as an analytical quality-control problem,
-    not as a generic modeling tutorial. Its transferable professional skill is
-    detecting invalid predictive evidence before deployment.
 
 - id: 4
   name: Project Theme Discovery
@@ -2018,7 +1931,6 @@
     why a business metric changed. It is distinct from the existing experiment and
     descriptive-summary cases.
 
-
 - id: 55
   name: Travel Customer Segmentation
   domain: descriptive_and_diagnostics_analytics
@@ -2180,6 +2092,93 @@
     source: verified
     data: verified
     code: verified
+
+- id: 53
+  name: Leakage Diagnosis
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Daniel Vaughan
+    publisher: O'Reilly Media
+    book: Data Science: The Hard Parts
+    title: Data Leakage
+    url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    repository:
+      url: https://github.com/dvaughan79/data-science-hard-parts-code
+      path: ch11_data_leakage.ipynb
+    description: >
+      The O'Reilly notebook demonstrates several leakage mechanisms, including bad
+      controls, leakage introduced by incorrect standardization, and misleading
+      classification behavior under quasi-complete separation.
+  data:
+    description: >
+      Synthetic regression and classification data generated in the notebook so
+      that the true data-generating process is known and leakage effects can be
+      measured directly.
+    source_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - linear regression
+      - logistic regression
+      - gradient boosting
+      - train-test splitting
+      - standardization
+      - simulation
+      - scikit-learn
+    language: Python
+    code_available: true
+    code_url: https://github.com/dvaughan79/data-science-hard-parts-code/blob/main/ch11_data_leakage.ipynb
+  problem:
+    context: >
+      Predictive performance can look unrealistically strong when features or
+      preprocessing steps expose information that would not be available at the
+      moment a real prediction is made.
+    objective: >
+      Diagnose common forms of data leakage by comparing apparently valid models
+      with leakage-safe alternatives under a known data-generating process.
+    analytical_questions:
+      - Which candidate features contain information from the future or from the target?
+      - How does standardizing before the train-test split contaminate evaluation?
+      - How much does leakage inflate apparent predictive performance?
+      - Which validation design better represents the information available at prediction time?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Generate a deterministic dataset with a known causal and temporal structure.
+      - Define the intended prediction moment and available information.
+      - Fit a baseline leakage-safe model.
+      - Introduce a post-outcome or bad-control feature.
+      - Compare performance with and without the leaked feature.
+      - Compare preprocessing before versus inside the training pipeline.
+      - Inspect classification behavior under near-separation.
+      - Summarize which design choices create invalid performance estimates.
+    expected_outputs:
+      - reproducible synthetic dataset
+      - leakage-safe baseline metrics
+      - leaked-model metrics
+      - preprocessing comparison
+      - performance inflation table
+      - diagnostic plots
+      - leakage audit
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+  notes: >
+    This case is intentionally framed as an analytical quality-control problem,
+    not as a generic modeling tutorial. Its transferable professional skill is
+    detecting invalid predictive evidence before deployment.
 
 - id: 1
   name: BlueBikes Demand Modeling
@@ -3953,7 +3952,6 @@
     source: verified
     data: partial
     code: verified
-
 
 - id: 57
   name: Customer Churn Prediction
