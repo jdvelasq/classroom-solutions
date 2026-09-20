@@ -2889,3 +2889,81 @@
     source: verified
     data: verified
     code: verified
+
+- id: 39
+  name: Website Experiment Analysis
+  domain: analytics
+  type: descriptiva
+  source:
+    category: book
+    organization: Peter Bruce, Andrew Bruce, and Peter Gedeck
+    publisher: O'Reilly Media
+    book: Practical Statistics for Data Scientists, Second Edition
+    title: Statistical Experiments and Significance Testing
+    url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/python/code/Chapter%203%20-%20Statistical%20Experiments%20and%20Significance%20Testing.py
+    repository:
+      url: https://github.com/gedeck/practical-statistics-for-data-scientists
+      path: python/code/Chapter 3 - Statistical Experiments and Significance Testing.py
+    description: >
+      The O'Reilly companion repository compares alternative web pages using
+      session-time data, permutation tests, t-tests, and related experimental-analysis tools.
+  data:
+    description: >
+      Session times observed for visitors exposed to alternative web pages.
+    source_url: https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/web_page_data.csv
+    availability: repository
+    files:
+      - data/web_page_data.csv
+  original_implementation:
+    technologies:
+      - permutation testing
+      - t-test
+      - pandas
+      - scipy
+      - statsmodels
+    language:
+      - Python
+      - R
+    code_available: true
+    code_url: https://github.com/gedeck/practical-statistics-for-data-scientists/tree/master/python
+  problem:
+    context: >
+      Digital teams frequently compare alternative page designs and need to
+      distinguish meaningful engagement differences from random variation.
+    objective: >
+      Compare visitor engagement between alternative web pages and quantify the
+      evidence that observed differences are larger than expected by chance.
+    analytical_questions:
+      - How do session times differ between the two page variants?
+      - How large is the observed difference in average engagement?
+      - How unusual is that difference under random reassignment?
+      - Do permutation and parametric tests lead to similar conclusions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and validate the page-session dataset.
+      - Summarize and visualize session times by page.
+      - Compute the observed difference in mean engagement.
+      - Build a reproducible permutation test.
+      - Compare the resampling result with a t-test.
+      - Report the estimated effect and statistical evidence together.
+    expected_outputs:
+      - descriptive comparison table
+      - engagement distribution plots
+      - permutation distribution
+      - effect-size summary
+      - significance-test results
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
