@@ -20036,6 +20036,85 @@
     data: verified
     code: verified
 
+- id: 318
+  name: Network Intrusion Classification at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Science Essentials, Third Edition
+    title: Spark in Action
+    url: https://github.com/PacktPublishing/Python-Data-Science-Essentials-Third-Edition/blob/master/Chapter8/Spark%20in%20action.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Science-Essentials-Third-Edition
+      path: Chapter8/Spark in action.ipynb
+    description: >
+      Packt builds a distributed machine-learning pipeline on KDD Cup network
+      traffic, including parsing, categorical encoding, vector assembly,
+      random-forest classification, evaluation, tuning, and cross-validation.
+  data:
+    description: >
+      KDD Cup 1999 network connection records with traffic attributes and attack labels.
+    source_url: https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html
+    availability: public
+    files:
+      - kddtrain
+      - kddtest
+      - kddnames
+  original_implementation:
+    technologies:
+      - PySpark
+      - Spark ML
+      - StringIndexer
+      - VectorAssembler
+      - random forest
+      - cross-validation
+      - parameter tuning
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Science-Essentials-Third-Edition/blob/master/Chapter8/Spark%20in%20action.ipynb
+  problem:
+    context: >
+      Network intrusion records are large enough to motivate distributed processing
+      and require a repeatable pipeline from raw categorical traffic fields to
+      multiclass attack predictions.
+    objective: >
+      Build, tune, and evaluate a scalable network-intrusion classifier with Spark ML.
+    analytical_questions:
+      - How should raw KDD traffic records be parsed and encoded at scale?
+      - Which features distinguish normal from attack traffic?
+      - How accurately does the distributed classifier predict traffic classes?
+      - How do tuning and cross-validation affect generalization?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+    logical_steps:
+      - Download and parse KDD training and test data.
+      - Create Spark DataFrames with typed columns.
+      - Encode categorical traffic attributes.
+      - Assemble model features.
+      - Fit a random-forest classifier.
+      - Evaluate multiclass performance.
+      - Tune hyperparameters with cross-validation.
+      - Compare tuned and baseline models.
+    expected_outputs:
+      - prepared Spark DataFrames
+      - fitted intrusion classifier
+      - multiclass metrics
+      - confusion diagnostics
+      - cross-validation results
+      - tuned pipeline
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
