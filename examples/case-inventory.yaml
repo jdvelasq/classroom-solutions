@@ -28249,3 +28249,163 @@
     source: verified
     data: verified
     code: verified
+
+- id: 377
+  name: Online Model Drift Detection
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Engineering with Python, Second Edition
+    title: Online Drift Detection
+    url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition/blob/main/Chapter03/drift/edition2-alibi-detect-examples/ed2-alibi-detect-ch3.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition
+      path: Chapter03/drift/edition2-alibi-detect-examples/ed2-alibi-detect-ch3.ipynb
+    description: >
+      Packt configures online multivariate drift detection with Alibi Detect,
+      processes observations sequentially, raises drift flags, and evaluates how
+      an operational monitor behaves before and after distribution change.
+  data:
+    description: >
+      Reference and sequential test observations used to simulate stable and shifted
+      model-input distributions.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition/tree/main/Chapter03/drift
+    availability: repository_and_library
+    files: []
+  original_implementation:
+    technologies:
+      - Alibi Detect
+      - MMDDriftOnline
+      - PyTorch
+      - streaming drift detection
+      - monitoring
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition/blob/main/Chapter03/drift/edition2-alibi-detect-examples/ed2-alibi-detect-ch3.ipynb
+  problem:
+    context: >
+      A deployed model can become unreliable when incoming feature distributions
+      diverge from the reference data used during development.
+    objective: >
+      Build an online monitoring component that detects distribution drift as new
+      observations arrive.
+    analytical_questions:
+      - What reference sample should define normal input behavior?
+      - How quickly does the detector identify a sustained distribution change?
+      - How often does it signal drift under stable conditions?
+      - How should drift events be stored or surfaced operationally?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - alibi-detect
+      - pandas
+      - numpy
+      - torch
+      - matplotlib
+    logical_steps:
+      - Define a reference distribution.
+      - Configure an online MMD drift detector.
+      - Stream test observations sequentially.
+      - Record detector outputs and alert times.
+      - Simulate controlled distribution changes.
+      - Compare stable and drifted periods.
+      - Package drift results for monitoring.
+    expected_outputs:
+      - drift detector configuration
+      - sequential drift flags
+      - alert timeline
+      - false-alarm diagnostics
+      - monitoring visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 378
+  name: Retail Forecast Serving
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Machine Learning Engineering with Python, Second Edition
+    title: Retail Forecast Training and Serving
+    url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition/tree/main/Chapter08
+    repository:
+      url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition
+      path: Chapter08
+    description: >
+      Packt trains store-level Rossmann Prophet forecasts with MLflow tracking and
+      exposes production models through a FastAPI service that resolves registered
+      store models, creates forecast horizons, caches resources, and returns forecasts.
+  data:
+    description: >
+      Rossmann daily store sales with store identifiers, opening status, and dates.
+    source_url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition/tree/main/Chapter08/train/rossman_store_data
+    availability: repository
+    files:
+      - Chapter08/train/rossman_store_data/train.csv
+      - Chapter08/train/rossman_store_data/store.csv
+      - Chapter08/train/rossman_store_data/test.csv
+  original_implementation:
+    technologies:
+      - Prophet
+      - MLflow
+      - model registry
+      - FastAPI
+      - Pydantic
+      - caching
+      - model serving
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Machine-Learning-Engineering-with-Python-Second-Edition/tree/main/Chapter08
+  problem:
+    context: >
+      Store-level forecasts need to move from offline training into an operational
+      interface that can retrieve the correct production model and answer dated
+      forecast requests for multiple stores.
+    objective: >
+      Build an end-to-end retail forecasting product from tracked model training
+      through registered-model inference via API.
+    analytical_questions:
+      - How should each store's forecasting model be trained and tracked?
+      - How does the service resolve the production model for a requested store?
+      - How should forecast date ranges be validated?
+      - How can model retrieval and repeated requests be cached?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - prophet
+      - mlflow
+      - fastapi
+      - pydantic
+    logical_steps:
+      - Prepare store-level Rossmann sales.
+      - Train Prophet models with temporal holdouts.
+      - Track runs and register production models.
+      - Define validated forecast request schemas.
+      - Resolve the appropriate store model.
+      - Generate requested forecast horizons.
+      - Expose forecasts through FastAPI.
+      - Test health and forecast endpoints.
+    expected_outputs:
+      - tracked store forecasting models
+      - registered production models
+      - forecast API
+      - health endpoint
+      - request-response tests
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
