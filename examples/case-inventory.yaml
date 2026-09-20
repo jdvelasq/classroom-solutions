@@ -1221,3 +1221,90 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 17
+  name: Twitter Sentiment Analytics Pipeline
+  type: descriptiva
+  source:
+    category: official_repository
+    organization: Hortonworks
+    program: Hortonworks HDP Tutorials
+    title: Analyzing Twitter Data With Apache NiFi and HDP Search
+    url: https://github.com/jdvelasq/hortonworks-hdp/blob/hdp/tutorials/hortonworks/analyzing-social-media-sentiment-data/tutorial.md
+    repository:
+      url: https://github.com/jdvelasq/hortonworks-hdp
+      path: tutorials/hortonworks/analyzing-social-media-sentiment-data
+    description: >
+      Hortonworks tutorial ingesting Twitter data, searching it in Solr, analyzing
+      social sentiment in Hive, and visualizing results in Zeppelin.
+  data:
+    description: >
+      Tweets collected from the Twitter API, with an optional synthetic/random data
+      path documented by the tutorial so that the analytical workflow need not
+      depend on live API access.
+    source_url: null
+    availability: repository_and_generated
+    files:
+      - assets/nifi-sentiment-analytics/assets/default.json
+      - assets/nifi-sentiment-analytics/assets/sentiment-analysis.sql
+    notes: >
+      The original live Twitter API path now has external-access constraints; a
+      Python rewrite should freeze or generate a deterministic tweet-like dataset.
+  original_implementation:
+    technologies:
+      - Apache NiFi
+      - Twitter API
+      - Solr
+      - Hive
+      - Zeppelin
+    language:
+      - SQL
+    code_available: true
+    code_url: https://github.com/jdvelasq/hortonworks-hdp/tree/hdp/tutorials/hortonworks/analyzing-social-media-sentiment-data
+  problem:
+    context: >
+      Streaming social-media messages must be ingested, searched, classified by
+      sentiment, aggregated, and visualized as the data arrives.
+    objective: >
+      Build an end-to-end social-sentiment analysis pipeline and summarize sentiment patterns.
+    analytical_questions:
+      - How should raw social messages be ingested and normalized?
+      - How can text be indexed for search and exploration?
+      - How is sentiment assigned and aggregated?
+      - How do sentiment patterns change across the collected stream?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+      - sqlite3
+    logical_steps:
+      - Freeze or deterministically generate tweet-like records.
+      - Parse and normalize text and metadata.
+      - Create a searchable local representation.
+      - Apply a reproducible sentiment-analysis method.
+      - Aggregate sentiment by relevant dimensions.
+      - Visualize sentiment distributions and temporal patterns.
+      - Produce an evidence-based summary.
+    expected_outputs:
+      - local tweet-like corpus
+      - cleaned text dataset
+      - sentiment labels or scores
+      - aggregate tables
+      - visualizations
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
+  notes: >
+    Distinct from the existing CLASSROOM financial-sentence sentiment classifier:
+    this case emphasizes streaming/social ingestion, search, aggregation, and
+    descriptive sentiment analytics rather than only supervised classification.
