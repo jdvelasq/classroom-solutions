@@ -500,3 +500,77 @@
     code: verified
     already_in_inventory: false
     already_in_classroom_pre_or_lab: false
+
+- id: 7
+  name: Clustering Text Documents with K-Means
+  type: predictiva
+  source:
+    category: official_tutorial
+    organization: scikit-learn
+    program: Examples - Text
+    title: Clustering text documents using k-means
+    url: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
+    description: >
+      Official scikit-learn example clustering documents by topic with Bag of Words,
+      KMeans or MiniBatchKMeans, and optional latent semantic analysis.
+  data:
+    description: >
+      A four-category subset of 20 Newsgroups with approximately 3,400 documents.
+    source_url: https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_20newsgroups.html
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - TF-IDF
+      - HashingVectorizer
+      - KMeans
+      - MiniBatchKMeans
+      - truncated SVD
+      - latent semantic analysis
+    language: Python
+    code_available: true
+    code_url: https://scikit-learn.org/stable/auto_examples/text/plot_document_clustering.html
+  problem:
+    context: >
+      Documents must be grouped by topical similarity without using their known labels
+      during model fitting.
+    objective: >
+      Compare sparse-vector clustering and latent-semantic representations for grouping
+      text documents.
+    analytical_questions:
+      - How do TF-IDF and hashing representations affect clustering?
+      - Does latent semantic analysis improve cluster structure?
+      - How do KMeans and MiniBatchKMeans behave on sparse text?
+      - How closely do clusters correspond to the withheld categories?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - scikit-learn
+      - pandas
+      - matplotlib
+    logical_steps:
+      - Load selected 20 Newsgroups categories.
+      - Strip headers, footers, and quotes.
+      - Vectorize documents.
+      - Optionally reduce dimensionality with truncated SVD.
+      - Fit KMeans and MiniBatchKMeans.
+      - Evaluate clusters against withheld labels.
+      - Inspect representative terms per cluster.
+      - Visualize and interpret the document groups.
+    expected_outputs:
+      - document vectors
+      - cluster assignments
+      - clustering metrics
+      - representative-term tables
+      - optional low-dimensional visualization
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+    already_in_inventory: false
+    already_in_classroom_pre_or_lab: false
