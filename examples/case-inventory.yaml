@@ -1738,6 +1738,165 @@
     data: verified
     code: verified
 
+- id: 232
+  name: Profile Text Feature Engineering
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Max Kuhn and Kjell Johnson
+    publisher: CRC Press
+    book: Feature Engineering and Selection
+    title: Creating Features from Text Data
+    url: https://github.com/topepo/FES/blob/master/05_Encoding_Categorical_Predictors/05_06_Creating_Features_from_Text_Data/modeling.R
+    repository:
+      url: https://github.com/topepo/FES
+      path: 05_Encoding_Categorical_Predictors/05_06_Creating_Features_from_Text_Data/modeling.R
+    description: >
+      Kuhn and Johnson transform OkCupid profile essays into structured predictors
+      including text-complexity counts, keywords, sentiment, politeness, and
+      grammatical-use features, then compare their incremental modeling value.
+  data:
+    description: >
+      OkCupid user profiles containing structured profile information and free-text essays.
+    source_url: https://github.com/topepo/FES/tree/master/Data_Sets/OkCupid
+    availability: repository
+    files:
+      - Data_Sets/OkCupid/okc.RData
+      - Data_Sets/OkCupid/okc_binary.RData
+      - Data_Sets/OkCupid/okc_features.RData
+  original_implementation:
+    technologies:
+      - R
+      - text feature engineering
+      - keyword extraction
+      - sentiment features
+      - linguistic counts
+      - recipes
+    language: R
+    code_available: true
+    code_url: https://github.com/topepo/FES/blob/master/05_Encoding_Categorical_Predictors/05_06_Creating_Features_from_Text_Data/modeling.R
+  problem:
+    context: >
+      User profiles combine structured attributes with essays whose predictive
+      information is inaccessible until text is converted into reproducible features.
+    objective: >
+      Construct alternative text-derived feature families and quantify how each
+      family changes downstream analytical performance.
+    analytical_questions:
+      - What simple structural features can be extracted from profile essays?
+      - Which keywords provide useful signal?
+      - Do sentiment and linguistic features add information beyond basic profiles?
+      - Which feature representation provides the strongest downstream value?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - nltk
+      - textblob
+      - spacy
+    logical_steps:
+      - Load and align structured profile and essay data.
+      - Construct baseline profile predictors.
+      - Derive text-complexity and punctuation features.
+      - Generate keyword indicators.
+      - Calculate sentiment and linguistic features.
+      - Compare downstream models across feature families.
+      - Export the enriched analytical feature table.
+    expected_outputs:
+      - enriched profile dataset
+      - feature-family definitions
+      - incremental performance comparison
+      - selected text feature set
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 233
+  name: Pharmaceutical Profile Preprocessing
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Max Kuhn and Kjell Johnson
+    publisher: CRC Press
+    book: Feature Engineering and Selection
+    title: Working with Profile Data
+    url: https://github.com/topepo/FES/tree/master/Data_Sets/Pharmaceutical_Manufacturing_Monitoring
+    repository:
+      url: https://github.com/topepo/FES
+      path: Data_Sets/Pharmaceutical_Manufacturing_Monitoring/data_preprocessing.R
+    description: >
+      Kuhn and Johnson preprocess high-dimensional pharmaceutical process profiles
+      through baseline correction, robust standardization, smoothing, and derivatives,
+      then compare how these representations transfer from small- to large-scale reactors.
+  data:
+    description: >
+      Pharmaceutical manufacturing spectral profiles measured across reactors and
+      days with glucose concentration as the analytical response.
+    source_url: https://github.com/topepo/FES/tree/master/Data_Sets/Pharmaceutical_Manufacturing_Monitoring
+    availability: repository
+    files:
+      - Data_Sets/Pharmaceutical_Manufacturing_Monitoring/small_scale.RData
+      - Data_Sets/Pharmaceutical_Manufacturing_Monitoring/large_scale.RData
+  original_implementation:
+    technologies:
+      - R
+      - baseline correction
+      - robust standardization
+      - smoothing
+      - derivatives
+      - grouped resampling
+      - spectral profile processing
+    language: R
+    code_available: true
+    code_url: https://github.com/topepo/FES/blob/master/Data_Sets/Pharmaceutical_Manufacturing_Monitoring/data_preprocessing.R
+  problem:
+    context: >
+      High-dimensional process profiles contain baseline drift, noise, scale effects,
+      and strong correlation that can obscure transferable manufacturing signals.
+    objective: >
+      Create alternative analytics-ready representations of process profiles and
+      determine which preprocessing choices preserve useful information across reactors.
+    analytical_questions:
+      - How should spectral baselines be corrected?
+      - What do standardization, smoothing, and derivatives change?
+      - Which wavelengths become unusable after processing?
+      - Which representation transfers best between reactor scales?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scipy
+      - scikit-learn
+    logical_steps:
+      - Load small- and large-scale reactor profiles.
+      - Reshape profiles to a consistent long representation.
+      - Estimate and subtract polynomial baselines.
+      - Apply robust standardization and smoothing.
+      - Calculate first-difference derivatives.
+      - Reconstruct wide analytical feature tables.
+      - Compare representations with grouped validation.
+    expected_outputs:
+      - baseline-corrected profiles
+      - standardized and smoothed profiles
+      - derivative feature table
+      - preprocessing comparison
+      - analytics-ready process datasets
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -14610,6 +14769,162 @@
       - applicability scores
       - flagged low-trust predictions
       - reliability visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 234
+  name: Ischemic Stroke Risk Modeling
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Max Kuhn and Kjell Johnson
+    publisher: CRC Press
+    book: Feature Engineering and Selection
+    title: Predicting Risk of Ischemic Stroke
+    url: https://github.com/topepo/FES/tree/master/02_Predicting_Risk_of_Ischemic_Stroke
+    repository:
+      url: https://github.com/topepo/FES
+      path: 02_Predicting_Risk_of_Ischemic_Stroke
+    description: >
+      Kuhn and Johnson compare conventional stroke-risk predictors with vascular
+      imaging measurements, screen interactions, apply correlation filtering and
+      recursive feature elimination, and compare predictive value across feature sets.
+  data:
+    description: >
+      Ischemic-stroke data combining conventional patient risk factors and quantitative
+      vascular imaging measurements.
+    source_url: https://github.com/topepo/FES/tree/master/Data_Sets/Ischemic_Stroke
+    availability: repository
+    files:
+      - Data_Sets/Ischemic_Stroke/stroke_data.RData
+  original_implementation:
+    technologies:
+      - R
+      - logistic regression
+      - ROC analysis
+      - interaction screening
+      - recursive feature elimination
+      - correlation filtering
+      - repeated cross-validation
+    language: R
+    code_available: true
+    code_url: https://github.com/topepo/FES/blob/master/02_Predicting_Risk_of_Ischemic_Stroke/02_04_Predictive_Modeling_Across_Sets.R
+  problem:
+    context: >
+      Stroke risk can be represented with conventional clinical factors, imaging
+      measurements, or both, and the incremental value of the richer measurements
+      must be evaluated under proper validation.
+    objective: >
+      Predict ischemic stroke and determine which feature families, interactions,
+      and selected predictors add robust discrimination.
+    analytical_questions:
+      - How predictive are conventional risk factors alone?
+      - How much information is added by vascular imaging?
+      - Which interactions materially improve discrimination?
+      - How many predictors are needed before ROC performance plateaus?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - statsmodels
+    logical_steps:
+      - Load and validate stroke records.
+      - Separate conventional and imaging predictor families.
+      - Establish a null and simple baseline.
+      - Screen individual predictors and interactions.
+      - Apply correlation filtering.
+      - Run recursive feature elimination with repeated validation.
+      - Compare risk-only, imaging-only, and combined models.
+    expected_outputs:
+      - feature-family comparison
+      - interaction screening table
+      - RFE performance curves
+      - selected predictor sets
+      - validated stroke-risk model
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 235
+  name: Parkinson Speech Feature Selection
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Max Kuhn and Kjell Johnson
+    publisher: CRC Press
+    book: Feature Engineering and Selection
+    title: Recursive Feature Elimination
+    url: https://github.com/topepo/FES/blob/master/11_Greedy_Search_Methods/11_03_Recursive_Feature_Elimination.R
+    repository:
+      url: https://github.com/topepo/FES
+      path: 11_Greedy_Search_Methods/11_03_Recursive_Feature_Elimination.R
+    description: >
+      Kuhn and Johnson classify Parkinson's disease from hundreds of speech
+      measurements while comparing recursive feature elimination, correlation
+      filtering, alternative importance rankings, and random subsets of equal size.
+  data:
+    description: >
+      UCI Parkinson's disease speech measurements aggregated by subject and labeled
+      as Parkinson's disease or control.
+    source_url: https://archive.ics.uci.edu/dataset/470/parkinson+s+disease+classification
+    availability: public_and_repository
+    files:
+      - Data_Sets/Parkinsons_Disease/pd_speech_features.csv
+  original_implementation:
+    technologies:
+      - R
+      - random forest
+      - recursive feature elimination
+      - correlation filtering
+      - ROC-based ranking
+      - repeated cross-validation
+    language: R
+    code_available: true
+    code_url: https://github.com/topepo/FES/blob/master/11_Greedy_Search_Methods/11_03_Recursive_Feature_Elimination.R
+  problem:
+    context: >
+      Speech-based Parkinson's classification begins with hundreds of correlated
+      measurements, making feature selection central to both generalization and interpretation.
+    objective: >
+      Identify compact speech-feature subsets that retain predictive discrimination
+      and verify that selected subsets outperform random subsets of the same size.
+    analytical_questions:
+      - How many speech predictors are needed for strong classification?
+      - Does correlation filtering improve feature selection?
+      - How do ROC-based and random-forest importance rankings differ?
+      - Do selected subsets outperform equally sized random subsets?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and aggregate speech measurements by subject.
+      - Create reproducible train/test partitions.
+      - Remove highly correlated predictors.
+      - Run recursive feature elimination under alternative rankings.
+      - Track ROC versus subset size.
+      - Compare chosen subsets with random subsets.
+      - Evaluate the selected model on held-out subjects.
+    expected_outputs:
+      - feature correlation diagnostics
+      - RFE performance curves
+      - selected speech features
+      - random-subset benchmark
+      - held-out classification metrics
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
