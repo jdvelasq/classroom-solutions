@@ -3642,6 +3642,77 @@
     data: verified
     code: verified
 
+- id: 374
+  name: Holiday API Ingestion
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Data Ingestion with Python Cookbook
+    title: Creating Custom Airflow Operators
+    url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook/tree/main/Chapter_9/creating_custom_operators
+    repository:
+      url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook
+      path: Chapter_9/creating_custom_operators/holiday_ingest/holiday_ingest_dag.py
+    description: >
+      Packt implements a custom Airflow operator for authenticated holiday-data
+      ingestion and schedules a DAG that produces reusable JSON data.
+  data:
+    description: >
+      Public-holiday records retrieved from an authenticated API for Brazil.
+    source_url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook/blob/main/datasets/holiday_brazil.json
+    availability: repository_and_api
+    files:
+      - datasets/holiday_brazil.json
+  original_implementation:
+    technologies:
+      - Apache Airflow
+      - custom operators
+      - API authentication
+      - scheduled ingestion
+      - JSON
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Data-Ingestion-with-Python-Cookbook/blob/main/Chapter_9/creating_custom_operators/holiday_ingest/holiday_ingest_dag.py
+  problem:
+    context: >
+      Calendar effects used in forecasting and operations require reproducible
+      external holiday ingestion rather than manual copying.
+    objective: >
+      Build a reusable scheduled ingestion component for holiday API data.
+    analytical_questions:
+      - How should API credentials be separated from pipeline code?
+      - What belongs in a reusable Airflow operator?
+      - How should country and year parameters be exposed?
+      - How should output be validated for downstream analytics?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - apache-airflow
+      - requests
+      - pandas
+    logical_steps:
+      - Configure credentials outside source code.
+      - Implement authenticated holiday retrieval.
+      - Wrap retrieval in an Airflow operator.
+      - Parameterize country, year, and output.
+      - Schedule the DAG.
+      - Validate and normalize the resulting data.
+    expected_outputs:
+      - custom Airflow operator
+      - scheduled ingestion DAG
+      - holiday dataset
+      - validation report
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: true
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -12129,6 +12200,76 @@
       - CVaR estimate
       - confidence intervals
       - backtest result
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 375
+  name: MEDLINE Topic Network
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Analyzing Co-occurrence Networks with GraphX
+    url: https://github.com/sryza/aas/tree/master/ch07-graph
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch07-graph/src/main/scala/com/cloudera/datascience/graph/RunGraph.scala
+    description: >
+      O'Reilly constructs a MeSH topic co-occurrence graph from MEDLINE and
+      analyzes statistically filtered relationships and network structure.
+  data:
+    description: >
+      MEDLINE citation records with MeSH descriptors marked as major topics.
+    source_url: https://ftp.nlm.nih.gov/nlmdata/sample/medline/
+    availability: public
+    files: []
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - GraphX
+      - co-occurrence networks
+      - connected components
+      - chi-square filtering
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch07-graph/src/main/scala/com/cloudera/datascience/graph/RunGraph.scala
+  problem:
+    context: >
+      Biomedical literature contains recurring combinations of major MeSH topics
+      whose network structure can reveal connected research areas.
+    objective: >
+      Construct and diagnose a biomedical topic network from article-level co-occurrence.
+    analytical_questions:
+      - Which MeSH topics occur most frequently?
+      - Which topic pairs co-occur more strongly than expected?
+      - What components and hubs appear?
+      - How cohesive is the statistically filtered graph?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - networkx
+      - scipy
+    logical_steps:
+      - Parse MEDLINE records.
+      - Extract major MeSH topics.
+      - Generate topic pairs and frequencies.
+      - Build a weighted graph.
+      - Filter edges statistically.
+      - Analyze components, degrees, clustering, and paths.
+    expected_outputs:
+      - topic frequency table
+      - weighted topic graph
+      - significant edge set
+      - network diagnostics
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -23493,6 +23634,78 @@
     The companion repository intentionally does not redistribute the source paper
     data; the book provides external download references.
 
+- id: 376
+  name: Transcription Factor Binding Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: O'Reilly
+    publisher: O'Reilly Media
+    book: Advanced Analytics with Spark
+    title: Predicting Transcription Factor Binding Sites
+    url: https://github.com/sryza/aas/tree/master/ch10-genomics
+    repository:
+      url: https://github.com/sryza/aas
+      path: ch10-genomics/src/main/scala/com/cloudera/datascience/genomics/RunTFPrediction.scala
+    description: >
+      O'Reilly integrates genomic intervals, motifs, conservation, transcription
+      start sites, accessibility, and ChIP-seq labels for large-scale binding prediction.
+  data:
+    description: >
+      Human reference genome, DNase-seq, ChIP-seq, conservation, and gene-annotation data.
+    source_url: https://github.com/sryza/aas/tree/master/ch10-genomics
+    availability: public_external
+    files: []
+  original_implementation:
+    technologies:
+      - Apache Spark
+      - ADAM
+      - genomic interval joins
+      - feature engineering
+      - sequence motif scoring
+    language: Scala
+    code_available: true
+    code_url: https://github.com/sryza/aas/blob/master/ch10-genomics/src/main/scala/com/cloudera/datascience/genomics/RunTFPrediction.scala
+  problem:
+    context: >
+      Transcription-factor binding depends on local DNA sequence, chromatin
+      accessibility, conservation, and genomic context.
+    objective: >
+      Build an integrated feature set and classifier for transcription-factor binding.
+    analytical_questions:
+      - How should heterogeneous genomic sources be joined?
+      - Which sequence and conservation features characterize candidate regions?
+      - How should binding labels be created?
+      - How well can binding be predicted across cell lines?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pysam
+      - pybedtools
+      - scikit-learn
+    logical_steps:
+      - Load reference and genomic annotations.
+      - Load accessibility and binding intervals.
+      - Create labels from interval overlap.
+      - Join conservation measurements.
+      - Calculate motif and TSS-distance features.
+      - Combine cell-line datasets.
+      - Train and evaluate a classifier.
+    expected_outputs:
+      - integrated genomic feature table
+      - binding labels
+      - engineered genomic features
+      - predictive metrics
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
@@ -27883,6 +28096,155 @@
     self_contained_python_rewrite_possible: false
     external_web_required_after_data_download: true
     authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 372
+  name: Sentiment Inference Pipeline
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Deep Learning at Scale with MLflow
+    title: Multi-Step Inference Pipeline
+    url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/tree/main/chapter07
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow
+      path: chapter07/pipeline/inference_pipeline_model.py
+    description: >
+      Packt wraps a fine-tuned sentiment classifier as an MLflow pyfunc inference
+      pipeline with language detection, caching, metadata, model registration,
+      and scalable Spark batch inference.
+  data:
+    description: >
+      IMDb review text used to train and exercise the sentiment inference workflow.
+    source_url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/tree/main/chapter08/data/imdb
+    availability: repository
+    files:
+      - chapter08/data/imdb/train.csv
+      - chapter08/data/imdb/valid.csv
+      - chapter08/data/imdb/test.csv
+      - chapter08/data/imdb/predict.csv
+  original_implementation:
+    technologies:
+      - MLflow
+      - PyTorch
+      - pyfunc
+      - model registry
+      - language detection
+      - caching
+      - PySpark batch inference
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/blob/main/chapter07/pipeline/inference_pipeline_model.py
+  problem:
+    context: >
+      A production text model needs consistent preprocessing, efficient repeated
+      inference, provenance metadata, versioning, and batch scoring.
+    objective: >
+      Package a sentiment model as a versioned multi-step inference product.
+    analytical_questions:
+      - What preprocessing belongs inside the serving artifact?
+      - How should model and inference-pipeline versions be tracked?
+      - How can repeated requests be cached safely?
+      - How can the same model be used for Spark batch inference?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - mlflow
+      - torch
+      - pandas
+      - pyspark
+    logical_steps:
+      - Load or fine-tune the sentiment model.
+      - Define preprocessing, language detection, and caching.
+      - Wrap inference as an MLflow pyfunc model.
+      - Define input and output signatures.
+      - Register and reload the artifact.
+      - Apply the registered model at batch scale.
+    expected_outputs:
+      - registered inference model
+      - versioned model URI
+      - enriched predictions
+      - batch-scored review dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 373
+  name: Sentiment Explainability Service
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Practical Deep Learning at Scale with MLflow
+    title: NLP Sentiment Classifier Explainer
+    url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/blob/main/chapter10/pipeline/nlp_sentiment_classifier_explainer.py
+    repository:
+      url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow
+      path: chapter10/pipeline/nlp_sentiment_classifier_explainer.py
+    description: >
+      Packt packages SHAP explanations for a transformer sentiment classifier as
+      a reusable MLflow pyfunc explanation artifact.
+  data:
+    description: >
+      Free-text sentiment inputs evaluated through a pretrained transformer pipeline.
+    source_url: https://huggingface.co/models
+    availability: model_download
+    files: []
+  original_implementation:
+    technologies:
+      - MLflow
+      - SHAP
+      - transformers
+      - sentiment analysis
+      - pyfunc
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Practical-Deep-Learning-at-Scale-with-MLFlow/blob/main/chapter10/pipeline/nlp_sentiment_classifier_explainer.py
+  problem:
+    context: >
+      Production sentiment predictions may require inspectable token-level
+      explanations rather than a label alone.
+    objective: >
+      Package sentiment explanations as a reusable versioned inference artifact.
+    analytical_questions:
+      - Which tokens contribute most to a prediction?
+      - How can explanation generation be standardized?
+      - What interface should an explanation service expose?
+      - How should explanation artifacts be versioned?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - mlflow
+      - shap
+      - transformers
+      - pandas
+    logical_steps:
+      - Load a sentiment pipeline.
+      - Construct a SHAP explainer.
+      - Generate token-level attributions.
+      - Wrap explanation logic as an MLflow model.
+      - Define signatures and log the artifact.
+      - Validate explanations on representative text.
+    expected_outputs:
+      - token attribution values
+      - explanation visualizations
+      - registered explainer model
+      - reusable explanation interface
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: true
+    authentication_required: false
   verification:
     source: verified
     data: verified
