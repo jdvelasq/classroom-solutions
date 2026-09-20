@@ -2326,6 +2326,79 @@
     data: verified
     code: verified
 
+- id: 258
+  name: Customer Data Cleaning Pipeline
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Python Data Analysis, Fourth Edition
+    title: Cleaning Messy Data
+    url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter07/7_cleaning_messy_data.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Python-Data-Analysis-4E
+      path: Chapter07/7_cleaning_messy_data.ipynb
+    description: >
+      Transform a messy customer table into a validated analytics-ready dataset while documenting the effect of cleaning choices.
+  data:
+    description: >
+      Customer records with age, income, purchases, country, device, subscription status, credit score, and last-purchase date.
+    source_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter07/customers.csv
+    availability: repository
+    files:
+      - Chapter07/customers.csv
+  original_implementation:
+    technologies:
+      - missing-value handling
+      - groupwise imputation
+      - Mahalanobis outliers
+      - encoding
+      - scaling
+      - feature creation
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Python-Data-Analysis-4E/blob/main/Chapter07/7_cleaning_messy_data.ipynb
+  problem:
+    context: >
+      Customer data contain missing values, inconsistent categories, extreme values, and mixed data types that can undermine downstream analytics.
+    objective: >
+      Transform a messy customer table into a validated analytics-ready dataset while documenting the effect of cleaning choices.
+    analytical_questions:
+      - Which variables have material missingness?
+      - When should groupwise imputation replace global imputation?
+      - Which customers are multivariate outliers?
+      - How should categories, dates, and numeric variables be standardized?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scipy
+      - scikit-learn
+    logical_steps:
+      - Profile schema and missingness.
+      - Compare deletion and imputation options.
+      - Standardize categories and dates.
+      - Detect univariate and multivariate outliers.
+      - Encode categorical features.
+      - Scale selected variables.
+      - Create derived customer features.
+      - Validate the final dataset.
+    expected_outputs:
+      - data quality profile
+      - cleaned customer table
+      - outlier report
+      - feature transformation summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
