@@ -736,6 +736,80 @@
     data: verified
     code: verified
 
+- id: 74
+  name: Customer Record Linkage
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Analysis Projects
+    title: Record Linkage
+    url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter06/scripts/RecordLinkage/RecordLinkage.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Analysis-Projects
+      path: Chapter06/scripts/RecordLinkage/RecordLinkage.R
+    description: >
+      Packt demonstrates probabilistic and similarity-based record linkage using
+      blocking, string comparison, Levenshtein similarity, and phonetic comparison.
+  data:
+    description: >
+      Person records containing identity fields with duplicates and variations,
+      distributed through the R RecordLinkage package.
+    source_url: https://cran.r-project.org/package=RecordLinkage
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - blocking
+      - Levenshtein similarity
+      - phonetic matching
+      - duplicate detection
+      - RecordLinkage
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter06/scripts/RecordLinkage/RecordLinkage.R
+  problem:
+    context: >
+      Analytical datasets frequently contain multiple imperfect records that refer
+      to the same underlying person or entity.
+    objective: >
+      Identify likely duplicate records and construct a reproducible linkage process
+      for producing cleaner entity-level analytical data.
+    analytical_questions:
+      - Which fields are suitable for blocking candidate record pairs?
+      - How should textual similarity be quantified?
+      - Which candidate pairs are plausible duplicates?
+      - How do phonetic and string-based comparisons differ?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - recordlinkage
+      - rapidfuzz
+    logical_steps:
+      - Load and profile entity records.
+      - Standardize identity fields.
+      - Generate candidate pairs through blocking.
+      - Calculate exact, fuzzy, and phonetic similarity features.
+      - Score candidate matches.
+      - Inspect ambiguous pairs.
+      - Produce linked entity identifiers.
+    expected_outputs:
+      - standardized entity table
+      - candidate pair table
+      - similarity feature matrix
+      - matched record pairs
+      - linked analytical dataset
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -2456,6 +2530,385 @@
       - PCA visualization
       - segment profile table
       - marketing interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 75
+  name: Sensor Stream Clustering
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Analysis Projects
+    title: Stream Clustering
+    url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter07/Scripts/StreamClustering/streamClustering.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Analysis-Projects
+      path: Chapter07/Scripts/StreamClustering/streamClustering.R
+    description: >
+      Packt simulates streaming sensor observations, introduces concept drift,
+      and applies online micro- and macro-clustering methods to evolving data.
+  data:
+    description: >
+      Synthetic multivariate sensor streams with configurable clusters, noise,
+      and temporal drift generated in the R stream package.
+    source_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter07/Scripts/StreamClustering/streamClustering.R
+    availability: embedded_generated
+    files: []
+  original_implementation:
+    technologies:
+      - data streams
+      - DBSTREAM
+      - micro-clustering
+      - K-means macro-clustering
+      - concept drift
+      - stream
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter07/Scripts/StreamClustering/streamClustering.R
+  problem:
+    context: >
+      Sensor observations arrive continuously and their structure may drift, making
+      static clustering insufficient for monitoring evolving operating regimes.
+    objective: >
+      Discover and track cluster structure in a streaming sensor process.
+    analytical_questions:
+      - What clusters are present in the incoming stream?
+      - How does cluster structure change under drift?
+      - How do micro- and macro-cluster representations differ?
+      - How well do online clusters recover the simulated operating regimes?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - numpy
+      - pandas
+      - river
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Generate a deterministic multivariate data stream.
+      - Introduce noise and controlled concept drift.
+      - Normalize streaming features.
+      - Update an online clustering model incrementally.
+      - Aggregate micro-clusters into interpretable macro-clusters.
+      - Track cluster centers and sizes over time.
+      - Evaluate cluster stability under drift.
+    expected_outputs:
+      - simulated sensor stream
+      - evolving cluster assignments
+      - cluster-center trajectories
+      - drift visualizations
+      - clustering quality summary
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 76
+  name: Product Network Discovery
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Analysis Projects
+    title: Product Network Analysis
+    url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter08/Scrips/ProductNetworkAnalysis/Networks.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Analysis-Projects
+      path: Chapter08/Scrips/ProductNetworkAnalysis/Networks.R
+    description: >
+      Packt converts product co-purchases into a weighted graph, identifies product
+      communities, calculates network measures, and explores product neighborhoods.
+  data:
+    description: >
+      Retail transaction pairs containing order identifiers and product identifiers.
+    source_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter08/Scrips/ProductNetworkAnalysis/data.csv
+    availability: repository
+    files:
+      - Chapter08/Scrips/ProductNetworkAnalysis/data.csv
+  original_implementation:
+    technologies:
+      - Apriori
+      - frequent itemsets
+      - graph construction
+      - community detection
+      - random walks
+      - igraph
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter08/Scrips/ProductNetworkAnalysis/Networks.R
+  problem:
+    context: >
+      Retail transactions reveal a network of products that are repeatedly purchased
+      together and may form broader product communities.
+    objective: >
+      Build and interpret a product co-purchase network to reveal communities,
+      central products, and local product relationships.
+    analytical_questions:
+      - Which products are strongly connected by co-purchase behavior?
+      - What product communities emerge from the network?
+      - Which products occupy central positions?
+      - What nearby products are reached from a focal item?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - mlxtend
+      - networkx
+      - matplotlib
+    logical_steps:
+      - Load and validate transaction pairs.
+      - Mine frequent two-item sets.
+      - Convert item pairs into a weighted graph.
+      - Calculate degree and weighted-strength metrics.
+      - Detect product communities.
+      - Explore neighborhoods and random walks from focal products.
+      - Interpret product structure.
+    expected_outputs:
+      - product co-purchase graph
+      - centrality table
+      - product communities
+      - neighborhood analysis
+      - network visualizations
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 77
+  name: Wholesale Customer Segmentation
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Mining Blueprints
+    title: Clustering Techniques
+    url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%206/Clustering%20Techniques.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints
+      path: Chapter 6/Clustering Techniques.R
+    description: >
+      Packt segments wholesale customers after explicit outlier treatment and scaling,
+      comparing K-means, hierarchical, model-based, and self-organizing-map approaches.
+  data:
+    description: >
+      Wholesale customer annual spending across fresh, milk, grocery, frozen,
+      detergents/paper, and delicatessen product categories.
+    source_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%206/Wholesalecustomers.csv
+    availability: repository
+    files:
+      - Chapter 6/Wholesalecustomers.csv
+  original_implementation:
+    technologies:
+      - outlier treatment
+      - scaling
+      - K-means
+      - hierarchical clustering
+      - model-based clustering
+      - self-organizing maps
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%206/Clustering%20Techniques.R
+  problem:
+    context: >
+      A wholesaler wants to understand heterogeneous customer purchasing profiles
+      across several product categories.
+    objective: >
+      Discover and compare customer segments using several clustering paradigms.
+    analytical_questions:
+      - How should extreme spending values be handled before segmentation?
+      - How many customer groups are supported by the data?
+      - Do alternative clustering methods reveal similar segment structure?
+      - Which product categories characterize each segment?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scipy
+      - matplotlib
+    logical_steps:
+      - Load and profile wholesale spending.
+      - Treat extreme values transparently.
+      - Standardize spending features.
+      - Compare candidate cluster counts.
+      - Fit K-means and hierarchical solutions.
+      - Compare with model-based alternatives where practical.
+      - Profile and interpret segments.
+    expected_outputs:
+      - cleaned spending dataset
+      - clustering diagnostics
+      - segment assignments
+      - segment profile table
+      - method comparison
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 78
+  name: Credit Risk Dimension Reduction
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Mining Blueprints
+    title: Variable Reduction
+    url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%208/VariableReduction.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints
+      path: Chapter 8/VariableReduction.R
+    description: >
+      Packt applies correlation analysis and principal component analysis to a
+      credit-default dataset to summarize multivariate structure and reduce dimensions.
+  data:
+    description: >
+      Credit-default records containing multiple financial and customer attributes.
+    source_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%208/default.csv
+    availability: repository
+    files:
+      - Chapter 8/default.csv
+  original_implementation:
+    technologies:
+      - correlation analysis
+      - PCA
+      - eigen decomposition
+      - scree plot
+      - biplot
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%208/VariableReduction.R
+  problem:
+    context: >
+      Credit data can contain many correlated financial attributes that obscure
+      underlying structure and complicate subsequent analysis.
+    objective: >
+      Explore latent dimensions in credit-risk attributes and determine how much
+      information can be retained with fewer components.
+    analytical_questions:
+      - Which original variables are strongly correlated?
+      - How many principal components explain most variation?
+      - Which variables dominate the leading components?
+      - What customer structure becomes visible in reduced dimensions?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - matplotlib
+    logical_steps:
+      - Load and validate credit data.
+      - Select and standardize numeric attributes.
+      - Inspect the correlation structure.
+      - Fit PCA.
+      - Analyze explained variance and loadings.
+      - Visualize observations in leading components.
+      - Interpret the latent dimensions.
+    expected_outputs:
+      - correlation matrix
+      - explained-variance table
+      - scree plot
+      - loading table
+      - reduced component dataset
+      - biplot or score visualization
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 81
+  name: Product Cross-Sell Rules
+  domain: descriptive_and_diagnostics_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Analysis Projects
+    title: Cross-Sell Association Rules
+    url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter01/scripts/AssocationRuleMining/crossSell.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Analysis-Projects
+      path: Chapter01/scripts/AssocationRuleMining/crossSell.R
+    description: >
+      Packt mines product association rules, augments support and confidence with
+      leverage and conviction, and selects high-value rules for cross-sell analysis.
+  data:
+    description: >
+      Order-product transaction pairs used to construct shopping baskets.
+    source_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter01/data/data.csv
+    availability: repository
+    files:
+      - Chapter01/data/data.csv
+  original_implementation:
+    technologies:
+      - Apriori
+      - association rules
+      - support
+      - confidence
+      - leverage
+      - conviction
+      - igraph
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter01/scripts/AssocationRuleMining/crossSell.R
+  problem:
+    context: >
+      A retailer wants to identify product combinations that can support cross-selling
+      rather than relying only on item popularity.
+    objective: >
+      Discover, rank, and visualize product association rules that are useful for
+      cross-sell campaigns.
+    analytical_questions:
+      - Which product combinations occur frequently?
+      - Which rules have meaningful confidence and lift-related measures?
+      - How does leverage change the ranking of candidate rules?
+      - Which products form useful cross-sell neighborhoods?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - mlxtend
+      - networkx
+    logical_steps:
+      - Load transaction pairs.
+      - Construct baskets.
+      - Mine association rules across threshold choices.
+      - Calculate several interest measures.
+      - Prune and rank candidate rules.
+      - Build a graph of selected relationships.
+      - Interpret cross-sell opportunities.
+    expected_outputs:
+      - frequent itemsets
+      - ranked association rules
+      - interest-measure comparison
+      - cross-sell network
+      - campaign candidate table
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
@@ -5085,6 +5538,234 @@
       - confusion matrix
       - feature importance table
       - channel-level error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 79
+  name: Art Auction Valuation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Mining Blueprints
+    title: Neural Network
+    url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%209/NeuralNetwork.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints
+      path: Chapter 9/NeuralNetwork.R
+    description: >
+      Packt prepares art-auction attributes and uses neural networks for both auction
+      price estimation and classification of whether an artwork represents a good purchase.
+  data:
+    description: >
+      Art-auction records with auction house, category, artistic attributes, ratings,
+      acquisition costs, market prices, guarantees, and purchase labels.
+    source_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%209/diabetic.csv
+    availability: repository
+    files:
+      - Chapter 9/NeuralNetwork.R
+  original_implementation:
+    technologies:
+      - dummy encoding
+      - neural networks
+      - regression
+      - binary classification
+      - train/test split
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Mining-Blueprints/blob/master/Chapter%209/NeuralNetwork.R
+  problem:
+    context: >
+      Art buyers and auction analysts need to estimate market value and distinguish
+      attractive purchases using heterogeneous artwork and market attributes.
+    objective: >
+      Model auction value and purchase attractiveness from artwork characteristics
+      and market information.
+    analytical_questions:
+      - Which attributes help explain auction value?
+      - Can a nonlinear model estimate current auction price?
+      - Which artwork characteristics distinguish good purchases?
+      - How should categorical art attributes be encoded for modeling?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate art-auction data.
+      - Clean missing and malformed values.
+      - Encode categorical artwork attributes.
+      - Create reproducible training and test sets.
+      - Fit nonlinear valuation and purchase classifiers.
+      - Evaluate regression and classification outputs separately.
+      - Explain important drivers.
+    expected_outputs:
+      - prepared auction dataset
+      - auction value predictions
+      - purchase classification metrics
+      - model diagnostics
+      - driver interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: false
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partially_verified
+    code: verified
+  notes: >
+    The code references ArtPiece_1.csv while the repository tree does not expose
+    that file under the same chapter path; the case is retained because the full
+    implementation is explicit, but a Python rewrite requires reconstructing or
+    locating the referenced dataset.
+
+- id: 80
+  name: Flight Delay Prediction at Scale
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Big Data Analytics with R
+    title: Big Data Machine Learning with R
+    url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/blob/master/Chapter%208/BDA_Ch09.R
+    repository:
+      url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R
+      path: Chapter 8/BDA_Ch09.R
+    description: >
+      Packt models US flight delays on large datasets with SparkR and H2O,
+      validating models on a later month and comparing scalable learning approaches.
+  data:
+    description: >
+      US flight records with departure and arrival times, delays, weekday,
+      air time, distance, cancellation, and diversion indicators.
+    source_url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/tree/master/Chapter%208/data/data
+    availability: repository
+    files:
+      - Chapter 8/data/data/flights_2014.zip
+      - Chapter 8/data/data/flights_jan_2015.csv
+  original_implementation:
+    technologies:
+      - SparkR
+      - H2O
+      - logistic regression
+      - Naive Bayes
+      - deep learning
+      - temporal validation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Big-Data-Analytics-with-R/blob/master/Chapter%208/BDA_Ch09.R
+  problem:
+    context: >
+      Large flight datasets require scalable processing while airlines and analysts
+      need to identify flights likely to arrive late.
+    objective: >
+      Build scalable flight-delay classifiers and test whether they generalize to a
+      later time period.
+    analytical_questions:
+      - Which operational variables distinguish delayed flights?
+      - Can delay models be trained efficiently on large flight data?
+      - How do scalable algorithms compare?
+      - How much performance changes on a later month of flights?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pyspark
+      - pandas
+      - scikit-learn
+    logical_steps:
+      - Load and validate the large flight dataset.
+      - Remove cancelled and diverted flights.
+      - Derive arrival-delay and departure-period features.
+      - Train scalable classification models.
+      - Evaluate on the training-period holdout.
+      - Apply the model to later-period flight data.
+      - Compare temporal generalization and class-specific performance.
+    expected_outputs:
+      - prepared flight dataset
+      - scalable classification models
+      - delay prediction metrics
+      - temporal validation comparison
+      - operational error analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 82
+  name: Joke Recommendation
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: R Data Analysis Projects
+    title: Collaborative Filtering
+    url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter03/Scripts/Collaborativefiltering/CF.R
+    repository:
+      url: https://github.com/PacktPublishing/R-Data-Analysis-Projects
+      path: Chapter03/Scripts/Collaborativefiltering/CF.R
+    description: >
+      Packt compares popularity, user-based, item-based, random, and SVD recommenders
+      on the Jester ratings dataset with split and cross-validation evaluation.
+  data:
+    description: >
+      Jester joke ratings distributed through the R recommenderlab package.
+    source_url: https://cran.r-project.org/package=recommenderlab
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - recommenderlab
+      - user-based collaborative filtering
+      - item-based collaborative filtering
+      - SVD
+      - top-N evaluation
+      - cross-validation
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/R-Data-Analysis-Projects/blob/master/Chapter03/Scripts/Collaborativefiltering/CF.R
+  problem:
+    context: >
+      A recommendation service needs to infer which unrated items a user is likely
+      to appreciate from sparse historical ratings.
+    objective: >
+      Compare collaborative-filtering strategies and generate top-N personalized
+      joke recommendations.
+    analytical_questions:
+      - How sparse are user ratings?
+      - How do popularity and personalized methods compare?
+      - Which algorithm produces the best top-N recommendations?
+      - How does recommendation quality change with list length?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - numpy
+      - scikit-surprise
+    logical_steps:
+      - Load and inspect the ratings matrix.
+      - Create reproducible evaluation splits.
+      - Implement popularity and collaborative-filtering baselines.
+      - Fit matrix-factorization recommendations.
+      - Generate top-N recommendations.
+      - Compare prediction and ranking metrics.
+    expected_outputs:
+      - ratings sparsity summary
+      - recommender comparison table
+      - top-N recommendations
+      - ranking performance curves
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
