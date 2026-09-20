@@ -3829,3 +3829,88 @@
     source: verified
     data: partial
     code: verified
+
+- id: 51
+  name: Hybrid Movie Recommendation
+  domain: analytics
+  type: predictiva
+  source:
+    category: book
+    organization: Rounak Banik
+    publisher: Packt
+    book: Hands-On Recommendation Systems with Python
+    title: Hybrid Recommenders
+    url: https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python/blob/master/Chapter7/Hybrid%20Recommender.ipynb
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python
+      path: Chapter7/Hybrid Recommender.ipynb
+    description: >
+      Packt combines content similarity with collaborative-filtering rating
+      predictions to produce user-specific movie recommendations.
+  data:
+    description: >
+      Movie metadata, mapping tables, similarity artifacts, and user-movie ratings
+      referenced by the book's hybrid-recommender notebook.
+    source_url: null
+    availability: external_not_bundled
+    files:
+      - ratings_small.csv
+      - metadata_small.csv
+      - movie_ids.csv
+      - cosine_sim.csv
+      - cosine_sim_map.csv
+    notes: >
+      The repository exposes the full workflow and expected file names, but the
+      original external data package was not verified in this pass.
+  original_implementation:
+    technologies:
+      - content similarity
+      - collaborative filtering
+      - matrix factorization
+      - Surprise SVD
+      - pandas
+    language: Python
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Recommendation-Systems-with-Python/blob/master/Chapter7/Hybrid%20Recommender.ipynb
+  problem:
+    context: >
+      Generic content similarity does not account for individual taste, while
+      collaborative filtering alone may ignore useful item metadata.
+    objective: >
+      Combine item similarity with user-specific rating predictions to generate
+      personalized movie recommendations.
+    analytical_questions:
+      - Which similar movies are plausible candidates for a selected title?
+      - How do predicted user ratings reorder those candidates?
+      - How different are hybrid recommendations across users?
+      - What value does personalization add beyond content similarity alone?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - scikit-surprise
+      - numpy
+    logical_steps:
+      - Acquire and freeze the required ratings and metadata files.
+      - Build or load the content-similarity representation.
+      - Fit a collaborative-filtering model on user ratings.
+      - Generate similar-item candidate sets.
+      - Score candidates with user-specific predicted ratings.
+      - Rank and compare personalized recommendations.
+      - Evaluate recommendation behavior for several users and seed movies.
+    expected_outputs:
+      - user-item ratings table
+      - content candidate sets
+      - collaborative-filtering model
+      - personalized recommendation lists
+      - cross-user comparison
+      - written interpretation
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: partial
+    code: verified
