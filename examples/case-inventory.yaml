@@ -2399,6 +2399,200 @@
     data: verified
     code: verified
 
+- id: 277
+  name: Multiyear Sales Ingestion
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Alteryx Designer Cookbook
+    title: Reading Multiple Excel Files
+    url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/ch1/Recipe1/WORKFLOWS/CH01-R01-ReadAll%20ExcelFiles.yxmd
+    repository:
+      url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook
+      path: ch1/Recipe1/WORKFLOWS/CH01-R01-ReadAll ExcelFiles.yxmd
+    description: >
+      Consolidates monthly sales workbooks across multiple years through a repeatable multi-file ingestion workflow.
+  data:
+    description: >
+      Monthly sales workbooks for 2018 through 2022 with a common monthly-sales schema.
+    source_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/tree/main/ch1/Recipe1/DATA
+    availability: repository
+    files:
+      - ch1/Recipe1/DATA/MonthlySales_2022.xlsx
+  original_implementation:
+    technologies:
+      - Alteryx
+      - multi-file ingestion
+      - Excel
+    language: visual_workflow
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/ch1/Recipe1/WORKFLOWS/CH01-R01-ReadAll%20ExcelFiles.yxmd
+  problem:
+    context: >
+      Sales history is distributed across yearly workbooks and must be consolidated reliably before longitudinal analysis.
+    objective: >
+      Build a repeatable ingestion process that discovers, reads, validates, and consolidates monthly sales files across years.
+    analytical_questions:
+      - Which files conform to the expected sales schema?
+      - Are dates and sales values consistent after consolidation?
+      - Are any periods duplicated or missing?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - pathlib
+      - openpyxl
+    logical_steps:
+      - Discover matching workbooks recursively.
+      - Read and validate each workbook.
+      - Attach source metadata.
+      - Concatenate all periods.
+      - Validate temporal completeness.
+    expected_outputs:
+      - file inventory
+      - schema validation report
+      - consolidated sales table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 278
+  name: Customer Service Text Categorization
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Alteryx Designer Cookbook
+    title: Preparing Free Text for Analysis
+    url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/ch5/Recipe1/WORKFLOW/CH05-R01-Prepare%20a%20free%20text%20field%20for%20Analysis.yxmd
+    repository:
+      url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook
+      path: ch5/Recipe1/WORKFLOW/CH05-R01-Prepare a free text field for Analysis.yxmd
+    description: >
+      Converts customer-service free text into categorized mentions using tokenization, dictionary lookup, deduplication, and aggregation.
+  data:
+    description: >
+      Customer-service review text with ratings plus a keyword-to-category dictionary.
+    source_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/tree/main/ch5/Recipe1/DATA
+    availability: repository
+    files:
+      - ch5/Recipe1/DATA/CustomerServiceTexts.xlsx
+      - ch5/Recipe1/DATA/SearchDictionary.xlsx
+  original_implementation:
+    technologies:
+      - Alteryx
+      - text tokenization
+      - dictionary matching
+      - category aggregation
+    language: visual_workflow
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/ch5/Recipe1/WORKFLOW/CH05-R01-Prepare%20a%20free%20text%20field%20for%20Analysis.yxmd
+  problem:
+    context: >
+      Customer-service feedback must be converted from free text into structured issue categories before downstream analysis.
+    objective: >
+      Produce standardized issue-category indicators from free-text feedback.
+    analytical_questions:
+      - Which keywords map to each issue category?
+      - Which categories occur most frequently?
+      - Which records contain multiple issue categories?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - re
+    logical_steps:
+      - Load reviews and the category dictionary.
+      - Normalize and tokenize text.
+      - Match terms to categories.
+      - Deduplicate category mentions.
+      - Aggregate categories to review level.
+    expected_outputs:
+      - token-category matches
+      - review-level categories
+      - category frequency table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 279
+  name: Multilingual Survey Harmonization
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Alteryx Designer Cookbook
+    title: Dynamically Replacing Survey Values
+    url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/ch9/Recipe3/WORKFLOWS/CH09-R03-Dynamically%20Replacing%20values.yxmd
+    repository:
+      url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook
+      path: ch9/Recipe3/WORKFLOWS/CH09-R03-Dynamically Replacing values.yxmd
+    description: >
+      Harmonizes English and Spanish survey files with dictionaries that standardize question names and response values.
+  data:
+    description: >
+      English and Spanish survey responses plus question and value dictionaries.
+    source_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/tree/main/ch9/Recipe3
+    availability: repository
+    files:
+      - ch9/Recipe3/DATA/SurveyData_EN.xlsx
+      - ch9/Recipe3/DATA/SurveyData_SP.xlsx
+      - ch9/Recipe3/DICTIONARY/Dictionaries.xlsx
+  original_implementation:
+    technologies:
+      - Alteryx
+      - dictionary mapping
+      - multilingual harmonization
+    language: visual_workflow
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/ch9/Recipe3/WORKFLOWS/CH09-R03-Dynamically%20Replacing%20values.yxmd
+  problem:
+    context: >
+      Survey files collected in different languages use different labels and encodings for the same underlying questions.
+    objective: >
+      Harmonize multilingual surveys into one canonical analytical schema.
+    analytical_questions:
+      - Which translated questions represent the same concept?
+      - Which response values require recoding?
+      - Which fields remain unmapped?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - openpyxl
+    logical_steps:
+      - Load surveys and dictionaries.
+      - Map questions to canonical names.
+      - Standardize response values.
+      - Validate unmapped values.
+      - Concatenate datasets.
+    expected_outputs:
+      - canonical question dictionary
+      - mapping exception report
+      - harmonized survey table
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 39
   name: Website Experiment Analysis
   domain: descriptive_and_diagnostics_analytics
@@ -20759,6 +20953,72 @@
       - forecast intervals
       - evaluation metrics
       - reproducible Airflow DAG
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 280
+  name: Customer Spend Report Generator
+  domain: data_products
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Alteryx Designer Cookbook
+    title: Report Generation App
+    url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/CH10/Recipe03/WORKFLOW/CH10-R03-ReportsGeneration.yxmd
+    repository:
+      url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook
+      path: CH10/Recipe03/WORKFLOW/CH10-R03-ReportsGeneration.yxmd
+    description: >
+      Packages customer-spending analytics into a reusable reporting app with store, segment, and top-customer outputs.
+  data:
+    description: >
+      Customer transaction summaries with store, market segment, visits, location, and total spend.
+    source_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/tree/main/CH10/Recipe03
+    availability: repository
+    files:
+      - CH10/Recipe03/DATA/CustomerSpent.yxdb
+  original_implementation:
+    technologies:
+      - Alteryx
+      - analytic app
+      - reusable macros
+      - parameterized reporting
+    language: visual_workflow
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Alteryx-Designer-Cookbook/blob/main/CH10/Recipe03/WORKFLOW/CH10-R03-ReportsGeneration.yxmd
+  problem:
+    context: >
+      Business users need repeatable customer-spending reports without manually recreating the same aggregations.
+    objective: >
+      Build a reusable analytical reporting product for customer and store performance.
+    analytical_questions:
+      - Which customers rank highest by total and average spend?
+      - How do stores and market segments compare?
+      - Which report sections should users be able to select?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - streamlit
+      - plotly
+    logical_steps:
+      - Load customer-spending data.
+      - Calculate store, segment, and customer metrics.
+      - Build reusable reporting functions.
+      - Expose selectable report sections.
+      - Validate outputs against source totals.
+    expected_outputs:
+      - store performance report
+      - segment summary
+      - top-customer tables
+      - reusable reporting app
   reproducibility:
     self_contained_python_rewrite_possible: true
     external_web_required_after_data_download: false
