@@ -13867,6 +13867,160 @@
     data: verified
     code: verified
 
+- id: 222
+  name: Natural Gas Demand Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Time Series Analysis with R
+    title: US Natural Gas Consumption Forecasting
+    url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R/blob/master/Chapter08/Chapter%208%20R%20code.R
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R
+      path: Chapter08/Chapter 8 R code.R
+    description: >
+      Packt forecasts monthly US natural-gas consumption with naive and seasonal
+      baselines, AutoARIMA, residual diagnostics, forecast intervals, simulation,
+      and rolling backtesting.
+  data:
+    description: >
+      Monthly US natural-gas consumption distributed through the TSstudio package.
+    source_url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - R
+      - AutoARIMA
+      - naive forecast
+      - seasonal naive
+      - residual diagnostics
+      - forecast simulation
+      - rolling backtesting
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R/blob/master/Chapter08/Chapter%208%20R%20code.R
+  problem:
+    context: >
+      Natural-gas consumption is seasonal and operational planning requires forecasts
+      that outperform simple baselines and remain credible across backtesting windows.
+    objective: >
+      Build, validate, and simulate monthly natural-gas demand forecasts.
+    analytical_questions:
+      - Which baseline should a forecasting model beat?
+      - Does AutoARIMA improve holdout accuracy?
+      - Are residuals consistent with an adequate model?
+      - How uncertain are medium-term demand forecasts?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - statsmodels
+      - pmdarima
+      - matplotlib
+    logical_steps:
+      - Load and validate the monthly series.
+      - Create chronological train/test partitions.
+      - Fit naive and seasonal-naive baselines.
+      - Fit an automatic ARIMA model.
+      - Diagnose residuals.
+      - Compare holdout accuracy.
+      - Run rolling backtests and forecast simulations.
+    expected_outputs:
+      - baseline comparison
+      - fitted ARIMA model
+      - residual diagnostics
+      - backtesting summary
+      - forecast intervals
+      - simulated future paths
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 223
+  name: Vehicle Sales Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Packt
+    publisher: Packt
+    book: Hands-On Time Series Analysis with R
+    title: Machine Learning for Vehicle Sales Forecasting
+    url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R/blob/master/Chapter12/Chapter%2012%20R%20code.R
+    repository:
+      url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R
+      path: Chapter12/Chapter 12 R code.R
+    description: >
+      Packt forecasts monthly US vehicle sales with engineered seasonal and lag
+      features and compares linear regression, random forest, gradient boosting,
+      tuned models, and H2O AutoML.
+  data:
+    description: >
+      Monthly US total vehicle sales distributed through TSstudio.
+    source_url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R
+    availability: package_dataset
+    files: []
+  original_implementation:
+    technologies:
+      - R
+      - H2O
+      - time-series feature engineering
+      - random forest
+      - gradient boosting
+      - AutoML
+      - hyperparameter search
+    language: R
+    code_available: true
+    code_url: https://github.com/PacktPublishing/Hands-On-Time-Series-Analysis-with-R/blob/master/Chapter12/Chapter%2012%20R%20code.R
+  problem:
+    context: >
+      Vehicle sales exhibit trend and seasonality, and forecasting them provides a
+      useful comparison between classical regression features and modern ML models.
+    objective: >
+      Compare machine-learning forecasting strategies for monthly vehicle sales and
+      generate future sales projections.
+    analytical_questions:
+      - Which lag and calendar features capture useful temporal structure?
+      - How do linear, random-forest, GBM, and AutoML forecasts compare?
+      - Does hyperparameter search improve holdout accuracy?
+      - Which model should be used for the final forecast?
+  python_rewrite:
+    feasible: true
+    suggested_libraries:
+      - pandas
+      - scikit-learn
+      - xgboost
+      - matplotlib
+    logical_steps:
+      - Load and inspect the monthly sales series.
+      - Engineer trend, month, and seasonal-lag features.
+      - Create chronological train/test partitions.
+      - Fit linear and tree-based forecasting models.
+      - Tune candidate ensembles.
+      - Compare holdout MAPE.
+      - Refit selected models and forecast future sales.
+    expected_outputs:
+      - engineered forecasting table
+      - model comparison
+      - hyperparameter search results
+      - holdout forecast chart
+      - future sales forecast
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 54
   name: Prediction to Action
   domain: prescriptive_analytics
