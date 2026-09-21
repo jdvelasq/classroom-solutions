@@ -1,6 +1,6 @@
 import os
 
-FOLDER = "PRE_08_analisis_chatgpt"
+FOLDER = "PRE_28_pandas_drivers"
 
 
 def test_01():

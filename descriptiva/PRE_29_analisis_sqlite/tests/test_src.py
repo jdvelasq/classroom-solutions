@@ -1,6 +1,6 @@
 import os
 
-FOLDER = "PRE_07_analisis_sqlite"
+FOLDER = "PRE_29_analisis_sqlite"
 
 
 def test_01():

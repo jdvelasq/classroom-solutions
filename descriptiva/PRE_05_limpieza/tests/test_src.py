@@ -4,7 +4,7 @@ import pandas as pd
 
 from ..src.clean import main
 
-FOLDER = "PRE_04_limpieza"
+FOLDER = "PRE_05_limpieza"
 
 OUTPUT_FILE = f"{FOLDER}/submission/ventas.csv"
 

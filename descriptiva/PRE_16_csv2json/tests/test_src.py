@@ -3,8 +3,8 @@ import os
 
 from ..src.csv2json import convert_csv_2_json
 
-DATA_FOLDER = "PRE_03_csv2json/data"
-OUTPUT_FOLDER = "PRE_03_csv2json/temp"
+DATA_FOLDER = "PRE_16_csv2json/data"
+OUTPUT_FOLDER = "PRE_16_csv2json/temp"
 
 
 CSV_FILE = f"{DATA_FOLDER}/drivers.csv"

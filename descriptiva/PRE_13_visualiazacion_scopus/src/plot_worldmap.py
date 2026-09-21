@@ -6,7 +6,7 @@ import pandas as pd  # type: ignore
 INPUT_FILE = "https://raw.githubusercontent.com/jdvelasq/datalabs/master/datasets/scopus-papers.csv"
 GEO_DATA_URL = "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/world-countries.json"
 
-OUTPUT_DIR = "PRE_09_visualiazacion/temp"
+OUTPUT_DIR = "PRE_13_visualiazacion_scopus/temp"
 COUNTRY_FREQUENCY_FILE = f"{OUTPUT_DIR}/countries.csv"
 WORLD_MAP_FILE = f"{OUTPUT_DIR}/map.html"
 

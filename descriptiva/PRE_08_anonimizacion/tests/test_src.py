@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 
-FOLDER = "PRE_05_anonimizacion"
+FOLDER = "PRE_08_anonimizacion"
 
 OUTPUT_FILE = f"{FOLDER}/submission/anonymized.csv"
 

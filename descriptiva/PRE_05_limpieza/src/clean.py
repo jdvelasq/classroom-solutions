@@ -2,8 +2,8 @@ import os
 
 import pandas as pd
 
-INPUT_FILE = "PRE_04_limpieza/data/ventas.csv"
-OUTPUT_FILE = "PRE_04_limpieza/submission/ventas.csv"
+INPUT_FILE = "PRE_05_limpieza/data/ventas.csv"
+OUTPUT_FILE = "PRE_05_limpieza/submission/ventas.csv"
 
 
 SUPPLIER_REPLACEMENTS = {

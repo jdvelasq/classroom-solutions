@@ -8,6 +8,14 @@ La secuencia siguiente es conceptual, no un calendario ni una asignación de dur
 
 En la programación detallada, una sesión puede incluir varios `PRE_*` autocontenidos cuando su complejidad y progresión pedagógica lo permitan.
 
+## Modalidad y alcance de la docencia presencial
+
+El curso se desarrolla entre las sesiones 3 y 8 mediante talleres construidos en clase con el docente. La docencia presencial que compone este programa está orientada deliberadamente a la práctica: los estudiantes resuelven y discuten los talleres directamente en el aula.
+
+La modalidad es de aula invertida. Los fundamentos teóricos y conceptuales cuentan con material de apoyo amplio para el trabajo previo y autónomo de los estudiantes. Además, los estudiantes disponen de DataCamp como recurso complementario para reforzar y ampliar su formación.
+
+Por tanto, los `PRE_*` no pretenden representar por sí solos la totalidad del contenido del curso; son la evidencia y el vehículo de la práctica presencial, mientras que la preparación conceptual se desarrolla principalmente fuera del aula y se aplica durante los talleres.
+
 ## Unidades
 
 ### 1. Python para Analytics

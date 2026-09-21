@@ -2,7 +2,7 @@
 
 ## Propósito y lectura
 
-Este archivo inventaría material heredado de `PRE_*`; no propone una programación nueva ni modifica actividades. El orden sigue su numeración. Los `LAB_*` son actividades de evaluación y quedan fuera de este inventario y de la matriz de cobertura curricular. **Desarrollado** se basa en artefactos visibles; **Enunciado/esqueleto** en pruebas o estructura sin solución/datos/entregables observables.
+Este archivo inventaría material heredado de `PRE_*`; no propone una programación nueva ni modifica actividades. El orden sigue su numeración. Los `LAB_*` son actividades de evaluación y quedan fuera de este inventario y de la matriz de cobertura curricular. La columna **Actividad** identifica cada taller y describe analíticamente la tarea que el estudiante realiza; esta descripción es la base para comparar el curso con otros programas y para evaluar su cobertura. **Desarrollado** se basa en artefactos visibles; **Enunciado/esqueleto** en pruebas o estructura sin solución/datos/entregables observables.
 
 La unidad básica de este archivo es cada `PRE_*`. La matriz final solo agrega los conceptos de los `PRE_*` para comprobar cobertura de `curriculum.md`; no convierte las unidades curriculares en sesiones.
 
@@ -10,36 +10,37 @@ El tiempo estimado incluye presentar datos, problema, razonamiento y solución; 
 
 ## Talleres `PRE_*`
 
-| Orden | Actividad | Ideas o conceptos inferidos | Nivel observable | Clasificación | Tiempo estimado |
-|---:|---|---|---|---|---:|
-| 1 | `PRE_01_hola_mundo` | inducción: GitHub, resolución, pytest en VS Code, GitHub Desktop y Actions | Desarrollado | BASE | 50 min |
-| 2 | `PRE_02_word_count_mapreduce` | conteo, partición y MapReduce | Desarrollado | OPT | 45 min |
-| 3 | `PRE_03_word_count_pandas` | conteo y transformación tabular con pandas | Parcial (código/datos/pruebas; sin notebook o entrega visible) | OPT | — |
-| 4 | `PRE_04_limpieza` | limpieza y calidad de datos | Desarrollado | BASE | 50 min |
-| 7 | `PRE_07_anonimizacion` | anonimización y privacidad | Desarrollado | BASE | 50 min |
-| 8 | `PRE_08_vuelos` | análisis de vuelos; concepto exacto pendiente de lectura | Parcial (notebook y pruebas, sin datos/entrega visibles) | BASE | — |
-| 12 | `PRE_12_visualiazacion_scopus` | visualización de producción científica/redes | Desarrollado | BASE | 60 min |
-| 15 | `PRE_15_csv2json` | formatos y conversión CSV→JSON | Desarrollado | OPT | 45 min |
-| 27 | `PRE_27_pandas_drivers` | análisis tabular, resúmenes y visualización | Desarrollado | BASE | 50 min |
-| 28 | `PRE_28_analisis_sqlite` | consultas y análisis con SQLite | Desarrollado | BASE | 50 min |
-| 30 | `PRE_30_enigma` | caso por determinar a partir de su enunciado | Enunciado/esqueleto | OPT | — |
-| 32 | `PRE_32_analisis_chatgpt` | análisis asistido por IA generativa y validación crítica | Desarrollado | BASE | 45 min |
-| 33 | `PRE_33_consultas_sql_en_mapreduce` | integración de SQL y MapReduce | Enunciado/esqueleto | OPT | — |
-| 34 | `PRE_34_programacion_en_python_multiprocessing` | paralelismo y procesamiento local | Enunciado/esqueleto | OPT | — |
+| Orden | Actividad | Nivel observable | Clasificación | Tiempo estimado |
+|---:|---|---|---|---:|
+| 1 | `PRE_01_hola_mundo`: configurar y verificar el entorno de trabajo mediante la implementación y prueba de dos funciones Python que retornan cadenas de texto. | Desarrollado | BASE | 50 min |
+| 2 | `PRE_02_word_count_mapreduce`: replicar archivos de texto, normalizar y tokenizar sus líneas, emitir pares palabra–conteo, ordenarlos, agregarlos y escribir el resultado con la estructura de salida de MapReduce. | Desarrollado | OPT | 45 min |
+| 3 | `PRE_03_programacion_python`: número reservado para el taller de programación en Python para analítica; el artefacto del taller aún no existe en el inventario heredado. | Pendiente de creación | BASE | — |
+| 4 | `PRE_04_word_count_pandas`: cargar líneas de múltiples archivos de texto en un DataFrame, limpiar el texto, separar las palabras, calcular sus frecuencias por agrupación y guardar el resultado tabulado. | Parcial (código/datos/pruebas; sin notebook o entrega visible) | OPT | — |
+| 5 | `PRE_05_limpieza`: estandarizar una tabla de ventas mediante normalización de nombres de columnas, proveedores, países y ciudades; y conversión de fechas, montos, descuentos, pesos y precios unitarios. | Desarrollado | BASE | 50 min |
+| 8 | `PRE_08_anonimizacion`: evaluar el riesgo de reidentificación al cruzar cuasiidentificadores con datos auxiliares y aplicar supresión, enmascaramiento, seudonimización y generalización de edad y ubicación. | Desarrollado | BASE | 50 min |
+| 9 | `PRE_09_vuelos`: cargar y describir datos de vuelos, definir el indicador de retraso superior a 15 minutos, calcular su proporción y visualizar los retrasos por aerolínea, día de la semana y hora de salida. | Parcial (notebook y pruebas, sin datos/entrega visibles) | BASE | — |
+| 13 | `PRE_13_visualiazacion_scopus`: extraer países de afiliaciones bibliográficas, calcular sus frecuencias, construir un mapa coroplético y visualizar la red de coocurrencias de los países con mayor presencia. | Desarrollado | BASE | 60 min |
+| 16 | `PRE_16_csv2json`: leer un archivo CSV con encabezados, convertir sus registros a una colección JSON y guardar el resultado mediante una interfaz de conversión. | Desarrollado | OPT | 45 min |
+| 28 | `PRE_28_pandas_drivers`: integrar tablas de conductores y sus registros semanales, calcular promedios, totales y comparaciones con la media por conductor; generar una tabla resumen y un gráfico de los diez mayores kilometrajes. | Desarrollado | BASE | 50 min |
+| 29 | `PRE_29_analisis_sqlite`: cargar las tablas de conductores y registros semanales en SQLite, crear vistas, consultar agregados y funciones de ventana, y generar una tabla resumen y un gráfico de los diez mayores kilometrajes. | Desarrollado | BASE | 50 min |
+| 31 | `PRE_31_enigma`: taller disponible como enunciado/esqueleto; no hay artefactos suficientes para establecer la tarea analítica exacta. | Enunciado/esqueleto | OPT | — |
+| 33 | `PRE_33_analisis_chatgpt`: analizar datos con apoyo de IA generativa y validar críticamente los resultados producidos. | Desarrollado | BASE | 45 min |
+| 34 | `PRE_34_consultas_sql_en_mapreduce`: taller disponible como enunciado/esqueleto sobre consultas SQL en un flujo MapReduce. | Enunciado/esqueleto | OPT | — |
+| 35 | `PRE_35_programacion_en_python_multiprocessing`: taller disponible como enunciado/esqueleto sobre paralelismo y procesamiento local en Python. | Enunciado/esqueleto | OPT | — |
 
-`PRE_08_vuelos` es `BASE` porque aporta una capacidad curricular requerida, aunque está por completar y revisar. Se crearán otros PRE `BASE` para tableros, narrativa de evidencia y las demás brechas indicadas en la matriz.
+`PRE_09_vuelos` es `BASE` porque aporta una capacidad curricular requerida, aunque está por completar y revisar. Se crearán otros PRE `BASE` para tableros, narrativa de evidencia y las demás brechas indicadas en la matriz.
 
 ## Cobertura frente a `curriculum.md`
 
 | Unidad curricular | Evidencia heredada | Estado de cobertura |
 |---|---|---|
-| Python para Analytics | PRE 01, 03 y 27 | Inventariada. |
-| Pregunta descriptiva y contexto | Casos de vuelos, drivers y Scopus lo sugieren. | Parcial, inferida. |
-| Preparación analítica | PRE 04 | Inventariada. |
-| Exploración univariada | Pandas/drivers y SQLite lo sugieren. | Parcial, inferida. |
-| Exploración multivariada y diagnóstico | Pandas/drivers y vuelos podrían cubrirla. | Pendiente de lectura de notebooks. |
-| Gramática visual y percepción | PRE 12 | Parcial; percepción no verificable. |
-| Relaciones, espacio y tiempo | Scopus/redes y vuelos. | Parcial. |
+| Python para Analytics | PRE 01, 03 y 27: funciones Python, transformación tabular y análisis con Pandas. | Inventariada. |
+| Pregunta descriptiva y contexto | PRE 08 formula el indicador de retraso y lo compara por aerolínea, día y hora; PRE 27/28 resumen horas y kilometraje por conductor. | Parcial. |
+| Preparación analítica | PRE 04 normaliza valores y tipos de una tabla de ventas. | Inventariada. |
+| Exploración univariada | PRE 08 calcula el porcentaje de vuelos retrasados; PRE 27/28 calculan promedios, mínimos, máximos y totales por conductor. | Parcial. |
+| Exploración multivariada y diagnóstico | PRE 08 segmenta retrasos por tres dimensiones; PRE 27/28 comparan registros semanales con el promedio de cada conductor. | Parcial. |
+| Gramática visual y percepción | PRE 08, PRE 12 y PRE 27 generan gráficos de barras, mapa y red; no se documentan criterios explícitos de percepción o accesibilidad. | Parcial. |
+| Relaciones, espacio y tiempo | PRE 08 compara retrasos por día y hora; PRE 12 representa países y coocurrencias de afiliaciones. | Parcial. |
 | Tableros e informes | No hay `PRE_*` inequívoco. | Pendiente. |
 | Narrativa de evidencia | No hay actividad inequívoca. | Pendiente. |
 | Representación responsable | PRE 07; IA generativa en PRE 32. | Parcial. |

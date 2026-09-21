@@ -1,6 +1,6 @@
 import os
 
-FOLDER = "PRE_06_analisis_pandas"
+FOLDER = "PRE_33_analisis_chatgpt"
 
 
 def test_01():
