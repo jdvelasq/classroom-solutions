@@ -6,7 +6,7 @@ import os
 
 import pandas as pd  # type: ignore
 
-from homework import homework
+from src import homework
 
 
 def test_homework():

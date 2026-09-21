@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 
-from ..src.clean import main
+from ..src.main import main
 
 FOLDER = "PRE_05_limpieza"
 

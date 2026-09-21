@@ -1,6 +1,6 @@
 """Autograding script."""
 
-from homework import (
+from src import (
     pregunta_01,
     pregunta_02,
     pregunta_03,
