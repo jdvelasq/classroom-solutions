@@ -1,0 +1,57 @@
+{
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "notebook.defaultFormatter": "ms-python.black-formatter",
+    "black-formatter.importStrategy": "useBundled",
+    // "editor.codeActionsOnSave": {},
+    "flake8.args": [
+        "--config=pyproject.toml"
+    ],
+    "python.testing.pytestArgs": [
+        ".",
+        "--doctest-modules"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "makefile.configureOnOpen": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+    "editor.detectIndentation": false,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#51535a",
+        "activityBar.background": "#51535a",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#301017",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#51535a",
+        "statusBar.background": "#393a3f",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#51535a",
+        "statusBarItem.remoteBackground": "#bf4055",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#393a3f",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#393a3f99",
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "activityBar.activeBorder": "#e7e7e7",
+        "activityBarTop.activeBackground": "#51535a",
+        "activityBarTop.activeBorder": "#e7e7e7",
+        "activityBarTop.background": "#51535a",
+        "activityBarTop.foreground": "#e7e7e7",
+        "activityBarTop.inactiveForeground": "#e7e7e799",
+        "commandCenter.foreground": "#e7e7e7",
+        "statusBar.debuggingBackground": "#393a3f",
+        "statusBar.debuggingForeground": "#e7e7e7"
+    },
+    "peacock.color": "#393a3f",
+}
