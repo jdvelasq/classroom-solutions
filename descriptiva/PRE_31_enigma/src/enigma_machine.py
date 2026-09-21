@@ -1,9 +1,9 @@
 """Implementa la máquina Enigma."""
 
-from src.constants import LETTERS
-from src.plugboard import apply_plugboard
-from src.reflector import apply_reflector
-from src.rotor import apply_rotation, apply_rotor_backward, apply_rotor_forward
+from .constants import LETTERS
+from .plugboard import apply_plugboard
+from .reflector import apply_reflector
+from .rotor import apply_rotation, apply_rotor_backward, apply_rotor_forward
 
 
 def make_enigma_machine(rotors, reflector, plugboard):

@@ -7,7 +7,7 @@ import pandas as pd  # type: ignore
 from sklearn.metrics import mean_absolute_error  # type: ignore
 from sklearn.metrics import r2_score, root_mean_squared_error
 
-from homework import pregunta_01
+from ..homework import pregunta_01
 
 
 def load_estimator():

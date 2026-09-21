@@ -4,7 +4,7 @@ import os
 
 import pandas as pd  # type: ignore
 
-from homework.word_count import run_job
+from ..src.main import run_job
 
 
 def test_01():

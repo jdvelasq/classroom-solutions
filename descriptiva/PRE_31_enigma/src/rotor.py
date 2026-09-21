@@ -20,7 +20,7 @@ produciendo asi una sustitución distinta en cada paso.
 
 import random
 
-from src.constants import LETTERS
+from .constants import LETTERS
 
 
 def permute_letters(seed):

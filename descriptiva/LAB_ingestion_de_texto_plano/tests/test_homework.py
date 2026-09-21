@@ -1,6 +1,6 @@
 """Autograding script."""
 
-from src import pregunta_01 as pregunta
+from ..src import pregunta_01 as pregunta
 
 
 def test_01():

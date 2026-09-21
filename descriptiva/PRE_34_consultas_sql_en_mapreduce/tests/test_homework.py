@@ -5,7 +5,7 @@
 
 import os
 
-from src.queries import run
+from ..src.queries import run
 
 
 def test_01():
