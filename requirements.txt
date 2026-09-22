@@ -20,3 +20,4 @@ scipy==1.13.1
 seaborn<0.13
 statsmodels<0.15
 umap-learn==0.5.7
+streamlit==1.50.0
