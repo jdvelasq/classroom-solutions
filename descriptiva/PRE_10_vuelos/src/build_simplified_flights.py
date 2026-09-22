@@ -1,4 +1,4 @@
-"""Construye los datos simplificados del taller PRE_09_vuelos.
+"""Construye los datos simplificados del taller PRE_10_vuelos.
 
 Los archivos crudos de BTS se conservan en ``data/`` y se procesan por
 fragmentos. Los estudiantes solo necesitan los dos CSV comprimidos que este
@@ -55,7 +55,7 @@ MONTH_GRAIN = ["year", "month", "reporting_airline"]
 
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Agrega los archivos crudos de vuelos para PRE_09_vuelos."
+        description="Agrega los archivos crudos de vuelos para PRE_10_vuelos."
     )
     parser.add_argument(
         "--input-dir",
@@ -96,7 +96,7 @@ def validate_columns(file: Path) -> None:
     if missing:
         raise ValueError(
             f"{file.name} no contiene las columnas requeridas: {', '.join(missing)}. "
-            "Vuelva a descargar el archivo con el esquema definitivo de PRE_09_vuelos."
+            "Vuelva a descargar el archivo con el esquema definitivo de PRE_10_vuelos."
         )
 
 
