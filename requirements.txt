@@ -10,6 +10,7 @@ nicegui<2
 nltk<4
 numpy<2
 pandas<2.3
+plotly<6
 pulp==3.3.0
 pyparsing<3.1
 pytest<9
