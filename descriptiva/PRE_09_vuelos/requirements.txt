@@ -1,4 +1,6 @@
 pytest
 pandas
-matplotlib
+matplotlib<3.8
+plotly==5.24.1
 ipykernel
+jupyter
