@@ -1,6 +1,6 @@
 import os
 
-FOLDER = "PRE_28_pandas_drivers"
+FOLDER = "PRE_07_drivers_sqlite"
 
 
 def test_01():
