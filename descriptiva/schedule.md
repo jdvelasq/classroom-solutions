@@ -20,9 +20,9 @@ El tiempo estimado incluye presentar datos, problema, razonamiento y solución; 
 | 6 | `PRE_06_drivers_pandas`: integrar tablas de conductores y sus registros semanales, calcular promedios, totales y comparaciones con la media por conductor; generar una tabla resumen y un gráfico de los diez mayores kilometrajes. | Desarrollado | BASE | 50 min |
 | 7 | `PRE_07_drivers_sqlite`: cargar las tablas de conductores y registros semanales en SQLite, crear vistas, consultar agregados y funciones de ventana, y generar una tabla resumen y un gráfico de los diez mayores kilometrajes. | Desarrollado | BASE | 50 min |
 | 8 | `PRE_08_drivers_chatgpt`: analizar datos con apoyo de IA generativa y validar críticamente los resultados producidos. | Desarrollado | BASE | 45 min |
-| 9 | `PRE_09_retail_sales`: cargar y validar órdenes de venta; calcular ventas brutas, devoluciones y ventas netas; diagnosticar meses, tipo de día, clientes, productos, categorías, canales y medios de pago; y priorizar segmentos para reducir devoluciones. | Desarrollado | BASE | 220 min |
+| 9 | `PRE_09_retail_sales`: cargar y validar órdenes de venta; calcular ventas brutas, devoluciones y ventas netas; diagnosticar meses, tipo de día, clientes, productos, categorías, canales y medios de pago; y priorizar segmentos para reducir devoluciones. | Desarrollado | BASE | 230 min |
 | 10 | `PRE_10_vuelos`: cargar y explorar agregados reales de vuelos; validar su consistencia; calcular indicadores de demora, cancelación y minutos positivos; diagnosticar aerolíneas, día–hora y segmentos prioritarios; y analizar evolución mensual y estacionalidad. | Desarrollado | BASE | 320 min |
-| 11 | `PRE_11_supply_chain`: diagnosticar entregas, demoras y costos por país, sitio y modo de envío. | Pendiente | BASE | 320 min |
+| 11 | `PRE_11_supply_chain`: cargar y validar entregas; convertir fechas y limpiar fletes sin interpretar textos operativos como cero; calcular cumplimiento, demora y valor expuesto; diagnosticar modos, países y segmentos país–modo; y evaluar la cobertura disponible para comparar costos logísticos. | Desarrollado | BASE | 320 min |
 | 12 | `PRE_12_scopus`: analizar producción científica por año, fuentes, autores, palabras clave y países mediante frecuencias, mapas, matrices de coocurrencia, comunidades y redes. | Desarrollado | BASE | 245 min |
 | 16 | `PRE_16_csv2json`: leer un archivo CSV con encabezados, convertir sus registros a una colección JSON y guardar el resultado mediante una interfaz de conversión. | Desarrollado | OPT | 45 min |
 | 31 | `PRE_31_enigma`: taller disponible como enunciado/esqueleto; no hay artefactos suficientes para establecer la tarea analítica exacta. | Enunciado/esqueleto | OPT | — |
@@ -30,7 +30,7 @@ El tiempo estimado incluye presentar datos, problema, razonamiento y solución; 
 | 35 | `PRE_35_programacion_en_python_multiprocessing`: taller disponible como enunciado/esqueleto sobre paralelismo y procesamiento local en Python. | Enunciado/esqueleto | OPT | — |
 | 99 | `PRE_99_word_count_pandas`: cargar líneas de múltiples archivos de texto en un DataFrame, limpiar el texto, separar las palabras, calcular sus frecuencias por agrupación y guardar el resultado tabulado. | Parcial (código/datos/pruebas; sin notebook o entrega visible) | OPT | — |
 
-`PRE_10_vuelos` es `BASE` porque aporta una capacidad curricular requerida: diagnóstico descriptivo con indicadores, segmentación y análisis temporal. `PRE_09_retail_sales` y `PRE_11_supply_chain` complementan esa capacidad con diagnósticos comercial y operativo. Se crearán otros PRE `BASE` para tableros, narrativa de evidencia y las demás brechas indicadas en la matriz.
+`PRE_10_vuelos` es `BASE` porque aporta una capacidad curricular requerida: diagnóstico descriptivo con indicadores, segmentación y análisis temporal. `PRE_09_retail_sales` y `PRE_11_supply_chain` complementan esa capacidad con diagnósticos comercial y operativo. Los tres tienen notebooks ejecutables y se usan como mini casos de principio a fin.
 
 ## Cobertura frente a `curriculum.md`
 
