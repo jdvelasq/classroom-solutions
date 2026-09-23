@@ -1,0 +1,3 @@
+model,peak_day,peak_active_cases,peak_required_beds,rate_at_peak
+tasa_adaptativa,44,26411.362117022396,1320.56810585112,0.2217372817985599
+tasa_estatica,51,18514.05621406651,925.7028107033256,0.173
