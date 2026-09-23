@@ -1,0 +1,9 @@
+metric,value
+raw_ratings,35497.0
+consolidated_ratings,35494.0
+users,1508.0
+movies,2071.0
+matrix_density,0.011365106363358083
+target_user,272.0
+target_ratings,244.0
+eligible_neighbors,337.0
