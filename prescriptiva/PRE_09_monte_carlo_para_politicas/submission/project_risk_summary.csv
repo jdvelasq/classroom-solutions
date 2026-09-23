@@ -1,0 +1,2 @@
+policy,mean_npv,p10_npv,loss_probability,recommendation,review_trigger
+financiar_proyecto,-204852.96208203945,-271008.4814493769,0.9997,no_financiar,Escalar si la probabilidad de pérdida supera 35%.
