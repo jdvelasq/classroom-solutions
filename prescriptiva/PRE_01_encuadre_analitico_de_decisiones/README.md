@@ -21,6 +21,6 @@ La solución compara políticas explícitas y genera `submission/decision_brief.
 Desde esta carpeta, ejecute:
 
 ```bash
-python src/solution.py
+python src/main.py
 pytest -q
 ```
