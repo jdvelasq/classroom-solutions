@@ -1,0 +1,4 @@
+policy_id,policy,capacity,daily_cost,service_target
+P0,capacidad_actual,80,600,0.90
+P1,refuerzo_flexible,105,820,0.90
+P2,capacidad_ampliada,130,1100,0.90

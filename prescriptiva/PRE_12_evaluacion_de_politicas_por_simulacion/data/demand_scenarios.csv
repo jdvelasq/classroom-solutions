@@ -1,0 +1,5 @@
+scenario_id,probability,demand
+S1,0.20,70
+S2,0.35,90
+S3,0.30,110
+S4,0.15,140

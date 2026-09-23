@@ -1,9 +1,9 @@
 # Evaluación de políticas por simulación
 
-## Competencia
+## Problema
 
-Evaluar una política de capacidad cuando la dinámica del sistema hace insuficiente una solución cerrada.
+Un centro de atención debe elegir entre mantener, reforzar o ampliar su capacidad diaria. La demanda cambia por día; la política se evalúa por personas atendidas, costo y riesgo de dejar solicitudes sin atender. No se estudia teoría de colas: se comparan consecuencias de acciones gerenciales explícitas.
 
-## Estado
+## Entregable
 
-Esqueleto curricular: pendiente de datos, notebook, solución, artefactos y pruebas específicas.
+`submission/capacity_policy_comparison.csv` compara políticas por costo, servicio esperado y probabilidad de incumplir la meta de atención.

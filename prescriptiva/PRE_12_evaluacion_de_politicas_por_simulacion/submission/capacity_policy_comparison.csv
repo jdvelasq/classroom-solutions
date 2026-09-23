@@ -1,0 +1,4 @@
+policy_id,policy,expected_service_rate,breach_probability,daily_cost,feasible
+P0,capacidad_actual,0.815007215007215,0.7999999999999999,600,False
+P1,refuerzo_flexible,0.9488636363636365,0.15,820,True
+P2,capacidad_ampliada,0.9892857142857143,0.0,1100,True
