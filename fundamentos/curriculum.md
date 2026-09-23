@@ -4,6 +4,8 @@
 
 Curso de entrada que desarrolla el criterio para formular problemas analíticos y escoger el tipo de evidencia pertinente. Sus `PRE_*` conforman además el nivel mínimo común práctico de entrada a los cursos de posgrado. No reemplaza el desarrollo profundo de Descriptiva, Predictiva ni Prescriptiva.
 
+Introduce la distinción transversal entre un artefacto analítico y un producto de datos: una tabla, modelo, predicción o recomendación puede crear evidencia, pero solo se convierte en producto cuando se empaqueta para un consumidor con valor, contrato, responsabilidad y evolución definidos.
+
 La secuencia siguiente es conceptual, no un calendario ni una asignación de duración.
 
 En la programación detallada, una sesión puede incluir varios `PRE_*` autocontenidos cuando su complejidad y progresión pedagógica lo permitan.

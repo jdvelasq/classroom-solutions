@@ -4,6 +4,8 @@
 
 Este archivo inventaría material heredado de `PRE_*`; no propone una programación nueva ni modifica actividades. El orden es numérico. Los `LAB_*` son actividades de evaluación y quedan fuera de este inventario y de la matriz de cobertura curricular. El estado **Esqueleto** se basa en la presencia de estructura, `__init__.py` y pruebas, sin datos, notebooks, implementación o entregables no vacíos observables.
 
+Los talleres de Datos producen insumos confiables para consumo analítico —datasets curados, contratos, vistas, flujos o servicios de datos—, no el producto analítico final. Un activo de datos adquiere condición de producto cuando tiene consumidor, semántica, contrato, propiedad y compromiso de servicio; empaquetar la capacidad analítica para ese consumidor corresponde a Productos de Datos.
+
 La unidad básica de este archivo es cada `PRE_*`. La matriz final solo agrega los conceptos de los `PRE_*` para comprobar cobertura de `curriculum.md`; no convierte las unidades curriculares en sesiones.
 
 El tiempo estimado incluye presentar datos, problema, razonamiento y solución; se registra solo para material desarrollado y se redondea a múltiplos de 5 minutos.

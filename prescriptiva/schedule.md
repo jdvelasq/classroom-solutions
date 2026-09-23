@@ -40,3 +40,7 @@ La secuencia se organiza como **Analytics para decidir**, no como un temario de 
 |---|---|---|
 | Evaluación financiera de proyectos por escenarios | Construye un flujo de caja deliberadamente simple: inversión inicial, ingresos totales, costos variables, costos fijos e impuesto/tasa si se requiere; compara escenarios y decide financiar, posponer, rediseñar o descartar. | Definir si reemplaza o complementa un caso de escenarios existente. |
 | Evaluación financiera de proyectos con Monte Carlo | Convierte ingresos, costos o adopción en variables inciertas del mismo flujo; estima distribución de valor, probabilidad de pérdida y sensibilidad antes de recomendar una acción. | Definir si se convierte en la instancia concreta de PRE_09 o PRE_12. |
+
+## Fuentes de casos admisibles
+
+Los ejemplos de **DecisionSuite de Lumivero** pueden utilizarse como fuentes de problemas, decisiones, escenarios y progresiones pedagógicas. CLASSROOM no depende de Excel ni de los complementos de DecisionSuite: cada adaptación debe reconstruirse en Python con datos, cálculo, visualización, pruebas y artefactos reproducibles dentro de la estructura estándar de un `PRE_*`.

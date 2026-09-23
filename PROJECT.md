@@ -92,6 +92,10 @@ Los directorios vacíos se preservan con `.gitkeep`.
 
 Cada actividad representa un caso práctico completo y su solución debe permitir desarrollo incremental durante una clase presencial. El problema real y la decisión que habilita organizan la actividad; un algoritmo, paquete o biblioteca se introduce solamente cuando ayuda a resolver ese problema.
 
+### Principio transversal: artefacto analítico no equivale a producto de datos
+
+Todos los cursos y todos los `PRE_*` distinguen el artefacto que producen de un producto de datos o producto analítico. Un dato curado, informe, tablero, predicción, árbol de decisión, recomendación, política, modelo u optimizador puede ser un insumo o resultado analítico valioso sin ser todavía un producto. Solo se habla de producto cuando existe un consumidor definido, una necesidad o decisión atendida, una propuesta de valor, un modo de consumo, contrato, propiedad responsable y condiciones de evolución. Fundamentos y Datos encuadran o hacen disponibles los insumos; Descriptiva, Predictiva y Prescriptiva producen evidencia, anticipaciones o recomendaciones; Productos de Datos empaqueta una capacidad para su consumo y operación. Ningún taller debe reclamar que automatiza decisiones ni que entrega un producto solo por contener un algoritmo, una visualización o una salida de decisión.
+
 La unidad básica de `schedule.md` es el taller `PRE_*`, no la unidad de `curriculum.md`. La cobertura de una unidad curricular se determina al agregar los conceptos e ideas desarrollados por uno o varios `PRE_*`; la matriz de cobertura es una comprobación derivada, no la secuencia de enseñanza. Los `LAB_*` son actividades de evaluación y no se usan para justificar cobertura curricular, secuenciar unidades ni estimar la carga de enseñanza presencial.
 
 La progresión de referencia es:

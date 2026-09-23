@@ -4,6 +4,8 @@
 
 Curso que diseña, entrega, gobierna y evoluciona capacidades de datos y analítica para consumidores definidos. Integra producto de datos, producto analítico, MLOps y DataOps sin reducirse a Ingeniería de Software, UX aislado o certificación de herramientas.
 
+Es el único curso que convierte deliberadamente un activo de datos o un artefacto analítico en una oferta para un consumidor: usuario, necesidad, valor, modo de consumo, contrato, propiedad, responsabilidad y evolución. Un modelo, tablero o recomendación aislados no satisfacen por sí mismos esa definición.
+
 La secuencia siguiente es conceptual, no un calendario ni una asignación de duración.
 
 En la programación detallada, una sesión puede incluir varios `PRE_*` autocontenidos cuando su complejidad y progresión pedagógica lo permitan.

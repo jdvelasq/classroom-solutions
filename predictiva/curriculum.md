@@ -4,6 +4,8 @@
 
 Curso que desarrolla la capacidad de anticipar resultados con desempeño, incertidumbre y condiciones de uso explícitas. No es una colección de algoritmos de Machine Learning: los métodos están subordinados a encuadre, validación, costo de error y límite causal.
 
+Un modelo validado, una probabilidad o un *scoring* son artefactos predictivos, no productos de datos por sí mismos. Productos de Datos se ocupa de empaquetar esa capacidad para un consumidor, bajo un contrato, una experiencia de uso, responsabilidad y evolución operativa.
+
 La secuencia siguiente es conceptual, no un calendario ni una asignación de duración.
 
 En la programación detallada, una sesión puede incluir varios `PRE_*` autocontenidos cuando su complejidad y progresión pedagógica lo permitan.

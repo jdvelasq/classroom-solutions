@@ -6,6 +6,8 @@ Curso de **Analytics para decidir**: convierte evidencia descriptiva, predictiva
 
 La optimización, la simulación y las reglas son instrumentos subordinados a esa finalidad. El estudiante no aprende un método para demostrar dominio matemático; aprende a decidir si una recomendación crea valor, para quién, bajo qué supuestos, con qué riesgo y cuándo debe cambiarse o escalarse a una persona responsable.
 
+Una recomendación, política, árbol de decisión o resultado de optimización es un artefacto para apoyar el análisis o la decisión; no es automáticamente una decisión automatizada ni un producto de datos. Solo Productos de Datos empaqueta una capacidad para un consumidor definido, con modo de uso, contrato, propiedad y evolución.
+
 ## Contrato de identidad: Analytics, no Investigación de Operaciones
 
 La identidad se verifica en el conjunto del curso, no imponiendo el ciclo completo a cada `PRE_*`. Cada taller debe responder una **pregunta prescriptiva**: elegir una acción entre alternativas usando evidencia, función de valor, restricciones e incertidumbre. Según su propósito, puede concentrarse en formular, comparar políticas, evaluar escenarios, analizar sensibilidad o examinar impactos. Comunicación y seguimiento son competencias propias del curso que se consolidan en talleres específicos, del mismo modo que no todo taller de Predictiva tiene que comunicar o desplegar un modelo.
