@@ -1,0 +1,4 @@
+customer_id,month,segment,amount
+C01,2026-01,Pyme,230
+C02,2026-01,Corporativo,100
+C02,2026-02,Corporativo,120
