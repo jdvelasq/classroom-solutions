@@ -1,28 +1,17 @@
-#
-# Usage from command line:
-# curl http://127.0.0.1:5000 -X POST -H "Content-Type: application/json" -d '{"bathrooms": "2", "bedrooms": "3", "sqft_living": "1800", "sqft_lot": "2200", "floors": "1", "waterfront": "1", "condition": "3"}'
-#
+"""Consume la API de predicción desde otro proceso."""
+
 import requests
 
+API_URL = "http://127.0.0.1:8000/predict"
 
-def make_request():
 
-    url = "http://127.0.0.1:5000"
-
-    data = {
-        "bathrooms": "2",
-        "bedrooms": "3",
-        "sqft_living": "1800",
-        "sqft_lot": "2200",
-        "floors": "1",
-        "waterfront": "1",
-        "condition": "3",
-    }
-
-    response = requests.post(url, json=data, timeout=5)
-
-    print(response.text)
+def make_request(api_url=API_URL):
+    """Envía características de una vivienda y devuelve la respuesta JSON."""
+    house = {"bedrooms": 3, "bathrooms": 2, "sqft_living": 1800, "sqft_lot": 2200, "floors": 1, "waterfront": 0, "condition": 3}
+    response = requests.post(api_url, json=house, timeout=5)
+    response.raise_for_status()
+    return response.json()
 
 
 if __name__ == "__main__":
-    make_request()
+    print(make_request())

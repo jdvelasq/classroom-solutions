@@ -1,50 +1,51 @@
-"""API server example"""
-
-#
-# Usage from command line:
-# curl http://127.0.0.1:5000 -X POST -H "Content-Type: application/json" \
-# -d '{"bathrooms": "2", "bedrooms": "3", "sqft_living": "1800", \
-# "sqft_lot": "2200", "floors": "1", "waterfront": "1", "condition": "3"}'
-#
-
-# Windows:
-# curl http://127.0.0.1:5000 -X POST -H "Content-Type: application/json" -d "{\"bathrooms\": \"2\", \"bedrooms\": \"3\", \"sqft_living\": \"1800\", \"sqft_lot\": \"2200\", \"floors\": \"1\", \"waterfront\": \"1\", \"condition\": \"3\"}"
+"""Sirve predicciones de precio mediante una API HTTP."""
 
 import pickle
+from pathlib import Path
 
-import pandas as pd  # type: ignore
-from flask import Flask, request  # type: ignore
+import pandas as pd
+from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
-app = Flask(__name__)
-app.config["SECRET_KEY"] = "you-will-never-guess"
-
-
-FEATURES = [
-    "bedrooms",
-    "bathrooms",
-    "sqft_living",
-    "sqft_lot",
-    "floors",
-    "waterfront",
-    "condition",
-]
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+MODEL_PATH = ACTIVITY_DIR / "submission" / "house_predictor.pkl"
+FEATURES = ["bedrooms", "bathrooms", "sqft_living", "sqft_lot", "floors", "waterfront", "condition"]
 
 
-@app.route("/", methods=["POST"])
-def index():
-    """API function"""
-
-    args = request.json
-    filt_args = {key: [int(args[key])] for key in FEATURES}
-    df = pd.DataFrame.from_dict(filt_args)
-
-    with open("PRE_15_deployment_api/submission/house_predictor.pkl", "rb") as file:
-        loaded_model = pickle.load(file)
-
-    prediction = loaded_model.predict(df)
-
-    return str(prediction[0][0])
+class HouseFeatures(BaseModel):
+    """Define el contrato de datos que recibe la API."""
+    bedrooms: int = Field(ge=0)
+    bathrooms: float = Field(ge=0)
+    sqft_living: float = Field(gt=0)
+    sqft_lot: float = Field(gt=0)
+    floors: float = Field(gt=0)
+    waterfront: int = Field(ge=0, le=1)
+    condition: int = Field(ge=1, le=5)
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+def load_model():
+    """Carga el modelo entrenado por otro proceso del curso."""
+    with MODEL_PATH.open("rb") as file:
+        return pickle.load(file)
+
+
+def predict_price(features: HouseFeatures):
+    """Transforma una solicitud válida en una predicción serializable."""
+    feature_row = pd.DataFrame([features.model_dump()], columns=FEATURES)
+    prediction = load_model().predict(feature_row)
+    return float(prediction[0][0])
+
+
+app = FastAPI(title="House price prediction API")
+
+
+@app.get("/health")
+def health():
+    """Confirma que el servicio está disponible."""
+    return {"status": "available"}
+
+
+@app.post("/predict")
+def predict(features: HouseFeatures):
+    """Devuelve una predicción para una vivienda con datos validados."""
+    return {"predicted_price": predict_price(features)}
