@@ -1,0 +1,4 @@
+transaction_id,customer_id,amount,status,updated_at
+T02,C02,85,corrected,2026-01-02T08:00:00
+T03,C01,40,posted,2026-01-01T09:10:00
+T04,C03,120,posted,2026-01-02T08:10:00
