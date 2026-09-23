@@ -7,7 +7,7 @@ import sys
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ACTIVITY_DIR))
 
-from src.api_server import HouseFeatures, predict_price
+from src.server import HouseFeatures, predict_price
 
 
 def test_trained_model_is_served_without_retraining():
@@ -17,7 +17,7 @@ def test_trained_model_is_served_without_retraining():
 
 
 def test_activity_has_an_api_server_and_a_client():
-    server = Path("src/api_server.py").read_text(encoding="utf-8")
-    client = Path("src/api_client.py").read_text(encoding="utf-8")
+    server = Path("src/server.py").read_text(encoding="utf-8")
+    client = Path("src/client.py").read_text(encoding="utf-8")
     assert '@app.post("/predict")' in server
     assert "requests.post" in client
