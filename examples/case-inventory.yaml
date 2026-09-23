@@ -68,6 +68,229 @@
     data: verified
     code: verified
 
+- id: 444
+  name: Distributed Weather Time-Series Analysis
+  domain: data_for_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Data Science with Python and Dask
+    title: Parallel Time-Series Processing with Dask
+    url: https://github.com/jcdaniel91/data-science-python-dask/blob/master/Chapter%202.ipynb
+    repository:
+      url: https://github.com/jcdaniel91/data-science-python-dask
+      path: Chapter 2.ipynb
+    description: >
+      The Manning companion repository uses New York City temperature observations
+      to introduce lazy, partitioned time-series processing with Dask.
+  data:
+    description: Daily and monthly New York City temperature observations.
+    source_url: https://github.com/jcdaniel91/data-science-python-dask/blob/master/nyc-temp-data.csv
+    availability: repository
+    files:
+      - nyc-temp-data.csv
+      - nyc-average-monthly-temp.csv
+  original_implementation:
+    technologies: [Dask, pandas, lazy evaluation, time-series aggregation]
+    language: Python
+    code_available: true
+    code_url: https://github.com/jcdaniel91/data-science-python-dask/blob/master/Chapter%202.ipynb
+  problem:
+    context: Time-series transformations must scale across partitioned data without premature computation.
+    objective: Calculate reproducible monthly and seasonal temperature summaries with Dask.
+    analytical_questions:
+      - How do temperatures vary by month and season?
+      - Which transformations remain lazy until results are requested?
+      - How do results compare with a pandas baseline?
+  python_rewrite:
+    feasible: true
+    suggested_libraries: [dask, pandas, matplotlib]
+    logical_steps:
+      - Load the CSV as a partitioned dataframe.
+      - Inspect schema, partitions, and missing values.
+      - Derive calendar features and aggregate by month and season.
+      - Materialize and validate summaries against pandas.
+      - Visualize the seasonal pattern.
+    expected_outputs:
+      - partitioned dataframe
+      - monthly and seasonal summary table
+      - pandas validation comparison
+      - temperature trend chart
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 445
+  name: Used Car Price Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Machine Learning Bookcamp
+    title: Machine Learning for Regression
+    url: https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-02-car-price/02-carprice.ipynb
+    repository:
+      url: https://github.com/alexeygrigorev/mlbookcamp-code
+      path: chapter-02-car-price/02-carprice.ipynb
+    description: The Manning companion repository models used-car prices from vehicle attributes.
+  data:
+    description: Used-car listings with vehicle attributes and price.
+    source_url: https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/chapter-02-car-price
+    availability: repository
+    files: [chapter-02-car-price/02-carprice.ipynb]
+  original_implementation:
+    technologies: [pandas, linear regression, feature engineering, regularization]
+    language: Python
+    code_available: true
+    code_url: https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-02-car-price/02-carprice.ipynb
+  problem:
+    context: Vehicle marketplaces need consistent price estimates from heterogeneous listings.
+    objective: Predict used-car prices and compare regularized regression models on held-out data.
+    analytical_questions:
+      - Which vehicle attributes explain price variation?
+      - Does regularization improve validation error?
+      - Which listings have the largest residuals?
+  python_rewrite:
+    feasible: true
+    suggested_libraries: [pandas, scikit-learn, numpy, matplotlib]
+    logical_steps:
+      - Load and profile listings.
+      - Create reproducible train, validation, and test partitions.
+      - Engineer numeric and categorical features.
+      - Fit baseline and regularized regression models.
+      - Compare RMSE and inspect residuals.
+    expected_outputs:
+      - prepared vehicle feature matrix
+      - price prediction models
+      - validation metrics table
+      - residual analysis
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 446
+  name: Customer Churn Prediction
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Machine Learning Bookcamp
+    title: Machine Learning for Classification
+    url: https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-03-churn-prediction/03-churn.ipynb
+    repository:
+      url: https://github.com/alexeygrigorev/mlbookcamp-code
+      path: chapter-03-churn-prediction/03-churn.ipynb
+    description: The book develops and evaluates a logistic-regression churn model.
+  data:
+    description: Telco customer records with services, contract, charges, tenure, and churn status.
+    source_url: https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/chapter-03-churn-prediction
+    availability: repository
+    files:
+      - chapter-03-churn-prediction/03-churn.ipynb
+      - chapter-03-churn-prediction/04-metrics.ipynb
+  original_implementation:
+    technologies: [pandas, logistic regression, categorical encoding, ROC AUC, cross-validation]
+    language: Python
+    code_available: true
+    code_url: https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-03-churn-prediction/04-metrics.ipynb
+  problem:
+    context: Subscription businesses need to prioritize retention using customer-level churn risk.
+    objective: Estimate churn probability and choose an operating threshold from validation metrics.
+    analytical_questions:
+      - Which customer characteristics are associated with churn?
+      - How do precision, recall, and thresholds change the intervention queue?
+      - How stable are estimates across validation folds?
+  python_rewrite:
+    feasible: true
+    suggested_libraries: [pandas, scikit-learn, matplotlib]
+    logical_steps:
+      - Load and split customer records before fitting transformations.
+      - Encode services and contract features.
+      - Fit logistic regression and generate churn probabilities.
+      - Evaluate ROC AUC, precision, recall, and calibration.
+      - Produce a thresholded retention queue.
+    expected_outputs:
+      - modeled customer dataset
+      - churn probability model
+      - classification metric table
+      - ranked retention queue
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: false
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
+- id: 447
+  name: Deep Learning Time-Series Forecasting
+  domain: predictive_analytics
+  source:
+    category: book
+    organization: Manning
+    publisher: Manning
+    book: Deep Learning with Python, Third Edition
+    title: Timeseries Forecasting
+    url: https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter13_timeseries-forecasting.ipynb
+    repository:
+      url: https://github.com/fchollet/deep-learning-with-python-notebooks
+      path: chapter13_timeseries-forecasting.ipynb
+    description: The companion notebooks demonstrate neural time-series forecasting with Keras.
+  data:
+    description: Time-indexed observations accessed through Kaggle's public dataset infrastructure.
+    source_url: https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter13_timeseries-forecasting.ipynb
+    availability: public_with_account
+    files: []
+    notes: A course rewrite should freeze a permitted snapshot or substitute an openly downloadable time-series dataset.
+  original_implementation:
+    technologies: [Keras 3, TensorFlow, temporal validation, neural forecasting]
+    language: Python
+    code_available: true
+    code_url: https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter13_timeseries-forecasting.ipynb
+  problem:
+    context: Forecasting requires chronological evaluation that prevents future-data leakage.
+    objective: Build a neural forecast and compare it with a naive baseline on holdout periods.
+    analytical_questions:
+      - Which lags and seasonal signals improve forecasts?
+      - Does the neural model outperform a naive baseline?
+      - In which periods are forecast errors concentrated?
+  python_rewrite:
+    feasible: true
+    suggested_libraries: [keras, pandas, numpy, scikit-learn, matplotlib]
+    logical_steps:
+      - Freeze and validate a permitted time-series dataset.
+      - Create lagged windows and chronological partitions.
+      - Build a naive baseline and train a Keras model.
+      - Compare holdout MAE and error by period.
+      - Visualize actual and forecasted values.
+    expected_outputs:
+      - windowed time-series dataset
+      - baseline and neural forecasts
+      - chronological holdout metrics
+      - forecast-versus-actual chart
+  reproducibility:
+    self_contained_python_rewrite_possible: true
+    external_web_required_after_data_download: false
+    authentication_required: true
+  verification:
+    source: verified
+    data: verified
+    code: verified
+
 - id: 14
   name: Document Fact Extraction
   domain: data_for_analytics
