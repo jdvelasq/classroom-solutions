@@ -10,7 +10,7 @@ Construye un modelo probabilístico con información disponible antes del result
 
 ## Datos
 
-`data/train_data.csv.zip` y `data/test_data.csv.zip` contienen registros reales anonimizados de tarjetas de crédito, con límite, historial de pagos, facturación, abonos y default observado.
+`data/train_data.csv.gz` y `data/test_data.csv.gz` contienen registros reales anonimizados de tarjetas de crédito, con límite, historial de pagos, facturación, abonos y default observado.
 
 ## Entregables
 

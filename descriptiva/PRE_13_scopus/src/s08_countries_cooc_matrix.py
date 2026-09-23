@@ -3,13 +3,13 @@ from pathlib import Path
 import pandas as pd
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-DATA_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+DATA_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 MATRIX_FILE = SUBMISSION_DIRECTORY / "country_cooc_matrix.csv"
 
 
 def make_cooc_matrix(column, output_file) -> pd.DataFrame:
 
-    df = pd.read_csv(DATA_FILE, compression="zip")
+    df = pd.read_csv(DATA_FILE, compression="gzip")
 
     df = df[[column]].copy()
     df = df.rename(columns={column: "rows"})

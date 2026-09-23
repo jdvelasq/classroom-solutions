@@ -11,7 +11,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-DATA_PATH = ACTIVITY_DIR / "data" / "sentences.csv.zip"
+DATA_PATH = ACTIVITY_DIR / "data" / "sentences.csv.gz"
 SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
@@ -20,7 +20,7 @@ def normalize(text):
 
 
 def main():
-    dataframe = pd.read_csv(DATA_PATH, compression="zip")
+    dataframe = pd.read_csv(DATA_PATH, compression="gzip")
     dataframe["normalized_text"] = dataframe["phrase"].map(normalize)
     dataframe["tokens"] = dataframe["normalized_text"].map(word_tokenize)
     dataframe["tokens"] = dataframe["tokens"].map(

@@ -10,9 +10,9 @@ from sklearn.model_selection import train_test_split
 
 def test_saved_classifier_generalizes_across_sentiment_classes():
     dataframe = pd.read_csv(
-        "data/sentences.csv.zip",
+        "data/sentences.csv.gz",
         index_col=False,
-        compression="zip",
+        compression="gzip",
     )
 
     _, X_test, _, y_test = train_test_split(

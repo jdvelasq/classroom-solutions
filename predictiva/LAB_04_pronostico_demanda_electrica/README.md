@@ -10,7 +10,7 @@ Respeta el orden temporal al separar entrenamiento y prueba, compara pronóstico
 
 ## Datos
 
-`data/demanda_comercial.csv.zip` contiene demanda comercial observada por hora y día.
+`data/demanda_comercial.csv.gz` contiene demanda comercial observada por hora y día.
 
 ## Entregables
 

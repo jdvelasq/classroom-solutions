@@ -4,13 +4,13 @@ import pandas as pd
 import plotly.express as px
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 PLOT_FILE = SUBMISSION_DIRECTORY / "documents_by_year.html"
 
 
 def s02_make_documents_by_year_plot():
 
-    df = pd.read_csv(SUBMISSION_FILE, compression="zip")
+    df = pd.read_csv(SUBMISSION_FILE, compression="gzip")
 
     df = df[["publication_year"]].copy()
     df = df.groupby("publication_year").size().reset_index(name="count")

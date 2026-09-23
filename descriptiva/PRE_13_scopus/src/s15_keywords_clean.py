@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 
 
 REPLACEMENTS = {
@@ -16,7 +16,7 @@ REPLACEMENTS = {
 
 def s15_keywords_clean() -> None:
 
-    df = pd.read_csv(SUBMISSION_FILE, compression="zip")
+    df = pd.read_csv(SUBMISSION_FILE, compression="gzip")
 
     df["keywords_clean"] = df["keywords_raw"].str.upper()
     for old, new in REPLACEMENTS.items():

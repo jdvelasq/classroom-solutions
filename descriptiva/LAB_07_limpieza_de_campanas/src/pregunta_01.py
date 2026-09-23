@@ -12,7 +12,7 @@ SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 def clean_campaign_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
-    Procese directamente los diez archivos ``.csv.zip`` de ``data/`` y genere
+    Procese directamente los diez archivos ``.csv.gz`` de ``data/`` y genere
     tres archivos CSV sin comprimir en ``submission/``:
 
     - ``client.csv`` con ``client_id``, ``age``, ``job``, ``marital``,
@@ -34,9 +34,9 @@ def clean_campaign_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     La función retorna, en este orden, las tablas ``client``, ``campaign`` y
     ``economics``.
     """
-    input_files = sorted(DATA_DIR.glob("bank-marketing-campaing-*.csv.zip"))
+    input_files = sorted(DATA_DIR.glob("bank-marketing-campaing-*.csv.gz"))
     marketing = pd.concat(
-        [pd.read_csv(file, compression="zip") for file in input_files],
+        [pd.read_csv(file, compression="gzip") for file in input_files],
         ignore_index=True,
     )
 

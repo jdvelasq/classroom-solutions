@@ -3,13 +3,13 @@ from pathlib import Path
 import pandas as pd
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 FREQUENCY_REPORT_FILE = SUBMISSION_DIRECTORY / "country_frequency.csv"
 
 
 def make_frequency_report(column, file_path):
 
-    df = pd.read_csv(SUBMISSION_FILE, compression="zip")
+    df = pd.read_csv(SUBMISSION_FILE, compression="gzip")
     df = df[[column]].copy()
     df = df.rename(columns={column: "item"})
 

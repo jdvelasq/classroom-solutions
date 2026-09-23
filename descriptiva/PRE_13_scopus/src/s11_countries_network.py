@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-DATA_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+DATA_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 
 CLUSTERS_FILE = SUBMISSION_DIRECTORY / "country_clusters.txt"
 MATRIX_FILE = SUBMISSION_DIRECTORY / "country_cooc_matrix.csv"

@@ -9,9 +9,9 @@ FOLDER = "PRE_12_clasificacion_basica_texto"
 def test_01():
 
     dataframe = pd.read_csv(
-        f"{FOLDER}/data/sentences.csv.zip",
+        f"{FOLDER}/data/sentences.csv.gz",
         index_col=False,
-        compression="zip",
+        compression="gzip",
     )
 
     with open(f"{FOLDER}/submission/clf.pkl", "rb") as file:

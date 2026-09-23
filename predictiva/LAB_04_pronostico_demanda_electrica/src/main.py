@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-DATA_PATH = ACTIVITY_DIR / "data" / "demanda_comercial.csv.zip"
+DATA_PATH = ACTIVITY_DIR / "data" / "demanda_comercial.csv.gz"
 SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 

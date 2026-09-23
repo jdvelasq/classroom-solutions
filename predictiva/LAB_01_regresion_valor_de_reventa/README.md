@@ -10,7 +10,7 @@ Construye un pipeline de regresión reproducible, evalúa predicciones sobre dat
 
 ## Datos
 
-`data/train_data.csv.zip` y `data/test_data.csv.zip` contienen vehículos usados con precio, año, kilometraje, combustible, tipo de vendedor, transmisión y número de propietarios.
+`data/train_data.csv.gz` y `data/test_data.csv.gz` contienen vehículos usados con precio, año, kilometraje, combustible, tipo de vendedor, transmisión y número de propietarios.
 
 ## Entregables
 

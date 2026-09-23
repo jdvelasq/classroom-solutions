@@ -6,7 +6,7 @@ import pandas as pd
 from s10_countries_clusters import make_communities_report
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-DATA_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+DATA_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 
 MATRIX_FILE = SUBMISSION_DIRECTORY / "keywords_cooc_matrix.csv"
 CLUSTERS_FILE = SUBMISSION_DIRECTORY / "keywords_clusters.txt"

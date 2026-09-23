@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 
 REPLACEMENTS = {
     "North Macedonia": "Macedonia",
@@ -59,12 +59,12 @@ def _remove_invalid_countries(df):
 
 def s04_countries_clean() -> None:
 
-    df = pd.read_csv(SUBMISSION_FILE, compression="zip")
+    df = pd.read_csv(SUBMISSION_FILE, compression="gzip")
 
     df["countries_clean"] = df["countries_raw"]
     df = _correct_country_names(df)
     df = _remove_invalid_countries(df)
-    df.to_csv(SUBMISSION_FILE, index=False, compression="zip")
+    df.to_csv(SUBMISSION_FILE, index=False, compression="gzip")
 
 
 if __name__ == "__main__":

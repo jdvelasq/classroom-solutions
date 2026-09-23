@@ -25,8 +25,8 @@ def prepare_data(frame):
 
 
 def main():
-    train = prepare_data(pd.read_csv(DATA_DIR / "train_data.csv.zip"))
-    test = prepare_data(pd.read_csv(DATA_DIR / "test_data.csv.zip"))
+    train = prepare_data(pd.read_csv(DATA_DIR / "train_data.csv.gz"))
+    test = prepare_data(pd.read_csv(DATA_DIR / "test_data.csv.gz"))
     categorical = ["Fuel_Type", "Selling_type", "Transmission"]
     model = Pipeline([
         ("features", ColumnTransformer([("categorical", OneHotEncoder(handle_unknown="ignore"), categorical)], remainder="passthrough")),

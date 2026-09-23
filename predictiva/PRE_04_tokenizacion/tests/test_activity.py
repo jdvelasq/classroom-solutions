@@ -6,7 +6,7 @@ from scipy import sparse
 
 
 def test_text_representation_is_complete_and_model_ready():
-    source = pd.read_csv("data/sentences.csv.zip", compression="zip")
+    source = pd.read_csv("data/sentences.csv.gz", compression="gzip")
     processed = pd.read_csv("submission/tokenized_sentences.csv")
     vocabulary = pd.read_csv("submission/vocabulary.csv")
     matrix = sparse.load_npz("submission/document_term_matrix.npz")

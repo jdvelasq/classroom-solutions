@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 SUBMISSION_DIRECTORY = Path(__file__).resolve().parent.parent / "submission"
-SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+SUBMISSION_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 
 
 def _create_countries_column(df):
@@ -27,10 +27,10 @@ def _create_countries_column(df):
 
 def s03_countries_create() -> None:
 
-    df = pd.read_csv(SUBMISSION_FILE, compression="zip")
+    df = pd.read_csv(SUBMISSION_FILE, compression="gzip")
     df = _create_countries_column(df)
     print(df.countries_raw.head(20))
-    df.to_csv(SUBMISSION_FILE, index=False, compression="zip")
+    df.to_csv(SUBMISSION_FILE, index=False, compression="gzip")
 
 
 if __name__ == "__main__":

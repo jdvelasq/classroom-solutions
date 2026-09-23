@@ -24,8 +24,8 @@ def prepare_data(frame):
 
 
 def main():
-    train = prepare_data(pd.read_csv(DATA_DIR / "train_data.csv.zip"))
-    test = prepare_data(pd.read_csv(DATA_DIR / "test_data.csv.zip"))
+    train = prepare_data(pd.read_csv(DATA_DIR / "train_data.csv.gz"))
+    test = prepare_data(pd.read_csv(DATA_DIR / "test_data.csv.gz"))
     features = train.columns.drop("default")
     model = Pipeline([("scale", StandardScaler()), ("classifier", LogisticRegression(max_iter=2000, class_weight="balanced"))])
     model.fit(train[features], train["default"])

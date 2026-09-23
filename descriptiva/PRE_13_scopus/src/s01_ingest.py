@@ -5,8 +5,8 @@ import pandas as pd
 DATA_DIRECTORY = Path(__file__).resolve().parent.parent / "data"
 SUBMISSION_DIRECTORY = DATA_DIRECTORY.parent / "submission"
 
-INPUT_FILE = DATA_DIRECTORY / "scopus.csv.zip"
-OUTPUT_FILE = SUBMISSION_DIRECTORY / "scopus.csv.zip"
+INPUT_FILE = DATA_DIRECTORY / "scopus.csv.gz"
+OUTPUT_FILE = SUBMISSION_DIRECTORY / "scopus.csv.gz"
 
 
 COLUMN_RENAME_MAP = {
@@ -41,9 +41,9 @@ COLUMN_RENAME_MAP = {
 
 def s01_ingest() -> None:
 
-    records = pd.read_csv(INPUT_FILE, compression="zip")
+    records = pd.read_csv(INPUT_FILE, compression="gzip")
     records = records.rename(columns=COLUMN_RENAME_MAP)
-    records.to_csv(OUTPUT_FILE, index=False, compression="zip")
+    records.to_csv(OUTPUT_FILE, index=False, compression="gzip")
 
     print(f"\nRenamed {len(records):,} records and saved them to {OUTPUT_FILE}\n")
 
