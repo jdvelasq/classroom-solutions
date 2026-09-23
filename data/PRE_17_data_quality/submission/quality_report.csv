@@ -1,6 +1,0 @@
-rule_name,dimension,violations,status
-customer_id_present,completeness,1,FAIL
-quantity_positive,validity,1,FAIL
-transaction_id_unique,uniqueness,1,FAIL
-product_known,consistency,1,FAIL
-batch_fresh,freshness,1,FAIL
