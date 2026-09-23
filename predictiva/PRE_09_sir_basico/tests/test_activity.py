@@ -8,6 +8,10 @@ import pandas as pd
 def test_forecasts_conserve_population_and_translate_cases_to_beds():
     forecasts = pd.read_csv("submission/forecasts.csv")
 
+    figure_path = Path("submission/expected_evolution.png")
+    assert figure_path.exists()
+    assert figure_path.stat().st_size > 0
+
     assert set(forecasts["scenario"]) == {
         "transmision_actual",
         "transmision_moderada",

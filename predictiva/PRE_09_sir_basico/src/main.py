@@ -3,8 +3,12 @@
 import json
 from pathlib import Path
 
+import matplotlib
 import numpy as np
 import pandas as pd
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
@@ -101,6 +105,38 @@ def main():
     pd.concat(forecasts, ignore_index=True).to_csv(
         SUBMISSION_DIR / "forecasts.csv", index=False
     )
+    forecasts_dataframe = pd.concat(forecasts, ignore_index=True)
+    figure, axis = plt.subplots(figsize=(9, 5))
+    for scenario, scenario_forecast in forecasts_dataframe.groupby("scenario"):
+        axis.plot(
+            scenario_forecast["day"],
+            scenario_forecast["infected"],
+            label=scenario.replace("_", " "),
+        )
+    axis.scatter(
+        observed["day"],
+        observed["active_cases"],
+        color="black",
+        s=14,
+        label="casos observados",
+        zorder=3,
+    )
+    axis.axvline(
+        observed["day"].max(),
+        color="black",
+        linestyle="--",
+        label="corte de información",
+    )
+    axis.set(
+        title="Evolución esperada de casos activos",
+        xlabel="Día",
+        ylabel="Casos activos",
+    )
+    axis.grid(alpha=0.3)
+    axis.legend()
+    figure.tight_layout()
+    figure.savefig(SUBMISSION_DIR / "expected_evolution.png", dpi=150)
+    plt.close(figure)
     pd.DataFrame(peaks).to_csv(SUBMISSION_DIR / "scenario_peaks.csv", index=False)
     fit_comparison.to_csv(SUBMISSION_DIR / "fit_comparison.csv", index=False)
     with (SUBMISSION_DIR / "model_assumptions.json").open("w", encoding="utf-8") as file:
