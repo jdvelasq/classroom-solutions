@@ -1,10 +1,13 @@
-"""Autograding script"""
+"""Verifica la evidencia mínima del taller de aplicación web."""
 
-import os
+from pathlib import Path
 
-def test_01():
 
-    assert os.path.exists("src/train_model.py")
-    assert os.path.exists("src/web_app.py")
-    assert os.path.exists("src/descriptivo.ipynb")
-    assert os.path.exists("submission/house_predictor.pkl")
+def test_web_application_workshop_files_exist():
+    expected_files = [
+        "src/main.py",
+        "src/templates/index.html",
+        "submission/house_predictor.pkl",
+    ]
+    for filename in expected_files:
+        assert Path(filename).exists()
