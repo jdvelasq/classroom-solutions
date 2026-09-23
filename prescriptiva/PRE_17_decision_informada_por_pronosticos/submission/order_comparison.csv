@@ -1,0 +1,4 @@
+order_quantity,expected_value,stockout_probability
+80,1040.0,0.75
+110,1227.5,0.25
+150,937.5,0.0

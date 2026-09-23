@@ -1,9 +1,5 @@
 # Decisión informada por pronósticos
 
-## Competencia
+## Problema
 
-Propagar la incertidumbre de un pronóstico a una decisión, evitando interpretar una predicción como certeza.
-
-## Estado
-
-Esqueleto curricular: pendiente de datos, notebook, solución, artefactos y pruebas específicas.
+Una tienda debe decidir cuánto inventario pedir ante un pronóstico de demanda por escenarios. El pronóstico recibido es evidencia incierta; la decisión compara costo de faltante, sobrante y servicio.

@@ -1,0 +1,4 @@
+scenario,probability,demand
+baja,0.25,80
+central,0.50,110
+alta,0.25,150
