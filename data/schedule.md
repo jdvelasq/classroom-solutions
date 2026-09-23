@@ -32,3 +32,5 @@ Cada fila representa un `PRE_*`; las unidades de `curriculum.md` se comprueban a
 | 26 | `PRE_26_end_to_end_architecture` | arquitectura integral y trade-offs | 70 min |
 
 Los PRE 01--06 forman el bloque de fundamento de Big Data Analytics: hacen visible cómo una clave organiza una agregación, una unión y el intercambio de datos entre particiones. No requieren instalar Spark ni operar un clúster.
+
+Los cinco `LAB_*` de evaluación están diseñados en [`labs.md`](labs.md). No forman parte de esta secuencia ni de su carga horaria.
