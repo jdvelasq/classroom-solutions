@@ -1,0 +1,4 @@
+option_id,option,monthly_cost,monthly_customers,retention_gain,retained_value,net_value
+P0,estandar,0,10000,0.0,0.0,0.0
+P1,entrega_en_dos_dias,18000,10000,0.018,46800.0,28800.0
+P2,entrega_en_un_dia,42000,10000,0.055,143000.0,101000.0
