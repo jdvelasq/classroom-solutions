@@ -1,2 +1,2 @@
 dataset,partition_columns,partition_count,file_count,row_count
-sales,"year,month",4,4,40
+cta_rides,"year,month",23,23,100800
