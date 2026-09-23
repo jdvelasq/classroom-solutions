@@ -1,0 +1,7 @@
+customer_id,age,segment
+C01,32,A
+C02,,B
+C03,18,Z
+C01,45,A
+C04,-2,C
+C05,51,B

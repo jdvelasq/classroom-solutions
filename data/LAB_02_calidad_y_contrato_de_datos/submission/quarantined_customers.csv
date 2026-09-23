@@ -1,0 +1,6 @@
+customer_id,age,segment,reason
+C01,32.0,A,duplicate_customer_id
+C02,,B,missing_age
+C03,18.0,Z,invalid_segment
+C01,45.0,A,duplicate_customer_id
+C04,-2.0,C,invalid_age
