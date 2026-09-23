@@ -1,11 +1,10 @@
-"""Mismo conteo clave--valor: secuencial frente a procesos locales."""
+"""Misma agregación de vuelos: secuencial frente a procesos locales."""
 
 import csv
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 import os
-import string
 from time import perf_counter
 
 
@@ -15,12 +14,11 @@ SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
 def count_partition(task):
-    """Procesa una partición independiente y devuelve sus conteos parciales."""
-    text, repetitions = task
+    """Procesa una partición independiente y devuelve vuelos por origen."""
+    rows, repetitions = task
     counts = Counter()
-    translation = str.maketrans("", "", string.punctuation)
     for _ in range(repetitions):
-        counts.update(text.lower().translate(translation).split())
+        counts.update(row["Origin"] for row in rows if row["Cancelled"] == "0")
     return counts
 
 
@@ -32,10 +30,12 @@ def combine(partials):
     return result
 
 
-def run(repetitions=25_000, workers=None):
+def run(repetitions=50, workers=None):
     """Compara ejecución secuencial y paralela del mismo trabajo por particiones."""
-    texts = [path.read_text(encoding="utf-8") for path in sorted(DATA_DIR.glob("*.txt"))]
-    tasks = [(text, repetitions) for text in texts]
+    with __import__("gzip").open(DATA_DIR / "flights.csv.gz", "rt", encoding="utf-8", newline="") as file:
+        rows = list(csv.DictReader(file))
+    partition_size = (len(rows) + 3) // 4
+    tasks = [(rows[index:index + partition_size], repetitions) for index in range(0, len(rows), partition_size)]
     workers = workers or min(4, os.cpu_count() or 1, len(tasks))
 
     started = perf_counter()
@@ -49,9 +49,9 @@ def run(repetitions=25_000, workers=None):
     assert sequential == parallel
 
     SUBMISSION_DIR.mkdir(exist_ok=True)
-    with (SUBMISSION_DIR / "word_counts.csv").open("w", encoding="utf-8", newline="") as file:
+    with (SUBMISSION_DIR / "origin_flights.csv").open("w", encoding="utf-8", newline="") as file:
         writer = csv.writer(file, lineterminator="\n")
-        writer.writerow(["word", "count"])
+        writer.writerow(["origin", "flight_count"])
         writer.writerows(sorted(sequential.items()))
     speedup = sequential_seconds / parallel_seconds if parallel_seconds else float("inf")
     with (SUBMISSION_DIR / "benchmark.csv").open("w", encoding="utf-8", newline="") as file:

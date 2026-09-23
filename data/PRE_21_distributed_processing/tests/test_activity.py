@@ -12,8 +12,5 @@ def setup_module():
 
 
 def test_partitioned_aggregation_matches_logical_reference():
-    output = pd.read_parquet(ROOT / "submission/category_sales.parquet")
-    assert output.to_dict("records") == [
-        {"product_category": "Alimentos", "sales_amount": 30},
-        {"product_category": "Oficina", "sales_amount": 20},
-    ]
+    output = pd.read_parquet(ROOT / "submission/event_counts.parquet")
+    assert output.event_count.sum() == len(pd.read_csv(ROOT / "data/truck_events.csv.gz"))

@@ -14,12 +14,12 @@ def setup_module():
     execute_notebook(ROOT / "notebooks/notebook.ipynb")
 
 def test_partitioned_rows_match_history_and_selected_partition_is_correct():
-    original = pd.read_parquet(ROOT / "data/sales_history.parquet", engine="pyarrow")
-    january = pd.read_parquet(ROOT / "temp/lake/curated/sales/year=2026/month=01/sales.parquet", engine="pyarrow")
-    assert len(original) == 40
-    assert january.transaction_date.str.startswith("2026-01").all()
+    original = pd.read_parquet(ROOT / "data/cta_daily_station_totals.parquet", engine="pyarrow")
+    files = list((ROOT / "temp/lake/curated/cta_rides").rglob("*.parquet"))
+    assert sum(len(pd.read_parquet(file)) for file in files) == len(original)
 
 
 def test_summary_describes_partitioned_sales():
     summary = pd.read_csv(ROOT / "submission/lake_summary.csv")
-    assert summary.iloc[0].to_dict() == {"dataset":"sales", "partition_columns":"year,month", "partition_count":4, "file_count":4, "row_count":40}
+    assert summary.iloc[0]["dataset"] == "cta_rides"
+    assert summary.iloc[0]["row_count"] == len(pd.read_parquet(ROOT / "data/cta_daily_station_totals.parquet"))

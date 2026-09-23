@@ -14,8 +14,8 @@ def setup_module():
     execute_notebook(ROOT / "notebooks/notebook.ipynb")
 
 def test_formats_preserve_the_same_logical_rows():
-    csv = pd.read_csv(ROOT / "data/sales.csv"); parquet = pd.read_parquet(ROOT / "data/sales.parquet", engine="pyarrow")
-    assert len(csv) == len(parquet) == 2000
+    csv = pd.read_csv(ROOT / "data/flights.csv"); parquet = pd.read_parquet(ROOT / "data/flights.parquet", engine="pyarrow")
+    assert len(csv) == len(parquet) == 12000
     assert list(csv.columns) == list(parquet.columns)
 
 
