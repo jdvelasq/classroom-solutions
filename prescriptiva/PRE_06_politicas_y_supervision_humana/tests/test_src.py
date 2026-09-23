@@ -1,11 +1,13 @@
 """Las pruebas se implementarán junto con la solución del taller."""
 from pathlib import Path
-import sys
+import importlib.util
 import pandas as pd
 
 FOLDER = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(FOLDER / "src"))
-from solution import apply_review_policy
+spec = importlib.util.spec_from_file_location("pre06_solution", FOLDER / "src" / "solution.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+apply_review_policy = module.apply_review_policy
 
 
 def test_policy_preserves_human_review_for_ambiguous_cases():

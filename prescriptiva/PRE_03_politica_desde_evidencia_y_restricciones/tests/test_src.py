@@ -1,11 +1,14 @@
 """Las pruebas se implementarán junto con la solución del taller."""
 from pathlib import Path
-import sys
+import importlib.util
 import pandas as pd
 
 FOLDER = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(FOLDER / "src"))
-from solution import evaluate_policies, recommend
+spec = importlib.util.spec_from_file_location("pre03_solution", FOLDER / "src" / "solution.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+evaluate_policies = module.evaluate_policies
+recommend = module.recommend
 
 
 def test_policy_is_feasible_and_traced_to_a_decisor():

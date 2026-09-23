@@ -1,11 +1,14 @@
 """Las pruebas se implementarán junto con la solución del taller."""
 from pathlib import Path
-import sys
+import importlib.util
 import pandas as pd
 
 FOLDER = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(FOLDER / "src"))
-from solution import simulate_project, summarize_risk
+spec = importlib.util.spec_from_file_location("pre09_solution", FOLDER / "src" / "solution.py")
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+simulate_project = module.simulate_project
+summarize_risk = module.summarize_risk
 
 
 def test_simulation_is_deterministic_and_has_expected_size():
