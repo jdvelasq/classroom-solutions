@@ -4,53 +4,53 @@ Los LAB son evaluaciones independientes. No justifican cobertura curricular, no 
 
 ## LAB_01_integracion_y_grano_analitico
 
-**Caso.** El equipo comercial necesita ventas mensuales por cliente, pero recibe órdenes con varias líneas, clientes duplicados y una tabla de segmentación.
+**Caso.** El equipo de operaciones de una fábrica necesita producción diaria por planta. Recibe producción por máquina, disponibilidad de máquinas y condiciones ambientales en extractos separados.
 
-**Competencia evaluada.** Definir el grano de la salida, integrar las fuentes sin duplicar ventas y reconciliar el resultado con el total transaccional.
+**Competencia evaluada.** Definir el grano de la salida, integrar las fuentes sin duplicar unidades producidas y reconciliar el resultado con el total operacional.
 
-**Datos de entrada.** `orders.csv`, `order_lines.csv`, `customers.csv` y `segments.csv`.
+**Datos de entrada.** `machine_throughput_export.csv`, `machine_uptime_export.csv` y `factory_ambient_export.csv`.
 
-**Entrega.** `submission/customer_month_sales.csv` y `submission/reconciliation.json`.
+**Entrega.** `submission/factory_daily_operations.csv` y `submission/reconciliation.json`.
 
-**Criterios verificables.** Una fila por cliente-mes; claves y tipos válidos; ninguna línea duplicada; suma de ventas reconciliada con el origen; segmento vigente incorporado sin cambiar el grano.
+**Criterios verificables.** Una fila por fábrica-día; claves y tipos válidos; ninguna máquina-día duplicada; unidades producidas reconciliadas con el origen; disponibilidad y ambiente incorporados sin cambiar el grano.
 
 **Frontera.** No evalúa normalización formal ni administración de una base de datos.
 
 ## LAB_02_calidad_y_contrato_de_datos
 
-**Caso.** Un modelo de propensión consume diariamente un archivo de clientes. La nueva entrega cambia un tipo, omite valores obligatorios y contiene categorías no permitidas.
+**Caso.** Analítica recibe un extracto tributario real de Vermont por código postal y tramo de ingreso. La entrega contiene registros que deben aceptarse o ponerse en cuarentena de acuerdo con reglas explícitas.
 
 **Competencia evaluada.** Expresar un contrato de datos, diagnosticar calidad y separar registros aceptados de registros en cuarentena sin alterar la fuente.
 
-**Datos de entrada.** `customer_feed.csv` y `customer_contract.json`.
+**Datos de entrada.** `vemont.csv`, con defectos controlados introducidos durante la ejecución para evaluar las reglas.
 
-**Entrega.** `submission/quality_report.json`, `submission/accepted_customers.csv` y `submission/quarantined_customers.csv`.
+**Entrega.** `submission/quality_report.json`, `submission/accepted_tax_records.csv` y `submission/quarantined_tax_records.csv`.
 
-**Criterios verificables.** Esquema, obligatoriedad, unicidad y dominios evaluados; causas de cuarentena trazables por registro; conteos reconciliados; falla explícita ante un cambio incompatible del contrato.
+**Criterios verificables.** Estado, dominio de tramo de ingreso, unicidad de la llave código postal--tramo y no negatividad evaluados; causas de cuarentena trazables por registro; conteos reconciliados.
 
 **Frontera.** No evalúa una herramienta de DataOps ni un servicio de calidad en producción.
 
 ## LAB_03_pipeline_incremental_idempotente
 
-**Caso.** Un analista de operaciones recibe lotes diarios de transacciones, con correcciones y reenvíos. Necesita una tabla curada que pueda recalcularse sin duplicar resultados.
+**Caso.** Un analista de operaciones recibe lotes diarios de producción máquina--día, con una corrección, un reenvío y una operación nueva. Necesita un estado vigente que pueda recalcularse sin duplicar resultados.
 
 **Competencia evaluada.** Diseñar una actualización incremental con llave de negocio, checkpoint y comportamiento idempotente.
 
-**Datos de entrada.** `baseline_transactions.csv`, `daily_batch.csv` y `checkpoint.json`.
+**Datos de entrada.** `machine_throughput_export.csv`; el programa construye de manera determinista el estado base y el lote incremental.
 
-**Entrega.** `submission/transactions_current.csv`, `submission/pipeline_run.json` y `submission/reconciliation.json`.
+**Entrega.** `submission/operations_current.csv`, `submission/pipeline_run.json` y `submission/reconciliation.json`.
 
-**Criterios verificables.** Cada transacción aparece una sola vez en el estado vigente; las correcciones reemplazan el registro anterior; una segunda ejecución produce el mismo resultado; checkpoint y métricas de inserción/actualización son consistentes.
+**Criterios verificables.** Cada operación máquina--día aparece una sola vez en el estado vigente; la corrección reemplaza el registro anterior; una segunda ejecución produce el mismo resultado; checkpoint y métricas de inserción, actualización y reenvío son consistentes.
 
 **Frontera.** No exige orquestador, colas, nube ni CDC productivo.
 
 ## LAB_04_eventos_tardios_y_metricas
 
-**Caso.** Un centro de distribución monitorea despachos por hora. Los eventos llegan fuera de orden; la gerencia necesita métricas por hora de evento y evidencia de los registros tardíos.
+**Caso.** Un centro de distribución monitorea telemetría de camiones. Los eventos llegan fuera de orden; la gerencia necesita métricas por hora de evento y evidencia de los registros tardíos.
 
 **Competencia evaluada.** Distinguir tiempo de evento de tiempo de llegada, construir ventanas y aplicar una política explícita para eventos tardíos.
 
-**Datos de entrada.** `delivery_events.csv` y `late_event_policy.json`.
+**Datos de entrada.** `truck_events.csv.gz`, una muestra local de telemetría, y `late_event_policy.json`.
 
 **Entrega.** `submission/hourly_delivery_metrics.csv`, `submission/late_events.csv` y `submission/window_report.json`.
 
@@ -60,15 +60,15 @@ Los LAB son evaluaciones independientes. No justifican cobertura curricular, no 
 
 ## LAB_05_serving_linaje_y_consumidor_analitico
 
-**Caso.** Un equipo de Analítica Descriptiva requiere una vista diaria de desempeño comercial. Existen fuentes, una tabla curada, transformaciones y distintos consumidores con necesidades incompatibles.
+**Caso.** Un equipo de operaciones requiere una vista diaria de producción por fábrica. La fuente está a nivel de máquina--día y la salida debe responder al consumidor sin perder su procedencia.
 
 **Competencia evaluada.** Preparar un activo de datos para un consumidor definido y documentar su contrato, grano, procedencia, propiedad y limitaciones.
 
-**Datos de entrada.** `sales_curated.csv`, `data_assets.csv`, `transformations.csv` y `consumer_request.json`.
+**Datos de entrada.** `machine_throughput_export.csv`.
 
-**Entrega.** `submission/sales_serving_view.csv`, `submission/serving_manifest.json` y `submission/lineage.csv`.
+**Entrega.** `submission/factory_daily_serving_view.csv`, `submission/serving_manifest.json` y `submission/lineage.csv`.
 
-**Criterios verificables.** El grano responde a la solicitud del consumidor; esquema y definiciones son explícitos; el linaje conecta fuente, transformación y salida; propiedad y restricciones de uso están documentadas; se distingue el activo de datos de un producto de datos.
+**Criterios verificables.** El grano fábrica--día responde a la solicitud del consumidor; esquema y definiciones son explícitos; el linaje conecta fuente, agregación y salida; propiedad y restricciones de uso están documentadas; se distingue el activo de datos de un producto de datos.
 
 **Frontera.** No evalúa desarrollo de APIs, tableros ni un producto de datos en operación.
 
