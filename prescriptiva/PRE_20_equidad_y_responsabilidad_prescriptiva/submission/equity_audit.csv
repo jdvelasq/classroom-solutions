@@ -1,0 +1,5 @@
+policy,group,eligible,contacted,benefit,contact_rate,contact_rate_gap
+P0,A,100,30,9000,0.3,0.0
+P0,B,100,30,9000,0.3,0.0
+P1,A,100,50,15000,0.5,0.3
+P1,B,100,20,6000,0.2,0.3

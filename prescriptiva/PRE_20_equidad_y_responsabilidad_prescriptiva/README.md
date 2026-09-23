@@ -1,9 +1,5 @@
 # Equidad y responsabilidad prescriptiva
 
-## Competencia
+## Problema
 
-Auditar impactos distributivos de una política y establecer salvaguardas y supervisión adecuadas.
-
-## Estado
-
-Esqueleto curricular: pendiente de datos, notebook, solución, artefactos y pruebas específicas.
+Una política de contacto para apoyo financiero debe crear valor sin concentrar desproporcionadamente los rechazos en un grupo. Se auditan consecuencias de políticas, no se automatiza la decisión individual.

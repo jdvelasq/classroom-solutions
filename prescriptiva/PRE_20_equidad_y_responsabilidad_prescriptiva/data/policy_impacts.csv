@@ -1,0 +1,5 @@
+policy,group,eligible,contacted,benefit
+P0,A,100,30,9000
+P0,B,100,30,9000
+P1,A,100,50,15000
+P1,B,100,20,6000
