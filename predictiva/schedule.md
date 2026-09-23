@@ -17,9 +17,9 @@ El tiempo estimado incluye presentar datos, problema, razonamiento y solución; 
 | 1 | `PRE_01_hola_mundo` — repositorio, entorno y pruebas automatizadas | 60 min | 60 min |
 | 2 | `PRE_02_regresion_basica` — regresión lineal, red neuronal y error de predicción | 90 min | 150 min |
 | 3 | `PRE_03_clasificacion_basica_imagenes` — clasificación multiclase y probabilidades | 75 min | 225 min |
-| 4 | `PRE_04_clasificacion_basica_texto` — bolsa de palabras, sentimiento y desbalance | 90 min | 315 min |
-| 5 | `PRE_05_clasificacion_basica_numerica` — logística, transformaciones e interacciones | 105 min | 420 min |
-| 6 | `PRE_06_tokenizacion` — preparación de texto para modelado | 75 min | 495 min |
+| 4 | `PRE_04_tokenizacion` — texto bruto, tokens y matriz documento–término | 75 min | 300 min |
+| 5 | `PRE_05_clasificacion_basica_texto` — bolsa de palabras, sentimiento y desbalance | 90 min | 390 min |
+| 6 | `PRE_06_clasificacion_basica_numerica` — logística, transformaciones e interacciones | 105 min | 495 min |
 | 7 | `PRE_07_clustering_demanda` — perfiles temporales, normalización y K-means | 100 min | 595 min |
 | 8 | `PRE_08_clustering_mercadeo` — segmentación y caracterización de grupos | 100 min | 695 min |
 | 9 | `PRE_09_covid` — modelos SIR, supuestos y escenarios | 120 min | 815 min |
@@ -44,9 +44,9 @@ El tiempo estimado incluye presentar datos, problema, razonamiento y solución; 
 | 1 | `PRE_01_hola_mundo`: configurar y verificar el entorno de trabajo mediante la implementación y prueba de dos funciones Python que retornan cadenas de texto. | Desarrollado | BASE | 50 min |
 | 2 | `PRE_02_regresion_basica`: preparar el conjunto Auto MPG, separar entrenamiento y prueba, estandarizar entradas, comparar regresión lineal y una red neuronal para predecir consumo, y evaluar el error cuadrático medio. | Desarrollado | BASE | 60 min |
 | 3 | `PRE_03_clasificacion_basica_imagenes`: transformar imágenes de dígitos en vectores, entrenar una regresión logística multiclase, evaluar exactitud y matriz de confusión, e inspeccionar predicciones y sus probabilidades. | Desarrollado | OPT | 60 min |
-| 4 | `PRE_04_clasificacion_basica_texto`: vectorizar frases financieras con bolsa de palabras, entrenar un clasificador de sentimiento positivo, negativo o neutral, evaluar su exactitud y guardar el vectorizador y el modelo. | Desarrollado | OPT | 60 min |
-| 5 | `PRE_05_clasificacion_basica_numerica`: usar dos mediciones numéricas disponibles antes de una evaluación adicional, comparar una logística base con una transformación de predictor y una interacción, y expresar la priorización como probabilidades sobre datos reservados. | Verificable | BASE | 105 min |
-| 6 | `PRE_06_tokenizacion`: cargar documentos de texto, normalizar y tokenizar su contenido, filtrar puntuación y palabras vacías, y guardar las versiones procesadas. | Desarrollado | OPT | 60 min |
+| 4 | `PRE_04_tokenizacion`: normalizar mensajes financieros, separarlos en tokens, hacer visible el filtrado y persistir una matriz documento–término que pueda consumir un clasificador posterior. | Verificable | BASE | 75 min |
+| 5 | `PRE_05_clasificacion_basica_texto`: vectorizar frases financieras con bolsa de palabras, entrenar un clasificador de sentimiento positivo, negativo o neutral, evaluar su exactitud y guardar el vectorizador y el modelo. | Desarrollado | OPT | 60 min |
+| 6 | `PRE_06_clasificacion_basica_numerica`: usar dos mediciones numéricas disponibles antes de una evaluación adicional, comparar una logística base con una transformación de predictor y una interacción, y expresar la priorización como probabilidades sobre datos reservados. | Verificable | BASE | 105 min |
 | 7 | `PRE_07_clustering_demanda`: depurar y normalizar perfiles horarios diarios de demanda, seleccionar el número de grupos con silueta, agruparlos con K-means y describir los patrones y días asociados a cada grupo. | Desarrollado | BASE | 50 min |
 | 8 | `PRE_08_clustering_mercadeo`: depurar e imputar perfiles de estudiantes, ponderar intereses con TF-IDF, segmentarlos con K-means y caracterizar cada segmento por intereses, edad, amistades, género y año de graduación. | Desarrollado | OPT | 60 min |
 | 9 | `PRE_09_covid`: colección de notebooks sobre modelos SIR y Bass para discutir modelos mecanísticos, supuestos epidemiológicos y escenarios; todavía no tiene la estructura ni entregables de un PRE estándar. | Parcial | BASE | — |
