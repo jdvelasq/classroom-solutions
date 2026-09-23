@@ -18,8 +18,15 @@ def test_output_has_one_row_per_factory_and_day():
     output = pd.read_csv(OUTPUT)
     assert output[["factory_id", "factory_date"]].duplicated().sum() == 0
     assert list(output.columns) == [
-        "factory_id", "factory_date", "units_produced", "average_hours_operational",
-        "machines_reported", "employees", "temp", "humidity", "pressure",
+        "factory_id",
+        "factory_date",
+        "units_produced",
+        "average_hours_operational",
+        "machines_reported",
+        "employees",
+        "temp",
+        "humidity",
+        "pressure",
     ]
     assert len(output) > 1000
 

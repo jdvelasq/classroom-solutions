@@ -22,4 +22,10 @@ def test_course_table_has_one_row_per_course_and_valid_aggregates():
 def test_transformation_reconciles_all_source_ratings():
     output = pd.read_csv(ROOT / "submission/course_ratings.csv")
     assert output.rating_count.sum() == 59172
-    assert set(output.columns) == {"course_id", "title", "programming_language", "rating_count", "average_rating"}
+    assert set(output.columns) == {
+        "course_id",
+        "title",
+        "programming_language",
+        "rating_count",
+        "average_rating",
+    }

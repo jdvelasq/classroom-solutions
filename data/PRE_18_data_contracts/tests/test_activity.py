@@ -13,7 +13,9 @@ def setup_module():
 
 
 def test_contract_distinguishes_breaking_and_compatible_changes():
-    report = pd.read_csv(ROOT / "submission/contract_report.csv").set_index("batch_name")
+    report = pd.read_csv(ROOT / "submission/contract_report.csv").set_index(
+        "batch_name"
+    )
     assert report.loc["missing_income_group"].tolist() == ["FAIL", "BREAKING", "REJECT"]
     assert report.loc["wrong_state"].tolist() == ["FAIL", "BREAKING", "REJECT"]
     assert report.loc["optional_column"].tolist() == ["PASS", "COMPATIBLE", "ACCEPT"]

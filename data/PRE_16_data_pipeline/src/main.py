@@ -4,7 +4,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
 ROOT = Path(__file__).parents[1]
 DATA = ROOT / "data"
 TEMP = ROOT / "temp" / "pipeline"
@@ -49,7 +48,9 @@ def transform(frames):
         .drop(columns="date_measured")
     )
     factory_day["factory_date"] = pd.to_datetime(factory_day["factory_date"])
-    factory_day["average_hours_operational"] = factory_day["average_hours_operational"].round(2)
+    factory_day["average_hours_operational"] = factory_day[
+        "average_hours_operational"
+    ].round(2)
     assert factory_day[["factory_id", "factory_date"]].duplicated().sum() == 0
     assert factory_day.notna().all().all()
     return factory_day.sort_values(["factory_id", "factory_date"])

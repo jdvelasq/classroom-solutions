@@ -1,9 +1,8 @@
 """Conteo de palabras con las etapas explícitas de MapReduce."""
 
-from pathlib import Path
 import shutil
 import string
-
+from pathlib import Path
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = ACTIVITY_DIR / "data"

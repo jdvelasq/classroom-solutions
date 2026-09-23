@@ -18,12 +18,27 @@ def setup_module():
 def test_fact_grain_and_total_units_reconcile_with_source():
     source = pd.read_csv(ROOT / "data/machine_throughput_export.csv")
     with sqlite3.connect(MART) as mart:
-        assert mart.execute("SELECT COUNT(*) FROM fact_operations").fetchone()[0] == len(source)
-        assert mart.execute("SELECT SUM(daily_units_produced) FROM fact_operations").fetchone()[0] == source.daily_units_produced.sum()
+        assert mart.execute("SELECT COUNT(*) FROM fact_operations").fetchone()[
+            0
+        ] == len(source)
+        assert (
+            mart.execute(
+                "SELECT SUM(daily_units_produced) FROM fact_operations"
+            ).fetchone()[0]
+            == source.daily_units_produced.sum()
+        )
 
 
 def test_star_schema_references_existing_dimensions():
     with sqlite3.connect(MART) as mart:
-        tables = {r[0] for r in mart.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        tables = {
+            r[0]
+            for r in mart.execute("SELECT name FROM sqlite_master WHERE type='table'")
+        }
         assert tables == {"dim_factory", "dim_machine", "dim_date", "fact_operations"}
-        assert mart.execute("SELECT COUNT(*) FROM fact_operations WHERE factory_key IS NULL OR machine_key IS NULL OR date_key IS NULL").fetchone()[0] == 0
+        assert (
+            mart.execute(
+                "SELECT COUNT(*) FROM fact_operations WHERE factory_key IS NULL OR machine_key IS NULL OR date_key IS NULL"
+            ).fetchone()[0]
+            == 0
+        )

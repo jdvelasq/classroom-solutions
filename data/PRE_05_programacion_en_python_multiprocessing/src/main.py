@@ -1,12 +1,11 @@
 """Misma agregación de vuelos: secuencial frente a procesos locales."""
 
 import csv
+import os
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
-import os
 from time import perf_counter
-
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = ACTIVITY_DIR / "data"
@@ -32,10 +31,15 @@ def combine(partials):
 
 def run(repetitions=50, workers=None):
     """Compara ejecución secuencial y paralela del mismo trabajo por particiones."""
-    with __import__("gzip").open(DATA_DIR / "flights.csv.gz", "rt", encoding="utf-8", newline="") as file:
+    with __import__("gzip").open(
+        DATA_DIR / "flights.csv.gz", "rt", encoding="utf-8", newline=""
+    ) as file:
         rows = list(csv.DictReader(file))
     partition_size = (len(rows) + 3) // 4
-    tasks = [(rows[index:index + partition_size], repetitions) for index in range(0, len(rows), partition_size)]
+    tasks = [
+        (rows[index : index + partition_size], repetitions)
+        for index in range(0, len(rows), partition_size)
+    ]
     workers = workers or min(4, os.cpu_count() or 1, len(tasks))
 
     started = perf_counter()
@@ -49,18 +53,49 @@ def run(repetitions=50, workers=None):
     assert sequential == parallel
 
     SUBMISSION_DIR.mkdir(exist_ok=True)
-    with (SUBMISSION_DIR / "origin_flights.csv").open("w", encoding="utf-8", newline="") as file:
+    with (SUBMISSION_DIR / "origin_flights.csv").open(
+        "w", encoding="utf-8", newline=""
+    ) as file:
         writer = csv.writer(file, lineterminator="\n")
         writer.writerow(["origin", "flight_count"])
         writer.writerows(sorted(sequential.items()))
-    speedup = sequential_seconds / parallel_seconds if parallel_seconds else float("inf")
-    with (SUBMISSION_DIR / "benchmark.csv").open("w", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=["repetitions", "workers", "sequential_seconds", "parallel_seconds", "speedup"], lineterminator="\n")
+    speedup = (
+        sequential_seconds / parallel_seconds if parallel_seconds else float("inf")
+    )
+    with (SUBMISSION_DIR / "benchmark.csv").open(
+        "w", encoding="utf-8", newline=""
+    ) as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "repetitions",
+                "workers",
+                "sequential_seconds",
+                "parallel_seconds",
+                "speedup",
+            ],
+            lineterminator="\n",
+        )
         writer.writeheader()
-        writer.writerow({"repetitions": repetitions, "workers": workers, "sequential_seconds": round(sequential_seconds, 6), "parallel_seconds": round(parallel_seconds, 6), "speedup": round(speedup, 3)})
-    return sequential, {"workers": workers, "sequential_seconds": sequential_seconds, "parallel_seconds": parallel_seconds, "speedup": speedup}
+        writer.writerow(
+            {
+                "repetitions": repetitions,
+                "workers": workers,
+                "sequential_seconds": round(sequential_seconds, 6),
+                "parallel_seconds": round(parallel_seconds, 6),
+                "speedup": round(speedup, 3),
+            }
+        )
+    return sequential, {
+        "workers": workers,
+        "sequential_seconds": sequential_seconds,
+        "parallel_seconds": parallel_seconds,
+        "speedup": speedup,
+    }
 
 
 if __name__ == "__main__":
     _, benchmark = run()
-    print(f"Aceleración: {benchmark['speedup']:.2f}x con {benchmark['workers']} procesos")
+    print(
+        f"Aceleración: {benchmark['speedup']:.2f}x con {benchmark['workers']} procesos"
+    )

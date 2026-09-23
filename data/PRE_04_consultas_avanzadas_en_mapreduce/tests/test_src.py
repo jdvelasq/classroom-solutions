@@ -5,7 +5,6 @@ from pathlib import Path
 
 from data.tests.notebook_runner import execute_notebook
 
-
 PRE = Path(__file__).resolve().parents[1]
 SUBMISSION_DIR = PRE / "submission"
 

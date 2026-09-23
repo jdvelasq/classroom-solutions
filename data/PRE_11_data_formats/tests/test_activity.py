@@ -3,6 +3,7 @@ import json
 import sqlite3
 import sys
 from pathlib import Path
+
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,8 +14,10 @@ from notebook_runner import execute_notebook
 def setup_module():
     execute_notebook(ROOT / "notebooks/notebook.ipynb")
 
+
 def test_formats_preserve_the_same_logical_rows():
-    csv = pd.read_csv(ROOT / "data/flights.csv"); parquet = pd.read_parquet(ROOT / "data/flights.parquet", engine="pyarrow")
+    csv = pd.read_csv(ROOT / "data/flights.csv")
+    parquet = pd.read_parquet(ROOT / "data/flights.parquet", engine="pyarrow")
     assert len(csv) == len(parquet) == 12000
     assert list(csv.columns) == list(parquet.columns)
 

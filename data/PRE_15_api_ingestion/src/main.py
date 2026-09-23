@@ -28,11 +28,33 @@ def build_submission():
     else:
         raise RuntimeError("La API no se recuperó")
     frame = pd.DataFrame(
-        [{"issue_id": issue["id"], "issue_number": issue["number"], "title": issue["title"], "state": issue["state"], "created_at": issue["created_at"], "closed_at": issue["closed_at"], "comment_count": issue["comments"], "is_pull_request": "pull_request" in issue} for issue in issues]
+        [
+            {
+                "issue_id": issue["id"],
+                "issue_number": issue["number"],
+                "title": issue["title"],
+                "state": issue["state"],
+                "created_at": issue["created_at"],
+                "closed_at": issue["closed_at"],
+                "comment_count": issue["comments"],
+                "is_pull_request": "pull_request" in issue,
+            }
+            for issue in issues
+        ]
     )
     assert frame.issue_id.is_unique
     frame.to_parquet(OUTPUT, index=False)
-    pd.DataFrame([("github_issues", 1, len(frame), retries, "SUCCESS", str(OUTPUT))], columns=["source_name", "pages_requested", "records_retrieved", "retry_count", "status", "output_path"]).to_csv(REPORT, index=False)
+    pd.DataFrame(
+        [("github_issues", 1, len(frame), retries, "SUCCESS", str(OUTPUT))],
+        columns=[
+            "source_name",
+            "pages_requested",
+            "records_retrieved",
+            "retry_count",
+            "status",
+            "output_path",
+        ],
+    ).to_csv(REPORT, index=False)
 
 
 if __name__ == "__main__":
