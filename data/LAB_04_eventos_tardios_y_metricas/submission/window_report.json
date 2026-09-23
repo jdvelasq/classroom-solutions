@@ -1,0 +1,5 @@
+{
+  "allowed_lateness_minutes": 15,
+  "late_event_count": 1,
+  "event_count": 5
+}
