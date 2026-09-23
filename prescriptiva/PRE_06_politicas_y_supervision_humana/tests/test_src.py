@@ -4,7 +4,7 @@ import importlib.util
 import pandas as pd
 
 FOLDER = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("pre06_solution", FOLDER / "src" / "solution.py")
+spec = importlib.util.spec_from_file_location("pre06_main", FOLDER / "src" / "main.py")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 apply_review_policy = module.apply_review_policy

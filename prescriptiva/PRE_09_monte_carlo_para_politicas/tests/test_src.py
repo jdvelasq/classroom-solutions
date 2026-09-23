@@ -4,7 +4,7 @@ import importlib.util
 import pandas as pd
 
 FOLDER = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("pre09_solution", FOLDER / "src" / "solution.py")
+spec = importlib.util.spec_from_file_location("pre09_main", FOLDER / "src" / "main.py")
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 simulate_project = module.simulate_project
