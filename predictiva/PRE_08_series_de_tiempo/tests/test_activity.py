@@ -1,9 +1,6 @@
 import os
 
-FOLDER = "PRE_08_series_de_tiempo"
-
-
 def test_01():
 
-    assert os.path.exists(f"{FOLDER}/submission/metrics.csv")
-    assert os.path.exists(f"{FOLDER}/submission/forecasts.csv")
+    assert os.path.exists("submission/metrics.csv")
+    assert os.path.exists("submission/forecasts.csv")

@@ -2,27 +2,30 @@ import pickle
 
 import pandas as pd
 from sklearn.metrics import mean_squared_error
-
-FOLDER = "PRE_02_regresion_basica"
-
+from sklearn.model_selection import train_test_split
 
 def test_01():
 
-    dataset = pd.read_csv(f"{FOLDER}/data/auto_mpg.csv")
+    dataset = pd.read_csv("data/auto_mpg.csv")
     dataset = dataset.dropna()
     dataset["Origin"] = dataset["Origin"].map(
         {1: "USA", 2: "Europe", 3: "Japan"},
     )
-    dataset = pd.get_dummies(dataset, columns=["Origin"], prefix="", prefix_sep="")
-    y_true = dataset.pop("MPG")
+    _, test_dataset = train_test_split(
+        dataset,
+        train_size=0.8,
+        random_state=0,
+    )
 
-    with open(f"{FOLDER}/submission/mlp.pkl", "rb") as file:
+    y_true = test_dataset.pop("MPG")
+
+    with open("submission/mlp.pkl", "rb") as file:
         mlp = pickle.load(file)
 
-    with open(f"{FOLDER}/submission/features_scaler.pkl", "rb") as file:
-        features_scaler = pickle.load(file)
+    with open("submission/features_preprocessor.pkl", "rb") as file:
+        features_preprocessor = pickle.load(file)
 
-    standarized_dataset = features_scaler.transform(dataset)
+    standarized_dataset = features_preprocessor.transform(test_dataset)
     y_pred = mlp.predict(standarized_dataset)
 
     mse = mean_squared_error(
@@ -30,4 +33,4 @@ def test_01():
         y_pred=y_pred,
     )
 
-    assert mse < 7.745
+    assert mse < 8.0

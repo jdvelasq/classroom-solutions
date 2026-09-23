@@ -1,7 +1,6 @@
 import os
 
-FOLDER = "PRE_12_selection_inputs_clasificacion"
-OUTPUT_FOLDER = f"{FOLDER}/submission"
+OUTPUT_FOLDER = "submission"
 ESTIMATOR = f"{OUTPUT_FOLDER}/estimator.pkl"
 
 
