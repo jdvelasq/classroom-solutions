@@ -6,7 +6,7 @@ from flask import Flask, render_template, request  # type: ignore
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "you-will-never-guess"
 
-FOLDER = "PRE_12_deployment_web_app"
+FOLDER = "PRE_13_deployment_web_app"
 
 
 @app.route("/", methods=["GET", "POST"])

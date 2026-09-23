@@ -4,7 +4,7 @@ import pickle
 import pandas as pd  # type: ignore
 from sklearn.linear_model import LinearRegression  # type: ignore
 
-FOLDER = "PRE_12_deployment_web_app"
+FOLDER = "PRE_14_deployment_api"
 
 df = pd.read_csv(f"{FOLDER}/data/house_data.csv")
 
