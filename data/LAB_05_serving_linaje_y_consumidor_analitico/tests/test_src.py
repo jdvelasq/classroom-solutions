@@ -9,3 +9,4 @@ def test_serves_the_requested_grain_with_lineage():
     assert view.amount.sum() == 500
     assert manifest["grain"] == "sale_date,region"
     assert lineage.target.tolist()[-1] == "sales_serving_view"
+    assert lineage.loc[lineage.target == "sales_serving_view", "source"].iloc[0] == manifest["source_asset"]
