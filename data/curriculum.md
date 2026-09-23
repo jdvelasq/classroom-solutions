@@ -46,47 +46,51 @@ El estudiante no será evaluado por administrar servidores, desplegar servicios,
 
 ## Unidades
 
-Los veinte `PRE` continúan siendo unidades desarrollables y evaluables; no son, por sí mismos, veinte clases de tres horas.
+Los veintiséis `PRE` son unidades desarrollables y evaluables; no son, por sí mismos, veintiséis clases de tres horas.
 
-### 1. Representación e integración para Analytics
+### 1. Fundamentos de procesamiento por clave--valor
 
-Entidades, claves, relaciones, integridad y SQL se usan para preservar el significado y el grano de un resultado analítico al separar, combinar y reconciliar datos. Incluye `PRE_01` y `PRE_02`; no es diseño formal ni administración de bases de datos.
+Después de la inducción, pares clave--valor, consultas MapReduce, paralelismo local, particiones, claves calientes y preagregación hacen visibles los fundamentos de Big Data Analytics. Incluye `PRE_02` a `PRE_06`; no requiere Spark, Hadoop ni un clúster.
 
-### 2. Transformación y organización analítica
+### 2. Representación e integración para Analytics
 
-Tipado, faltantes, deduplicación, estandarización, grano analítico y un mart simple convierten registros operacionales en una representación apta para preguntas recurrentes. Incluye `PRE_03` y `PRE_04`.
+Entidades, claves, relaciones, integridad y SQL se usan para preservar el significado y el grano de un resultado analítico al separar, combinar y reconciliar datos. Incluye `PRE_07` a `PRE_09`; no es diseño formal ni administración de bases de datos.
 
-### 3. Formatos, estructuras y almacenamiento para consumo
+### 3. Transformación y organización analítica
 
-Formatos físicos, particiones y datos semiestructurados se comparan según la estructura, el acceso y el consumidor analítico. Incluye `PRE_05` a `PRE_07`; no forma en plataformas lakehouse.
+Tipado, faltantes, deduplicación, estandarización, grano analítico y un mart simple convierten registros operacionales en una representación apta para preguntas recurrentes. Incluye `PRE_09` y `PRE_10`.
 
-### 4. Adquisición y trazabilidad de fuentes
+### 4. Formatos, estructuras y almacenamiento para consumo
 
-Archivos, bases y APIs se adquieren con control de completitud, errores y evidencia de origen, preservando una capa raw distinguible del dato preparado. Incluye `PRE_08` y `PRE_09`.
+Formatos físicos, particiones y datos semiestructurados se comparan según la estructura, el acceso y el consumidor analítico. Incluye `PRE_11` a `PRE_13`; no forma en plataformas lakehouse.
 
-### 5. Flujos reproducibles de preparación
+### 5. Adquisición y trazabilidad de fuentes
 
-Fuentes, capas raw, staging y curated, validaciones, configuración y ejecución desde estado limpio transforman una secuencia manual en un pipeline reproducible. Corresponde a `PRE_10`.
+Archivos, bases y APIs se adquieren con control de completitud, errores y evidencia de origen, preservando una capa raw distinguible del dato preparado. Incluye `PRE_14` y `PRE_15`.
 
-### 6. Confianza: calidad y contratos
+### 6. Flujos reproducibles de preparación
 
-Completitud, validez, unicidad, consistencia y frescura determinan si un dato puede avanzar. Los contratos hacen explícita la interfaz, detectan cambios incompatibles y permiten fallar o poner en cuarentena de manera controlada. Incluye `PRE_11` y `PRE_12`.
+Fuentes, capas raw, staging y curated, validaciones, configuración y ejecución desde estado limpio transforman una secuencia manual en un pipeline reproducible. Corresponde a `PRE_16`.
 
-### 7. Continuidad y operación acotada
+### 7. Confianza: calidad y contratos
 
-Incrementalidad, checkpoints, idempotencia, dependencias, reintentos y fallas deterministas permiten actualizar datos sin corromper resultados ni confundir un problema de datos con un problema transitorio. Incluye `PRE_13` y `PRE_14`.
+Completitud, validez, unicidad, consistencia y frescura determinan si un dato puede avanzar. Los contratos hacen explícita la interfaz, detectan cambios incompatibles y permiten fallar o poner en cuarentena de manera controlada. Incluye `PRE_17` y `PRE_18`.
 
-### 8. Escala, eventos y tiempo
+### 8. Continuidad y operación acotada
 
-Particiones, evaluación diferida, eventos, estado, ventanas y llegada tardía se estudian como condiciones que cambian una decisión de arquitectura y la interpretación de un resultado. Incluye `PRE_15` a `PRE_17`; no es entrenamiento de Spark, Kafka ni streaming productivo.
+Incrementalidad, checkpoints, idempotencia, dependencias, reintentos y fallas deterministas permiten actualizar datos sin corromper resultados ni confundir un problema de datos con un problema transitorio. Incluye `PRE_19` y `PRE_20`.
 
-### 9. Serving, metadatos y linaje
+### 9. Escala, eventos y tiempo
 
-Un activo curado debe exponerse con grano, esquema y mecanismo apropiados para cada consumidor, además de contar con propiedad, catálogo, procedencia y evaluación de impacto. Incluye `PRE_18` y `PRE_19`.
+Particiones, evaluación diferida, eventos, estado, ventanas y llegada tardía se estudian como condiciones que cambian una decisión de arquitectura y la interpretación de un resultado. Incluye `PRE_21` a `PRE_23`; no es entrenamiento de Spark, Kafka ni streaming productivo.
 
-### 10. Arquitectura de datos orientada a Analytics
+### 10. Serving, metadatos y linaje
 
-Fuentes, necesidades de consumidores, procesamiento, controles y decisiones se conectan en una arquitectura justificable por requisitos y riesgos. `PRE_20` integra capacidades ya conocidas; no introduce una tecnología nueva.
+Un activo curado debe exponerse con grano, esquema y mecanismo apropiados para cada consumidor, además de contar con propiedad, catálogo, procedencia y evaluación de impacto. Incluye `PRE_24` y `PRE_25`.
+
+### 11. Arquitectura de datos orientada a Analytics
+
+Fuentes, necesidades de consumidores, procesamiento, controles y decisiones se conectan en una arquitectura justificable por requisitos y riesgos. `PRE_26` integra capacidades ya conocidas; no introduce una tecnología nueva.
 
 ## Auditoría conceptual de los PRE existentes
 
@@ -96,12 +100,11 @@ Se hacen estas precisiones de diseño:
 
 | Grupo | Decisión macro |
 |---|---|
-| PRE 01–04 | Se mantienen como nivelación relacional y preparación analítica. Deben evitar cualquier deriva hacia una asignatura de diseño de bases de datos. |
-| PRE 05–07 | Se mantienen, pero se enseñan como decisiones de representación y estructura para consumidores analíticos; `lakehouse` no se presenta como plataforma ni producto. |
-| PRE 08–10 | Se mantienen como el núcleo de adquisición y reproducibilidad. La evaluación privilegia integridad y reejecución sobre automatización de producción. |
-| PRE 11–14 | Se mantienen como el núcleo de confianza y continuidad. Calidad, contrato e incrementalidad son imprescindibles para la alfabetización analítica. |
-| PRE 15–17 | Se mantienen agrupados en una sola sesión de patrones de escala. Son conceptos y decisiones; la implementación se restringe a simulaciones locales y deterministas. |
-| PRE 18–20 | Se mantienen como cierre orientado al consumidor, gobierno técnico y arquitectura. No se convierten en BI, desarrollo de APIs ni productos de datos. |
+| PRE 01–06 | Inducción y fundamentos de escala: clave--valor, paralelismo, particiones y sesgo. No se convierten en capacitación de plataforma. |
+| PRE 07–10 | Nivelación relacional, SQL, transformación y mart analítico; evitan derivar hacia diseño formal de bases de datos. |
+| PRE 11–16 | Representación, adquisición y reproducibilidad; privilegian significado, integridad y reejecución sobre automatización de producción. |
+| PRE 17–20 | Confianza y continuidad: calidad, contratos, incrementalidad y operación acotada. |
+| PRE 21–26 | Eventos, streaming, serving, metadatos, linaje y arquitectura; no se convierten en BI, APIs ni productos de datos. |
 
 ## Minicasos y didáctica
 
@@ -120,7 +123,7 @@ Un PRE se considera listo para desarrollo solo si cumple todos los criterios sig
 3. Parte de una falla, ambigüedad o restricción de datos observable; no de una definición tecnológica aislada.
 4. Produce un activo concreto —dataset, vista, mart, contrato, manifiesto o decisión arquitectónica— que demuestre de manera verificable el aprendizaje del minicaso.
 5. Incluye validaciones visibles de significado analítico: grano, completitud, reconciliación, idempotencia, contrato o trazabilidad, según corresponda.
-6. Contiene pruebas automáticas deterministas, criterios de aceptación y una solución docente completa, ejecutable e independiente. La solución se ubica en `notebooks/notebook.ipynb` cuando es un desarrollo didáctico interactivo o en `src/main.py` cuando corresponde a un programa Python; nunca en la raíz del PRE.
+6. Contiene pruebas automáticas deterministas, criterios de aceptación y una solución docente completa, ejecutable e independiente. La solución se ubica exclusivamente en `notebooks/notebook.ipynb` cuando es un desarrollo didáctico interactivo o exclusivamente en `src/main.py` cuando corresponde a un programa Python; nunca en ambos ni en la raíz del PRE.
 7. Delimita explícitamente lo que no se enseña, para evitar deriva hacia Bases de Datos, Ingeniería de Datos de producción, BI o Productos de Datos.
 8. Puede realizarse con herramientas locales y sin cuentas, nube, instalación pesada ni dependencias frágiles.
 9. Es apropiado para estudiantes de pregrado de diversas carreras: explica el vocabulario indispensable y evalúa criterio, no experiencia previa de plataforma.
@@ -140,7 +143,7 @@ Un notebook puede llamar funciones pequeñas de `src/` solo cuando estas no ocul
 ## Secuencia de desarrollo
 
 1. Validar este diseño macro y la selección de minicasos independientes.
-2. Revisar y normalizar las especificaciones de los veinte PRE contra el estándar 10/10.
+2. Revisar y normalizar las especificaciones de los veintiséis PRE contra el estándar 10/10.
 3. Implementar los PRE por bloques de sesión, empezando por 01–04 y sus artefactos compartidos.
 4. Para cada PRE: construir datos de entrada, notebook, validaciones, pruebas, solución de referencia y guía docente; ejecutar todo desde un estado limpio.
 5. Ejecutar una prueba de extremo a extremo de las diez sesiones y una revisión específica de carga operativa para una cohorte de aproximadamente 130 estudiantes.
