@@ -1,2 +1,0 @@
-source_name,pages_requested,records_retrieved,retry_count,status,output_path
-reviews_api,3,12,1,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_13_api_ingestion/submission/reviews.parquet
