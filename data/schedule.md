@@ -1,56 +1,32 @@
-# Inventario heredado — Fundamentos de Datos para Analítica
+# Inventario de PRE — Data para Analytics
 
-## Propósito y lectura
+Cada fila representa un `PRE_*`; las unidades de `curriculum.md` se comprueban agregando la cobertura de varios PRE, no se convierten en sesiones. Los tiempos incluyen exposición docente del problema, razonamiento y solución.
 
-Este archivo inventaría material heredado de `PRE_*`; no propone una programación nueva ni modifica actividades. El orden es numérico. Los `LAB_*` son actividades de evaluación y quedan fuera de este inventario y de la matriz de cobertura curricular. El estado **Esqueleto** se basa en la presencia de estructura, `__init__.py` y pruebas, sin datos, notebooks, implementación o entregables no vacíos observables.
+| Orden | Actividad | Foco | Tiempo estimado |
+|---:|---|---|---:|
+| 1 | `PRE_01_hola_mundo` | ambiente, estructura y pruebas | 20 min |
+| 2 | `PRE_02_mapreduce` | `map`, pares clave--valor, ordenamiento y `reduce` | 50 min |
+| 3 | `PRE_03_consultas_basicas_en_mapreduce` | filtros, cálculo y agregación sobre `tips.csv` | 55 min |
+| 4 | `PRE_04_consultas_avanzadas_en_mapreduce` | agregación, segunda pasada, unión y top 10 por clave | 65 min |
+| 5 | `PRE_05_relational_data` | tablas, claves, relaciones e integridad | 75 min |
+| 6 | `PRE_06_sql_integration` | consultas, joins, agregación e integración SQL | 60 min |
+| 7 | `PRE_07_sql_transformation` | transformación y vista curada | 60 min |
+| 8 | `PRE_08_analytical_warehouse` | hechos, dimensiones y data mart | 70 min |
+| 9 | `PRE_09_data_formats` | CSV, JSON, Parquet y criterios de uso | 55 min |
+| 10 | `PRE_10_data_lakehouse` | particiones, almacenamiento y recuperación | 60 min |
+| 11 | `PRE_11_nosql_data` | datos semiestructurados y criterio SQL/NoSQL | 55 min |
+| 12 | `PRE_12_batch_ingestion` | extracción por lote y persistencia | 60 min |
+| 13 | `PRE_13_api_ingestion` | APIs, paginación y reintentos | 60 min |
+| 14 | `PRE_14_data_pipeline` | pipeline ETL/ELT reproducible | 65 min |
+| 15 | `PRE_15_data_quality` | completitud, validez, unicidad y consistencia | 60 min |
+| 16 | `PRE_16_data_contracts` | esquemas, evolución y fallos controlados | 60 min |
+| 17 | `PRE_17_incremental_pipeline` | incrementalidad e idempotencia | 65 min |
+| 18 | `PRE_18_pipeline_operations` | dependencias y observabilidad básica | 55 min |
+| 19 | `PRE_19_distributed_processing` | particiones y procesamiento a escala | 60 min |
+| 20 | `PRE_20_event_streams` | eventos y tiempo de evento | 55 min |
+| 21 | `PRE_21_streaming_pipeline` | estado, ventanas y entrega continua | 60 min |
+| 22 | `PRE_22_data_serving` | vistas y datos curados para consumo | 55 min |
+| 23 | `PRE_23_metadata_lineage` | catálogo, linaje y propiedad | 50 min |
+| 24 | `PRE_24_end_to_end_architecture` | arquitectura integral y trade-offs | 70 min |
 
-Los talleres de Datos producen insumos confiables para consumo analítico —datasets curados, contratos, vistas, flujos o servicios de datos—, no el producto analítico final. Un activo de datos adquiere condición de producto cuando tiene consumidor, semántica, contrato, propiedad y compromiso de servicio; empaquetar la capacidad analítica para ese consumidor corresponde a Productos de Datos.
-
-La unidad básica de este archivo es cada `PRE_*`. La matriz final solo agrega los conceptos de los `PRE_*` para comprobar cobertura de `curriculum.md`; no convierte las unidades curriculares en sesiones.
-
-El tiempo estimado incluye presentar datos, problema, razonamiento y solución; se registra solo para material desarrollado y se redondea a múltiplos de 5 minutos.
-
-| Orden | Actividad | Ideas o conceptos inferidos | Nivel observable | Clasificación | Tiempo estimado |
-|---:|---|---|---|---|---:|
-| 1 | `PRE_01_relational_data` | tablas, claves, relaciones e integridad | Esqueleto con pruebas | BASE | — |
-| 2 | `PRE_02_sql_integration` | consultas, joins, agregación e integración SQL | Esqueleto con pruebas | BASE | — |
-| 3 | `PRE_03_sql_transformation` | transformación, tipado, faltantes, ventanas y deduplicación | Esqueleto con pruebas | BASE | — |
-| 4 | `PRE_04_analytical_warehouse` | hechos, dimensiones, esquema estrella y data marts | Esqueleto con pruebas | BASE | — |
-| 5 | `PRE_05_data_formats` | CSV, JSON, Parquet, tipos y compresión | Esqueleto con pruebas | BASE | — |
-| 6 | `PRE_06_data_lakehouse` | almacenamiento de objetos, particiones, lago y lakehouse | Esqueleto con pruebas | BASE | — |
-| 7 | `PRE_07_nosql_data` | datos semiestructurados y criterios SQL/NoSQL | Esqueleto con pruebas | OPT | — |
-| 8 | `PRE_08_batch_ingestion` | extracción por lote, persistencia y manejo de errores | Esqueleto con pruebas | BASE | — |
-| 9 | `PRE_09_api_ingestion` | APIs, paginación, parámetros, reintentos y persistencia | Esqueleto con pruebas | BASE | — |
-| 10 | `PRE_10_data_pipeline` | ETL/ELT, capas y pipeline reproducible | Esqueleto con pruebas | BASE | — |
-| 11 | `PRE_11_data_quality` | completitud, validez, unicidad, consistencia y frescura | Esqueleto con pruebas | BASE | — |
-| 12 | `PRE_12_data_contracts` | esquemas, evolución, contrato, cuarentena y fallo controlado | Esqueleto con pruebas | BASE | — |
-| 13 | `PRE_13_incremental_pipeline` | incrementales, append/upsert, idempotencia y CDC | Esqueleto con pruebas | BASE | — |
-| 14 | `PRE_14_pipeline_operations` | dependencias, DAG, programación, reintentos y observabilidad básica | Esqueleto con pruebas | BASE | — |
-| 15 | `PRE_15_distributed_processing` | particiones y procesamiento distribuido | Esqueleto con pruebas | OPT | — |
-| 16 | `PRE_16_event_streams` | productores, consumidores, brokers y tiempo de evento | Esqueleto con pruebas | OPT | — |
-| 17 | `PRE_17_streaming_pipeline` | ingestión continua, ventanas, estado y entrega | Esqueleto con pruebas | OPT | — |
-| 18 | `PRE_18_data_serving` | datasets curados, vistas y consumidores analíticos | Esqueleto con pruebas | BASE | — |
-| 19 | `PRE_19_metadata_lineage` | catálogo, linaje, propiedad, acceso y privacidad | Esqueleto con pruebas | BASE | — |
-| 20 | `PRE_20_end_to_end_architecture` | arquitectura extremo a extremo y trade-offs | Esqueleto con pruebas | BASE | — |
-
-La clasificación curricular `BASE`/`OPT` es independiente del hecho de que todos estos PRE sean actualmente esqueletos. Los `BASE` son trabajo de desarrollo requerido antes de la oferta.
-
-## Cobertura frente a `curriculum.md`
-
-| Unidad curricular | Actividades heredadas | Estado de cobertura |
-|---|---|---|
-| Datos en el ciclo analítico | Ninguna actividad inequívoca; corresponde a fundamentación. | Pendiente de contraste teórico. |
-| Representación relacional y SQL | PRE 01–03 | Inventariada. |
-| Integración y transformación | PRE 02–03 | Inventariada. |
-| Modelado y almacenamiento analítico | PRE 04, 06–07 | Inventariada. |
-| Formatos y datos semiestructurados | PRE 05, 07 | Inventariada. |
-| Ingestión | PRE 08–09 | Inventariada. |
-| Pipelines e incrementalidad | PRE 10, 13–14 | Inventariada. |
-| Calidad y contratos | PRE 11–12 | Inventariada. |
-| Escala, eventos y streaming | PRE 15–17 | Inventariada. |
-| Serving, metadatos y gobierno técnico | PRE 18–19 | Inventariada. |
-| Arquitectura integral | PRE 20 | Inventariada. |
-
-## Observación de inventario
-
-La secuencia heredada cubre nominalmente todas las unidades prácticas del currículo macro, pero su profundidad de implementación no puede acreditarse aún: las actividades observables son principalmente esqueletos con pruebas.
+Los PRE 01--04 forman el bloque de fundamento de Big Data Analytics: hacen visible cómo una clave organiza una agregación, una unión y el intercambio de datos entre particiones. No requieren instalar Spark ni operar un clúster.
