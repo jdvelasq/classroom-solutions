@@ -1,5 +1,5 @@
 # LAB_01 — Integración y grano analítico
 
-El área comercial requiere ventas mensuales por cliente. Integre órdenes, líneas y segmentos sin multiplicar el importe de las líneas. La entrega es `submission/customer_month_sales.csv` y `submission/reconciliation.json`.
+Una fábrica requiere producción diaria por planta. Integre producción por máquina, disponibilidad y ambiente sin duplicar unidades. La entrega es `submission/factory_daily_operations.csv` y `submission/reconciliation.json`.
 
-La salida debe tener exactamente una fila por `customer_id` y mes, y su total debe reconciliarse con las líneas de orden válidas.
+La salida debe tener exactamente una fila por fábrica y día, y sus unidades deben reconciliarse con la fuente de producción.

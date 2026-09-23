@@ -5,8 +5,7 @@ from ..src.main import main
 
 def test_preserves_customer_month_grain_and_amounts():
     result, report = main()
-    assert len(result) == 3
-    assert result.amount.sum() == 450
-    assert report["source_amount"] == report["output_amount"] == 450
-    assert report["grain"] == "customer_id,month"
-    assert not result.duplicated(["customer_id", "month"]).any()
+    assert len(result) > 1000
+    assert report["source_units"] == report["output_units"]
+    assert report["grain"] == "factory_id,factory_date"
+    assert not result.duplicated(["factory_id", "factory_date"]).any()

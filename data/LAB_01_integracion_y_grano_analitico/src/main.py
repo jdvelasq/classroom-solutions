@@ -1,4 +1,4 @@
-"""Integra líneas y órdenes preservando el grano cliente-mes."""
+"""Integra fuentes operativas reales preservando el grano fábrica-día."""
 
 import json
 from pathlib import Path
@@ -10,20 +10,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    orders = pd.read_csv(ROOT / "data/orders.csv", parse_dates=["order_date"])
-    lines = pd.read_csv(ROOT / "data/order_lines.csv")
-    segments = pd.read_csv(ROOT / "data/segments.csv")
-    detailed = lines.merge(orders, on="order_id", validate="many_to_one")
-    detailed["month"] = detailed["order_date"].dt.to_period("M").astype(str)
-    result = detailed.groupby(["customer_id", "month"], as_index=False).amount.sum()
-    assert not result[["customer_id", "month"]].duplicated().any()
-    assert not segments.customer_id.duplicated().any()
-    result = result.merge(segments, on="customer_id", validate="many_to_one")
-    result = result[["customer_id", "month", "segment", "amount"]]
+    throughput = pd.read_csv(ROOT / "data/machine_throughput_export.csv")
+    uptime = pd.read_csv(ROOT / "data/machine_uptime_export.csv")
+    ambient = pd.read_csv(ROOT / "data/factory_ambient_export.csv")
+    machine_day = throughput.merge(uptime, on=["factory_id", "machine_id", "factory_date"], validate="one_to_one")
+    result = machine_day.groupby(["factory_id", "factory_date"], as_index=False).agg(units_produced=("daily_units_produced", "sum"), average_hours_operational=("hours_operational", "mean"))
+    assert not result[["factory_id", "factory_date"]].duplicated().any()
+    result = result.merge(ambient, left_on=["factory_id", "factory_date"], right_on=["factory_id", "date_measured"], validate="one_to_one").drop(columns="date_measured")
     output = ROOT / "submission"
     output.mkdir(exist_ok=True)
-    result.to_csv(output / "customer_month_sales.csv", index=False)
-    report = {"source_amount": float(lines.amount.sum()), "output_amount": float(result.amount.sum()), "row_count": len(result), "grain": "customer_id,month"}
+    result.to_csv(output / "factory_daily_operations.csv", index=False)
+    report = {"source_units": int(throughput.daily_units_produced.sum()), "output_units": int(result.units_produced.sum()), "row_count": len(result), "grain": "factory_id,factory_date"}
     (output / "reconciliation.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     return result, report
 
