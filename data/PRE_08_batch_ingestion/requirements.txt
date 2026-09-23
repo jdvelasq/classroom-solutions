@@ -1,2 +1,0 @@
-pyarrow>=18,<21
-pandas<2.3
