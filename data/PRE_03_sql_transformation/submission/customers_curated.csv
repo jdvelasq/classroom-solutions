@@ -1,0 +1,9 @@
+customer_id,customer_name,city,segment,age,updated_at
+C001,Ana Ruiz,Bogota,Premium,42,2026-01-03
+C002,Luis Gomez,Medellin,Premium,35,2026-01-04
+C003,Mariana Torres,Cali,Corporate,41,2026-02-10
+C004,Diego Lara,Bogota,Unknown,29,2026-01-09
+C005,Sara Paz,Cali,Premium,,2026-01-12
+C006,Juan Sol,Medellin,Premium,39,2026-02-01
+C007,Lina Rey,Bogota,Corporate,44,2026-01-18
+C008,Omar Gil,Cali,Premium,31,2026-01-22

@@ -1,0 +1,3 @@
+source_dataset,target_dataset,transformation
+raw_transactions,sales_curated,transform and validate
+sales_curated,sales_dashboard,aggregate by category

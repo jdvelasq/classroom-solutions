@@ -1,0 +1,4 @@
+dataset,description,owner,classification
+raw_transactions,Raw transactions,ingestion_team,internal
+sales_curated,Validated sales,analytics_team,internal
+sales_dashboard,Category sales,analytics_team,public

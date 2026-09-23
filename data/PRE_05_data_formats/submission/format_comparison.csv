@@ -1,0 +1,4 @@
+format,file_size_bytes,schema_preserved,human_readable,column_selection,primary_use_case
+CSV,75687,False,True,False,Intercambio e inspección simple
+JSON,299600,False,True,False,Datos semiestructurados e intercambio
+Parquet,17672,True,False,True,Lectura analítica columnar

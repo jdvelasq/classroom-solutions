@@ -23,3 +23,4 @@ statsmodels<0.15
 umap-learn==0.5.7
 uvicorn<0.36
 streamlit==1.50.0
+pyarrow>=18,<21

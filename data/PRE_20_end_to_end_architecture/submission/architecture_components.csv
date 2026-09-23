@@ -1,0 +1,5 @@
+component,layer,purpose
+transactions_db,operational source,sales transactions
+raw_storage,raw layer,preserve source copies
+curated_sales,curated layer,validated analytics dataset
+sales_mart,serving layer,management dashboard

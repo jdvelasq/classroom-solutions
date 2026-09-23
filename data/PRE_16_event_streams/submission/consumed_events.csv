@@ -1,0 +1,5 @@
+arrival_position,event_id,event_time,product_id,quantity,sales_amount,is_delayed
+1,E1,2026-01-01T10:00:00,P1,1,10,False
+2,E2,2026-01-01T10:10:00,P2,2,20,False
+3,E3,2026-01-01T10:05:00,P1,1,10,True
+4,E4,2026-01-01T10:15:00,P3,3,30,False

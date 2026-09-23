@@ -1,0 +1,4 @@
+source,target,mode,purpose
+transactions_db,raw_storage,batch,preserve operational data
+raw_storage,curated_sales,batch,validate and transform
+curated_sales,sales_mart,batch,aggregate for consumer

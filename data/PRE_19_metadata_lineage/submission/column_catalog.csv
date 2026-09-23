@@ -1,0 +1,4 @@
+dataset,column_name,classification
+raw_transactions,customer_id,internal
+sales_curated,sales_amount,internal
+sales_dashboard,sales_amount,public

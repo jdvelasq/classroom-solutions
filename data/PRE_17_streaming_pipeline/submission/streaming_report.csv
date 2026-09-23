@@ -1,0 +1,7 @@
+metric,value
+event_count,4
+on_time_count,2
+late_accepted_count,1
+too_late_count,1
+finalized_window_count,2
+validation_status,PASS

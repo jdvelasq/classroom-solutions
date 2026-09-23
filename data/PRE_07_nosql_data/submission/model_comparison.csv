@@ -1,0 +1,8 @@
+criterion,relational_model,document_model,case_implication
+fixed_schema,Necesita columnas para todos los atributos,Conserva campos comunes y atributos anidados,Las categorías variables no fuerzan columnas vacías
+nested_data,Requiere separar o aplanar atributos,Representa attributes y tags directamente,La forma del producto permanece legible
+variable_attributes,Genera muchas columnas irrelevantes,Cada categoría declara solo sus atributos,Una categoría nueva no altera documentos anteriores
+relationships,Expresa relaciones con claves y joins,Puede duplicar información para una lectura,Las relaciones complejas siguen requiriendo decisión explícita
+duplication,Reduce duplicación mediante tablas relacionadas,Puede duplicar datos para consumo,Se evalúa el costo de actualizar copias
+updates,Actualiza atributos en columnas conocidas,Actualiza el documento y su forma,Los cambios deben preservar consistencia
+analytical_integration,Facilita agregaciones tabulares homogéneas,Puede requerir aplanar atributos variables,Analytics elige la representación según la pregunta

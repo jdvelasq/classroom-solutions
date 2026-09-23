@@ -1,0 +1,4 @@
+action,record_count
+INSERT,1
+UPDATE,1
+UNCHANGED,1

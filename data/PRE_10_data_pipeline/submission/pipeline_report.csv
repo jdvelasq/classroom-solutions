@@ -1,0 +1,4 @@
+stage,input_rows,output_rows,status
+raw,7,7,SUCCESS
+staging,4,4,SUCCESS
+curated,4,4,SUCCESS

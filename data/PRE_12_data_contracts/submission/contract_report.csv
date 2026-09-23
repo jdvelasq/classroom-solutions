@@ -1,0 +1,6 @@
+batch_name,status,change_type,action
+valid,PASS,NONE,ACCEPT
+missing_segment,FAIL,BREAKING,REJECT
+invalid_date,FAIL,BREAKING,REJECT
+unsupported_segment,FAIL,BREAKING,REJECT
+optional_column,PASS,COMPATIBLE,ACCEPT

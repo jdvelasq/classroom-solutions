@@ -1,0 +1,6 @@
+metric,value
+input_rows,4
+teaching_input_partitions,2
+shuffle_partitions,2
+output_categories,2
+validation_status,PASS

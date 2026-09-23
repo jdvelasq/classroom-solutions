@@ -1,0 +1,10 @@
+order_id,order_date,customer_id,customer_name,customer_city,product_id,product_name,category,unit_price,quantity
+O1001,2026-01-05,C001,Ana Ruiz,Bogota,P100,Cafe,Alimentos,18.00,2
+O1001,2026-01-05,C001,Ana Ruiz,Bogota,P200,Panaderia,Alimentos,9.50,1
+O1002,2026-01-08,C002,Luis Gomez,Medellin,P100,Cafe,Alimentos,18.00,1
+O1002,2026-01-08,C002,Luis Gomez,Medellin,P300,Cuaderno,Oficina,7.25,3
+O1003,2026-01-12,C001,Ana Ruiz,Bogota,P400,Lapicero,Oficina,2.50,4
+O1004,2026-01-17,C003,Mariana Torres,Cali,P200,Panaderia,Alimentos,9.50,2
+O1004,2026-01-17,C003,Mariana Torres,Cali,P300,Cuaderno,Oficina,7.25,1
+O1005,2026-01-24,C002,Luis Gomez,Medellin,P100,Cafe,Alimentos,18.00,3
+O1006,2026-01-28,C001,Ana Ruiz,Bogota,P400,Lapicero,Oficina,2.50,2
