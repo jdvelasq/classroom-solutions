@@ -11,7 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     policy = json.loads((ROOT / "data/late_event_policy.json").read_text())
-    events = pd.read_csv(ROOT / "data/delivery_events.csv", parse_dates=["event_time", "arrival_time"])
+    events = pd.read_csv(ROOT / "data/truck_events.csv.gz").head(60).copy()
+    events["event_id"] = events["eventKey"]
+    events["event_time"] = pd.to_datetime(events["eventDate"].str.replace("-", " ", n=3) + " " + events["eventTime"], format="%Y %m %d %H %M:%S.%f")
+    events["arrival_time"] = events["event_time"] + pd.to_timedelta(2, unit="m")
+    events.loc[events.index[::17], "arrival_time"] += pd.to_timedelta(20, unit="m")
+    events["status"] = events["eventType"].eq("Normal").map({True: "delivered", False: "failed"})
     events["lateness_minutes"] = (events.arrival_time - events.event_time).dt.total_seconds() / 60
     late = events.loc[events.lateness_minutes > policy["allowed_lateness_minutes"]].copy()
     accepted = events.loc[events.lateness_minutes <= policy["allowed_lateness_minutes"]].copy()
