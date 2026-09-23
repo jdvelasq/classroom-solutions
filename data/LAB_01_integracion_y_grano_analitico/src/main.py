@@ -16,12 +16,14 @@ def main():
     detailed = lines.merge(orders, on="order_id", validate="many_to_one")
     detailed["month"] = detailed["order_date"].dt.to_period("M").astype(str)
     result = detailed.groupby(["customer_id", "month"], as_index=False).amount.sum()
+    assert not result[["customer_id", "month"]].duplicated().any()
+    assert not segments.customer_id.duplicated().any()
     result = result.merge(segments, on="customer_id", validate="many_to_one")
     result = result[["customer_id", "month", "segment", "amount"]]
     output = ROOT / "submission"
     output.mkdir(exist_ok=True)
     result.to_csv(output / "customer_month_sales.csv", index=False)
-    report = {"source_amount": float(lines.amount.sum()), "output_amount": float(result.amount.sum()), "row_count": len(result)}
+    report = {"source_amount": float(lines.amount.sum()), "output_amount": float(result.amount.sum()), "row_count": len(result), "grain": "customer_id,month"}
     (output / "reconciliation.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     return result, report
 
