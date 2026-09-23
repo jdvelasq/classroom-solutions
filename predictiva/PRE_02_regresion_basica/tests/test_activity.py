@@ -34,3 +34,21 @@ def test_01():
     )
 
     assert mse < 8.0
+
+
+def test_flexible_linear_model_uses_explicit_terms_and_has_a_saved_comparison():
+    comparison = pd.read_csv("submission/model_comparison.csv")
+
+    assert set(comparison["model"]) >= {
+        "linear_model",
+        "linear_flexible_model",
+        "mlp",
+    }
+    assert comparison["test_mse"].notna().all()
+
+    with open("submission/flexible_features_preprocessor.pkl", "rb") as file:
+        flexible_features_preprocessor = pickle.load(file)
+
+    numeric_features = flexible_features_preprocessor.transformers_[0][2]
+    assert "Horsepower_squared" in numeric_features
+    assert "Weight_x_Horsepower" in numeric_features
