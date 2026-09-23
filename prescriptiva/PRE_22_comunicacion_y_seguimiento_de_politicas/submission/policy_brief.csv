@@ -1,0 +1,2 @@
+decision,alternative,assumption,indicator,trigger,owner
+refuerzo_flexible,capacidad_actual,demanda_esperada,service_rate,menor_a_0.90,Dirección de operaciones

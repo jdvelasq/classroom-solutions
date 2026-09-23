@@ -1,0 +1,3 @@
+state,probability,launch_value
+alta_demanda,0.45,120000
+baja_demanda,0.55,-80000

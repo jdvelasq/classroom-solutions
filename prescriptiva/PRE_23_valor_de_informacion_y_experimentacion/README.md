@@ -1,9 +1,5 @@
 # Valor de información y experimentación
 
-## Competencia
+## Problema
 
-Decidir si conviene intervenir, esperar, medir o experimentar antes de adoptar una política.
-
-## Estado
-
-Esqueleto curricular: pendiente de datos, notebook, solución, artefactos y pruebas específicas.
+Una organización debe decidir si lanzar una intervención ahora o ejecutar una medición breve antes de comprometer recursos. El taller compara el valor esperado de actuar con el valor esperado de información; no convierte un experimento en producto de datos ni automatiza la decisión.
