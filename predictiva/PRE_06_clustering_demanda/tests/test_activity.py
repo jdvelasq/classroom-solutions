@@ -16,6 +16,8 @@ def test_saved_daily_patterns_are_complete_and_interpretable():
 
     daily_patterns = pd.read_csv("submission/demanda-comercial-clusters.csv")
     weekday_summary = pd.read_csv("submission/demanda-comercial-dias.csv")
+    cluster_selection = pd.read_csv("submission/cluster-selection.csv")
+    received_profile = pd.read_csv("submission/perfil-recibido.csv")
 
     assert list(daily_patterns.columns) == ["Fecha", "cluster", "day_of_week"]
     assert len(daily_patterns) == 2069
@@ -33,3 +35,13 @@ def test_saved_daily_patterns_are_complete_and_interpretable():
     assert weekday_summary[["cluster_0_days", "cluster_1_days"]].to_numpy().sum() == len(
         daily_patterns
     )
+
+    assert cluster_selection["n_clusters"].tolist() == [2, 3, 4, 5]
+    assert cluster_selection["silhouette_score"].between(-1, 1).all()
+    assert cluster_selection.loc[
+        cluster_selection["silhouette_score"].idxmax(), "n_clusters"
+    ] == 2
+
+    assert list(received_profile.columns) == ["Fecha", "cluster_asignado"]
+    assert len(received_profile) == 1
+    assert received_profile["cluster_asignado"].iloc[0] in {0, 1}
