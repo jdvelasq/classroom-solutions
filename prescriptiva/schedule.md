@@ -1,46 +1,42 @@
-# Inventario heredado — Analítica Prescriptiva
+# Secuencia curricular candidata — Analítica Prescriptiva
 
-## Propósito y lectura
+## Estado de esta secuencia
 
-Este archivo inventaría material heredado de `PRE_*`; no propone una programación nueva ni modifica actividades. El orden es numérico. Los `LAB_*` son actividades de evaluación y quedan fuera de este inventario y de la matriz de cobertura curricular. **Desarrollado** indica presencia observable de datos, notebook, pruebas y artefactos en `submission/`; no certifica todavía la formulación, el solver ni el cumplimiento semántico de la recomendación.
+El propósito actual es decidir **qué debe integrar el curso** y en qué progresión conceptual. Esta tabla no es todavía una programación de sesiones: no asigna tiempos, no clasifica actividades como `BASE` u `OPT` y no fuerza una duración total. Esas decisiones se tomarán cuando el inventario y las prioridades curriculares estén cerrados.
 
-La unidad básica de este archivo es cada `PRE_*`. La matriz final solo agrega los conceptos de los `PRE_*` para comprobar cobertura de `curriculum.md`; no convierte las unidades curriculares en sesiones.
+La secuencia se organiza como **Analytics para decidir**, no como un temario de Investigación de Operaciones. Cada taller debe responder una pregunta de acción mediante evidencia, alternativas, valor, restricciones e incertidumbre. Optimización o simulación pueden ser instrumentos, pero no son el resultado de aprendizaje por sí mismos.
 
-El tiempo estimado incluye presentar datos, problema, razonamiento y solución; se registra solo para material desarrollado y se redondea a múltiplos de 5 minutos.
+## Secuencia propuesta
 
-| Orden | Actividad | Ideas o conceptos inferidos | Nivel observable | Clasificación | Tiempo estimado |
-|---:|---|---|---|---|---:|
-| 1 | `PRE_01_air_france_447` | planeación de búsqueda bajo incertidumbre | Desarrollado | BASE | 75 min |
-| 2 | `PRE_02_airline_revenue_management` | capacidad, asignación y gestión de ingresos | Desarrollado | BASE | 75 min |
-| 3 | `PRE_03_covid_hospital_capacity` | capacidad hospitalaria y escenarios de demanda | Desarrollado | BASE | 75 min |
-| 4 | `PRE_04_annie_moore_refugee_resettlement` | reasentamiento y asignación con restricciones | Desarrollado | BASE | 70 min |
-| 5 | `PRE_05_tax_inspections` | priorización de inspecciones y recuperación esperada | Desarrollado | BASE | 70 min |
-| 6 | `PRE_06_wildfire_resource_positioning` | posicionamiento de recursos ante incendios | Desarrollado | OPT | 70 min |
-| 7 | `PRE_07_humanitarian_food_aid` | asignación de ayuda humanitaria | Desarrollado | OPT | 70 min |
-| 8 | `PRE_08_flood_protection_investment` | inversión y trade-offs de protección | Desarrollado | BASE | 65 min |
-| 9 | `PRE_09_hydrothermal_planning` | planeación hidrotermal | Desarrollado | OPT | 80 min |
-| 10 | `PRE_10_credit_campaign_targeting` | focalización de campaña de crédito | Desarrollado | BASE | 70 min |
-| 11 | `PRE_11_catalog_assortment` | selección de surtido | Desarrollado | BASE | 70 min |
-| 12 | `PRE_12_delivery_fleet_capacity` | capacidad de flota de entrega | Desarrollado | BASE | 70 min |
-| 13 | `PRE_13_storm_response_crews` | asignación de cuadrillas de respuesta | Desarrollado | OPT | 70 min |
+| Orden | Actividad | Pregunta analítica prescriptiva | Estado |
+|---:|---|---|---|
+| 1 | `PRE_01_encuadre_analitico_de_decisiones` | ¿Qué decisión debe tomarse, quién responde por ella y cómo se definirá su valor? | Esqueleto creado |
+| 2 | `PRE_02_air_france_447` | ¿Cómo distribuir una búsqueda cuando la evidencia es incompleta y el costo de errar es alto? | Desarrollado |
+| 3 | `PRE_03_politica_desde_evidencia_y_restricciones` | ¿Qué política conviene entre alternativas con evidencia, valor y restricciones explícitas? | Esqueleto creado |
+| 4 | `PRE_04_airline_revenue_management` | ¿Cómo usar capacidad limitada ante demanda y valor heterogéneos? | Desarrollado |
+| 5 | `PRE_05_covid_hospital_capacity` | ¿Qué capacidad preparar ante escenarios inciertos de demanda? | Desarrollado |
+| 6 | `PRE_06_politicas_y_supervision_humana` | ¿Cuándo automatizar, escalar o requerir revisión humana? | Esqueleto creado |
+| 7 | `PRE_07_annie_moore_refugee_resettlement` | ¿Cómo asignar familias respetando resultados esperados y restricciones? | Desarrollado |
+| 8 | `PRE_08_tax_inspections` | ¿A quién inspeccionar cuando la capacidad es limitada y la evidencia es probabilística? | Desarrollado |
+| 9 | `PRE_09_monte_carlo_para_politicas` | ¿Qué política domina al comparar resultados y riesgos bajo escenarios simulados? | Esqueleto creado |
+| 10 | `PRE_10_wildfire_resource_positioning` | ¿Dónde ubicar y cómo reasignar recursos frente al riesgo cambiante? | Desarrollado |
+| 11 | `PRE_11_humanitarian_food_aid` | ¿Qué ayuda entregar y cómo abastecerla bajo restricciones humanitarias? | Desarrollado |
+| 12 | `PRE_12_evaluacion_de_politicas_por_simulacion` | ¿Cómo evaluar una política cuando la dinámica del sistema no admite una respuesta cerrada? | Esqueleto creado |
+| 13 | `PRE_13_flood_protection_investment` | ¿Qué inversión reduce mejor el riesgo dentro de un presupuesto? | Desarrollado |
+| 14 | `PRE_14_hydrothermal_planning` | ¿Qué plan equilibra energía, agua, costos y restricciones temporales? | Desarrollado |
+| 15 | `PRE_15_sensibilidad_y_tradespace` | ¿Qué supuestos, umbrales y trade-offs cambian la recomendación? | Esqueleto creado |
+| 16 | `PRE_16_credit_campaign_targeting` | ¿Cómo convertir probabilidades en una política de focalización con capacidad limitada? | Desarrollado |
+| 17 | `PRE_17_decision_informada_por_pronosticos` | ¿Cómo cambia una decisión al propagar la incertidumbre de un pronóstico? | Esqueleto creado |
+| 18 | `PRE_18_catalog_assortment` | ¿Qué surtido conviene dadas capacidad, valor y riesgo? | Desarrollado |
+| 19 | `PRE_19_delivery_fleet_capacity` | ¿Qué política de capacidad y tercerización conviene bajo demanda incierta? | Desarrollado |
+| 20 | `PRE_20_equidad_y_responsabilidad_prescriptiva` | ¿Qué impactos distributivos produce una política y qué salvaguardas requiere? | Esqueleto creado |
+| 21 | `PRE_21_storm_response_crews` | ¿Cómo reservar y asignar cuadrillas ante eventos extremos? | Desarrollado |
+| 22 | `PRE_22_comunicacion_y_seguimiento_de_politicas` | ¿Cómo documentar una recomendación, sus supuestos y sus gatillos de revisión? | Esqueleto creado |
+| 23 | `PRE_23_valor_de_informacion_y_experimentacion` | ¿Conviene actuar, esperar, medir o experimentar antes de adoptar una política? | Esqueleto creado |
 
-Los PRE `BASE` heredados suman aproximadamente **11 h 10 min**. La capacidad de 30–33 horas se completa con nuevos PRE `BASE` para formulación explícita, simulación, sensibilidad, responsabilidad y comunicación/seguimiento, después de la auditoría semántica de los materiales.
+## Candidatos aún no incorporados
 
-## Cobertura frente a `curriculum.md`
-
-| Unidad curricular | Evidencia heredada | Estado de cobertura |
+| Candidato | Aporte potencial | Decisión pendiente |
 |---|---|---|
-| Encuadre de decisiones | Todos los casos tienen un contexto de asignación, capacidad o selección. | Parcial, inferida. |
-| Formulación de modelos prescriptivos | Los casos sugieren optimización; formulaciones deben revisarse en notebooks. | Parcial. |
-| Optimización determinista | Revenue management, reasentamiento, ayuda, surtido, flota y cuadrillas. | Inventariada. |
-| Reglas, políticas y automatización | Focalización de crédito e inspecciones lo sugieren. | Parcial. |
-| Decisión bajo incertidumbre | Air France, COVID, incendios y tormentas. | Inventariada. |
-| Simulación | Air France, COVID y planeación hidrotermal podrían incluirla. | Pendiente de lectura de notebooks. |
-| Sensibilidad y tradespace | Inversión en inundaciones e hidrotermal lo sugieren. | Parcial, inferida. |
-| Prescripción informada por datos | Crédito, impuestos y COVID combinan datos y decisión. | Parcial. |
-| Equidad, comportamiento y responsabilidad | Reasentamiento y ayuda humanitaria ofrecen contexto; tratamiento explícito no verificable. | Pendiente. |
-| Comunicación y seguimiento de políticas | Entregables de decisión visibles; comunicación/seguimiento requiere revisión. | Parcial. |
-
-## Observación de inventario
-
-El conjunto heredado presenta una colección sólida y diversa de casos prescriptivos. La siguiente fase por curso deberá auditar, sin rediseñarlos todavía, la formulación matemática, el hilo incremental, los tests y la correspondencia con las unidades curriculares.
+| Evaluación financiera de proyectos por escenarios | Construye un flujo de caja deliberadamente simple: inversión inicial, ingresos totales, costos variables, costos fijos e impuesto/tasa si se requiere; compara escenarios y decide financiar, posponer, rediseñar o descartar. | Definir si reemplaza o complementa un caso de escenarios existente. |
+| Evaluación financiera de proyectos con Monte Carlo | Convierte ingresos, costos o adopción en variables inciertas del mismo flujo; estima distribución de valor, probabilidad de pérdida y sensibilidad antes de recomendar una acción. | Definir si se convierte en la instancia concreta de PRE_09 o PRE_12. |

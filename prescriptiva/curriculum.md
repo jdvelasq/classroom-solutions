@@ -2,7 +2,17 @@
 
 ## Rol en el programa
 
-Curso que convierte evidencia en una recomendación o política de acción bajo metas, restricciones, incertidumbre y consecuencias. No es Investigación de Operaciones completa: emplea sus métodos como instrumentos para decisiones basadas en datos.
+Curso de **Analytics para decidir**: convierte evidencia descriptiva, predictiva o causal en una recomendación o política de acción bajo metas, restricciones, incertidumbre y consecuencias. Sigue la lógica de INFORMS de conectar el problema y el valor organizacional con los datos, el análisis y una decisión que pueda explicarse y revisarse.
+
+La optimización, la simulación y las reglas son instrumentos subordinados a esa finalidad. El estudiante no aprende un método para demostrar dominio matemático; aprende a decidir si una recomendación crea valor, para quién, bajo qué supuestos, con qué riesgo y cuándo debe cambiarse o escalarse a una persona responsable.
+
+## Contrato de identidad: Analytics, no Investigación de Operaciones
+
+La identidad se verifica en el conjunto del curso, no imponiendo el ciclo completo a cada `PRE_*`. Cada taller debe responder una **pregunta prescriptiva**: elegir una acción entre alternativas usando evidencia, función de valor, restricciones e incertidumbre. Según su propósito, puede concentrarse en formular, comparar políticas, evaluar escenarios, analizar sensibilidad o examinar impactos. Comunicación y seguimiento son competencias propias del curso que se consolidan en talleres específicos, del mismo modo que no todo taller de Predictiva tiene que comunicar o desplegar un modelo.
+
+Una solución numéricamente óptima sin una decisión identificable, evidencia pertinente, valor o consecuencias interpretadas no alcanza el estándar del curso.
+
+El curso no cubre demostraciones de Simplex, dualidad, teoría de colas, algoritmos de redes, teoría de procesos estocásticos ni administración avanzada de solvers. Esos temas pertenecen a la formación especializada de Investigación de Operaciones. Tampoco construye interfaces o la operación continua de un producto: esa frontera corresponde a Productos de Datos.
 
 La secuencia siguiente es conceptual, no un calendario ni una asignación de duración.
 
@@ -14,13 +24,13 @@ En la programación detallada, una sesión puede incluir varios `PRE_*` autocont
 
 Decisor, alternativas, variables controlables, objetivos, restricciones, métricas de valor, línea base, responsables y consecuencias de la acción.
 
-### 2. Formulación de modelos prescriptivos
+### 2. Encuadre analítico de una decisión
 
-Variables de decisión, parámetros, funciones objetivo, restricciones, unidades, supuestos y verificación de que el modelo representa el problema de decisión.
+Decisor, evidencia, alternativas, variables de decisión, parámetros, función de valor, restricciones, unidades, supuestos y verificación de que el modelo representa el problema de decisión.
 
-### 3. Optimización determinista
+### 3. Instrumentos de decisión determinista
 
-Asignación, mezcla, cobertura, capacidad, redes, programación y priorización. Factibilidad, solución, interpretación y traducción de una solución matemática a una decisión.
+Asignación, mezcla, cobertura, capacidad, redes, programación y priorización. Factibilidad, solución, interpretación y traducción de una solución matemática a una política defendible; no demostración de algoritmos de IO.
 
 ### 4. Reglas, políticas y automatización apropiada
 
@@ -52,4 +62,4 @@ Recomendación, alternativas descartadas, supuestos, escenarios, plan de conting
 
 ## Frontera curricular
 
-Prescriptiva produce una acción defendible. No entrena modelos predictivos desde cero ni construye la interfaz, el servicio o la operación continua del producto que la entrega.
+Prescriptiva produce una acción defendible a partir de evidencia ya disponible. No entrena modelos predictivos desde cero, no enseña teoría exhaustiva de Investigación de Operaciones y no construye la interfaz, el servicio o la operación continua del producto que entrega la recomendación.

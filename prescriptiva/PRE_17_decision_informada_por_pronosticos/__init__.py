@@ -1,0 +1,1 @@
+"""Decisión informada por pronósticos."""

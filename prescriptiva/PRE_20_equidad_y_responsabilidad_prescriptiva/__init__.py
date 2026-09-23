@@ -1,0 +1,1 @@
+"""Equidad y responsabilidad prescriptiva."""
