@@ -1,0 +1,11 @@
+{
+  "consumer": "Analítica Descriptiva",
+  "grain": "sale_date,region",
+  "owner": "Equipo Comercial",
+  "schema": {
+    "sale_date": "date",
+    "region": "string",
+    "amount": "number"
+  },
+  "source_asset": "sales_curated"
+}

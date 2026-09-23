@@ -1,0 +1,3 @@
+source,target,transformation
+sales_raw,sales_curated,validación y estandarización
+sales_curated,sales_serving_view,agregación diaria por región
