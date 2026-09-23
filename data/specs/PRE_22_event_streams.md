@@ -850,7 +850,7 @@ arrival order
 state
 ```
 
-`PRE_22_streaming_pipeline` will add:
+`PRE_23_streaming_pipeline` will add:
 
 ```text
 time windows

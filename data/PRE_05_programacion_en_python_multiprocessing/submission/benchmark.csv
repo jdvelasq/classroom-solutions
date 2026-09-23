@@ -1,2 +1,2 @@
 repetitions,workers,sequential_seconds,parallel_seconds,speedup
-100,2,0.003668,0.063177,0.058
+100,2,0.00371,0.05294,0.07

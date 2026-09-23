@@ -2,7 +2,7 @@
 
 ## Identification
 
-**Activity:** `PRE_23_data_serving`
+**Activity:** `PRE_24_data_serving`
 
 **Week:** 12
 
@@ -750,7 +750,7 @@ These concepts are unnecessary for the central lesson or belong to the later Dat
 
 `PRE_18` creates stable consumer-facing datasets.
 
-`PRE_24_metadata_lineage` will ask:
+`PRE_25_metadata_lineage` will ask:
 
 > How do consumers and operators know what those datasets are, where they came from, and what depends on them?
 

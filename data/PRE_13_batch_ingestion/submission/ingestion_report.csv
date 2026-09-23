@@ -1,3 +1,0 @@
-source_name,source_type,row_count,status,output_path
-transactions,file,4,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_13_batch_ingestion/temp/raw/transactions.parquet
-products,database,3,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_13_batch_ingestion/temp/raw/products.parquet

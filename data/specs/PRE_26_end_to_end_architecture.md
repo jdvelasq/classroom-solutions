@@ -2,7 +2,7 @@
 
 ## Identification
 
-**Activity:** `PRE_25_end_to_end_architecture`
+**Activity:** `PRE_26_end_to_end_architecture`
 
 **Week:** 13
 

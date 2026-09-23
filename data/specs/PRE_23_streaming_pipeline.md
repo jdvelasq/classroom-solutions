@@ -2,7 +2,7 @@
 
 ## Identification
 
-**Activity:** `PRE_22_streaming_pipeline`
+**Activity:** `PRE_23_streaming_pipeline`
 
 **Week:** 11
 
@@ -1013,7 +1013,7 @@ The concepts are related to progress but solve different problems.
 
 `PRE_17` produces reliable derived streaming metrics.
 
-`PRE_23_data_serving` asks:
+`PRE_24_data_serving` asks:
 
 > How should reliable analytical results be exposed for downstream consumers?
 

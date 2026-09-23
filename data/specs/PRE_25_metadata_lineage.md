@@ -2,7 +2,7 @@
 
 ## Identification
 
-**Activity:** `PRE_24_metadata_lineage`
+**Activity:** `PRE_25_metadata_lineage`
 
 **Week:** 12
 
@@ -822,7 +822,7 @@ What depends on them?
 
 `PRE_19` completes the technical capabilities required to reason about the final architecture.
 
-`PRE_25_end_to_end_architecture` will integrate:
+`PRE_26_end_to_end_architecture` will integrate:
 
 ```text
 sources

@@ -50,12 +50,12 @@ def run(repetitions=25_000, workers=None):
 
     SUBMISSION_DIR.mkdir(exist_ok=True)
     with (SUBMISSION_DIR / "word_counts.csv").open("w", encoding="utf-8", newline="") as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, lineterminator="\n")
         writer.writerow(["word", "count"])
         writer.writerows(sorted(sequential.items()))
     speedup = sequential_seconds / parallel_seconds if parallel_seconds else float("inf")
     with (SUBMISSION_DIR / "benchmark.csv").open("w", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=["repetitions", "workers", "sequential_seconds", "parallel_seconds", "speedup"])
+        writer = csv.DictWriter(file, fieldnames=["repetitions", "workers", "sequential_seconds", "parallel_seconds", "speedup"], lineterminator="\n")
         writer.writeheader()
         writer.writerow({"repetitions": repetitions, "workers": workers, "sequential_seconds": round(sequential_seconds, 6), "parallel_seconds": round(parallel_seconds, 6), "speedup": round(speedup, 3)})
     return sequential, {"workers": workers, "sequential_seconds": sequential_seconds, "parallel_seconds": parallel_seconds, "speedup": speedup}
