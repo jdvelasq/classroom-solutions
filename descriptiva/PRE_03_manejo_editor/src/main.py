@@ -3,9 +3,9 @@ import os.path
 import string
 import time
 
-DATA_FOLDER = "PRE_02_mapreduce/data"
-INPUT_FOLDER = "PRE_02_mapreduce/temp/input"
-OUTPUT_FOLDER = "PRE_02_mapreduce/temp/output"
+DATA_FOLDER = "data"
+INPUT_FOLDER = "temp/input"
+OUTPUT_FOLDER = "temp/output"
 
 
 def clear_folder(folder):

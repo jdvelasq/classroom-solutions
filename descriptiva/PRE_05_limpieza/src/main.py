@@ -1,9 +1,9 @@
-import os
+from pathlib import Path
 
 import pandas as pd
 
-INPUT_FILE = "PRE_05_limpieza/data/ventas.csv"
-OUTPUT_FILE = "PRE_05_limpieza/submission/ventas.csv"
+INPUT_FILE = Path("data/ventas.csv")
+OUTPUT_FILE = Path("submission/ventas.csv")
 
 
 SUPPLIER_REPLACEMENTS = {
@@ -234,6 +234,7 @@ def main():
     df["weight"] = clean_weight(df["weight"])
     df["unit_price"] = clean_unit_price(df["unit_price"])
 
+    OUTPUT_FILE.parent.mkdir(exist_ok=True)
     df.to_csv(OUTPUT_FILE, index=False)
 
 

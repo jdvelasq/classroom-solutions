@@ -1,19 +1,13 @@
-import os
-
 import pandas as pd
 
-from ..src.main import main
-
-FOLDER = "PRE_05_limpieza"
-
-OUTPUT_FILE = f"{FOLDER}/submission/ventas.csv"
+from ..src.main import OUTPUT_FILE, main
 
 
 def test_01():
 
     main()
 
-    if not os.path.exists(OUTPUT_FILE):
+    if not OUTPUT_FILE.exists():
         raise Exception("Output file does not exist")
 
     df = pd.read_csv(OUTPUT_FILE)

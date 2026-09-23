@@ -3,15 +3,26 @@
 import plotly.express as px
 import streamlit as st
 
-from descriptiva.PRE_14_marketing_dashboard.src.main import (
-    DATA_FILE,
-    calculate_kpis,
-    filter_campaign_data,
-    load_campaign_data,
-    summarize_by_campaign,
-    summarize_by_day,
-    summarize_by_source,
-)
+try:
+    from .main import (
+        DATA_FILE,
+        calculate_kpis,
+        filter_campaign_data,
+        load_campaign_data,
+        summarize_by_campaign,
+        summarize_by_day,
+        summarize_by_source,
+    )
+except ImportError:  # Permite ejecutar `streamlit run src/app.py`.
+    from main import (
+        DATA_FILE,
+        calculate_kpis,
+        filter_campaign_data,
+        load_campaign_data,
+        summarize_by_campaign,
+        summarize_by_day,
+        summarize_by_source,
+    )
 
 
 @st.cache_data
