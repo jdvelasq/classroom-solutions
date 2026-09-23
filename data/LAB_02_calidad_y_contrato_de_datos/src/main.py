@@ -16,18 +16,22 @@ def main():
     if missing:
         raise ValueError(f"Columnas requeridas ausentes: {missing}")
     age = pd.to_numeric(frame.age, errors="coerce")
-    reasons = pd.Series("", index=frame.index, dtype="string")
-    reasons = reasons.mask(frame.customer_id.duplicated(keep=False), "duplicate_customer_id")
-    reasons = reasons.mask(age.isna(), "missing_age")
-    reasons = reasons.mask((age < 18) | (age > 100), "invalid_age")
-    reasons = reasons.mask(~frame.segment.isin(contract["segments"]), "invalid_segment")
+    violations = pd.DataFrame(
+        {
+            "duplicate_customer_id": frame.customer_id.duplicated(keep=False),
+            "missing_age": age.isna(),
+            "invalid_age": (age < 18) | (age > 100),
+            "invalid_segment": ~frame.segment.isin(contract["segments"]),
+        }
+    )
+    reasons = violations.apply(lambda row: "|".join(row.index[row].tolist()), axis=1).astype("string")
     accepted = frame.loc[reasons == ""].copy()
     quarantined = frame.loc[reasons != ""].copy()
     quarantined["reason"] = reasons.loc[quarantined.index]
     output = ROOT / "submission"; output.mkdir(exist_ok=True)
     accepted.to_csv(output / "accepted_customers.csv", index=False)
     quarantined.to_csv(output / "quarantined_customers.csv", index=False)
-    report = {"input_rows": len(frame), "accepted_rows": len(accepted), "quarantined_rows": len(quarantined), "reasons": quarantined.reason.value_counts().to_dict()}
+    report = {"input_rows": len(frame), "accepted_rows": len(accepted), "quarantined_rows": len(quarantined), "reasons": violations.sum().astype(int).to_dict()}
     (output / "quality_report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     return report
 
