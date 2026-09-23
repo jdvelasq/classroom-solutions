@@ -1,14 +1,15 @@
 import sqlite3
-import sys
+import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT.parent / "tests"))
-from notebook_runner import execute_notebook
+SPEC = importlib.util.spec_from_file_location("pre24", ROOT / "src/main.py")
+MODULE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(MODULE)
 
 
 def setup_module():
-    execute_notebook(ROOT / "notebooks/notebook.ipynb")
+    MODULE.build_submission()
 
 
 def test_serving_interfaces_have_distinct_grains():

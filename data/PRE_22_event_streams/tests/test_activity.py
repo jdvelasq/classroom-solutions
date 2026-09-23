@@ -1,17 +1,16 @@
 import csv
-import json
-import sqlite3
-import sys
+import importlib.util
 from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT.parent / "tests"))
-from notebook_runner import execute_notebook
+SPEC = importlib.util.spec_from_file_location("pre22", ROOT / "src/main.py")
+MODULE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(MODULE)
 
 
 def setup_module():
-    execute_notebook(ROOT / "notebooks/notebook.ipynb")
+    MODULE.build_submission()
 
 def test_arrival_order_and_delayed_event_are_preserved():
     with (ROOT/"submission/consumed_events.csv").open() as f:r=list(csv.DictReader(f))

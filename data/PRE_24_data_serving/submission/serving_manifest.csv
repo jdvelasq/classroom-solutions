@@ -1,3 +1,0 @@
-dataset,grain,interface,consumer
-sales_detail,one row per transaction,Parquet,analyst
-category_sales,one row per category,SQLite,dashboard
