@@ -1,4 +1,4 @@
-"""Ejecuta en orden las celdas de código de un notebook docente local."""
+"""Utilidad de pruebas para ejecutar notebooks docentes locales."""
 
 import os
 from pathlib import Path
@@ -7,7 +7,6 @@ import nbformat
 
 
 def execute_notebook(path: Path) -> None:
-    """Ejecuta un notebook desde su propia carpeta, sin estado oculto."""
     path = path.resolve()
     notebook = nbformat.read(path, as_version=4)
     previous_directory = Path.cwd()

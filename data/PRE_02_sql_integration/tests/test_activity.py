@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT.parent))
+sys.path.insert(0, str(ROOT.parent / "tests"))
 from notebook_runner import execute_notebook
 DATABASE, OUTPUT = ROOT / "data/sales.db", ROOT / "submission/customer_sales.csv"
 
