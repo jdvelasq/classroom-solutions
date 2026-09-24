@@ -1,0 +1,8 @@
+[
+  {
+    "model_id": "candidate_v1",
+    "artifact": "models/candidates/candidate_v1.pkl",
+    "test_accuracy": 0.91,
+    "status": "candidate"
+  }
+]
