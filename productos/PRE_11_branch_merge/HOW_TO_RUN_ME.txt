@@ -1,0 +1,39 @@
+PRE-11 — Ramas y fusión
+
+Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
+
+1. Cree un repositorio de práctica aislado con una versión inicial:
+
+   cp -R data/repository_template temp/branch_merge_case
+   cd temp/branch_merge_case
+   git init --initial-branch=main
+   git config user.name "Estudiante"
+   git config user.email "estudiante@example.com"
+   git add product_card.md
+   git commit -m "chore: create product card"
+
+2. Cree una rama para incorporar un consumidor del producto:
+
+   git switch -c add-consumer
+
+   Abra product_card.md. Reemplace esta línea:
+
+   - Consumidor: Pendiente de definir.
+
+   por esta línea:
+
+   - Consumidor: equipo de mantenimiento.
+
+   Guarde el archivo y ejecute:
+
+   git add product_card.md
+   git commit -m "docs: define product consumer"
+
+3. Vuelva a main y fusione el cambio:
+
+   git switch main
+   git merge --no-ff add-consumer -m "merge: add product consumer"
+   git log --oneline --graph -3
+   cd ../..
+
+Al finalizar, main conserva la versión inicial y el cambio realizado en la rama.
