@@ -1,0 +1,49 @@
+PRE-15 — GitHub Actions
+
+Una verificación automática da una señal visible antes de integrar un cambio. Este PRE toma la misma prueba de PRE-14: GitHub crea un ambiente temporal, instala las dependencias declaradas y la ejecuta automáticamente. El flujo se ejecutará con cada push y con cada pull request.
+
+1. Desde la raíz de este PRE, copie el repositorio local que terminó en PRE-13 y abra una rama:
+
+   cp -R ../PRE_13_pull_request/temp/pull_request_case temp/github_actions_case
+   cd temp/github_actions_case
+   git switch -c add-quality-check
+
+   En `cp -R`, `-R` copia una carpeta y todo su contenido. En `git switch -c add-quality-check`, `-c` crea la rama add-quality-check y cambia inmediatamente a ella.
+
+2. Copie el producto de PRE-14, su prueba y la automatización al repositorio:
+
+   cp -R ../../data/repository_template/.github .
+   cp ../../data/repository_template/requirements.txt .
+   cp -R ../../data/repository_template/data .
+   cp -R ../../data/repository_template/src .
+   cp -R ../../data/repository_template/submission .
+   cp -R ../../data/repository_template/tests .
+
+   La carpeta `.github/workflows` contiene `quality.yml`. Allí se declara que GitHub prepara un computador temporal, crea `.venv`, instala `requirements.txt` y ejecuta la misma prueba del reporte de ambiente introducida en PRE-14.
+
+3. Confirme y publique la rama:
+
+   git add .github requirements.txt data src submission tests
+   git commit -m "ci: add factory report check"
+   git push -u origin add-quality-check
+
+   En `git commit -m`, `-m` indica que el texto siguiente es el mensaje del commit. En `git push -u origin add-quality-check`, `-u` asocia la rama local con la remota para futuros push y pull.
+
+4. En el repositorio personal de GitHub, abra Compare & pull request:
+
+   a. Verifique que la rama base sea main y la de comparación sea add-quality-check.
+   b. Cree el pull request con el título: ci: add factory report check.
+   c. Espere a que aparezca el resultado verde de `Quality check` en la sección de checks.
+   d. Abra el detalle del check y confirme que ejecutó una prueba.
+   e. Solo cuando el check esté en verde, haga Merge pull request y confirme la fusión.
+
+5. Actualice la rama local:
+
+   git switch main
+   git pull --ff-only
+   git log --oneline -2
+   cd ../..
+
+   En `git pull --ff-only`, `--ff-only` acepta la actualización solo si Git puede avanzar main sin crear una fusión local adicional. En `git log --oneline -2`, `--oneline` resume cada commit en una línea y `-2` muestra los dos más recientes.
+
+Al finalizar, la pestaña Actions de su repositorio personal debe mostrar al menos una ejecución exitosa de `Quality check` en main.
