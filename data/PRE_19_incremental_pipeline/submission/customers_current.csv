@@ -1,0 +1,5 @@
+customer_id,customer_name,segment,updated_at
+C1,Ana,Basic,2026-09-01T09:00:00
+C2,Luis Gomez,Corporate,2026-09-16T10:00:00
+C3,Mariana,Basic,2026-09-01T09:00:00
+C4,Diego,Premium,2026-09-16T10:30:00

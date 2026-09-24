@@ -1,0 +1,4 @@
+transaction_id,transaction_date,customer_id,product_name,product_category,sales_amount
+T1,2026-01-01,C1,Cafe,Alimentos,20
+T2,2026-01-02,C2,Pan,Alimentos,10
+T3,2026-01-03,C1,Cuaderno,Oficina,15

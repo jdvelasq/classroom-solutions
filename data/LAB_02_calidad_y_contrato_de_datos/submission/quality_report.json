@@ -1,11 +1,11 @@
 {
-  "input_rows": 6,
-  "accepted_rows": 1,
-  "quarantined_rows": 5,
+  "input_rows": 42,
+  "accepted_rows": 39,
+  "quarantined_rows": 3,
   "reasons": {
-    "duplicate_customer_id": 2,
-    "missing_age": 1,
-    "invalid_segment": 1,
-    "invalid_age": 1
+    "invalid_state": 0,
+    "invalid_income_group": 1,
+    "duplicate_postal_income_key": 2,
+    "negative_return_count": 1
   }
 }

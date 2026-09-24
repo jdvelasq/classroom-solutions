@@ -1,11 +1,11 @@
 {
-  "consumer": "Analítica Descriptiva",
-  "grain": "sale_date,region",
-  "owner": "Equipo Comercial",
+  "consumer": "operations_dashboard",
+  "grain": "factory_date,factory_id",
+  "owner": "analytics_team",
   "schema": {
-    "sale_date": "date",
-    "region": "string",
-    "amount": "number"
+    "factory_date": "date",
+    "factory_id": "integer",
+    "daily_units_produced": "number"
   },
-  "source_asset": "sales_curated"
+  "source_asset": "machine_throughput"
 }

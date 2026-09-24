@@ -1,0 +1,4 @@
+stage,rows,status
+raw,38535,SUCCESS
+staging,1835,SUCCESS
+curated,1835,SUCCESS

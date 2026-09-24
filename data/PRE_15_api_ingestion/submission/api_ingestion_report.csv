@@ -1,0 +1,2 @@
+source_name,pages_requested,records_retrieved,retry_count,status,output_path
+github_issues,1,20,1,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_15_api_ingestion/submission/github_issues.parquet

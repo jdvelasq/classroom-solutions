@@ -1,0 +1,4 @@
+2026-09-24 13:06:42,989 INFO pipeline_started
+2026-09-24 13:06:42,991 INFO input_loaded source=machine_throughput_export.csv rows=3
+2026-09-24 13:06:42,991 INFO production_calculated total_units=14018
+2026-09-24 13:06:42,992 INFO pipeline_completed

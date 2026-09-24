@@ -1,5 +1,6 @@
 {
-  "source_amount": 450.0,
-  "output_amount": 450.0,
-  "row_count": 3
+  "source_units": 80021922,
+  "output_units": 80021922,
+  "row_count": 1835,
+  "grain": "factory_id,factory_date"
 }

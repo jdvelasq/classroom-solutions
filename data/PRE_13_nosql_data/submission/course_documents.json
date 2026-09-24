@@ -1,0 +1,902 @@
+[
+  {
+    "course_id": 1,
+    "title": "Machine Learning with Apache Spark",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 279,
+      "average_rating": 4.54
+    }
+  },
+  {
+    "course_id": 2,
+    "title": "Financial Analytics in Spreadsheets",
+    "programming_language": "spreadsheets",
+    "analytics_summary": {
+      "rating_count": 83,
+      "average_rating": 4.25
+    }
+  },
+  {
+    "course_id": 3,
+    "title": "Intermediate R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 2899,
+      "average_rating": 4.57
+    }
+  },
+  {
+    "course_id": 4,
+    "title": "Data Visualization with ggplot2 (Part 2)",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 344,
+      "average_rating": 4.31
+    }
+  },
+  {
+    "course_id": 5,
+    "title": "Fraud Detection in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 32,
+      "average_rating": 4.28
+    }
+  },
+  {
+    "course_id": 6,
+    "title": "Joining Data in SQL",
+    "programming_language": "sql",
+    "analytics_summary": {
+      "rating_count": 3038,
+      "average_rating": 4.5
+    }
+  },
+  {
+    "course_id": 7,
+    "title": "Introduction to Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 14950,
+      "average_rating": 4.6
+    }
+  },
+  {
+    "course_id": 8,
+    "title": "Bayesian Modeling with RJAGS",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 35,
+      "average_rating": 4.26
+    }
+  },
+  {
+    "course_id": 9,
+    "title": "Credit Risk Modeling in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 117,
+      "average_rating": 4.47
+    }
+  },
+  {
+    "course_id": 10,
+    "title": "Experimental Design in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 112,
+      "average_rating": 4.34
+    }
+  },
+  {
+    "course_id": 11,
+    "title": "Supervised Learning in R: Classification",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 179,
+      "average_rating": 4.49
+    }
+  },
+  {
+    "course_id": 12,
+    "title": "Visualizing Time Series Data in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 88,
+      "average_rating": 4.34
+    }
+  },
+  {
+    "course_id": 13,
+    "title": "Equity Valuation in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 23,
+      "average_rating": 4.48
+    }
+  },
+  {
+    "course_id": 14,
+    "title": "Intro to Portfolio Risk Management in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 59,
+      "average_rating": 4.59
+    }
+  },
+  {
+    "course_id": 15,
+    "title": "Data-Driven Decision Making in SQL",
+    "programming_language": "sql",
+    "analytics_summary": {
+      "rating_count": 230,
+      "average_rating": 4.31
+    }
+  },
+  {
+    "course_id": 16,
+    "title": "Intermediate Functional Programming with purrr",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 76,
+      "average_rating": 4.54
+    }
+  },
+  {
+    "course_id": 17,
+    "title": "Analyzing US Census Data in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 34,
+      "average_rating": 4.15
+    }
+  },
+  {
+    "course_id": 18,
+    "title": "Network Analysis in Python (Part 1)",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 529,
+      "average_rating": 4.35
+    }
+  },
+  {
+    "course_id": 19,
+    "title": "Introduction to Databases in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 342,
+      "average_rating": 4.35
+    }
+  },
+  {
+    "course_id": 20,
+    "title": "Introduction to Git for Data Science",
+    "programming_language": "shell",
+    "analytics_summary": {
+      "rating_count": 641,
+      "average_rating": 4.37
+    }
+  },
+  {
+    "course_id": 21,
+    "title": "Supply Chain Analytics in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 67,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 22,
+    "title": "Importing & Cleaning Data in R: Case Studies",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 119,
+      "average_rating": 4.46
+    }
+  },
+  {
+    "course_id": 91,
+    "title": "Importing Data in R (Part 2)",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 925,
+      "average_rating": 4.5
+    }
+  },
+  {
+    "course_id": 23,
+    "title": "GARCH Models in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 25,
+      "average_rating": 4.8
+    }
+  },
+  {
+    "course_id": 24,
+    "title": "Nonlinear Modeling in R with GAMs",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 49,
+      "average_rating": 4.65
+    }
+  },
+  {
+    "course_id": 25,
+    "title": "Machine Learning with Tree-Based Models in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 128,
+      "average_rating": 4.55
+    }
+  },
+  {
+    "course_id": 26,
+    "title": "Introduction to Seaborn",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 147,
+      "average_rating": 4.65
+    }
+  },
+  {
+    "course_id": 27,
+    "title": "Bayesian Regression Modeling with rstanarm",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 35,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 28,
+    "title": "Python for Spreadsheet Users",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 114,
+      "average_rating": 4.58
+    }
+  },
+  {
+    "course_id": 29,
+    "title": "Spatial Statistics in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 48,
+      "average_rating": 4.21
+    }
+  },
+  {
+    "course_id": 30,
+    "title": "Fraud Detection in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 81,
+      "average_rating": 4.41
+    }
+  },
+  {
+    "course_id": 31,
+    "title": "Introduction to R for Finance",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 431,
+      "average_rating": 4.61
+    }
+  },
+  {
+    "course_id": 32,
+    "title": "Intermediate Python for Data Science",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 6507,
+      "average_rating": 4.58
+    }
+  },
+  {
+    "course_id": 33,
+    "title": "Introduction to Matplotlib",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 269,
+      "average_rating": 4.54
+    }
+  },
+  {
+    "course_id": 34,
+    "title": "Big Data Fundamentals via PySpark",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 266,
+      "average_rating": 4.47
+    }
+  },
+  {
+    "course_id": 35,
+    "title": "Interactive Data Visualization with rbokeh",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 17,
+      "average_rating": 4.59
+    }
+  },
+  {
+    "course_id": 36,
+    "title": "Importing Data in Python (Part 1)",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 2349,
+      "average_rating": 4.55
+    }
+  },
+  {
+    "course_id": 37,
+    "title": "Writing Efficient R Code",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 330,
+      "average_rating": 4.58
+    }
+  },
+  {
+    "course_id": 38,
+    "title": "Visualizing Big Data with Trelliscope",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 35,
+      "average_rating": 4.54
+    }
+  },
+  {
+    "course_id": 39,
+    "title": "Parallel Computing with Dask",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 58,
+      "average_rating": 4.4
+    }
+  },
+  {
+    "course_id": 40,
+    "title": "Machine Learning for Finance in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 109,
+      "average_rating": 4.44
+    }
+  },
+  {
+    "course_id": 41,
+    "title": "Defensive R Programming",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 30,
+      "average_rating": 4.53
+    }
+  },
+  {
+    "course_id": 42,
+    "title": "Conda Essentials",
+    "programming_language": "shell",
+    "analytics_summary": {
+      "rating_count": 753,
+      "average_rating": 4.11
+    }
+  },
+  {
+    "course_id": 43,
+    "title": "Writing Efficient Python Code",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 111,
+      "average_rating": 4.48
+    }
+  },
+  {
+    "course_id": 44,
+    "title": "Introduction to Data Science in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 1076,
+      "average_rating": 4.59
+    }
+  },
+  {
+    "course_id": 45,
+    "title": "Multiple and Logistic Regression",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 485,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 46,
+    "title": "Designing and Analyzing Clinical Trials in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 10,
+      "average_rating": 4.8
+    }
+  },
+  {
+    "course_id": 47,
+    "title": "Foundations of Inference",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 100,
+      "average_rating": 4.35
+    }
+  },
+  {
+    "course_id": 48,
+    "title": "Data Manipulation in R with data.table",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 378,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 49,
+    "title": "Marketing Analytics in R: Statistical Modeling",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 67,
+      "average_rating": 4.49
+    }
+  },
+  {
+    "course_id": 50,
+    "title": "Machine Learning Toolbox",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 499,
+      "average_rating": 4.46
+    }
+  },
+  {
+    "course_id": 51,
+    "title": "Data Manipulation in R with dplyr",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 99,
+      "average_rating": 4.48
+    }
+  },
+  {
+    "course_id": 52,
+    "title": "Feature Engineering for NLP in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 178,
+      "average_rating": 4.48
+    }
+  },
+  {
+    "course_id": 53,
+    "title": "Interactive Data Visualization with plotly in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 66,
+      "average_rating": 4.42
+    }
+  },
+  {
+    "course_id": 54,
+    "title": "Improving Query Performance in SQL Server",
+    "programming_language": "sql",
+    "analytics_summary": {
+      "rating_count": 168,
+      "average_rating": 4.24
+    }
+  },
+  {
+    "course_id": 55,
+    "title": "Inference for Linear Regression",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 44,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 56,
+    "title": "Extreme Gradient Boosting with XGBoost",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 136,
+      "average_rating": 4.66
+    }
+  },
+  {
+    "course_id": 57,
+    "title": "Statistical Modeling in R (Part 2)",
+    "programming_language": null,
+    "analytics_summary": {
+      "rating_count": 34,
+      "average_rating": 4.41
+    }
+  },
+  {
+    "course_id": 58,
+    "title": "Introduction to Text Analysis in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 232,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 59,
+    "title": "Visualizing Geospatial Data in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 71,
+      "average_rating": 4.54
+    }
+  },
+  {
+    "course_id": 60,
+    "title": "Data Science for Managers",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 740,
+      "average_rating": 4.52
+    }
+  },
+  {
+    "course_id": 61,
+    "title": "Manipulating Time Series Data in R: Case Studies",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 89,
+      "average_rating": 4.63
+    }
+  },
+  {
+    "course_id": 62,
+    "title": "Intermediate Spreadsheets for Data Science",
+    "programming_language": "spreadsheets",
+    "analytics_summary": {
+      "rating_count": 159,
+      "average_rating": 4.28
+    }
+  },
+  {
+    "course_id": 63,
+    "title": "Human Resources Analytics in R: Predicting Employee Churn",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 21,
+      "average_rating": 4.52
+    }
+  },
+  {
+    "course_id": 64,
+    "title": "Importing Data in R (Part 1)",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 1325,
+      "average_rating": 4.53
+    }
+  },
+  {
+    "course_id": 65,
+    "title": "Foundations of Functional Programming with purrr",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 140,
+      "average_rating": 4.44
+    }
+  },
+  {
+    "course_id": 66,
+    "title": "Visualizing Time Series Data in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 61,
+      "average_rating": 4.54
+    }
+  },
+  {
+    "course_id": 67,
+    "title": "Forecasting Using ARIMA Models in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 211,
+      "average_rating": 4.45
+    }
+  },
+  {
+    "course_id": 68,
+    "title": "Analyzing Business Data in SQL",
+    "programming_language": "sql",
+    "analytics_summary": {
+      "rating_count": 169,
+      "average_rating": 4.53
+    }
+  },
+  {
+    "course_id": 69,
+    "title": "Statistical Simulation in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 125,
+      "average_rating": 4.3
+    }
+  },
+  {
+    "course_id": 70,
+    "title": "Introduction to Relational Databases in SQL",
+    "programming_language": "sql",
+    "analytics_summary": {
+      "rating_count": 2004,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 71,
+    "title": "Differential Expression Analysis in R with limma",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 31,
+      "average_rating": 4.58
+    }
+  },
+  {
+    "course_id": 72,
+    "title": "Natural Language Processing Fundamentals in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 432,
+      "average_rating": 4.34
+    }
+  },
+  {
+    "course_id": 73,
+    "title": "Financial Trading in R",
+    "programming_language": null,
+    "analytics_summary": {
+      "rating_count": 85,
+      "average_rating": 4.29
+    }
+  },
+  {
+    "course_id": 74,
+    "title": "Valuation of Life Insurance Products in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 17,
+      "average_rating": 4.53
+    }
+  },
+  {
+    "course_id": 75,
+    "title": "Data Visualization with Seaborn",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 77,
+      "average_rating": 4.52
+    }
+  },
+  {
+    "course_id": 76,
+    "title": "Interactive Maps with leaflet in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 78,
+      "average_rating": 4.59
+    }
+  },
+  {
+    "course_id": 77,
+    "title": "Intro to Statistics with R: Moderation and Mediation",
+    "programming_language": null,
+    "analytics_summary": {
+      "rating_count": 0,
+      "average_rating": 0.0
+    }
+  },
+  {
+    "course_id": 78,
+    "title": "Network Analysis in Python (Part 2)",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 60,
+      "average_rating": 4.43
+    }
+  },
+  {
+    "course_id": 79,
+    "title": "Developing R Packages",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 48,
+      "average_rating": 4.4
+    }
+  },
+  {
+    "course_id": 80,
+    "title": "String Manipulation in R with stringr",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 184,
+      "average_rating": 4.3
+    }
+  },
+  {
+    "course_id": 81,
+    "title": "Exploratory Data Analysis in R: Case Study",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 478,
+      "average_rating": 4.62
+    }
+  },
+  {
+    "course_id": 82,
+    "title": "Conda for Building & Distributing Packages",
+    "programming_language": "shell",
+    "analytics_summary": {
+      "rating_count": 20,
+      "average_rating": 4.4
+    }
+  },
+  {
+    "course_id": 83,
+    "title": "Course Creation at DataCamp",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 11,
+      "average_rating": 4.55
+    }
+  },
+  {
+    "course_id": 84,
+    "title": "Supervised Learning in R: Regression",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 156,
+      "average_rating": 4.46
+    }
+  },
+  {
+    "course_id": 85,
+    "title": "Bond Valuation and Analysis in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 59,
+      "average_rating": 4.63
+    }
+  },
+  {
+    "course_id": 86,
+    "title": "Building Recommendation Engines with PySpark",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 46,
+      "average_rating": 4.61
+    }
+  },
+  {
+    "course_id": 87,
+    "title": "Introduction to Spark in R using sparklyr",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 91,
+      "average_rating": 4.63
+    }
+  },
+  {
+    "course_id": 88,
+    "title": "Python for R Users",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 97,
+      "average_rating": 4.44
+    }
+  },
+  {
+    "course_id": 89,
+    "title": "RNA-Seq Differential Expression Analysis",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 65,
+      "average_rating": 4.34
+    }
+  },
+  {
+    "course_id": 90,
+    "title": "pandas Foundations",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 2369,
+      "average_rating": 4.49
+    }
+  },
+  {
+    "course_id": 92,
+    "title": "Foundations of Predictive Analytics in Python (Part 2)",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 18,
+      "average_rating": 4.22
+    }
+  },
+  {
+    "course_id": 93,
+    "title": "Python for MATLAB Users",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 41,
+      "average_rating": 4.41
+    }
+  },
+  {
+    "course_id": 94,
+    "title": "Sentiment Analysis in R: The Tidy Way",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 51,
+      "average_rating": 4.53
+    }
+  },
+  {
+    "course_id": 95,
+    "title": "Python Data Science Toolbox (Part 2)",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 2491,
+      "average_rating": 4.55
+    }
+  },
+  {
+    "course_id": 96,
+    "title": "Intro to SQL for Data Science",
+    "programming_language": "sql",
+    "analytics_summary": {
+      "rating_count": 6054,
+      "average_rating": 4.69
+    }
+  },
+  {
+    "course_id": 97,
+    "title": "Foundations of Predictive Analytics in Python (Part 1)",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 93,
+      "average_rating": 4.37
+    }
+  },
+  {
+    "course_id": 98,
+    "title": "Building Chatbots in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 171,
+      "average_rating": 4.27
+    }
+  },
+  {
+    "course_id": 99,
+    "title": "Predictive Analytics using Networked Data in R",
+    "programming_language": "r",
+    "analytics_summary": {
+      "rating_count": 23,
+      "average_rating": 4.39
+    }
+  },
+  {
+    "course_id": 100,
+    "title": "Working with Dates and Times in Python",
+    "programming_language": "python",
+    "analytics_summary": {
+      "rating_count": 46,
+      "average_rating": 4.28
+    }
+  }
+]

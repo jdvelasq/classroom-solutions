@@ -1,0 +1,4 @@
+source_name,source_type,row_count,status,output_path
+machine_throughput,file,18350,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_14_batch_ingestion/temp/raw/machine_throughput.parquet
+machine_uptime,file,18350,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_14_batch_ingestion/temp/raw/machine_uptime.parquet
+factory_ambient,file,1835,SUCCESS,/Volumes/GitHub/classroom-solutions/data/PRE_14_batch_ingestion/temp/raw/factory_ambient.parquet

@@ -1,0 +1,101 @@
+course_id,title,programming_language,rating_count,average_rating
+7,Introduction to Python,python,14950,4.6
+32,Intermediate Python for Data Science,python,6507,4.58
+96,Intro to SQL for Data Science,sql,6054,4.69
+6,Joining Data in SQL,sql,3038,4.5
+3,Intermediate R,r,2899,4.57
+95,Python Data Science Toolbox (Part 2),python,2491,4.55
+90,pandas Foundations,python,2369,4.49
+36,Importing Data in Python (Part 1),python,2349,4.55
+70,Introduction to Relational Databases in SQL,sql,2004,4.43
+64,Importing Data in R (Part 1),r,1325,4.53
+44,Introduction to Data Science in Python,python,1076,4.59
+91,Importing Data in R (Part 2),r,925,4.5
+42,Conda Essentials,shell,753,4.11
+60,Data Science for Managers,r,740,4.52
+20,Introduction to Git for Data Science,shell,641,4.37
+18,Network Analysis in Python (Part 1),python,529,4.35
+50,Machine Learning Toolbox,r,499,4.46
+45,Multiple and Logistic Regression,r,485,4.43
+81,Exploratory Data Analysis in R: Case Study,r,478,4.62
+72,Natural Language Processing Fundamentals in Python,python,432,4.34
+31,Introduction to R for Finance,r,431,4.61
+48,Data Manipulation in R with data.table,r,378,4.43
+4,Data Visualization with ggplot2 (Part 2),r,344,4.31
+19,Introduction to Databases in Python,python,342,4.35
+37,Writing Efficient R Code,r,330,4.58
+1,Machine Learning with Apache Spark,python,279,4.54
+33,Introduction to Matplotlib,python,269,4.54
+34,Big Data Fundamentals via PySpark,python,266,4.47
+58,Introduction to Text Analysis in R,r,232,4.43
+15,Data-Driven Decision Making in SQL,sql,230,4.31
+67,Forecasting Using ARIMA Models in Python,python,211,4.45
+80,String Manipulation in R with stringr,r,184,4.3
+11,Supervised Learning in R: Classification,r,179,4.49
+52,Feature Engineering for NLP in Python,python,178,4.48
+98,Building Chatbots in Python,python,171,4.27
+68,Analyzing Business Data in SQL,sql,169,4.53
+54,Improving Query Performance in SQL Server,sql,168,4.24
+62,Intermediate Spreadsheets for Data Science,spreadsheets,159,4.28
+84,Supervised Learning in R: Regression,r,156,4.46
+26,Introduction to Seaborn,python,147,4.65
+65,Foundations of Functional Programming with purrr,r,140,4.44
+56,Extreme Gradient Boosting with XGBoost,python,136,4.66
+25,Machine Learning with Tree-Based Models in R,r,128,4.55
+69,Statistical Simulation in Python,python,125,4.3
+22,Importing & Cleaning Data in R: Case Studies,r,119,4.46
+9,Credit Risk Modeling in R,r,117,4.47
+28,Python for Spreadsheet Users,python,114,4.58
+10,Experimental Design in R,r,112,4.34
+43,Writing Efficient Python Code,python,111,4.48
+40,Machine Learning for Finance in Python,python,109,4.44
+47,Foundations of Inference,r,100,4.35
+51,Data Manipulation in R with dplyr,r,99,4.48
+88,Python for R Users,python,97,4.44
+97,Foundations of Predictive Analytics in Python (Part 1),python,93,4.37
+87,Introduction to Spark in R using sparklyr,r,91,4.63
+61,Manipulating Time Series Data in R: Case Studies,r,89,4.63
+12,Visualizing Time Series Data in R,r,88,4.34
+73,Financial Trading in R,unknown,85,4.29
+2,Financial Analytics in Spreadsheets,spreadsheets,83,4.25
+30,Fraud Detection in Python,python,81,4.41
+76,Interactive Maps with leaflet in R,r,78,4.59
+75,Data Visualization with Seaborn,python,77,4.52
+16,Intermediate Functional Programming with purrr,r,76,4.54
+59,Visualizing Geospatial Data in Python,python,71,4.54
+49,Marketing Analytics in R: Statistical Modeling,r,67,4.49
+21,Supply Chain Analytics in Python,python,67,4.43
+53,Interactive Data Visualization with plotly in R,r,66,4.42
+89,RNA-Seq Differential Expression Analysis,r,65,4.34
+66,Visualizing Time Series Data in Python,python,61,4.54
+78,Network Analysis in Python (Part 2),python,60,4.43
+85,Bond Valuation and Analysis in R,r,59,4.63
+14,Intro to Portfolio Risk Management in Python,python,59,4.59
+39,Parallel Computing with Dask,python,58,4.4
+94,Sentiment Analysis in R: The Tidy Way,r,51,4.53
+24,Nonlinear Modeling in R with GAMs,r,49,4.65
+79,Developing R Packages,r,48,4.4
+29,Spatial Statistics in R,r,48,4.21
+86,Building Recommendation Engines with PySpark,python,46,4.61
+100,Working with Dates and Times in Python,python,46,4.28
+55,Inference for Linear Regression,r,44,4.43
+93,Python for MATLAB Users,python,41,4.41
+38,Visualizing Big Data with Trelliscope,r,35,4.54
+27,Bayesian Regression Modeling with rstanarm,r,35,4.43
+8,Bayesian Modeling with RJAGS,r,35,4.26
+57,Statistical Modeling in R (Part 2),unknown,34,4.41
+17,Analyzing US Census Data in Python,python,34,4.15
+5,Fraud Detection in R,r,32,4.28
+71,Differential Expression Analysis in R with limma,r,31,4.58
+41,Defensive R Programming,r,30,4.53
+23,GARCH Models in R,r,25,4.8
+13,Equity Valuation in R,r,23,4.48
+99,Predictive Analytics using Networked Data in R,r,23,4.39
+63,Human Resources Analytics in R: Predicting Employee Churn,r,21,4.52
+82,Conda for Building & Distributing Packages,shell,20,4.4
+92,Foundations of Predictive Analytics in Python (Part 2),python,18,4.22
+35,Interactive Data Visualization with rbokeh,r,17,4.59
+74,Valuation of Life Insurance Products in R,r,17,4.53
+83,Course Creation at DataCamp,r,11,4.55
+46,Designing and Analyzing Clinical Trials in R,r,10,4.8
+77,Intro to Statistics with R: Moderation and Mediation,unknown,0,0.0

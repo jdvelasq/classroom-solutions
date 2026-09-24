@@ -1,0 +1,6 @@
+rule_name,dimension,violations,status
+required_columns,completeness,0,PASS
+income_group_domain,validity,0,PASS
+postal_income_key_unique,uniqueness,0,PASS
+return_count_nonnegative,validity,0,PASS
+statewide_total_separated,scope,6,FAIL
