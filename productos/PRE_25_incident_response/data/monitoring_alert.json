@@ -1,0 +1,6 @@
+{
+  "alert_id": "alert-001",
+  "feature": "alcohol",
+  "severity": "high",
+  "message": "La entrada de producción cambió frente a la referencia."
+}
