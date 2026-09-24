@@ -4,4 +4,4 @@
 - Después de cada comentario en una celda de notebook debe haber una línea en blanco antes de cualquier código.
 - Los comentarios en archivos Python siguen el mismo criterio: explican el porqué de una decisión, una restricción operativa o una idea pedagógica que el estudiante debe retener. No repiten lo que el código ya expresa claramente.
 - Después de cada comentario Python debe haber una línea en blanco antes del código siguiente, salvo que el comentario pertenezca a un bloque continuo de comentarios.
-- Todo PRE nuevo incluye `HOW_TO_RUN_ME.txt` en su raíz. Debe dar comandos mínimos, ordenados y ejecutables desde la raíz del PRE para que un estudiante pueda ejecutar la actividad sin inferir pasos técnicos. Nunca explica cómo ejecutar `test_activity.py`, que pertenece a la calificación.
+- Un PRE incluye `HOW_TO_RUN_ME.txt` solo cuando requiere una secuencia manual no obvia que no se resuelve con el flujo normal de abrir y ejecutar la actividad, como una práctica de Git. El archivo da comandos mínimos y ordenados, y nunca explica cómo ejecutar `test_activity.py`, que pertenece a la calificación.

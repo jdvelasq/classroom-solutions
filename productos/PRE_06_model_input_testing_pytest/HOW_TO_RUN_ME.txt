@@ -1,5 +1,0 @@
-Ejecute estos comandos desde la raíz de este PRE:
-
-python3 src/main.py
-
-La instrucción genera input_distribution_report.json.
