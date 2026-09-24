@@ -1,0 +1,19 @@
+PRE-16 — Contenedor
+
+Un contenedor empaqueta el código y sus dependencias para ejecutar el producto de la misma manera en otro computador. Antes de comenzar, instale y abra Docker Desktop; el icono de Docker debe indicar que está en ejecución.
+
+1. Desde la raíz de este PRE, construya la imagen:
+
+   docker build --tag pre16-container .
+
+   En `docker build`, `--tag pre16-container` asigna un nombre corto a la imagen creada. El punto `.` indica que Docker debe usar esta carpeta como contexto de construcción; allí encuentra el `Dockerfile`, los datos y el código.
+
+2. Ejecute el contenedor y conserve el resultado en su computador:
+
+   docker run --rm --volume "$(pwd)/submission:/app/submission" pre16-container
+
+   En `docker run`, `--rm` elimina el contenedor temporal cuando termina. `--volume` conecta una carpeta local con una carpeta del contenedor: `$(pwd)/submission` es su carpeta de resultados y `/app/submission` es la ubicación donde el programa escribe dentro del contenedor. `pre16-container` es la imagen creada en el paso anterior.
+
+3. Abra `submission/factory_report.json` y compruebe que contiene los totales por fábrica.
+
+Si modifica código, datos o dependencias, repita primero el paso 1 y después el paso 2: la imagen anterior no incorpora cambios posteriores automáticamente.
