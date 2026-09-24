@@ -1,13 +1,13 @@
 """Ejemplo del uso de la máquina Enigma."""
 
-from productos.PRE_31_enigma.src.enigma_machine import (
+from productos.PRE_99_enigma.src.enigma_machine import (
     apply_enigma_machine,
     initialize_enigma_machine,
     make_enigma_machine,
 )
-from productos.PRE_31_enigma.src.plugboard import make_plugboard
-from productos.PRE_31_enigma.src.reflector import REFLECTOR_B
-from productos.PRE_31_enigma.src.rotor import (
+from productos.PRE_99_enigma.src.plugboard import make_plugboard
+from productos.PRE_99_enigma.src.reflector import REFLECTOR_B
+from productos.PRE_99_enigma.src.rotor import (
     ROTOR_1,
     ROTOR_3,
     ROTOR_5,
