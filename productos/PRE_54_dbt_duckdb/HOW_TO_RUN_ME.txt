@@ -1,0 +1,9 @@
+PRE-54 — dbt con DuckDB
+
+dbt organiza transformaciones SQL como modelos, pruebas y documentación. DuckDB permite ejecutarlo localmente, sin una cuenta ni un servidor de base de datos.
+
+Desde la raíz del PRE y con el ambiente del curso activo, ejecute:
+
+   dbt build --profiles-dir profiles
+
+`build` carga la semilla, construye el modelo y ejecuta sus pruebas. `--profiles-dir profiles` indica dónde está la conexión local a DuckDB. El archivo `pre54.duckdb` contiene la base de datos local generada y puede eliminarse para reconstruirla desde cero.

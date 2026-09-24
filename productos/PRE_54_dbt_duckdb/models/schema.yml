@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: factory_totals
+    description: Total diario de unidades por fábrica.
+    columns:
+      - name: factory_id
+        tests: [not_null, unique]
+      - name: total_units_produced
+        tests: [not_null]

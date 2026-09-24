@@ -1,0 +1,8 @@
+name: pre54_dbt_duckdb
+version: "1.0.0"
+profile: pre54_dbt_duckdb
+model-paths: ["models"]
+seed-paths: ["seeds"]
+models:
+  pre54_dbt_duckdb:
+    +materialized: table
