@@ -1,0 +1,7 @@
+{
+  "production_version": "v2",
+  "versions": {
+    "v1": "models/versions/model_v1.pkl",
+    "v2": "models/versions/model_v2.pkl"
+  }
+}
