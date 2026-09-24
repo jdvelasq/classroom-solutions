@@ -1,0 +1,28 @@
+PRE-14 — Ambiente reproducible
+
+El mismo código debe poder ejecutarse sin depender de paquetes instalados globalmente en el computador. En este PRE se crea un ambiente aislado y se instala exactamente la dependencia declarada.
+
+1. Desde la raíz de este PRE, cree el ambiente:
+
+   python3 -m venv .venv
+
+   En `python3 -m venv .venv`, `-m` ejecuta el módulo venv con el mismo Python que invocó el comando. `.venv` es el nombre de la carpeta local donde quedará el ambiente; no se entrega ni se sube al repositorio.
+
+2. Active el ambiente e instale las dependencias declaradas:
+
+   source .venv/bin/activate
+   python3 -m pip install --requirement requirements.txt
+
+   `source` activa ese ambiente solo en la terminal actual. En el segundo comando, `-m` garantiza que pip pertenezca al Python del ambiente activo. `--requirement requirements.txt` le indica a pip que lea la lista y las versiones de dependencias desde ese archivo.
+
+3. Ejecute el indicador:
+
+   python3 src/main.py
+
+   El resultado queda en `submission/environment_report.json`. Además del indicador por fábrica, el archivo registra las versiones de Python y pandas que produjeron el resultado.
+
+4. Cuando termine, salga del ambiente:
+
+   deactivate
+
+   `deactivate` devuelve esta terminal a su ambiente normal. Si abre una nueva terminal y desea continuar, debe repetir solamente el paso 2 de activación.
