@@ -1,0 +1,13 @@
+PRE-29 — Prefect
+
+Prefect organiza funciones Python como tareas y flujos observables. Este PRE carga datos y produce un indicador; la primera tarea tiene un reintento para hacer visible una política de recuperación.
+
+1. Instale las dependencias desde la raíz del PRE:
+
+   python3 -m pip install --requirement requirements.txt
+
+2. Ejecute el flujo:
+
+   python3 src/main.py
+
+El reporte queda en `submission/prefect_report.json`. En clase se observa que `load_operations` y `summarize_operations` son tareas independientes dentro de `operations_flow`.
