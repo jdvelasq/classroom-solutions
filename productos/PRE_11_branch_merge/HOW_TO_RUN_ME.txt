@@ -15,6 +15,10 @@ Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
 2. Cree una rama para incorporar un consumidor del producto:
 
    git switch -c add-consumer
+   git branch
+
+   `git switch -c add-consumer` crea la rama y cambia inmediatamente a ella.
+   `git branch` lista las ramas; el asterisco identifica la rama activa.
 
    Abra product_card.md. Reemplace esta línea:
 
@@ -32,8 +36,10 @@ Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
 3. Vuelva a main y fusione el cambio:
 
    git switch main
+   git branch
    git merge --no-ff add-consumer -m "merge: add product consumer"
    git log --oneline --graph -3
    cd ../..
 
+Para cambiar a cualquier rama ya existente, use `git switch NOMBRE_DE_LA_RAMA`.
 Al finalizar, main conserva la versión inicial y el cambio realizado en la rama.
