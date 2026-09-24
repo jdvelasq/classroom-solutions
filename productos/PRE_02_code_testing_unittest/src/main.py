@@ -4,8 +4,6 @@ import csv
 from pathlib import Path
 
 
-# La ruta se deriva del archivo para que el taller funcione desde cualquier directorio de ejecución.
-
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
 
 
