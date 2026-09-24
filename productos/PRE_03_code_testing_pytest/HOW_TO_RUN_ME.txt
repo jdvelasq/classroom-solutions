@@ -1,6 +1,3 @@
 Ejecute estos comandos desde la raíz de este PRE:
 
 python3 src/main.py
-python3 -m pytest -q tests/test_activity.py
-
-La segunda instrucción debe indicar que pasaron dos pruebas.

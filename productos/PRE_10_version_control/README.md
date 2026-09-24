@@ -38,10 +38,7 @@ git status
 git commit -m "docs: define unit of measure"
 git log --oneline -1
 cd ../..
-python3 -m pytest -q tests/test_activity.py
 ```
-
-La última instrucción confirma que el repositorio temporal tiene el cambio y el commit solicitados.
 
 ## Qué observar
 

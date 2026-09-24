@@ -29,9 +29,6 @@ Abra una terminal en esta carpeta y ejecute cada comando en el orden indicado.
    git commit -m "docs: define unit of measure"
    git log --oneline -1
 
-4. Vuelva a la carpeta de este PRE y compruebe su trabajo:
+4. Vuelva a la carpeta de este PRE:
 
    cd ../..
-   python3 -m pytest -q tests/test_activity.py
-
-La última instrucción debe indicar que pasaron dos pruebas.

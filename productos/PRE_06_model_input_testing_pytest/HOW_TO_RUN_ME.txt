@@ -1,6 +1,5 @@
 Ejecute estos comandos desde la raíz de este PRE:
 
 python3 src/main.py
-python3 -m pytest -q tests/test_activity.py
 
-La primera instrucción genera input_distribution_report.json y la segunda debe indicar que pasaron dos pruebas.
+La instrucción genera input_distribution_report.json.
