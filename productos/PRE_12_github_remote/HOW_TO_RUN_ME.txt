@@ -1,0 +1,40 @@
+PRE-12 — GitHub remoto
+
+Esta práctica usa un repositorio temporal. No modifica el repositorio del curso.
+
+1. En GitHub
+
+   a. Ingrese a github.com e inicie sesión.
+   b. Haga clic en el signo + de la esquina superior derecha y seleccione New repository.
+   c. Escriba como nombre: pre12-github-remote.
+   d. Seleccione Private o Public, según la indicación del docente.
+   e. NO marque Add a README file, Add .gitignore ni Choose a license.
+   f. Haga clic en Create repository.
+   g. Copie la URL HTTPS que termina en .git. Tiene una forma similar a:
+
+      https://github.com/SU_USUARIO/pre12-github-remote.git
+
+2. En la terminal, desde la raíz de este PRE, ejecute:
+
+   cp -R data/repository_template temp/github_remote_case
+   cd temp/github_remote_case
+   git init --initial-branch=main
+   git config user.name "Estudiante"
+   git config user.email "estudiante@example.com"
+   git add product_card.md
+   git commit -m "chore: create product card"
+
+3. Reemplace URL_DE_GITHUB por la URL HTTPS que copió en el paso 1:
+
+   git remote add origin URL_DE_GITHUB
+   git remote -v
+   git push -u origin main
+   git branch -vv
+
+4. Vuelva a GitHub y recargue la página. Debe ver product_card.md y el commit.
+
+5. Vuelva a la raíz de este PRE:
+
+   cd ../..
+
+Si GitHub solicita autenticación durante push, complete el proceso en el navegador. No escriba contraseñas en el código ni en archivos del PRE.
