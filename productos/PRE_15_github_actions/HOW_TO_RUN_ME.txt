@@ -1,6 +1,6 @@
 PRE-15 — GitHub Actions
 
-Una verificación automática da una señal visible antes de integrar un cambio. Este PRE toma la misma prueba de PRE-14: GitHub crea un ambiente temporal, instala las dependencias declaradas y la ejecuta automáticamente. El flujo se ejecutará con cada push y con cada pull request.
+Una verificación automática da una señal visible antes de integrar un cambio. GitHub crea un ambiente temporal, instala las dependencias declaradas y ejecuta automáticamente una prueba del indicador. El flujo se ejecutará con cada push y con cada pull request.
 
 1. Desde la raíz de este PRE, copie el repositorio local que terminó en PRE-13 y abra una rama:
 
@@ -10,7 +10,7 @@ Una verificación automática da una señal visible antes de integrar un cambio.
 
    En `cp -R`, `-R` copia una carpeta y todo su contenido. En `git switch -c add-quality-check`, `-c` crea la rama add-quality-check y cambia inmediatamente a ella.
 
-2. Copie el producto de PRE-14, su prueba y la automatización al repositorio:
+2. Copie el producto, su prueba y la automatización al repositorio:
 
    cp -R ../../data/repository_template/.github .
    cp ../../data/repository_template/requirements.txt .
@@ -19,7 +19,7 @@ Una verificación automática da una señal visible antes de integrar un cambio.
    cp -R ../../data/repository_template/submission .
    cp -R ../../data/repository_template/tests .
 
-   La carpeta `.github/workflows` contiene `quality.yml`. Allí se declara que GitHub prepara un computador temporal, crea `.venv`, instala `requirements.txt` y ejecuta la misma prueba del reporte de ambiente introducida en PRE-14.
+   La carpeta `.github/workflows` contiene `quality.yml`. Allí se declara que GitHub prepara un computador temporal, crea `.venv`, instala `requirements.txt` y ejecuta la prueba del reporte.
 
 3. Confirme y publique la rama:
 
