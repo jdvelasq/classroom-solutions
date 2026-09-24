@@ -1,0 +1,10 @@
+{
+  "population": 100000,
+  "initial_infected": 1000,
+  "forecast_days": 180,
+  "recovery_rate": 0.08,
+  "death_rate": 0.001,
+  "hospitalization_rate": 0.05,
+  "mean_reversion": 0.04,
+  "long_run_infection_rate": 0.23143333333333335
+}

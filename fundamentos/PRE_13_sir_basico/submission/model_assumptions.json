@@ -1,0 +1,10 @@
+{
+  "population": 100000,
+  "observation_cutoff_day": 59,
+  "forecast_days": 180,
+  "recovery_rate": 0.08,
+  "death_rate": 0.001,
+  "hospitalization_rate": 0.05,
+  "bed_capacity": 1500,
+  "baseline_infection_rate": 0.24
+}

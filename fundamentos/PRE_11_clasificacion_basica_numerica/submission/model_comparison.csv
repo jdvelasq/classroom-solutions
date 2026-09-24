@@ -1,0 +1,3 @@
+model,test_auc,test_accuracy
+logistica_base,0.841931216931217,0.7543859649122807
+logistica_flexible,0.8521825396825397,0.7456140350877193

@@ -1,0 +1,4 @@
+model,test_mse
+linear_model,10.022424640636533
+linear_flexible_model,7.4414035686624755
+mlp,7.552758115868705

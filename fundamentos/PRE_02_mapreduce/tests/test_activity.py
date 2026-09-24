@@ -1,34 +1,30 @@
-import os
+"""Pruebas del taller de conteo directo con MapReduce."""
 
-from ..src.word_count_2 import *
-
-DATA_FOLDER = "PRE_02_mapreduce/data"
-INPUT_FOLDER = "PRE_02_mapreduce/temp/input"
-OUTPUT_FOLDER = "PRE_02_mapreduce/temp/output"
+from ..src.main import INPUT_DIR, OUTPUT_DIR, run_word_count
 
 
-def test_01():
+def test_builds_the_temporary_input_and_output():
+    """Copia los textos y crea el resultado temporal verificable."""
+    output_file = run_word_count()
 
-    initialize_folder(INPUT_FOLDER)
-    delete_folder(OUTPUT_FOLDER)
-    generate_file_copies(1000)
+    assert output_file == OUTPUT_DIR / "part-00000"
+    assert output_file.exists()
+    assert (OUTPUT_DIR / "_SUCCESS").exists()
+    assert len(list(INPUT_DIR.glob("*.txt"))) == 4
 
-    hadoop(
-        input_folder=INPUT_FOLDER,
-        output_folder=OUTPUT_FOLDER,
-        mapper_fn=mapper,
-        reducer_fn=reducer,
-    )
 
-    with open(f"{OUTPUT_FOLDER}/part-00000", "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        result = {}
-        for line in lines:
-            key, value = line.strip().split("\t")
-            result[key] = int(value)
+def test_counts_words_after_mapping_sorting_and_reducing():
+    """Conserva los conteos esperados del corpus de entrada."""
+    output_file = run_word_count()
+    counts = {
+        word: int(count)
+        for word, count in (
+            line.rstrip().split("\t") for line in output_file.read_text().splitlines()
+        )
+    }
 
-    assert result["analytics"] == 5000
-    assert result["business"] == 7000
-    assert result["by"] == 3000
-    assert result["algorithms"] == 2000
-    assert result["analysis"] == 4000
+    assert counts["analytics"] == 5
+    assert counts["business"] == 7
+    assert counts["by"] == 3
+    assert counts["algorithms"] == 2
+    assert counts["analysis"] == 4

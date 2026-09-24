@@ -1,0 +1,15 @@
+{
+  "test_size": 114,
+  "positive_class": "M",
+  "base_features": [
+    "texture_mean",
+    "compactness_mean"
+  ],
+  "flexible_features": [
+    "texture_mean",
+    "compactness_mean",
+    "texture_mean_squared",
+    "texture_mean_x_compactness_mean"
+  ],
+  "test_auc": 0.8521825396825397
+}
