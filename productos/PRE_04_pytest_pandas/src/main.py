@@ -4,6 +4,8 @@ import pandas as pd
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+# Las columnas esperadas hacen explícito qué debe conservarse para que el resultado sea confiable.
+
 DRIVER_COLUMNS = {"driverId", "name", "certified"}
 TIMESHEET_COLUMNS = {"driverId", "hours-logged", "miles-logged"}
 
@@ -11,6 +13,8 @@ TIMESHEET_COLUMNS = {"driverId", "hours-logged", "miles-logged"}
 def build_certified_driver_totals(
     drivers: pd.DataFrame, timesheet: pd.DataFrame
 ) -> pd.DataFrame:
+    # La transformación se aísla para comprobar el resultado sin leer ni escribir archivos.
+
     if not DRIVER_COLUMNS.issubset(drivers.columns):
         raise ValueError("La tabla de conductores no contiene las columnas requeridas.")
     if not TIMESHEET_COLUMNS.issubset(timesheet.columns):
@@ -30,6 +34,8 @@ def build_certified_driver_totals(
 
 
 def main() -> None:
+    # La ejecución integra las piezas ya probadas y deja un resultado disponible para su consumo.
+
     data_dir = ACTIVITY_DIR / "data"
     drivers = pd.read_csv(data_dir / "drivers.csv")
     timesheet = pd.read_csv(data_dir / "timesheet.csv")

@@ -5,6 +5,8 @@ import pandas as pd
 import pytest
 
 
+# Se importa el módulo real para que pytest revise el mismo código que se ejecutará en el taller.
+
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
 SPECIFICATION = importlib.util.spec_from_file_location(
     "pytest_pandas_main", ACTIVITY_DIR / "src" / "main.py"
@@ -16,6 +18,8 @@ build_certified_driver_totals = main.build_certified_driver_totals
 
 
 def test_builds_totals_for_certified_drivers_only():
+    # Un conjunto pequeño permite verificar qué conductores entran al indicador y por qué.
+
     drivers = pd.DataFrame(
         {
             "driverId": [10, 11, 12],
@@ -45,6 +49,8 @@ def test_builds_totals_for_certified_drivers_only():
 
 
 def test_rejects_a_timesheet_without_required_columns():
+    # Una entrada incompleta debe fallar antes de producir un resumen engañoso.
+
     drivers = pd.DataFrame(
         {"driverId": [10], "name": ["Ana"], "certified": ["Y"]}
     )
