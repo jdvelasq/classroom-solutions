@@ -2,10 +2,14 @@ import csv
 from pathlib import Path
 
 
+# La ruta se deriva del archivo para que el taller funcione desde cualquier directorio de ejecución.
+
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
 
 
 def summarize_by_factory(operations: list[dict]) -> list[dict]:
+    # La regla de negocio se aísla para probarla sin depender de archivos ni de la consola.
+
     totals = {}
     for operation in operations:
         factory_id = operation["factory_id"]
@@ -20,6 +24,8 @@ def summarize_by_factory(operations: list[dict]) -> list[dict]:
 
 
 def load_operations(data_path: Path) -> list[dict]:
+    # La lectura se separa de la regla para distinguir un error de entrada de un error de cálculo.
+
     with data_path.open(newline="", encoding="utf-8") as file:
         return [
             {
@@ -32,6 +38,8 @@ def load_operations(data_path: Path) -> list[dict]:
 
 
 def write_summary(summary: list[dict], output_path: Path) -> None:
+    # El resultado queda como evidencia reutilizable, no solo como un mensaje transitorio.
+
     with output_path.open("w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=["factory_id", "total_units"])
         writer.writeheader()
@@ -39,6 +47,8 @@ def write_summary(summary: list[dict], output_path: Path) -> None:
 
 
 def main() -> None:
+    # La función principal conecta las partes ya probadas sin ocultar su responsabilidad individual.
+
     operations = load_operations(ACTIVITY_DIR / "data" / "daily_operations.csv")
     summary = summarize_by_factory(operations)
     output_path = ACTIVITY_DIR / "submission" / "factory_totals.csv"
