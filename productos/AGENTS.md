@@ -1,6 +1,6 @@
 # Convenciones pedagógicas para código y notebooks
 
-- Todo notebook inicia con una celda de código cuya primera línea es un comentario en español. El comentario plantea la pregunta, necesidad o razón pedagógica que motiva el trabajo; no describe mecánicamente la instrucción que sigue.
+- Toda celda de código de un notebook inicia con un comentario en español. El comentario plantea la pregunta, necesidad o razón pedagógica que motiva el trabajo; no describe mecánicamente la instrucción que sigue.
 - Después de cada comentario en una celda de notebook debe haber una línea en blanco antes de cualquier código.
 - Los comentarios en archivos Python siguen el mismo criterio: explican el porqué de una decisión, una restricción operativa o una idea pedagógica que el estudiante debe retener. No repiten lo que el código ya expresa claramente.
 - Después de cada comentario Python debe haber una línea en blanco antes del código siguiente, salvo que el comentario pertenezca a un bloque continuo de comentarios.
