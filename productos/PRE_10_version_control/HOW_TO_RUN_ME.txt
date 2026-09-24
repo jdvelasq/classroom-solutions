@@ -29,6 +29,9 @@ Abra una terminal en esta carpeta y ejecute cada comando en el orden indicado.
    git commit -m "docs: define unit of measure"
    git log --oneline -1
 
+   En `git commit -m`, `-m` indica que el texto siguiente es el mensaje del commit.
+   En `git log --oneline -1`, `--oneline` muestra cada commit en una línea y `-1` muestra solo el commit más reciente.
+
 4. Vuelva a la carpeta de este PRE:
 
    cd ../..

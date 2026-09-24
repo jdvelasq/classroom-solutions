@@ -12,12 +12,15 @@ Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
    git add product_card.md
    git commit -m "chore: create product card"
 
+   En `git init --initial-branch=main`, `--initial-branch=main` asigna el nombre main a la primera rama.
+   En `git commit -m`, `-m` indica que el texto siguiente es el mensaje del commit.
+
 2. Cree una rama para incorporar un consumidor del producto:
 
    git switch -c add-consumer
    git branch
 
-   `git switch -c add-consumer` crea la rama y cambia inmediatamente a ella.
+   En `git switch -c add-consumer`, `-c` significa crear la rama add-consumer y cambiar inmediatamente a ella.
    `git branch` lista las ramas; el asterisco identifica la rama activa.
 
    Abra product_card.md. Reemplace esta línea:
@@ -40,6 +43,10 @@ Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
    git merge --no-ff add-consumer -m "merge: add product consumer"
    git log --oneline --graph -3
    cd ../..
+
+   En `git merge --no-ff`, `--no-ff` conserva un commit de fusión para hacer visible que el cambio llegó desde una rama.
+   En `git merge -m`, `-m` define el mensaje del commit de fusión.
+   En `git log --oneline --graph -3`, `--oneline` resume cada commit en una línea, `--graph` dibuja las ramas y `-3` muestra los tres commits más recientes.
 
 Para cambiar a cualquier rama ya existente, use `git switch NOMBRE_DE_LA_RAMA`.
 Al finalizar, main conserva la versión inicial y el cambio realizado en la rama.

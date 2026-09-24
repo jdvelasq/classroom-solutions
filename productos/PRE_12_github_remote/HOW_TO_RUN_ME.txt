@@ -24,12 +24,19 @@ Esta práctica usa un repositorio temporal. No modifica el repositorio del curso
    git add product_card.md
    git commit -m "chore: create product card"
 
+   En `git init --initial-branch=main`, `--initial-branch=main` asigna el nombre main a la primera rama.
+   En `git commit -m`, `-m` indica que el texto siguiente es el mensaje del commit.
+
 3. Reemplace URL_DE_GITHUB por la URL HTTPS que copió en el paso 1:
 
    git remote add origin URL_DE_GITHUB
    git remote -v
    git push -u origin main
    git branch -vv
+
+   En `git remote -v`, `-v` muestra las URL configuradas para enviar y recibir cambios.
+   En `git push -u origin main`, `-u` deja asociada la rama local main con origin/main para que los siguientes `git push` y `git pull` sean más simples.
+   En `git branch -vv`, cada `-v` agrega detalle: el commit reciente y la rama remota asociada.
 
 4. Vuelva a GitHub y recargue la página. Debe ver product_card.md y el commit.
 
