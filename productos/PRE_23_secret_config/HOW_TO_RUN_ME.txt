@@ -1,0 +1,21 @@
+PRE-23 — Configuración sensible
+
+Una credencial no debe escribirse en el código ni subirse al repositorio. En este PRE se entrega temporalmente a la aplicación mediante una variable de ambiente.
+
+1. Desde la raíz del PRE, configure una clave de práctica en la terminal actual:
+
+   export ANALYTICS_API_KEY="clave-de-practica"
+
+   `export` crea la variable de ambiente para los programas ejecutados desde esta terminal. La clave de práctica no representa una credencial real.
+
+2. Ejecute el programa:
+
+   python3 src/main.py
+
+   El reporte en `submission/secret_config_report.json` confirma que la configuración existe, pero no contiene el valor de la clave.
+
+3. Para retirar la variable de esta terminal cuando termine:
+
+   unset ANALYTICS_API_KEY
+
+   `unset` elimina la variable de ambiente de la terminal actual.
