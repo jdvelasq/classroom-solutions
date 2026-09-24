@@ -15,34 +15,26 @@ main = importlib.util.module_from_spec(SPECIFICATION)
 SPECIFICATION.loader.exec_module(main)
 
 
-def load_data() -> pd.DataFrame:
-    return pd.read_csv(ACTIVITY_DIR / "data" / "machine_throughput_export.csv")
+def load_data(filename: str) -> pd.DataFrame:
+    return pd.read_csv(ACTIVITY_DIR / "data" / filename)
 
 
 def test_source_data_satisfies_the_contract():
-    main.validate_data(load_data())
+    main.validate_data(load_data("machine_throughput_export.csv"))
 
 
-def test_contract_rejects_a_negative_production_value():
-    dataframe = load_data()
-    dataframe.loc[0, "daily_units_produced"] = -1
-
-    with pytest.raises(ValueError, match="no puede ser negativo"):
-        main.validate_data(dataframe)
-
-
-def test_contract_rejects_an_unexpected_schema():
-    dataframe = load_data().drop(columns="factory_date")
-
-    with pytest.raises(ValueError, match="esquema"):
-        main.validate_data(dataframe)
-
-
-def test_contract_rejects_a_duplicate_business_key():
-    dataframe = pd.concat([load_data(), load_data().iloc[[0]]], ignore_index=True)
-
-    with pytest.raises(ValueError, match="está duplicada"):
-        main.validate_data(dataframe)
+@pytest.mark.parametrize(
+    ("filename", "message"),
+    [
+        ("invalid_negative_production.csv", "no puede ser negativo"),
+        ("invalid_duplicate_key.csv", "está duplicada"),
+        ("invalid_date.csv", "fechas válidas"),
+        ("invalid_schema.csv", "esquema"),
+    ],
+)
+def test_problematic_datasets_do_not_satisfy_the_contract(filename, message):
+    with pytest.raises(ValueError, match=message):
+        main.validate_data(load_data(filename))
 
 
 def test_main_reports_the_validated_row_count():
