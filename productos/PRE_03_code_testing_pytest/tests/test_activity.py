@@ -39,15 +39,21 @@ def test_builds_totals_for_certified_drivers_only():
 
     summary = build_certified_driver_totals(drivers, timesheet)
 
-    expected = pd.DataFrame(
+    expected = [
         {
-            "driverId": [10, 12],
-            "name": ["Ana", "Carla"],
-            "total_hours": [15, 6],
-            "total_miles": [220, 90],
-        }
-    )
-    pd.testing.assert_frame_equal(summary, expected)
+            "driverId": 10,
+            "name": "Ana",
+            "total_hours": 15,
+            "total_miles": 220,
+        },
+        {
+            "driverId": 12,
+            "name": "Carla",
+            "total_hours": 6,
+            "total_miles": 90,
+        },
+    ]
+    assert summary.to_dict(orient="records") == expected
 
 
 def test_rejects_a_timesheet_without_required_columns():
