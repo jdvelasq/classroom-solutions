@@ -14,3 +14,5 @@ def test_makefile_exposes_report_and_test_targets():
     assert "report:" in makefile
     assert "test:" in makefile
     assert "python3 src/main.py" in makefile
+    assert "tests/test_report.py" in makefile
+    assert "test_activity.py" not in makefile

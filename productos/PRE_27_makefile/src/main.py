@@ -17,3 +17,7 @@ def main():
     (ROOT_DIR / "submission" / "report.json").write_text(
         json.dumps({"factory_totals": totals}, indent=2), encoding="utf-8"
     )
+
+
+if __name__ == "__main__":
+    main()

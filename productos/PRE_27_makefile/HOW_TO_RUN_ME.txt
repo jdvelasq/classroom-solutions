@@ -1,0 +1,17 @@
+PRE-27 — Automatización local
+
+Un Makefile asigna nombres cortos a tareas que se repiten. Así no se depende de recordar la línea de comandos completa cada vez.
+
+En macOS o Linux, desde la raíz del PRE ejecute:
+
+   make report
+   make test
+
+`make report` ejecuta el objetivo `report`, que genera el indicador. `make test` ejecuta el objetivo `test`, que comprueba el reporte. El Makefile conserva los comandos reales en un único lugar.
+
+En Windows, ejecute el archivo `run.bat` con el objetivo deseado:
+
+   run.bat report
+   run.bat test
+
+`run.bat` recibe el objetivo como primer argumento y ejecuta el comando correspondiente con Python 3. La alternativa permite completar la actividad; en clase se discute cómo el Makefile evita tener que recordar estas instrucciones.
