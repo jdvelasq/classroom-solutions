@@ -1,3 +1,5 @@
+# Uso: python3 -m pytest -q tests/test_activity.py
+
 import importlib.util
 from pathlib import Path
 

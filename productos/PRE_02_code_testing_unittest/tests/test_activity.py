@@ -1,3 +1,5 @@
+# Uso: python3 -m unittest tests/test_activity.py
+
 import importlib.util
 import unittest
 from pathlib import Path
