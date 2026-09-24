@@ -1,0 +1,45 @@
+PRE-13 — Pull request
+
+Este PRE continúa la práctica de PRE-12. Debe conservar el repositorio remoto personal de su cuenta de GitHub y la carpeta temporal creados allí. No use un repositorio del curso ni de otro estudiante.
+
+1. Desde la raíz de este PRE, cree una copia de trabajo y abra una rama:
+
+   cp -R ../PRE_12_github_remote/temp/github_remote_case temp/pull_request_case
+   cd temp/pull_request_case
+   git switch -c add-owner
+
+   En `git switch -c add-owner`, `-c` crea la rama add-owner y cambia inmediatamente a ella.
+
+2. Abra product_card.md. Agregue al final esta línea y guarde el archivo:
+
+   - Responsable: líder de operaciones.
+
+   Después ejecute:
+
+   git add product_card.md
+   git commit -m "docs: define product owner"
+   git push -u origin add-owner
+
+   En `git commit -m`, `-m` indica que el texto siguiente es el mensaje del commit.
+   En `git push -u origin add-owner`, `-u` asocia la rama local con la rama remota para futuros push y pull.
+
+3. En GitHub, abra el repositorio personal de su cuenta usado en PRE-12:
+
+   a. Haga clic en Compare & pull request.
+   b. Verifique que la rama base sea main y la rama de comparación sea add-owner.
+   c. Use el título: docs: define product owner.
+   d. Haga clic en Create pull request.
+   e. Revise el cambio mostrado.
+   f. Haga clic en Merge pull request y después en Confirm merge.
+
+4. Vuelva a la terminal y actualice main:
+
+   git switch main
+   git pull --ff-only
+   git log --oneline -2
+   cd ../..
+
+   En `git pull --ff-only`, `--ff-only` acepta la actualización solo si Git puede avanzar main sin crear una fusión local adicional.
+   En `git log --oneline -2`, `--oneline` resume cada commit en una línea y `-2` muestra los dos más recientes.
+
+Al finalizar, la rama main local debe incluir el responsable incorporado mediante el pull request.
