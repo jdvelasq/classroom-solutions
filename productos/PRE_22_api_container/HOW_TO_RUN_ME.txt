@@ -1,0 +1,23 @@
+PRE-22 — API en contenedor
+
+Este PRE publica localmente una capacidad analítica mínima. Docker ejecuta el servicio en un contenedor y conecta su puerto con el computador del estudiante.
+
+1. Con Docker Desktop abierto, desde la raíz del PRE construya la imagen:
+
+   docker build --tag pre22-api .
+
+   En `--tag pre22-api`, `--tag` asigna el nombre de la imagen. El punto `.` indica que Docker debe usar esta carpeta y su `Dockerfile`.
+
+2. Inicie el servicio:
+
+   docker run --rm --publish 8000:8000 pre22-api
+
+   `--rm` elimina el contenedor temporal cuando se detenga. `--publish 8000:8000` conecta el puerto 8000 de su computador con el puerto 8000 del contenedor. Mantenga esta terminal abierta.
+
+3. En otra terminal, pruebe la capacidad:
+
+   curl --request POST http://localhost:8000/score --header "Content-Type: application/json" --data '{"daily_units_produced":4200}'
+
+   En `curl`, `--request POST` indica el método de la solicitud, `--header` declara que se envía JSON y `--data` contiene el dato de entrada. La respuesta debe incluir `risk` y `threshold`.
+
+4. Vuelva a la primera terminal y presione Control+C para detener el servicio.
