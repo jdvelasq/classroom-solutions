@@ -1,0 +1,15 @@
+PRE-28 — Nox
+
+Nox define tareas de Python en `noxfile.py`. Para cada tarea crea un ambiente aislado, instala lo declarado y ejecuta el trabajo en el orden indicado.
+
+1. Instale Nox una única vez:
+
+   python3 -m pip install nox
+
+   `-m` ejecuta pip con el mismo Python usado en el comando. Nox es la herramienta que creará los ambientes de las tareas.
+
+2. Desde la raíz del PRE, ejecute la sesión de pruebas:
+
+   python3 -m nox -s tests
+
+   `-m` ejecuta Nox con el mismo Python usado para instalarlo. `-s tests` selecciona la sesión llamada `tests` en `noxfile.py`. Esa sesión instala `requirements.txt` y pytest dentro de un ambiente aislado, y después ejecuta la prueba del reporte.
