@@ -15,13 +15,19 @@ El mismo código debe poder ejecutarse sin depender de paquetes instalados globa
 
    `source` activa ese ambiente solo en la terminal actual. En el segundo comando, `-m` garantiza que pip pertenezca al Python del ambiente activo. `--requirement requirements.txt` le indica a pip que lea la lista y las versiones de dependencias desde ese archivo.
 
-3. Ejecute el indicador:
+3. Ejecute la prueba del producto dentro del ambiente:
+
+   python3 -m unittest discover -s tests -p "test_*.py" -v
+
+   `-m` ejecuta unittest con el Python del ambiente activo. En `discover`, `-s tests` selecciona la carpeta de pruebas, `-p "test_*.py"` selecciona sus archivos y `-v` muestra el nombre y resultado de cada prueba. La prueba ejecuta el indicador y comprueba los totales por fábrica.
+
+4. Cuando quiera inspeccionar la evidencia producida por el indicador, ejecútelo directamente:
 
    python3 src/main.py
 
    El resultado queda en `submission/environment_report.json`. Además del indicador por fábrica, el archivo registra las versiones de Python y pandas que produjeron el resultado.
 
-4. Cuando termine, salga del ambiente:
+5. Cuando termine, salga del ambiente:
 
    deactivate
 

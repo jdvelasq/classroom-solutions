@@ -25,6 +25,7 @@ def test_declared_environment_generates_versioned_report():
         requirements = (PRE_DIR / "requirements.txt").read_text(encoding="utf-8")
 
         assert "pandas==2.2.3" in requirements
+        assert (PRE_DIR / "tests" / "test_environment_report.py").exists()
         assert report["pandas_version"] == "2.2.3"
         assert report["factory_totals"] == [
             {"factory_id": 1, "total_units_produced": 9303},
