@@ -1,0 +1,13 @@
+PRE-31 — Programación local
+
+Una tarea programada se ejecuta periódicamente mientras el proceso que la agenda permanezca activo.
+
+1. Instale las dependencias:
+
+   python3 -m pip install --requirement requirements.txt
+
+2. Inicie la programación local:
+
+   python3 src/main.py
+
+El programa generará `submission/scheduled_report.json` cada 10 segundos. Presione Control+C para detenerlo. Si cierra la terminal o apaga el computador, la programación deja de ejecutarse: ese es el límite de una solución local.
