@@ -14,6 +14,8 @@ from src.main import ALLOWED_DATASETS, load_dataset_name
 
 @pytest.mark.parametrize("dataset", ALLOWED_DATASETS)
 def test_config_accepts_each_available_dataset(tmp_path, dataset):
+    # Una configuración válida debe ser intercambiable sin modificar el programa.
+
     config_path = tmp_path / "config.json"
     config_path.write_text(json.dumps({"dataset": dataset}), encoding="utf-8")
 
@@ -21,6 +23,8 @@ def test_config_accepts_each_available_dataset(tmp_path, dataset):
 
 
 def test_config_rejects_an_unknown_dataset(tmp_path):
+    # Un valor no acordado debe fallar antes de que se seleccione una fuente de datos.
+
     config_path = tmp_path / "config.json"
     config_path.write_text(json.dumps({"dataset": "development"}), encoding="utf-8")
 
@@ -29,6 +33,8 @@ def test_config_rejects_an_unknown_dataset(tmp_path):
 
 
 def test_main_reports_the_selected_dataset_and_metrics():
+    # La salida confirma qué configuración produjo las métricas observadas.
+
     result = subprocess.run(
         [sys.executable, "src/main.py"],
         cwd=ACTIVITY_DIR,

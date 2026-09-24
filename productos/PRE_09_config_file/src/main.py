@@ -7,10 +7,14 @@ from sklearn.metrics import accuracy_score, balanced_accuracy_score
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+# Las opciones admitidas convierten el archivo de configuración en un contrato verificable.
+
 ALLOWED_DATASETS = ("train", "test", "prod")
 
 
 def load_dataset_name(config_path: Path) -> str:
+    # La decisión queda fuera del código para poder conservar y revisar cada ejecución.
+
     with config_path.open(encoding="utf-8") as file:
         config = json.load(file)
 
@@ -25,6 +29,8 @@ def load_dataset_name(config_path: Path) -> str:
 
 
 def main() -> None:
+    # El artefacto se ejecuta igual; solo cambia la configuración declarada.
+
     dataset = load_dataset_name(ACTIVITY_DIR / "config.json")
     data_path = ACTIVITY_DIR / "data" / dataset / "sentences.csv.gz"
 
