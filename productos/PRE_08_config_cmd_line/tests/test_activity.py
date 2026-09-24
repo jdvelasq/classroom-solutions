@@ -11,6 +11,8 @@ ALLOWED_DATASETS = ("train", "test", "prod")
 
 @pytest.mark.parametrize("dataset", ALLOWED_DATASETS)
 def test_main_accepts_each_available_dataset(dataset):
+    # Cada valor permitido debe producir una ejecución completa y una salida interpretable.
+
     result = subprocess.run(
         [sys.executable, "src/main.py", dataset],
         cwd=ACTIVITY_DIR,
@@ -25,6 +27,8 @@ def test_main_accepts_each_available_dataset(dataset):
 
 
 def test_main_rejects_an_unknown_dataset():
+    # Un valor ambiguo debe detener la ejecución antes de evaluar datos no previstos.
+
     result = subprocess.run(
         [sys.executable, "src/main.py", "development"],
         cwd=ACTIVITY_DIR,

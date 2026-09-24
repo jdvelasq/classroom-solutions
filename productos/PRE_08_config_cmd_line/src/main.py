@@ -7,10 +7,14 @@ from sklearn.metrics import accuracy_score, balanced_accuracy_score
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+# Los valores admitidos evitan que una ejecución reproducible dependa de nombres improvisados.
+
 ALLOWED_DATASETS = ("train", "test", "prod")
 
 
 def parse_arguments() -> argparse.Namespace:
+    # El parámetro permite ejecutar el mismo artefacto en contextos de datos distintos sin editarlo.
+
     parser = argparse.ArgumentParser(
         description="Calcula métricas para uno de los conjuntos disponibles."
     )
@@ -23,6 +27,8 @@ def parse_arguments() -> argparse.Namespace:
 
 
 def main() -> None:
+    # El modelo se mantiene fijo para que cambie solo el conjunto elegido en cada ejecución.
+
     arguments = parse_arguments()
     data_path = ACTIVITY_DIR / "data" / arguments.dataset / "sentences.csv.gz"
 
