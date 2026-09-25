@@ -12,7 +12,7 @@ from src.server import HouseFeatures, predict_price
 
 def test_trained_model_is_served_without_retraining():
     house = HouseFeatures(bedrooms=3, bathrooms=2, sqft_living=1800, sqft_lot=2200, floors=1, waterfront=0, condition=3)
-    assert Path("submission/house_predictor.pkl").exists()
+    assert Path("HOUSE_PREDICTOR.pkl").exists()
     assert predict_price(house) > 0
 
 

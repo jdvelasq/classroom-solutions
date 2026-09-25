@@ -1,0 +1,5 @@
+{
+  "test_balanced_accuracy": 0.6662258779250718,
+  "test_average_precision": 0.5007926047249232,
+  "priority_threshold": 0.5753691601767059
+}

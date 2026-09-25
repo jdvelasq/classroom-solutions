@@ -24,7 +24,7 @@ def assess_inputs(training_inputs: pd.DataFrame, candidate_inputs: pd.DataFrame)
 def load_inputs():
     # Las columnas se leen del artefacto para evitar evaluar un conjunto con una interfaz distinta.
 
-    with (ACTIVITY_DIR / "estimator.pkl").open("rb") as file:
+    with (ACTIVITY_DIR / "ESTIMATOR.pkl").open("rb") as file:
         estimator = pickle.load(file)
     features = list(estimator.feature_names_in_)
     data_dir = ACTIVITY_DIR / "data"

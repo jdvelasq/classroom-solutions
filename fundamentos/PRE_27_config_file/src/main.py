@@ -31,12 +31,12 @@ def load_dataset_name(config_path: Path) -> str:
 def main() -> None:
     # El artefacto se ejecuta igual; solo cambia la configuración declarada.
 
-    dataset = load_dataset_name(ACTIVITY_DIR / "config.json")
+    dataset = load_dataset_name(ACTIVITY_DIR / "CONFIG.json")
     data_path = ACTIVITY_DIR / "data" / dataset / "sentences.csv.gz"
 
     dataframe = pd.read_csv(data_path)
 
-    with (ACTIVITY_DIR / "estimator.pkl").open("rb") as file:
+    with (ACTIVITY_DIR / "ESTIMATOR.pkl").open("rb") as file:
         estimator = pickle.load(file)
 
     predictions = estimator.predict(dataframe["phrase"])

@@ -18,7 +18,7 @@ MIN_AUC = 0.80
 def load_model_and_test_set():
     # El artefacto se carga congelado para evaluar su operación, no para volver a entrenarlo.
 
-    with (ACTIVITY_DIR / "estimator.pkl").open("rb") as file:
+    with (ACTIVITY_DIR / "ESTIMATOR.pkl").open("rb") as file:
         model = pickle.load(file)
     test_set = pd.read_csv(ACTIVITY_DIR / "data" / "model_test_set.csv")
     features = list(model.feature_names_in_)

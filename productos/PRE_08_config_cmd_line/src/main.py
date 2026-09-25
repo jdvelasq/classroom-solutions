@@ -34,7 +34,7 @@ def main() -> None:
 
     dataframe = pd.read_csv(data_path)
 
-    with (ACTIVITY_DIR / "estimator.pkl").open("rb") as file:
+    with (ACTIVITY_DIR / "ESTIMATOR.pkl").open("rb") as file:
         estimator = pickle.load(file)
 
     predictions = estimator.predict(dataframe["phrase"])

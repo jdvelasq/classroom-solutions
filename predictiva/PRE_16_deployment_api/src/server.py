@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-MODEL_PATH = ACTIVITY_DIR / "submission" / "house_predictor.pkl"
+MODEL_PATH = ACTIVITY_DIR / "HOUSE_PREDICTOR.pkl"
 FEATURES = ["bedrooms", "bathrooms", "sqft_living", "sqft_lot", "floors", "waterfront", "condition"]
 
 
