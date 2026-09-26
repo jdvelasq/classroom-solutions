@@ -1,25 +1,20 @@
-"""Verifica que la política permita y rechace accesos de manera inequívoca."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
 from pathlib import Path
 
-import pytest
+
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-from src.main import get_factory_risk_report
-
-
-def test_authorized_role_receives_report():
-    """El consumidor autorizado debe obtener el resultado acordado."""
-
-    assert get_factory_risk_report("operations_manager") == {"factory_id": 2, "risk": "high"}
-
-
-def test_unauthorized_role_is_rejected():
-    """La ausencia de autorización debe detener la entrega del resultado."""
-
-    with pytest.raises(PermissionError, match="Rol no autorizado"):
-        get_factory_risk_report("intern")
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

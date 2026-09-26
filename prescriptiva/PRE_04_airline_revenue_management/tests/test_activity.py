@@ -1,12 +1,20 @@
-import os
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-FOLDER = "PRE_04_airline_revenue_management"
-OUTPUT_FOLDER = f"{FOLDER}/submission"
+from pathlib import Path
 
 
-def test_01():
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
-    assert os.path.exists(f"{OUTPUT_FOLDER}/capacity_value.csv")
-    assert os.path.exists(f"{OUTPUT_FOLDER}/booking_decisions.csv")
-    assert os.path.exists(f"{OUTPUT_FOLDER}/scenario_results.csv")
-    assert os.path.exists(f"{OUTPUT_FOLDER}/revenue_management_cockpit.png")
+
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
+
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

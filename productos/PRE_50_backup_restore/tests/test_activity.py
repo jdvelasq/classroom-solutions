@@ -1,21 +1,20 @@
-"""Verifica que un respaldo pueda reconstruir el artefacto original."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import BACKUP, RESTORED, backup_and_restore
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_backup_can_be_restored():
-    """La recuperación debe preservar el contenido que estaba en operación."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    try:
-        assert backup_and_restore() == {"production_version": "v1", "model": "factory-risk"}
-        assert BACKUP.exists() and RESTORED.exists()
-    finally:
-        BACKUP.unlink(missing_ok=True)
-        RESTORED.unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

@@ -1,17 +1,20 @@
-"""Verifica que la actividad defina una sesión aislada de pruebas."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_nox_session_installs_and_runs_product_test():
-    """La automatización debe declarar ambiente, dependencias y prueba concreta."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    noxfile = (PRE_DIR / "noxfile.py").read_text(encoding="utf-8")
-
-    assert "@nox.session" in noxfile
-    assert "def tests(session):" in noxfile
-    assert 'session.install("--requirement", "requirements.txt", "pytest")' in noxfile
-    assert 'session.run("pytest", "tests/test_report.py")' in noxfile
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

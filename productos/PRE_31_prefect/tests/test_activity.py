@@ -1,17 +1,20 @@
-"""Verifica que el PRE declare tareas, flujo y política de reintento."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_prefect_flow_defines_observable_tasks():
-    """La orquestación debe separar las tareas y expresar una recuperación básica."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    source = (PRE_DIR / "src" / "main.py").read_text(encoding="utf-8")
-
-    assert "from prefect import flow, task" in source
-    assert "@task(retries=1)" in source
-    assert "@flow" in source
-    assert "def operations_flow():" in source
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

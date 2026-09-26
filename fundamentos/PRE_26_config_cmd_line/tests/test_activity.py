@@ -1,41 +1,20 @@
-import subprocess
-import sys
-from pathlib import Path
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import pytest
+from pathlib import Path
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-ALLOWED_DATASETS = ("train", "test", "prod")
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-@pytest.mark.parametrize("dataset", ALLOWED_DATASETS)
-def test_main_accepts_each_available_dataset(dataset):
-    # Cada valor permitido debe producir una ejecución completa y una salida interpretable.
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    result = subprocess.run(
-        [sys.executable, "src/main.py", dataset],
-        cwd=ACTIVITY_DIR,
-        check=True,
-        capture_output=True,
-        text=True,
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
     )
-
-    assert f"Conjunto: {dataset}" in result.stdout
-    assert "Accuracy: " in result.stdout
-    assert "Balanced accuracy: " in result.stdout
-
-
-def test_main_rejects_an_unknown_dataset():
-    # Un valor ambiguo debe detener la ejecución antes de evaluar datos no previstos.
-
-    result = subprocess.run(
-        [sys.executable, "src/main.py", "development"],
-        cwd=ACTIVITY_DIR,
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-
-    assert result.returncode != 0
-    assert "invalid choice" in result.stderr

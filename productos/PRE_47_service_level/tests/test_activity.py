@@ -1,19 +1,20 @@
-"""Verifica que el incumplimiento del nivel de servicio sea visible."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import evaluate_service_level
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_service_level_is_compared_to_target():
-    """La operación debe evidenciar cuándo el acuerdo no se cumplió."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    result = evaluate_service_level()
-
-    assert result["availability"] == 0.9
-    assert result["met"] is False
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

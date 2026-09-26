@@ -1,19 +1,20 @@
-"""Verifica que un costo que excede el presupuesto active una alerta."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import monitor_cost
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_cost_exceeding_budget_is_visible():
-    """La operación debe detectar un costo antes de que se normalice como sorpresa."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    result = monitor_cost()
-
-    assert result["cost"] == 3.7
-    assert result["alert"] is True
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

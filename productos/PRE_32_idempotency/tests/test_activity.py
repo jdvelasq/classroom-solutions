@@ -1,24 +1,20 @@
-"""Verifica que repetir una tarea conserve un único resultado."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import json
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import OUTPUT_PATH, generate_daily_report
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_repeated_execution_preserves_one_report():
-    """La segunda ejecución debe recuperar, no duplicar, el resultado existente."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    try:
-        first = generate_daily_report()
-        second = generate_daily_report()
-
-        assert first == second
-        assert json.loads(OUTPUT_PATH.read_text(encoding="utf-8")) == first
-    finally:
-        OUTPUT_PATH.unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

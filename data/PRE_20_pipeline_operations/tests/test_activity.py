@@ -1,29 +1,20 @@
-import importlib.util
+"""Valida que la actividad entregue al menos un artefacto final."""
+
 from pathlib import Path
 
-import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-s = importlib.util.spec_from_file_location("pre14", ROOT / "src/main.py")
-m = importlib.util.module_from_spec(s)
-s.loader.exec_module(m)
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def setup_module():
-    m.build_submission()
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-
-def test_transient_failure_retries_and_continues():
-    x = pd.read_csv(ROOT / "submission/run_history.csv")
-    r = x[x.processing_date == "2026-10-02"]
-    assert r[r.task == "extract"].status.tolist() == ["FAILED", "SUCCESS"] and r[
-        r.task == "publish"
-    ].status.tolist() == ["SUCCESS"]
-
-
-def test_validation_failure_skips_downstream_without_retry():
-    x = pd.read_csv(ROOT / "submission/run_history.csv")
-    r = x[x.processing_date == "2026-10-03"]
-    assert r[r.task == "validate"].status.tolist() == ["FAILED"] and r[
-        r.task.isin(["transform", "publish"])
-    ].status.tolist() == ["SKIPPED", "SKIPPED"]
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

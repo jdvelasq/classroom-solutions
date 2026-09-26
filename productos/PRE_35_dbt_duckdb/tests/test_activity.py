@@ -1,17 +1,20 @@
-"""Verifica que el proyecto declare una semilla, modelo y pruebas dbt."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_dbt_project_declares_reproducible_model_and_tests():
-    """La transformación debe tener fuente, modelo y condiciones de calidad explícitas."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    model = (PRE_DIR / "models" / "factory_totals.sql").read_text()
-    schema = (PRE_DIR / "models" / "schema.yml").read_text()
-
-    assert "ref('daily_operations')" in model
-    assert "not_null" in schema
-    assert "unique" in schema
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

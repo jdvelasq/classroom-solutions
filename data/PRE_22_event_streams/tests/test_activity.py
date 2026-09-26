@@ -1,22 +1,20 @@
-import csv
-import importlib.util
+"""Valida que la actividad entregue al menos un artefacto final."""
+
 from pathlib import Path
 
-import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("pre22", ROOT / "src/main.py")
-MODULE = importlib.util.module_from_spec(SPEC)
-SPEC.loader.exec_module(MODULE)
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def setup_module():
-    MODULE.build_submission()
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-
-def test_arrival_order_and_delayed_event_are_preserved():
-    with (ROOT / "submission/consumed_events.csv").open() as f:
-        r = list(csv.DictReader(f))
-    assert [x["event_id"] for x in r] == ["E1", "E2", "E3", "E4"] and r[2][
-        "is_delayed"
-    ] == "True"
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

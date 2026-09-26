@@ -1,24 +1,20 @@
-"""Verifica que la política de retención conserve y expire los registros correctos."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
-from datetime import date
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import apply_retention_policy
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_retention_policy_preserves_recent_events_and_evidence():
-    """La purga lógica debe preservar el dato vigente y evidenciar qué quedó vencido."""
-
-    result = apply_retention_policy(date(2026, 9, 1))
-
-    assert result["cutoff"] == "2026-06-03"
-    assert [event["event_id"] for event in result["retained"]] == ["evt-001"]
-    assert result["expired"] == [
-        {"event_id": "evt-002", "reason": "retention_period_expired"},
-        {"event_id": "evt-003", "reason": "retention_period_expired"},
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
     ]
+
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

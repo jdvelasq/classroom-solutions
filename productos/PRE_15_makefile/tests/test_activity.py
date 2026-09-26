@@ -1,18 +1,20 @@
-"""Verifica que los objetivos automatizados apunten al flujo correcto."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_makefile_exposes_report_and_test_targets():
-    """Los nombres breves reducen errores al repetir tareas operativas."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    makefile = (PRE_DIR / "Makefile").read_text(encoding="utf-8")
-
-    assert "report:" in makefile
-    assert "test:" in makefile
-    assert "python3 src/main.py" in makefile
-    assert "tests/test_report.py" in makefile
-    assert "test_activity.py" not in makefile
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

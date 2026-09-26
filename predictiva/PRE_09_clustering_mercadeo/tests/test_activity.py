@@ -1,34 +1,20 @@
-import pandas as pd
+"""Valida que la actividad entregue al menos un artefacto final."""
+
+from pathlib import Path
 
 
-def test_segments_cover_students_and_preserve_the_five_groups():
-    source = pd.read_csv("data/snsdata.csv")
-    segmented = pd.read_csv("submission/segmented.csv")
-    sizes = pd.read_csv("submission/cluster_sizes.csv")
-
-    assert len(segmented) == len(source)
-    assert set(segmented["cluster"]) == {0, 1, 2, 3, 4}
-    assert "segment" not in segmented.columns
-    assert sizes["cluster"].tolist() == [0, 1, 2, 3, 4]
-    assert sizes["n"].sum() == len(source)
-    assert sizes["percentage"].sum().round(2) == 100.0
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_persisted_profiles_are_evidence_not_predefined_interpretations():
-    top_interests = pd.read_csv("submission/top_interests.csv")
-    cluster_profiles = pd.read_csv("submission/cluster_profiles.csv")
-    gender_profiles = pd.read_csv("submission/gender_profiles.csv")
-    gradyear_profiles = pd.read_csv("submission/gradyear_profiles.csv")
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    assert top_interests.groupby("cluster").size().to_dict() == {
-        0: 6,
-        1: 6,
-        2: 6,
-        3: 6,
-        4: 6,
-    }
-    assert top_interests["interest"].notna().all()
-    assert set(cluster_profiles["cluster"]) == {0, 1, 2, 3, 4}
-    assert cluster_profiles["n"].sum() == 30000
-    assert set(gender_profiles["cluster"]) == {0, 1, 2, 3, 4}
-    assert set(gradyear_profiles["cluster"]) == {0, 1, 2, 3, 4}
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

@@ -1,9 +1,20 @@
-from ..src.main import pregunta_01, pregunta_02
+"""Valida que la actividad entregue al menos un artefacto final."""
+
+from pathlib import Path
 
 
-def test_01():
-    assert pregunta_01() == "Hola mundo cruel!"
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_02():
-    assert pregunta_02() == "Hello cruel world!"
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
+
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

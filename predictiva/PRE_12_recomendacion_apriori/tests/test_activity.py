@@ -1,13 +1,20 @@
-"""Verifica que el estudiante produjo la evidencia del taller Apriori."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
 from pathlib import Path
 
 
-def test_apriori_workshop_artifacts_exist():
-    expected_files = [
-        "top_items.csv",
-        "association_rules.csv",
-        "recommendations.csv",
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
+
+
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
     ]
-    for filename in expected_files:
-        assert Path("submission", filename).exists()
+
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

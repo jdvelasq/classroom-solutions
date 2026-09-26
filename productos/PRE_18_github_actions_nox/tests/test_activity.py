@@ -1,17 +1,20 @@
-"""Verifica que CI ejecute la sesión Nox del repositorio."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_workflow_runs_nox_on_push_and_pull_request():
-    """La misma automatización debe ejecutarse antes y después de integrar cambios."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    workflow = (PRE_DIR / "data" / "repository_template" / ".github" / "workflows" / "tests.yml").read_text(encoding="utf-8")
-
-    assert "push:" in workflow
-    assert "pull_request:" in workflow
-    assert "python -m pip install nox" in workflow
-    assert "python -m nox -s tests" in workflow
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

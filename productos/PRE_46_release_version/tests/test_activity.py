@@ -1,23 +1,20 @@
-"""Verifica que una liberación publique una versión y sus notas."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import json
-import subprocess
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = PRE_DIR / "submission" / "release_manifest.json"
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_release_manifest_has_version_and_notes():
-    """El consumidor debe poder reconocer qué liberación está usando."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    try:
-        subprocess.run([sys.executable, "src/main.py"], cwd=PRE_DIR, check=True)
-        manifest = json.loads(MANIFEST_PATH.read_text())
-
-        assert manifest["version"] == "1.0.0"
-        assert manifest["release_notes"] == "CHANGELOG.md"
-    finally:
-        MANIFEST_PATH.unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

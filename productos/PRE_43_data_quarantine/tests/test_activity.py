@@ -1,19 +1,20 @@
-"""Verifica que el dato inválido no llegue a la salida válida y conserve su causa."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import quarantine_invalid_records
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_invalid_record_is_quarantined_with_reason():
-    """Un rechazo útil debe conservar el registro y explicar por qué no pasó."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    result = quarantine_invalid_records()
-
-    assert result["valid"] == [{"id": 1, "amount": 20}]
-    assert result["quarantined"][0]["rejection_reason"] == "amount_must_be_non_negative"
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

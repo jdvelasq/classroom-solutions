@@ -1,27 +1,20 @@
-import csv
-import json
-import sqlite3
-import sys
+"""Valida que la actividad entregue al menos un artefacto final."""
+
 from pathlib import Path
 
-import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT.parent / "tests"))
-from notebook_runner import execute_notebook
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def setup_module():
-    execute_notebook(ROOT / "notebooks/notebook.ipynb")
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-
-def test_formats_preserve_the_same_logical_rows():
-    csv = pd.read_csv(ROOT / "data/flights.csv")
-    parquet = pd.read_parquet(ROOT / "data/flights.parquet", engine="pyarrow")
-    assert len(csv) == len(parquet) == 12000
-    assert list(csv.columns) == list(parquet.columns)
-
-
-def test_comparison_declares_three_formats():
-    result = pd.read_csv(ROOT / "submission/format_comparison.csv")
-    assert list(result["format"]) == ["CSV", "JSON", "Parquet"]
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

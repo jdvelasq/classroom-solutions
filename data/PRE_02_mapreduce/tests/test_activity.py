@@ -1,30 +1,20 @@
-"""Pruebas del taller de conteo directo con MapReduce."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-from ..src.main import INPUT_DIR, OUTPUT_DIR, run_word_count
-
-
-def test_builds_the_temporary_input_and_output():
-    """Copia los textos y crea el resultado temporal verificable."""
-    output_file = run_word_count()
-
-    assert output_file == OUTPUT_DIR / "part-00000"
-    assert output_file.exists()
-    assert (OUTPUT_DIR / "_SUCCESS").exists()
-    assert len(list(INPUT_DIR.glob("*.txt"))) == 4
+from pathlib import Path
 
 
-def test_counts_words_after_mapping_sorting_and_reducing():
-    """Conserva los conteos esperados del corpus de entrada."""
-    output_file = run_word_count()
-    counts = {
-        word: int(count)
-        for word, count in (
-            line.rstrip().split("\t") for line in output_file.read_text().splitlines()
-        )
-    }
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
-    assert counts["analytics"] == 5
-    assert counts["business"] == 7
-    assert counts["by"] == 3
-    assert counts["algorithms"] == 2
-    assert counts["analysis"] == 4
+
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
+
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

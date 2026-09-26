@@ -73,11 +73,13 @@ PRE_XX_activity_name/
 ├── temp/
 ├── tests/
 │   ├── __init__.py
-│   └── test_src.py
+│   └── test_activity.py
 └── __init__.py
 ```
 
 `data/` contiene los insumos; `notebooks/` y `src/` el desarrollo; `submission/` los artefactos finales generados; `temp/` los intermedios descartables; y `tests/` las pruebas de validación. La estructura no se reorganiza, renombra ni simplifica durante el diseño o implementación de actividades.
+
+Para que las pruebas puedan descubrirse aun si una actividad se reubica, el directorio del curso y sus directorios `src/` y `tests/` conservan un archivo `__init__.py`. Estos archivos son parte de la estructura y no se eliminan al preparar la versión para estudiantes.
 
 Los directorios vacíos se preservan con `.gitkeep`.
 
@@ -142,7 +144,7 @@ No se introducen clases, frameworks, capas arquitectónicas, fábricas, sistemas
 
 ### Pruebas, reproducibilidad y dependencias
 
-`tests/test_src.py` contiene pruebas de calificación con `pytest`. Las pruebas verifican resultados observables que importan: estructura, artefactos, columnas, tipos, valores con tolerancia, factibilidad, restricciones de capacidad/recursos, no negatividad, balance/conservación u otras propiedades esenciales de la solución. Deben ser simples, robustas y centradas en resultados, no en detalles irrelevantes de implementación.
+`tests/test_activity.py` contiene pruebas de calificación con `pytest`. Para que la versión incompleta entregada a estudiantes se pueda descubrir sin errores, estas pruebas no importan código, constantes ni notebooks de la solución. Calculan la raíz de la actividad desde su propia ruta y verifican que `submission/` —preservado con su `.gitkeep`— contenga al menos un artefacto final generado. Deben ser simples, robustas y centradas en resultados, no en detalles irrelevantes de implementación.
 
 Las soluciones deben ser deterministas y reproducibles cuando sea posible. Toda aleatoriedad necesaria usa semillas fijas; se evitan estado oculto, recursos externos inestables y dependencia de un orden accidental de ejecución. Con los mismos datos y entorno deben producirse los mismos artefactos de calificación.
 

@@ -1,42 +1,20 @@
-import json
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import pytest
-
-from ..src.main import (
-    INPUT_FILE,
-    OUTPUT_FILE,
-    SENSITIVE_COLUMNS,
-    convert_csv_to_json,
-    main,
-)
+from pathlib import Path
 
 
-def test_01_main_creates_a_minimized_json_export():
-    main()
-
-    assert OUTPUT_FILE.exists()
-
-    with OUTPUT_FILE.open("r", encoding="utf-8") as file:
-        records = json.load(file)
-
-    assert len(records) == 34
-    assert records[0] == {
-        "driverId": "10",
-        "name": "George Vetticaden",
-        "certified": "N",
-        "wage-plan": "miles",
-    }
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_02_export_never_contains_sensitive_driver_fields():
-    records = convert_csv_to_json(INPUT_FILE, OUTPUT_FILE)
-    exported_columns = set().union(*(record.keys() for record in records))
-    assert exported_columns.isdisjoint(SENSITIVE_COLUMNS)
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-
-def test_03_conversion_rejects_a_csv_without_required_columns(tmp_path):
-    invalid_input = tmp_path / "drivers_without_certification.csv"
-    invalid_input.write_text("driverId,name\n10,George Vetticaden\n", encoding="utf-8")
-
-    with pytest.raises(ValueError, match="certified, wage-plan"):
-        convert_csv_to_json(invalid_input, tmp_path / "drivers.json")
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

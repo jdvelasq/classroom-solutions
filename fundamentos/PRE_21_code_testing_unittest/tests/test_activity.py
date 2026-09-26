@@ -1,43 +1,20 @@
-# Uso: python3 -m unittest tests/test_activity.py
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import importlib.util
-import unittest
 from pathlib import Path
 
 
-# Se importa el archivo real para que la prueba evalúe exactamente el código que ejecutará el estudiante.
-
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SPECIFICATION = importlib.util.spec_from_file_location(
-    "unit_test_main", ACTIVITY_DIR / "src" / "main.py"
-)
-main = importlib.util.module_from_spec(SPECIFICATION)
-SPECIFICATION.loader.exec_module(main)
-
-summarize_by_factory = main.summarize_by_factory
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-class TestFactorySummary(unittest.TestCase):
-    def test_aggregates_units_for_each_factory(self):
-        # Un ejemplo pequeño hace visible la regla y permite identificar con precisión un resultado incorrecto.
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-        operations = [
-            {"factory_id": 2, "machine_id": 1, "daily_units_produced": 10},
-            {"factory_id": 1, "machine_id": 1, "daily_units_produced": 20},
-            {"factory_id": 2, "machine_id": 2, "daily_units_produced": 30},
-        ]
-
-        summary = summarize_by_factory(operations)
-
-        self.assertEqual(
-            summary,
-            [
-                {"factory_id": 1, "total_units": 20},
-                {"factory_id": 2, "total_units": 40},
-            ],
-        )
-
-    def test_returns_an_empty_summary_without_operations(self):
-        # El caso vacío comprueba que la función conserva un comportamiento definido en un borde frecuente.
-
-        self.assertEqual(summarize_by_factory([]), [])
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

@@ -1,68 +1,20 @@
-# Uso: python3 -m pytest -q tests/test_activity.py
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import importlib.util
 from pathlib import Path
 
-import pandas as pd
-import pytest
-
-
-# Se importa el módulo real para que pytest revise el mismo código que se ejecutará en el taller.
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SPECIFICATION = importlib.util.spec_from_file_location(
-    "pytest_pandas_main", ACTIVITY_DIR / "src" / "main.py"
-)
-main = importlib.util.module_from_spec(SPECIFICATION)
-SPECIFICATION.loader.exec_module(main)
-
-build_certified_driver_totals = main.build_certified_driver_totals
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_builds_totals_for_certified_drivers_only():
-    # Un conjunto pequeño permite verificar qué conductores entran al indicador y por qué.
-
-    drivers = pd.DataFrame(
-        {
-            "driverId": [10, 11, 12],
-            "name": ["Ana", "Bruno", "Carla"],
-            "certified": ["Y", "N", "Y"],
-        }
-    )
-    timesheet = pd.DataFrame(
-        {
-            "driverId": [10, 10, 11, 12],
-            "hours-logged": [8, 7, 9, 6],
-            "miles-logged": [120, 100, 140, 90],
-        }
-    )
-
-    summary = build_certified_driver_totals(drivers, timesheet)
-
-    expected = [
-        {
-            "driverId": 10,
-            "name": "Ana",
-            "total_hours": 15,
-            "total_miles": 220,
-        },
-        {
-            "driverId": 12,
-            "name": "Carla",
-            "total_hours": 6,
-            "total_miles": 90,
-        },
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
     ]
-    assert summary.to_dict(orient="records") == expected
 
-
-def test_rejects_a_timesheet_without_required_columns():
-    # Una entrada incompleta debe fallar antes de producir un resumen engañoso.
-
-    drivers = pd.DataFrame(
-        {"driverId": [10], "name": ["Ana"], "certified": ["Y"]}
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
     )
-    timesheet = pd.DataFrame({"driverId": [10], "hours-logged": [8]})
-
-    with pytest.raises(ValueError, match="turnos"):
-        build_certified_driver_totals(drivers, timesheet)

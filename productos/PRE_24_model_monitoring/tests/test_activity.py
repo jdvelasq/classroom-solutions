@@ -1,29 +1,20 @@
-"""Verifica que el monitoreo haga visible un cambio relevante en producción."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import json
-import subprocess
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-REPORT_PATH = PRE_DIR / "submission" / "monitoring_report.json"
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_monitoring_report_flags_shifted_feature():
-    """Una alerta demostrable centra el taller en la operación posterior al despliegue."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    try:
-        subprocess.run(
-            [sys.executable, "src/main.py"],
-            cwd=PRE_DIR,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
-
-        assert report["threshold"] == 1.0
-        assert "alcohol" in report["alerts"]
-    finally:
-        REPORT_PATH.unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

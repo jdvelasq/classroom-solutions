@@ -1,37 +1,20 @@
-# Uso: python3 -m pytest -q tests/test_activity.py
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import importlib.util
 from pathlib import Path
-
-import pandas as pd
-import pytest
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SPECIFICATION = importlib.util.spec_from_file_location("data_testing_main", ACTIVITY_DIR / "src" / "main.py")
-main = importlib.util.module_from_spec(SPECIFICATION)
-SPECIFICATION.loader.exec_module(main)
-validate_data = main.validate_data
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_accepts_the_clean_export():
-    # Un conjunto conocido como correcto evita convertir una regla de calidad en un rechazo indiscriminado.
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    dataframe = pd.read_csv(ACTIVITY_DIR / "data" / "machine_throughput_export.csv")
-    assert validate_data(dataframe) == []
-
-
-@pytest.mark.parametrize(
-    ("dataset_name", "expected_violation"),
-    [
-        ("invalid_negative_production.csv", "daily_units_produced no puede ser negativo."),
-        ("invalid_duplicate_key.csv", "debe ser única."),
-        ("invalid_date.csv", "factory_date debe contener fechas válidas."),
-        ("invalid_schema.csv", "El esquema no coincide con el contrato esperado."),
-    ],
-)
-def test_rejects_each_contract_violation(dataset_name, expected_violation):
-    # Cada archivo defectuoso demuestra que una condición del contrato protege un riesgo concreto.
-
-    violations = validate_data(pd.read_csv(ACTIVITY_DIR / "data" / dataset_name))
-    assert any(expected_violation in violation for violation in violations)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

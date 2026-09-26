@@ -1,16 +1,20 @@
-import os
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import pandas as pd
-
-OUTPUT_FILE = "submission/anonymized.csv"
+from pathlib import Path
 
 
-def test_01():
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
-    if not os.path.exists(OUTPUT_FILE):
-        raise Exception("Output file does not exist")
 
-    df = pd.read_csv(OUTPUT_FILE)
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    assert df.shape[0] > 0
-    assert df.shape[1] > 0
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

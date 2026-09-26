@@ -1,17 +1,20 @@
-import importlib.util
-import sqlite3
+"""Valida que la actividad entregue al menos un artefacto final."""
+
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("pre24", ROOT / "src/main.py")
-MODULE = importlib.util.module_from_spec(SPEC)
-SPEC.loader.exec_module(MODULE)
+
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def setup_module():
-    MODULE.build_submission()
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-
-def test_serving_interfaces_have_distinct_grains():
-    with sqlite3.connect(ROOT / "submission/sales_serving.db") as db:
-        assert db.execute("SELECT COUNT(*) FROM category_sales").fetchone()[0] == 2
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

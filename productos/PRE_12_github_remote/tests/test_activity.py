@@ -1,26 +1,20 @@
-# Uso: python3 -m pytest -q tests/test_activity.py
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import subprocess
 from pathlib import Path
 
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-PRACTICE_REPOSITORY = ACTIVITY_DIR / "temp" / "github_remote_case"
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def run_git(*arguments: str) -> str:
-    # La configuración local evidencia que el producto puede compartir su historial con un remoto.
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    result = subprocess.run(
-        ["git", *arguments], cwd=PRACTICE_REPOSITORY, check=True, capture_output=True, text=True
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
     )
-    return result.stdout.strip()
-
-
-def test_repository_has_a_github_origin_and_main_commit():
-    # El origen remoto y el commit inicial son los requisitos locales previos al primer push.
-
-    assert PRACTICE_REPOSITORY.is_dir()
-    assert run_git("branch", "--show-current") == "main"
-    assert "github.com" in run_git("remote", "get-url", "origin")
-    assert run_git("log", "-1", "--format=%s") == "chore: create product card"

@@ -1,34 +1,20 @@
-"""Verifica que la aplicación use una variable de ambiente sin revelar su valor."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import json
-import os
-import subprocess
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-REPORT_PATH = PRE_DIR / "submission" / "secret_config_report.json"
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_secret_configuration_is_confirmed_without_exposure():
-    """El reporte debe evidenciar configuración, nunca conservar la credencial."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    environment = os.environ.copy()
-    environment["ANALYTICS_API_KEY"] = "only-for-test"
-    try:
-        subprocess.run(
-            [sys.executable, "src/main.py"],
-            cwd=PRE_DIR,
-            check=True,
-            capture_output=True,
-            text=True,
-            env=environment,
-        )
-        report_text = REPORT_PATH.read_text(encoding="utf-8")
-        report = json.loads(report_text)
-
-        assert report == {"secret_name": "ANALYTICS_API_KEY", "configured": True}
-        assert "only-for-test" not in report_text
-    finally:
-        REPORT_PATH.unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

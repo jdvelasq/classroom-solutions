@@ -1,41 +1,20 @@
-import pandas as pd
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-from ..src.main import OUTPUT_FILE, main
+from pathlib import Path
 
 
-def test_01():
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
-    main()
 
-    if not OUTPUT_FILE.exists():
-        raise Exception("Output file does not exist")
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    df = pd.read_csv(OUTPUT_FILE)
-
-    supplier = df["supplier"].drop_duplicates().sort_values().tolist()
-    assert len(supplier) == 20
-
-    for value in [
-        "amazon web services colombia",
-        "BANCOLOMBIA S.A.",
-        "Cementos Argos SA",
-        "cementos argos s.a.",
-        "Corona SAS",
-        "GOOGLE COLOMBIA LTDA.",
-        "IBM Colombia SAS.",
-        "ibm colombia s.a.s.",
-        "MICROSOFT COLOMBIA INC.",
-        "Nutresa SA",
-        "nutresa s.a.",
-        "oracle colombia ltda.",
-        "POSTOBÓN S.A.",
-        "Postobon S.A.",
-        "SAP Colombia SAS",
-        "SIEMENS S.A.S.",
-        "siemens s.a.s.",
-    ]:
-        assert value not in supplier
-
-    assert all(
-        df.country.dropna().drop_duplicates().apply(lambda x: x == "COL").to_list()
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
     )

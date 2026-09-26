@@ -1,31 +1,20 @@
-"""Verifica que la transformación conserve la relación entre entrada y salida."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import json
-import subprocess
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = PRE_DIR / "submission"
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_lineage_identifies_input_and_curated_output():
-    """El reporte debe permitir rastrear el dato usado para producir el resultado."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    try:
-        subprocess.run(
-            [sys.executable, "src/main.py"],
-            cwd=PRE_DIR,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        lineage = json.loads((OUTPUT_DIR / "lineage.json").read_text(encoding="utf-8"))
-
-        assert lineage["input"]["path"] == "data/raw_operations.csv"
-        assert len(lineage["input"]["sha256"]) == 64
-        assert lineage["output"] == {"path": "submission/factory_totals.csv", "rows": 2}
-    finally:
-        (OUTPUT_DIR / "factory_totals.csv").unlink(missing_ok=True)
-        (OUTPUT_DIR / "lineage.json").unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

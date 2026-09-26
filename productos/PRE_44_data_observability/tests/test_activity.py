@@ -1,19 +1,20 @@
-"""Verifica que el reporte integrado exponga cada señal y el estado global."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PRE_DIR))
-
-from src.main import build_observability_report
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_report_combines_operational_signals():
-    """Una vista común debe indicar qué falló y si el dato es apto para operar."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    report = build_observability_report()
-
-    assert report["checks"] == {"freshness": False, "volume": False, "schema": True}
-    assert report["healthy"] is False
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )

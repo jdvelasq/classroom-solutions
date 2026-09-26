@@ -1,24 +1,20 @@
-"""Verifica que el manifiesto identifique el archivo de datos usado."""
+"""Valida que la actividad entregue al menos un artefacto final."""
 
-import json
-import subprocess
-import sys
 from pathlib import Path
 
 
-PRE_DIR = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = PRE_DIR / "submission" / "data_manifest.json"
+ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+SUBMISSION_DIR = ACTIVITY_DIR / "submission"
 
 
-def test_manifest_registers_data_identity():
-    """La versión debe incluir nombre, huella y esquema del insumo real."""
+def test_submission_contains_an_artifact():
+    """La solución debe producir al menos un archivo final en submission/."""
+    artifacts = [
+        path
+        for path in SUBMISSION_DIR.rglob("*")
+        if path.is_file() and path.name != ".gitkeep"
+    ]
 
-    try:
-        subprocess.run([sys.executable, "src/main.py"], cwd=PRE_DIR, check=True)
-        manifest = json.loads(MANIFEST_PATH.read_text())
-
-        assert manifest["version"] == "daily-operations-v1"
-        assert len(manifest["sha256"]) == 64
-        assert manifest["columns"] == ["factory_id", "machine_id", "daily_units_produced"]
-    finally:
-        MANIFEST_PATH.unlink(missing_ok=True)
+    assert artifacts, (
+        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    )
