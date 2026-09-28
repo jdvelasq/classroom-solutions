@@ -1,0 +1,11 @@
+Cuando una versión en producción falla, debe poder volverse a una versión anterior sin reconstruir el modelo. En este PRE se revierte producción a una versión registrada.
+
+1. Revise `REGISTRY.json`. Allí están la versión que hoy está en producción y el archivo de cada versión registrada.
+
+2. Desde la raíz del PRE, revierta producción a la versión v1:
+
+   python3 src/main.py --to-version v1
+
+   `--to-version` indica la versión que debe quedar en producción. Solo se admiten versiones que existen en `REGISTRY.json`.
+
+3. Abra `submission/production/rollback_record.json`. Allí quedan la versión anterior, la nueva versión en producción y el momento de la reversión. El modelo activo queda en `submission/production/model.pkl`.

@@ -3,5 +3,5 @@ pre54_dbt_duckdb:
   outputs:
     dev:
       type: duckdb
-      path: "pre54.duckdb"
+      path: "submission/pre54.duckdb"
       schema: main

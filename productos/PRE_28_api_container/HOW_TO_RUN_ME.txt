@@ -1,5 +1,3 @@
-PRE-22 — API en contenedor
-
 Este PRE publica localmente una capacidad analítica mínima. Docker ejecuta el servicio en un contenedor y conecta su puerto con el computador del estudiante.
 
 1. Con Docker Desktop abierto, desde la raíz del PRE construya la imagen:
@@ -16,8 +14,8 @@ Este PRE publica localmente una capacidad analítica mínima. Docker ejecuta el 
 
 3. En otra terminal, pruebe la capacidad:
 
-   curl --request POST http://localhost:8000/score --header "Content-Type: application/json" --data '{"daily_units_produced":4200}'
+   curl --request POST http://localhost:8000/score --header "Content-Type: application/json" --data '{"daily_units_produced":4200}' --output submission/score_response.json
 
-   En `curl`, `--request POST` indica el método de la solicitud, `--header` declara que se envía JSON y `--data` contiene el dato de entrada. La respuesta debe incluir `risk` y `threshold`.
+   En `curl`, `--request POST` indica el método de la solicitud, `--header` declara que se envía JSON, `--data` contiene el dato de entrada y `--output` guarda la respuesta en `submission/score_response.json`. Abra ese archivo: la respuesta debe incluir `risk` y `threshold`.
 
 4. Vuelva a la primera terminal y presione Control+C para detener el servicio.

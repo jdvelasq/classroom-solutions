@@ -1,0 +1,21 @@
+Una API publica una capacidad analítica con un contrato estable: qué datos recibe, qué responde y qué error devuelve cuando la solicitud no cumple el contrato.
+
+1. Desde la raíz del PRE, inicie el servicio:
+
+   python3 src/main.py
+
+   Antes de iniciar el servicio, el programa guarda en `submission/score_examples.json` una respuesta válida y una respuesta de error. El servicio queda disponible en el puerto 8000; mantenga esta terminal abierta.
+
+2. En otra terminal, envíe una solicitud válida:
+
+   curl --request POST http://127.0.0.1:8000/score --header "Content-Type: application/json" --data '{"daily_units_produced":4200}'
+
+   En `curl`, `--request POST` indica el método de la solicitud, `--header` declara que se envía JSON y `--data` contiene el dato de entrada. La respuesta debe incluir `risk` y `threshold`.
+
+3. Envíe una solicitud que no cumple el contrato:
+
+   curl --request POST http://127.0.0.1:8000/score --header "Content-Type: application/json" --data '{}'
+
+   La respuesta explica qué campo falta, en lugar de fallar en silencio.
+
+4. Vuelva a la primera terminal y presione Control+C para detener el servicio.

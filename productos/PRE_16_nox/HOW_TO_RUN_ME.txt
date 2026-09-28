@@ -1,5 +1,3 @@
-PRE-28 — Nox
-
 Nox define tareas de Python en `noxfile.py`. Para cada tarea crea un ambiente aislado, instala lo declarado y ejecuta el trabajo en el orden indicado.
 
 1. Instale Nox una única vez:

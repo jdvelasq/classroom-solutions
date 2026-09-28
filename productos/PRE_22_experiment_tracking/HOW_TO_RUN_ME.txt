@@ -1,0 +1,21 @@
+Cada corrida de un modelo debe poder recuperarse después: su configuración, sus datos, su modelo y sus métricas. En este PRE se registran dos corridas y se comparan.
+
+1. Desde la raíz del PRE, instale las dependencias:
+
+   python3 -m pip install --requirement requirements.txt
+
+   `-m` ejecuta pip con el mismo Python que usará el programa. `--requirement requirements.txt` le indica a pip que instale las versiones declaradas en ese archivo.
+
+2. Registre una corrida con un árbol de decisión:
+
+   python3 src/main.py --model tree
+
+   `--model` elige el modelo de la corrida. Los valores admitidos son `tree` y `knn`.
+
+3. Registre una segunda corrida con vecinos más cercanos:
+
+   python3 src/main.py --model knn
+
+   Si desea darle un nombre propio a la corrida, agregue `--run-id NOMBRE`. Si lo omite, el programa usa la fecha y hora de la ejecución.
+
+4. Abra `submission/experiments/index.json` y compare la exactitud de las dos corridas. Cada corrida tiene además su propia carpeta en `submission/experiments/`, con la configuración, los datos, el modelo y las métricas.

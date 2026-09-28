@@ -1,0 +1,3 @@
+26b168e merge: add product consumer
+5c334c7 chore: create product card
+237b123 docs: define product consumer

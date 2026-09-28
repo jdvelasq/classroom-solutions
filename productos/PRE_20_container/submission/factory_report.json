@@ -1,0 +1,12 @@
+{
+  "factory_totals": [
+    {
+      "factory_id": 1,
+      "total_units_produced": 9303
+    },
+    {
+      "factory_id": 2,
+      "total_units_produced": 9300
+    }
+  ]
+}

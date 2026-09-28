@@ -1,0 +1,2 @@
+711c90f Merge pull request #2 from add-quality-check
+9f413fb ci: add factory report check

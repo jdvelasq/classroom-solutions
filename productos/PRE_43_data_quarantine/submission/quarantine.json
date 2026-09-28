@@ -1,0 +1,15 @@
+{
+  "valid": [
+    {
+      "id": 1,
+      "amount": 20
+    }
+  ],
+  "quarantined": [
+    {
+      "id": 2,
+      "amount": -5,
+      "rejection_reason": "amount_must_be_non_negative"
+    }
+  ]
+}

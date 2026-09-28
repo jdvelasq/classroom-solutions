@@ -1,0 +1,14 @@
+{
+  "features": [
+    "texture_mean",
+    "compactness_mean"
+  ],
+  "new_inputs": {
+    "anomaly_rate": 0.02631578947368421,
+    "compatible": true
+  },
+  "shifted_inputs": {
+    "anomaly_rate": 1.0,
+    "compatible": false
+  }
+}

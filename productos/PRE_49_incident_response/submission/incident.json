@@ -1,0 +1,9 @@
+{
+  "incident_id": "incident-001",
+  "alert_id": "alert-001",
+  "status": "open",
+  "owner": "data-operations",
+  "priority": "P1",
+  "initial_action": "review_input_data",
+  "created_at": "2026-09-28T19:00:34.811441+00:00"
+}

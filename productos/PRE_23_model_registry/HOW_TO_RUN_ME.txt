@@ -1,0 +1,11 @@
+Un registro de modelos indica qué artefacto está aprobado para cada etapa. En este PRE se promueve a producción un modelo candidato que ya fue entrenado.
+
+1. Revise `CANDIDATES.json`. Allí están el identificador del candidato, su archivo y su exactitud de prueba.
+
+2. Desde la raíz del PRE, promueva el candidato a producción:
+
+   python3 src/main.py --stage production
+
+   `--stage` indica la etapa de destino. Los valores admitidos son `production` y `archived`. `--model-id` elige el candidato; si lo omite, se usa `candidate_v1`.
+
+3. Abra `submission/model_registry/production/registry.json`. Allí queda qué modelo se promovió, desde qué archivo, con qué exactitud y en qué momento. El modelo aprobado queda en `submission/model_registry/production/model.pkl`.

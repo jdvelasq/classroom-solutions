@@ -1,16 +1,7 @@
-"""Separa registros inválidos sin descartar la evidencia necesaria para corregirlos."""
+def main():
 
-import json
-from pathlib import Path
-
-
-ROOT_DIR = Path(__file__).resolve().parents[1]
+    return NotImplementedError
 
 
-def quarantine_invalid_records():
-    """La cuarentena protege la salida válida y permite investigar el dato rechazado."""
-
-    records = json.loads((ROOT_DIR / "data" / "records.json").read_text())
-    valid = [record for record in records if record["amount"] >= 0]
-    quarantined = [dict(record, rejection_reason="amount_must_be_non_negative") for record in records if record["amount"] < 0]
-    return {"valid": valid, "quarantined": quarantined}
+if __name__ == "__main__":
+    main()

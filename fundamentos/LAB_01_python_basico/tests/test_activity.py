@@ -4,6 +4,8 @@ from pathlib import Path
 import pytest
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
+IS_TEACHER = any((path / ".TEACHER").exists() for path in ACTIVITY_DIR.parents)
+CODE_DIR = ACTIVITY_DIR / ("scripts" if IS_TEACHER else "src")
 
 EXPECTED = {
     "01": 214,
@@ -122,7 +124,7 @@ EXPECTED = {
 @pytest.mark.parametrize("number", sorted(EXPECTED))
 def test_pregunta(number, monkeypatch):
     monkeypatch.syspath_prepend(str(ACTIVITY_DIR))
-    module = importlib.import_module(f"src.pregunta_{number}")
+    module = importlib.import_module(f"{CODE_DIR.name}.pregunta_{number}")
     function = getattr(module, f"pregunta_{number}")
 
     assert function() == EXPECTED[number]

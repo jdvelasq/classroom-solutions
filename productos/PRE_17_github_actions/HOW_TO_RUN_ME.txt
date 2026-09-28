@@ -1,5 +1,3 @@
-PRE-15 — GitHub Actions
-
 Una verificación automática da una señal visible antes de integrar un cambio. GitHub crea un ambiente temporal, instala las dependencias declaradas y ejecuta automáticamente una prueba del indicador. El flujo se ejecutará con cada push y con cada pull request.
 
 1. Desde la raíz de este PRE, copie el repositorio local que terminó en PRE-13 y abra una rama:
@@ -47,3 +45,9 @@ Una verificación automática da una señal visible antes de integrar un cambio.
    En `git pull --ff-only`, `--ff-only` acepta la actualización solo si Git puede avanzar main sin crear una fusión local adicional. En `git log --oneline -2`, `--oneline` resume cada commit en una línea y `-2` muestra los dos más recientes.
 
 Al finalizar, la pestaña Actions de su repositorio personal debe mostrar al menos una ejecución exitosa de `Quality check` en main.
+
+Para terminar, desde la raíz de este PRE guarde la evidencia de su historial:
+
+   git -C temp/github_actions_case log --oneline -2 > submission/git_log.txt
+
+   `git -C temp/github_actions_case` ejecuta Git dentro del repositorio de práctica sin cambiar de carpeta. El símbolo `>` guarda la salida del comando en `submission/git_log.txt`.

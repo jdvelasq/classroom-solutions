@@ -10,7 +10,7 @@ Formula consultas SQL reproducibles sobre tablas relacionales y contrasta los re
 
 ## Datos
 
-Los archivos `data/tbl0.csv`, `data/tbl1.csv` y `data/tbl2.csv` contienen las tres tablas de entrada sin encabezados. Las estructuras están documentadas en cada pregunta.
+Los archivos `data/tbl0.csv.gz`, `data/tbl1.csv.gz` y `data/tbl2.csv.gz` contienen las tres tablas de entrada, sin encabezados. Las pruebas cargan cada archivo en una base SQLite en memoria, en una tabla con el mismo nombre (`tbl0`, `tbl1` y `tbl2`), y luego ejecutan su consulta. La estructura de las tablas aparece al inicio de cada pregunta.
 
 ## Restricciones
 

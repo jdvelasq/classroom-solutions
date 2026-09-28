@@ -1,0 +1,2 @@
+0388b9f Merge pull request #3 from add-nox-check
+e0fae61 ci: run nox tests

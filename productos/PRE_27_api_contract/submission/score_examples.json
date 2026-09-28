@@ -1,0 +1,9 @@
+{
+  "valid": {
+    "risk": "high",
+    "threshold": 4500
+  },
+  "missing_field": {
+    "error": "Se requiere el campo daily_units_produced."
+  }
+}

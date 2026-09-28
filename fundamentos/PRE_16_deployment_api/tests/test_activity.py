@@ -1,20 +1,15 @@
-"""Valida que la actividad entregue al menos un artefacto final."""
-
 from pathlib import Path
 
-
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SUBMISSION_DIR = ACTIVITY_DIR / "submission"
+IS_TEACHER = any((path / ".TEACHER").exists() for path in ACTIVITY_DIR.parents)
+CODE_DIR = ACTIVITY_DIR / ("scripts" if IS_TEACHER else "src")
 
 
-def test_submission_contains_an_artifact():
-    """La solución debe producir al menos un archivo final en submission/."""
-    artifacts = [
-        path
-        for path in SUBMISSION_DIR.rglob("*")
-        if path.is_file() and path.name != ".gitkeep"
-    ]
+def test_01():
+    client_file = CODE_DIR / "client.py"
+    server_file = CODE_DIR / "server.py"
 
-    assert artifacts, (
-        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
-    )
+    assert client_file.is_file()
+    assert client_file.read_text(encoding="utf-8").strip()
+    assert server_file.is_file()
+    assert server_file.read_text(encoding="utf-8").strip()

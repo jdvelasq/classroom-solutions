@@ -1,5 +1,3 @@
-PRE-29 — Prefect
-
 Prefect organiza funciones Python como tareas y flujos observables. Este PRE carga datos y produce un indicador; la primera tarea tiene un reintento para hacer visible una política de recuperación.
 
 1. Instale las dependencias desde la raíz del PRE:

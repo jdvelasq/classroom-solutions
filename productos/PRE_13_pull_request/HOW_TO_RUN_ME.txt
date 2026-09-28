@@ -1,5 +1,3 @@
-PRE-13 — Pull request
-
 Este PRE continúa la práctica de PRE-12. Debe conservar el repositorio remoto personal de su cuenta de GitHub y la carpeta temporal creados allí. No use un repositorio del curso ni de otro estudiante.
 
 1. Desde la raíz de este PRE, cree una copia de trabajo y abra una rama:
@@ -43,3 +41,9 @@ Este PRE continúa la práctica de PRE-12. Debe conservar el repositorio remoto 
    En `git log --oneline -2`, `--oneline` resume cada commit en una línea y `-2` muestra los dos más recientes.
 
 Al finalizar, la rama main local debe incluir el responsable incorporado mediante el pull request.
+
+Para terminar, desde la raíz de este PRE guarde la evidencia de su historial:
+
+   git -C temp/pull_request_case log --oneline -2 > submission/git_log.txt
+
+   `git -C temp/pull_request_case` ejecuta Git dentro del repositorio de práctica sin cambiar de carpeta. El símbolo `>` guarda la salida del comando en `submission/git_log.txt`.

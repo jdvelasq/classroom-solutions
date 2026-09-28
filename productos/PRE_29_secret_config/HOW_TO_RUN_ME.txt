@@ -1,5 +1,3 @@
-PRE-23 — Configuración sensible
-
 Una credencial no debe escribirse en el código ni subirse al repositorio. En este PRE se entrega temporalmente a la aplicación mediante una variable de ambiente.
 
 1. Desde la raíz del PRE, configure una clave de práctica en la terminal actual:

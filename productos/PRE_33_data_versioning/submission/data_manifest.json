@@ -1,0 +1,11 @@
+{
+  "version": "daily-operations-v1",
+  "path": "data/raw/daily_operations.csv",
+  "sha256": "29bc4958260c4381c850eccb13329729edbad1e357ff443e977425932a5ba101",
+  "bytes": 79,
+  "columns": [
+    "factory_id",
+    "machine_id",
+    "daily_units_produced"
+  ]
+}

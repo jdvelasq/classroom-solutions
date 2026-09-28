@@ -10,7 +10,7 @@ Construye resúmenes descriptivos reproducibles a partir de datos tabulares medi
 
 ## Datos
 
-`data/data.csv` es un archivo tabulado sin encabezados. Sus columnas son:
+`data/data.csv.gz` es un archivo tabulado sin encabezados, comprimido con gzip; puede leerlo con el módulo `gzip` de la biblioteca estándar de Python. Sus columnas son:
 
 1. `letter`: categoría entre `A` y `E`.
 2. `value`: número entero.
@@ -21,4 +21,4 @@ Construye resúmenes descriptivos reproducibles a partir de datos tabulares medi
 ## Restricciones
 
 - Use solo la biblioteca estándar de Python; no use Pandas, NumPy, SciPy ni otra biblioteca externa.
-- No modifique `data/data.csv` ni los archivos de `tests/`.
+- No modifique `data/data.csv.gz` ni los archivos de `tests/`.

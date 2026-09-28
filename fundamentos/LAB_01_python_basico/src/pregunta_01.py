@@ -1,10 +1,11 @@
-import csv
-from pathlib import Path
-
-
 def pregunta_01():
-    """Retorna la suma de la segunda columna."""
-    path = Path(__file__).resolve().parents[1] / "data" / "data.csv"
-    with path.open(encoding="utf-8", newline="") as file:
-        return sum(int(row[1]) for row in csv.reader(file, delimiter="\t"))
-        # raise NotImplementedError
+    """
+    Calcule la suma de los valores de la segunda columna (`value`) del
+    archivo `data/data.csv.gz` y retorne el resultado como un número entero.
+
+    Ejemplo del formato de la respuesta:
+
+        214
+    """
+
+    raise NotImplementedError

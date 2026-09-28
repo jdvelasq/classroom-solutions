@@ -1,0 +1,11 @@
+{
+  "input": {
+    "path": "data/raw_operations.csv",
+    "sha256": "29bc4958260c4381c850eccb13329729edbad1e357ff443e977425932a5ba101"
+  },
+  "output": {
+    "path": "submission/factory_totals.csv",
+    "rows": 2
+  },
+  "created_at": "2026-09-28T19:00:34.677775+00:00"
+}

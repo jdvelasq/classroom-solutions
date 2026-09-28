@@ -1,0 +1,7 @@
+{
+  "checks": {
+    "rows": true,
+    "total_amount": false
+  },
+  "reconciled": false
+}

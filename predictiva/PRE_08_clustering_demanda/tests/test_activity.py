@@ -1,20 +1,11 @@
-"""Valida que la actividad entregue al menos un artefacto final."""
-
 from pathlib import Path
 
 
-ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SUBMISSION_DIR = ACTIVITY_DIR / "submission"
-
-
-def test_submission_contains_an_artifact():
-    """La solución debe producir al menos un archivo final en submission/."""
-    artifacts = [
-        path
-        for path in SUBMISSION_DIR.rglob("*")
-        if path.is_file() and path.name != ".gitkeep"
-    ]
-
-    assert artifacts, (
-        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
-    )
+def test_01():
+    assert Path("submission/cluster-selection.csv").is_file()
+    assert Path("submission/demanda-comercial-clusters.csv").is_file()
+    assert Path("submission/demanda-comercial-dias.csv").is_file()
+    assert Path("submission/demanda-comercial-patrones-ejemplo.png").is_file()
+    assert Path("submission/demanda-comercial-perfiles.png").is_file()
+    assert Path("submission/demanda-comercial.png").is_file()
+    assert Path("submission/perfil-recibido.csv").is_file()

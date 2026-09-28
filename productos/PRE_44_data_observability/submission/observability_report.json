@@ -1,0 +1,8 @@
+{
+  "checks": {
+    "freshness": false,
+    "volume": false,
+    "schema": true
+  },
+  "healthy": false
+}

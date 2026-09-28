@@ -1,5 +1,3 @@
-PRE-11 — Ramas y fusión
-
 Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
 
 1. Cree un repositorio de práctica aislado con una versión inicial:
@@ -50,3 +48,9 @@ Abra una terminal en esta carpeta y ejecute los comandos en el orden indicado.
 
 Para cambiar a cualquier rama ya existente, use `git switch NOMBRE_DE_LA_RAMA`.
 Al finalizar, main conserva la versión inicial y el cambio realizado en la rama.
+
+Para terminar, desde la raíz de este PRE guarde la evidencia de su historial:
+
+   git -C temp/branch_merge_case log --oneline -3 > submission/git_log.txt
+
+   `git -C temp/branch_merge_case` ejecuta Git dentro del repositorio de práctica sin cambiar de carpeta. El símbolo `>` guarda la salida del comando en `submission/git_log.txt`.

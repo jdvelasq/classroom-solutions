@@ -1,13 +1,7 @@
-"""Recupera la ficha operacional de un dataset desde un catálogo mínimo."""
+def main():
 
-import json
-from pathlib import Path
-
-
-ROOT_DIR = Path(__file__).resolve().parents[1]
+    return NotImplementedError
 
 
-def load_catalog_entry():
-    """La ficha compartida aclara responsabilidad y uso antes de operar el dato."""
-
-    return json.loads((ROOT_DIR / "data" / "catalog.json").read_text())
+if __name__ == "__main__":
+    main()

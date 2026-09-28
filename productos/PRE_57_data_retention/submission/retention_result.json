@@ -1,0 +1,20 @@
+{
+  "cutoff": "2026-06-03",
+  "retained": [
+    {
+      "event_id": "evt-001",
+      "event_date": "2026-08-15",
+      "value": 18
+    }
+  ],
+  "expired": [
+    {
+      "event_id": "evt-002",
+      "reason": "retention_period_expired"
+    },
+    {
+      "event_id": "evt-003",
+      "reason": "retention_period_expired"
+    }
+  ]
+}

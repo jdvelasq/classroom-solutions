@@ -1,43 +1,26 @@
--- 
---  Sea el siguiente conjunto de tablas en una base de datos:
--- 
---    tbl0
---    ------------------------
---    K0  CHAR(1)
---    c01 INT
---    c02 INT
---    c03 CHAR(4)
---    c04 FLOAT
---        
---    tbl1
---    ------------------------
---    K0  CHAR(1)
---    K1  INT
---    c12 FLOAT
---    c13 INT
---    c14 DATE
---    c15 FLOAT
---    c16 CHAR(4)
 --
---    tbl2
---    ------------------------
---    K1  INT,
---    c21 FLOAT,
---    c22 INT,
---    c23 DATE,
---    c24 FLOAT,
---    c25 CHAR(5)
+--  La base de datos tiene tres tablas:
 --
---  Escriba una consulta que retorne los campos K0 y c16
---  para los registros de la tabla tbl1 para los que la 
---  columna c16 empieza por la misma letra de la columna K0.
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
 --
---  Rta/
+--  Escriba una consulta que retorne las columnas `K0` y `c16` de los
+--  registros de la tabla `tbl1` en los que el texto de `c16` empieza con la
+--  misma letra de `K0`.
+--
+--  Resultado esperado:
+--
 --    K0   c16
 --  0  E  EGFD
 --  1  B  BDEE
 --  2  C  CCCE
 --
---  >>> Escriba su codigo a partir de este punto <<<
--- 
-SELECT K0, c16 FROM tbl1 WHERE c16 LIKE K0 || '%';
+--  Escriba su consulta debajo de esta línea.
+--

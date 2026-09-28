@@ -1,5 +1,3 @@
-PRE-10 — Control de versiones
-
 Abra una terminal en esta carpeta y ejecute cada comando en el orden indicado.
 
 1. Cree un repositorio de práctica aislado:
@@ -35,3 +33,9 @@ Abra una terminal en esta carpeta y ejecute cada comando en el orden indicado.
 4. Vuelva a la carpeta de este PRE:
 
    cd ../..
+
+Para terminar, desde la raíz de este PRE guarde la evidencia de su historial:
+
+   git -C temp/version_control_case log --oneline -1 > submission/git_log.txt
+
+   `git -C temp/version_control_case` ejecuta Git dentro del repositorio de práctica sin cambiar de carpeta. El símbolo `>` guarda la salida del comando en `submission/git_log.txt`.

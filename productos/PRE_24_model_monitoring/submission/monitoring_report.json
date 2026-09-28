@@ -1,0 +1,87 @@
+{
+  "threshold": 1.0,
+  "alerts": [
+    "fixed_acidity",
+    "density",
+    "alcohol"
+  ],
+  "features": [
+    {
+      "feature": "fixed_acidity",
+      "reference_mean": 7.7752,
+      "production_mean": 9.5976,
+      "standardized_difference": 1.373018137272883,
+      "alert": true
+    },
+    {
+      "feature": "volatile_acidity",
+      "reference_mean": 0.5666400000000001,
+      "production_mean": 0.5001,
+      "standardized_difference": 0.3772034709479654,
+      "alert": false
+    },
+    {
+      "feature": "citric_acid",
+      "reference_mean": 0.22496,
+      "production_mean": 0.37996,
+      "standardized_difference": 0.8273785151659343,
+      "alert": false
+    },
+    {
+      "feature": "residual_sugar",
+      "reference_mean": 2.328,
+      "production_mean": 2.8456,
+      "standardized_difference": 0.46027998731508313,
+      "alert": false
+    },
+    {
+      "feature": "chlorides",
+      "reference_mean": 0.09680799999999999,
+      "production_mean": 0.09111600000000002,
+      "standardized_difference": 0.08350324808066223,
+      "alert": false
+    },
+    {
+      "feature": "free_sulfur_dioxide",
+      "reference_mean": 15.344,
+      "production_mean": 14.738,
+      "standardized_difference": 0.06632579899346913,
+      "alert": false
+    },
+    {
+      "feature": "total_sulfur_dioxide",
+      "reference_mean": 58.84,
+      "production_mean": 44.048,
+      "standardized_difference": 0.39807165676488937,
+      "alert": false
+    },
+    {
+      "feature": "density",
+      "reference_mean": 0.9966906,
+      "production_mean": 0.9981490000000001,
+      "standardized_difference": 1.2047366680562215,
+      "alert": true
+    },
+    {
+      "feature": "pH",
+      "reference_mean": 3.32732,
+      "production_mean": 3.2583999999999995,
+      "standardized_difference": 0.4460011527627594,
+      "alert": false
+    },
+    {
+      "feature": "sulphates",
+      "reference_mean": 0.67764,
+      "production_mean": 0.717,
+      "standardized_difference": 0.15385353936835847,
+      "alert": false
+    },
+    {
+      "feature": "alcohol",
+      "reference_mean": 9.8544,
+      "production_mean": 12.8872,
+      "standardized_difference": 3.6648447282791676,
+      "alert": true
+    }
+  ]
+}

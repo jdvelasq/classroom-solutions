@@ -1,0 +1,12 @@
+{
+  "features": [
+    "texture_mean",
+    "compactness_mean"
+  ],
+  "holdout_rows": 114,
+  "metrics": {
+    "accuracy": 0.7543859649122807,
+    "balanced_accuracy": 0.7311507936507937,
+    "auc": 0.841931216931217
+  }
+}

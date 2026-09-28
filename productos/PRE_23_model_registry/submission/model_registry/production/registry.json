@@ -1,0 +1,7 @@
+{
+  "model_id": "candidate_v1",
+  "stage": "production",
+  "source_artifact": "CANDIDATE_V1.pkl",
+  "test_accuracy": 0.91,
+  "promoted_at": "2026-09-28T19:00:43.443062+00:00"
+}
