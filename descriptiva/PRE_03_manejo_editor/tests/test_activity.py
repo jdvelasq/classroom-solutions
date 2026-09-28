@@ -1,20 +1,34 @@
-"""Valida que la actividad entregue al menos un artefacto final."""
+import os
 
-from pathlib import Path
+from ..src.main import *
+
+DATA_FOLDER = "data"
+INPUT_FOLDER = "temp/input"
+OUTPUT_FOLDER = "temp/output"
 
 
-ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SUBMISSION_DIR = ACTIVITY_DIR / "submission"
+def test_01():
 
+    initialize_folder(INPUT_FOLDER)
+    delete_folder(OUTPUT_FOLDER)
+    generate_file_copies(1000)
 
-def test_submission_contains_an_artifact():
-    """La solución debe producir al menos un archivo final en submission/."""
-    artifacts = [
-        path
-        for path in SUBMISSION_DIR.rglob("*")
-        if path.is_file() and path.name != ".gitkeep"
-    ]
-
-    assert artifacts, (
-        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
+    hadoop(
+        input_folder=INPUT_FOLDER,
+        output_folder=OUTPUT_FOLDER,
+        mapper_fn=mapper,
+        reducer_fn=reducer,
     )
+
+    with open(f"{OUTPUT_FOLDER}/part-00000", "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        result = {}
+        for line in lines:
+            key, value = line.strip().split("\t")
+            result[key] = int(value)
+
+    assert result["analytics"] == 5000
+    assert result["business"] == 7000
+    assert result["by"] == 3000
+    assert result["algorithms"] == 2000
+    assert result["analysis"] == 4000

@@ -1,44 +1,27 @@
--- 
---  Sea el siguiente conjunto de tablas en una base de datos:
--- 
---    tbl0
---    ------------------------
---    K0  CHAR(1)
---    c01 INT
---    c02 INT
---    c03 CHAR(4)
---    c04 FLOAT
---        
---    tbl1
---    ------------------------
---    K0  CHAR(1)
---    K1  INT
---    c12 FLOAT
---    c13 INT
---    c14 DATE
---    c15 FLOAT
---    c16 CHAR(4)
 --
---    tbl2
---    ------------------------
---    K1  INT,
---    c21 FLOAT,
---    c22 INT,
---    c23 DATE,
---    c24 FLOAT,
---    c25 CHAR(5)
+--  La base de datos tiene tres tablas:
 --
---  Escriba una consulta que compute el promedio
---  de la columna c21 de la tabla tbl2 por ano 
---  (columna c23).
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
 --
---  Rta/
+--  Escriba una consulta que calcule, para cada año de la fecha `c23`, el
+--  promedio de la columna `c21` de la tabla `tbl2`. El resultado tiene dos
+--  columnas: el año y el promedio.
+--
+--  Resultado esperado:
+--
 --     YEAR    avg(c21)
 --  0  2016  564.476429
 --  1  2017  515.156364
 --  2  2018  557.559375
 --  3  2019  550.998571
 --
---  >>> Escriba su codigo a partir de este punto <<<
+--  Escriba su consulta debajo de esta línea.
 --
-SELECT strftime('%Y', c23), avg(c21) FROM tbl2 GROUP BY strftime('%Y', c23);

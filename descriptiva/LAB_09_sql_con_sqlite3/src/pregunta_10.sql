@@ -1,45 +1,27 @@
--- 
---  Sea el siguiente conjunto de tablas en una base de datos:
--- 
---    tbl0
---    ------------------------
---    K0  CHAR(1)
---    c01 INT
---    c02 INT
---    c03 CHAR(4)
---    c04 FLOAT
---        
---    tbl1
---    ------------------------
---    K0  CHAR(1)
---    K1  INT
---    c12 FLOAT
---    c13 INT
---    c14 DATE
---    c15 FLOAT
---    c16 CHAR(4)
 --
---    tbl2
---    ------------------------
---    K1  INT,
---    c21 FLOAT,
---    c22 INT,
---    c23 DATE,
---    c24 FLOAT,
---    c25 CHAR(5)
+--  La base de datos tiene tres tablas:
 --
---  Escriba una consulta que retorne todos los 
---  campos de los registros de la tabla tbl0 
---  con la columna c02 mayor o igual a 300.
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
 --
---  Rta/
+--  Escriba una consulta que retorne todas las columnas de los registros de
+--  la tabla `tbl0` en los que `c02` es mayor o igual a 300.
+--
+--  Resultado esperado:
+--
 --     K0   c01  c02    c03  c04
---  0  ﻿A  5000  900  NMNJL  0.4
+--  0   A  5000  900  NMNJL  0.4
 --  1   C  1000  600  LMMML  0.2
 --  2   D  4000  600  PJLJL  0.4
 --  3   F  2000  300  NNPJO  0.3
 --  4   I  3000  300  PPPPL  0.3
 --
---  >>> Escriba su codigo a partir de este punto <<<
+--  Escriba su consulta debajo de esta línea.
 --
-SELECT * FROM tbl0 WHERE c02 >= 300;

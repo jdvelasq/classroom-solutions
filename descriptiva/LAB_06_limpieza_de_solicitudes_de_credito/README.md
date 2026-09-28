@@ -10,12 +10,10 @@ Limpia datos tabulares mediante reglas reproducibles, conserva información vál
 
 ## Datos
 
-`data/solicitudes_de_credito.csv` es la copia sucia de una tabla de solicitudes de crédito. El enunciado de la actividad está en `src/pregunta_01.py`.
-
-`SOLICITUDES_DE_CREDITO.csv` es el artefacto canónico que permite generar esa copia sucia; no es un entregable.
+`data/solicitudes_de_credito.csv.gz` es la copia sucia de una tabla de solicitudes de crédito. El enunciado de la actividad está en `src/pregunta_01.py`.
 
 ## Restricciones
 
 - No modifique el archivo de `data/` ni los archivos de `tests/`.
-- Puede resolver la actividad con un archivo Python o un notebook.
+- Escriba su solución en la función `pregunta_01()` de `src/pregunta_01.py`; las pruebas ejecutan esa función.
 - El único entregable es `submission/solicitudes_de_credito.csv`, separado por punto y coma.

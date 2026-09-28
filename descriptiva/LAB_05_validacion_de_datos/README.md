@@ -10,13 +10,13 @@ Diagnostica la calidad de un dataset y comunica hallazgos verificables que deter
 
 ## Datos
 
-`data/ventas.csv` contiene registros de compras con problemas de encabezados, faltantes, duplicados y representaciones heterogéneas de algunas categorías.
+`data/ventas.csv.gz` contiene registros de compras con problemas de encabezados, faltantes, duplicados y representaciones heterogéneas de algunas categorías.
 
 La función y el enunciado de la actividad están en `src/pregunta_01.py`.
 
 ## Restricciones
 
 - Use Pandas para cargar y validar los datos.
-- No modifique `data/ventas.csv` ni los archivos de `tests/`.
+- No modifique `data/ventas.csv.gz` ni los archivos de `tests/`.
 - El reporte permanente debe escribirse únicamente en `submission/data_quality_report.json`.
 - El propósito es diagnosticar los problemas; no debe limpiar ni reemplazar valores del archivo de origen.

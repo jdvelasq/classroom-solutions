@@ -1,20 +1,19 @@
-"""Valida que la actividad entregue al menos un artefacto final."""
-
 from pathlib import Path
 
 
-ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-SUBMISSION_DIR = ACTIVITY_DIR / "submission"
-
-
-def test_submission_contains_an_artifact():
-    """La solución debe producir al menos un archivo final en submission/."""
-    artifacts = [
-        path
-        for path in SUBMISSION_DIR.rglob("*")
-        if path.is_file() and path.name != ".gitkeep"
-    ]
-
-    assert artifacts, (
-        "Ejecuta la solución y guarda al menos un artefacto final en submission/."
-    )
+def test_01():
+    assert Path("submission/authors_frequency.csv").is_file()
+    assert Path("submission/country_clusters.txt").is_file()
+    assert Path("submission/country_collab_network.html").is_file()
+    assert Path("submission/country_cooc_heatmap.html").is_file()
+    assert Path("submission/country_cooc_matrix.csv").is_file()
+    assert Path("submission/country_frequency.csv").is_file()
+    assert Path("submission/country_frequency_plot.html").is_file()
+    assert Path("submission/documents_by_year.html").is_file()
+    assert Path("submission/keywords_clusters.txt").is_file()
+    assert Path("submission/keywords_cooc_matrix.csv").is_file()
+    assert Path("submission/keywords_cooc_network.html").is_file()
+    assert Path("submission/keywords_frequency.csv").is_file()
+    assert Path("submission/scopus.csv.gz").is_file()
+    assert Path("submission/source_frequency.csv").is_file()
+    assert Path("submission/world_map.html").is_file()

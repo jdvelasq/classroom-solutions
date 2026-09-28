@@ -1,20 +1,23 @@
--- 
---  La tabla `tbl1` tiene la siguiente estructura:
--- 
---    K0  CHAR(1)
---    K1  INT
---    c12 FLOAT
---    c13 INT
---    c14 DATE
---    c15 FLOAT
---    c16 CHAR(4)
 --
---  Escriba una consulta en SQL que devuelva la suma del campo c12.
--- 
---  Rta/
+--  La base de datos tiene tres tablas:
+--
+--    tbl0                tbl1                tbl2
+--    ---------------     ---------------     ---------------
+--    K0  CHAR(1)         K0  CHAR(1)         K1  INT
+--    c01 INT             K1  INT             c21 FLOAT
+--    c02 INT             c12 FLOAT           c22 INT
+--    c03 CHAR(4)         c13 INT             c23 DATE
+--    c04 FLOAT           c14 DATE            c24 FLOAT
+--                        c15 FLOAT           c25 CHAR(5)
+--                        c16 CHAR(4)
+--
+--  Escriba una consulta que retorne la suma de la columna `c12` de la
+--  tabla `tbl1`.
+--
+--  Resultado esperado:
+--
 --     SUM(c12)
 --  0  15137.63
 --
---  >>> Escriba su codigo a partir de este punto <<<
+--  Escriba su consulta debajo de esta línea.
 --
-SELECT SUM(c12) from tbl1;

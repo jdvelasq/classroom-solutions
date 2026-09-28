@@ -10,7 +10,7 @@ Construye cohortes temporales, calcula tasas de retención con su denominador co
 
 ## Datos
 
-`data/sales.csv` contiene órdenes de compra de clientes entre enero y agosto de 2022.
+`data/sales.csv.gz` contiene órdenes de compra de clientes entre enero y agosto de 2022.
 
 ## Restricciones
 
