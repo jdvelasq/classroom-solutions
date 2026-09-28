@@ -3,9 +3,10 @@ import os.path
 import string
 import time
 
-DATA_FOLDER = "PRE_02_mapreduce/data"
-INPUT_FOLDER = "PRE_02_mapreduce/temp/input"
-OUTPUT_FOLDER = "PRE_02_mapreduce/temp/output"
+ACTIVITY_FOLDER = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_FOLDER = os.path.join(ACTIVITY_FOLDER, "data")
+INPUT_FOLDER = os.path.join(ACTIVITY_FOLDER, "temp", "input")
+OUTPUT_FOLDER = os.path.join(ACTIVITY_FOLDER, "temp", "output")
 
 # La carpeta input/ debe existir y estar vacia.
 # -----------------------------------------------------------------------------
