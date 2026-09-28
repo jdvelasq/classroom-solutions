@@ -7,6 +7,7 @@ import pandas as pd
 
 PROJECT_FOLDER = Path(__file__).resolve().parents[1]
 DATA_FILE = PROJECT_FOLDER / "data" / "campaign_data.csv"
+SUBMISSION_FOLDER = PROJECT_FOLDER / "submission"
 
 REQUIRED_COLUMNS = {
     "utc_date",
@@ -135,3 +136,18 @@ def summarize_by_campaign(data):
         )
         .sort_values("gross_profit", ascending=False)
     )
+
+
+def export_dashboard_tables(output_folder=SUBMISSION_FOLDER):
+    """Save the dashboard tables for the full campaign period."""
+    data = load_campaign_data()
+    pd.DataFrame([calculate_kpis(data)]).to_csv(output_folder / "kpis.csv", index=False)
+    summarize_by_day(data).to_csv(output_folder / "daily_summary.csv", index=False)
+    summarize_by_source(data).to_csv(output_folder / "source_summary.csv", index=False)
+    summarize_by_campaign(data).to_csv(
+        output_folder / "campaign_summary.csv", index=False
+    )
+
+
+if __name__ == "__main__":
+    export_dashboard_tables()
